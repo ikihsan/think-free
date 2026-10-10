@@ -1,0 +1,1479 @@
+{
+ "site": "stackoverflow",
+ "query": "python \"ImportError\" \"No module named\"",
+ "class": "core",
+ "items": [
+  {
+   "tags": [
+    "python",
+    "atom-editor",
+    "textblob"
+   ],
+   "owner": {
+    "account_id": 7778657,
+    "reputation": 445,
+    "user_id": 7303062,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/37f8832e2577e85f3a259a04002fa630?s=256&d=identicon&r=PG",
+    "display_name": "beth",
+    "link": "https://stackoverflow.com/users/7303062/beth"
+   },
+   "is_answered": false,
+   "view_count": 12184,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1791461085,
+   "creation_date": 1530136692,
+   "question_id": 51072007,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/51072007/importerror-no-module-named-textblob",
+   "title": "ImportError: No module named textblob",
+   "body": "<p>I am using Atom and just getting started with Python. \nWhen I try to run this code:</p>\n\n<pre><code>from textblob import TextBlob\nfrom vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer\n\nanalysis = TextBlob(\"TextBlob sure looks like it has some interesting \nfeatures\")\n\nprint(analysis.tags)\n</code></pre>\n\n<p>I get this:</p>\n\n<pre><code>Traceback (most recent call last):\nFile \"/Users/bethwalsh/Documents/GitHub/automated-personas/py/test_001.py\", \nline 1, in &lt;module&gt;\nfrom textblob import TextBlob\nImportError: No module named textblob\n</code></pre>\n\n<p>I have tried to install textblob but still no change:</p>\n\n<pre><code>$ pip3 install textblob\nRequirement already satisfied: textblob in \n/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages \n(0.15.1)\n</code></pre>\n\n<p>Any ideas?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "windows",
+    "configparser",
+    "python-3.7"
+   ],
+   "owner": {
+    "account_id": 14711559,
+    "reputation": 41,
+    "user_id": 10624776,
+    "user_type": "registered",
+    "profile_image": "https://lh6.googleusercontent.com/-zyhq_fAkPCk/AAAAAAAAAAI/AAAAAAAASzA/BN2m7ORvsVI/s256-rj/photo.jpg",
+    "display_name": "Matou\u0161 \u010cmel&#237;k",
+    "link": "https://stackoverflow.com/users/10624776/matou%c5%a1-%c4%8cmel%c3%adk"
+   },
+   "is_answered": false,
+   "view_count": 14814,
+   "answer_count": 1,
+   "score": 4,
+   "last_activity_date": 1790636560,
+   "creation_date": 1541695126,
+   "last_edit_date": 1542388359,
+   "question_id": 53212248,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/53212248/python-3-x-importerror-no-module-named-configparser-but-module-is-installed",
+   "title": "Python 3.x ImportError: No module named configparser , but module is installed",
+   "body": "<p>In my code i am using configparser. Everything working fine, but after i do fresh install of windows 10, this error appears: <code>ImportError: No module named configparser</code>.</p>\n\n<ul>\n<li>But same code working on other pc</li>\n<li>Python is in PATH (double checked)</li>\n<li>Try reinstall python</li>\n<li>configparser is installed by default, but still try \"pip install configparser\"</li>\n</ul>\n\n<p>I am using Python 3.7.1\nIn same code i do \"<code>import os</code>\" and this is working. Configparser is in same directory.</p>\n\n<p><strong>EDIT:</strong></p>\n\n<p>configparser is here:</p>\n\n<pre><code>c:\\Program Files\\Python37\\Lib\\configparser.py\n</code></pre>\n\n<p>after <code>pip install configparser</code>, there is another:</p>\n\n<pre><code>c:\\Program Files\\Python37\\Lib\\site-packages\\backports\\configparser\\__init__.py\n</code></pre>\n\n<p><strong>EDIT_2:</strong></p>\n\n<p>Try copy:  </p>\n\n<pre><code>c:\\Program Files\\Python37\\Lib\\configparser.py\n</code></pre>\n\n<p>to my working folder. Result:</p>\n\n<pre><code>Traceback (most recent call last):\nFile \"C:\\git\\silixcon_lib\\production_data.py\", line 4, in &lt;module&gt;\nimport configparser\nFile \"C:\\git\\silixcon_lib\\configparser.py\", line 434\noption, section, rawval, var) from None\n                                 ^\nSyntaxError: invalid syntax\n</code></pre>\n\n<p><strong>This is working:</strong></p>\n\n<p>Copy this to my working folder:</p>\n\n<pre><code>c:\\Program Files\\Python37\\Lib\\site-packages\\backports\\configparser\\__init__.py\n</code></pre>\n\n<p>and rename it to configparser.py. At lines 138-140 change \"backports.configparser.helpers\" to \"helpers\"</p>\n\n<p>and this copy too:</p>\n\n<pre><code>c:\\Program Files\\Python37\\Lib\\site-packages\\backports\\configparser\\helpers.py\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python"
+   ],
+   "owner": {
+    "account_id": 1227450,
+    "reputation": 1055,
+    "user_id": 1192748,
+    "user_type": "registered",
+    "accept_rate": 35,
+    "profile_image": "https://www.gravatar.com/avatar/50b085d124fee702b3864b250a2d5c08?s=256&d=identicon&r=PG",
+    "display_name": "user1192748",
+    "link": "https://stackoverflow.com/users/1192748/user1192748"
+   },
+   "is_answered": false,
+   "view_count": 10400,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1789945460,
+   "creation_date": 1505728157,
+   "last_edit_date": 1787330607,
+   "question_id": 46276329,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/46276329/error-importerror-no-module-named-elftools-common-py3compat",
+   "title": "Error &quot;ImportError: No module named elftools.common.py3compat&quot;",
+   "body": "<p>I am trying to execute a Python script, and I receive this error message:</p>\n<pre class=\"lang-none prettyprint-override\"><code>Couldn't import dot_parser, loading of dot files will not be possible.\nTraceback (most recent call last):\nFile &quot;./abc.py&quot;, line 19, in &lt;module&gt;\nimport elftools.common.py3compat\nImportError: No module named elftools.common.py3compat\n</code></pre>\n<p>I tried to resolve the issue as follows (along the lines of <a href=\"https://stackoverflow.com/questions/34192016/importerror-no-module-named-py3compat\">this hint</a>):</p>\n<pre class=\"lang-none prettyprint-override\"><code>pip install paramiko\n</code></pre>\n<p>It seems to install without any problems:</p>\n<pre class=\"lang-none prettyprint-override\"><code>pip show paramiko\n</code></pre>\n<p>Output:</p>\n<pre class=\"lang-none prettyprint-override\"><code>Name: paramiko\nVersion: 2.2.1\nSummary: SSH2 protocol library\nHome-page: https://github.com/paramiko/paramiko/\nAuthor: Jeff Forcier\nAuthor-email: jeff@bitprophet.org\nLicense: LGPL\nLocation: /usr/local/lib/python2.7/dist-packages\nRequires: pynacl, pyasn1, bcrypt, cryptography\n</code></pre>\n<p>However, it does not resolve the initial dependency problem. Executing the script again results in the same error message that py3compat module cannot be found.</p>\n<pre class=\"lang-none prettyprint-override\"><code>python -V\npip -V\n</code></pre>\n<p>Output:</p>\n<pre class=\"lang-none prettyprint-override\"><code>Python 2.7.12\npip 9.0.1 from /home/xyz/.local/lib/python2.7/site-packages (python 2.7)\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "java",
+    "python",
+    "unix",
+    "jython"
+   ],
+   "owner": {
+    "account_id": 3977927,
+    "reputation": 63,
+    "user_id": 3280663,
+    "user_type": "registered",
+    "accept_rate": 45,
+    "profile_image": "https://graph.facebook.com/100000083875543/picture?type=large",
+    "display_name": "Blogger11",
+    "link": "https://stackoverflow.com/users/3280663/blogger11"
+   },
+   "is_answered": false,
+   "view_count": 18526,
+   "answer_count": 1,
+   "score": 4,
+   "last_activity_date": 1789799089,
+   "creation_date": 1391715126,
+   "last_edit_date": 1789799089,
+   "question_id": 21612235,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/21612235/import-java-importerror-no-module-named-java",
+   "title": "import java ImportError: No module named java",
+   "body": "<p>I seemed to have hit a roadblock and can't figure this out at all, can anyone help me figure out why I am unable to import the java module?</p>\n<p>Error:</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;./datasource_config.py&quot;, line 3, in ?\n    import java\nImportError: No module named java\n</code></pre>\n<p>java:</p>\n<pre><code>13:30:05 # which java\n/usr/bin/java\n</code></pre>\n<p>beginning of script</p>\n<pre><code>#!/usr/bin/python\nimport sys\nimport java\nfrom java.util import Properties\nfrom java.io import FileInputStream\nfrom org.python.modules import time\nlineSep = java.lang.System.getProperty('line.separator')\n\ndef datasource(cluster,user,password,url,env,jdbc_driver,timeOut,maxConn,minConn,reapTime,unusdTimeout,agedTimeout):\n\n    #Declare global variables \n    global    AdminConfig \n    global    AdminControl\n</code></pre>\n<p>What does this mean?</p>\n<pre><code>13:45:07 # ./jython -v /opt/websphere/datasource_config.py\n*sys-package-mgr*: can't create package cache dir, '/usr/lib/jython-25/cachedir/packages'\nimport: 'exceptions' as org.python.core.exceptions in builtin modules\nimport: 'site' as /usr/lib/jython-25/Lib/site.py\nimport: 'sys' as sys in builtin modules\nimport: 'os' as /usr/lib/jython-25/Lib/os.py\nimport: 'errno' as org.python.modules.errno in builtin modules\nimport: 'posix' as org.python.modules.posix.PosixModule in builtin modules\nimport: 'posixpath' as /usr/lib/jython-25/Lib/posixpath.py\nimport: 'stat' as /usr/lib/jython-25/Lib/stat.py\nimport: 'Properties' as java class\nimport: 'FileInputStream' as java class\nTraceback (most recent call last):\n  File &quot;/opt/websphere/datasource_config.py&quot;, line 5, in &lt;module&gt;\n    from org.python.modules import time\nImportError: cannot import name time\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "module",
+    "pyproj"
+   ],
+   "owner": {
+    "account_id": 17096579,
+    "reputation": 71,
+    "user_id": 12371429,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/-rYixMgjW1LQ/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rcP7dtynTbrFuzn8XLKsZMEiicJzg/s256-rj/photo.jpg",
+    "display_name": "Yang JaeWon",
+    "link": "https://stackoverflow.com/users/12371429/yang-jaewon"
+   },
+   "is_answered": false,
+   "view_count": 9939,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1787990670,
+   "creation_date": 1573721163,
+   "last_edit_date": 1573723463,
+   "question_id": 58852632,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/58852632/running-using-python-command-python-importerror-no-module-named-pyproj",
+   "title": "Running using Python command: python , ImportError: No module named pyproj",
+   "body": "<p><a href=\"https://i.sstatic.net/Crcjy.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/Crcjy.png\" alt=\"enter image description here\"></a></p>\n\n<p>Hi, it is my first time asking question on StackOverflow. \nFirst, I am trying to use openSFM but it is really hard. As in the picture \nI wrote command  <code>bin/opensfm_run_all data/berlin</code></p>\n\n<p>but the error keeps coming out like this:</p>\n\n<p>Running using Python command: python</p>\n\n<pre><code>Traceback (most recent call last):\n  File \"/home/yjw/OpenSfM/bin/opensfm\", line 10, in &lt;module&gt;\n    from opensfm import commands\n  File \"/home/yjw/OpenSfM/opensfm/commands/__init__.py\", line 2, in &lt;module&gt;\n    from . import extract_metadata\n  File \"/home/yjw/OpenSfM/opensfm/commands/extract_metadata.py\", line 5, in &lt;module&gt;\n    from opensfm import dataset\n  File \"/home/yjw/OpenSfM/opensfm/dataset.py\", line 12, in &lt;module&gt;\n    from opensfm import io\n  File \"/home/yjw/OpenSfM/opensfm/io.py\", line 15, in &lt;module&gt;\n    import pyproj\nImportError: No module named pyproj\n</code></pre>\n\n<p>I did install <code>pyproj</code> by using <code>pip3 install pyproj</code> \nbut I really don't know what the problem is. Can someone help me, please??\nThanks is advance.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "tensorflow"
+   ],
+   "owner": {
+    "account_id": 5445540,
+    "reputation": 309,
+    "user_id": 4332228,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/f4defc7143804bce1f9e6b6b82083786?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "paralaxbison",
+    "link": "https://stackoverflow.com/users/4332228/paralaxbison"
+   },
+   "is_answered": false,
+   "view_count": 24615,
+   "protected_date": 1522609714,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1787425290,
+   "creation_date": 1478543643,
+   "last_edit_date": 1478544105,
+   "question_id": 40472144,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/40472144/importerror-no-module-named-tensorflow-cant-install-tensorflow",
+   "title": "ImportError: No module named tensorflow - Can&#39;t install Tensorflow",
+   "body": "<p>I am trying to install tensorflow on mac and it's giving me this error.</p>\n\n<p>ImportError: No module named tensorflow</p>\n\n<p>Here is what I have done in the terminal</p>\n\n<pre><code>sudo easy_install pip\nsudo easy_install --upgrade six\nexport TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/tensorflow-0.9.0-py3-none-any.whl\nsudo -H pip3 install --upgrade $TF_BINARY_URL\n</code></pre>\n\n<p>After that I try to run python and tensorflow to check my installation. It doesn't work. I have spent 3 hours on the problem. </p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "virtualenv",
+    "python-2.x",
+    "virtualenvwrapper"
+   ],
+   "owner": {
+    "account_id": 3980398,
+    "reputation": 9900,
+    "user_id": 3282434,
+    "user_type": "registered",
+    "accept_rate": 84,
+    "profile_image": "https://www.gravatar.com/avatar/1e34b8a72b912adcc897bc687084e8a2?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "codyc4321",
+    "link": "https://stackoverflow.com/users/3282434/codyc4321"
+   },
+   "is_answered": true,
+   "view_count": 13914,
+   "accepted_answer_id": 40542306,
+   "answer_count": 1,
+   "score": 9,
+   "last_activity_date": 1787355445,
+   "creation_date": 1466695545,
+   "last_edit_date": 1787355445,
+   "question_id": 37995852,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/37995852/importerror-no-module-named-urllib3-when-installing-pip",
+   "title": "ImportError: No module named urllib3 when installing pip",
+   "body": "<p>I have an issue with virtualenvwrapper that requires reinstalling pip as the first step, and I am getting a strange complaint about urllib3:</p>\n<pre><code>$ python get-pip.py \nTraceback (most recent call last):\n  File &quot;get-pip.py&quot;, line 19177, in &lt;module&gt;\n    main()\n  File &quot;get-pip.py&quot;, line 194, in main\n    bootstrap(tmpdir=tmpdir)\n  File &quot;get-pip.py&quot;, line 82, in bootstrap\n    import pip\n  File &quot;/tmp/tmppQTQty/pip.zip/pip/__init__.py&quot;, line 16, in &lt;module&gt;\n  File &quot;/tmp/tmppQTQty/pip.zip/pip/vcs/mercurial.py&quot;, line 9, in &lt;module&gt;\n  File &quot;/tmp/tmppQTQty/pip.zip/pip/download.py&quot;, line 39, in &lt;module&gt;\n  File &quot;/tmp/tmppQTQty/pip.zip/pip/_vendor/requests/__init__.py&quot;, line 61, in &lt;module&gt;\n  File &quot;/tmp/tmppQTQty/pip.zip/pip/_vendor/requests/packages/__init__.py&quot;, line 29, in &lt;module&gt;\nImportError: No module named urllib3\n</code></pre>\n<p>when I search the pip file <code>get-pip.py</code>, I don't see any reference to urllib3.</p>\n<p>I have python2.6, py2.7, and py3.4 on the machine</p>\n<pre><code>cchilders:~/Downloads \n$ which python\n/usr/local/bin/python\n\ncchilders:~/Downloads \n$ which pip\n/usr/local/bin/pip\n\n\ncchilders:/usr/local/bin \n$ ls\n2to3           easy_install-2.7  ipython   pip3              smtpd.py\ncelery         fop               ipython2  pip3.5            uncompyle2\ncelerybeat     grunt             jsonlint  pydoc             virtualenv\nceleryd        idle              pbr       python            virtualenv-clone\nceleryd-multi  ipdb              pip       python2.6         virtualenvwrapper_lazy.sh\ncharm          iptest            pip2      python2.6-config  virtualenvwrapper.sh\neasy_install   iptest2           pip2.7    python-config\n</code></pre>\n<p>Python is defaulting to 2.6.9 which isn't what I want:</p>\n<pre><code>cchilders:/usr/bin \n$ python\nPython 2.6.9\n</code></pre>\n<p>I do not have anaconda on the machine, which caused someone else's problem. What should I do now?</p>\n"
+  },
+  {
+   "tags": [
+    "tooling-recommendation",
+    "python",
+    "python-3.x",
+    "simplecv"
+   ],
+   "owner": {
+    "account_id": 7123806,
+    "reputation": 458,
+    "user_id": 5447442,
+    "user_type": "registered",
+    "accept_rate": 100,
+    "profile_image": "https://graph.facebook.com/10207105085237876/picture?type=large",
+    "display_name": "Mr Mohamed",
+    "link": "https://stackoverflow.com/users/5447442/mr-mohamed"
+   },
+   "is_answered": true,
+   "view_count": 10134,
+   "closed_date": 1785864580,
+   "accepted_answer_id": 35244883,
+   "answer_count": 3,
+   "score": 0,
+   "last_activity_date": 1785864580,
+   "creation_date": 1454782477,
+   "last_edit_date": 1785864580,
+   "question_id": 35244612,
+   "link": "https://stackoverflow.com/questions/35244612/is-there-a-version-of-simplecv-to-install-with-python-3-5",
+   "closed_reason": "Not suitable for this site",
+   "title": "Is there a version of SimpleCV to install with Python 3.5?",
+   "body": "<p>I just installed <strong>SimpleCV Version 1.3 Superpack</strong> and it installs <strong>Python 2.7</strong> and all the libraries included. I tried to run it, got this error</p>\n\n<blockquote>\n  <p>Traceback (most recent call last):<br>\n  File \"<strong>G:\\images.py</strong>\", <strong>line 1</strong>, in module<br>\n  from SimpleCV import Camera<br>\n  ImportError: No module named SimpleCV</p>\n</blockquote>\n\n<p>Is there a version would work with <strong>Python 3.5</strong>?</p>\n\n<p>I have <strong>Windows 8.1 x64</strong>, thanks!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "debian",
+    "pygtk"
+   ],
+   "owner": {
+    "account_id": 423648,
+    "reputation": 5294,
+    "user_id": 803194,
+    "user_type": "registered",
+    "accept_rate": 76,
+    "profile_image": "https://www.gravatar.com/avatar/517b0b537f276b8dcf84c55ed078035a?s=256&d=identicon&r=PG",
+    "display_name": "blues",
+    "link": "https://stackoverflow.com/users/803194/blues"
+   },
+   "is_answered": false,
+   "view_count": 10245,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1785312435,
+   "creation_date": 1370043962,
+   "last_edit_date": 1370044812,
+   "question_id": 16867556,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/16867556/importerror-no-module-named-gtk-although-it-is-installed",
+   "title": "&quot;ImportError: No module named gtk&quot; although it is installed",
+   "body": "<p>The following code fails although I have the gtk bindings for python installed. This is a debian machine and I have the package named python-gtk2 installed</p>\n\n<pre><code>&gt;&gt;&gt; import gtk\nTraceback (most recent call last):\n  File \"&lt;stdin&gt;\", line 1, in &lt;module&gt;\nImportError: No module named gtk\n</code></pre>\n\n<p>How can I fix this?</p>\n\n<p>Edit1: Per comment request: Python 2.7.3rc2 (default, May 22 2012, 01:05:47)</p>\n\n<p>Edit2: Per comment request:</p>\n\n<pre><code>&gt;&gt;&gt; print sys.path\n['', '/home/lorb', '/usr/lib/python2.7/dist-packages', '/usr/local/lib/python27.zip', '/usr/local/lib/python2.7', '/usr/local/lib/python2.7/plat-linux2', '/usr/local/lib/python2.7/lib-tk', '/usr/local/lib/python2.7/lib-old', '/usr/local/lib/python2.7/lib-dynload', '/usr/local/lib/python2.7/site-packages', '/usr/local/lib/python2.7/site-packages/SpssClient200', '/usr/local/lib/python2.7/site-packages/spss200']\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "linux",
+    "ubuntu",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 951567,
+    "reputation": 5525,
+    "user_id": 977622,
+    "user_type": "registered",
+    "accept_rate": 85,
+    "profile_image": "https://i.sstatic.net/zv3UX.jpg?s=256",
+    "display_name": "psychok7",
+    "link": "https://stackoverflow.com/users/977622/psychok7"
+   },
+   "is_answered": true,
+   "view_count": 40940,
+   "accepted_answer_id": 23176749,
+   "answer_count": 8,
+   "score": 51,
+   "last_activity_date": 1784927404,
+   "creation_date": 1397949663,
+   "last_edit_date": 1784927206,
+   "question_id": 23176697,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/23176697/importerror-no-module-named-io-in-ubuntu-14-04",
+   "title": "ImportError: No module named _io in ubuntu 14.04",
+   "body": "<p>I just fresh installed <a href=\"https://en.wikipedia.org/wiki/Ubuntu_version_history#Ubuntu_14.04_LTS_.28Trusty_Tahr.29\" rel=\"nofollow noreferrer\">Ubuntu 14.04</a> LTS (Trusty Tahr), and I am trying to use pip, but I am getting the following traceback:</p>\n<pre><code>cd ~/code/work/nlmanagement\npip freeze\n</code></pre>\n<p>Output:</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;/home/psychok7/code/work/venv/nlmanagement/bin/pip&quot;, line 9, in &lt;module&gt;\n    load_entry_point('pip==1.1', 'console_scripts', 'pip')()\n  File &quot;/home/psychok7/code/work/venv/nlmanagement/local/lib/python2.7/site-packages/distribute-0.6.24-py2.7.egg/pkg_resources.py&quot;, line 337, in load_entry_point\n    return get_distribution(dist).load_entry_point(group, name)\n  File &quot;/home/psychok7/code/work/venv/nlmanagement/local/lib/python2.7/site-packages/distribute-0.6.24-py2.7.egg/pkg_resources.py&quot;, line 2279, in load_entry_point\n    return ep.load()\n  File &quot;/home/psychok7/code/work/venv/nlmanagement/local/lib/python2.7/site-packages/distribute-0.6.24-py2.7.egg/pkg_resources.py&quot;, line 1989, in load\n    entry = __import__(self.module_name, globals(),globals(), ['__name__'])\n  File &quot;/home/psychok7/code/work/venv/nlmanagement/local/lib/python2.7/site-packages/pip-1.1-py2.7.egg/pip/__init__.py&quot;, line 10, in &lt;module&gt;\n    from pip.backwardcompat import walk_packages, console_to_str\n  File &quot;/home/psychok7/code/work/venv/nlmanagement/local/lib/python2.7/site-packages/pip-1.1-py2.7.egg/pip/backwardcompat.py&quot;, line 77, in &lt;module&gt;\n    from urllib2 import URLError, HTTPError\n  File &quot;/usr/lib/python2.7/urllib2.py&quot;, line 94, in &lt;module&gt;\n    import httplib\n  File &quot;/usr/lib/python2.7/httplib.py&quot;, line 79, in &lt;module&gt;\n    import mimetools\n  File &quot;/usr/lib/python2.7/mimetools.py&quot;, line 6, in &lt;module&gt;\n    import tempfile\n  File &quot;/usr/lib/python2.7/tempfile.py&quot;, line 32, in &lt;module&gt;\n    import io as _io\n  File &quot;/usr/lib/python2.7/io.py&quot;, line 51, in &lt;module&gt;\n    import _io\nImportError: No module named _io\n</code></pre>\n<p>Any ideas? I have tried <code>sudo apt-get install python3-pip</code> and <code>sudo apt-get install python-pip</code>?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "debugging",
+    "multiprocessing",
+    "pycharm",
+    "winpdb"
+   ],
+   "owner": {
+    "account_id": 944324,
+    "reputation": 1097,
+    "user_id": 971880,
+    "user_type": "registered",
+    "accept_rate": 75,
+    "profile_image": "https://www.gravatar.com/avatar/2f3dea884cf6be927ecb8f345a4cdf55?s=256&d=identicon&r=PG",
+    "display_name": "barmaley",
+    "link": "https://stackoverflow.com/users/971880/barmaley"
+   },
+   "is_answered": true,
+   "view_count": 19759,
+   "answer_count": 8,
+   "score": 12,
+   "last_activity_date": 1782914713,
+   "creation_date": 1340126094,
+   "last_edit_date": 1391362119,
+   "question_id": 11106000,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/11106000/python-multiprocess-debugging",
+   "title": "Python multiprocess debugging",
+   "body": "<p>I'm trying to debug a simple python application but no luck so far.</p>\n\n<pre><code>import multiprocessing\n\ndef worker(num):\n    for a in range(0, 10):\n        print a\n\nif __name__ == '__main__':\n    for i in range(5):\n        p = multiprocessing.Process(target=worker, args=(i,))\n        p.start()\n</code></pre>\n\n<p>I want to set a breakpoint inside the for-loop to track the values of 'a' but non of the tools that I tried are able to do that.\nSo far I tried debuging with:</p>\n\n<ul>\n<li>PyCharm and get the following error: ImportError: No module named\npydevd - <a href=\"http://youtrack.jetbrains.com/issue/PY-6649\" rel=\"noreferrer\">http://youtrack.jetbrains.com/issue/PY-6649</a> It looks like\nthey are still working on a fix for this and from what I understand, no ETA on this</li>\n<li>I also tried debuging with Winpdb - <a href=\"http://winpdb.org\" rel=\"noreferrer\">http://winpdb.org</a> but it simply won't go inside my 'worker' method and just print the values of 'a'</li>\n</ul>\n\n<p>I would really appreciate any help with this!</p>\n"
+  },
+  {
+   "tags": [
+    "python"
+   ],
+   "owner": {
+    "account_id": 94479,
+    "reputation": 80767,
+    "user_id": 257942,
+    "user_type": "registered",
+    "accept_rate": 69,
+    "profile_image": "https://www.gravatar.com/avatar/f9c4e8634440f91d54c93003878b89b4?s=256&d=identicon&r=PG",
+    "display_name": "bodacydo",
+    "link": "https://stackoverflow.com/users/257942/bodacydo"
+   },
+   "is_answered": true,
+   "view_count": 663199,
+   "protected_date": 1527756466,
+   "accepted_answer_id": 2326045,
+   "answer_count": 7,
+   "score": 142,
+   "last_activity_date": 1781910366,
+   "creation_date": 1267014669,
+   "last_edit_date": 1781909796,
+   "question_id": 2325923,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/2325923/how-can-i-fix-importerror-no-module-named-error-in-python",
+   "title": "How can I fix &quot;ImportError: No module named ...&quot; error in Python?",
+   "body": "<p>What is the correct way to fix this ImportError error?</p>\n<p>I have the following directory structure:</p>\n<pre><code>/home/bodacydo\n/home/bodacydo/work\n/home/bodacydo/work/project\n/home/bodacydo/work/project/programs\n/home/bodacydo/work/project/foo\n</code></pre>\n<p>And I am in the directory</p>\n<pre><code>/home/bodacydo/work/project\n</code></pre>\n<p>Now if I type</p>\n<pre><code>python ./programs/my_python_program.py\n</code></pre>\n<p>I instantly get</p>\n<pre><code>ImportError: No module named foo.tasks\n</code></pre>\n<p>The <code>./programs/my_python_program.py</code> contains the following line:</p>\n<pre><code>from foo.tasks import my_function\n</code></pre>\n<p>I can't understand why python won't find <code>./foo/tasks.py</code> - it's there.</p>\n<p>If I do it from the Python shell, then it works:</p>\n<pre><code>python\n&gt;&gt;&gt; from foo.tasks import my_function\n</code></pre>\n<p>It only doesn't work if I call it via <code>python ./programs/my_python_program.py</code> script.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "python-docx"
+   ],
+   "owner": {
+    "account_id": 4243193,
+    "reputation": 2111,
+    "user_id": 3472559,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/1fb47f9c9d106af0b022b247cbbc699f?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "user3472559",
+    "link": "https://stackoverflow.com/users/3472559/user3472559"
+   },
+   "is_answered": true,
+   "view_count": 271793,
+   "protected_date": 1726357167,
+   "answer_count": 12,
+   "score": 200,
+   "last_activity_date": 1781797466,
+   "creation_date": 1396278707,
+   "last_edit_date": 1781797196,
+   "question_id": 22765313,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/22765313/when-importing-module-docx-in-python-3-3-i-have-error-importerror-no-module",
+   "title": "When importing module &#39;docx&#39; in Python 3.3, I have error &quot;ImportError: No module named &#39;exceptions&#39;&quot;",
+   "body": "<p>When I import module <em>docx</em>, I have this error:</p>\n<pre class=\"lang-none prettyprint-override\"><code>  File &quot;/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/docx-0.2.4-py3.3.egg/docx.py&quot;, line 30, in &lt;module&gt;\n    from exceptions import PendingDeprecationWarning\nImportError: No module named 'exceptions'\n</code></pre>\n<p>How can I fix this error (Python\u00a03.3 and <em>docx</em> 0.2.4)?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "importerror",
+    "python-import"
+   ],
+   "owner": {
+    "account_id": 17479,
+    "reputation": 21318,
+    "user_id": 39160,
+    "user_type": "registered",
+    "accept_rate": 80,
+    "profile_image": "https://www.gravatar.com/avatar/ba0f0fba9f47084b6a292a63aca16d72?s=256&d=identicon&r=PG",
+    "display_name": "Eduardo",
+    "link": "https://stackoverflow.com/users/39160/eduardo"
+   },
+   "is_answered": true,
+   "view_count": 2717736,
+   "protected_date": 1447150760,
+   "accepted_answer_id": 339220,
+   "answer_count": 38,
+   "score": 648,
+   "last_activity_date": 1781289494,
+   "creation_date": 1228339588,
+   "last_edit_date": 1781288475,
+   "question_id": 338768,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/338768/python-error-importerror-no-module-named",
+   "title": "Python error &quot;ImportError: No module named&quot;",
+   "body": "<p>Python is installed in a local directory.</p>\n<p>My directory tree looks like this:</p>\n<pre class=\"lang-none prettyprint-override\"><code>(local directory)/site-packages/toolkit/interface.py\n</code></pre>\n<p>My code is in here:</p>\n<pre class=\"lang-none prettyprint-override\"><code>(local directory)/site-packages/toolkit/examples/mountain.py\n</code></pre>\n<p>To run the example, I write <code>python mountain.py</code>, and in the code I have:</p>\n<pre class=\"lang-none prettyprint-override\"><code>from toolkit.interface import interface\n</code></pre>\n<p>And I get the error:</p>\n<pre class=\"lang-none prettyprint-override\"><code>Traceback (most recent call last):\n  File &quot;mountain.py&quot;, line 28, in ?\n    from toolkit.interface import interface\nImportError: No module named toolkit.interface\n</code></pre>\n<p>I have already checked <code>sys.path</code>, and there I have the directory <em>/site-packages</em>. Also, I have the file <em><strong>init</strong>.py.bin</em> in the toolkit folder to indicate to Python that this is a package. I also have a <em><strong>init</strong>.py.bin</em> file in the examples directory.</p>\n<p>Why can Python not find the file when it is in <code>sys.path</code>?  Can it be a permissions problem?  Do I need some execution permission?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-import"
+   ],
+   "owner": {
+    "account_id": 5475214,
+    "reputation": 1208,
+    "user_id": 4353383,
+    "user_type": "registered",
+    "accept_rate": 83,
+    "profile_image": "https://graph.facebook.com/527807683/picture?type=large",
+    "display_name": "Ankur Bhatia",
+    "link": "https://stackoverflow.com/users/4353383/ankur-bhatia"
+   },
+   "is_answered": true,
+   "view_count": 85080,
+   "accepted_answer_id": 43476575,
+   "answer_count": 1,
+   "score": 40,
+   "last_activity_date": 1781251295,
+   "creation_date": 1492529555,
+   "last_edit_date": 1781251295,
+   "question_id": 43476403,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/43476403/modulenotfounderror-or-importerror-no-module-named-something",
+   "title": "ModuleNotFoundError or ImportError: No module named &lt;something&gt;",
+   "body": "<p>The following is my directory structure.</p>\n<pre class=\"lang-none prettyprint-override\"><code>ankur\n\u251c\u2500\u2500 ankur1\n\u2502   \u251c\u2500\u2500 __init__.py\n\u2502   \u2514\u2500\u2500 util.py\n\u251c\u2500\u2500 ankur2\n\u2502   \u2514\u2500\u2500 main.py\n\u2514\u2500\u2500 __init__.py\n</code></pre>\n<p>In file <em>main.py</em>, when importing the <code>util</code> submodule:</p>\n<pre class=\"lang-python prettyprint-override\"><code>import ankur.ankur1.util\n</code></pre>\n<p>I get the following error (Python 2.x error message)</p>\n<pre class=\"lang-none prettyprint-override\"><code>ImportError: No module named ankur.ankur1.util\n</code></pre>\n<p>Or (Python 3.x error message)</p>\n<pre class=\"lang-none prettyprint-override\"><code>ModuleNotFoundError: No module named 'ankur'\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "import",
+    "pygments"
+   ],
+   "owner": {
+    "account_id": 954411,
+    "reputation": 953,
+    "user_id": 979974,
+    "user_type": "registered",
+    "accept_rate": 80,
+    "profile_image": "https://www.gravatar.com/avatar/d71cd3ad26ac8f2aeff705002d0eb177?s=256&d=identicon&r=PG",
+    "display_name": "user979974",
+    "link": "https://stackoverflow.com/users/979974/user979974"
+   },
+   "is_answered": true,
+   "view_count": 20353,
+   "accepted_answer_id": 66736967,
+   "answer_count": 1,
+   "score": 7,
+   "last_activity_date": 1778691586,
+   "creation_date": 1540454861,
+   "last_edit_date": 1778691586,
+   "question_id": 52984342,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/52984342/python-importerror-no-module-named-pygments",
+   "title": "Python: &quot;ImportError: No module named pygments&quot;",
+   "body": "<p>I ran the following code:</p>\n<pre class=\"lang-python prettyprint-override\"><code># Allows the use of display() for displaying\nfrom IPython.display import display DataFrames\n</code></pre>\n<p>It displayed the following error:</p>\n<pre class=\"lang-none prettyprint-override\"><code>File &quot;/usr/lib64/python2.7/site-packages/IPython/utils/colorable.py&quot;, line 13, in &lt;module&gt;\n    import pygments\nImportError: No module named pygments\n</code></pre>\n<p>So I tried installing <code>pygments</code>:</p>\n<pre class=\"lang-none prettyprint-override\"><code>pip install pygments\n</code></pre>\n<p>And it says:</p>\n<pre class=\"lang-none prettyprint-override\"><code>Requirement already satisfied: pygments in /home/rico/downloads/hgvs-0.1.2/Pygments-2.1.3-py2.7.egg (2.1.3)\n</code></pre>\n<p>Do you have an idea how to resolve this issue?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "windows",
+    "pip",
+    "cython"
+   ],
+   "owner": {
+    "account_id": 6308011,
+    "reputation": 1159,
+    "user_id": 4900510,
+    "user_type": "registered",
+    "accept_rate": 100,
+    "profile_image": "https://i.sstatic.net/VUh6M.jpg?s=256",
+    "display_name": "Tais",
+    "link": "https://stackoverflow.com/users/4900510/tais"
+   },
+   "is_answered": true,
+   "view_count": 244853,
+   "protected_date": 1777960829,
+   "accepted_answer_id": 44400710,
+   "answer_count": 12,
+   "score": 93,
+   "last_activity_date": 1777928343,
+   "creation_date": 1494859860,
+   "last_edit_date": 1677256849,
+   "question_id": 43982543,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/43982543/importerror-no-module-named-cython",
+   "title": "ImportError: No module named &#39;Cython&#39;",
+   "body": "<p>I'm trying do <code>from Cython.Build import cythonize</code> and I get the message <code>ImportError: No module named 'Cython'</code>, but I installed the Cython with the comand <code>pip install Cython</code>. What's wrong?</p>\n<p>Python 3.5\nCython 0.25.2\nWindows 8</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "jwt"
+   ],
+   "owner": {
+    "account_id": 18593852,
+    "reputation": 221,
+    "user_id": 13550422,
+    "user_type": "registered",
+    "profile_image": "https://lh6.googleusercontent.com/-zTA4QCmDf-E/AAAAAAAAAAI/AAAAAAAAAOY/AMZuuck5O-OnFXBIQbnxnX9ccSbHAWnhpA/s256-rj/photo.jpg",
+    "display_name": "Rawan J9",
+    "link": "https://stackoverflow.com/users/13550422/rawan-j9"
+   },
+   "is_answered": true,
+   "view_count": 112234,
+   "answer_count": 11,
+   "score": 22,
+   "last_activity_date": 1776525199,
+   "creation_date": 1596837242,
+   "last_edit_date": 1596853595,
+   "question_id": 63309591,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/63309591/import-jwt-importerror-no-module-named-jwt",
+   "title": "import jwt ImportError: No module named jwt",
+   "body": "<p>I have been trying to run this project\n<a href=\"https://github.com/udacity/FSND-Deploy-Flask-App-to-Kubernetes-Using-EKS\" rel=\"noreferrer\">https://github.com/udacity/FSND-Deploy-Flask-App-to-Kubernetes-Using-EKS</a></p>\n<p>I installed all the dependencies.\nI still did not make any adjustments. I need to run it first\nbut I get this error when I type the command</p>\n<pre><code>python main.py\n</code></pre>\n<p>this is the error i get:</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;main.py&quot;, line 8, in &lt;module&gt;\n    import jwt\nImportError: No module named jwt\n</code></pre>\n<p>I worked with similar errors before and managed to solve them but not with this one I could not figure out the source of the problem</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "django",
+    "django-rest-framework"
+   ],
+   "owner": {
+    "account_id": 3490364,
+    "reputation": 3369,
+    "user_id": 2920211,
+    "user_type": "registered",
+    "accept_rate": 77,
+    "profile_image": "https://i.sstatic.net/zVZ7O.jpg?s=256",
+    "display_name": "Jay Modi",
+    "link": "https://stackoverflow.com/users/2920211/jay-modi"
+   },
+   "is_answered": true,
+   "view_count": 32848,
+   "accepted_answer_id": 26215857,
+   "answer_count": 3,
+   "score": 19,
+   "last_activity_date": 1776208030,
+   "creation_date": 1412596600,
+   "last_edit_date": 1776208030,
+   "question_id": 26215738,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/26215738/how-can-i-install-pygments-on-ubuntu",
+   "title": "How can I install Pygments on Ubuntu?",
+   "body": "<p>I'm following the <a href=\"https://www.django-rest-framework.org/\" rel=\"nofollow noreferrer\">Django REST Framework</a> tutorial, and this is the <em>models.py</em>'s code as below.</p>\n<pre><code>from django.db import models\nfrom pygments.lexers import get_all_lexers\nfrom pygments.styles import get_all_styles\n\nLEXERS = [item for item in get_all_lexers() if item[1]]\nLANGUAGE_CHOICES = sorted([(item[1][0], item[0]) for item in LEXERS])\nSTYLE_CHOICES = sorted((item, item) for item in get_all_styles())\n</code></pre>\n<p>And when I run following command:</p>\n<pre class=\"lang-none prettyprint-override\"><code>python manage.py syncdb\n</code></pre>\n<p>it gives me this error:</p>\n<blockquote>\n<p>ImportError: No module named pygments.lexers</p>\n</blockquote>\n<p>I think that I have to install Pygments first to work this code.</p>\n<p>So how can I install Pygments in my <a href=\"https://en.wikipedia.org/wiki/Ubuntu_version_history#Ubuntu_12.04_LTS_.28Precise_Pangolin.29\" rel=\"nofollow noreferrer\">Ubuntu\u00a012.04</a> (Precise Pangolin)? I have Python\u00a02.7 version installed.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "windows-subsystem-for-linux"
+   ],
+   "owner": {
+    "account_id": 9215434,
+    "reputation": 11,
+    "user_id": 11564124,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/Y17a9.jpg?s=256",
+    "display_name": "Sohm",
+    "link": "https://stackoverflow.com/users/11564124/sohm"
+   },
+   "is_answered": false,
+   "view_count": 8331,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1773565665,
+   "creation_date": 1558988317,
+   "question_id": 56332030,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/56332030/cannot-import-collections-abc-when-using-windows-subsystem-for-linux",
+   "title": "Cannot import &#39;collections.abc&#39; when using windows subsystem for linux",
+   "body": "<p>I'm using windows subsystem for linux (specifically Ubuntu for Windows) to run some python code. When I try to run the following: 'import collections.abc', I get the following error: 'ImportError: No module named abc'.</p>\n\n<p>I can import 'collections', but if I try: 'collections.abc', I get the following error: 'AttributeError: 'module' object has no attribute 'abc''.</p>\n\n<p>Furthermore, I tried importing the module in command prompt without using Ubuntu for Windows, and it imports successfully.</p>\n\n<p>The 'collections' module should be included in python by default, so I'm not sure why it's giving me this error.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pandas",
+    "numpy",
+    "vs-code"
+   ],
+   "owner": {
+    "account_id": 439578,
+    "reputation": 925,
+    "user_id": 828602,
+    "user_type": "registered",
+    "accept_rate": 63,
+    "profile_image": "https://www.gravatar.com/avatar/f4c6304a9b6d0b29a8f4fac1dc36e8e7?s=256&d=identicon&r=PG",
+    "display_name": "billboard",
+    "link": "https://stackoverflow.com/users/828602/billboard"
+   },
+   "is_answered": true,
+   "view_count": 384690,
+   "protected_date": 1772716983,
+   "accepted_answer_id": 40186317,
+   "answer_count": 16,
+   "score": 42,
+   "last_activity_date": 1772711407,
+   "creation_date": 1477083898,
+   "last_edit_date": 1567626532,
+   "question_id": 40185437,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/40185437/no-module-named-numpy-visual-studio-code",
+   "title": "No module named &#39;numpy&#39;: Visual Studio Code",
+   "body": "<p>I'm trying to setup Visual Studio Code for python development</p>\n\n<p>to begin with, I've installed </p>\n\n<ol>\n<li>Anaconda Python</li>\n<li>Visual Studio Code</li>\n</ol>\n\n<p>and in a new file I have the following code</p>\n\n<pre><code>import numpy as np\nimport pandas as pd\nfrom pandas import Series, DataFrame\n</code></pre>\n\n<p>upon hitting Ctrl+Shift+B I get the following error</p>\n\n<pre><code>import numpy as np\n</code></pre>\n\n<p>ImportError: No module named 'numpy'</p>\n\n<p>Also, is there python interactive window in VS Code? How to open it.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-requests",
+    "python-import"
+   ],
+   "owner": {
+    "account_id": 2886898,
+    "reputation": 10033,
+    "user_id": 2476540,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/8e440d0862b9a09a4967ff66a0348b83?s=256&d=identicon&r=PG",
+    "display_name": "user2476540",
+    "link": "https://stackoverflow.com/users/2476540/user2476540"
+   },
+   "is_answered": true,
+   "view_count": 3115148,
+   "protected_date": 1498796649,
+   "answer_count": 40,
+   "score": 987,
+   "last_activity_date": 1771553467,
+   "creation_date": 1372203298,
+   "last_edit_date": 1768685351,
+   "question_id": 17309288,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/17309288/error-importerror-no-module-named-requests",
+   "title": "Error &quot;ImportError: No module named requests&quot;",
+   "body": "<p>I tried importing <a href=\"https://requests.readthedocs.io/\" rel=\"noreferrer\"><code>requests</code></a>:</p>\n<pre><code>import requests\n</code></pre>\n<p>But I get an error:</p>\n<blockquote>\n<p>ImportError: No module named requests</p>\n</blockquote>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "flask",
+    "pylint"
+   ],
+   "owner": {
+    "account_id": 8174070,
+    "reputation": 1653,
+    "user_id": 6153466,
+    "user_type": "registered",
+    "accept_rate": 56,
+    "profile_image": "https://graph.facebook.com/10206569827109995/picture?type=large",
+    "display_name": "Reco Jhonatan",
+    "link": "https://stackoverflow.com/users/6153466/reco-jhonatan"
+   },
+   "is_answered": true,
+   "view_count": 8633,
+   "answer_count": 2,
+   "score": 3,
+   "last_activity_date": 1769451370,
+   "creation_date": 1586493431,
+   "last_edit_date": 1586494475,
+   "question_id": 61134123,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/61134123/pylint-error-no-name-in-module-when-import-a-package",
+   "title": "Pylint error: no name in module when import a package",
+   "body": "<p>I'm learning a little bit how function python, more specific Flask.</p>\n\n<p>I'm creating a new project using <code>flask</code>, but when I create a new file and <code>import Flask</code> I receive this error: <code>No name 'Flask' in module 'flask'pylint(no-name-in-module)</code></p>\n\n<p>I did read that, I need create a file called: <code>__init__.py</code> but I have this and the error keeps showing up.</p>\n\n<p>This is my actual code (very simple code, and <code>folder/files</code> structure):\n<a href=\"https://i.sstatic.net/JIb2J.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/JIb2J.png\" alt=\"enter image description here\"></a></p>\n\n<p>Thanks for the help! :D</p>\n\n<p>I tried this: <a href=\"https://stackoverflow.com/questions/31252791/flask-importerror-no-module-named-flask\">Flask ImportError: No Module Named Flask</a>, but this solution does not works for me.</p>\n\n<p><a href=\"https://i.sstatic.net/LQnFP.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/LQnFP.png\" alt=\"enter image description here\"></a></p>\n\n<p><a href=\"https://i.sstatic.net/uGsoy.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/uGsoy.png\" alt=\"enter image description here\"></a></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "math",
+    "module",
+    "compilation",
+    "xlwt"
+   ],
+   "owner": {
+    "account_id": 1475177,
+    "reputation": 23,
+    "user_id": 2139835,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/1d9859931bb4972abb0f62546fa915df?s=256&d=identicon&r=PG",
+    "display_name": "tarastd",
+    "link": "https://stackoverflow.com/users/2139835/tarastd"
+   },
+   "is_answered": true,
+   "view_count": 28107,
+   "closed_date": 1362634886,
+   "accepted_answer_id": 15249699,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1768861579,
+   "creation_date": 1362576232,
+   "question_id": 15248516,
+   "link": "https://stackoverflow.com/questions/15248516/no-math-module-python",
+   "closed_reason": "off topic",
+   "title": "no math module python",
+   "body": "<p>I am working in SunOS2.10.I pretty need xlwt(xlrd) modules in python(default ver. 2.4.6).In one folder of admin user, I have found Python 2.7.1, so if I write the full path to it I can use it instead of 2.4.6. I have no permission to install modules directly, so I have used command: </p>\n\n<pre><code>(path to ver 2.7)/python setup.py install --user\n</code></pre>\n\n<p>and module xlrd was installed without a problems. But during installation of module xlwt error occurs:</p>\n\n<p>\"ImportError: No module named math\"</p>\n\n<p>I've checked help('modules') and it lists me module \"math_failed\", as I understand there should be just math.\nI have also tried to install this module(xlwt) using Python 2.4 but it gives me an error that:</p>\n\n<p>\"option --user not recognized\",</p>\n\n<p>so as I understand this option is not available in this python version(but math module is working there fine).</p>\n\n<p>Also I was trying to install locally the whole Python using:</p>\n\n<blockquote>\n  <blockquote>\n    <p>./configure </p>\n    \n    <p>make altinstall prefix=~ exec-prefix=~</p>\n  </blockquote>\n</blockquote>\n\n<p>but it also didn't work because during 'configuration' i receive error:</p>\n\n<p>\"checking whether the C compiler works... no\"</p>\n\n<p>I don't know how to fix this problem with the compiler or how to install math module locally because I can not even find where to download it.</p>\n\n<p>Please if anyone has any ideas - write me because I just stuck and have no idea what to do. Also I have to mention that I am very beginner in programming so sorry if I have write smt. stupid:) \nThanks in advance. </p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pywin32",
+    "keylogger",
+    "pyhook",
+    "pythoncom"
+   ],
+   "owner": {
+    "account_id": 3215734,
+    "reputation": 389,
+    "user_id": 2714502,
+    "user_type": "registered",
+    "profile_image": "https://graph.facebook.com/100001903812003/picture?type=large",
+    "display_name": "Eden Pigram",
+    "link": "https://stackoverflow.com/users/2714502/eden-pigram"
+   },
+   "is_answered": true,
+   "view_count": 143147,
+   "protected_date": 1494066935,
+   "answer_count": 8,
+   "score": 27,
+   "last_activity_date": 1768150950,
+   "creation_date": 1379643523,
+   "last_edit_date": 1429319074,
+   "question_id": 18907889,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/18907889/importerror-no-module-named-pywintypes",
+   "title": "ImportError: No module named pywintypes",
+   "body": "<p>I am working to make a small keylogger with Python, by using the pyHook, pythoncom and Pywin32 modules. Here is my code:</p>\n\n<pre><code>import pyHook, pythoncom, sys, logging\n\nfile_log = 'C:\\\\important\\\\log.txt'\n\ndef OnKeyboardEvent (event):\n    logging.basicConfig(filename=file_log, level=logging.DEBUG, format='%(message)s')\n    chr(event.Ascii)\n    logging.log(10, chr(Event.Ascii))\n    return True\nhooks_manager=pyHook.HookManager()\nhooks_manager.KeyDown = OnKeyboardEvent\nhooks_manager.HookKeyboard()\npythoncom.PumpMessages()\n</code></pre>\n\n<p>When it runs, it returns this error message:</p>\n\n<pre><code> File \"C:\\Python27\\lib\\site-packages\\pythoncom.py\", line 2, in &lt;module&gt;\n    import pywintypes\nImportError: No module named pywintypes\n</code></pre>\n\n<p>How do I fix this error?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pandas",
+    "macos",
+    "numpy",
+    "pycharm"
+   ],
+   "owner": {
+    "account_id": 18247101,
+    "reputation": 117,
+    "user_id": 13282965,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/0d36b1b63ce238710c47f2b532982b7d?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "NewDev",
+    "link": "https://stackoverflow.com/users/13282965/newdev"
+   },
+   "is_answered": true,
+   "view_count": 900,
+   "accepted_answer_id": 79857916,
+   "answer_count": 3,
+   "score": 2,
+   "last_activity_date": 1767230016,
+   "creation_date": 1767128978,
+   "question_id": 79857809,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79857809/python-packages-installation-pandas-nympy",
+   "title": "Python packages installation - pandas &amp; nympy",
+   "body": "<p>I have read close to all posts about this topic now but I can get it working, so sorry if you find this similar to other questions, but I can't just solve it based on existing posts.\nI find it very hard to install Python with its packages, and remember struggling on my PC a couple of years ago also.</p>\n<p>I have a macbook. I have installed python. Using PyCharm. I have tried to install a couple of packages, not sure they got installed in the right or wrong folder. So far I have tried (and in some cases been successful) installing requests, torch, wheel, pandas, numpy. All by using pip. I have tried uninstall and install again. Also tried upgrading.</p>\n<p>Line 8 in the response below is &quot;import pandas as pd&quot;</p>\n<p>The code in PyCharm gives the following response during execution:\nFile &quot;/Users/name/PycharmProjects/ABCProject/file.py&quot;, line 8, in \nimport pandas as pd\nFile &quot;/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/pandas/<strong>init</strong>.py&quot;, line 19, in \nraise ImportError(\n&quot;Unable to import required dependencies:\\n&quot; + &quot;\\n&quot;.join(_missing_dependencies)\n)\nImportError: Unable to import required dependencies:\nnumpy:</p>\n<p>IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!</p>\n<p>Importing the numpy C-extensions failed. This error can happen for\nmany reasons, often due to issues with your setup or how NumPy was\ninstalled.\nThe following compiled module files exist, but seem incompatible\nwith with either python 'cpython-314' or the platform 'darwin':</p>\n<ul>\n<li>_multiarray_umath.cpython-313-darwin.so</li>\n</ul>\n<p>We have compiled some common reasons and troubleshooting tips at:</p>\n<pre><code>https://numpy.org/devdocs/user/troubleshooting-importerror.html\n</code></pre>\n<p>Please note and check the following:</p>\n<ul>\n<li>The Python version is: Python 3.14 from &quot;/usr/local/bin/python3.14&quot;</li>\n<li>The NumPy version is: &quot;2.4.0&quot;</li>\n</ul>\n<p>and make sure that they are the versions you expect.</p>\n<p>Please carefully study the information and documentation linked above.\nThis is unlikely to be a NumPy issue but will be caused by a bad install\nor environment on your machine.</p>\n<p>Original error was: No module named 'numpy._core._multiarray_umath'</p>\n<p>Process finished with exit code 1</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-2.7",
+    "debian",
+    "wxpython",
+    "wxwidgets"
+   ],
+   "owner": {
+    "account_id": 4187892,
+    "reputation": 2181,
+    "user_id": 3431180,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/4fbb3098af38b7c4f5b6844b276a587b?s=256&d=identicon&r=PG",
+    "display_name": "agilgur5",
+    "link": "https://stackoverflow.com/users/3431180/agilgur5"
+   },
+   "is_answered": true,
+   "view_count": 326,
+   "accepted_answer_id": 79835475,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1765082003,
+   "creation_date": 1447753883,
+   "last_edit_date": 1764649241,
+   "question_id": 33753783,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/33753783/importerror-no-module-named-wx-on-debian-jessie-python-2-7-after-installing-p",
+   "title": "&quot;ImportError: No module named wx&quot; on Debian Jessie Python 2.7 after installing python-wxtools",
+   "body": "<p>I'm really confused as to why this fails as I followed the directions for <a href=\"https://wiki.wxpython.org/InstallingOnUbuntuOrDebian\" rel=\"nofollow noreferrer\">Installing on Ubuntu Or Debian</a>.</p>\n<p>In the terminal, I tried running:</p>\n<pre class=\"lang-bash prettyprint-override\"><code>apt-get install python-wxtools\n</code></pre>\n<p>which succeeds.</p>\n<p>But when I try to <code>import</code> it in Python:</p>\n<pre class=\"lang-py prettyprint-override\"><code>import wx\n</code></pre>\n<p>it fails with the error:</p>\n<blockquote>\n<p>ImportError: No module named wx</p>\n</blockquote>\n<p>I'm not sure if this is related, but it also installs v3.0 (which I thought was the version for Phoenix/Python3?) while being dependent on Python 2.7.</p>\n<p>For reference, I tried this off the <a href=\"https://hub.docker.com/layers/library/python/2.7.10/images/sha256-a11ab9a16bf6853c9c1134fd78ca1abe11e55ab4fe30eb5dffd688a58e7b5899\" rel=\"nofollow noreferrer\"><code>python:2.7.10</code> Docker image</a>, which is built off Debian Jesse. You can reproduce as such:</p>\n<pre class=\"lang-bash prettyprint-override\"><code>$ docker run -it python:2.7.10 bash\nroot@b3ba556667ac:/# apt-get install python-wxtools\nroot@b3ba556667ac:/# python\n&gt;&gt;&gt; import wx\nTraceback (most recent call last):\n  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;\nImportError: No module named wx\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "jupyter-lab"
+   ],
+   "owner": {
+    "account_id": 20402689,
+    "reputation": 81,
+    "user_id": 14968046,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/-dASP7ETy4zA/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucld33U9G3RLA-shH5qw_oAbHjFW9Q/s96-c/s256-rj/photo.jpg",
+    "display_name": "VXL963",
+    "link": "https://stackoverflow.com/users/14968046/vxl963"
+   },
+   "is_answered": true,
+   "view_count": 16371,
+   "answer_count": 3,
+   "score": 3,
+   "last_activity_date": 1762755667,
+   "creation_date": 1713449364,
+   "last_edit_date": 1713455116,
+   "question_id": 78348119,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78348119/modulenotfounderror-no-module-named-rpds-rpds",
+   "title": "ModuleNotFoundError: No module named &#39;rpds.rpds&#39;",
+   "body": "<p>I have been running jupyter lab in my virtual environment with no problem. But I installed another program which probably caused issues with launching jupyter lab this morning. I have tried to update jupyterlab but nothing changed. Here is the error code when I try to run jupyter lab. Does anyone have experience with this? What should I do? Thank you!</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;&lt;frozen runpy&gt;&quot;, line 198, in _run_module_as_main\n  File &quot;&lt;frozen runpy&gt;&quot;, line 88, in _run_code\n  File &quot;C:\\Users\\lixia\\venv\\Scripts\\jupyter-lab.EXE\\__main__.py&quot;, line 4, in &lt;module&gt;\n  File &quot;C:\\Users\\lixia\\venv\\Lib\\site-packages\\jupyterlab\\__init__.py&quot;, line 8, in &lt;module&gt;\n    from .handlers.announcements import (\n  File &quot;C:\\Users\\lixia\\venv\\Lib\\site-packages\\jupyterlab\\handlers\\announcements.py&quot;, line 14, in &lt;module&gt;\n    from jupyter_server.base.handlers import APIHandler\n  File &quot;C:\\Users\\lixia\\venv\\Lib\\site-packages\\jupyter_server\\base\\handlers.py&quot;, line 23, in &lt;module&gt;\n    from jupyter_events import EventLogger\n  File &quot;C:\\Users\\lixia\\venv\\Lib\\site-packages\\jupyter_events\\__init__.py&quot;, line 3, in &lt;module&gt;\n    from .logger import EVENTS_METADATA_VERSION, EventLogger\n  File &quot;C:\\Users\\lixia\\venv\\Lib\\site-packages\\jupyter_events\\logger.py&quot;, line 14, in &lt;module&gt;\n    from jsonschema import ValidationError\n  File &quot;C:\\Users\\lixia\\venv\\Lib\\site-packages\\jsonschema\\__init__.py&quot;, line 13, in &lt;module&gt;\n    from jsonschema._format import FormatChecker\n  File &quot;C:\\Users\\lixia\\venv\\Lib\\site-packages\\jsonschema\\_format.py&quot;, line 11, in &lt;module&gt;\n    from jsonschema.exceptions import FormatError\n  File &quot;C:\\Users\\lixia\\venv\\Lib\\site-packages\\jsonschema\\exceptions.py&quot;, line 15, in &lt;module&gt;\n    from referencing.exceptions import Unresolvable as _Unresolvable\n  File &quot;C:\\Users\\lixia\\venv\\Lib\\site-packages\\referencing\\__init__.py&quot;, line 4, in &lt;module&gt;\n    from referencing._core import Anchor, Registry, Resource, Specification\n  File &quot;C:\\Users\\lixia\\venv\\Lib\\site-packages\\referencing\\_core.py&quot;, line 9, in &lt;module&gt;\n    from rpds import HashTrieMap, HashTrieSet, List\n  File &quot;C:\\Users\\lixia\\venv\\Lib\\site-packages\\rpds\\__init__.py&quot;, line 1, in &lt;module&gt;\n    from .rpds import *\nModuleNotFoundError: No module named 'rpds.rpds'\n</code></pre>\n<p>*UPDATE: I installed the rpds file, but now it is giving me the following error:</p>\n<p>ImportError: cannot import name 'HashTrieMap' from 'rpds' (C:\\Users\\lixia\\venv\\Lib\\site-packages\\rpds_<em>init</em>_.py)</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "compiler-errors",
+    "libvirt",
+    "netbsd"
+   ],
+   "owner": {
+    "account_id": 17776736,
+    "reputation": 177,
+    "user_id": 12908887,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/e198ae269f8af43e5be0ae7e65774cec?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "john_connor",
+    "link": "https://stackoverflow.com/users/12908887/john-connor"
+   },
+   "is_answered": true,
+   "view_count": 3733,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1760901783,
+   "creation_date": 1631388901,
+   "last_edit_date": 1760901783,
+   "question_id": 69146158,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/69146158/importerror-no-module-named-libvirt-error-whyle-trying-to-install-python-for-li",
+   "title": "ImportError: No module named libvirt error whyle trying to install python for libvirt on NetBSD 9.2",
+   "body": "<p>I've just installed virt-manager with pkgin on NetBSD 9.2 just because I want to emulate the virtual machines with qemu + nvmm on NetBSD 9.2. The installation of virt-manager went ok. But,when I ran it,an error came up :</p>\n<pre><code>netbsd-marietto# virt-manager\n\nTraceback (most recent call last):\n\nFile &quot;/usr/pkg/share/virt-manager/virt-manager.py&quot;, line 386, in &lt;module&gt;\n\nmain()\n\nFile &quot;/usr/pkg/share/virt-manager/virt-manager.py&quot;, line 247, in main\n\nfrom virtManager import cli\n\nFile &quot;/usr/pkg/share/virt-manager/virtManager/cli.py&quot;, line 29, in &lt;module&gt;\n\nimport libvirt\n\nImportError: No module named libvirt\n</code></pre>\n<p>Googling a little bit maybe I've found the solution here :</p>\n<p><a href=\"https://www.unitedbsd.com/d/285-linux-user-and-netbsd-enthusiast-hoping-to-migrate-some-day\" rel=\"nofollow noreferrer\">https://www.unitedbsd.com/d/285-linux-user-and-netbsd-enthusiast-hoping-to-migrate-some-day</a></p>\n<p>where &quot;kim&quot; said :</p>\n<p>Looking at pkgsrc/sysutils/libvirt/PLIST it doesn't look like the package provides any Python bindings -- which is what the &quot;ImportError: No module named libvirt&quot; error message is about. You could try py-libvirt from pkgsrc-wip and see how that works out.</p>\n<p>I tried to start the compilation like this :</p>\n<pre class=\"lang-none prettyprint-override\"><code>netbsd-marietto# cd /home/mario/Desktop/pkgsrc-wip/py-libvirt\nnetbsd-marietto# make\n</code></pre>\n<p>but I've got this error :</p>\n<pre class=\"lang-none prettyprint-override\"><code>make: &quot;/home/mario/Desktop/pkgsrc-wip/py-libvirt/Makefile&quot; line 15: Could not find ../../wip/libvirt/buildlink3.mk\nmake: &quot;/home/mario/Desktop/pkgsrc-wip/py-libvirt/Makefile&quot; line 16: Could not find ../../lang/python/distutils.mk\nmake: &quot;/home/mario/Desktop/pkgsrc-wip/py-libvirt/Makefile&quot; line 17: Could not find ../../mk/bsd.pkg.mk\nmake: Fatal errors encountered -- cannot continue\n</code></pre>\n<p>If u want to see the content of the Makefile, it is :</p>\n<pre class=\"lang-make prettyprint-override\"><code>gedit /home/mario/Desktop/pkgsrc-wip/py-libvirt/Makefile\n\n#$NetBSD: Makefile,v 1.32 2018/11/30 09:59:40 adam Exp $\n\nPKGNAME= ${PYPKGPREFIX}-${DISTNAME:S/-python//}\nDISTNAME= libvirt-python-5.8.0\nCATEGORIES= sysutils python\nMASTER_SITES= https://libvirt.org/sources/python/\n\nMAINTAINER= pkgsrc-users@NetBSD.org\nHOMEPAGE= https://libvirt.org/sources/python/\nCOMMENT= libvirt python library\nLICENSE= gnu-lgpl-v2\n\nUSE_TOOLS+= pkg-config\n\n.include &quot;../../wip/libvirt/buildlink3.mk&quot;\n.include &quot;../../lang/python/distutils.mk&quot;\n.include &quot;../../mk/bsd.pkg.mk&quot;\n</code></pre>\n<p>Can someone help me to fix the error ? very thanks.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "openai-api",
+    "langchain"
+   ],
+   "owner": {
+    "account_id": 9017619,
+    "reputation": 15799,
+    "user_id": 6719819,
+    "user_type": "registered",
+    "accept_rate": 77,
+    "profile_image": "https://i.sstatic.net/HmF9I.jpg?s=256",
+    "display_name": "Daniel",
+    "link": "https://stackoverflow.com/users/6719819/daniel"
+   },
+   "is_answered": true,
+   "view_count": 6700,
+   "accepted_answer_id": 77338665,
+   "answer_count": 4,
+   "score": 1,
+   "last_activity_date": 1760587620,
+   "creation_date": 1697946680,
+   "question_id": 77338572,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77338572/importerror-no-module-named-langchain-llms",
+   "title": "ImportError: No module named langchain.llms",
+   "body": "<p>I used the following import statetement:</p>\n<pre><code>from langchain.llms import OpenAI \n</code></pre>\n<p>And I am getting the following error:</p>\n<blockquote>\n<p>pycode python main.py Traceback (most recent call last):   File\n&quot;main.py&quot;, line 1, in \nfrom langchain.llms import openai ImportError: No module named langchain.llms</p>\n</blockquote>\n<p>I am using Python 3.11.6 and I installed the packages using</p>\n<pre><code>pip3 install openai langchain\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "command-line",
+    "theano",
+    "keras"
+   ],
+   "owner": {
+    "account_id": 6301655,
+    "reputation": 3643,
+    "user_id": 4896087,
+    "user_type": "registered",
+    "accept_rate": 72,
+    "profile_image": "https://i.sstatic.net/4Mss0.jpg?s=256",
+    "display_name": "George Liu",
+    "link": "https://stackoverflow.com/users/4896087/george-liu"
+   },
+   "is_answered": true,
+   "view_count": 51602,
+   "accepted_answer_id": 40310928,
+   "answer_count": 12,
+   "score": 38,
+   "last_activity_date": 1759914936,
+   "creation_date": 1477674719,
+   "last_edit_date": 1495541906,
+   "question_id": 40310035,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/40310035/how-to-change-keras-backend-wheres-the-json-file",
+   "title": "How to change Keras backend (where&#39;s the json file)?",
+   "body": "<p>I have installed Keras, and wanted to switch the backend to Theano. I checked out <a href=\"https://stackoverflow.com/questions/40036748/keras-backend-importerror-cannot-import-name-ctc-ops\">this post</a>, but still have no idea where to put the created json file. Also, below is the error I got when running <code>import keras</code> in Python Shell:</p>\n\n<blockquote>\n  <p>Using TensorFlow backend.</p>\n  \n  <p>Traceback (most recent call last):   File \"\", line 1, in\n  \n      import keras   File \"C:\\Python27\\lib\\site-packages\\keras__init__.py\", line 2, in \n      from . import backend   File \"C:\\Python27\\lib\\site-packages\\keras\\backend__init__.py\", line 64, in\n  \n      from .tensorflow_backend import *   File \"C:\\Python27\\lib\\site-packages\\keras\\backend\\tensorflow_backend.py\",\n  line 1, in \n      import tensorflow as tf ImportError: No module named tensorflow</p>\n</blockquote>\n\n<p>When running <code>python -c \"import keras; print(keras.__version__)\"</code> from Windows command line, I got:</p>\n\n<blockquote>\n  <p>Using TensorFlow backend. Traceback (most recent call last):   File\n  \"\", line 1, in    File\n  \"C:\\Python27\\lib\\site-packages\\keras__init__.py\", line 2, in \n      from . import backend   File \"C:\\Python27\\lib\\site-packages\\keras\\backend__init__.py\", line 64, in\n  \n      from .tensorflow_backend import *   File \"C:\\Python27\\lib\\site-packages\\keras\\backend\\tensorflow_backend.py\",\n  line 1, in \n      import tensorflow as tf ImportError: No module named tensorflow</p>\n</blockquote>\n\n<p>Can someone please help? Thanks!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-2.7",
+    "python-3.x",
+    "dbus",
+    "qtdbus"
+   ],
+   "owner": {
+    "account_id": 8198271,
+    "reputation": 429,
+    "user_id": 6170340,
+    "user_type": "registered",
+    "accept_rate": 29,
+    "profile_image": "https://lh4.googleusercontent.com/-uPUP0eMZgJ0/AAAAAAAAAAI/AAAAAAAABQ4/4jkvePJW3kA/s256-rj/photo.jpg",
+    "display_name": "B nM",
+    "link": "https://stackoverflow.com/users/6170340/b-nm"
+   },
+   "is_answered": true,
+   "view_count": 110296,
+   "answer_count": 9,
+   "score": 26,
+   "last_activity_date": 1759112938,
+   "creation_date": 1464597483,
+   "last_edit_date": 1464601132,
+   "question_id": 37521162,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/37521162/how-solve-importerror-no-module-named-dbus",
+   "title": "How solve ImportError: No module named &#39;dbus&#39;?",
+   "body": "<p>I have installed <code>anaconda4</code> on my ubuntu and I have these modules on my Python:</p>\n\n<pre><code>dbus-python (1.2.4)\n\ngi (1.2)\n\npydbus (0.2)\n\nQtAwesome (0.3.2)\nqtconsole (4.2.0)\nQtPy (1.0)\n\nsip (4.18)\n</code></pre>\n\n<p>I tried installing <code>dbus-python (1.2.4)</code> and <code>pydbus (0.2)</code>, however, neither of them works! </p>\n\n<p>After testing a simple program in python 3.5.1, an error appeared:</p>\n\n<pre><code>import dbus\nsystem_bus = dbus.SystemBus()\n\nImportError: No module named 'dbus'\n</code></pre>\n\n<p>When I use <code>pydbus</code> in Python 2.7.11 and 3.5.1:</p>\n\n<pre><code>from pydbus import SystemBus\n\nbus = SystemBus()\nsystemd = bus.get(\".systemd1\")\n\nfor unit in systemd.ListUnits():\n    print(unit)\n</code></pre>\n\n<p>I get this error:</p>\n\n<pre><code>ImportError: No module named repository\n</code></pre>\n\n<p>The only thing that works is <a href=\"https://github.com/Werkov/PyQt4/tree/master/examples/dbus/pingpong\" rel=\"noreferrer\">this example</a> with <code>PyQT4</code> which I don't have any tutorial for.</p>\n\n<p>What is the problem? Is it my installation or something else?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "linux",
+    "raspbian",
+    "dbus",
+    "raspberry-pi4"
+   ],
+   "owner": {
+    "account_id": 20424580,
+    "reputation": 43,
+    "user_id": 14984854,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/fe55f6dbf2acc4f20c5d68b81b2bc1ad?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Martin Trnka",
+    "link": "https://stackoverflow.com/users/14984854/martin-trnka"
+   },
+   "is_answered": true,
+   "view_count": 2875,
+   "answer_count": 3,
+   "score": 1,
+   "last_activity_date": 1758862157,
+   "creation_date": 1649919376,
+   "last_edit_date": 1649919575,
+   "question_id": 71867578,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/71867578/no-module-named-dbus-i-already-have-that-raspbian",
+   "title": "No module named dbus - I already have that - Raspbian",
+   "body": "<p>I'm getting an ImportError &quot;no module named dbus&quot; when I reinstalled it</p>\n<blockquote>\n<p>(&quot;sudo apt-get install --reinstall dbus&quot;)</p>\n</blockquote>\n<p>It wrote me</p>\n<blockquote>\n<p>&quot;0 upgraded, 0 newly installed, 1 reinstalled, 0 to remove and 15 not\nupgraded&quot;</p>\n</blockquote>\n<p>Can anyone help me? I'm trying to use this github repository: <a href=\"https://github.com/quangthanh010290/keyboard_mouse_emulate_on_raspberry#step-1-setup\" rel=\"nofollow noreferrer\">&quot;keyboard_mouse_emulate_on_raspberry&quot;</a></p>\n<p>I need to fix that because of send_string.py file is giving me an error</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;send_string.py&quot;, in line 4, in &lt;module&gt;\n    import dbus\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "pip",
+    "importerror"
+   ],
+   "owner": {
+    "account_id": 11774226,
+    "reputation": 2191,
+    "user_id": 8616291,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/923ab899f509a03035a979f80e11b193?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Neeraj",
+    "link": "https://stackoverflow.com/users/8616291/neeraj"
+   },
+   "is_answered": true,
+   "view_count": 683455,
+   "answer_count": 14,
+   "score": 209,
+   "last_activity_date": 1758338535,
+   "creation_date": 1529029225,
+   "last_edit_date": 1744446646,
+   "question_id": 50868322,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/50868322/importerror-no-module-named-yaml",
+   "title": "ImportError: No module named &#39;yaml&#39;",
+   "body": "<p>I have one script in which I am trying to execute </p>\n\n<pre><code>python3 env/common_config/add_imagepullsecret.py\n</code></pre>\n\n<p>But, I am getting the following error:</p>\n\n<pre><code> [root@kevin]# python3 env/common_config/add_imagepullsecret.py\n Traceback (most recent call last):\n File \"env/common_config/add_imagepullsecret.py\", line 4, in &lt;module&gt;\n import yaml\n ImportError: No module named 'yaml'\n [root@kevin]# pip3 install pyyaml\n Requirement already satisfied: pyyaml in /usr/lib64/python3.4/site-packages \n (3.12)\n [root@kevin]#\n</code></pre>\n\n<p>PyYAML is already installed in the machine:</p>\n\n<pre><code> [root@bhimsvm31 k8s]# pip3 install pyyaml\n Requirement already satisfied: pyyaml in /usr/lib64/python3.4/site-packages \n (3.12)\n [root@bhimsvm31 k8s]#\n</code></pre>\n\n<p>How can I get this script to import PyYAML?</p>\n"
+  },
+  {
+   "tags": [
+    "python"
+   ],
+   "owner": {
+    "account_id": 8031300,
+    "reputation": 5241,
+    "user_id": 6056160,
+    "user_type": "registered",
+    "accept_rate": 78,
+    "profile_image": "https://www.gravatar.com/avatar/c2134867268025660978c231450cd17e?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Runner Bean",
+    "link": "https://stackoverflow.com/users/6056160/runner-bean"
+   },
+   "is_answered": false,
+   "view_count": 241,
+   "closed_date": 1758012736,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1758012753,
+   "creation_date": 1570647789,
+   "last_edit_date": 1570648355,
+   "question_id": 58310640,
+   "link": "https://stackoverflow.com/questions/58310640/python-importerror-no-module-named-sqlalchemy",
+   "closed_reason": "Duplicate",
+   "title": "Python ImportError No module named sqlalchemy",
+   "body": "<p>I have sqlalchemy installed but when I try and import sqlachemy it comes up with an error</p>\n\n<pre><code>(base) Benjamats-Air:sqlalchemy_test benjamattesjaroen$ pip install sqlalchemy\nRequirement already satisfied: sqlalchemy in /Users/benjamattesjaroen/anaconda3/lib/python3.7/site-packages (1.3.5)\n\n(base) Benjamats-Air:sqlalchemy_test benjamattesjaroen$ python\nPython 2.7.10 (default, Feb  7 2017, 00:08:15) \n[GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.34)] on darwin\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; import sqlalchemy\nTraceback (most recent call last):\n  File \"&lt;stdin&gt;\", line 1, in &lt;module&gt;\nImportError: No module named sqlalchemy\n&gt;&gt;&gt;  \n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "tkinter",
+    "pyinstaller"
+   ],
+   "owner": {
+    "user_type": "does_not_exist",
+    "display_name": "user7236255"
+   },
+   "is_answered": true,
+   "view_count": 7555,
+   "answer_count": 2,
+   "score": 6,
+   "last_activity_date": 1757610526,
+   "creation_date": 1507699367,
+   "question_id": 46680429,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/46680429/importerror-no-module-named-tkinter-finder",
+   "title": "ImportError: No module named _tkinter_finder",
+   "body": "<p>I am packaging my application using <code>pyinstaller</code>. It created the binary file, but it is not working. When I load the application on terminal I see this error</p>\n\n<pre><code>[9854] LOADER: Running BC_GUI_Client.py\nTraceback (most recent call last):\n  File \"FALCON_BC_CLIENT/BC_GUI_Client.py\", line 145, in &lt;module&gt;\n  File \"PIL/ImageTk.py\", line 127, in __init__\n  File \"PIL/ImageTk.py\", line 192, in paste\n  File \"/usr/local/lib/python2.7/dist-packages/PyInstaller/loader/pyimod03_importers.py\", line 687, in load_module\n    module = imp.load_module(fullname, fp, filename, ext_tuple)\nImportError: No module named _tkinter_finder\n[9854] Failed to execute script BC_GUI_Client\n</code></pre>\n\n<p>I am using python 2.7 and installed pyinstaller 3.3\nAnything wrong here?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "flask",
+    "import",
+    "pip",
+    "werkzeug"
+   ],
+   "owner": {
+    "account_id": 3914269,
+    "reputation": 3274,
+    "user_id": 3238611,
+    "user_type": "registered",
+    "accept_rate": 88,
+    "profile_image": "https://www.gravatar.com/avatar/b1e30f47c9677dd129a8a50642369ed9?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Everyone_Else",
+    "link": "https://stackoverflow.com/users/3238611/everyone-else"
+   },
+   "is_answered": true,
+   "view_count": 13569,
+   "answer_count": 4,
+   "score": 6,
+   "last_activity_date": 1756852033,
+   "creation_date": 1477369464,
+   "last_edit_date": 1756852033,
+   "question_id": 40231354,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/40231354/cant-import-flask-because-werkzeug",
+   "title": "Can&#39;t import flask because werkzeug",
+   "body": "<p>When I use <code>from flask import *</code>, I get the error</p>\n\n<blockquote>\n  <p>ImportError: No module named werkzeug.exceptions</p>\n</blockquote>\n\n<p>However, when I do <code>pip freeze</code>, I can see that <code>Werkzeug==0.11.11</code> is indeed installed.  How can I fix this?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "gensim",
+    "word2vec"
+   ],
+   "owner": {
+    "account_id": 11733181,
+    "reputation": 541,
+    "user_id": 8587926,
+    "user_type": "registered",
+    "profile_image": "https://graph.facebook.com/1325383150922191/picture?type=large",
+    "display_name": "woojung",
+    "link": "https://stackoverflow.com/users/8587926/woojung"
+   },
+   "is_answered": true,
+   "view_count": 140430,
+   "protected_date": 1684610295,
+   "answer_count": 20,
+   "score": 53,
+   "last_activity_date": 1756827635,
+   "creation_date": 1505194406,
+   "last_edit_date": 1667270293,
+   "question_id": 46168600,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/46168600/gensim-error-importerror-no-module-named-gensim",
+   "title": "gensim error: ImportError: No module named &#39;gensim&#39;",
+   "body": "<p>I trying to import gensim with</p>\n<pre><code>import gensim\n</code></pre>\n<p>but get the following error</p>\n<pre><code>ImportError                               Traceback (most recent call  \nlast)\n&lt;ipython-input-5-50007be813d4&gt; in &lt;module&gt;()\n----&gt; 1 import gensim\n  2 model = gensim.models.Word2Vec.load_word2vec_format('./model  \n/GoogleNews-vectors-negative300.bin', binary=True)\n\nImportError: No module named 'gensim'\n</code></pre>\n<p>I installed gensim in python. I use genssim for word2vec.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-import",
+    "python-module",
+    "python-packaging"
+   ],
+   "owner": {
+    "account_id": 10584536,
+    "reputation": 111,
+    "user_id": 7797315,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/EKiPX.jpg?s=256",
+    "display_name": "Broono",
+    "link": "https://stackoverflow.com/users/7797315/broono"
+   },
+   "is_answered": true,
+   "view_count": 312,
+   "accepted_answer_id": 79031279,
+   "answer_count": 3,
+   "score": 1,
+   "last_activity_date": 1756624423,
+   "creation_date": 1727436277,
+   "last_edit_date": 1756624423,
+   "question_id": 79031135,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79031135/python-import-function-from-parallel-directory",
+   "title": "Python - import function from parallel directory",
+   "body": "<p>Let's assume I have two parallel directories, with simple python files.</p>\n<ul>\n<li>'dir_one' with file_one.py</li>\n<li>'dir_two' with file_two.py</li>\n</ul>\n<p>In <code>file_one.py</code> there is a function named <code>function_one</code>.\nHow can I import it in <code>file_two.py</code>?</p>\n<p>I have checked literally a few dozens of sources, including answers on stackoverflow. Therefore, I am not quoting any of them here. I have tried four different solutions, none of them worked:</p>\n<ol>\n<li>Insert '<strong>init</strong>.py' files in all the directories - results in error 'ImportError: attempted relative import with no known parent package'</li>\n<li>Make both directories a single package - not possible in this case, directories have to be able to run as independent apps.</li>\n<li>Use sys module: sys.path.insert(0, 'path-to-dir_one') right before 'import dir_one' line - doesn't change anything, still get 'ModuleNotFoundError: No module named 'dir_one'.</li>\n<li>try relative import: 'from .dir_one import file_one' - 'ModuleNotFoundError: No module named 'zweizen.prodalitics'.</li>\n</ol>\n<p>Is it possible at all to import a function in python from parallel folder without making it part of the same package?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "unit-testing",
+    "package"
+   ],
+   "owner": {
+    "account_id": 10872709,
+    "reputation": 2725,
+    "user_id": 7994074,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/8ffa9b17be06e6db9f82fd72c78ed9ad?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "ParthS007",
+    "link": "https://stackoverflow.com/users/7994074/parths007"
+   },
+   "is_answered": true,
+   "view_count": 3424,
+   "accepted_answer_id": 48027940,
+   "answer_count": 1,
+   "score": 3,
+   "last_activity_date": 1756479770,
+   "creation_date": 1514573534,
+   "last_edit_date": 1514573837,
+   "question_id": 48027090,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/48027090/importerror-no-module-named-app",
+   "title": "ImportError: No module named &#39;app&#39;",
+   "body": "<p>I am working on a project with following tree structure:</p>\n\n<pre><code>Project\n  app\n    main.py\n    svg_to_png.py\n    __init__.py\n    tests\n       __init__.py\n       unittests\n          basic_test.py\n          __init__.py\n</code></pre>\n\n<p>I am importing app functions to basic_tests by using </p>\n\n<pre><code>from app.main import *\n</code></pre>\n\n<p>when I execute the <code>basic_test.py</code>, it gives the following error:</p>\n\n<pre><code>ImportError: No module named 'app'\n</code></pre>\n\n<p>Also, while in the top directory of the project, when I type <code>python3 -m app.main</code>, the program executes for a while, then gives the same import error at the following line</p>\n\n<p><code>from app.svg_to_png import do_svg2png</code></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "scikit-learn"
+   ],
+   "owner": {
+    "account_id": 94736,
+    "reputation": 51944,
+    "user_id": 258483,
+    "user_type": "registered",
+    "accept_rate": 46,
+    "profile_image": "https://www.gravatar.com/avatar/dd4dee2094dcd427aaec8ee329d9cfd6?s=256&d=identicon&r=PG",
+    "display_name": "Dims",
+    "link": "https://stackoverflow.com/users/258483/dims"
+   },
+   "is_answered": true,
+   "view_count": 253597,
+   "protected_date": 1544133232,
+   "accepted_answer_id": 40704570,
+   "answer_count": 11,
+   "score": 100,
+   "last_activity_date": 1755539236,
+   "creation_date": 1479648102,
+   "question_id": 40704484,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/40704484/importerror-no-module-named-model-selection",
+   "title": "ImportError: No module named model_selection",
+   "body": "<p>I am trying to use <code>train_test_split</code> function and write:</p>\n\n<pre><code>from sklearn.model_selection import train_test_split\n</code></pre>\n\n<p>and this causes </p>\n\n<pre><code>ImportError: No module named model_selection\n</code></pre>\n\n<p>Why? And how to overcome?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "matplotlib",
+    "python-idle"
+   ],
+   "owner": {
+    "account_id": 5177423,
+    "reputation": 431,
+    "user_id": 4744845,
+    "user_type": "registered",
+    "accept_rate": 20,
+    "profile_image": "https://i.sstatic.net/rOSZC.jpg?s=256",
+    "display_name": "Jabernet",
+    "link": "https://stackoverflow.com/users/4744845/jabernet"
+   },
+   "is_answered": true,
+   "view_count": 61148,
+   "protected_date": 1752780449,
+   "answer_count": 8,
+   "score": 0,
+   "last_activity_date": 1752768260,
+   "creation_date": 1501640545,
+   "question_id": 45450464,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/45450464/how-to-import-pandas-and-matplotlib-on-python-3-5-idle",
+   "title": "How to import pandas and matplotlib on Python 3.5 IDLE",
+   "body": "<p>I am running the following code:</p>\n\n<pre><code>import pandas as pd\nimport matplotlib.pyplot as plt\nfrom matplotlib import style\nstyle.use('ggplot')\n\nweb_stats = {\"Day\":[1,2,3,4,5,6],\n            \"Visitors\":[43,53,34,45,64,34],\n            \"Bounce_Rate\":[65,72,62,64,54,66]}\ndf = pd.DataFrame(web_stats)\nprint(df)\n</code></pre>\n\n<p>It works just fine for me in the Jupyter notebook. But I am getting errors when I try to run it on IDLE, and I am wondering how to make it work there, too.</p>\n\n<p>Here are the errors I'm getting:</p>\n\n<p>Traceback (most recent call last):\n  File \"C:\\Users\\theca\\AppData\\Local\\Programs\\Python\\Python35-32\\pandas.py\", line 1, in \n    import pandas as pd\n  File \"C:\\Users\\theca\\AppData\\Local\\Programs\\Python\\Python35-32\\pandas.py\", line 2, in \n    import matplotlib.pyplot as plt\nImportError: No module named 'matplotlib'</p>\n\n<p>I am new to Python, please to help. Thanks!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "windows",
+    "tensorflow",
+    "installation",
+    "anaconda"
+   ],
+   "owner": {
+    "account_id": 2741827,
+    "reputation": 939,
+    "user_id": 2363193,
+    "user_type": "registered",
+    "accept_rate": 100,
+    "profile_image": "https://i.sstatic.net/glxKR.jpg?s=256",
+    "display_name": "Lcat",
+    "link": "https://stackoverflow.com/users/2363193/lcat"
+   },
+   "is_answered": true,
+   "view_count": 374912,
+   "accepted_answer_id": 46573114,
+   "answer_count": 19,
+   "score": 44,
+   "last_activity_date": 1752753174,
+   "creation_date": 1507131620,
+   "last_edit_date": 1508380093,
+   "question_id": 46568913,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/46568913/tensorflow-import-error-no-module-named-tensorflow",
+   "title": "Tensorflow import error: No module named &#39;tensorflow&#39;",
+   "body": "<p>I installed TensorFlow on my Windows Python 3.5 Anaconda environment\nThe validation was successful (with a warning)</p>\n\n<pre><code>(tensorflow) C:\\&gt;python\n</code></pre>\n\n<p>Python 3.5.3 |Intel Corporation| (default, Apr 27 2017, 17:03:30) [MSC v.1900 64 bit (AMD64)] on win32</p>\n\n<p>Type \"help\", \"copyright\", \"credits\" or \"license\" for more information.\nIntel(R) Distribution for Python is brought to you by Intel Corporation.\nPlease check out: <a href=\"https://software.intel.com/en-us/python-distribution\" rel=\"noreferrer\">https://software.intel.com/en-us/python-distribution</a></p>\n\n<pre><code>&gt;&gt;&gt; import tensorflow as tf\n&gt;&gt;&gt; hello = tf.constant('Hello, TensorFlow!')\n&gt;&gt;&gt; sess = tf.Session()\n</code></pre>\n\n<p>2017-10-04 11:06:13.569696: W C:\\tf_jenkins\\home\\workspace\\rel-win\\M\\windows\\PY\\35\\tensorflow\\core\\platform\\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.</p>\n\n<pre><code>&gt;&gt;&gt; print(sess.run(hello))\n</code></pre>\n\n<p>b'Hello, TensorFlow!'</p>\n\n<p>However, when I attempt to import it into my python code</p>\n\n<pre><code>from __future__ import print_function, division\nimport numpy as np\nimport os\nimport matplotlib\nimport tensorflow as tf\n</code></pre>\n\n<p>I get this error</p>\n\n<blockquote>\n  <p><strong>ImportError: No module named 'tensorflow'</strong></p>\n</blockquote>\n\n<p>This is the location of the tensorflow package on my C drive</p>\n\n<pre><code>C:\\Users\\myname\\Anaconda2\\envs\\tensorflow\\Lib\\site-packages\\tensorflow\n</code></pre>\n\n<p>When I go to Anaconda Navigator, it seems I have to choose either root, Python35, or Tensorflow. It looks like the Tensorflow environment includes Python35.</p>\n\n<p>Anaconda Navigator launcher had to be reinstalled recently, possibly due to the Tensorflow installation. Maybe if there were another way to set the environment to Tensorflow within Anaconda /Spyder IDE other than the Navigator it might help</p>\n\n<p>Method of installing tensorflow</p>\n\n<pre><code>conda create --name tensorflow python=3.5; \npip install --ignore-installed --upgrade tensorflow \n</code></pre>\n\n<p>I did try:\nuninstalling and reinstalling protobuf, as suggesed by some blogs</p>\n\n<p>I see another SO user asked <a href=\"https://stackoverflow.com/questions/42619665/why-spyder-cant-import-tensorflow\">the same question</a> in March, received no reply</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "centos",
+    "ceph"
+   ],
+   "owner": {
+    "account_id": 4609692,
+    "reputation": 75,
+    "user_id": 3738168,
+    "user_type": "registered",
+    "accept_rate": 67,
+    "profile_image": "https://www.gravatar.com/avatar/11a413b7c65627f1fc374ce209757107?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "SilverIce",
+    "link": "https://stackoverflow.com/users/3738168/silverice"
+   },
+   "is_answered": true,
+   "view_count": 1829,
+   "accepted_answer_id": 32396539,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1751859059,
+   "creation_date": 1441266793,
+   "last_edit_date": 1441268370,
+   "question_id": 32369950,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/32369950/importerror-no-module-named-ceph-argparse",
+   "title": "ImportError: No module named ceph_argparse",
+   "body": "<p>I'am trying to run <code>ceph</code> command but I get the error</p>\n\n<pre><code>$ ceph\nTraceback (most recent call last):\n  File \"/usr/local/bin/ceph\", line 100, in &lt;module&gt;\n    from ceph_argparse import \\\nImportError: No module named ceph_argparse\n</code></pre>\n\n<p>I found this link <a href=\"http://tracker.ceph.com/issues/11388\" rel=\"nofollow\">http://tracker.ceph.com/issues/11388</a> </p>\n\n<p>But <code>/dist-packages/ceph_argparse.py</code> doesn't exit in my <code>/usr/lib/python2.7</code> </p>\n\n<p>I working on CentOS7 and I install <code>ceph</code> by </p>\n\n<pre><code>./autogen.sh \n./configure \nmake \nmake install \n</code></pre>\n\n<p>and follow this link <a href=\"http://ceph.com/docs/master/install/manual-deployment/\" rel=\"nofollow\">http://ceph.com/docs/master/install/manual-deployment/</a></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x"
+   ],
+   "owner": {
+    "account_id": 4275271,
+    "reputation": 914,
+    "user_id": 3496060,
+    "user_type": "registered",
+    "accept_rate": 44,
+    "profile_image": "https://graph.facebook.com/16917224/picture?type=large",
+    "display_name": "user3496060",
+    "link": "https://stackoverflow.com/users/3496060/user3496060"
+   },
+   "is_answered": true,
+   "view_count": 45288,
+   "answer_count": 3,
+   "score": 13,
+   "last_activity_date": 1751308511,
+   "creation_date": 1586620482,
+   "last_edit_date": 1751308511,
+   "question_id": 61159636,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/61159636/importerror-no-module-named-setuptools-build-meta",
+   "title": "ImportError: No module named &#39;setuptools.build_meta&#39;",
+   "body": "<p>When trying to install a package (<code>zipline</code>, in this case), it's struggling to find the <code>setuptools.build_meta</code> file, which I <em>do have</em> in the <code>site-packages\\setuptools</code> directory.</p>\n<p>I tried dropping this file into the <code>site-packages\\pip\\_vendor\\pep517</code> directly, with no change.</p>\n<p>The traceback is below:</p>\n<pre><code>ERROR: Exception:\nTraceback (most recent call last):\n  File &quot;C:\\Users\\justjo\\PycharmProjects\\python35_venv\\lib\\site-packages\\pip\\_internal\\cli\\base_command.py&quot;, line 186, in _main\n    status = self.run(options, args)\n  File &quot;C:\\Users\\justjo\\PycharmProjects\\python35_venv\\lib\\site-packages\\pip\\_internal\\commands\\install.py&quot;, line 331, in run\n    resolver.resolve(requirement_set)\n  File &quot;C:\\Users\\justjo\\PycharmProjects\\python35_venv\\lib\\site-packages\\pip\\_internal\\legacy_resolve.py&quot;, line 177, in resolve\n    discovered_reqs.extend(self._resolve_one(requirement_set, req))\n  File &quot;C:\\Users\\justjo\\PycharmProjects\\python35_venv\\lib\\site-packages\\pip\\_internal\\legacy_resolve.py&quot;, line 333, in _resolve_one\n    abstract_dist = self._get_abstract_dist_for(req_to_install)\n  File &quot;C:\\Users\\justjo\\PycharmProjects\\python35_venv\\lib\\site-packages\\pip\\_internal\\legacy_resolve.py&quot;, line 282, in _get_abstract_dist_for\n    abstract_dist = self.preparer.prepare_linked_requirement(req)\n  File &quot;C:\\Users\\justjo\\PycharmProjects\\python35_venv\\lib\\site-packages\\pip\\_internal\\operations\\prepare.py&quot;, line 516, in prepare_linked_requirement\n    req, self.req_tracker, self.finder, self.build_isolation,\n  File &quot;C:\\Users\\justjo\\PycharmProjects\\python35_venv\\lib\\site-packages\\pip\\_internal\\operations\\prepare.py&quot;, line 95, in _get_prepared_distribution\n    abstract_dist.prepare_distribution_metadata(finder, build_isolation)\n  File &quot;C:\\Users\\justjo\\PycharmProjects\\python35_venv\\lib\\site-packages\\pip\\_internal\\distributions\\sdist.py&quot;, line 38, in prepare_distribution_metadata\n    self._setup_isolation(finder)\n  File &quot;C:\\Users\\justjo\\PycharmProjects\\python35_venv\\lib\\site-packages\\pip\\_internal\\distributions\\sdist.py&quot;, line 96, in _setup_isolation\n    reqs = backend.get_requires_for_build_wheel()\n  File &quot;C:\\Users\\justjo\\PycharmProjects\\python35_venv\\lib\\site-packages\\pip\\_vendor\\pep517\\wrappers.py&quot;, line 152, in get_requires_for_build_wheel\n    'config_settings': config_settings\n  File &quot;C:\\Users\\justjo\\PycharmProjects\\python35_venv\\lib\\site-packages\\pip\\_vendor\\pep517\\wrappers.py&quot;, line 255, in _call_hook\n    raise BackendUnavailable(data.get('traceback', ''))\npip._vendor.pep517.wrappers.BackendUnavailable: Traceback (most recent call last):\n  File &quot;C:\\Users\\justjo\\PycharmProjects\\python35_venv\\lib\\site-packages\\pip\\_vendor\\pep517\\_in_process.py&quot;, line 63, in _build_backend\n    obj = import_module(mod_path)\n  File &quot;C:\\Program Files\\Python35\\lib\\importlib\\__init__.py&quot;, line 126, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 985, in _gcd_import\n  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 968, in _find_and_load\n  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 955, in _find_and_load_unlocked\nImportError: No module named 'setuptools.build_meta'\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-2.7",
+    "mod-wsgi",
+    "wsgi"
+   ],
+   "owner": {
+    "account_id": 180113,
+    "reputation": 57745,
+    "user_id": 413225,
+    "user_type": "registered",
+    "accept_rate": 75,
+    "profile_image": "https://www.gravatar.com/avatar/cccc41680ac3a03672705a85f960b8b6?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Run",
+    "link": "https://stackoverflow.com/users/413225/run"
+   },
+   "is_answered": true,
+   "view_count": 12985,
+   "answer_count": 5,
+   "score": 13,
+   "last_activity_date": 1751137198,
+   "creation_date": 1439882514,
+   "last_edit_date": 1495541237,
+   "question_id": 32066051,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/32066051/python-wsgi-cant-import-my-own-modules-from-a-directory",
+   "title": "Python + WSGI - Can&#39;t import my own modules from a directory?",
+   "body": "<p>I'm new to Python and i have looked around on how to import my custom modules from a directory/ sub directories. Such as <a href=\"https://stackoverflow.com/questions/4142151/python-how-to-import-the-class-within-the-same-directory-or-sub-directory\">this</a> and <a href=\"https://en.wikibooks.org/wiki/A_Beginner%27s_Python_Tutorial/Importing_Modules\" rel=\"noreferrer\">this</a>.</p>\n\n<p>This is my structure,</p>\n\n<pre><code>index.py\n__init__.py\nmodules/\n  hello.py\n  HelloWorld.py\n  moduletest.py\n</code></pre>\n\n<p>index.py,</p>\n\n<pre><code># IMPORTS MODULES\nimport hello\nimport HelloWorld\nimport moduletest\n\n# This is our application object. It could have any name,\n# except when using mod_wsgi where it must be \"application\"\ndef application(environ, start_response):\n\n    # build the response body possibly using the environ dictionary\n    response_body = 'The request method was %s' % environ['REQUEST_METHOD']\n\n    # HTTP response code and message\n    status = '200 OK'\n\n    # These are HTTP headers expected by the client.\n    # They must be wrapped as a list of tupled pairs:\n    # [(Header name, Header value)].\n    response_headers = [('Content-Type', 'text/plain'),\n                       ('Content-Length', str(len(response_body)))]\n\n    # Send them to the server using the supplied function\n    start_response(status, response_headers)\n\n    # Return the response body.\n    # Notice it is wrapped in a list although it could be any iterable.\n    return [response_body]\n</code></pre>\n\n<p><strong>init</strong>.py, </p>\n\n<pre><code>from modules import moduletest\nfrom modules import hello\nfrom modules import HelloWorld\n</code></pre>\n\n<p>modules/hello.py,</p>\n\n<pre><code>def hello():\n    return 'Hello World from hello.py!'\n</code></pre>\n\n<p>modules/HelloWorld.py,</p>\n\n<pre><code># define a class\nclass HelloWorld:\n    def __init__(self):\n        self.message = 'Hello World from HelloWorld.py!'\n\n    def sayHello(self):\n        return self.message\n</code></pre>\n\n<p>modules/moduletest.py,</p>\n\n<pre><code># Define some variables:\nnumberone = 1\nageofqueen = 78\n\n# define some functions\ndef printhello():\n    print \"hello\"\n\ndef timesfour(input):\n    print input * 4\n\n# define a class\nclass Piano:\n    def __init__(self):\n        self.type = raw_input(\"What type of piano? \")\n        self.height = raw_input(\"What height (in feet)? \")\n        self.price = raw_input(\"How much did it cost? \")\n        self.age = raw_input(\"How old is it (in years)? \")\n\n    def printdetails(self):\n        print \"This piano is a/an \" + self.height + \" foot\",\n        print self.type, \"piano, \" + self.age, \"years old and costing\\\n        \" + self.price + \" dollars.\"\n</code></pre>\n\n<p>But through the Apache WSGI, I get this error,</p>\n\n<blockquote>\n  <p>[wsgi:error] [pid 5840:tid 828] [client 127.0.0.1:54621]     import\n  hello [wsgi:error] [pid 5840:tid 828] [client 127.0.0.1:54621]\n  ImportError: No module named hello</p>\n</blockquote>\n\n<p>Any idea what have I done wrong?</p>\n\n<p><strong>EDIT:</strong></p>\n\n<pre><code>index.py\n__init__.py\nmodules/\n  hello.py\n  HelloWorld.py\n  moduletest.py\n  User/\n    Users.py\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "midi",
+    "python-3.5"
+   ],
+   "owner": {
+    "account_id": 6580783,
+    "reputation": 369,
+    "user_id": 5085141,
+    "user_type": "registered",
+    "accept_rate": 0,
+    "profile_image": "https://lh3.googleusercontent.com/-YtwhhYsAwG4/AAAAAAAAAAI/AAAAAAAAAH8/raHHAouShJc/s256-rj/photo.jpg",
+    "display_name": "Felicia Agatha",
+    "link": "https://stackoverflow.com/users/5085141/felicia-agatha"
+   },
+   "is_answered": true,
+   "view_count": 5771,
+   "answer_count": 2,
+   "score": 5,
+   "last_activity_date": 1750155763,
+   "creation_date": 1467387844,
+   "last_edit_date": 1531474429,
+   "question_id": 38149341,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/38149341/mido-on-python-3-5-1-no-module-named-mido",
+   "title": "mido on Python 3.5.1: No module named &#39;mido&#39;",
+   "body": "<p>I'm trying to use <code>mido</code> with Python 3.5.1. I have successfully installed it (it says \"successfully installed mido-1.1.14\" in command prompt) but when I tried to import it in python, it gives me the message </p>\n\n<blockquote>\n  <p>ImportError: No module named 'mido' </p>\n</blockquote>\n\n<p>I understand that <code>mido</code> targets Python 2.7 and 3.2, but does it really not work with 3.5 at all? Or am I missing something here?</p>\n\n<p>I'm using Windows 8.1, 64-bit; but my Python 3.5 is 32-bit version. Any help will be appreciated. Thanks!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "unit-testing",
+    "pytest"
+   ],
+   "owner": {
+    "account_id": 198825,
+    "reputation": 15359,
+    "user_id": 443722,
+    "user_type": "registered",
+    "accept_rate": 93,
+    "profile_image": "https://www.gravatar.com/avatar/8f19d207d7ecda59544c4dfaaaa902a8?s=256&d=identicon&r=PG",
+    "display_name": "MattoTodd",
+    "link": "https://stackoverflow.com/users/443722/mattotodd"
+   },
+   "is_answered": true,
+   "view_count": 463199,
+   "accepted_answer_id": 34140498,
+   "answer_count": 29,
+   "score": 449,
+   "last_activity_date": 1749025019,
+   "creation_date": 1334957523,
+   "last_edit_date": 1689506201,
+   "question_id": 10253826,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/10253826/path-issue-with-pytest-importerror-no-module-named",
+   "title": "PATH issue with pytest &#39;ImportError: No module named ...&#39;",
+   "body": "<p>I used <em>easy_install</em> to install <a href=\"https://docs.pytest.org/en/stable/\" rel=\"noreferrer\">pytest</a> on a Mac and started writing tests for a project with a file structure likes so:</p>\n<pre><code>repo/\n   |--app.py\n   |--settings.py\n   |--models.py\n   |--tests/\n          |--test_app.py\n</code></pre>\n<p>Run <code>py.test</code> while in the <em>repo</em> directory, and everything behaves as you would expect.</p>\n<p>But when I try that same thing on either Linux or Windows (both have pytest 2.2.3 on them), it barks whenever it hits its first import of something from my application path. For instance, <code>from app import some_def_in_app</code>.</p>\n<p>Do I need to be editing my <a href=\"https://en.wikipedia.org/wiki/PATH_(variable)\" rel=\"noreferrer\">PATH</a> to run <em>py.test</em> on these systems?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "jupyter-notebook",
+    "python-import",
+    "python-module"
+   ],
+   "owner": {
+    "account_id": 7380527,
+    "reputation": 1244,
+    "user_id": 6305831,
+    "user_type": "registered",
+    "accept_rate": 75,
+    "profile_image": "https://www.gravatar.com/avatar/2106895dffe6e01d6e83a817ffad695a?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Ryan",
+    "link": "https://stackoverflow.com/users/6305831/ryan"
+   },
+   "is_answered": true,
+   "view_count": 197044,
+   "answer_count": 10,
+   "score": 52,
+   "last_activity_date": 1748625948,
+   "creation_date": 1490882369,
+   "last_edit_date": 1747298295,
+   "question_id": 43120112,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/43120112/module-not-found-during-import-in-jupyter-notebook",
+   "title": "Module not found during import in Jupyter Notebook",
+   "body": "<p>I have the following package (and working directory):</p>\n<pre class=\"lang-none prettyprint-override\"><code>WorkingDirectory\n\u251c\u2500\u2500 MyPackage\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 __init__.py\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 module1.py\n\u2502\u00a0\u00a0 \u2514\u2500\u2500 module2.py\n\u2514\u2500\u2500 notebook.ipynb\n</code></pre>\n<p>In <code>__init__.py</code>, I have:</p>\n<pre><code>import module1\nimport module2\n</code></pre>\n<p>If I try to import <code>MyPackage</code> into my notebook:</p>\n<pre><code>import MyPackage as mp\n</code></pre>\n<p>I will get</p>\n<blockquote>\n<p>ModuleNotFoundError: No module named 'module1'</p>\n</blockquote>\n<p>But the import works fine if I execute the script outside a notebook: if I create <code>test.py</code> in the same directory and do the same as in the notebook the import would work properly. It will work inside the notebook if I use fully qualified name in <code>__init__.py</code> (<code>import MyPackage.module1</code>).</p>\n<p>What's the reason for different import behavior?</p>\n<p>I have confirmed the working directory of the notebook is <code>WorkingDirectory</code>.</p>\n<p>The exact error is:</p>\n<pre class=\"lang-none prettyprint-override\"><code>C:\\Users\\Me\\Documents\\Working Directory\\MyPackage\\__init__.py in &lt;module&gt;()\n---&gt; 17 import module1\n\nModuleNotFoundError: No module named 'module1'\n</code></pre>\n<p>My problem differs from <a href=\"https://stackoverflow.com/questions/15514593/importerror-no-module-named-when-trying-to-run-python-script\">&quot;ImportError: No module named&quot; when trying to run Python script</a>:</p>\n<ol>\n<li><p>The notebook was able to find the package, but only unable to load the module. This was inferred from substituting <code>module1</code> with <code>MyPackage.module1</code> worked well and suggests it may not be a problem related with <code>PATH</code>.</p>\n</li>\n<li><p>I <a href=\"https://en.wikipedia.org/wiki/Cd_(command)\" rel=\"nofollow noreferrer\">cd</a>'ed into <code>WorkingDirectory</code> and started the server there. The working directory should be the folder containing my package.</p>\n</li>\n</ol>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "embedding",
+    "freecad"
+   ],
+   "owner": {
+    "account_id": 7938659,
+    "reputation": 317,
+    "user_id": 5993616,
+    "user_type": "registered",
+    "accept_rate": 78,
+    "profile_image": "https://www.gravatar.com/avatar/047ffb8b3d82c6a87c0876ece0bb2929?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "drSlump",
+    "link": "https://stackoverflow.com/users/5993616/drslump"
+   },
+   "is_answered": false,
+   "view_count": 2522,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1747905764,
+   "creation_date": 1473931706,
+   "last_edit_date": 1473932229,
+   "question_id": 39507541,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/39507541/embedding-freecad-in-python-script",
+   "title": "Embedding FreeCAD in python script",
+   "body": "<p>I am trying to run FreeCAD modules from a python script. Here is the code I have written to import the FreeCAD modules according with <a href=\"http://www.freecadweb.org/wiki/index.php?title=Embedding_FreeCAD\" rel=\"nofollow\">this tutorial</a>\" (eventhoug I don't have any FreeCAD.dll installed on my HD):</p>\n\n<pre><code>FREECADPATH = \"C:\\\\Program Files (x86)\\\\FreeCAD 0.16\\\\bin\"\nimport sys\nsys.path.append(FREECADPATH)\n\nimport FreeCAD\nimport Part\nimport Mesh\n...then the FreeCAD commands\n</code></pre>\n\n<p>But i got the following error:</p>\n\n<blockquote>\n  <p>\" import Part \n  ImportError: No module named Part\"</p>\n</blockquote>\n\n<p>I also tried with a 64bit version of the FreeCAD </p>\n\n<blockquote>\n  <p>C:\\Program Files\\FreeCAD 0.16\\bin</p>\n</blockquote>\n\n<p>Any suggestion?</p>\n"
+  }
+ ]
+}

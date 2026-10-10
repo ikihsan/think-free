@@ -1,0 +1,1437 @@
+{
+ "site": "stackoverflow",
+ "query": "python \"ModuleNotFoundError\" \"No module named\"",
+ "class": "core",
+ "items": [
+  {
+   "tags": [
+    "python",
+    "tensorflow",
+    "machine-learning",
+    "keras",
+    "deep-learning"
+   ],
+   "owner": {
+    "account_id": 10637295,
+    "reputation": 51,
+    "user_id": 7833616,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/2a8ca7c1fab64a6986d66e7aba11fdbd?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "ChillGod",
+    "link": "https://stackoverflow.com/users/7833616/chillgod"
+   },
+   "is_answered": false,
+   "view_count": 8760,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1791519110,
+   "creation_date": 1655589140,
+   "question_id": 72672993,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/72672993/modulenotfounderror-no-module-named-keras-saving",
+   "title": "ModuleNotFoundError: No module named &#39;keras.saving&#39;",
+   "body": "<p>Complete Error:</p>\n<pre><code>Using TensorFlow backend.\nTraceback (most recent call last):\n  File &quot;file.py&quot;, line 32, in &lt;module&gt;\n    pickled_model = pickle.load(open('model.pkl', 'rb'))\nModuleNotFoundError: No module named 'keras.saving'\n</code></pre>\n<p>I am not able to solve this error.\nThanks for the help:)</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-import"
+   ],
+   "owner": {
+    "account_id": 47174158,
+    "reputation": 39,
+    "user_id": 33184065,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/96373dcb0d70c9178db64ce3af363e2c?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Naira",
+    "link": "https://stackoverflow.com/users/33184065/naira"
+   },
+   "is_answered": true,
+   "view_count": 165,
+   "closed_date": 1791318594,
+   "answer_count": 3,
+   "score": 0,
+   "last_activity_date": 1791263676,
+   "creation_date": 1791175376,
+   "last_edit_date": 1791182606,
+   "question_id": 80007904,
+   "link": "https://stackoverflow.com/questions/80007904/modulenotfounderror-no-module-named-nubra-sdk-after-pip-install-nubra-sdk",
+   "closed_reason": "Not suitable for this site",
+   "title": "ModuleNotFoundError: No module named &#39;nubra_sdk&#39; after pip install nubra-sdk",
+   "body": "<p>I installed the Nubra SDK with:</p>\n<pre><code>pip install nubra-sdk\n</code></pre>\n<p>The install succeeds, but my script fails on the first line:</p>\n<pre><code>from nubra_sdk import InitNubraSdk\n# ModuleNotFoundError: No module named 'nubra_sdk'\n</code></pre>\n<p><code>pip show nubra-sdk</code> confirms the package is installed. What is the correct import?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "keras",
+    "installation"
+   ],
+   "owner": {
+    "account_id": 10330510,
+    "reputation": 1029,
+    "user_id": 7620499,
+    "user_type": "registered",
+    "accept_rate": 44,
+    "profile_image": "https://www.gravatar.com/avatar/9a3f6f851423c292d4a4a4768feab1c5?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "bernando_vialli",
+    "link": "https://stackoverflow.com/users/7620499/bernando-vialli"
+   },
+   "is_answered": false,
+   "view_count": 11002,
+   "answer_count": 4,
+   "score": 2,
+   "last_activity_date": 1790474680,
+   "creation_date": 1562955369,
+   "question_id": 57012191,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/57012191/importing-the-attention-package-in-keras-gives-modulenotfounderror-no-module-na",
+   "title": "Importing the Attention package in Keras gives ModuleNotFoundError: No module named &#39;attention&#39;",
+   "body": "<p>As part of my imports, I am importing the AttentionLayer package as follows:</p>\n\n<pre><code>from attention import AttentionLayer\n</code></pre>\n\n<p>I get the following error:</p>\n\n<pre><code>ModuleNotFoundError: No module named 'attention'\n</code></pre>\n\n<p>I figured this might be because I need to pip install it so I tried based on other answers I found online a few pip installs I tried were:</p>\n\n<pre><code>pip install AttentionLayer\npip install Attention \npip install keras-self-attention\n</code></pre>\n\n<p>All 3 of those give me:</p>\n\n<pre><code>Could not find a version that satisfies the requirement keras-self-attention (from versions: ) No Matching distribution found for....\n</code></pre>\n\n<p>Why am I not getting it to work and how can I fix it? </p>\n\n<p>I have a suspicion that it might be related to setting the pythonpath but I do not have admin rights to edit this at work.</p>\n\n<p>Thank you.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "spyder",
+    "openpyxl",
+    "modulenotfounderror"
+   ],
+   "owner": {
+    "account_id": 20357389,
+    "reputation": 61,
+    "user_id": 14932596,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/bc309193f50ef3e65f1177d0a34d64e8?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Woodpig2802",
+    "link": "https://stackoverflow.com/users/14932596/woodpig2802"
+   },
+   "is_answered": false,
+   "view_count": 8544,
+   "answer_count": 2,
+   "score": 6,
+   "last_activity_date": 1789776205,
+   "creation_date": 1609689219,
+   "last_edit_date": 1609692304,
+   "question_id": 65551802,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/65551802/pip-install-openpyxl-modulenotfounderror-no-module-named-et-xmlfile",
+   "title": "pip install openpyxl - ModuleNotFoundError: No module named &#39;et_xmlfile&#39;",
+   "body": "<p>The question or similar ones were often asked before, but I didn't come to a solution.\nI'm trying to install openpyxl by <code>pip install openpyxl</code> (already tried <code>pip3</code> install <code>openpyxl</code>) and always get the error message below. <br>\nI also already tried to install <code>jdcal</code> (worked) and <code>et_xmlfile</code> (didn't work, same error) separately beforehand.<br>\nI use <code>--no-cache-dir</code> because the output before was <code>Using cached et_xmlfile-1.0.1.tar.gz (8.4 kB)</code>, so I guessed that this could be the problem, but it wasn't.</p>\n<p>I'm using <code>Spyder 4.x</code>.</p>\n<p>I'd really appreciate your help ...</p>\n<hr />\n<pre><code>C:\\Users\\Lina\\Spyder\\Python\\Scripts&gt;pip3 install --no-cache-dir C:\\Users\\Lina\\Spyder\\Python\\Lib\\site-packages\\et_xmlfile-1.0.1.tar.gz\nProcessing c:\\users\\lina\\spyder\\python\\lib\\site-packages\\et_xmlfile-1.0.1.tar.gz\n\n ERROR: Command errored out with exit status 1:\n     command: 'c:\\users\\lina\\spyder\\python\\python.exe' -c 'import sys, setuptools, tokenize; sys.argv[0] = '&quot;'&quot;'C:\\\\Users\\\\Lina\\\\AppData\\\\Local\\\\Temp\\\\pip-req-build-pa5jygs_\\\\setup.py'&quot;'&quot;'; __file__='&quot;'&quot;'C:\\\\Users\\\\Lina\\\\AppData\\\\Local\\\\Temp\\\\pip-req-build-pa5jygs_\\\\setup.py'&quot;'&quot;';f=getattr(tokenize, '&quot;'&quot;'open'&quot;'&quot;', open)(__file__);code=f.read().replace('&quot;'&quot;'\\r\\n'&quot;'&quot;', '&quot;'&quot;'\\n'&quot;'&quot;');f.close();exec(compile(code, __file__, '&quot;'&quot;'exec'&quot;'&quot;'))' egg_info --egg-base 'C:\\Users\\Lina\\AppData\\Local\\Temp\\pip-pip-egg-info-nitpcy2b'\n         cwd: C:\\Users\\Lina\\AppData\\Local\\Temp\\pip-req-build-pa5jygs_\\\n    Complete output (5 lines):\n    Traceback (most recent call last):\n      File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;\n      File &quot;C:\\Users\\Lina\\AppData\\Local\\Temp\\pip-req-build-pa5jygs_\\setup.py&quot;, line 40, in &lt;module&gt;\n        from et_xmlfile import (\n    ModuleNotFoundError: No module named 'et_xmlfile'\n    ----------------------------------------\nERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "anaconda",
+    "conda"
+   ],
+   "owner": {
+    "account_id": 10751135,
+    "reputation": 437,
+    "user_id": 7910550,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/f49001a07c44012653ea2fee3c1012ca?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Y.Su",
+    "link": "https://stackoverflow.com/users/7910550/y-su"
+   },
+   "is_answered": false,
+   "view_count": 12016,
+   "answer_count": 2,
+   "score": 3,
+   "last_activity_date": 1789520785,
+   "creation_date": 1563183676,
+   "last_edit_date": 1734803375,
+   "question_id": 57037064,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/57037064/conda-install-package-modulenotfounderror-no-module-named-conda",
+   "title": "Conda install package ModuleNotFoundError: No module named &#39;conda&#39;",
+   "body": "\n<p>I installed Conda using the scripts from <a href=\"https://gist.github.com/YanzhongSu/5153a327d08243b59b311a8f2c7c0a01\" rel=\"nofollow noreferrer\">bootstrap-conda.sh</a> and <a href=\"http://gs://dataproc-initialization-actions/conda/install-conda-env.sh\" rel=\"nofollow noreferrer\">install-conda-env.sh</a></p>\n<p>Conda was installed successfully. When I install the first package,</p>\n<p>e.g., <code>conda install --yes lxml=4.3.0</code></p>\n<p>it worked fine. The log can be found <a href=\"https://gist.github.com/YanzhongSu/5153a327d08243b59b311a8f2c7c0a01\" rel=\"nofollow noreferrer\">here</a>. But when I tried to install the second package,</p>\n<p>e.g., <code>conda install --yes numpy=1.15.4</code></p>\n<p>it throws this error:</p>\n<pre class=\"lang-none prettyprint-override\"><code>Traceback (most recent call last):\n  File &quot;/opt/conda/default/bin/conda&quot;, line 12, in &lt;module&gt;\n    from conda.cli import main\nModuleNotFoundError: No module named 'conda'\n</code></pre>\n<p>Tried every possible solution I could find, it did not help.</p>\n<p>Before package installation, when I type <strong>python</strong>, it takes me to <strong>Python 3.6.7</strong></p>\n<pre class=\"lang-none prettyprint-override\"><code>Python 3.6.7 | packaged by conda-forge | (default, Feb 28 2019, 09:07:38)\n[GCC 7.3.0] on linux\nType &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.\n</code></pre>\n<p>python default import path:</p>\n<pre class=\"lang-none prettyprint-override\"><code>/opt/conda/default/lib/python36.zip\n/opt/conda/default/lib/python3.6\n/opt/conda/default/lib/python3.6/lib-dynload\n/opt/conda/default/lib/python3.6/site-packages\n/usr/lib/spark/python\n</code></pre>\n<p>After package installation, when I type <strong>python</strong>, it takes me to <strong>Python 3.7.3</strong></p>\n<pre class=\"lang-none prettyprint-override\"><code>Python 3.7.3 (default, Mar 27 2019, 22:11:17)\n[GCC 7.3.0] :: Anaconda, Inc. on linux\nType &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.\n</code></pre>\n<p>python default import path:</p>\n<pre class=\"lang-none prettyprint-override\"><code>/opt/conda/default/lib/python37.zip\n/opt/conda/default/lib/python3.7\n/opt/conda/default/lib/python3.7/lib-dynload\n/opt/conda/default/lib/python3.7/site-packages\n</code></pre>\n<p>I re-installed Conda. The same problem still persists.</p>\n<p>Conda Version:</p>\n<pre class=\"lang-none prettyprint-override\"><code>conda --version\n</code></pre>\n<blockquote>\n<p>conda 4.6.14</p>\n</blockquote>\n<p>When I install the first package, the following log caught my attention. It upgraded python from 3.6 to 3.7. I am not sure if this is what causes the problem.</p>\n<pre class=\"lang-none prettyprint-override\"><code>The following packages will be UPDATED:\n\n  certifi              conda-forge::certifi-2019.3.9-py36_0 --&gt; pkgs/main::certifi-2019.6.16-py37_0\n  libedit                           3.1.20170329-h6b74fdf_2 --&gt; 3.1.20181209-hc058e9b_0\n  ncurses                                    6.1-hf484d3e_0 --&gt; 6.1-he6710b0_1\n  openssl            conda-forge::openssl-1.1.1b-h14c3975_1 --&gt; pkgs/main::openssl-1.1.1c-h7b6447c_1\n  pip                                         10.0.1-py36_0 --&gt; 19.1.1-py37_0\n  python             conda-forge::python-3.6.7-h381d211_10~ --&gt; pkgs/main::python-3.7.3-h0371630_0\n  readline                                   7.0-ha6073c6_4 --&gt; 7.0-h7b6447c_5\n  setuptools                                  39.2.0-py36_0 --&gt; 41.0.1-py37_0\n  wheel                                       0.31.1-py36_0 --&gt; 0.33.4-py37_0\n  zlib                                    1.2.11-ha838bed_2 --&gt; 1.2.11-h7b6447c_3\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "fedora",
+    "yum",
+    "dnf"
+   ],
+   "owner": {
+    "account_id": 11594654,
+    "reputation": 1046,
+    "user_id": 8493740,
+    "user_type": "registered",
+    "accept_rate": 100,
+    "profile_image": "https://i.sstatic.net/eEWsD.jpg?s=256",
+    "display_name": "polcompany",
+    "link": "https://stackoverflow.com/users/8493740/polcompany"
+   },
+   "is_answered": true,
+   "view_count": 57287,
+   "answer_count": 10,
+   "score": 12,
+   "last_activity_date": 1789221869,
+   "creation_date": 1545473177,
+   "question_id": 53894712,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/53894712/modulenotfounderror-no-module-named-dnf-when-running-yum-or-dnf",
+   "title": "ModuleNotFoundError: No module named &#39;dnf&#39; when running yum or dnf",
+   "body": "<p>A few days ago I wanted to run dnf but I received  the following error</p>\n\n<pre><code>Traceback (most recent call last):\n  File \"/usr/bin/dnf\", line 57, in &lt;module&gt;\n    from dnf.cli import main\nModuleNotFoundError: No module named 'dnf'\n</code></pre>\n\n<p>Thus I tried to run yum and I received something similar: </p>\n\n<pre><code>Traceback (most recent call last):\n  File \"/usr/bin/yum\", line 57, in &lt;module&gt;\n    from dnf.cli import main\nModuleNotFoundError: No module named 'dnf'\n</code></pre>\n\n<p>I do not know what happened and I hope someone can help me find the problem and solve it. The only thing I know is that it might be related to the fact that a few days before I installed tensorflow in python using conda. Although it seems conda does not work now because I get this: </p>\n\n<pre><code>Traceback (most recent call last):\n  File \"/usr/bin/conda\", line 6, in &lt;module&gt;\n    from pkg_resources import load_entry_point\n  File \"/usr/lib/python3.6/site-packages/pkg_resources/__init__.py\", line 3126, in &lt;module&gt;\n    @_call_aside\n  File \"/usr/lib/python3.6/site-packages/pkg_resources/__init__.py\", line 3110, in _call_aside\n    f(*args, **kwargs)\n  File \"/usr/lib/python3.6/site-packages/pkg_resources/__init__.py\", line 3139, in _initialize_master_working_set\n    working_set = WorkingSet._build_master()\n  File \"/usr/lib/python3.6/site-packages/pkg_resources/__init__.py\", line 581, in _build_master\n    ws.require(__requires__)\n  File \"/usr/lib/python3.6/site-packages/pkg_resources/__init__.py\", line 898, in require\n    needed = self.resolve(parse_requirements(requirements))\n  File \"/usr/lib/python3.6/site-packages/pkg_resources/__init__.py\", line 784, in resolve\n    raise DistributionNotFound(req, requirers)\npkg_resources.DistributionNotFound: The 'conda==4.5.11' distribution was not found and is required by the application\n</code></pre>\n\n<p>I am using fedora 29\nThanks!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "fairseq"
+   ],
+   "owner": {
+    "account_id": 17336736,
+    "reputation": 41,
+    "user_id": 12558516,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/cb7f1ff372ffe9d52cbde03b4eae62ae?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "JEONGHYEOK PARK",
+    "link": "https://stackoverflow.com/users/12558516/jeonghyeok-park"
+   },
+   "is_answered": false,
+   "view_count": 8716,
+   "answer_count": 2,
+   "score": 4,
+   "last_activity_date": 1789211020,
+   "creation_date": 1598841823,
+   "last_edit_date": 1598871946,
+   "question_id": 63664092,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/63664092/install-and-run-fairseq-in-google-colab-modulenotfounderror-no-module-named-f",
+   "title": "install and run fairseq in google colab (ModuleNotFoundError: No module named &#39;fairseq&#39;)",
+   "body": "<p>Until yesterday, we installed fairseq normally and executed it.</p>\n<p>An error called &quot;ModuleNotFoundError: No module named 'fairseq'&quot; suddenly occurred today.</p>\n<p>Does anyone know how to solve this?</p>\n<p>install fairseq...</p>\n<pre><code>!git clone https://private_information.../fairseq.git\n%cd /content/fairseq/fairseq-master/\n!git reset --hard dafault\n!pip install --editable ./\n%cd /content\n</code></pre>\n<p>install log...</p>\n<pre><code>Cloning into 'fairseq'...\nremote: Enumerating objects: 669, done.\nremote: Counting objects: 100% (669/669), done.\nremote: Compressing objects: 100% (520/520), done.\nremote: Total 669 (delta 164), reused 635 (delta 130), pack-reused 0\nReceiving objects: 100% (669/669), 2.95 MiB | 16.17 MiB/s, done.\nResolving deltas: 100% (164/164), done.\n/content/fairseq/fairseq-master\nHEAD is now at 16bea6e default\nObtaining file:///content/fairseq/fairseq-master\n  Installing build dependencies ... done\n  Getting requirements to build wheel ... done\n  Installing backend dependencies ... done\n    Preparing wheel metadata ... done\nCollecting sacrebleu\n  Downloading https://files.pythonhosted.org/packages/23/d3/be980ad7cda7c4bbfa97ee3de062fb3014fc1a34d6dd5b82d7b92f8d6522/sacrebleu-1.4.13-py3-none-any.whl (43kB)\n     |\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 51kB 2.0MB/s \nRequirement already satisfied: cffi in /usr/local/lib/python3.6/dist-packages (from fairseq==0.9.0) (1.14.2)\nRequirement already satisfied: tqdm in /usr/local/lib/python3.6/dist-packages (from fairseq==0.9.0) (4.41.1)\nRequirement already satisfied: numpy in /usr/local/lib/python3.6/dist-packages (from fairseq==0.9.0) (1.18.5)\nRequirement already satisfied: torch in /usr/local/lib/python3.6/dist-packages (from fairseq==0.9.0) (1.6.0+cu101)\nRequirement already satisfied: regex in /usr/local/lib/python3.6/dist-packages (from fairseq==0.9.0) (2019.12.20)\nRequirement already satisfied: cython in /usr/local/lib/python3.6/dist-packages (from fairseq==0.9.0) (0.29.21)\nCollecting portalocker\n  Downloading https://files.pythonhosted.org/packages/89/a6/3814b7107e0788040870e8825eebf214d72166adf656ba7d4bf14759a06a/portalocker-2.0.0-py2.py3-none-any.whl\nRequirement already satisfied: pycparser in /usr/local/lib/python3.6/dist-packages (from cffi-&gt;fairseq==0.9.0) (2.20)\nRequirement already satisfied: future in /usr/local/lib/python3.6/dist-packages (from torch-&gt;fairseq==0.9.0) (0.16.0)\nInstalling collected packages: portalocker, sacrebleu, fairseq\n  Running setup.py develop for fairseq\nSuccessfully installed fairseq portalocker-2.0.0 sacrebleu-1.4.13\n/content\n</code></pre>\n<p>run...</p>\n<pre><code>!python /content/fairseq/fairseq-master/fairseq_cli/train.py \\\n    /data_dir \\\n    --arch transformer_align --share-all-embeddings \\\n    --optimizer adam --adam-betas '(0.9, 0.98)' --clip-norm 0.0 --activation-fn relu\\\n    --lr 0.0007 --lr-scheduler inverse_sqrt --warmup-updates 4000 --warmup-init-lr 1e-07 \\\n    --dropout 0.3 --attention-dropout 0.1 --weight-decay 0.0\\\n    --max-tokens 3500 --label-smoothing 0.1 \\\n    --save-dir /save_dir/ --log-interval 200 --max-epoch 20 \\\n    --keep-interval-updates -1 --save-interval-updates 0 --criterion label_smoothed_cross_entropy \\\n    --update-freq 8 \\\n   \n</code></pre>\n<p>run log...</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;/content/fairseq/fairseq-master/fairseq_cli/train.py&quot;, line 20, in &lt;module&gt;\n    from fairseq import (\nModuleNotFoundError: No module named 'fairseq'\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "macos"
+   ],
+   "owner": {
+    "account_id": 45171864,
+    "reputation": 11,
+    "user_id": 32131857,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/a0902965b1cefbd4266e1ecc37b4faf9?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Joe Borgione",
+    "link": "https://stackoverflow.com/users/32131857/joe-borgione"
+   },
+   "is_answered": true,
+   "view_count": 146,
+   "closed_date": 1788700801,
+   "answer_count": 1,
+   "score": -3,
+   "last_activity_date": 1788520781,
+   "creation_date": 1788464253,
+   "question_id": 80000620,
+   "link": "https://stackoverflow.com/questions/80000620/python-library-module-wont-import-while-others-do",
+   "closed_reason": "Needs details or clarity",
+   "title": "Python Library/Module Won&#39;t Import While Others Do",
+   "body": "<p>Mac os Sequoia 15.6</p>\n<p>I installed the exifread library using pip as well as conda. In Anaconda Navigator it shows as installed. Using a terminal window I type in:</p>\n<p><strong>pip3 show exifread</strong></p>\n<p>and it returns</p>\n<p><strong>/opt/anaconda3/lib/python3.13/site-packages</strong></p>\n<p>I use Spyder and  cannot import the module. I get the dreaded</p>\n<p><strong>ModuleNotFoundError: No module named \u2018exifread\u2019</strong></p>\n<p>I recently installed pillow and I can import it just fine with import PIL.</p>\n<p>Using <strong>pip3 show pillow</strong> it is the same directory as exifread</p>\n<p>What am I missing here?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "module",
+    "modulenotfounderror"
+   ],
+   "owner": {
+    "account_id": 20817821,
+    "reputation": 59,
+    "user_id": 15290227,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AOh14GiaDDfWAR-hhYHdnX5TsV3gai9R5U1QRZL7tJIx=k-s256",
+    "display_name": "Dave Closinger",
+    "link": "https://stackoverflow.com/users/15290227/dave-closinger"
+   },
+   "is_answered": true,
+   "view_count": 11914,
+   "accepted_answer_id": 66907496,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1787130967,
+   "creation_date": 1617273131,
+   "last_edit_date": 1787130647,
+   "question_id": 66902900,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/66902900/modulenotfounderror-no-module-named-even-though-module-is-installed",
+   "title": "&quot;ModuleNotFoundError: No module named &#39;...&#39; even though module is installed",
+   "body": "<p>I am trying to import &quot;libgen_api&quot; module, but I get a <code>&quot;Module not found&quot;</code> error.</p>\n<p><code>Pip install libgen-api</code> shows <code>&quot;requirement already satisfied&quot;</code> and the module exists in the Python folder as well.</p>\n<p>The documentation of the module says that it has to be called with <code>libgen_api</code>.</p>\n<p>Other modules work fine. I am using Visual Studio Code, but the problem persists in the Python terminal as well. I apologize if this question is redundant, but so far I have not been able to find a solution anywhere.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "ipython"
+   ],
+   "owner": {
+    "account_id": 10230215,
+    "reputation": 3643,
+    "user_id": 7551257,
+    "user_type": "registered",
+    "accept_rate": 45,
+    "profile_image": "https://www.gravatar.com/avatar/1123adbe09cc110b30617ba96465a207?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Melissa Stewart",
+    "link": "https://stackoverflow.com/users/7551257/melissa-stewart"
+   },
+   "is_answered": true,
+   "view_count": 25201,
+   "accepted_answer_id": 42310977,
+   "answer_count": 2,
+   "score": 6,
+   "last_activity_date": 1786735602,
+   "creation_date": 1487390993,
+   "last_edit_date": 1786735602,
+   "question_id": 42310941,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/42310941/modulenotfounderror-no-module-named-ipython",
+   "title": "ModuleNotFoundError: No module named &#39;Ipython&#39;",
+   "body": "<p>I'm trying to parse the following line of code in an iPython notebook.</p>\n<pre><code>from Ipython.display import display, Image\n</code></pre>\n<p>I get the following error,</p>\n<pre><code>ModuleNotFoundError: No module named 'Ipython'\n</code></pre>\n<p>When I run <code>pip3 install Ipython</code></p>\n<p>Here's what I get.</p>\n<pre class=\"lang-none prettyprint-override\"><code>Requirement already satisfied: Ipython in ./.envs/dl/lib/python3.6/site-packages\n</code></pre>\n<p>I'm running the code in the same virtual env in which ipython is installed. What am I missing. My python version is 3.6.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "sublimetext3",
+    "python-venv"
+   ],
+   "owner": {
+    "account_id": 66592,
+    "reputation": 1087,
+    "user_id": 195279,
+    "user_type": "registered",
+    "accept_rate": 88,
+    "profile_image": "https://www.gravatar.com/avatar/88dddba7e6bc7c4c3f952356e5f00095?s=256&d=identicon&r=PG",
+    "display_name": "Alex In Paris",
+    "link": "https://stackoverflow.com/users/195279/alex-in-paris"
+   },
+   "is_answered": true,
+   "view_count": 10569,
+   "accepted_answer_id": 64581299,
+   "answer_count": 2,
+   "score": 4,
+   "last_activity_date": 1786203826,
+   "creation_date": 1603917661,
+   "last_edit_date": 1603973248,
+   "question_id": 64580984,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/64580984/how-to-use-sublimetext-within-a-venv",
+   "title": "How to use SublimeText within a venv?",
+   "body": "<p>I've been following the steps to <a href=\"https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world\" rel=\"nofollow noreferrer\">a tutorial</a> and (1) created a new directory for my project, (2) run <strong>C:\\Users\\JohnSmith\\AppData\\Local\\Programs\\Python\\Python38\\python -m venv .venv</strong> in that directory to create the virtual environment, (3) run <strong>.venv\\Scripts\\activate</strong> to activate it, (4) run to install <strong>python -m pip install flask</strong> which should only be available in this environment, (5) <strong>flask --version</strong> confirms that it is installed in (.venv), here is the output from this last command:</p>\n<p>Python 3.9.0</p>\n<p>Flask 1.1.2</p>\n<p>Werkzeug 1.0.1</p>\n<p>The issue is when I try to reference flask in my code it returns the following: <em>ModuleNotFoundError: No module named 'flask'.</em></p>\n<p>I saw some posts about creating a new <em>Build System</em> but I have no clue how to do that. Anyone else set up something similar? Please don't recommend some other virtual environment, since I'm committed to following this tutorial and <em>venv</em> is the tool he uses which comes included in Python 3.9.</p>\n<p>The first bit of code in the file ..\\app\\__init__.py has the following code that gives the above error (first line) when I hit CTRL+b:</p>\n<pre><code>from flask import Flask\n\napp = Flask(__name__)\n\nfrom app import routes\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram-bot"
+   ],
+   "owner": {
+    "account_id": 23419618,
+    "reputation": 11,
+    "user_id": 17480039,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AATXAJwF4hTQmdwtoF4YIAh8ZZ7L4_2e_aPwX0jx0Gov=k-s256",
+    "display_name": "Maya Deian",
+    "link": "https://stackoverflow.com/users/17480039/maya-deian"
+   },
+   "is_answered": false,
+   "view_count": 15764,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1785787505,
+   "creation_date": 1637592585,
+   "question_id": 70067696,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/70067696/python-telegram-bot-telegram-ext",
+   "title": "Python telegram bot (telegram.ext)",
+   "body": "<p>First thing first, I'm a beginner in Python and programming.\nI want to make a telegram bot for my telegram group. I found a code o Github and I want to configure it for my needs.\nI have an error when I run the code: ModuleNotFoundError: No module named 'telegram'.\nWhat do I have to install? I believe it is something related to &quot;telegram.ext&quot; and I have no ideea how to solve this.\n<a href=\"https://i.sstatic.net/kwkRo.jpg\" rel=\"nofollow noreferrer\">code</a></p>\n<p>Thank you!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "conda",
+    "xesmf"
+   ],
+   "owner": {
+    "account_id": 1399381,
+    "reputation": 17363,
+    "user_id": 1328439,
+    "user_type": "registered",
+    "accept_rate": 60,
+    "profile_image": "https://i.sstatic.net/CuI4k.jpg?s=256",
+    "display_name": "Dima Chubarov",
+    "link": "https://stackoverflow.com/users/1328439/dima-chubarov"
+   },
+   "is_answered": true,
+   "view_count": 973,
+   "accepted_answer_id": 79614030,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1784890791,
+   "creation_date": 1746642871,
+   "question_id": 79611220,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79611220/modulenotfounderror-no-module-named-esmf-when-importing-xesmf-installed-via",
+   "title": "&quot;ModuleNotFoundError: No module named &#39;ESMF&#39;&quot; when importing xesmf installed via conda",
+   "body": "<p>I have tried to install xESMF module developed by pangeo-data collective into my conda environment with</p>\n<pre class=\"lang-bash prettyprint-override\"><code>conda install -c conda-forge --override-channels xesmf\n</code></pre>\n<p>however when I try to import xesmf I get the following error:</p>\n<pre><code>import xesmf as xe\n\nTraceback (most recent call last):                                                                                   \n  File &quot;&lt;python-input-0&gt;&quot;, line 1, in &lt;module&gt;                                                                       \n    import xesmf                                                                                                     \n  File &quot;/opt/conda/envs/geo/lib/python3.9/site-packages/xesmf/__init__.py&quot;, line 4, in &lt;module&gt;   \n    from . frontend import Regridder                                                                                 \n  File &quot;/opt/conda/envs/geo/lib/python3.9/site-packages/xesmf/frontend.py&quot;, line 10, in &lt;module&gt;  \n    from . backend import (esmf_grid, esmf_locstream, add_corner,                                                    \n                           esmf_regrid_build, esmf_regrid_finalize)                                                  \n  File &quot;/opt/conda/envs/geo/lib/python3.9/site-packages/xesmf/backend.py&quot;, line 19, in &lt;module&gt;   \n    import ESMF                                                                                                      \nModuleNotFoundError: No module named 'ESMF'                      \n\n</code></pre>\n<p>Indeed module ESMF is not available neither in conda default channels, nor in conda-forge.</p>\n<p>This error has been reported in one of xesmf code repositories.\n<a href=\"https://github.com/JiaweiZhuang/xESMF/issues/131\" rel=\"nofollow noreferrer\">https://github.com/JiaweiZhuang/xESMF/issues/131</a></p>\n<p>However the only solution suggested on that thread was to create a new environment. Which I would prefer not to do as my current environment has many packages installed and recreating it with different package versions would require quite some integration testing for new versions.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "import",
+    "pip",
+    "mqtt",
+    "libraries"
+   ],
+   "owner": {
+    "account_id": 24636741,
+    "reputation": 19,
+    "user_id": 18535316,
+    "user_type": "registered",
+    "profile_image": "https://graph.facebook.com/10223812935209963/picture?type=large",
+    "display_name": "Matou\u0161 Hucl",
+    "link": "https://stackoverflow.com/users/18535316/matou%c5%a1-hucl"
+   },
+   "is_answered": false,
+   "view_count": 11939,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1784531275,
+   "creation_date": 1647907322,
+   "question_id": 71565510,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/71565510/modulenotfounderror-no-module-named-paho",
+   "title": "ModuleNotFoundError: No module named &#39;paho&#39;",
+   "body": "<p>I am trying to make connection with my raspberry Pi and my PC windows through MQTT protocol. And I have a problem I cant solve on my PC - I can t import library that I have installed to my program:</p>\n<p><code>import paho.mqtt.client as mqtt</code></p>\n<p>Results in the error</p>\n<p><code>ModuleNotFoundError: No module named 'paho'</code></p>\n<p>The topic was already issued here (<a href=\"https://stackoverflow.com/questions/41480256/import-error-paho-mqtt-client-not-found\">Import Error: paho.mqtt.client not found</a>), but solution doesnt work for me.</p>\n<p>I see it in the python folder:</p>\n<p>C:\\Users\\mhucl\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\paho\\mqtt\\client</p>\n<p>I see it in the pip list. But the program can t find it. Do you know where could be the problem? I use python version 3.10.3. I tried it on different PC aswell and the same result. I followed all solutions on youtube, forums and nothing. Thank you very much.</p>\n<p>Here are screenshots if someone would like to see:</p>\n<p><a href=\"https://uschovna.cz/zasilka/WLUWM5TNP7HP7GDG-XKP/UCKZFIZHCI\" rel=\"nofollow noreferrer\">https://uschovna.cz/zasilka/WLUWM5TNP7HP7GDG-XKP/UCKZFIZHCI</a></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram-bot",
+    "aiogram"
+   ],
+   "owner": {
+    "account_id": 27518749,
+    "reputation": 1,
+    "user_id": 20999264,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/Vl4dC.jpg?s=256",
+    "display_name": "Slay",
+    "link": "https://stackoverflow.com/users/20999264/slay"
+   },
+   "is_answered": false,
+   "view_count": 9144,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1784279245,
+   "creation_date": 1705270450,
+   "last_edit_date": 1705340610,
+   "question_id": 77816881,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77816881/modulenotfounderror-no-module-named-aiogram",
+   "title": "ModuleNotFoundError: No module named &#39;aiogram&#39;",
+   "body": "<p>I work in VS Code and I was asked to change the telegram bot script from python-telegram-bot library to aiogram. I've installed that via 'pip install aiogram' and still getting errors like ModuleNotFoundError: No module named 'aiogram' and I don't know what to do.</p>\n<pre><code>import logging\nfrom aiogram import Bot, Dispatcher, types\nfrom aiogram.types import ParseMode\nfrom aiogram.utils import executor\nimport requests\n\nTELEGRAM_BOT_TOKEN = 'XXXXXXXX'\nCOINGECKO_API_KEY = 'XXXXXXXX'\n\nlogging.basicConfig(level=logging.INFO)\n\nbot = Bot(token=TELEGRAM_BOT_TOKEN)\ndp = Dispatcher(bot)\n\n# Function to get token price from CoinGecko\ndef get_token_price(token_id):\n    url = f'https://api.coingecko.com/api/v3/simple/price?ids={token_id}&amp;vs_currencies=usd'\n    headers = {'Authorization': f'Bearer {COINGECKO_API_KEY}'}\n    response = requests.get(url, headers=headers)\n    data = response.json()\n\n    if 'error' in data:\n        logging.error(f'Error from CoinGecko API: {data[&quot;error&quot;]}')\n        return None\n\n    try:\n        price = data[token_id]['usd']\n        return price\n    except KeyError:\n        logging.error(f'KeyError: Could not find price for token with ID {token_id}')\n        return None\n\n# Command handlers\n@dp.message_handler(commands=['btc'])\nasync def get_btc(message: types.Message):\n    price = get_token_price('bitcoin')\n    if price is not None:\n        await message.reply(f'\u0426\u0456\u043d\u0430 Bitcoin: {price} USD')\n    else:\n        await message.reply('\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u043e\u0442\u0440\u0438\u043c\u0430\u0442\u0438 \u0446\u0456\u043d\u0443 \u0434\u043b\u044f Bitcoin')\n\n@dp.message_handler(commands=['eth'])\nasync def get_eth(message: types.Message):\n    price = get_token_price('ethereum')\n    if price is not None:\n        await message.reply(f'\u0426\u0456\u043d\u0430 Ethereum: {price} USD')\n    else:\n        await message.reply('\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u043e\u0442\u0440\u0438\u043c\u0430\u0442\u0438 \u0446\u0456\u043d\u0443 \u0434\u043b\u044f Ethereum')\n\n@dp.message_handler(commands=['sfund'])\nasync def get_sfund(message: types.Message):\n    price = get_token_price('seedify-fund')\n    if price is not None:\n        await message.reply(f'\u0426\u0456\u043d\u0430 Seedify: {price} USD')\n    else:\n        await message.reply('\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u043e\u0442\u0440\u0438\u043c\u0430\u0442\u0438 \u0446\u0456\u043d\u0443 \u0434\u043b\u044f Seedify Fund')\n\n@dp.message_handler(commands=['cgpt'])\nasync def get_cgpt(message: types.Message):\n    price = get_token_price('chaingpt')\n    if price is not None:\n        await message.reply(f'\u0426\u0456\u043d\u0430 ChainGPT: {price} USD')\n    else:\n        await message.reply('\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u043e\u0442\u0440\u0438\u043c\u0430\u0442\u0438 \u0446\u0456\u043d\u0443 \u0434\u043b\u044f ChainGPT')\n\n@dp.message_handler(commands=['bnb'])\nasync def get_bnb(message: types.Message):\n    price = get_token_price('binancecoin')\n    if price is not None:\n        await message.reply(f'\u0426\u0456\u043d\u0430 BNB: {price} USD')\n    else:\n        await message.reply('\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u043e\u0442\u0440\u0438\u043c\u0430\u0442\u0438 \u0446\u0456\u043d\u0443 \u0434\u043b\u044f Binance Coin (BNB)')\n\nif __name__ == '__main__':\n    from aiogram import executor\n    executor.start_polling(dp, skip_updates=True)\n</code></pre>\n<p>Tried to create a new project (sometimes helps) and still same error</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "tensorflow",
+    "keras"
+   ],
+   "owner": {
+    "account_id": 629358,
+    "reputation": 21,
+    "user_id": 385183,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/7f5cd0dbeca063eee4870d6e7991eab7?s=256&d=identicon&r=PG",
+    "display_name": "amitava Choudhury",
+    "link": "https://stackoverflow.com/users/385183/amitava-choudhury"
+   },
+   "is_answered": false,
+   "view_count": 8850,
+   "answer_count": 3,
+   "score": 1,
+   "last_activity_date": 1784095350,
+   "creation_date": 1589355473,
+   "last_edit_date": 1729113871,
+   "question_id": 61768883,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/61768883/modulenotfounderror-no-module-named-tensorflow-python-keras-applications-mobil",
+   "title": "ModuleNotFoundError: No module named &#39;tensorflow.python.keras.applications.MobileNetV2&#39;",
+   "body": "<p>I am trying to import</p>\n<pre><code>import tensorflow.python.keras.applications.MobileNetV2\n</code></pre>\n<p>but it gives the bellow error:</p>\n<pre><code>ModuleNotFoundError: No module named \n'tensorflow.python.keras.applications.MobileNetV2'\n</code></pre>\n<p>my tensorflow version is 1.8.0\nand keras version is 2.2.0</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "class",
+    "python-typing"
+   ],
+   "owner": {
+    "account_id": 24726757,
+    "reputation": 31,
+    "user_id": 18615153,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/defda11aabcdd1dada2a234210c45ce1?s=256&d=identicon&r=PG",
+    "display_name": "Draeze",
+    "link": "https://stackoverflow.com/users/18615153/draeze"
+   },
+   "is_answered": true,
+   "view_count": 4843,
+   "answer_count": 2,
+   "score": 3,
+   "last_activity_date": 1783845020,
+   "creation_date": 1648524125,
+   "last_edit_date": 1723333936,
+   "question_id": 71656060,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/71656060/modulenotfounderror-no-module-named-typeshed",
+   "title": "ModuleNotFoundError: No module named &#39;_typeshed&#39;",
+   "body": "<p>I've been tasked to create a <code>class</code> on Google Colab.</p>\n<p>This is the code that I created:</p>\n<pre><code>from _typeshed import Self\n\nclass Customers:\n  greeting = 'Welcome to the Coffee Palace!'\n  \n  def __init__(self, name, beverage, food, total):\n    self.name = name\n    self.beverage = beverage\n    self.food = food\n    self.total = total\n\nc1 = Customers()\nc2 = Customers()\n\nc1.name = 'Samirah'\nc1.beverage = 'Iced caffe latte'\nc1.food = 'Cinnamon roll'\nc1.total = 225\n\nc2.name = 'Jerry'\nc2.beverage = 'Caramel macchiato'\nc2.food = 'Glazed doughnut'\nc2.tota = 230\n\nprint('Samirah wants to drink '+ c1.beverage)\nprint('Jerry wants to eat '+ c2.food)\n</code></pre>\n<p>But then this error keeps popping:</p>\n<pre><code>ModuleNotFoundError                       Traceback (most recent call last)\n&lt;ipython-input-13-d30ac4e0ffe7&gt; in &lt;module&gt;()\n----&gt; 1 from _typeshed import Self\n      2 #CodeHere\n      3 class Customers:\n      4   greeting = 'Welcome to the Coffee Palace!'\n      5 \n\nModuleNotFoundError: No module named '_typeshed'\n</code></pre>\n<p>I don't know how to fix this or if there are actually some errors in my code.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "openai-api",
+    "chatgpt-api",
+    "llama-index"
+   ],
+   "owner": {
+    "account_id": 2722540,
+    "reputation": 420,
+    "user_id": 2348503,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/e10ceddc86fc21e74a7854b4aff142e9?s=256&d=identicon&r=PG",
+    "display_name": "Taishi Kato",
+    "link": "https://stackoverflow.com/users/2348503/taishi-kato"
+   },
+   "is_answered": false,
+   "view_count": 9869,
+   "answer_count": 1,
+   "score": 3,
+   "last_activity_date": 1783174070,
+   "creation_date": 1681779242,
+   "question_id": 76040306,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/76040306/modulenotfounderror-no-module-named-llama-index-langchain-helpers-chatgpt",
+   "title": "ModuleNotFoundError: No module named &#39;llama_index.langchain_helpers.chatgpt&#39;",
+   "body": "<p>I'd like to use <code>ChatGPTLLMPredictor</code> from <code>llama_index.langchain_helpers.chatgpt</code>, but I got an error below on M1 Macbook Air.</p>\n<pre><code>ModuleNotFoundError: No module named 'llama_index.langchain_helpers.chatgpt'\n</code></pre>\n<p>My code looks like this and line 3 is the problem.</p>\n<pre class=\"lang-py prettyprint-override\"><code>import csv\nfrom llama_index import GPTSimpleVectorIndex, SimpleWebPageReader\nfrom llama_index.langchain_helpers.chatgpt import ChatGPTLLMPredictor\n\narticle_urls = []\nwith open('article-urls.csv') as f:\n    reader = csv.reader(f)\n    for row in reader:\n        article_urls.append(row[0])\n\ndocuments = SimpleWebPageReader().load_data(article_urls)\nindex = GPTSimpleVectorIndex(documents=documents, llm_predictor=ChatGPTLLMPredictor()\n)\nindex.save_to_disk('index.json')\n</code></pre>\n<ul>\n<li>Python v3.10.10</li>\n<li>requirements.txt</li>\n</ul>\n<pre><code>aiohttp==3.8.4\naiosignal==1.3.1\nasync-timeout==4.0.2\nattrs==23.1.0\ncachetools==5.3.0\ncertifi==2022.12.7\ncharset-normalizer==3.1.0\ndataclasses-json==0.5.7\nfrozenlist==1.3.3\ngptcache==0.1.14\nidna==3.4\nlangchain==0.0.142\nllama-index==0.5.16\nmarshmallow==3.19.0\nmarshmallow-enum==1.5.1\nmultidict==6.0.4\nmypy-extensions==1.0.0\nnumexpr==2.8.4\nnumpy==1.24.2\nopenai==0.27.4\nopenapi-schema-pydantic==1.2.4\npackaging==23.1\npandas==2.0.0\npydantic==1.10.7\npython-dateutil==2.8.2\npytz==2023.3\nPyYAML==6.0\nregex==2023.3.23\nrequests==2.28.2\nsix==1.16.0\nSQLAlchemy==1.4.47\ntenacity==8.2.2\ntiktoken==0.3.3\ntqdm==4.65.0\ntyping-inspect==0.8.0\ntyping_extensions==4.5.0\ntzdata==2023.3\nurllib3==1.26.15\nyarl==1.8.2\n</code></pre>\n<p>Thanks.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "apache-spark",
+    "pyspark"
+   ],
+   "owner": {
+    "account_id": 17693117,
+    "reputation": 851,
+    "user_id": 12844452,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/2a1a01383f1c3041bb9fd41dbd7090c2?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Jeroen",
+    "link": "https://stackoverflow.com/users/12844452/jeroen"
+   },
+   "is_answered": false,
+   "view_count": 13934,
+   "closed_date": 1783520303,
+   "answer_count": 2,
+   "score": 4,
+   "last_activity_date": 1783102105,
+   "creation_date": 1601634120,
+   "question_id": 64169977,
+   "link": "https://stackoverflow.com/questions/64169977/modulenotfounderror-no-module-named-pyspark",
+   "closed_reason": "Not suitable for this site",
+   "title": "ModuleNotFoundError: No module named &#39;pyspark&#39;",
+   "body": "<p>I recently installed pyspark on Linux and get the error when importing pyspark:</p>\n<pre><code>ModuleNotFoundError: No module named 'pyspark'\n</code></pre>\n<p>Pyspark is in my 'pip list'</p>\n<p>I addded the following lines to my .bashrc:</p>\n<pre><code>export SPARK_HOME=~/Spark/spark-3.0.1-bin-hadoop2.7\nexport PATH=$PATH:$SPARK_HOME/bin\nexport PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH\nexport PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.10.9-src.zip:$PYTHONPATH\nexport PYSPARK_PYTHON=python3\n</code></pre>\n<p>If I type pyspark from the terminal, it work properly:</p>\n<pre><code>      ____              __\n     / __/__  ___ _____/ /__\n    _\\ \\/ _ \\/ _ `/ __/  '_/\n   /__ / .__/\\_,_/_/ /_/\\_\\   version 3.0.1\n      /_/\nUsing Python version 3.7.3 (default, Jul 25 2020 13:03:44)\nSparkSession available as 'spark'.\n</code></pre>\n<p>In the terminal I can do all my coding, it just doesn't load import pyspark from a python script. It looks like my environment variables are okay.</p>\n<p>I then typed:</p>\n<pre><code>import findspark\nprint(findspark.init())\n</code></pre>\n<p>And it says;\nValueError: Couldn't find Spark, make sure SPARK_HOME env is set or Spark is in an expected location (e.g. from homebrew installation)</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pandas",
+    "vs-code",
+    "jupyter-notebook"
+   ],
+   "owner": {
+    "account_id": 21414468,
+    "reputation": 181,
+    "user_id": 15773956,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/dPqvf.jpg?s=256",
+    "display_name": "Devika",
+    "link": "https://stackoverflow.com/users/15773956/devika"
+   },
+   "is_answered": false,
+   "view_count": 12179,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1782385380,
+   "creation_date": 1655013074,
+   "last_edit_date": 1779544812,
+   "question_id": 72589797,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/72589797/modulenotfounderror-no-module-named-pandas-although-i-have-already-installed",
+   "title": "ModuleNotFoundError: No module named &#39;pandas&#39; although I have already installed it",
+   "body": "<p>I am trying to run a python (3.9.0) code in Jupyter Notebook in VSCode. Even though I installed pandas in my virtual environment, it still shows <code>ModuleNotFoundError: No module named 'pandas'</code>.</p>\n<p>I tried  <code>python3 -m pip install pandas</code>, it shows <em>Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings &gt; Manage App Execution Aliases.</em></p>\n<p>I installed pandas again using <code>pip3 install pandas</code>, then it shows requirement already satisfied. But I am still getting <code>ModuleNotFoundError</code></p>\n<pre><code>Traceback (most recent call last)\nc:\\Users\\hp\\newtest\\pcancer.ipynb Cell 1 in &lt;cell line: 1&gt;()\n----&gt; 1 import pandas as pd\n      2 from pandas import Series,DataFrame\n      3 import matplotlib.pyplot as plt\n\nModuleNotFoundError: No module named 'pandas'\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-import"
+   ],
+   "owner": {
+    "account_id": 5475214,
+    "reputation": 1208,
+    "user_id": 4353383,
+    "user_type": "registered",
+    "accept_rate": 83,
+    "profile_image": "https://graph.facebook.com/527807683/picture?type=large",
+    "display_name": "Ankur Bhatia",
+    "link": "https://stackoverflow.com/users/4353383/ankur-bhatia"
+   },
+   "is_answered": true,
+   "view_count": 85080,
+   "accepted_answer_id": 43476575,
+   "answer_count": 1,
+   "score": 40,
+   "last_activity_date": 1781251295,
+   "creation_date": 1492529555,
+   "last_edit_date": 1781251295,
+   "question_id": 43476403,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/43476403/modulenotfounderror-or-importerror-no-module-named-something",
+   "title": "ModuleNotFoundError or ImportError: No module named &lt;something&gt;",
+   "body": "<p>The following is my directory structure.</p>\n<pre class=\"lang-none prettyprint-override\"><code>ankur\n\u251c\u2500\u2500 ankur1\n\u2502   \u251c\u2500\u2500 __init__.py\n\u2502   \u2514\u2500\u2500 util.py\n\u251c\u2500\u2500 ankur2\n\u2502   \u2514\u2500\u2500 main.py\n\u2514\u2500\u2500 __init__.py\n</code></pre>\n<p>In file <em>main.py</em>, when importing the <code>util</code> submodule:</p>\n<pre class=\"lang-python prettyprint-override\"><code>import ankur.ankur1.util\n</code></pre>\n<p>I get the following error (Python 2.x error message)</p>\n<pre class=\"lang-none prettyprint-override\"><code>ImportError: No module named ankur.ankur1.util\n</code></pre>\n<p>Or (Python 3.x error message)</p>\n<pre class=\"lang-none prettyprint-override\"><code>ModuleNotFoundError: No module named 'ankur'\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pwntools"
+   ],
+   "owner": {
+    "account_id": 22431379,
+    "reputation": 81,
+    "user_id": 16637161,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AATXAJwHX5SekhKaDLOGZx1zMMPdmZv5cYvqCLIV_0Aq=k-s256",
+    "display_name": "MinJun",
+    "link": "https://stackoverflow.com/users/16637161/minjun"
+   },
+   "is_answered": true,
+   "view_count": 18111,
+   "answer_count": 1,
+   "score": 5,
+   "last_activity_date": 1781213411,
+   "creation_date": 1694185029,
+   "last_edit_date": 1781213411,
+   "question_id": 77067937,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77067937/python-modulenotfounderror-no-module-named-elftools-common-py3compat",
+   "title": "Python ModuleNotFoundError: No module named &#39;elftools.common.py3compat&#39;",
+   "body": "<p>PC: Windows\u00a011</p>\n<p>Software: <a href=\"https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux#WSL_2\" rel=\"nofollow noreferrer\">WSL 2</a> and <a href=\"https://en.wikipedia.org/wiki/Ubuntu_version_history#Ubuntu_22.04_LTS_(Jammy_Jellyfish)\" rel=\"nofollow noreferrer\">Ubuntu 22.04 (Jammy Jellyfish)</a></p>\n<p>I was going to install 'pwntools' by following these instructions:</p>\n<pre><code>apt-get update\napt-get install python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential\npython3 -m pip install --upgrade pip\npython3 -m pip install --upgrade pwntools\n</code></pre>\n<p>After installing, it I tested it.\nAnd this happened.</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;\n  File &quot;/home/kimminjun514/.local/lib/python3.10/site-packages/pwn/__init__.py&quot;, line 4, in &lt;module&gt;\n    from pwn.toplevel import *\n  File &quot;/home/kimminjun514/.local/lib/python3.10/site-packages/pwn/toplevel.py&quot;, line 23, in &lt;module&gt;\n    from pwnlib import *\n  File &quot;/home/kimminjun514/.local/lib/python3.10/site-packages/pwnlib/dynelf.py&quot;, line 57, in &lt;module&gt;\n    from pwnlib import elf\n  File &quot;/home/kimminjun514/.local/lib/python3.10/site-packages/pwnlib/elf/__init__.py&quot;, line 9, in &lt;module&gt;\n    from pwnlib.elf.corefile import Core\n  File &quot;/home/kimminjun514/.local/lib/python3.10/site-packages/pwnlib/elf/corefile.py&quot;, line 79, in &lt;module&gt;\n    from elftools.common.py3compat import bytes2str\nModuleNotFoundError: No module named 'elftools.common.py3compat'\n</code></pre>\n<p>What's going on with my computer?\nDo I have to buy a new computer?</p>\n<p>I've tried a lot of things.\nI deleted WSL and reinstalled it.\nBut that didn't work.</p>\n<p>I've googled thousand of times, but I\u2019m still stuck with this problem.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-imaging-library"
+   ],
+   "owner": {
+    "account_id": 46502559,
+    "reputation": 11,
+    "user_id": 32815887,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/84cd88b7199dada7042be8c720fd0b53?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Miro Eros Mimi",
+    "link": "https://stackoverflow.com/users/32815887/miro-eros-mimi"
+   },
+   "is_answered": true,
+   "view_count": 161,
+   "answer_count": 1,
+   "score": -2,
+   "last_activity_date": 1780999317,
+   "creation_date": 1780954117,
+   "last_edit_date": 1780954180,
+   "question_id": 79954215,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79954215/how-to-get-pil-to-work-in-visual-studio-code",
+   "title": "How to get PIL to work in Visual Studio Code?",
+   "body": "<p>I'm having an issue to get pillow to work in VSCode ver3.13.4. I've tried everything under the sun yet it says:</p>\n<blockquote>\n<p>ModuleNotFoundError: No module named 'PIL'</p>\n</blockquote>\n<p>I've tried pip install as well, yet it still doesn't work... Could someone help me?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "amazon-web-services",
+    "amazon-elastic-beanstalk"
+   ],
+   "owner": {
+    "account_id": 1453069,
+    "reputation": 293,
+    "user_id": 1369413,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/82310e08a8a747ef45e8f230562dc4d6?s=256&d=identicon&r=PG",
+    "display_name": "user1369413",
+    "link": "https://stackoverflow.com/users/1369413/user1369413"
+   },
+   "is_answered": true,
+   "view_count": 107524,
+   "accepted_answer_id": 77411659,
+   "answer_count": 5,
+   "score": 29,
+   "last_activity_date": 1778667633,
+   "creation_date": 1698832622,
+   "question_id": 77401730,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77401730/modulenotfounderror-no-module-named-imp",
+   "title": "ModuleNotFoundError: No module named &#39;imp&#39;",
+   "body": "<p>I need to install the <a href=\"https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install-advanced.html\" rel=\"noreferrer\">eb</a> command on windows.</p>\n<p>I would like to try to deploy an application on AWS using the elasticbeanstalk service, and through this command you can configure and deploy an environment directly with a configuration file.</p>\n<p>To do this I followed the <a href=\"https://github.com/aws/aws-elastic-beanstalk-cli-setup\" rel=\"noreferrer\">guide</a>. I first installed python via the site (Python version 3.12.0), and then all the steps described in the guide link.</p>\n<p>Now if I run the eb command from cmd I always get this error.</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;&lt;frozen runpy&gt;&quot;, line 198, in _run_module_as_main\n  File &quot;&lt;frozen runpy&gt;&quot;, line 88, in _run_code\n  File &quot;C:\\Users\\Utente\\.ebcli-virtual-env\\Scripts\\eb.exe\\__main__.py&quot;, line 4, in &lt;module&gt;\n  File &quot;C:\\Users\\Utente\\.ebcli-virtual-env\\Lib\\site-packages\\ebcli\\core\\ebcore.py&quot;, line 16, in &lt;module&gt;\n    from cement.core import foundation, handler, hook\n  File &quot;C:\\Users\\Utente\\.ebcli-virtual-env\\Lib\\site-packages\\cement\\core\\foundation.py&quot;, line 11, in &lt;module&gt;\n    from ..core import output, extension, arg, controller, meta, cache, mail\n  File &quot;C:\\Users\\Utente\\.ebcli-virtual-env\\Lib\\site-packages\\cement\\core\\extension.py&quot;, line 8, in &lt;module&gt;\n    from imp import reload  # pragma: no cover\n    ^^^^^^^^^^^^^^^^^^^^^^\nModuleNotFoundError: No module named 'imp'\n</code></pre>\n<p>I've tried several things but can't come to a conclusion.\nDoes anyone know how to help me?</p>\n<p>I also tried installing previous versions of python, even though I didn't like it as a solution, but still I still have the problem.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "setuptools",
+    "distutils",
+    "skfuzzy",
+    "python-3.12"
+   ],
+   "owner": {
+    "account_id": 29600930,
+    "reputation": 811,
+    "user_id": 22686386,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/f05924445280645868dae1ae188c5a05?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Kada",
+    "link": "https://stackoverflow.com/users/22686386/kada"
+   },
+   "is_answered": true,
+   "view_count": 108930,
+   "accepted_answer_id": 77233866,
+   "answer_count": 7,
+   "score": 70,
+   "last_activity_date": 1778431395,
+   "creation_date": 1696470867,
+   "last_edit_date": 1748633831,
+   "question_id": 77233855,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77233855/why-did-i-get-an-error-modulenotfounderror-no-module-named-distutils",
+   "title": "Why did I get an error ModuleNotFoundError: No module named &#39;distutils&#39;?",
+   "body": "<p>I've installed <code>scikit-fuzzy</code>, but when I <code>import skfuzzy as fuzz</code> I get an error</p>\n<pre class=\"lang-none prettyprint-override\"><code>ModuleNotFoundError: No module named 'distutils'&quot;\n</code></pre>\n<p>I already tried to <code>pip uninstall distutils</code> and got this output</p>\n<pre class=\"lang-none prettyprint-override\"><code>Note: you may need to restart the kernel to use updated packages.\nWARNING: Skipping distutils as it is not installed.\n</code></pre>\n<p>Then I tried to install it again <code>pip install distutils</code></p>\n<pre class=\"lang-none prettyprint-override\"><code>Note: you may need to restart the kernel to use updated packages.\nERROR: Could not find a version that satisfies the requirement distutils (from versions: none)\nERROR: No matching distribution found for distutils\n</code></pre>\n<p>Where did I go wrong?</p>\n<hr />\n<p><sub>This question addresses the problem from the perspective of <em>installing</em> a library. For <em>developing</em> a library, see <em><a href=\"https://stackoverflow.com/questions/69858963\">How can one fully replace distutils, which is deprecated in 3.10?</a></em>.</sub></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "macos",
+    "pygame",
+    "advice"
+   ],
+   "owner": {
+    "account_id": 7321922,
+    "reputation": 1,
+    "user_id": 12888983,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/8fa3f860720a77bf4bb52a0b8aed74bd?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Chris",
+    "link": "https://stackoverflow.com/users/12888983/chris"
+   },
+   "is_answered": false,
+   "view_count": 244,
+   "closed_date": 1788982398,
+   "answer_count": 1,
+   "score": -1,
+   "last_activity_date": 1777918081,
+   "creation_date": 1777706064,
+   "last_edit_date": 1777854218,
+   "question_id": 79934947,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79934947/how-to-install-pygame-on-mac",
+   "closed_reason": "Duplicate",
+   "title": "How to install pygame on Mac",
+   "body": "<p>I followed instructions found online but no luck with installing pygame on my Mac Mini. It was easy to install on my Windows based laptop but not so with Apple version of VS Code. The Apple version has you create a &quot;venv&quot; using various commands - which I did. I'm not sure why that has to be different from a Windows computer. I have a simple program the first line of which is: &quot;import pygame&quot; and this is the error: &quot;ModuleNotFoundError: No module named 'pygame'&quot;</p>\n<p>Obviously pygame is installed and I can see the folders containing pygame.</p>\n<p>Is there a better way to install python and pygame in VS Code? VS Code doesn't seem to be well suited on a Mac as there are a lot of shell commands just to get python and pygame installed all to no avail. Should I use something like Wing to create using python?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pandas"
+   ],
+   "owner": {
+    "account_id": 11154437,
+    "reputation": 141,
+    "user_id": 8186593,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/15f0c8c3341c14290342c32d416bf4d2?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Erick Eaton",
+    "link": "https://stackoverflow.com/users/8186593/erick-eaton"
+   },
+   "is_answered": true,
+   "view_count": 123100,
+   "protected_date": 1710813684,
+   "accepted_answer_id": 58175576,
+   "answer_count": 8,
+   "score": 13,
+   "last_activity_date": 1776265514,
+   "creation_date": 1497940239,
+   "last_edit_date": 1776265514,
+   "question_id": 44645433,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/44645433/modulenotfounderror-no-module-named-pandas",
+   "title": "ModuleNotFoundError: No module named &#39;pandas&#39;",
+   "body": "<p>I'm following a practical machine learning tutorial and I am already stuck on the second video.  <a href=\"https://www.youtube.com/watch?v=JcI5Vnw0b2c&amp;t=195s\" rel=\"noreferrer\">https://www.youtube.com/watch?v=JcI5Vnw0b2c&amp;t=195s</a></p>\n<pre><code> import pandas as pd\n import Quandl\n\n df = Quandl.get('WIKI/GOOGL')\n print(df.head())\n</code></pre>\n<p>When I run the same code as the man in the video, all I get is</p>\n<blockquote>\n<p>ModuleNotFoundError: No module named 'pandas'</p>\n</blockquote>\n<p>I'm on Windows 10 using Visual Studio 2017 and I already did <code>pip install pandas</code>. I have python 3.6.1 installed.</p>\n<ul>\n<li>pip 9.0.1 from C:\\Program Files\\Anaconda3\\lib\\site-packages (python 3.6).</li>\n<li>pandas (0.19.2).</li>\n<li>Python 3.6.0 :: Anaconda 4.3.0 (64-bit)</li>\n</ul>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "pip",
+    "google-translate",
+    "modulenotfounderror"
+   ],
+   "owner": {
+    "account_id": 21492926,
+    "reputation": 69,
+    "user_id": 15838354,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/dac19deef9dbca37b0a88d06ae0a3859?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Zeyad Tarek",
+    "link": "https://stackoverflow.com/users/15838354/zeyad-tarek"
+   },
+   "is_answered": false,
+   "view_count": 11422,
+   "closed_date": 1775936090,
+   "answer_count": 3,
+   "score": 5,
+   "last_activity_date": 1775865930,
+   "creation_date": 1648711897,
+   "last_edit_date": 1648729115,
+   "question_id": 71688576,
+   "link": "https://stackoverflow.com/questions/71688576/modulenotfounderror-no-module-named-googletrans-although-i-installed-it-corre",
+   "closed_reason": "Not suitable for this site",
+   "title": "ModuleNotFoundError: No module named &#39;googletrans&#39; although I installed it correctly",
+   "body": "<p>I'm trying to import a googletrans package but I got a ModuleNotFoundError when I'm trying to import it although I installed it.</p>\n<p>I got this error</p>\n<pre><code>11 #to translate the text data\n12 get_ipython().system('pip install googletrans')\n---&gt; 13 from googletrans import Translator\n\nModuleNotFoundError: No module named 'googletrans'\n</code></pre>\n<p>I'm trying to install a <strong>googletrans</strong> package with all possible syntax on jupyter notebook</p>\n<pre><code>!pip install googletrans\n!pip install googletrans==4.0.0-rc1 #to avoid 'NoneType' object has no attribute 'group' error\n!pip install googletrans==3.1.0a0 #to avoid 'NoneType' object has no attribute 'group' error\n</code></pre>\n<p>after I'm installing it, I'm trying to import it</p>\n<p><code>from googletrans import Translator</code></p>\n<p>I got this error</p>\n<pre><code>11 #to translate the text data\n12 get_ipython().system('pip install googletrans')\n13 from googletrans import Translator\n\nModuleNotFoundError: No module named 'googletrans'\n</code></pre>\n<p><strong>ModuleNotFoundError: No module named 'googletrans'</strong></p>\n<p>but I have to notify you that the output from pip command is</p>\n<pre><code>Collecting googletrans\n  Using cached googletrans-3.0.0-py3-none-any.whl\nCollecting httpx==0.13.3\n  Using cached httpx-0.13.3-py3-none-any.whl (55 kB)\nRequirement already satisfied: certifi in c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages (from httpx==0.13.3-&gt;googletrans) (2021.10.8)\nCollecting hstspreload\n  Using cached hstspreload-2021.12.1-py3-none-any.whl (1.3 MB)\nRequirement already satisfied: sniffio in c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages (from httpx==0.13.3-&gt;googletrans) (1.2.0)\nRequirement already satisfied: rfc3986&lt;2,&gt;=1.3 in c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages (from httpx==0.13.3-&gt;googletrans) (1.5.0)\nRequirement already satisfied: chardet==3.* in c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages (from httpx==0.13.3-&gt;googletrans) (3.0.4)\nCollecting httpcore==0.9.*\n  Using cached httpcore-0.9.1-py3-none-any.whl (42 kB)\nCollecting idna==2.*\n  Using cached idna-2.10-py2.py3-none-any.whl (58 kB)\nCollecting h2==3.*\n  Using cached h2-3.2.0-py2.py3-none-any.whl (65 kB)\nRequirement already satisfied: h11&lt;0.10,&gt;=0.8 in c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages (from httpcore==0.9.*-&gt;httpx==0.13.3-&gt;googletrans) (0.9.0)\nRequirement already satisfied: hpack&lt;4,&gt;=3.0 in c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages (from h2==3.*-&gt;httpcore==0.9.*-&gt;httpx==0.13.3-&gt;googletrans) (3.0.0)\nRequirement already satisfied: hyperframe&lt;6,&gt;=5.2.0 in c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages (from h2==3.*-&gt;httpcore==0.9.*-&gt;httpx==0.13.3-&gt;googletrans) (5.2.0)\nInstalling collected packages: idna, hstspreload, h2, httpcore, httpx, googletrans\n  Attempting uninstall: idna\n    Found existing installation: idna 3.3\n    Uninstalling idna-3.3:\nOutput exceeds the size limit. Open the full output data in a text editor\nWARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -2na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -1na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -0na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution - (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -dna (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -2na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -1na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -0na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution - (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -dna (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -2na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -1na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -0na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution - (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -dna (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\n    WARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\n    WARNING: Ignoring invalid distribution -2na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\n    WARNING: Ignoring invalid distribution -1na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\n    WARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\n...\nWARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -0na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution - (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -dna (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages\n</code></pre>\n<p>It's installed with these warnings.</p>\n<p>What's the wrong here? is it with the installation or with the import syntax and how I can solve it.</p>\n<p>note: I'm using anaconda with 3.9.7 and 3.10</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "import"
+   ],
+   "owner": {
+    "account_id": 12655518,
+    "reputation": 1,
+    "user_id": 9198178,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/0d6c6f59f06443a1c2a3d7ff71f4f78d?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Jonas Meddeb",
+    "link": "https://stackoverflow.com/users/9198178/jonas-meddeb"
+   },
+   "is_answered": true,
+   "view_count": 1994,
+   "answer_count": 3,
+   "score": 0,
+   "last_activity_date": 1775745355,
+   "creation_date": 1615210465,
+   "question_id": 66530843,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/66530843/why-is-the-relative-import-not-working-in-my-project",
+   "title": "Why is the relative import not working in my project?",
+   "body": "<p>I am working on a python project which consist of several packages and modules. Hence I need to import modules from different packages. However, when importing these modules I am getting import errors. The folder structure is as follows:\n<a href=\"https://i.sstatic.net/jrK6m.png\" rel=\"nofollow noreferrer\">Image of folder structure</a></p>\n<p>Within the module Stage0.py I use the relative import: &quot;from ..data.Datapipe import DataFactory&quot; to import the class DataFactory. However when I execute the script I get an error message: &quot;ModuleNotFoundError: No module named 'MT'&quot;</p>\n<p>I would appreciate any feedback as I'm becoming desperate</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 10658440,
+    "reputation": 59,
+    "user_id": 7847222,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/d73bf28edd383f49f15b8d64d46a3037?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Sloppy Joe",
+    "link": "https://stackoverflow.com/users/7847222/sloppy-joe"
+   },
+   "is_answered": false,
+   "view_count": 597,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1775450925,
+   "creation_date": 1644400627,
+   "last_edit_date": 1775450925,
+   "question_id": 71047424,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/71047424/modulenotfounderror-no-module-named-flask-wtf-pip-install-not-solving",
+   "title": "ModuleNotFoundError: No module named &#39;flask_wtf&#39; - pip install not solving",
+   "body": "<p>Trying to leverage flask_wtf, I've done all of the different suggested steps:</p>\n<ol>\n<li>pip install flask_wtf</li>\n<li>pip3 install flask_wtf</li>\n<li>pip(3) install in each location to ensure that it wasn't due to that</li>\n</ol>\n<p>Error:</p>\n<pre><code>C:\\Users\\Bob\\flask_tutorial&gt;python flask_blog.py -m flask run\nTraceback (most recent call last):\n  File &quot;C:\\Users\\Bob\\flask_tutorial\\flask_blog.py&quot;, line 3, in &lt;module&gt;\n    from forms import RegistrationForm, LoginForm\n  File &quot;C:\\Users\\Bob\\flask_tutorial\\forms.py&quot;, line 1, in &lt;module&gt;\n    from flask_wtf import FlaskForm\nModuleNotFoundError: No module named 'flask_wtf'\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pycharm",
+    "python-3.9"
+   ],
+   "owner": {
+    "account_id": 21087306,
+    "reputation": 91,
+    "user_id": 15500117,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/d45af6922c8255dc70dc6d71e59e5d2a?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Xotiic",
+    "link": "https://stackoverflow.com/users/15500117/xotiic"
+   },
+   "is_answered": true,
+   "view_count": 29242,
+   "answer_count": 4,
+   "score": 9,
+   "last_activity_date": 1774832572,
+   "creation_date": 1616945377,
+   "last_edit_date": 1616951201,
+   "question_id": 66843094,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/66843094/modulenotfounderror-no-module-named-qrcode-python-3-9",
+   "title": "ModuleNotFoundError: No module named &#39;qrcode&#39; python 3.9",
+   "body": "<p>I have already installed <code>qrcode</code> library in my command prompt and also updated my command prompt. In the command prompt it says that everything is fine but when I go to PyCharm and type in:</p>\n<pre><code>import qrcode\n\nimg = qrcode.make(&quot;This is the qrcode&quot;)\nimg.save(&quot;myqrcode.png&quot;)\n</code></pre>\n<p>And when I run it, it says:</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;C:\\Users\\Antho\\PycharmProjects\\pythonProject\\main.py&quot;, line 1, in &lt;module&gt;\n    import qrcode\nModuleNotFoundError: No module named 'qrcode'\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "raspberry-pi",
+    "octoprint",
+    "adafruit-circuitpython-neopixel"
+   ],
+   "owner": {
+    "account_id": 1972100,
+    "reputation": 1456,
+    "user_id": 1770778,
+    "user_type": "registered",
+    "accept_rate": 72,
+    "profile_image": "https://www.gravatar.com/avatar/6d871ac3e8253dcc4fe15b0d5707dd2a?s=256&d=identicon&r=PG",
+    "display_name": "ffonz",
+    "link": "https://stackoverflow.com/users/1770778/ffonz"
+   },
+   "is_answered": true,
+   "view_count": 159,
+   "accepted_answer_id": 79915961,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1774640324,
+   "creation_date": 1774637060,
+   "last_edit_date": 1774640324,
+   "question_id": 79915944,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79915944/modulenotfounderror-no-module-named-board-when-run-with-sudo",
+   "title": "ModuleNotFoundError: No module named &#39;board&#39; when run with sudo",
+   "body": "<p>I am trying to control some leds with my Octopi/Octoprint Raspberry Pi. I found a python script for it <a href=\"https://www.instructables.com/RGB-LED-Strip-for-3D-Printer-With-Octoprint/\" rel=\"nofollow noreferrer\">here</a>. I managed to create a venv and run my script from there.</p>\n<p>First I tried GPIO 17 for the data, but I got an error that Gpio 17 is illegal. Now I try GPIO 18, which should be more common to use to control leds, afaik. When I run <code>python leds/led_controller.py</code>, now I got the error</p>\n<blockquote>\n<p>Can't open /dev/mem: Permission denied</p>\n</blockquote>\n<p>at line 74.</p>\n<p>So I added sudo in front of the python command: <code>sudo python leds/led_controller.py</code>. But now I get the error</p>\n<blockquote>\n<p>ModuleNotFoundError: No module named 'board'</p>\n</blockquote>\n<p>at line 2. Without running as su I came further then running the script as su! I am baffled now what to do.</p>\n<p>Why can't python find this module when running as su, while it CAN find it when running as a normal user?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "scikit-learn",
+    "jupyter-notebook"
+   ],
+   "owner": {
+    "account_id": 25345376,
+    "reputation": 11,
+    "user_id": 19163146,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/156bd60b6ac4eba30324cfc127a310b2?s=256&d=identicon&r=PG",
+    "display_name": "stephenspivack",
+    "link": "https://stackoverflow.com/users/19163146/stephenspivack"
+   },
+   "is_answered": false,
+   "view_count": 5810,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1774465005,
+   "creation_date": 1653066880,
+   "question_id": 72322579,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/72322579/how-to-fix-error-with-importing-skforecast-using-jupyter",
+   "title": "How to fix error with importing skforecast using Jupyter",
+   "body": "<p>When I use <code>pip install skforecast</code> in Jupyter, the install completes successfully.</p>\n<p>Next, when I use <code>from skforecast.ForecasterAutoreg import ForecasterAutoreg</code> I get the following error:</p>\n<blockquote>\n<p>ModuleNotFoundError: No module named 'skforecast'</p>\n</blockquote>\n<p>I have tried pip and pip3 for all 3 suggested installs in the docs: <a href=\"https://joaquinamatrodrigo.github.io/skforecast/0.4.3/index.html\" rel=\"nofollow noreferrer\">https://joaquinamatrodrigo.github.io/skforecast/0.4.3/index.html</a></p>\n<p>Any advice on how to fix this would be greatly appreciated.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "vs-code",
+    "debugging",
+    "streamlit"
+   ],
+   "owner": {
+    "account_id": 16979516,
+    "reputation": 2600,
+    "user_id": 12281892,
+    "user_type": "registered",
+    "profile_image": "https://lh6.googleusercontent.com/-WcsM_zuRqS0/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rexs7Jir14N4AVG_dwGbSNwISAxEw/s256-rj/photo.jpg",
+    "display_name": "My Work",
+    "link": "https://stackoverflow.com/users/12281892/my-work"
+   },
+   "is_answered": true,
+   "view_count": 169,
+   "accepted_answer_id": 79910713,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1773928628,
+   "creation_date": 1773927827,
+   "question_id": 79910712,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79910712/using-vs-code-debugger-gives-modulenotfounderror-no-module-named-streamlit",
+   "title": "Using VS Code Debugger gives &quot;ModuleNotFoundError: No module named &#39;streamlit&#39;&quot; despite active venv",
+   "body": "<p>I'm developing a Streamlit app in VS Code. I have created a virtual environment (<code>venv</code>) specifically for this project, activated it in my terminal, and installed all requirements (including <code>streamlit</code>).</p>\n<p>When I run the app from the terminal using <code>streamlit run app.py</code>, it works perfectly. However, when I try to use the VS Code debugger, it fails immediately with: <code>ModuleNotFoundError: No module named 'streamlit'</code></p>\n<p>I have pretty much the same problem as stated in this [question](<a href=\"https://discuss.streamlit.io/t/solution-found-vs-code-integrated-run-and-debug/82953\" rel=\"nofollow noreferrer\">https://discuss.streamlit.io/t/solution-found-vs-code-integrated-run-and-debug/82953</a>), but the solution there was only saying &quot;My interpreter was not correctly pointing to Python in my venv&quot;, which was not my case.</p>\n<p>What I've tried:</p>\n<ul>\n<li><p>Selecting the correct interpreter in the VS Code Status Bar (e.g. as recommended <a href=\"https://stackoverflow.com/questions/72615981/no-module-named-streamlit\">here</a> ).</p>\n</li>\n<li><p>Adding a <code>launch.json</code> with <code>&quot;type&quot;: &quot;python&quot;</code> and <code>&quot;request&quot;: &quot;launch&quot;</code>. Like in this <a href=\"https://stackoverflow.com/questions/79656394/how-to-configure-vs-code-launch-json-to-debug-a-streamlit-app-with-a-conda-envir\">post</a>, but many more variations on that file, and none of them worked.</p>\n</li>\n<li><p>Verifying that <code>pip list</code> shows Streamlit is installed.</p>\n</li>\n<li><p>Made sure I'm in the <a href=\"https://stackoverflow.com/questions/73532975/vs-code-no-module-named-streamlit\">environment</a>.</p>\n</li>\n</ul>\n<p>Why does the debugger fail to see the module that is clearly available in the terminal?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pandas",
+    "linux"
+   ],
+   "owner": {
+    "account_id": 16979735,
+    "reputation": 500,
+    "user_id": 12282048,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/16wVh.jpg?s=256",
+    "display_name": "WRL41225",
+    "link": "https://stackoverflow.com/users/12282048/wrl41225"
+   },
+   "is_answered": false,
+   "view_count": 178,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1773566746,
+   "creation_date": 1767615142,
+   "last_edit_date": 1773566746,
+   "question_id": 79860752,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79860752/modulenotfounderror-no-module-named-pandas-but-is-present-in-the-python-pa",
+   "title": "&quot;ModuleNotFoundError: No module named &#39;pandas&#39; &quot; but is present in the python package list and in software manager",
+   "body": "<p>I've recently switched from Windows 10 to Linux Mint, but after pulling some of my old git projects I'm having issues getting the modules to work correctly. My initial import list looks like this:</p>\n<pre><code>import tkinter as tk\nimport pandas as pd\nfrom tkinter import ttk\nfrom tkinter import tix\nfrom file_selection import FileSelect\nfrom option_selection import PrefixOptions\nfrom duplicate_correction import DuplicateCorrection\nfrom coa_mapping import CoaConfigure\nfrom data_export import DataExport\n</code></pre>\n<p>Initially I was getting the error for tkinter, but after installing through the Linux Mint software centre the error resolved. I've done the same for Pandas, but I'm still getting a no module found error. The interpreter settings also indicate pandas should be functioning.</p>\n<p><img src=\"https://i.sstatic.net/2f10ASzM.png\" alt=\"Python packages installed\" /></p>\n<p>I've tried reviewing installation methods between pip and the Linux software centre, as well as global vs venv options, but I'm struggling to find a consistent answer on how this should be handled.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "installation",
+    "setuptools",
+    "setup.py",
+    "distutils"
+   ],
+   "owner": {
+    "account_id": 2728367,
+    "reputation": 4061,
+    "user_id": 3084842,
+    "user_type": "registered",
+    "accept_rate": 78,
+    "profile_image": "https://i.sstatic.net/wuYvF.jpg?s=256",
+    "display_name": "Medulla Oblongata",
+    "link": "https://stackoverflow.com/users/3084842/medulla-oblongata"
+   },
+   "is_answered": true,
+   "view_count": 121,
+   "accepted_answer_id": 79901176,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1772657904,
+   "creation_date": 1772652425,
+   "question_id": 79901132,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79901132/python-3-10-equivalent-to-distutils-package",
+   "title": "Python 3.10+ equivalent to `distutils` package",
+   "body": "<p>I am using Python 3.12 and want to setup the <a href=\"https://pypi.org/project/ttpy/1.2.1/\" rel=\"nofollow noreferrer\"><code>ttpy</code> package</a> version 1.2.1.  If I run the <code>pip install ttpy==1.2.1</code> command, I get an error <code>ModuleNotFoundError: No module named 'numpy.distutils'</code> because <code>distutils</code> was deprecated in Python 3.10.</p>\n<p>I tried to update the import statements in <code>ttpy</code>'s <code>setup.py</code> file:</p>\n<pre><code>from numpy.distutils.core import setup\nfrom numpy.distutils.misc_util import Configuration\n</code></pre>\n<p>The first line can be changed to <code>from distutils.core import setup</code>. How do I change the second line? I tried and failed to find some equivalent module in <code>distutils</code> and <code>setuptools</code>. The various related questions (<a href=\"https://stackoverflow.com/q/69858963\">How can one fully replace distutils, which is deprecated in 3.10?</a>, <a href=\"https://stackoverflow.com/q/77233855\">Why did I get an error ModuleNotFoundError: No module named &#39;distutils&#39;?</a>, etc) are not helpful.</p>\n<p>I am using <code>setuptools-80.9.0</code> and <code>distutils-3.12.8</code>.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "speech-recognition",
+    "pyaudio"
+   ],
+   "owner": {
+    "account_id": 18837577,
+    "reputation": 1,
+    "user_id": 13739870,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AOh14GipWyTwISDzPVJCM5egbpAvKuypLNr1uCc3Xllqzw=k-s256",
+    "display_name": "kishan gondaliya",
+    "link": "https://stackoverflow.com/users/13739870/kishan-gondaliya"
+   },
+   "is_answered": false,
+   "view_count": 892,
+   "answer_count": 2,
+   "score": -2,
+   "last_activity_date": 1772634982,
+   "creation_date": 1592141403,
+   "last_edit_date": 1592141484,
+   "question_id": 62373175,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/62373175/python-modulenotfound-and-other",
+   "title": "Python ModuleNotFound and other",
+   "body": "<pre><code>import pyttsx3 #pip install pyttsx3\nimport speech_recognition as sr #pip install speechRecognition\nimport datetime\nimport wikipedia #pip install wikipedia\nimport webbrowser\nimport os\nimport smtplib\n\nengine = pyttsx3.init('sapi5')\nvoices = engine.getProperty('voices')\n# print(voices[1].id)\nengine.setProperty('voice', voices[0].id)\n\n\ndef speak(audio):\n    engine.say(audio)\n    engine.runAndWait()\n\n\ndef wishMe():\n    hour = int(datetime.datetime.now().hour)\n    if hour&gt;=0 and hour&lt;12:\n        speak(\"Good Morning!\")\n\n    elif hour&gt;=12 and hour&lt;18:\n        speak(\"Good Afternoon!\")\n\n    else:\n        speak(\"Good Evening!\")\n\n    speak(\"I am Jarvis Sir. Please tell me how may I help you\")\n\ndef takeCommand():\n    #It takes microphone input from the user and returns string output\n\n    r = sr.Recognizer()\n    with sr.Microphone() as source:\n        print(\"Listening...\")\n        r.pause_threshold = 1\n        audio = r.listen(source)\n\n    try:\n        print(\"Recognizing...\")\n        query = r.recognize_google(audio, language='en-in')\n        print(f\"User said: {query}\\n\")\n\n    except Exception as e:\n        # print(e)\n        print(\"Say that again please...\")\n        return \"None\"\n    return query\n\ndef sendEmail(to, content):\n    server = smtplib.SMTP('smtp.gmail.com', 587)\n    server.ehlo()\n    server.starttls()\n    server.login('youremail@gmail.com', 'your-password')\n    server.sendmail('youremail@gmail.com', to, content)\n    server.close()\n\nif __name__ == \"__main__\":\n    wishMe()\n    while True:\n    # if 1:\n        query = takeCommand().lower()\n\n        # Logic for executing tasks based on query\n        if 'wikipedia' in query:\n            speak('Searching Wikipedia...')\n            query = query.replace(\"wikipedia\", \"\")\n            results = wikipedia.summary(query, sentences=2)\n            speak(\"According to Wikipedia\")\n            print(results)\n            speak(results)\n\n        elif 'open youtube' in query:\n            webbrowser.open(\"youtube.com\")\n\n        elif 'open google' in query:\n            webbrowser.open(\"google.com\")\n\n        elif 'open stackoverflow' in query:\n            webbrowser.open(\"stackoverflow.com\")\n\n\n        elif 'play music' in query:\n            music_dir = 'D:\\\\Non Critical\\\\songs\\\\Favorite Songs2'\n            songs = os.listdir(music_dir)\n            print(songs)\n            os.startfile(os.path.join(music_dir, songs[0]))\n\n        elif 'the time' in query:\n            strTime = datetime.datetime.now().strftime(\"%H:%M:%S\")\n            speak(f\"Sir, the time is {strTime}\")\n\n        elif 'open code' in query:\n            codePath = \"C:\\\\Users\\\\Haris\\\\AppData\\\\Local\\\\Programs\\\\Microsoft VS Code\\\\Code.exe\"\n            os.startfile(codePath)\n\n        elif 'email to harry' in query:\n            try:\n                speak(\"What should I say?\")\n                content = takeCommand()\n                to = \"harryyourEmail@gmail.com\"\n                sendEmail(to, content)\n                speak(\"Email has been sent!\")\n            except Exception as e:\n                print(e)\n                speak(\"Sorry my friend harry bhai. I am not able to send this email\")\n</code></pre>\n\n<p>I am getting AttributeError. Please help me solving it. I have installed the required packages like speechrecognition, wikipedia and pyttsx3.</p>\n\n<p>I am unable to download pyaudio. I am using windows operating system. refer to the error screenshot provided. It would be a great help. ModuleNotFoundError: No module named 'pyaudio'</p>\n\n<p><a href=\"https://i.sstatic.net/ZqKeJ.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/ZqKeJ.png\" alt=\"Error Screenshot\"></a></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "module",
+    "conda",
+    "imp"
+   ],
+   "owner": {
+    "account_id": 29649598,
+    "reputation": 293,
+    "user_id": 22723837,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/ACg8ocJKnVnoV8l97sg3gwkU87yszVBeEMWE2q4LxJzdd3aE=k-s256",
+    "display_name": "Tarequl Nishad",
+    "link": "https://stackoverflow.com/users/22723837/tarequl-nishad"
+   },
+   "is_answered": true,
+   "view_count": 114352,
+   "accepted_answer_id": 77281165,
+   "answer_count": 5,
+   "score": 29,
+   "last_activity_date": 1771850934,
+   "creation_date": 1697039322,
+   "last_edit_date": 1743878552,
+   "question_id": 77274572,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77274572/multiqc-modulenotfounderror-no-module-named-imp",
+   "title": "MultiQC: ModuleNotFoundError: No module named &#39;imp&#39;",
+   "body": "<p><a href=\"https://i.sstatic.net/XIROo.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/XIROo.png\" alt=\"enter image description here\" /></a></p>\n<p>I am running <code>fastqc</code> and <code>multiqc</code> in ubuntu linux terminal. fastqc runs perfectly without any issues but multiqc fails to run, showing the message. No idea how to fix the missing <code>'imp'</code> module.</p>\n<p>I used the command <code>conda install multiqc</code> to install multiqc in the existing conda environment. I tried to install it in a new conda environment. Still, its showing the same message.The python version currently running is <strong>3.12.0</strong>.</p>\n<p>How to fix the issue?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "matplotlib",
+    "plot",
+    "pycharm"
+   ],
+   "owner": {
+    "account_id": 39315426,
+    "reputation": 19,
+    "user_id": 29214637,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/bf4cd26599649a4368851bff3a9e1082?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "A_Real_Capybara",
+    "link": "https://stackoverflow.com/users/29214637/a-real-capybara"
+   },
+   "is_answered": false,
+   "view_count": 356,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1771264187,
+   "creation_date": 1737024618,
+   "last_edit_date": 1771264187,
+   "question_id": 79361267,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79361267/matplotlib-plots-in-pycharm-suddenly-dont-show-up-in-the-pycharm-plot-window-bu",
+   "title": "Matplotlib plots in pycharm suddenly don&#39;t show up in the pycharm plot window but as a popup window",
+   "body": "<p>I am working on a short piece of code that plots graphs using matplotlib in pycharm (2024.3.1). Whenever I ran the code, the plot would show up in a &quot;plot&quot; window on the right of the IDE. I closed pycharm for some reason and after reopening it, I am now no longer able to see the plots in said plot window but it always shows up as a popup seperate window, even though no change was made to the code.</p>\n<p>The plot tab on the right hand side has just disappeared altogether.</p>\n<p>The code contains the following (I have removed parts of the code not relevant to this request):</p>\n<pre><code>from matplotlib import pyplot as plt\nimport numpy as np\n.\n.\n.\ncolours = ['blue', 'green', 'red', 'cyan', 'magenta', 'black', 'purple', 'orange']\nplt.figure(figsize=(25, 8))\nx = np.arange(0, 365, step=10)\ny = np.arange(0, 11, step=1)\nplt.xticks(ticks=x, labels=x)\nplt.yticks(ticks=y, labels=locations)\n.\n.\n.\nplt.plot(day, 0, 'o', color=colour, label=label)\nplt.grid()\nplt.show()\n</code></pre>\n<p>I have already tried the following:</p>\n<ol>\n<li><p>In settings I am not able to find the &quot;science view&quot; in the tools section</p>\n</li>\n<li><p>I have tried using:</p>\n<pre><code>matplotlib.use('module://backend_interagg')\n</code></pre>\n<p>but this only returns</p>\n<blockquote>\n<p>ModuleNotFoundError: No module named 'backend_interagg'</p>\n</blockquote>\n</li>\n<li><p>I have also tried using the PytQ5 module but that also does not work.</p>\n</li>\n<li><p>I have tried reverting to an older pycharm version (2023.2.5) which did not help</p>\n</li>\n</ol>\n<p>Can anyone help me out?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "modulenotfounderror",
+    "google-gemini",
+    "google-generativeai"
+   ],
+   "owner": {
+    "account_id": 20766961,
+    "reputation": 11,
+    "user_id": 15250700,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/bbe90e58b38dd6c45a3f080f04d2e9bb?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Ran Zaaroor",
+    "link": "https://stackoverflow.com/users/15250700/ran-zaaroor"
+   },
+   "is_answered": false,
+   "view_count": 2582,
+   "answer_count": 3,
+   "score": 1,
+   "last_activity_date": 1770738528,
+   "creation_date": 1713624981,
+   "last_edit_date": 1713722627,
+   "question_id": 78358666,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78358666/modulenotfounderror-no-module-named-google-when-trying-to-use-geminiapi",
+   "title": "ModuleNotFoundError: No module named &#39;google&#39; - When trying to use GeminiAPI",
+   "body": "<p>This is my code:</p>\n<pre><code>import google.generativeai as genai\nfrom dotenv import load_dotenv\nimport os\n\nload_dotenv()\napi_key = os.getenv(&quot;GeminiAPI_KEY&quot;)\ngenai.configure(api_key=api_key)\nmodel = genai.GenerativeModel('gemini-pro')\n\n\ndef get_gemini_summary(book_name, author_name):\n    prompt = f&quot;Summarize the book {book_name} by {author_name} in 5 sentences or less&quot;\n    response = model.generate_content(prompt)\n    print(response.text)\n\n\ndef main():\n    get_gemini_summary(&quot;The Great Gatsby&quot;, &quot;F. Scott Fitzgerald&quot;)\n\n\nif __name__ == &quot;__main__&quot;:\n    main()\n</code></pre>\n<p>I keep getting the error ModuleNotFoundError: No module named 'google' in line 1 when trying to import generativeai as genai.</p>\n<p>Can anyone help?</p>\n<p>Things I already tried:</p>\n<ul>\n<li>uninstalling and installing: google.generativeai</li>\n<li>uninstalling and installing: google-generativeai</li>\n<li>Ensured my interpreter version is fine (3.9)</li>\n<li>Tried different IDEs</li>\n</ul>\n<p><strong>After some trial and error, I figured that the problem was in my Python version and my venv.\nI switched to Python 3.10, but it might work in other version as well.</strong></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "windows",
+    "docker",
+    "neo4j"
+   ],
+   "owner": {
+    "account_id": 11411198,
+    "reputation": 35,
+    "user_id": 8365285,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/27bc25c8504ac5d64db909dcdb9b4b0c?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "rnoftz",
+    "link": "https://stackoverflow.com/users/8365285/rnoftz"
+   },
+   "is_answered": true,
+   "view_count": 97,
+   "accepted_answer_id": 79880614,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1769967240,
+   "creation_date": 1769888361,
+   "last_edit_date": 1769948127,
+   "question_id": 79880191,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79880191/neo4j-graphacademy-docker-installlation-error-on-windows-modulenotfounderror-n",
+   "title": "Neo4j GraphAcademy Docker Installlation Error on Windows: ModuleNotFoundError: No module named neo4j",
+   "body": "<p>I'm trying to get a container running Python to connect to my Neo4j container in Docker.</p>\n<p>I'm following the steps in the Neo4j GraphAcademy Python Installation tutorial (<a href=\"https://neo4j.com/docs/python-manual/current/install/\" rel=\"nofollow noreferrer\">https://neo4j.com/docs/python-manual/current/install/</a>) and Getting Started with Docker tutorial (<a href=\"https://neo4j.com/docs/operations-manual/current/docker/introduction/\" rel=\"nofollow noreferrer\">https://neo4j.com/docs/operations-manual/current/docker/introduction/</a>).  In Windows 10 on the Docker Desktop, I'm getting an error when starting my container in Docker.</p>\n<p>I started by uninstalling/deleting all previous python and neo4j versions.  As well as deleting any environment variables associated with them.  I've downloaded the latest versions of Python and Neo4j.  I've installed the Python driver and installed the Neo4j image for Docker.</p>\n<p>The Neo4j image starts with no problem in Docker.  The Neo4j browser opens and logs me in (using the default credentials per the tutorial).  The Docker starter image runs without issue as ewll.  I've created very rudimentary Dockerfile and app.py files.</p>\n<p>I put 'print' commands in the app.py file, so that I can see that the container is using my app.py file.</p>\n<p>Any guidance is greatly appreciated.</p>\n<p>--- pip freeze ---</p>\n<p>neo4j==6.1.0</p>\n<p>pytz==2025.2</p>\n<p>--- User environment variables added to PATH ---</p>\n<p>...\\Python314\\Scripts\\</p>\n<p>...\\Python314\\Launcher\\</p>\n<p>...\\Python314\\</p>\n<p>--- System environment variables - NEO4J_HOME ---</p>\n<p>...\\...\\neo4j-community-2025.11.2-windows\\</p>\n<p>--- Dockerfile ---</p>\n<pre><code>\\# Start your image with a node base image\n\nFROM python\n\n\\# The /app directory should act as the main application directory\n\nWORKDIR /app\n\n\\# Copy the app package and package-lock.json file\n\nCOPY . /app\n\n\\# Start the app using serve command\n\nCMD \\[ &quot;python&quot;, &quot;app.py&quot; \\]\n\n</code></pre>\n<p>--- app.py ---</p>\n<pre><code>print(&quot;This is testing&quot;)\nprint(&quot;11:30&quot;)\nfrom neo4j import GraphDatabase\n\ndriver = GraphDatabase.driver(\n  &quot;neo4j://localhost:7687&quot;,       # (1)\n  auth=(&quot;neo4j&quot;, &quot;##########&quot;) # (2)\n)\n\ndriver.verify_connectivity()\n\nrecords, summary, keys = driver.execute_query( # (1)\n    &quot;RETURN COUNT {()} AS count&quot;\n)\n\n# Get the first record\nfirst = records[0]      # (2)\n\n# Print the count entry\nprint(first[&quot;count&quot;])   # (3)\n</code></pre>\n<p>--- Error ---</p>\n<pre><code>This is testing\n\n11:30\n\nTraceback (most recent call last):\n\n  File &quot;/app/app.py&quot;, line 3, in &lt;module&gt;\n\n    from neo4j import GraphDatabase\n\nModuleNotFoundError: No module named 'neo4j'\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "package",
+    "diacritics"
+   ],
+   "owner": {
+    "account_id": 13642503,
+    "reputation": 257,
+    "user_id": 9842262,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/s256-rj/photo.jpg",
+    "display_name": "Felipe Ito",
+    "link": "https://stackoverflow.com/users/9842262/felipe-ito"
+   },
+   "is_answered": true,
+   "view_count": 67189,
+   "answer_count": 5,
+   "score": 22,
+   "last_activity_date": 1769287508,
+   "creation_date": 1557516769,
+   "question_id": 56083823,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/56083823/modulenotfounderror-no-module-named-unidecode-yet-i-have-the-module-installed",
+   "title": "ModuleNotFoundError: No module named &#39;unidecode&#39; yet I have the module installed",
+   "body": "<p>I am trying to remove accents from a Python list of strings by converting it from UTF-8 to ASCII. I have read answers to multiple questions here in StackOverflow that suggest using the unidecode function from the unidecode package. I have installed it using conda but if I write</p>\n\n<pre><code>import unidecode\n</code></pre>\n\n<p>I get</p>\n\n<pre><code>ModuleNotFoundError: No module named 'unidecode'\n</code></pre>\n\n<p>I have tried excluding unidecode and reinstalling it (using both conda and pip) and I checking if the <code>PATH</code> was pointing to all Anaconda locations, as advised in <a href=\"https://stackoverflow.com/users/4013571/alexander-mcfarlane\">Alexander McFarlane's</a> answer to <a href=\"https://stackoverflow.com/questions/45693420/python-modulenotfounderror-but-module-is-installed\">this question</a>.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 25421339,
+    "reputation": 45,
+    "user_id": 19227305,
+    "user_type": "registered",
+    "profile_image": "https://graph.facebook.com/1686896378335719/picture?type=large",
+    "display_name": "Mattka",
+    "link": "https://stackoverflow.com/users/19227305/mattka"
+   },
+   "is_answered": false,
+   "view_count": 113,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1768729720,
+   "creation_date": 1768603438,
+   "last_edit_date": 1768675264,
+   "question_id": 79869821,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79869821/pip-showing-modulenotfounderror-while-upgrade-downgrade",
+   "title": "PIP showing ModuleNotFoundError while upgrade/downgrade",
+   "body": "<p>im trying to downgrade pip to 18.1 for pyinstaller and it shows me the same error every time\nive uninstall and reinstalled urllib3 and requests yet i have the same issue</p>\n<p>command: <code> python -m pip install pip==18.1</code></p>\n<p>error:</p>\n<blockquote>\n<p>ModuleNotFoundError: No module named\n'pip._vendor.urllib3.packages.six.moves'</p>\n</blockquote>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "langchain"
+   ],
+   "owner": {
+    "account_id": 8866552,
+    "reputation": 155,
+    "user_id": 6944737,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/e5fcac2454ec3e6b46ea3d54665ddf24?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "nid",
+    "link": "https://stackoverflow.com/users/6944737/nid"
+   },
+   "is_answered": true,
+   "view_count": 14611,
+   "accepted_answer_id": 76021694,
+   "answer_count": 3,
+   "score": 0,
+   "last_activity_date": 1768303892,
+   "creation_date": 1681551905,
+   "question_id": 76021476,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/76021476/modulenotfounderror-no-module-named-langchain-agents",
+   "title": "ModuleNotFoundError: No module named &#39;langchain.agents&#39;",
+   "body": "<p>Just intalled Lanchain. Been going through the first few steps of the getting started tutorial without a problem till I reach the Agents section.</p>\n<pre class=\"lang-py prettyprint-override\"><code>from langchain.agents import load_tools\nfrom langchain.agents import initialize_agent\nfrom langchain.agents import AgentType\nfrom langchain.llms import OpenAI\n</code></pre>\n<pre class=\"lang-bash prettyprint-override\"><code>Traceback (most recent call last):\n  File &quot;/langchain/agents.py&quot;, line 4, in &lt;module&gt;\n    from langchain.agents import load_tools\nModuleNotFoundError: No module named 'langchain.agents'\n</code></pre>\n<p>I am running lanchain in a virtual environment in python 3.9. Installed langchain with the pip install command as shown in the docs.</p>\n<p>Not sure why this module specifically could be missing</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "pynput"
+   ],
+   "owner": {
+    "account_id": 6704788,
+    "reputation": 159,
+    "user_id": 5170175,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/1bd945427708b1e5fcbc0057070561ca?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Nilson Rodrigues",
+    "link": "https://stackoverflow.com/users/5170175/nilson-rodrigues"
+   },
+   "is_answered": true,
+   "view_count": 115407,
+   "protected_date": 1667360526,
+   "answer_count": 11,
+   "score": 14,
+   "last_activity_date": 1767349144,
+   "creation_date": 1533077868,
+   "last_edit_date": 1662390248,
+   "question_id": 51623208,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/51623208/how-to-fix-error-no-module-named-pynput-even-after-downloading-with-pip",
+   "title": "How to fix Error &quot;No module named &#39;pynput&#39;&quot;? even after downloading with pip?",
+   "body": "<p>I downloaded the pynput in my windows with pip following the video: <a href=\"https://youtu.be/DTnz8wA6wpw\" rel=\"noreferrer\">https://youtu.be/DTnz8wA6wpw</a></p>\n<p>with cmd in administrator mode</p>\n<pre><code>pip install pynput\n</code></pre>\n<p>and when i run the code, the pycharm and spyder3 show the error:</p>\n<blockquote>\n<p>Traceback (most recent call last):\nFile &quot;E:/Users/nilson/Dropbox/Python/PyCharm/auto/auto.py&quot;, line 1, in \nfrom pynput.keyboard import Key, Controller\nModuleNotFoundError: No module named 'pynput'</p>\n</blockquote>\n<p>Here is my code:</p>\n<pre><code>from pynput.keyboard import Key, Controller\nimport time\n\nkeyboard = Controller()\n\ntime.sleep(2)\n\nfor char in &quot;sasdasdasda&quot;:\n    keyboard.press(char)\n    keyboard.release(char)\n    time.sleep(0.12)\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "audio",
+    "pyttsx"
+   ],
+   "owner": {
+    "account_id": 12824809,
+    "reputation": 79,
+    "user_id": 9311010,
+    "user_type": "registered",
+    "accept_rate": 40,
+    "profile_image": "https://www.gravatar.com/avatar/34c3c6102a74e7d3af588c4a0c764d45?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "user9311010",
+    "link": "https://stackoverflow.com/users/9311010/user9311010"
+   },
+   "is_answered": false,
+   "view_count": 138,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1766668056,
+   "creation_date": 1518146938,
+   "last_edit_date": 1766668056,
+   "question_id": 48698331,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/48698331/returning-audio-using-os-system-python",
+   "title": "Returning audio using os.system Python",
+   "body": "<p>I would like to return audio using os.system because, in PyCharm, it returns the error:</p>\n<blockquote>\n<p>&quot;Traceback (most recent call last):\nFile &quot;/Users/Milo/Desktop/python/Joe.py&quot;, line 5, in \nimport pyttsx\nFile &quot;/private/var/folders/z_/wpk6crsn2slfh_1y5hytwsvr0000gp/T/Joe.py/venv/lib/python3.6/site-packages/pyttsx/<strong>init</strong>.py&quot;, line 18, in \nfrom engine import Engine\nModuleNotFoundError: No module named 'engine'&quot;.</p>\n</blockquote>\n<p>For example:</p>\n<pre><code>import pyttsx\nengine = pyttsx.init()\nengine.say('This is a test')\nengine.runAndWait()\n'''Somehow play sound/voice'''\n</code></pre>\n<p>Am I using the wrong pyttsx module? Did I install it wrong? I am using python 3.6.4 and am using Mac OSX. I highly prefer that if I need a new module, it works with NSSpeechSynthesizer. Should I just run it via terminal? However, I would like to use it with PyCharm. Let me know if there if there is any info you need to know the I did not disclose.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pytest",
+    "modulenotfounderror"
+   ],
+   "owner": {
+    "account_id": 21441166,
+    "reputation": 247,
+    "user_id": 15795704,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/fe58b6727a3f946c1c474512749f580f?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "crazyfrog",
+    "link": "https://stackoverflow.com/users/15795704/crazyfrog"
+   },
+   "is_answered": true,
+   "view_count": 3428,
+   "closed_date": 1765280218,
+   "accepted_answer_id": 70172229,
+   "answer_count": 2,
+   "score": 2,
+   "last_activity_date": 1765190610,
+   "creation_date": 1638287128,
+   "last_edit_date": 1638479091,
+   "question_id": 70172116,
+   "link": "https://stackoverflow.com/questions/70172116/modulenotfounderror-no-module-named",
+   "closed_reason": "Duplicate",
+   "title": "moduleNotFoundError: no module named (*)",
+   "body": "<p>\u00a0I'm trying to run my tests using <code>python -m pytest</code> but I get an error that\n<code>ModuleNotFoundError: No module named 'sample'</code>\nWhen using <code>nosetests</code> or anything else it works fine, but when trying to use pytest, it doesn't work.\nMy tree looks like below, do you have any advice why it doesn't work?</p>\n<pre><code>\u251c\u2500\u2500 LICENSE.txt\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 data\n\u2502\u00a0\u00a0 \u2514\u2500\u2500 data_file\n\u251c\u2500\u2500 exported_register.csv\n\u251c\u2500\u2500 pyproject.toml\n\u251c\u2500\u2500 requirements.txt\n\u251c\u2500\u2500 setup.cfg\n\u251c\u2500\u2500 setup.py\n\u251c\u2500\u2500 src\n\u2502\u00a0\u00a0 \u2514\u2500\u2500 sample\n\u2502\u00a0\u00a0     \u251c\u2500\u2500 __init__.py\n\u2502\u00a0\u00a0     \u251c\u2500\u2500 __pycache__\n\u2502\u00a0\u00a0     \u2502\u00a0\u00a0 \u251c\u2500\u2500 __init__.cpython-39.pyc\n\u2502\u00a0\u00a0     \u2502\u00a0\u00a0 \u251c\u2500\u2500 dziennik.cpython-39.pyc\n\u2502\u00a0\u00a0     \u2502\u00a0\u00a0 \u251c\u2500\u2500 przedmiot.cpython-39.pyc\n\u2502\u00a0\u00a0     \u2502\u00a0\u00a0 \u251c\u2500\u2500 simple.cpython-39.pyc\n\u2502\u00a0\u00a0     \u2502\u00a0\u00a0 \u2514\u2500\u2500 uczen.cpython-39.pyc\n\u2502\u00a0\u00a0     \u251c\u2500\u2500 dziennik.py\n\u2502\u00a0\u00a0     \u251c\u2500\u2500 package_data.dat\n\u2502\u00a0\u00a0     \u251c\u2500\u2500 przedmiot.py\n\u2502\u00a0\u00a0     \u251c\u2500\u2500 simple.py\n\u2502\u00a0\u00a0     \u2514\u2500\u2500 uczen.py\n\u251c\u2500\u2500 tests\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 __init__.py\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 __pycache__\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 __init__.cpython-39.pyc\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 test_ASSERTPY_uczen.cpython-39-pytest-6.2.1.pyc\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 test_ASSERTPY_uczen.cpython-39-pytest-6.2.5.pyc\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 test_ASSERTPY_uczen.cpython-39.pyc\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 test_PYHAMCREST_uczen.cpython-39-pytest-6.2.1.pyc\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 test_PYHAMCREST_uczen.cpython-39-pytest-6.2.5.pyc\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 test_PYHAMCREST_uczen.cpython-39.pyc\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 test_UNITTEST_register.cpython-39-pytest-6.2.1.pyc\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 test_UNITTEST_register.cpython-39-pytest-6.2.5.pyc\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 test_UNITTEST_register.cpython-39.pyc\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 test_UNITTEST_uczen.cpython-39-pytest-6.2.1.pyc\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 test_UNITTEST_uczen.cpython-39-pytest-6.2.5.pyc\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 test_UNITTEST_uczen.cpython-39.pyc\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 test_simple.cpython-39-pytest-6.2.1.pyc\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 test_simple.cpython-39-pytest-6.2.5.pyc\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u2514\u2500\u2500 test_simple.cpython-39.pyc\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 test_ASSERTPY_uczen.py\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 test_PYHAMCREST_uczen.py\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 test_UNITTEST_register.py\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 test_UNITTEST_uczen.py\n\u2502\u00a0\u00a0 \u2514\u2500\u2500 test_simple.py\n\u2514\u2500\u2500 tox.ini\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "numpy",
+    "google-colaboratory"
+   ],
+   "owner": {
+    "account_id": 20126150,
+    "reputation": 114,
+    "user_id": 14759569,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/dcf900e9fbe33c2f4691a3f3dc134650?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "tymerius",
+    "link": "https://stackoverflow.com/users/14759569/tymerius"
+   },
+   "is_answered": true,
+   "view_count": 24915,
+   "answer_count": 3,
+   "score": 9,
+   "last_activity_date": 1764629971,
+   "creation_date": 1721176555,
+   "question_id": 78757205,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78757205/modulenotfounderror-no-module-named-numpy-core",
+   "title": "ModuleNotFoundError: No module named &#39;numpy._core&#39;",
+   "body": "<p>I am trying to load a .npy file created on my local PC with np.save() in google colaboratory. However, when I try to open it on Google Colab with np.load() I get this error: <code>ModuleNotFoundError: No module named 'numpy._core'</code></p>\n<p>I am not sure if its an issue related to different numpy versions, numpy version on my pc is 2.0.0 (newest), and numpy version on colab is 1.25</p>\n<p>I've already tried to downgrade or upgrade numpy so the version matches in both environments.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "salesforce",
+    "llama-index"
+   ],
+   "owner": {
+    "account_id": 32048047,
+    "reputation": 41,
+    "user_id": 24853036,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/b546ed80edd6f9903fa37f70898acb54?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Henrik N&#248;rgaard",
+    "link": "https://stackoverflow.com/users/24853036/henrik-n%c3%b8rgaard"
+   },
+   "is_answered": false,
+   "view_count": 82,
+   "answer_count": 0,
+   "score": 5,
+   "last_activity_date": 1764172893,
+   "creation_date": 1764172893,
+   "question_id": 79830911,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79830911/modulenotfounderror-no-module-named-source-salesforce-when-using-airbytesales",
+   "title": "ModuleNotFoundError: No module named &#39;source_salesforce&#39; when using AirbyteSalesforceReader",
+   "body": "<p>I am trying to use the class <code>AirbyteSalesforceReader</code> from the project <a href=\"https://pypi.org/project/llama-index-readers-airbyte-salesforce/\" rel=\"noreferrer\"><code>llama-index-readers-airbyte-salesforce</code></a> (version 0.4.1). However, when I do so, e.g. in the following example:</p>\n<pre><code>from llama_index.readers.airbyte_salesforce import AirbyteSalesforceReader\n\nreader = AirbyteSalesforceReader(config={})\n</code></pre>\n<p>I get the following error:</p>\n<pre><code>File &quot;/home/hhaldn/Code/knowledge-extraction/example.py&quot;, line 3, in &lt;module&gt;\n    reader = AirbyteSalesforceReader(config={})\n  File &quot;/home/hhaldn/.pyenv/versions/ke_env/lib/python3.13/site-packages/llama_index/readers/airbyte_salesforce/base.py&quot;, line 23, in __init__\n    import source_salesforce\nModuleNotFoundError: No module named 'source_salesforce'\n</code></pre>\n<p>I have installed the project using Poetry in a virtual environment that is running Python 3.13.9.</p>\n<p>Please note that I am not trying to import the module from my own code. The import statement is in the class <code>AirbyteSalesforceReader</code>.</p>\n<p>I have not been able to find any contact information for the maintainers of this project on PyPi.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "selenium-webdriver",
+    "spyder"
+   ],
+   "owner": {
+    "account_id": 13843042,
+    "reputation": 35,
+    "user_id": 9992828,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/c4dea0aa6756124c653ae247d6da0537?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Decoder",
+    "link": "https://stackoverflow.com/users/9992828/decoder"
+   },
+   "is_answered": false,
+   "view_count": 121,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1763981702,
+   "creation_date": 1763978724,
+   "last_edit_date": 1763981702,
+   "question_id": 79828485,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79828485/modulenotfounderror-no-module-named-webdrivermanager-with-spyder",
+   "title": "ModuleNotFoundError: No module named &#39;webdrivermanager&#39; with Spyder",
+   "body": "<p><strong>Question:</strong> Why do I get the error I get, although to me it seems that the webdriver is in PATH?</p>\n<p><strong>Problem description and context:</strong></p>\n<p>I am trying to do some coding that requires using the webdriver manager for Chrome. I am testing the configuration with the following code (not my own, should work as it is, as it's provided in course material).</p>\n<pre><code>import django, selenium, bs4, requests\nfrom selenium import webdriver\nfrom selenium.webdriver.chrome.options import Options\nimport socket\n\n# There is a 'feature' in selenium which may cause the firewall to react unless you provide an explicit port for the driver\ndef free_port():\n    free_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n    free_socket.bind(('localhost', 0))\n    free_socket.listen(5)\n    port = free_socket.getsockname()[1]\n    free_socket.close()\n    return port\n\n\noptions = Options()\noptions.headless = True\noptions.add_argument('--no-sandbox')\ndriver = webdriver.Chrome(port=free_port(), options=options)\ndriver.get('https://www.google.com')\nprint('Good so far')\n</code></pre>\n<p>However, when running the above script in Spyder, I get the following error.</p>\n<pre><code>runfile('/Users/USERNAME/Downloads/sanity.py', wdir='/Users/USERNAME/Downloads')\nTraceback (most recent call last):\n\n  File &quot;/Users/USERNAME/opt/anaconda3/lib/python3.8/site-packages/selenium/webdriver/common/service.py&quot;, line 72, in start\n    self.process = subprocess.Popen(cmd, env=self.env,\n\n  File &quot;/Users/USERNAME/opt/anaconda3/lib/python3.8/subprocess.py&quot;, line 854, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n\n  File &quot;/Users/USERNAME/opt/anaconda3/lib/python3.8/subprocess.py&quot;, line 1702, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\n\nFileNotFoundError: [Errno 2] No such file or directory: 'chromedriver'\n\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n\n  File &quot;/Users/USERNAME/Downloads/sanity.py&quot;, line 19, in &lt;module&gt;\n    driver = webdriver.Chrome(port=free_port(), options=options)\n\n  File &quot;/Users/USERNAME/opt/anaconda3/lib/python3.8/site-packages/selenium/webdriver/chrome/webdriver.py&quot;, line 73, in __init__\n    self.service.start()\n\n  File &quot;/Users/USERNAME/opt/anaconda3/lib/python3.8/site-packages/selenium/webdriver/common/service.py&quot;, line 81, in start\n    raise WebDriverException(\n\nWebDriverException: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home\n</code></pre>\n<p>When echoing PATH in terminal, I see there the folder /Users/USERNAME/opt/anaconda/pkgs, where both the webdriver-manager and selenium are located.</p>\n"
+  }
+ ]
+}

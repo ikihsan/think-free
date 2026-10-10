@@ -1,0 +1,1446 @@
+{
+ "site": "stackoverflow",
+ "query": "python \"pip install\" \"ImportError\"",
+ "class": "pip_then_import",
+ "items": [
+  {
+   "tags": [
+    "python"
+   ],
+   "owner": {
+    "account_id": 30433778,
+    "reputation": 41,
+    "user_id": 23322358,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/e282fa2621b66f6aa03f07b96de22f58?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Ataberk",
+    "link": "https://stackoverflow.com/users/23322358/ataberk"
+   },
+   "is_answered": false,
+   "view_count": 14146,
+   "answer_count": 1,
+   "score": 5,
+   "last_activity_date": 1791143724,
+   "creation_date": 1723847799,
+   "question_id": 78881018,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78881018/i-cannot-install-flash-attention",
+   "title": "I cannot install flash-attention",
+   "body": "<p>I try to run my vector search code but I got this error: ImportError: This modeling file requires the following packages that were not found in your environment: flash_attn. Run <code>pip install flash_attn --no-build-isolation</code> as in the github repository. This error probably occured in this line: model = AutoModel.from_pretrained(model_dir, trust_remote_code= True).cuda().eval()</p>\n<p>There are two ways mentioned in the readme file inside the flash-attn repository. The first one is pip install flash-attn --no-build-isolation and the second one is after cloning the repository, navigating to the hooper folder and run python setup.py install. I tried both but I got this errors all at once: fatal error C1083: Cannot open include file: 'stddef.h': No such file or directory, fatal error C1083: Cannot open include file: 'corecrt.h': No such file or directory , Failed building wheel for flash-attn, Failed to build installable wheels for some pyproject.toml based projects (flash-attn). Visual Studio 2022 C++ is installed and I checked for the requirements. Also Torch, TorchAudio etc and Cuda are installed compatible.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "windows",
+    "configparser",
+    "python-3.7"
+   ],
+   "owner": {
+    "account_id": 14711559,
+    "reputation": 41,
+    "user_id": 10624776,
+    "user_type": "registered",
+    "profile_image": "https://lh6.googleusercontent.com/-zyhq_fAkPCk/AAAAAAAAAAI/AAAAAAAASzA/BN2m7ORvsVI/s256-rj/photo.jpg",
+    "display_name": "Matou\u0161 \u010cmel&#237;k",
+    "link": "https://stackoverflow.com/users/10624776/matou%c5%a1-%c4%8cmel%c3%adk"
+   },
+   "is_answered": false,
+   "view_count": 14814,
+   "answer_count": 1,
+   "score": 4,
+   "last_activity_date": 1790636560,
+   "creation_date": 1541695126,
+   "last_edit_date": 1542388359,
+   "question_id": 53212248,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/53212248/python-3-x-importerror-no-module-named-configparser-but-module-is-installed",
+   "title": "Python 3.x ImportError: No module named configparser , but module is installed",
+   "body": "<p>In my code i am using configparser. Everything working fine, but after i do fresh install of windows 10, this error appears: <code>ImportError: No module named configparser</code>.</p>\n\n<ul>\n<li>But same code working on other pc</li>\n<li>Python is in PATH (double checked)</li>\n<li>Try reinstall python</li>\n<li>configparser is installed by default, but still try \"pip install configparser\"</li>\n</ul>\n\n<p>I am using Python 3.7.1\nIn same code i do \"<code>import os</code>\" and this is working. Configparser is in same directory.</p>\n\n<p><strong>EDIT:</strong></p>\n\n<p>configparser is here:</p>\n\n<pre><code>c:\\Program Files\\Python37\\Lib\\configparser.py\n</code></pre>\n\n<p>after <code>pip install configparser</code>, there is another:</p>\n\n<pre><code>c:\\Program Files\\Python37\\Lib\\site-packages\\backports\\configparser\\__init__.py\n</code></pre>\n\n<p><strong>EDIT_2:</strong></p>\n\n<p>Try copy:  </p>\n\n<pre><code>c:\\Program Files\\Python37\\Lib\\configparser.py\n</code></pre>\n\n<p>to my working folder. Result:</p>\n\n<pre><code>Traceback (most recent call last):\nFile \"C:\\git\\silixcon_lib\\production_data.py\", line 4, in &lt;module&gt;\nimport configparser\nFile \"C:\\git\\silixcon_lib\\configparser.py\", line 434\noption, section, rawval, var) from None\n                                 ^\nSyntaxError: invalid syntax\n</code></pre>\n\n<p><strong>This is working:</strong></p>\n\n<p>Copy this to my working folder:</p>\n\n<pre><code>c:\\Program Files\\Python37\\Lib\\site-packages\\backports\\configparser\\__init__.py\n</code></pre>\n\n<p>and rename it to configparser.py. At lines 138-140 change \"backports.configparser.helpers\" to \"helpers\"</p>\n\n<p>and this copy too:</p>\n\n<pre><code>c:\\Program Files\\Python37\\Lib\\site-packages\\backports\\configparser\\helpers.py\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram",
+    "telegram-bot"
+   ],
+   "owner": {
+    "account_id": 17414581,
+    "reputation": 9,
+    "user_id": 12621181,
+    "user_type": "registered",
+    "profile_image": "https://graph.facebook.com/1802527563214723/picture?type=large",
+    "display_name": "Miclo\u015f Edi",
+    "link": "https://stackoverflow.com/users/12621181/miclo%c5%9f-edi"
+   },
+   "is_answered": false,
+   "view_count": 8352,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1771657425,
+   "creation_date": 1607104621,
+   "last_edit_date": 1607113747,
+   "question_id": 65148440,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/65148440/importerror-cannot-import-name-bot-from-partially-initialized-module-telegra",
+   "title": "ImportError: cannot import name &#39;Bot&#39; from partially initialized module &#39;telegram&#39;",
+   "body": "<p>I'm getting this error whenever I use the command <em>pip install telegram-bot</em> in cmd:</p>\n<pre><code>    C:\\Windows\\system32&gt;pip install telegram-bot\nCollecting telegram-bot\nUsing cached telegram-bot-0.1.tar.gz (51 kB)\n    ERROR: Command errored out with exit status 1:\n     command: 'c:\\program files\\python39\\python.exe' -c 'import sys, setuptools, tokenize; sys.argv[0] = '&quot;'&quot;'C:\\\\Users\\\\miclo\\\\AppData\\\\Local\\\\Temp\\\\pip-install-j1l7uwqx\\\\telegram-bot_a7d2b1d51c264e718c85210726554603\\\\setup.py'&quot;'&quot;'; __file__='&quot;'&quot;'C:\\\\Users\\\\miclo\\\\AppData\\\\Local\\\\Temp\\\\pip-install-j1l7uwqx\\\\telegram-bot_a7d2b1d51c264e718c85210726554603\\\\setup.py'&quot;'&quot;';f=getattr(tokenize, '&quot;'&quot;'open'&quot;'&quot;', open)(__file__);code=f.read().replace('&quot;'&quot;'\\r\\n'&quot;'&quot;', '&quot;'&quot;'\\n'&quot;'&quot;');f.close();exec(compile(code, __file__, '&quot;'&quot;'exec'&quot;'&quot;'))' egg_info --egg-base 'C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-pip-egg-info-4qf8pb7l'\n         cwd: C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-j1l7uwqx\\telegram-bot_a7d2b1d51c264e718c85210726554603\\\n    Complete output (7 lines):\n    Traceback (most recent call last):\n      File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;\n      File &quot;C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-j1l7uwqx\\telegram-bot_a7d2b1d51c264e718c85210726554603\\setup.py&quot;, line 12, in &lt;module&gt;\n        import telegram\n      File &quot;C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-j1l7uwqx\\telegram-bot_a7d2b1d51c264e718c85210726554603\\telegram\\__init__.py&quot;, line 15, in &lt;module&gt;\n        from telegram import Bot, ChatActions\n    ImportError: cannot import name 'Bot' from partially initialized module 'telegram' (most likely due to a circular import) (C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-j1l7uwqx\\telegram-bot_a7d2b1d51c264e718c85210726554603\\telegram\\__init__.py)\n    ----------------------------------------\nERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.\n</code></pre>\n<p>I have installed the latest version of Python and upgraded pip, but nothing changed. I use <em>Pycharm</em> as IDE. When I try to install this module from Pycharm, I get the same error:</p>\n<pre><code>Collecting telegram-bot\n  Using cached telegram-bot-0.1.tar.gz (51 kB)\n\nDEPRECATION: The -b/--build/--build-dir/--build-directory option is deprecated and has no effect anymore. pip 21.1 will remove support for this functionality. A possible replacement is use the TMPDIR/TEMP/TMP environment variable, possibly combined with --no-clean. You can find discussion regarding this at https://github.com/pypa/pip/issues/8333.\n    ERROR: Command errored out with exit status 1:\n     command: 'D:\\Development\\telegram\\venv\\Scripts\\python.exe' -c 'import sys, setuptools, tokenize; sys.argv[0] = '&quot;'&quot;'C:\\\\Users\\\\miclo\\\\AppData\\\\Local\\\\Temp\\\\pip-install-60osryel\\\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\\\setup.py'&quot;'&quot;'; __file__='&quot;'&quot;'C:\\\\Users\\\\miclo\\\\AppData\\\\Local\\\\Temp\\\\pip-install-60osryel\\\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\\\setup.py'&quot;'&quot;';f=getattr(tokenize, '&quot;'&quot;'open'&quot;'&quot;', open)(__file__);code=f.read().replace('&quot;'&quot;'\\r\\n'&quot;'&quot;', '&quot;'&quot;'\\n'&quot;'&quot;');f.close();exec(compile(code, __file__, '&quot;'&quot;'exec'&quot;'&quot;'))' egg_info --egg-base 'C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-pip-egg-info-0ihid_ld'\n         cwd: C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-60osryel\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\\n    Complete output (7 lines):\n    Traceback (most recent call last):\n      File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;\n      File &quot;C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-60osryel\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\setup.py&quot;, line 12, in &lt;module&gt;\n        import telegram\n      File &quot;C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-60osryel\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\telegram\\__init__.py&quot;, line 15, in &lt;module&gt;\n        from telegram import Bot, ChatActions\n    ImportError: cannot import name 'Bot' from partially initialized module 'telegram' (most likely due to a circular import) (C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-60osryel\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\telegram\\__init__.py)\n    ----------------------------------------\nERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.\n</code></pre>\n<p>I'm trying to build a telegram bot and host it with Heroku. When typing <em>heroku logs -t</em> in cmd, I get something similar:</p>\n<pre><code>2020-12-04T20:24:35.852594+00:00 app[web.1]: File &quot;main.py&quot;, line 5, in &lt;module&gt;\n2020-12-04T20:24:35.852826+00:00 app[web.1]: from telegram.ext import CommandHandler, MessageHandler, Filters, Updater\n2020-12-04T20:24:35.852831+00:00 app[web.1]: File &quot;/app/.heroku/python/lib/python3.6/site-packages/telegram/ext/__init__.py&quot;, line 21, in &lt;module&gt;\n2020-12-04T20:24:35.853028+00:00 app[web.1]: from .basepersistence import BasePersistence\n2020-12-04T20:24:35.853033+00:00 app[web.1]: File &quot;/app/.heroku/python/lib/python3.6/site-packages/telegram/ext/basepersistence.py&quot;, line 25, in &lt;module&gt;\n2020-12-04T20:24:35.853242+00:00 app[web.1]: from telegram import Bot\n2020-12-04T20:24:35.853243+00:00 app[web.1]: ImportError: cannot import name 'Bot'\n</code></pre>\n<p>These are my imports:</p>\n<pre><code>import os\nimport telebot\nimport xlrd\nfrom flask import Flask, request\nfrom telegram.ext import CommandHandler, MessageHandler, Filters, Updater\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "importerror",
+    "ddl"
+   ],
+   "owner": {
+    "account_id": 88863,
+    "reputation": 132532,
+    "user_id": 245549,
+    "user_type": "registered",
+    "accept_rate": 66,
+    "profile_image": "https://www.gravatar.com/avatar/eec7e09c7d0731a44e91b403dd0bc347?s=256&d=identicon&r=PG",
+    "display_name": "Roman",
+    "link": "https://stackoverflow.com/users/245549/roman"
+   },
+   "is_answered": true,
+   "view_count": 166468,
+   "accepted_answer_id": 41376679,
+   "answer_count": 11,
+   "score": 26,
+   "last_activity_date": 1768831631,
+   "creation_date": 1482940302,
+   "last_edit_date": 1694296239,
+   "question_id": 41365446,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/41365446/how-to-resolve-importerror-dll-load-failed-on-python",
+   "title": "How to resolve &quot;ImportError: DLL load failed:&quot; on Python?",
+   "body": "<p>Recently I start to get <code>ImportError: DLL load failed:</code> error when I import different libraries (for example <code>scikit-learn</code> or <code>scipy</code> and some others).</p>\n<p>My assumptions is that I have broken something when I was trying to pip install opencv.</p>\n<p>So, my question is how to resolve this problem that seems to be not library specific?</p>\n<p>Can I pip install DLL or something like that? Can I just reinstall the whole Python? I am working on Windows. My version of Python is <code>Python 2.7.10 :: Anaconda 2.3.0 (64-bit)</code>.</p>\n<p>If I print <code>sys.path</code> I get this:</p>\n<pre><code>['',\n 'C:\\\\Anaconda\\\\Scripts',\n 'C:\\\\Anaconda\\\\python27.zip',\n 'C:\\\\Anaconda\\\\DLLs',\n 'C:\\\\Anaconda\\\\lib',\n 'C:\\\\Anaconda\\\\lib\\\\plat-win',\n 'C:\\\\Anaconda\\\\lib\\\\lib-tk',\n 'C:\\\\Anaconda',\n 'C:\\\\Anaconda\\\\lib\\\\site-packages',\n 'C:\\\\Anaconda\\\\lib\\\\site-packages\\\\Sphinx-1.3.1-py2.7.egg',\n 'C:\\\\Anaconda\\\\lib\\\\site-packages\\\\cryptography-0.9.1-py2.7-win-amd64.egg',\n 'C:\\\\Panda3D-1.9.2-x64',\n 'C:\\\\Panda3D-1.9.2-x64\\\\bin',\n 'C:\\\\Anaconda\\\\lib\\\\site-packages\\\\win32',\n 'C:\\\\Anaconda\\\\lib\\\\site-packages\\\\win32\\\\lib',\n 'C:\\\\Anaconda\\\\lib\\\\site-packages\\\\Pythonwin',\n 'C:\\\\Anaconda\\\\lib\\\\site-packages\\\\setuptools-17.1.1-py2.7.egg',\n 'C:\\\\Anaconda\\\\lib\\\\site-packages\\\\IPython\\\\extensions',\n 'C:\\\\Users\\\\myname\\\\.ipython']\n</code></pre>\n<p>What worries me is that there is a mixture of 32 and 64 versions. Another thing, maybe I just have different Pythons and I just need to call the proper one?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "importerror",
+    "undefined-symbol"
+   ],
+   "owner": {
+    "account_id": 44268031,
+    "reputation": 1,
+    "user_id": 31665377,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/f957e30975591dab3915fd94d9a6395e?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "still demon",
+    "link": "https://stackoverflow.com/users/31665377/still-demon"
+   },
+   "is_answered": false,
+   "view_count": 572,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1760117242,
+   "creation_date": 1760114776,
+   "last_edit_date": 1760117242,
+   "question_id": 79787545,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79787545/importerror-undefined-symbol-pyunicode-asunicode",
+   "title": "ImportError: undefined symbol: PyUnicode_AsUnicode",
+   "body": "<p>While execuiting the code in Google Colab, I got an error:</p>\n<pre><code>ImportError: /usr/local/lib/python3.12/dist-packages/libtorrent.so: \nundefined symbol: PyUnicode_AsUnicode\n</code></pre>\n<p>I saw in comments for similar Import errors, that it might be because of multiple installed versions. I have two Python versions : 3.10 and 3.12. But folder Python3.10 has only dist-packages folder.\nThe output of <code>!python --version</code> is <code>Python 3.12.11</code></p>\n<p>Does anyone have an idea how to fix this?</p>\n<p>I tried, as Gemini suggested, to reinstall lbry-libtorrent, potentially resolving the compatibility issue</p>\n<p>!python -m pip install --upgrade --force-reinstall lbry-libtorrent==1.2.4</p>\n<p>but it didn't help</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "deep-learning",
+    "importerror",
+    "yolo",
+    "yolov8"
+   ],
+   "owner": {
+    "account_id": 28534209,
+    "reputation": 41,
+    "user_id": 21841155,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/aa3d9012b55e9c883253ddca69335d55?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Rishika Gupta",
+    "link": "https://stackoverflow.com/users/21841155/rishika-gupta"
+   },
+   "is_answered": true,
+   "view_count": 25124,
+   "answer_count": 4,
+   "score": 4,
+   "last_activity_date": 1753545765,
+   "creation_date": 1683444647,
+   "last_edit_date": 1683505176,
+   "question_id": 76192675,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/76192675/importerror-cannot-import-name-yolo-from-ultralytics-unknown-location",
+   "title": "ImportError: cannot import name &#39;YOLO&#39; from &#39;ultralytics&#39; (unknown location)",
+   "body": "<p>I am trying to build a YOLOv8 model, and I have built it using cloning github repo of YOLOv8.\n<a href=\"https://github.com/ultralytics/ultralytics\" rel=\"nofollow noreferrer\">https://github.com/ultralytics/ultralytics</a></p>\n<p>For training the yolov8 docs say that I need to start as follows</p>\n<pre><code>from ultralytics import YOLO\n</code></pre>\n<p>But when I try to do the same after using pip install ultralytics, I get this error:</p>\n<pre><code>ImportError                   Traceback (most recent call last)\n\n/tmp/ipykernel_28/546599741.py in &lt;module&gt;\n----&gt; 1 from ultralytics import YOLO\n      2 \n      3 # Load a model\n      4 model = YOLO('yolov8n.yaml')  # build a new model from YAML\n      5 model = YOLO('yolov8n.pt')  # load a pretrained model (recommended for training)\n\nImportError: cannot import name 'YOLO' from 'ultralytics' (unknown location)\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "sqlalchemy",
+    "flask-sqlalchemy"
+   ],
+   "owner": {
+    "account_id": 89251,
+    "reputation": 47874,
+    "user_id": 246365,
+    "user_type": "registered",
+    "accept_rate": 93,
+    "profile_image": "https://i.sstatic.net/Mx7jx.jpg?s=256",
+    "display_name": "webminal.org",
+    "link": "https://stackoverflow.com/users/246365/webminal-org"
+   },
+   "is_answered": true,
+   "view_count": 378301,
+   "protected_date": 1544737325,
+   "accepted_answer_id": 10593364,
+   "answer_count": 20,
+   "score": 85,
+   "last_activity_date": 1746788859,
+   "creation_date": 1336918962,
+   "last_edit_date": 1395340122,
+   "question_id": 10572498,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/10572498/importerror-no-module-named-sqlalchemy",
+   "title": "ImportError: No module named sqlalchemy",
+   "body": "<p>I'm unable to find a module in python ,though easy_install says its already installed.\nAny idea how to resolve this isseue? </p>\n\n<pre><code>$ python -c \"from flaskext.sqlalchemy import SQLAlchemy\"\nTraceback (most recent call last):\n  File \"&lt;string&gt;\", line 1, in &lt;module&gt;\nImportError: No module named sqlalchemy\n\n\n$ python -V\nPython 2.7\n\n\n$ sudo easy_install sqlalchemy\nSearching for sqlalchemy\nBest match: SQLAlchemy 0.7.7\nAdding SQLAlchemy 0.7.7 to easy-install.pth file\n\nUsing /usr/lib/python2.7/site-packages\nProcessing dependencies for sqlalchemy\nFinished processing dependencies for sqlalchemy\n</code></pre>\n\n<blockquote>\n  <p>$ sudo pip install SQLAlchemy --upgrade Requirement already\n  up-to-date: SQLAlchemy in /usr/lib/python2.7/site-packages Cleaning\n  up...</p>\n</blockquote>\n\n<p>Though pip says it's installed.But I can't find them in sys.path output.</p>\n\n<pre><code>$ sudo python -c \"import sys;print sys.path\" ['',\n'/usr/lib/python2.7/site-packages/Flask_SQLAlchemy-0.15-py2.7.egg',\n'/usr/lib/python2.7/site-packages/Flask-0.8-py2.7.egg',\n'/usr/lib/python2.7/site-packages/Jinja2-2.6-py2.7.egg',\n'/usr/lib/python2.7/site-packages/Werkzeug-0.8.3-py2.7.egg',\n'/usr/lib/python2.7/site-packages/Flask_WTF-0.5.2-py2.7.egg',\n'/usr/lib/python2.7/site-packages/WTForms-0.6.3-py2.7.egg',\n'/usr/lib/python2.7/site-packages/Flask_Mail-0.6.1-py2.7.egg',\n'/usr/lib/python2.7/site-packages/blinker-1.2-py2.7.egg',\n'/usr/lib/python2.7/site-packages/lamson-1.1-py2.7.egg',\n'/usr/lib/python2.7/site-packages/python_daemon-1.6-py2.7.egg',\n'/usr/lib/python2.7/site-packages/nose-1.1.2-py2.7.egg',\n'/usr/lib/python2.7/site-packages/mock-0.8.0-py2.7.egg',\n'/usr/lib/python2.7/site-packages/chardet-1.0.1-py2.7.egg',\n'/usr/lib/python2.7/site-packages/lockfile-0.9.1-py2.7.egg',\n'/usr/lib/python2.7/site-packages/Flask_FlatPages-0.2-py2.7.egg',\n'/usr/lib/python2.7/site-packages/Markdown-2.1.1-py2.7.egg',\n'/usr/lib/python2.7/site-packages/PyYAML-3.10-py2.7-linux-i686.egg',\n'/usr/lib/python2.7/site-packages/uWSGI-1.0.3-py2.7.egg',\n'/usr/lib/python2.7/site-packages/MySQL_python-1.2.3-py2.7-linux-i686.egg',\n'/usr/lib/python27.zip', '/usr/lib/python2.7',\n'/usr/lib/python2.7/plat-linux2', '/usr/lib/python2.7/lib-tk',\n'/usr/lib/python2.7/lib-old', '/usr/lib/python2.7/lib-dynload',\n'/usr/lib/python2.7/site-packages',\n'/usr/lib/python2.7/site-packages/setuptools-0.6c11-py2.7.egg-info']\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "importerror",
+    "google-gemini",
+    "google-generativeai",
+    "google-gemini-file-api"
+   ],
+   "owner": {
+    "account_id": 37911634,
+    "reputation": 11,
+    "user_id": 28493910,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/c1650f09662e86d99f8da757b5ba114e?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Umesh Krishnamurthy",
+    "link": "https://stackoverflow.com/users/28493910/umesh-krishnamurthy"
+   },
+   "is_answered": false,
+   "view_count": 1002,
+   "answer_count": 3,
+   "score": 1,
+   "last_activity_date": 1745144105,
+   "creation_date": 1739262819,
+   "question_id": 79429327,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79429327/importerror-cannot-import-name-get-default-text-client-from-google-generativ",
+   "title": "ImportError: Cannot import name &#39;get_default_text_client&#39; from &#39;google.generativeai.client&#39; after upgrading",
+   "body": "<p>I'm encountering an ImportError after upgrading the google-generativeai library. The error is:\nImportError: cannot import name 'get_default_text_client' from 'google.generativeai.client' (/path/to/my/site-packages/google/generativeai/client.py)  # Replace with your actual path!</p>\n<p>I'm using Python [3.10]  and installed the library using pip install --upgrade google-generativeai.</p>\n<p>Here's a minimal code example that reproduces the error:\nPython</p>\n<p>import os\nfrom google.generativeai import text</p>\n<p>os.environ[&quot;GOOGLE_API_KEY&quot;] = &quot;xyz&quot;</p>\n<p>I'm not sure what's causing this issue. Any help would be greatly appreciated!</p>\n<p>I have tried the following:</p>\n<ul>\n<li>Upgrading google-generativeai using pip install --upgrade google-generativeai.</li>\n<li>Uninstalling and reinstalling google-generativeai: pip uninstall google-generativeai followed by pip install google-generativeai.</li>\n<li>Restarting my Jupyter kernel/Python interpreter.</li>\n</ul>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "google-bigquery",
+    "google-cloud-pubsub"
+   ],
+   "owner": {
+    "account_id": 11451748,
+    "reputation": 391,
+    "user_id": 8393955,
+    "user_type": "registered",
+    "accept_rate": 67,
+    "profile_image": "https://www.gravatar.com/avatar/9292a6af7efc8358c283a1f656d7034d?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Shikha",
+    "link": "https://stackoverflow.com/users/8393955/shikha"
+   },
+   "is_answered": true,
+   "view_count": 39871,
+   "accepted_answer_id": 47029315,
+   "answer_count": 7,
+   "score": 18,
+   "last_activity_date": 1743631431,
+   "creation_date": 1509355409,
+   "question_id": 47011713,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/47011713/importerror-cannot-import-name-pubsub-v1",
+   "title": "ImportError: cannot import name pubsub_v1",
+   "body": "<p>I need to import Pubsub_v1 and bigquery from google.cloud module. I have installed it and pip freeze shows below :</p>\n\n<pre><code>gapic-google-cloud-pubsub-v1==0.15.4\ngoogle-cloud-bigquery==0.26.0\ngoogle-cloud-pubsub==0.27.0\nproto-google-cloud-pubsub-v1==0.15.4\n</code></pre>\n\n<p>In my python script, i am importing the modules as below:</p>\n\n<pre><code>import os \nfrom google.cloud import pubsub_v1 \nimport time \nimport json \nfrom google.cloud import bigquery \n</code></pre>\n\n<p>The script is throwing error as :</p>\n\n<pre><code>ImportError: cannot import name pubsub_v1\n</code></pre>\n\n<p>If i run $sudo pip install --upgrade google-cloud-pubsub then It is able to import pubsub but failing to import Bigquery. I need both modules. Can anybody please help ?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "installation",
+    "pip",
+    "dependencies",
+    "odoo"
+   ],
+   "owner": {
+    "account_id": 29929027,
+    "reputation": 31,
+    "user_id": 22936372,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/92eb71f9cb117557d536de229a3b51fb?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Lucas",
+    "link": "https://stackoverflow.com/users/22936372/lucas"
+   },
+   "is_answered": true,
+   "view_count": 1674,
+   "answer_count": 1,
+   "score": 3,
+   "last_activity_date": 1741895672,
+   "creation_date": 1737722394,
+   "question_id": 79384377,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79384377/error-installing-odoo-dependencies-with-pip-install-r-requirements-txt-impo",
+   "title": "Error Installing Odoo Dependencies with `pip install -r requirements.txt`: &quot;ImportError: cannot import name &#39;get_abi_tag&#39; from &#39;wheel.bdist_wheel&#39;&quot;",
+   "body": "<p>I'm following the official Odoo 18 source installation guide, but I encounter an issue when running :</p>\n<pre><code>pip install -r requirements.txt\n</code></pre>\n<p>Below is the exact error message I receive:</p>\n<pre><code>Ignoring asn1crypto: markers 'python_version &lt; &quot;3.11&quot;' don't match your environment\nIgnoring Babel: markers python_version &lt; &quot;3.11&quot;' don't match your environment ...\nCollecting asn1crypto==1.5.1 (from -r requirements.txt (line 4)) \n  Using cached asn1crypto-1.5.1-py2.py3-none-any.whl.metadata (13 kB) ...\nCollecting rl-renderPM==4.0.3 (from -r requirements.txt (line 78)) \n  Using cached rl_renderPM-4.0.3.tar.gz (36 kB)\nInstalling build dependencies ... done\nGetting requirements to build wheel ... error\nerror: subprocess-exited-with-error\n\u00d7 Getting requirements to build wheel did not run successfully.\n\u2502 exit code: 1\n\u2570\u2500&gt; [20 lines of output]\nTraceback (most recent call last):\n  File &quot;C:\\Users\\Elite183\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process\\_in_process.py&quot;, line 353, in &lt;module&gt;\n    main()\n    ~~~~^^\n  File &quot;C:\\Users\\Elite183\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process\\_in_process.py&quot;, line 335, in main\n    json_out['return_val'] = hook(**hook_input['kwargs'])                                    \n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File &quot;C:\\Users\\Elite183\\AppData\\Local\\Temp\\pip-build-env-62xx76va\\overlay\\Lib\\site-packages\\setuptools\\build_meta.py&quot;, line 334, in get_requires_for_build_wheel\n    return self._get_build_requires(config_settings, requirements=[])\n  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File &quot;C:\\Users\\Elite183\\AppData\\Local\\Temp\\pip-build-env-62xx76va\\overlay\\Lib\\site-packages\\setuptools\\build_meta.py&quot;, line 304, in _get_build_requires\n    self.run_setup()\n    ~~~~~~~~~~~~~~^^\n  File &quot;C:\\Users\\Elite183\\AppData\\Local\\Temp\\pip-build-env-62xx76va\\overlay\\Lib\\site-packages\\setuptools\\build_meta.py&quot;, line 320, in run_setup\n    exec(code, locals())\n    ~~~~^^^^^^^^^^^^^^^^\n  File &quot;&lt;string&gt;&quot;, line 5, in &lt;module&gt;\nImportError: cannot import name 'get_abi_tag' from 'wheel.bdist_wheel' \n  (C:\\Users\\Elite183\\AppData\\Local\\Temp\\pip-build-env-62xx76va\\overlay\\Lib\\site-packages\\wheel\\bdist_wheel.py)\n[end of output]\n</code></pre>\n<p>This error occurs when trying to build the dependencies from <strong>requirements.txt</strong>. Specifically, the issue seems to be related to <strong>wheel.bdist_wheel</strong>.</p>\n<h1>Steps I've Taken So Far:</h1>\n<ol>\n<li>Verified Python Version: I have Python 3.13 installed (as specified in the Odoo installation guide).</li>\n<li>Upgraded pip, setuptools, and wheel:</li>\n</ol>\n<pre><code>pip install --upgrade pip setuptools wheel\n</code></pre>\n<ol start=\"3\">\n<li>Tried Installing Dependencies Individually: I tried installing the dependencies one by one using</li>\n</ol>\n<pre><code>pip install &lt;dependency_name&gt;.\n</code></pre>\n<ol start=\"4\">\n<li><p>Checked Compatibility: I ensured that Python 3.13 is compatible with the required dependencies (greenlet, lxml, Pillow, reportlab).</p>\n</li>\n<li><p>Ignored Version Markers: I've noticed that some markers, such as 'python_version &lt; &quot;3.11&quot;', don't match my environment.</p>\n</li>\n</ol>\n<h1>Questions:</h1>\n<ol>\n<li>Has anyone faced a similar issue when installing Odoo with Python 3.13?</li>\n<li>Could there be a compatibility issue between Python 3.13 and the dependencies, particularly greenlet, lxml, Pillow, or reportlab?</li>\n<li>What steps can I take to resolve this issue and successfully install the Odoo dependencies?</li>\n</ol>\n<p>Thank you in advance for any help or suggestions!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-2.7",
+    "module",
+    "resolver"
+   ],
+   "owner": {
+    "account_id": 1889141,
+    "reputation": 629,
+    "user_id": 1707691,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/1fb143135c39aae9e49439b89abae93f?s=256&d=identicon&r=PG",
+    "display_name": "ayushmad",
+    "link": "https://stackoverflow.com/users/1707691/ayushmad"
+   },
+   "is_answered": true,
+   "view_count": 212388,
+   "accepted_answer_id": 21642297,
+   "answer_count": 16,
+   "score": 36,
+   "last_activity_date": 1740469549,
+   "creation_date": 1391831833,
+   "last_edit_date": 1391891787,
+   "question_id": 21641696,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/21641696/python-dns-module-import-error",
+   "title": "Python DNS module import error",
+   "body": "<p>I have been using python dns module.I was trying to use it on a new Linux installation but the module is not getting loaded.\nI have tried to clean up and install but the installation does not seem to be working.</p>\n\n<pre>\n\n    $ python --version\n    Python 2.7.3\n    $ sudo pip install dnspython\n    Downloading/unpacking dnspython\n      Downloading dnspython-1.11.1.zip (220Kb): 220Kb downloaded\n      Running setup.py egg_info for package dnspython\n\n    Installing collected packages: dnspython\n      Running setup.py install for dnspython\n\n    Successfully installed dnspython\n    Cleaning up...\n    $ python\n    Python 2.7.3 (default, Sep 26 2013, 20:03:06) \n    [GCC 4.6.3] on linux2\n    Type \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n    >>> import dns\n    Traceback (most recent call last):\n      File \"\", line 1, in \n    ImportError: No module named dns\n\n</pre>\n\n<p>Updated Output of python version and pip version command</p>\n\n<pre>\n\n    $ which python\n    /usr/bin/python\n    $ python --version\n    Python 2.7.3\n    $ pip --version\n    pip 1.0 from /usr/lib/python2.7/dist-packages (python 2.7)\n\n</pre>\n\n<p>Thanks a lot for your help.</p>\n\n<p>Note:- I have firewall installed on the new machine. I am not sure if it should effect the import. but i have tried disabling it and still it does not seem to work.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "installation",
+    "pip",
+    "google-colaboratory",
+    "ta-lib"
+   ],
+   "owner": {
+    "account_id": 39371228,
+    "reputation": 1,
+    "user_id": 29243765,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/d6a7425925946e53c25b56db0adc0142?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "kamil ural",
+    "link": "https://stackoverflow.com/users/29243765/kamil-ural"
+   },
+   "is_answered": false,
+   "view_count": 393,
+   "answer_count": 2,
+   "score": -1,
+   "last_activity_date": 1738498986,
+   "creation_date": 1737150792,
+   "question_id": 79366181,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79366181/error-installing-ta-lib-on-google-colab-after-recent-update-failed-building-whe",
+   "title": "Error Installing TA-Lib on Google Colab After Recent Update: Failed Building Wheel",
+   "body": "<p>I encountered an issue while trying to install the TA-Lib library on Google Colab after its recent update. Previously, I was able to install it using the following commands:</p>\n<pre><code>!wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz\n!tar -xzf ta-lib-0.4.0-src.tar.gz\n%cd ta-lib\n!./configure --prefix=/usr\n!make\n!sudo make install\n!pip install TA-Lib==0.4.19\n</code></pre>\n<p>However, when I run this code now, I receive the following error:</p>\n<pre><code>Using pip 24.1.2 from /usr/local/lib/python3.11/dist-packages/pip (python 3.11)\nCollecting TA-Lib==0.4.19\n  Using cached TA-Lib-0.4.19.tar.gz (267 kB)\n  Running command python setup.py egg_info\n  /usr/local/lib/python3.11/dist-packages/setuptools/__init__.py:94: _DeprecatedInstaller: setuptools.installer and fetch_build_eggs are deprecated.\n  !!\n\n          ********************************************************************************\n          Requirements should be satisfied by a PEP 517 installer.\n          If you are using pip, you can try `pip install --use-pep517`.\n          ********************************************************************************\n\n  !!\n    dist.fetch_build_eggs(dist.setup_requires)\n  running egg_info\n  creating /tmp/pip-pip-egg-info-dz2n0g3u/TA_Lib.egg-info\n  writing /tmp/pip-pip-egg-info-dz2n0g3u/TA_Lib.egg-info/PKG-INFO\n  writing dependency_links to /tmp/pip-pip-egg-info-dz2n0g3u/TA_Lib.egg-info/dependency_links.txt\n  writing requirements to /tmp/pip-pip-egg-info-dz2n0g3u/TA_Lib.egg-info/requires.txt\n  writing top-level names to /tmp/pip-pip-egg-info-dz2n0g3u/TA_Lib.egg-info/top_level.txt\n  writing manifest file '/tmp/pip-pip-egg-info-dz2n0g3u/TA_Lib.egg-info/SOURCES.txt'\n  reading manifest file '/tmp/pip-pip-egg-info-dz2n0g3u/TA_Lib.egg-info/SOURCES.txt'\n  reading manifest template 'MANIFEST.in'\n  adding license file 'LICENSE'\n  writing manifest file '/tmp/pip-pip-egg-info-dz2n0g3u/TA_Lib.egg-info/SOURCES.txt'\n  Preparing metadata (setup.py) ... done\nRequirement already satisfied: numpy in /usr/local/lib/python3.11/dist-packages (from TA-Lib==0.4.19) (1.26.4)\nBuilding wheels for collected packages: TA-Lib\n  Running command python setup.py bdist_wheel\n  /usr/local/lib/python3.11/dist-packages/setuptools/__init__.py:94: _DeprecatedInstaller: setuptools.installer and fetch_build_eggs are deprecated.\n  !!\n\n          ********************************************************************************\n          Requirements should be satisfied by a PEP 517 installer.\n          If you are using pip, you can try `pip install --use-pep517`.\n          ********************************************************************************\n\n  !!\n    dist.fetch_build_eggs(dist.setup_requires)\n  running bdist_wheel\n  running build\n  running build_py\n  creating build/lib.linux-x86_64-cpython-311/talib\n  copying talib/stream.py -&gt; build/lib.linux-x86_64-cpython-311/talib\n  copying talib/test_data.py -&gt; build/lib.linux-x86_64-cpython-311/talib\n  copying talib/test_stream.py -&gt; build/lib.linux-x86_64-cpython-311/talib\n  copying talib/test_abstract.py -&gt; build/lib.linux-x86_64-cpython-311/talib\n  copying talib/__init__.py -&gt; build/lib.linux-x86_64-cpython-311/talib\n  copying talib/abstract.py -&gt; build/lib.linux-x86_64-cpython-311/talib\n  copying talib/test_pandas.py -&gt; build/lib.linux-x86_64-cpython-311/talib\n  copying talib/test_func.py -&gt; build/lib.linux-x86_64-cpython-311/talib\n  copying talib/deprecated.py -&gt; build/lib.linux-x86_64-cpython-311/talib\n  running build_ext\n  building 'talib._ta_lib' extension\n  creating build/temp.linux-x86_64-cpython-311/talib\n  x86_64-linux-gnu-gcc -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -fPIC -I/usr/include -I/usr/local/include -I/opt/include -I/opt/local/include -I/usr/local/lib/python3.11/dist-packages/numpy/core/include -I/usr/include/python3.11 -c talib/_ta_lib.c -o build/temp.linux-x86_64-cpython-311/talib/_ta_lib.o\n  talib/_ta_lib.c:196:12: fatal error: longintrepr.h: No such file or directory\n    196 |   #include &quot;longintrepr.h&quot;\n        |            ^~~~~~~~~~~~~~~\n</code></pre>\n<p>compilation terminated.   error: command '/usr/bin/x86_64-linux-gnu-gcc' failed with exit code 1   error: subprocess-exited-with-error      \u00d7 python setup.py bdist_wheel did not run successfully.   \u2502 exit code: 1   \u2570\u2500&gt; See above for output.      note: This error originates from a subprocess, and is likely not a problem with pip.   full command: /usr/bin/python3 -u -c '   exec(compile('&quot;'&quot;''&quot;'&quot;''&quot;'&quot;'   # This is &lt;pip-setuptools-caller&gt; -- a caller that pip uses to run setup.py   #   # - It imports setuptools before invoking setup.py, to enable projects that directly   #   import from `distutils.core` to work with newer packaging standards.   # - It provides a clear error message when setuptools is not installed.   # - It sets `sys.argv[0]` to the underlying `setup.py`, when invoking `setup.py` so   #   setuptools doesn'&quot;'&quot;'t think the script is `-c`. This avoids the following warning:   #     manifest_maker: standard file '&quot;'&quot;'-c'&quot;'&quot;' not found&quot;.   # - It generates a shim setup.py, for handling setup.cfg-only projects.   import os, sys, tokenize      try:       import setuptools   except ImportError as error:       print(           &quot;ERROR: Can not execute `setup.py` since setuptools is not available in &quot;           &quot;the build environment.&quot;,           file=sys.stderr,       )       sys.exit(1)      _<em>file</em>_ = %r   sys.argv[0] = _<em>file</em>_      if os.path.exists(_<em>file</em>_):       filename = _<em>file</em>_       with tokenize.open(_<em>file</em>_) as f:           setup_py_code = f.read()   else:       filename = &quot;&lt;auto-generated setuptools caller&gt;&quot;       setup_py_code = &quot;from setuptools import setup; setup()&quot;      exec(compile(setup_py_code, filename, &quot;exec&quot;))   '&quot;'&quot;''&quot;'&quot;''&quot;'&quot;' % ('&quot;'&quot;'/tmp/pip-install-cqn7e6xj/ta-lib_950d1d87302b426fb205e5027d92341f/setup.py'&quot;'&quot;',), &quot;&lt;pip-setuptools-caller&gt;&quot;, &quot;exec&quot;))' bdist_wheel -d /tmp/pip-wheel-sdmbwl9w   cwd: /tmp/pip-install-cqn7e6xj/ta-lib_950d1d87302b426fb205e5027d92341f/   Building wheel for TA-Lib (setup.py) ... error   ERROR: Failed building wheel for TA-Lib   Running setup.py clean for TA-Lib   Running command python setup.py clean   /usr/local/lib/python3.11/dist-packages/setuptools/_<em>init</em>_.py:94: _DeprecatedInstaller: setuptools.installer and fetch_build_eggs are deprecated.   !!            ********************************************************************************           Requirements should be satisfied by a PEP 517 installer.           If you are using pip, you can try `pip install --use-pep517`.           ********************************************************************************    !!     dist.fetch_build_eggs(dist.setup_requires)   running clean   removing 'build/temp.linux-x86_64-cpython-311' (and everything under it)   removing 'build/lib.linux-x86_64-cpython-311' (and everything under it)   'build/bdist.linux-x86_64' does not exist -- can't clean it   'build/scripts-3.11' does not exist -- can't clean it   removing 'build' Failed to build TA-Lib ERROR: ERROR: Failed to build installable wheels for some pyproject.toml based projects (TA-Lib)</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "django"
+   ],
+   "owner": {
+    "account_id": 23338572,
+    "reputation": 1,
+    "user_id": 17413804,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AOh14GgDTKqQjQVpvDwSbGxJh5UMjlpvzihaGvA3W0VqJA=k-s256",
+    "display_name": "emin john",
+    "link": "https://stackoverflow.com/users/17413804/emin-john"
+   },
+   "is_answered": false,
+   "view_count": 385,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1737320098,
+   "creation_date": 1643064263,
+   "last_edit_date": 1737320098,
+   "question_id": 70841384,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/70841384/i-tried-to-install-django-using-pip-install-django-but-still-i-am-getting-this-e",
+   "title": "I tried to install django using pip install django but still i am getting this error any comments",
+   "body": "<p>from django.core.management import execute_from_command_line\nModuleNotFoundError: No module named 'django'</p>\n<p>The above exception was the direct cause of the following exception:</p>\n<p>Traceback (most recent call last):\nFile &quot;C:\\Users\\emin\\Desktop\\fliteplan\\gen_angular\\arinc_424_19_db\\multi\\src\\manage.py&quot;, line 22, in \nmain()\nFile &quot;C:\\Users\\emin\\Desktop\\fliteplan\\gen_angular\\arinc_424_19_db\\multi\\src\\manage.py&quot;, line 13, in main\nraise ImportError(\nImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "sdk",
+    "amazon-sagemaker",
+    "requirements.txt"
+   ],
+   "owner": {
+    "account_id": 38547433,
+    "reputation": 11,
+    "user_id": 28829214,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/58021a7ace5d80b76894d2c90b48583d?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "anishabm",
+    "link": "https://stackoverflow.com/users/28829214/anishabm"
+   },
+   "is_answered": false,
+   "view_count": 111,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1737041949,
+   "creation_date": 1736361406,
+   "last_edit_date": 1737041949,
+   "question_id": 79340404,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79340404/how-to-format-requirements-txt-files-for-processing-step-in-sagemaker-pipelines",
+   "title": "How to format requirements.txt files for processing step in sagemaker pipelines?",
+   "body": "<p>I am trying to install a package in a processing job in my sagemaker pipeline through a requirements.txt file. I am able to create the .txt file, compress it to a tar.gz along with the processing script, and upload that to an S3 bucket (I have confirmed the upload and that both files exist in there).</p>\n<p>It seems that the pipeline is able to read the requirements.txt file, it just has an issue with what's written in it.</p>\n<ul>\n<li><p>When I write pip install, I get the following errors:\n&lt;ERROR: Invalid requirement: 'pip install kmodes' (from line 1 of requirements.txt)&gt;</p>\n</li>\n<li><p>When I write just the package name 'kmodes' (as I've seen in online examples), I get the following errors:\n&lt;ImportError: Missing optional dependency 'fsspec'. Use pip or conda to install fsspec.&gt;</p>\n</li>\n</ul>\n<p>My question is 1) what exactly should be written in the requirements.txt files? And 2) Should I also be importing from that package in the requirements.txt or leave that in the processing script?</p>\n<p>Follow up: Adding s3fs and fsspec to my requirements.txt allowed my package to be installed. For the requirements.txt format, just listing the necessary packages were sufficient.</p>\n"
+  },
+  {
+   "tags": [
+    "python"
+   ],
+   "owner": {
+    "account_id": 10571932,
+    "reputation": 2311,
+    "user_id": 7788402,
+    "user_type": "registered",
+    "accept_rate": 40,
+    "profile_image": "https://www.gravatar.com/avatar/9d4006851d583da5c45ab0859f80446a?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "PCG",
+    "link": "https://stackoverflow.com/users/7788402/pcg"
+   },
+   "is_answered": true,
+   "view_count": 6135,
+   "accepted_answer_id": 54649110,
+   "answer_count": 2,
+   "score": 2,
+   "last_activity_date": 1736254317,
+   "creation_date": 1549855302,
+   "question_id": 54623545,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/54623545/what-is-error-importerror-numpy-core-multiarray-failed-to-import",
+   "title": "What is error &quot;ImportError: numpy.core.multiarray failed to import&quot;?",
+   "body": "<p>I was working on a project that needed numpy. I used pip install numpy and got the message it is already installed. After completing that code and when I was running a different code I get the following error which did not happen before. I am using Python 3.6. Same versions before and after the issue.</p>\n\n<p>Client code : </p>\n\n<pre><code>import requests\n#import json\nfrom keras.preprocessing.image import img_to_array, array_to_img, load_img\nfrom keras.preprocessing import image\n\nflowers = 'c:/flower_photos/daisy/107592979_aaa9cdfe78_m.jpg'\n#for x in flowers:\nimage1 = img_to_array(image.load_img(flowers, target_size=(128,128))) / 255\npayload = {\n      \"instances\": [{\"image\":image1.tolist()},\n]\n}\nprint(\"sending request...\")\nr = requests.post('http://localhost:8501/v1/models/flowers/versions/1:predict', json=payload)\n#r = requests.get('http://localhost:8051/v1/models/modelflowers/versions/1/metadata')\nprint(r.content)\n</code></pre>\n\n<p>I get the following error :</p>\n\n<pre><code>C:\\flowers_old&gt;client.py\nUsing TensorFlow backend.\nModuleNotFoundError: No module named 'numpy.core._multiarray_umath'\nImportError: numpy.core.multiarray failed to import\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"&lt;frozen importlib._bootstrap&gt;\", line 980, in _find_and_load\nSystemError: &lt;class '_frozen_importlib._ModuleLockManager'&gt; returned a result with an error set\nImportError: numpy.core._multiarray_umath failed to import\nImportError: numpy.core.umath failed to import\n2019-02-10 19:15:06.355011: F tensorflow/python/lib/core/bfloat16.cc:675] Check failed: PyBfloat16_Type.tp_base != nullptr\n</code></pre>\n\n<p>I uninstalled both TF and numpy and put them back. Still the same error.\nAny help ?</p>\n\n<p>Thanks,\nPubudu</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "machine-learning",
+    "huggingface-transformers",
+    "llama",
+    "accelerate"
+   ],
+   "owner": {
+    "account_id": 14998192,
+    "reputation": 153,
+    "user_id": 10826798,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/34fc86ca158e99f53051b7c4a6f993f6?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "xjabr",
+    "link": "https://stackoverflow.com/users/10826798/xjabr"
+   },
+   "is_answered": true,
+   "view_count": 14119,
+   "answer_count": 6,
+   "score": 5,
+   "last_activity_date": 1734679991,
+   "creation_date": 1708605431,
+   "last_edit_date": 1708612392,
+   "question_id": 78040978,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78040978/importerror-using-bitsandbytes-8-bit-quantization-requires-accelerate-pip-i",
+   "title": "ImportError: Using `bitsandbytes` 8-bit quantization requires Accelerate: `pip install accelerate`",
+   "body": "<p>I'm trying to fine-tune llama2-13b-chat-hf with an open source datasets.</p>\n<p>I always used this template but now I'm getting this error:</p>\n<p>ImportError: Using <code>bitsandbytes</code> 8-bit quantization requires Accelerate: <code>pip install accelerate</code> and the latest version of bitsandbytes: <code>pip install -i https://pypi.org/simple/ bitsandbytes</code></p>\n<p>I installed all the packages required and these are the versions:</p>\n<pre><code>    accelerate @ git+https://github.com/huggingface/accelerate.git@97d2168e5953fe7373a06c69c02c5a00a84d5344\n    bitsandbytes==0.42.0\n    datasets==2.17.1\n    huggingface-hub==0.20.3\n    peft==0.8.2\n    tokenizers==0.13.3\n    torch==2.1.0+cu118\n    torchaudio==2.1.0+cu118\n    torchvision==0.16.0+cu118\n    transformers==4.30.0\n    trl==0.7.11\n</code></pre>\n<p>Anyone know if that is a version issues?\nHow did you fix that?</p>\n<p>I tried to install other version but nothing.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "google-colaboratory",
+    "python-import",
+    "importerror",
+    "physics-engine"
+   ],
+   "owner": {
+    "account_id": 939983,
+    "reputation": 165,
+    "user_id": 968217,
+    "user_type": "registered",
+    "accept_rate": 100,
+    "profile_image": "https://www.gravatar.com/avatar/8d50a1fbe6b9a7baa3803721429ecb5b?s=256&d=identicon&r=PG",
+    "display_name": "Ethan",
+    "link": "https://stackoverflow.com/users/968217/ethan"
+   },
+   "is_answered": false,
+   "view_count": 240,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1731843130,
+   "creation_date": 1701116120,
+   "question_id": 77559693,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77559693/google-colab-not-importing-jumpy-after-installing-brax",
+   "title": "Google Colab not importing jumpy after installing brax",
+   "body": "<p>I've tried restarting the runtime and pip installing brax again using this command, &quot;!pip install git+https://github.com/google/brax.git@main&quot;, but regardless of how many times I do it, &quot;from brax import jumpy as jp&quot; results in &quot;ImportError: cannot import name 'jumpy' from 'brax' (/usr/local/lib/python3.10/dist-packages/brax/<strong>init</strong>.py)&quot;. This error has only been taking place on Google Colab as far as I can tell.</p>\n<p>I don't know how to fix it, this is how it is written in the brax tutorial on their website: <a href=\"https://ymd_h.gitlab.io/ymd_blog/doc/brax/env/\" rel=\"nofollow noreferrer\">https://ymd_h.gitlab.io/ymd_blog/doc/brax/env/</a></p>\n<p>If anyone can help with this I would very much appreciate it.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pymqi"
+   ],
+   "owner": {
+    "account_id": 3705084,
+    "reputation": 3,
+    "user_id": 3083846,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/wFWJ4.jpg?s=256",
+    "display_name": "Bruno Carbone",
+    "link": "https://stackoverflow.com/users/3083846/bruno-carbone"
+   },
+   "is_answered": false,
+   "view_count": 976,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1731557522,
+   "creation_date": 1706847692,
+   "question_id": 77924660,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77924660/how-to-fix-python-error-modulenotfounderror-no-module-named-pymqe",
+   "title": "How to fix Python error: ModuleNotFoundError: No module named &#39;pymqe&#39;",
+   "body": "<p>I got the 9.3.4.0-IBM-MQC-Redist-Win64 and unzipped under C:\\Program Files (x86)\\IBM\\WebSphere MQ.\nI was able to successfully install PYMQI via pip install, however, when I run my Python code, it throws the following error:</p>\n<p>ImportError: DLL load failed while importing pymqe: The specified module could not be found.\nDuring handling of the above exception, another exception occurred:\nModuleNotFoundError: No module named 'pymqe'</p>\n<p>I have pymqi-1.12.10 installed.</p>\n<p>All system variables are properly defined on Environment Variables, for INCLUDE, LIB and MQ_INSTALLATION_PATH.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "django",
+    "django-settings",
+    "installed-applications"
+   ],
+   "owner": {
+    "user_type": "does_not_exist",
+    "display_name": "user17794736"
+   },
+   "is_answered": true,
+   "view_count": 65973,
+   "answer_count": 10,
+   "score": 40,
+   "last_activity_date": 1731149074,
+   "creation_date": 1641835457,
+   "last_edit_date": 1654177131,
+   "question_id": 70656495,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/70656495/importerror-cannot-import-name-ugettext-lazy",
+   "title": "ImportError : cannot import name &#39;ugettext_lazy&#39;",
+   "body": "<p>I'm trying to install suit, I entered this command :\npip install <a href=\"https://github.com/darklow/django-suit/tarball/v2\" rel=\"noreferrer\">https://github.com/darklow/django-suit/tarball/v2</a>\nand wrote this code :</p>\n<pre><code>from suit.apps import DjangoSuitConfig\nclass SuitConfig(DjangoSuitConfig) :\n    layout = 'horizontal'\n</code></pre>\n<p>And added it :</p>\n<pre><code>INSTALLED_APPS = [\n    'products.apps.SuitConfig',\n     .....]\n</code></pre>\n<p>But when I added this last code I had this error :</p>\n<p>InvalidTemplateLibrary: Invalid template library specified. ImportError raised when trying to load 'suit.templatetags.suit_menu': cannot import name 'ugettext_lazy' from 'django.utils.translation' (C:\\Users\\hp\\environments\\env3\\lib\\site-packages\\django\\utils\\translation_<em>init</em>_.py)</p>\n<p>note : django 4.01</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "postgresql",
+    "dll",
+    "psycopg2",
+    "importerror"
+   ],
+   "owner": {
+    "account_id": 37283121,
+    "reputation": 1,
+    "user_id": 28166054,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/ebfadd707224880cf51d2f3e4bbc0b12?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Ricardo Xavier Torres Aguilar",
+    "link": "https://stackoverflow.com/users/28166054/ricardo-xavier-torres-aguilar"
+   },
+   "is_answered": false,
+   "view_count": 226,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1731019570,
+   "creation_date": 1731019570,
+   "question_id": 79168300,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79168300/importerror-dll-load-failed-while-importing-psycopg-in-psycopg2",
+   "title": "ImportError: DLL load failed while importing _psycopg in psycopg2",
+   "body": "<p>I'm having trouble importing the psycopg2 module in Python. When I try to import psycopg2, I get the following error:</p>\n<pre><code>---------------------------------------------------------------------------\nImportError                               Traceback (most recent call last)\nCell In[14], line 1\n----&gt; 1 import psycopg2\n\nFile c:\\Users\\ricardo.torres\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\psycopg2\\__init__.py:51\n      1 &quot;&quot;&quot;A Python driver for PostgreSQL\n      2 \n      3 psycopg is a PostgreSQL_ database adapter for the Python_ programming\n   (...)\n     17     TimeFromTicks, Timestamp, TimestampFromTicks\n     18 &quot;&quot;&quot;\n     19 # psycopg/__init__.py - initialization of the psycopg module\n     20 #\n     21 # Copyright (C) 2003-2019 Federico Di Gregorio  &lt;fog@debian.org&gt;\n   (...)\n     48 \n     49 # Import the DBAPI-2.0 stuff into top-level module.\n---&gt; 51 from psycopg2._psycopg import (                     # noqa\n     52     BINARY, NUMBER, STRING, DATETIME, ROWID,\n     53 \n     54     Binary, Date, Time, Timestamp,\n     55     DateFromTicks, TimeFromTicks, TimestampFromTicks,\n     56 \n     57     Error, Warning, DataError, DatabaseError, ProgrammingError, IntegrityError,\n     58     InterfaceError, InternalError, NotSupportedError, OperationalError,\n     59 \n     60     _connect, apilevel, threadsafety, paramstyle,\n     61     __version__, __libpq_version__,\n     62 )\n     65 # Register default adapters.\n     67 from psycopg2 import extensions as _ext\n\nImportError: DLL load failed while importing _psycopg: No se puede encontrar el m\u00f3dulo especificado.\n</code></pre>\n<ul>\n<li><p>I\u2019m using Windows and have downloaded and installed PostgreSQL successfully.</p>\n</li>\n<li><p>I've tried reinstalling the library with pip install psycopg2 and also with pip install psycopg2-binary.</p>\n<p>I installed psycopg2 using a simple pip install psycopg2 command. I also tried pip install psycopg2-binary to see if it would make a difference, but the error remains.</p>\n</li>\n</ul>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pandas",
+    "apple-m1"
+   ],
+   "owner": {
+    "account_id": 25336607,
+    "reputation": 219,
+    "user_id": 19155650,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AOh14GiLUMnXKQN9K2SKef2IlnKBzrsj8S-m1hNTNlV0=k-s256",
+    "display_name": "matthew cuevas",
+    "link": "https://stackoverflow.com/users/19155650/matthew-cuevas"
+   },
+   "is_answered": true,
+   "view_count": 83310,
+   "answer_count": 9,
+   "score": 21,
+   "last_activity_date": 1729565861,
+   "creation_date": 1652980817,
+   "question_id": 72308682,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/72308682/mach-o-file-but-is-an-incompatible-architecture-have-x86-64-need-arm64e",
+   "title": "(mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64e&#39;))",
+   "body": "<p>Followed this guide (<a href=\"https://stackoverflow.com/questions/68659865/cannot-pip-install-mediapipe-on-macos-m1\">Cannot pip install mediapipe on Macos M1</a>) to install Mediapipe on M1 mac, and now I am unable to use pandas or numpy.</p>\n<p>ImportError: dlopen(/Users/matthewcuevas/Library/Python/3.8/lib/python/site-packages/pandas/_libs/interval.cpython-38-darwin.so, 0x0002): tried: '/Users/matthewcuevas/Library/Python/3.8/lib/python/site-packages/pandas/_libs/interval.cpython-38-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "odoo",
+    "odoo-17"
+   ],
+   "owner": {
+    "account_id": 22392251,
+    "reputation": 3,
+    "user_id": 16604095,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AOh14GgK0QYtB6rDqf8KKNQCevrJWSaMpS--9GB9V8UXnA=k-s256",
+    "display_name": "Abdalrhman AL_Atassi",
+    "link": "https://stackoverflow.com/users/16604095/abdalrhman-al-atassi"
+   },
+   "is_answered": false,
+   "view_count": 599,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1728901798,
+   "creation_date": 1724322655,
+   "question_id": 78901063,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78901063/odoo-17-on-macos-importerror-for-psycopg2-with-python-3-12",
+   "title": "Odoo 17 on macOS: ImportError for psycopg2 with Python 3.12",
+   "body": "<p>I\u2019m encountering an issue while trying to run Odoo 17 with Python 3.12. The error occurs when executing the odoo-bin command with the configuration file odoo.conf. The traceback indicates a problem with loading a shared library required by psycopg2.</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;/Users/abdulrhman/PycharmProjects/odoo17/pythonProject/odoo17/odoo-bin&quot;, line 5, in \n    import odoo\n  File &quot;/Users/abdulrhman/PycharmProjects/odoo17/pythonProject/odoo17/odoo/_psycopg.cpython-312-darwin.so\n  Reason: no LC_RPATH's found\n\nProcess finished with exit code 1\n</code></pre>\n<p>Context:</p>\n<p>Python Version: 3.12</p>\n<p>Odoo Version: 17</p>\n<p>Operating System: macOS</p>\n<p>Environment: Virtual environment created with Python 3.12</p>\n<p><strong>Python Version:</strong>\nI initially attempted to run Odoo 17 using Python 3.12, as I had it installed on my system. I created a virtual environment with Python 3.12 and installed the required dependencies using pip install -r requirements.txt.</p>\n<p><strong>Installing Dependencies:</strong>\nAfter setting up the environment, I ran into the ImportError related to psycopg2 and the missing libpq.5.dylib. I tried reinstalling psycopg2 and checking for any missing dependencies or library paths, but the issue persisted.</p>\n<p><strong>Alternative Approaches:</strong> Attempted to install Python 3.10 or 3.11 using Homebrew, but Python 3.12 was already installed.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "windows",
+    "installation",
+    "gensim"
+   ],
+   "owner": {
+    "account_id": 11261788,
+    "reputation": 1,
+    "user_id": 8259884,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/0298a45a37274bcd19f99162e895bb38?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "tchatcha",
+    "link": "https://stackoverflow.com/users/8259884/tchatcha"
+   },
+   "is_answered": false,
+   "view_count": 2746,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1726299921,
+   "creation_date": 1499266239,
+   "question_id": 44929582,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/44929582/gensim-importerror-dll-load-failed-the-specified-module-could-not-be-found",
+   "title": "Gensim : ImportError: DLL load failed: The specified module could not be found",
+   "body": "<p>I am using windows 7. I have installed python 2.7 and gensim using (pip install gensim). When I try to import gensim in a python console, I get the following error : </p>\n\n<pre><code>C:\\HOMEWARE\\Anaconda\\lib\\site-packages\\gensim\\utils.py:860:\u00a0UserWarning:\u00a0detected\u00a0Windows;\u00a0aliasing\u00a0chunkize\u00a0to\u00a0chunkize_serial\n\u00a0\u00a0warnings.warn(\"detected\u00a0Windows;\u00a0aliasing\u00a0chunkize\u00a0to\u00a0chunkize_serial\")\nTraceback\u00a0(most\u00a0recent\u00a0call\u00a0last):\n\u00a0\u00a0File\u00a0\"&lt;stdin&gt;\",\u00a0line\u00a01,\u00a0in\u00a0&lt;module&gt;\n\u00a0\u00a0File\u00a0\"C:\\HOMEWARE\\Anaconda\\lib\\site-packages\\gensim\\__init__.py\",\u00a0line\u00a06,\u00a0in\u00a0&lt;module&gt;\n\u00a0\u00a0\u00a0\u00a0from\u00a0gensim\u00a0import\u00a0parsing,\u00a0matutils,\u00a0interfaces,\u00a0corpora,\u00a0models,\u00a0similarities,\u00a0summarization\n\u00a0\u00a0File\u00a0\"C:\\HOMEWARE\\Anaconda\\lib\\site-packages\\gensim\\matutils.py\",\u00a0line\u00a021,\u00a0in\u00a0&lt;module&gt;\n\u00a0\u00a0\u00a0\u00a0from\u00a0scipy.stats\u00a0import\u00a0entropy\n\u00a0\u00a0File\u00a0\"C:\\HOMEWARE\\Anaconda\\lib\\site-packages\\scipy\\stats\\__init__.py\",\u00a0line\u00a0348,\u00a0in\u00a0&lt;module&gt;\n\u00a0\u00a0\u00a0\u00a0from\u00a0.stats\u00a0import\u00a0*\n\u00a0\u00a0File\u00a0\"C:\\HOMEWARE\\Anaconda\\lib\\site-packages\\scipy\\stats\\stats.py\",\u00a0line\u00a0175,\u00a0in\u00a0&lt;module&gt;\n\u00a0\u00a0\u00a0\u00a0import\u00a0scipy.special\u00a0as\u00a0special\n\u00a0\u00a0File\u00a0\"C:\\HOMEWARE\\Anaconda\\lib\\site-packages\\scipy\\special\\__init__.py\",\u00a0line\u00a0640,\u00a0in\u00a0&lt;module&gt;\n\u00a0\u00a0\u00a0\u00a0from\u00a0._ufuncs\u00a0import\u00a0*\nImportError:\u00a0DLL\u00a0load\u00a0failed:\u00a0The\u00a0specified\u00a0module\u00a0could\u00a0not\u00a0be\u00a0found.\n</code></pre>\n\n<p>I have seen similar error on stackoverflow <a href=\"https://stackoverflow.com/questions/20201868/importerror-dll-load-failed-the-specified-module-could-not-be-found\">here</a> and <a href=\"https://stackoverflow.com/questions/8111664/boost-python-examples-windows-7-x64-importerror-dll-load-failed-the-specifi\">here</a> but it doesn't seem to do the trick for me. </p>\n\n<p>Thank you for your help !</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 35195621,
+    "reputation": 11,
+    "user_id": 27043578,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/4a01bd1587108f36fe574e97d5056f0a?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "\u0413\u043e\u0440\u0434\u0435\u0439 \u0427.",
+    "link": "https://stackoverflow.com/users/27043578/%d0%93%d0%be%d1%80%d0%b4%d0%b5%d0%b9-%d0%a7"
+   },
+   "is_answered": true,
+   "view_count": 92,
+   "closed_date": 1724765559,
+   "accepted_answer_id": 78919166,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1724765539,
+   "creation_date": 1724759217,
+   "question_id": 78918718,
+   "link": "https://stackoverflow.com/questions/78918718/file-mainmenu-py-line-6-in-module-import-requests-importerror-no-module-n",
+   "closed_reason": "Not suitable for this site",
+   "title": "File &quot;MainMenu.py&quot;, line 6, in &lt;module&gt; import requests ImportError: No module named requests.So i type pip install request i got the error",
+   "body": "<p>File &quot;MainMenu.py&quot;, line 6, in      import requests ImportError: No module named requests.So i type pip install request i got the error:</p>\n<p>ERROR: Could not find a version that satisfies the requirement request (from versions: none)</p>\n<p>ERROR: No matching distribution found for request</p>\n<p>Please help,Termux,POCO f5,android 14</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "sqlite",
+    "pip",
+    "pysqlcipher",
+    "sqlite-cipher"
+   ],
+   "owner": {
+    "account_id": 30281563,
+    "reputation": 19,
+    "user_id": 23206607,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/YL3EF.jpg?s=256",
+    "display_name": "JosephMoraila",
+    "link": "https://stackoverflow.com/users/23206607/josephmoraila"
+   },
+   "is_answered": true,
+   "view_count": 760,
+   "accepted_answer_id": 78904454,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1724391979,
+   "creation_date": 1724136421,
+   "last_edit_date": 1724137832,
+   "question_id": 78890965,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78890965/issues-installing-pysqlcipher3-on-windows-2024",
+   "title": "Issues Installing pysqlcipher3 on Windows 2024",
+   "body": "<p>I'm trying to install pysqlcipher3 on Windows, but it seems that the process is mainly designed for Linux. When I attempt to install it using pip, I encounter the following error:</p>\n<blockquote>\n<p>PS\nD:\\josea\\Jos\u00e9_Andr\u00e9s\\Programaci\u00f3n\\Pyhton\\Codigos\\VerificadorEstacionamiento&gt;\npip install pysqlcipher3 Collecting pysqlcipher3   Using cached\npysqlcipher3-1.2.0.tar.gz (102 kB)   Preparing metadata (setup.py) ...\ndone Building wheels for collected packages: pysqlcipher3   Building\nwheel for pysqlcipher3 (setup.py) ... done   WARNING: Legacy build of\nwheel for 'pysqlcipher3' created no files.   Command arguments:\n'D:\\josea\\Jos\u00e9_Andr\u00e9s\\Programaci\u00f3n\\Pyhton\\Codigos\\VerificadorEstacionamiento\\venv\\Scripts\\python.exe'\n-u -c '   exec(compile('&quot;'&quot;''&quot;'&quot;''&quot;'&quot;'</p>\n<p># This is  -- a caller that pip uses to run\nsetup.py</p>\n<p>#</p>\n<p># - It imports setuptools before invoking setup.py, to enable\nprojects that directly</p>\n<p>#   import from <code>distutils.core</code> to work with newer packaging\nstandards.</p>\n<p># - It provides a clear error message when setuptools is not\ninstalled.</p>\n<p># - It sets <code>sys.argv[0]</code> to the underlying <code>setup.py</code>, when\ninvoking <code>setup.py</code> so</p>\n<p>#   setuptools doesn'&quot;'&quot;'t think the script is <code>-c</code>. This avoids\nthe following warning:</p>\n<p>#     manifest_maker: standard file '&quot;'&quot;'-c'&quot;'&quot;' not found&quot;.</p>\n<p># - It generates a shim setup.py, for handling setup.cfg-only\nprojects.   import os, sys, tokenize</p>\n<p>try:\nimport setuptools   except ImportError as error:\nprint(\n&quot;ERROR: Can not execute <code>setup.py</code> since setuptools is not available in &quot;\n&quot;the build environment.&quot;,\nfile=sys.stderr,\n)\nsys.exit(1)</p>\n<p><strong>file</strong> = %r   sys.argv[0] = <strong>file</strong></p>\n<p>if os.path.exists(<strong>file</strong>):\nfilename = <strong>file</strong>\nwith tokenize.open(<strong>file</strong>) as f:\nsetup_py_code = f.read()   else:\nfilename = &quot;&quot;\nsetup_py_code = &quot;from setuptools import setup; setup()&quot;</p>\n<p>exec(compile(setup_py_code, filename, &quot;exec&quot;))   '&quot;'&quot;''&quot;'&quot;''&quot;'&quot;' %\n('&quot;'&quot;'C:\\Users\\josea\\AppData\\Local\\Temp\\pip-install-1bfv914d\\pysqlcipher3_b196db9a45cb4114bcee0627db05c021\\setup.py'&quot;'&quot;',),\n&quot;&quot;, &quot;exec&quot;))' bdist_wheel -d\n'C:\\Users\\josea\\AppData\\Local\\Temp\\pip-wheel-gxaob0da'   Command\noutput: [use --verbose to show]   Running setup.py clean for\npysqlcipher3 Failed to build pysqlcipher3 ERROR: ERROR: Failed to\nbuild installable wheels for some pyproject.toml based projects\n(pysqlcipher3)</p>\n</blockquote>\n<p>I have been watching some outdated tutorials that use nmake and other tools, but these videos are from several years ago. They mention that we need to specify the OpenSSL path in the Makefile.msc as <code>C:\\Program Files\\OpenSSL-Win64\\lib\\VC\\static</code>, but now in 2024, this folder no longer exists. Instead, the path is <code>C:\\Program Files\\OpenSSL-Win64\\lib\\VC\\x64\\</code> with four folders (MD, MDd, MT, MTd).</p>\n<p>I\u2019m stuck at this point, and I need help to successfully install pysqlcipher3 on Windows.</p>\n<p>Any advice or updated instructions would be greatly appreciated!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "playwright",
+    "rpa",
+    "playwright-python"
+   ],
+   "owner": {
+    "account_id": 33453282,
+    "reputation": 1,
+    "user_id": 25899050,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/180cca645ab0d5e7236aa874aea2351c?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "fatbee7",
+    "link": "https://stackoverflow.com/users/25899050/fatbee7"
+   },
+   "is_answered": true,
+   "view_count": 119,
+   "accepted_answer_id": 78876825,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1723755651,
+   "creation_date": 1723322307,
+   "last_edit_date": 1723746507,
+   "question_id": 78856991,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78856991/importerror-cannot-import-name-cache-from-rpa-core-webdriver",
+   "title": "ImportError: cannot import name &#39;cache&#39; from &#39;RPA.core.webdriver&#39;",
+   "body": "<p>I am creating a webscraper and the idea is to use Selenium, Robocorp and VSCode altogether.</p>\n<p>I understand that Robocorp already has a file YAML that contains de dependencies of the code, but my doubt is, can I simply PIP INSTALL RPA.core.webdriver?</p>\n<p>In my code , there is:</p>\n<pre><code>from RPA.core.webdriver import cache, download, start\n</code></pre>\n<p>and then:</p>\n<pre><code>def set_webdriver(self, browser=&quot;Chrome&quot;):\n    options = self.set_chrome_options()\n    executable_driver_path = cache(browser)\n    if not executable_driver_path:\n        executable_driver_path = download(browser)\n        self.logger.warning(&quot;Using downloaded driver: %s&quot; % executable_driver_path)\n    else:\n        self.logger.warning(&quot;Using cached driver: %s&quot; % executable_driver_path)\n\n    self.driver = start(&quot;Chrome&quot;, executable_path=str(executable_driver_path), options=options)\n</code></pre>\n<p>Since then the error appears. How can I solve this, with conda.yaml?</p>\n<pre><code># For more details on the format and content:\n# https://github.com/robocorp/rcc/blob/master/docs/recipes.md#what-is-in-condayaml\n# Tip: Adding a link to the release notes of the packages helps maintenance and security.\n\nchannels:\n  - conda-forge\n\ndependencies:\n  - python=3.10.12                    # https://pyreadiness.org/3.10\n  - pip=23.2.1                        # https://pip.pypa.io/en/stable/news\n  - robocorp-truststore=0.8.0         # https://pypi.org/project/robocorp-truststore/\n  - nodejs=16.20.2                    # https://github.com/nodejs/node/blob/main/CHANGELOG.md\n  - pip:\n    - robotframework-browser==17.5.2  # https://github.com/MarketSquare/robotframework-browser/releases\n    - rpaframework==27.7.0            # https://rpaframework.org/releasenotes.html\n\nrccPostInstall:\n  - rfbrowser init                    # Initialize Playwright\n</code></pre>\n<p>I tried to use a method that uses a dependency, that I have no idea if it's already in the code.</p>\n<pre><code>`ImportError: cannot import name 'cache' from 'RPA.core.webdriver`\n</code></pre>\n<p><strong>UPDATE</strong>\nI managed to install conda into my machine, ran the conda.YAML, created a environment, but I still cannot import this RPA.core. Does it even exists anymore?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "amazon-web-services",
+    "docker",
+    "pyspark",
+    "aws-glue"
+   ],
+   "owner": {
+    "account_id": 2939165,
+    "reputation": 199,
+    "user_id": 2517455,
+    "user_type": "registered",
+    "accept_rate": 25,
+    "profile_image": "https://www.gravatar.com/avatar/d90cf31bf8e84f1e7043890660532303?s=256&d=identicon&r=PG",
+    "display_name": "Gurudev Kumar",
+    "link": "https://stackoverflow.com/users/2517455/gurudev-kumar"
+   },
+   "is_answered": false,
+   "view_count": 2590,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1722561343,
+   "creation_date": 1704457504,
+   "last_edit_date": 1704459454,
+   "question_id": 77764574,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77764574/importerror-no-module-named-pyspark-errors-when-importing-deltatable-in-aws-g",
+   "title": "ImportError: No module named &#39;pyspark.errors&#39; when importing DeltaTable in AWS Glue Jupyter Notebook (Docker Container)",
+   "body": "<p>Hello Stack Overflow community,</p>\n<p>I'm encountering a challenging issue when trying to <em><strong>import DeltaTable from the delta.tables</strong></em> module in my Jupyter Notebook.</p>\n<p>I'm running AWS Glue locally on my MacBook using a <em><strong>Docker container</strong></em> with the image.</p>\n<p><em><strong>amazon/aws-glue-libs:glue_libs_4.0.0_image_01</strong></em></p>\n<p>The error message I'm facing is:</p>\n<pre><code>An error was encountered:\nNo module named 'pyspark.errors'\nTraceback (most recent call last):\n  File &quot;/home/glue_user/.local/lib/python3.10/site-packages/delta/__init__.py&quot;, line 17, in &lt;module&gt;\n    from delta.tables import DeltaTable\n  File &quot;/home/glue_user/.local/lib/python3.10/site-packages/delta/tables.py&quot;, line 21, in &lt;module&gt;\n    import delta.exceptions  # noqa: F401; pylint: disable=unused-variable\n  File &quot;/home/glue_user/.local/lib/python3.10/site-packages/delta/exceptions.py&quot;, line 20, in &lt;module&gt;\n    from pyspark.errors.exceptions import captured\nModuleNotFoundError: No module named 'pyspark.errors'\n</code></pre>\n<p>Here are the key details:</p>\n<ol>\n<li>I've installed the delta library using the command pip install\ndelta-spark.</li>\n<li>pyspark Version 3.3.0+amzn.1.dev0 traced using <code>print(pyspark.__version__)</code></li>\n<li>Python Version 3.10.2</li>\n<li>delta-spark-3.0.0 py4j-0.10.9.7</li>\n<li>The line of code causing the error is:</li>\n</ol>\n<p><code>from delta.tables import DeltaTable</code></p>\n<p>It appears there may be a compatibility issue or a missing dependency in my Jupyter Notebook environment within the AWS Glue Docker container. Despite installing the necessary libraries, the error persists.</p>\n<p>I would greatly appreciate any insights, solutions, or guidance to resolve this issue and successfully import <strong>DeltaTable</strong> within my AWS Glue Jupyter Notebook environment.</p>\n<p>Even below code throws same error:</p>\n<pre><code>import delta\nprint(delta.__version__)\n</code></pre>\n<p>Please feel free to request any additional information you might need.</p>\n<p>Thank you in advance for your assistance!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram-bot",
+    "python-telegram-bot"
+   ],
+   "owner": {
+    "account_id": 14249823,
+    "reputation": 11,
+    "user_id": 10293731,
+    "user_type": "registered",
+    "profile_image": "https://lh6.googleusercontent.com/-ECvbcP-648Y/AAAAAAAAAAI/AAAAAAAAAF8/2BEs-NMBBms/s256-rj/photo.jpg",
+    "display_name": "nikalaev",
+    "link": "https://stackoverflow.com/users/10293731/nikalaev"
+   },
+   "is_answered": true,
+   "view_count": 18048,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1721812060,
+   "creation_date": 1681304255,
+   "question_id": 75995740,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/75995740/importerror-cannot-import-name-update-from-telegram",
+   "title": "ImportError: cannot import name &#39;Update&#39; from &#39;telegram&#39;",
+   "body": "<p>from telegram import Update\nImportError: cannot import name 'Update' from 'telegram'</p>\n<pre><code>import requests\nfrom bs4 import BeautifulSoup\nfrom telegram import Update\n\n\nTOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'\n\n\ndef start(update: Update, context: CallbackContext):\n    context.bot.send_message(chat_id=update.effective_chat.id, text=&quot;Welcome to the product search bot! Please enter a product name to search for.&quot;)\n\n\ndef search_product(update: Update, context: CallbackContext):\n    product_name = update.message.text\n    url = f'https://example.com/search?q={product_name}'\n    response = requests.get(url)\n    soup = BeautifulSoup(response.content, 'html.parser')\n    products = soup.find_all('div', class_='product')\n\n    for product in products:\n        name = product.find('h3', class_='product-name').text.strip()\n        price = product.find('div', class_='product-price').text.strip()\n        context.bot.send_message(chat_id=update.effective_chat.id, text=f'{name}\\n{price}')\n\n\ndef main():\n    updater = Updater(TOKEN)\n    dp = updater.dispatcher\n    dp.add_handler(CommandHandler(&quot;start&quot;, start))\n    dp.add_handler(MessageHandler(Filters.text &amp; ~Filters.command, search_product))\n    updater.start_polling()\n    updater.idle()\n\n\nif __name__ == '__main__':\n    main()\n</code></pre>\n<p>I try pip uninstall python-telegram-bot\npip install python-telegram-bot --upgrade --force-reinstall\nfrom telegram import Update\nbut it didnt help</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "numexpr"
+   ],
+   "owner": {
+    "account_id": 10259283,
+    "reputation": 255,
+    "user_id": 7571180,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/t9pyn.jpg?s=256",
+    "display_name": "bluesky",
+    "link": "https://stackoverflow.com/users/7571180/bluesky"
+   },
+   "is_answered": true,
+   "view_count": 5032,
+   "accepted_answer_id": 66464519,
+   "answer_count": 2,
+   "score": 3,
+   "last_activity_date": 1721490500,
+   "creation_date": 1610834178,
+   "last_edit_date": 1610844561,
+   "question_id": 65755148,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/65755148/how-to-fix-error-while-importing-numexpr-python",
+   "title": "How to fix error while importing Numexpr Python",
+   "body": "<p>On Windows 10 Python 3.7.9 (IDLE) I successfully installed &quot;pip install numexpr&quot; but while &quot;import numexpr as ne&quot; I have an error:</p>\n<p><em>Traceback (most recent call last):\nFile &quot;&lt;pyshell#21&gt;&quot;, line 267, in \nimport numexpr as ne\nFile &quot;C:\\Python379\\lib\\site-packages\\numexpr_<em>init</em>_.py&quot;, line 28, in \nfrom numexpr.interpreter import MAX_THREADS, use_vml, __ BLOCK_SIZE1__\nImportError: DLL load failed: Can't find this module.</em></p>\n<p>Maybe I need to install Numexpr other way</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "numpy"
+   ],
+   "owner": {
+    "account_id": 33986055,
+    "reputation": 11,
+    "user_id": 26326393,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/c3843bfd819f17008668387f66bf26f3?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Arye Oskotsky",
+    "link": "https://stackoverflow.com/users/26326393/arye-oskotsky"
+   },
+   "is_answered": false,
+   "view_count": 469,
+   "answer_count": 0,
+   "score": 1,
+   "last_activity_date": 1720644431,
+   "creation_date": 1720641848,
+   "last_edit_date": 1720642758,
+   "question_id": 78732536,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78732536/numpy-importerror",
+   "title": "Numpy ImportError",
+   "body": "<p>I have been trying to install numpy to run some code that was made by someone else. The issue I am having is that when I run the code a numpy Import Error is thrown telling me that I am missing required c files.</p>\n<p>I am running the code in an anaconda env</p>\n<ul>\n<li>Conda version 24.5.0</li>\n<li>Python version 3.11</li>\n<li>Numpy version 2.0.0</li>\n<li>Numpy-base version 1.26.4</li>\n</ul>\n<pre class=\"lang-none prettyprint-override\"><code>Importing the numpy C-extensions failed. This error can happen for\nmany reasons, often due to issues with your setup or how NumPy was\ninstalled.\n\nWe have compiled some common reasons and troubleshooting tips at:\n\n    https://numpy.org/devdocs/user/troubleshooting-importerror.html\n\nPlease note and check the following:\n\n  * The Python version is: Python3.11 from &quot;C:\\Users\\Vinr5\\anaconda3\\envs\\research\\python.exe&quot;\n  * The NumPy version is: &quot;2.0.0&quot;\n\nand make sure that they are the versions you expect.\nPlease carefully study the documentation linked above for further help.\n\nOriginal error was: DLL load failed while importing _multiarray_umath: The paging file is too small for this operation to complete.\n\n...\n</code></pre>\n<p>This is accompanied by a long error message which I will have to cut short to fit StackOverflow's post requirements</p>\n<pre class=\"lang-none prettyprint-override\"><code>Could not import runpy module\nFatal Python error: Could not import runpy module\ninit_import_siteException in Tkinter callback\ninit_import_siteFatal Python error: Could not import runpy module\nCould not import runpy module\nCould not import runpy module\nCould not import runpy module\n: : init_import_siteFatal Python error: Traceback (most recent call last):\nTraceback (most recent call last):\nTraceback (most recent call last):\nTraceback (most recent call last):\nTraceback (most recent call last):\nFatal Python error: Could not import runpy module\nTraceback (most recent call last):\n  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1176, in _find_and_load\nTraceback (most recent call last):\nTraceback (most recent call last):\nTraceback (most recent call last):\nTraceback (most recent call last):\nTraceback (most recent call last):\nTraceback (most recent call last):\nTraceback (most recent call last):\n  File &quot;C:\\Users\\Vinr5\\anaconda3\\envs\\research\\Lib\\site-packages\\numpy\\_core\\__init__.py&quot;, line 23, in &lt;module&gt;\n    from . import multiarray\n  File &quot;C:\\Users\\Vinr5\\anaconda3\\envs\\research\\Lib\\site-packages\\numpy\\_core\\multiarray.py&quot;, line 10, in &lt;module&gt;\n    from . import overrides\n  File &quot;C:\\Users\\Vinr5\\anaconda3\\envs\\research\\Lib\\site-packages\\numpy\\_core\\overrides.py&quot;, line 8, in &lt;module&gt;\n    from numpy._core._multiarray_umath import (\nImportError: PyCapsule_Import could not import module &quot;datetime&quot;\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File &quot;C:\\Users\\Vinr5\\anaconda3\\envs\\research\\Lib\\site-packages\\numpy\\__init__.py&quot;, line 128, in &lt;module&gt;\nTraceback (most recent call last):\nTraceback (most recent call last):\nTraceback (most recent call last):\n    from numpy.__config__ import show as show_config\nTraceback (most recent call last):\n  File &quot;C:\\Users\\Vinr5\\anaconda3\\envs\\research\\Lib\\site-packages\\numpy\\__config__.py&quot;, line 4, in &lt;module&gt;\nTraceback (most recent call last):\nTraceback (most recent call last):\nTraceback (most recent call last):\nCould not import runpy module\nCould not import runpy module\n    from numpy._core._multiarray_umath import (\n  File &quot;&lt;frozen runpy&gt;&quot;, line 189, in _run_module_as_main\nCould not import runpy module\n  File &quot;C:\\Users\\Vinr5\\anaconda3\\envs\\research\\Lib\\site-packages\\numpy\\_core\\__init__.py&quot;, line 49, in &lt;module&gt;\nTraceback (most recent call last):\nTraceback (most recent call last):\nTraceback (most recent call last):\nCould not import runpy module\nCould not import runpy module\nTraceback (most recent call last):\n    raise ImportError(msg)\n  File &quot;&lt;frozen runpy&gt;&quot;, line 189, in _run_module_as_main\n  File &quot;&lt;frozen runpy&gt;&quot;, line 189, in _run_module_as_main\nTraceback (most recent call last):\nTraceback (most recent call last):\nTraceback (most recent call last):\nTraceback (most recent call last):\n  File &quot;&lt;frozen runpy&gt;&quot;, line 189, in _run_module_as_main\nImportError:\n\nIMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!\n\nImporting the numpy C-extensions failed. This error can happen for\nmany reasons, often due to issues with your setup or how NumPy was\ninstalled.\n\nWe have compiled some common reasons and troubleshooting tips at:\n\n    https://numpy.org/devdocs/user/troubleshooting-importerror.html\n\nPlease note and check the following:\n\n  * The Python version is: Python3.11 from &quot;C:\\Users\\Vinr5\\anaconda3\\envs\\research\\python.exe&quot;\n  * The NumPy version is: &quot;2.0.0&quot;\n\n</code></pre>\n<p>Following the link in the error message I have done the following</p>\n<ol>\n<li>Verified that I have the correct numpy and python version installed</li>\n<li>Uninstalled and reinstalled numpy through <code>conda install -c conda-forge numpy</code></li>\n<li>Uninstalled and reinstalled numpy through <code>pip install numpy</code>. Taking care that I have removed numpy from the environment before I pip install numpy.</li>\n<li>I have tried all of these on conda version 4.10, 4.14, 22.3, 24.5</li>\n<li>I have removed all other installations of python that aren't the anaconda specific installation as well as their environment variable paths</li>\n<li>Building numpy from source following their directions failed on the final step because package metadata generation failed.</li>\n</ol>\n<p>All of these things I have tried on two computers and have gotten the same results.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "tensorflow",
+    "jupyter-notebook",
+    "tensorflow2.0",
+    "object-detection-api"
+   ],
+   "owner": {
+    "account_id": 30650978,
+    "reputation": 11,
+    "user_id": 23497384,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/ACg8ocKZ_0qNtl_OJ1-QXCC-HVRJpQGwhL-RjtHCtz-FhSlT=k-s256",
+    "display_name": "DifferentRatFixer",
+    "link": "https://stackoverflow.com/users/23497384/differentratfixer"
+   },
+   "is_answered": true,
+   "view_count": 165,
+   "accepted_answer_id": 78436072,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1719074574,
+   "creation_date": 1709133571,
+   "last_edit_date": 1709139197,
+   "question_id": 78075594,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78075594/importerror-cannot-import-name-model-lib-v2-from-object-detection-already",
+   "title": "ImportError: cannot import name &#39;model_lib_v2&#39; from &#39;object_detection&#39; (already installed an still not working)",
+   "body": "<p>**Hey guys, currently doing tensorflow object detection and stuck because of an error. Already tried all the method in the internet, still not working.\n**\nI use tensorflow == 2.10.0, the model is <a href=\"http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.tar.gz\" rel=\"nofollow noreferrer\">http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.tar.gz</a>\nand using jupyter notebook, python version = Python 3.10.9, no tensorflow gpu</p>\n<p>Below are everything related to the error:</p>\n<pre><code>(odball) C:\\Users\\someone\\Desktop\\website\\2023\\TensorFlow Object Detection\\TFODBall&gt;python Tensorflow\\models\\research\\object_detection\\model_main_tf2.py --model_dir=Tensorflow\\workspace\\models\\my_ssd_mobnet --pipeline_config_path=Tensorflow\\workspace\\models\\my_ssd_mobnet\\pipeline.config --num_train_steps=4000\nTraceback (most recent call last):\n  File &quot;C:\\Users\\someone\\Desktop\\website\\2023\\TensorFlow Object Detection\\TFODBall\\Tensorflow\\models\\research\\object_detection\\model_main_tf2.py&quot;, line 31, in &lt;module&gt;\n    from object_detection import model_lib_v2\nImportError: cannot import name 'model_lib_v2' from 'object_detection' (C:\\Users\\someone\\Desktop\\website\\2023\\TensorFlow Object Detection\\TFODBall\\odball\\lib\\site-packages\\object_detection\\__init__.py)\n\n[C:\\Users\\someone\\Desktop\\website\\2023\\TensorFlow Object Detection\\TFODBall\\Tensorflow\\models\\research\\object_detection\\model_main_tf2.py](https://i.sstatic.net/mSaqo.png)\n\nThe &quot;from object detection&quot; of the image have indicator \n</code></pre>\n<p>says report missing imports &quot;object detection&quot; could not be resolved</p>\n<p>Solutions I have tried :</p>\n<ol>\n<li>pip install tensorflow-object-detection-api</li>\n<li>uninstall and reinstall tensorflow</li>\n<li>restart kernel</li>\n</ol>\n<p>Below are the pip list :</p>\n<pre><code>Package                         Version         Editable project location\n------------------------------- --------------- ---------------------------------------------------------------------------------------------------------\nabsl-py                         2.1.0\nanyio                           4.3.0\napache-beam                     2.54.0\nargon2-cffi                     23.1.0\nargon2-cffi-bindings            21.2.0\narrow                           1.3.0\nasttokens                       2.4.1\nastunparse                      1.6.3\nasync-lru                       2.0.4\nattrs                           23.2.0\navro-python3                    1.10.2\nBabel                           2.14.0\nbeautifulsoup4                  4.12.3\nbleach                          6.1.0\ncachetools                      5.3.3\ncertifi                         2024.2.2\ncffi                            1.16.0\ncharset-normalizer              3.3.2\ncolorama                        0.4.6\ncomm                            0.2.1\ncontextlib2                     21.6.0\ncontourpy                       1.2.0\ncycler                          0.12.1\nCython                          3.0.8\ndebugpy                         1.8.1\ndecorator                       5.1.1\ndefusedxml                      0.7.1\ndm-tree                         0.1.8\ndocutils                        0.20.1\nexceptiongroup                  1.2.0\nexecuting                       2.0.1\nfastjsonschema                  2.19.1\nflatbuffers                     23.5.26\nfonttools                       4.49.0\nfqdn                            1.5.1\ngast                            0.4.0\ngoogle-auth                     2.28.1\ngoogle-auth-oauthlib            0.4.6\ngoogle-pasta                    0.2.0\ngrpcio                          1.62.0\nh11                             0.14.0\nh5py                            3.10.0\nhttpcore                        1.0.4\nhttpx                           0.27.0\nidna                            3.6\nimportlib-metadata              7.0.1\nipykernel                       6.29.3\nipython                         8.22.1\nipywidgets                      8.1.2\nisoduration                     20.11.0\njaraco.classes                  3.3.1\njedi                            0.19.1\nJinja2                          3.1.3\njson5                           0.9.17\njsonpointer                     2.4\njsonschema                      4.21.1\njsonschema-specifications       2023.12.1\njupyter                         1.0.0\njupyter_client                  8.6.0\njupyter-console                 6.6.3\njupyter_core                    5.7.1\njupyter-events                  0.9.0\njupyter-lsp                     2.2.3\njupyter_server                  2.12.5\njupyter_server_terminals        0.5.2\njupyterlab                      4.1.2\njupyterlab_pygments             0.3.0\njupyterlab_server               2.25.3\njupyterlab_widgets              3.0.10\nkeras                           2.10.0\nKeras-Preprocessing             1.1.2\nkeyring                         24.3.1\nkiwisolver                      1.4.5\nlibclang                        16.0.6\nlvis                            0.5.3\nlxml                            5.1.0\nMarkdown                        3.5.2\nmarkdown-it-py                  3.0.0\nMarkupSafe                      2.1.5\nmatplotlib                      3.8.3\nmatplotlib-inline               0.1.6\nmdurl                           0.1.2\nmistune                         3.0.2\nml-dtypes                       0.3.2\nmore-itertools                  10.2.0\nnamex                           0.0.7\nnbclient                        0.9.0\nnbconvert                       7.16.1\nnbformat                        5.9.2\nnest-asyncio                    1.6.0\nnh3                             0.2.15\nnotebook                        7.1.1\nnotebook_shim                   0.2.4\nnumpy                           1.26.4\noauthlib                        3.2.2\nobject-detection                0.1\nopencv-python                   4.9.0.80\nopt-einsum                      3.3.0\noverrides                       7.7.0\npackaging                       23.2\npandas                          2.2.1\npandocfilters                   1.5.1\nparso                           0.8.3\npillow                          10.2.0\npip                             24.0\npkginfo                         1.9.6\nplatformdirs                    4.2.0\nportalocker                     2.8.2\nprometheus_client               0.20.0\nprompt-toolkit                  3.0.43\nprotobuf                        3.19.6\npsutil                          5.9.8\npure-eval                       0.2.2\npyasn1                          0.5.1\npyasn1-modules                  0.3.0\npycocotools                     2.0.7\npycparser                       2.21\nPygments                        2.17.2\npyparsing                       2.4.7\nPyQt5                           5.15.10\nPyQt5-Qt5                       5.15.2\nPyQt5-sip                       12.13.0\npython-dateutil                 2.8.2\npython-json-logger              2.0.7\npytz                            2024.1\npywin32                         306\npywin32-ctypes                  0.2.2\npywinpty                        2.0.13\nPyYAML                          6.0.1\npyzmq                           25.1.2\nqtconsole                       5.5.1\nQtPy                            2.4.1\nreadme_renderer                 43.0\nreferencing                     0.33.0\nregex                           2023.12.25\nrequests                        2.31.0\nrequests-oauthlib               1.3.1\nrequests-toolbelt               1.0.0\nrfc3339-validator               0.1.4\nrfc3986                         2.0.0\nrfc3986-validator               0.1.1\nrich                            13.7.0\nrpds-py                         0.18.0\nrsa                             4.9\nsacrebleu                       2.2.0\nscipy                           1.12.0\nSend2Trash                      1.8.2\nsetuptools                      65.5.0\nsix                             1.16.0\nslim                            0.1             c:\\users\\someone\\desktop\\website\\2023\\tensorflow object detection\\tfodball\\tensorflow\\models\\research\\slim\nsniffio                         1.3.1\nsoupsieve                       2.5\nstack-data                      0.6.3\ntabulate                        0.9.0\ntensorboard                     2.10.1\ntensorboard-data-server         0.6.1\ntensorboard-plugin-wit          1.8.1\ntensorflow                      2.10.0\ntensorflow-estimator            2.10.0\ntensorflow-io                   0.31.0\ntensorflow-io-gcs-filesystem    0.31.0\ntensorflow-object-detection-api 0.1.1\ntermcolor                       2.4.0\nterminado                       0.18.0\ntf-models-official              2.15.0\ntf-slim                         1.1.0\ntinycss2                        1.2.1\ntomli                           2.0.1\ntornado                         6.4\ntraitlets                       5.14.1\ntwine                           5.0.0\ntypes-python-dateutil           2.8.19.20240106\ntyping_extensions               4.10.0\nuri-template                    1.3.0\nurllib3                         2.2.1\nwcwidth                         0.2.13\nwebcolors                       1.13\nwebencodings                    0.5.1\nwebsocket-client                1.7.0\nWerkzeug                        3.0.1\nwget                            3.2\nwheel                           0.42.0\nwidgetsnbextension              4.0.10\nwrapt                           1.16.0\nzipp                            3.17.0\n</code></pre>\n<p>Solutions I have tried :</p>\n<pre><code>1. pip install tensorflow-object-detection-api\n2. uninstall and reinstall tensorflow\n3. restart kernel \n</code></pre>\n<p>i was expecting the object detection could be resolved, unfortunately its still there causing error</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "matplotlib",
+    "pygtk",
+    "virtualenv"
+   ],
+   "owner": {
+    "account_id": 480146,
+    "reputation": 4432,
+    "user_id": 893206,
+    "user_type": "registered",
+    "accept_rate": 93,
+    "profile_image": "https://i.sstatic.net/Et7CD.jpg?s=256",
+    "display_name": "George Eracleous",
+    "link": "https://stackoverflow.com/users/893206/george-eracleous"
+   },
+   "is_answered": true,
+   "view_count": 31521,
+   "accepted_answer_id": 17126095,
+   "answer_count": 6,
+   "score": 41,
+   "last_activity_date": 1718500619,
+   "creation_date": 1327928512,
+   "last_edit_date": 1327931748,
+   "question_id": 9064289,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/9064289/installing-pygtk-in-virtualenv",
+   "title": "Installing PyGtk in virtualenv",
+   "body": "<p>So I am trying to run a simple matplotlib example in my virtualenv (in the console). Here's the code:</p>\n\n<pre><code>import matplotlib\nmatplotlib.use('GTKAgg')\nimport matplotlib.pyplot as plt\nradius = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]\narea = [3.14159, 12.56636, 28.27431, 50.26544, 78.53975, 113.09724]\nplt.plot(radius, area)\nplt.show()\n</code></pre>\n\n<p>However, when I run this I get:</p>\n\n<blockquote>\n  <p>ImportError: Gtk* backend requires pygtk to be installed.</p>\n</blockquote>\n\n<p>And now the fun starts. I tried to pip install pygtk but it throws:</p>\n\n<pre><code>********************************************************************\n* Building PyGTK using distutils is only supported on windows. *\n* To build PyGTK in a supported way, read the INSTALL file.    *\n********************************************************************\nComplete output from command python setup.py egg_info:\n********************************************************************\n</code></pre>\n\n<p>I have checked the <code>INSTALL</code> file and says to try <code>./configfure; make; make install</code>. However. I am not quite sure how to do this within virtualenv. Where do I unpack the sources for pygtk in order to be installed within virtualenv.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "nlp",
+    "importerror",
+    "huggingface-transformers",
+    "huggingface"
+   ],
+   "owner": {
+    "account_id": 7485103,
+    "reputation": 283,
+    "user_id": 5688627,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/tWgmZ.jpg?s=256",
+    "display_name": "Stubborn Goat",
+    "link": "https://stackoverflow.com/users/5688627/stubborn-goat"
+   },
+   "is_answered": true,
+   "view_count": 49679,
+   "protected_date": 1692998804,
+   "accepted_answer_id": 76452964,
+   "answer_count": 4,
+   "score": 27,
+   "last_activity_date": 1718171852,
+   "creation_date": 1686433863,
+   "last_edit_date": 1686530602,
+   "question_id": 76448287,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/76448287/how-can-i-solve-importerror-using-the-trainer-with-pytorch-requires-accele",
+   "title": "How can i solve ImportError: Using the `Trainer` with `PyTorch` requires `accelerate&gt;=0.20.1` when using Huggingface&#39;s TrainArguments?",
+   "body": "<p>I'm using the <code>transformers</code> library in Google colab, and\nWhen i am using TrainingArguments from transformers library i'm getting Import error with this  code:</p>\n<pre><code>from transformers import TrainingArguments\n\ntraining_args = TrainingArguments(\n    output_dir = &quot;/content/our-model&quot;,\n    learning_rate=2e-5,\n    per_device_train_batch_size= 64,\n    per_device_eval_batch_size = 16,\n    num_train_epochs = 2,\n    weight_decay = 0.01,\n    evaluation_strategy = &quot;epoch&quot;,\n    save_strategy = &quot;epoch&quot;,\n    load_best_model_at_end = True,\n    push_to_hub = False\n)\n</code></pre>\n<p>This is the error i'm getting:</p>\n<pre><code>&lt;ipython-input-28-0518ea5ff407&gt; in &lt;cell line: 2&gt;()\n      1 from transformers import TrainingArguments\n----&gt; 2 training_args = TrainingArguments(\n      3     output_dir = &quot;/content/our-model&quot;,\n      4     learning_rate=2e-5,\n      5     per_device_train_batch_size= 64,\n\n4 frames\n/usr/local/lib/python3.10/dist-packages/transformers/training_args.py in _setup_devices(self)\n   1670         if not is_sagemaker_mp_enabled():\n   1671             if not is_accelerate_available(min_version=&quot;0.20.1&quot;):\n-&gt; 1672                 raise ImportError(\n   1673                     &quot;Using the `Trainer` with `PyTorch` requires `accelerate&gt;=0.20.1`: Please run `pip install transformers[torch]` or `pip install accelerate -U`&quot;\n   1674                 )\n\nImportError: Using the `Trainer` with `PyTorch` requires `accelerate&gt;=0.20.1`: Please run `pip install transformers[torch]` or `pip install accelerate -U \n</code></pre>\n<p>I already tried pip install for 0.20.1 version of accelerate and pip install transformers[torch]\nand both didn't worked.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "jupyter-notebook",
+    "anaconda",
+    "navigator",
+    "anaconda3"
+   ],
+   "owner": {
+    "account_id": 27109393,
+    "reputation": 21,
+    "user_id": 20654770,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/ALm5wu2pHvuo9QdWOpdhwp5RMKRHGe4r10ndLHNpL2oe=k-s256",
+    "display_name": "1010_Sayantan Sen",
+    "link": "https://stackoverflow.com/users/20654770/1010-sayantan-sen"
+   },
+   "is_answered": true,
+   "view_count": 2482,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1716957764,
+   "creation_date": 1716268116,
+   "question_id": 78509739,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78509739/my-anaconda-navigator-wont-launch-from-cmd-or-manually",
+   "title": "My Anaconda Navigator wont launch from cmd or manually",
+   "body": "<p>yesterday, i uninstalled my anti virus and after that , the navigator is not launching any more.</p>\n<p>i tried going to the script file and updating my conda and navigator.\nhowever the navigator update gets stuck after some time.</p>\n<p>i have tried, almost most solutions available, but none of the hit and miss are working.</p>\n<p>conda update conda// works\nconda update anaconda-navigator // this one gets stuck</p>\n<p>pip install PyQt5\npip install pyqtwebengine // both works .</p>\n<p>jupiter opens up but anaconda navigator doesnot</p>\n<p>i tried running navigator directly from script cmd.\nC:\\Users\\sayan.anaconda\\navigator\\scripts&gt; anaconda-navigator</p>\n<p>it provides the following:-\nTraceback (most recent call last):\nFile &quot;C:\\Users\\sayan\\anaconda3\\Scripts\\anaconda-navigator-script.py&quot;, line 6, in \nfrom anaconda_navigator.app.main import main\nFile &quot;C:\\Users\\sayan\\anaconda3\\lib\\site-packages\\anaconda_navigator\\app\\main.py&quot;, line 19, in \nfrom anaconda_navigator.app.start import start_app\nFile &quot;C:\\Users\\sayan\\anaconda3\\lib\\site-packages\\anaconda_navigator\\app\\start.py&quot;, line 27, in \nfrom anaconda_navigator.widgets.main_window import MainWindow\nFile &quot;C:\\Users\\sayan\\anaconda3\\lib\\site-packages\\anaconda_navigator\\widgets\\main_window_<em>init</em>_.py&quot;, line 52, in \nfrom anaconda_navigator.widgets.tabs.community import CommunityTab\nFile &quot;C:\\Users\\sayan\\anaconda3\\lib\\site-packages\\anaconda_navigator\\widgets\\tabs\\community.py&quot;, line 23, in \nfrom PIL.ImageQt import ImageQt\nImportError: cannot import name 'ImageQt' from 'PIL.ImageQt' (C:\\Users\\sayan\\anaconda3\\lib\\site-packages\\PIL\\ImageQt.py)\nPS C:\\Users\\sayan.anaconda\\navigator\\scripts&gt;</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "theano"
+   ],
+   "owner": {
+    "account_id": 94376,
+    "reputation": 22076,
+    "user_id": 257705,
+    "user_type": "registered",
+    "accept_rate": 56,
+    "profile_image": "https://www.gravatar.com/avatar/12e6bcf1fe8905d67d347f4a2a133957?s=256&d=identicon&r=PG",
+    "display_name": "X10nD",
+    "link": "https://stackoverflow.com/users/257705/x10nd"
+   },
+   "is_answered": true,
+   "view_count": 29049,
+   "protected_date": 1716020766,
+   "answer_count": 5,
+   "score": 6,
+   "last_activity_date": 1716020733,
+   "creation_date": 1472979924,
+   "last_edit_date": 1472980386,
+   "question_id": 39315270,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/39315270/importerror-no-module-named-theano",
+   "title": "ImportError: No module named &#39;theano&#39;",
+   "body": "<p>I have installed (/library/python/2.7/site-packages) theano on my mac and still get this error.</p>\n\n<p><strong>My code is</strong></p>\n\n<pre><code>import theano\ntheano.test()\n</code></pre>\n\n<p><strong>and the error</strong></p>\n\n<pre><code>Traceback (most recent call last):\n  File \"/Users/mac/Downloads/n.py\", line 1, in &lt;module&gt;\n    import theano\nImportError: No module named 'theano'\n</code></pre>\n\n<p>I did install theano using pip install theano for python 2.7.  </p>\n\n<p>Any idea on why its throwing up the error.</p>\n\n<p>Also I installed Anaconda and it throws the same error as working on idle.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "macos",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 3202691,
+    "reputation": 4601,
+    "user_id": 2704454,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/85bc0a09bcb04f62dd2eebb141874a14?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "David Lu",
+    "link": "https://stackoverflow.com/users/2704454/david-lu"
+   },
+   "is_answered": true,
+   "view_count": 1639285,
+   "protected_date": 1661976410,
+   "closed_date": 1705269973,
+   "answer_count": 31,
+   "score": 461,
+   "last_activity_date": 1714475851,
+   "creation_date": 1377102888,
+   "last_edit_date": 1691356587,
+   "question_id": 18363022,
+   "link": "https://stackoverflow.com/questions/18363022/error-running-pip-install-importerror-no-module-named-pip",
+   "closed_reason": "Duplicate",
+   "title": "Error running &#39;pip install&#39;: &quot;ImportError: No module named pip&quot;",
+   "body": "<p>OS: <a href=\"https://en.wikipedia.org/wiki/OS_X_Lion\" rel=\"noreferrer\">Mac OS X 10.7.5</a> (Lion) <br />\nPython ver: 2.7.5</p>\n<p>I have installed setuptools 1.0 with ez_setup.py from <a href=\"https://pypi.python.org/pypi/setuptools\" rel=\"noreferrer\">https://pypi.python.org/pypi/setuptools</a>. <br />\nThen I downloaded pip.1.4.1 pkg from <a href=\"https://pypi.python.org/pypi/pip/1.4.1\" rel=\"noreferrer\">https://pypi.python.org/pypi/pip/1.4.1</a>.</p>\n<p>I ran (sudo) <code>python setup.py install</code> in <a href=\"https://en.wikipedia.org/wiki/ITerm2\" rel=\"noreferrer\">iTerm</a>, output:</p>\n<pre class=\"lang-none prettyprint-override\"><code>running install\nrunning bdist_egg running egg_info writing requirements to\npip.egg-info/requires.txt writing pip.egg-info/PKG-INFO writing\ntop-level names to pip.egg-info/top_level.txt writing dependency_links\nto pip.egg-info/dependency_links.txt writing entry points to\npip.egg-info/entry_points.txt warning: manifest_maker: standard file\n'setup.py' not found\n\nreading manifest file 'pip.egg-info/SOURCES.txt' writing manifest file\n'pip.egg-info/SOURCES.txt' installing library code to\nbuild/bdist.macosx-10.6-intel/egg running install_lib warning:\ninstall_lib: 'build/lib' does not exist -- no Python modules to\ninstall\n\ncreating build/bdist.macosx-10.6-intel/egg creating\nbuild/bdist.macosx-10.6-intel/egg/EGG-INFO copying\npip.egg-info/PKG-INFO -&gt; build/bdist.macosx-10.6-intel/egg/EGG-INFO\ncopying pip.egg-info/SOURCES.txt -&gt;\nbuild/bdist.macosx-10.6-intel/egg/EGG-INFO copying\npip.egg-info/dependency_links.txt -&gt;\nbuild/bdist.macosx-10.6-intel/egg/EGG-INFO copying\npip.egg-info/entry_points.txt -&gt;\nbuild/bdist.macosx-10.6-intel/egg/EGG-INFO copying\npip.egg-info/not-zip-safe -&gt;\nbuild/bdist.macosx-10.6-intel/egg/EGG-INFO copying\npip.egg-info/requires.txt -&gt;\nbuild/bdist.macosx-10.6-intel/egg/EGG-INFO copying\npip.egg-info/top_level.txt -&gt;\nbuild/bdist.macosx-10.6-intel/egg/EGG-INFO creating\n'dist/pip-1.4.1-py2.7.egg' and adding\n'build/bdist.macosx-10.6-intel/egg' to it removing\n'build/bdist.macosx-10.6-intel/egg' (and everything under it)\nProcessing pip-1.4.1-py2.7.egg removing\n'/Users/dl/Library/Python/2.7/lib/python/site-packages/pip-1.4.1-py2.7.egg'\n(and everything under it) creating\n/Users/dl/Library/Python/2.7/lib/python/site-packages/pip-1.4.1-py2.7.egg\nExtracting pip-1.4.1-py2.7.egg to\n/Users/dl/Library/Python/2.7/lib/python/site-packages pip 1.4.1 is\nalready the active version in easy-install.pth Installing pip script\nto /Users/dl/Library/Python/2.7/bin Installing pip-2.7 script to\n/Users/dl/Library/Python/2.7/bin\n\nInstalled\n/Users/dl/Library/Python/2.7/lib/python/site-packages/pip-1.4.1-py2.7.egg\nProcessing dependencies for pip==1.4.1 Finished processing\ndependencies for pip==1.4.1\n</code></pre>\n<p>Then I ran <code>pip install</code> and got the following error message:</p>\n<pre class=\"lang-none prettyprint-override\"><code>Traceback (most recent call last):\n  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/bin/pip&quot;, line 9, in &lt;module&gt;\n    load_entry_point('pip==1.4.1', 'console_scripts', 'pip')()\n  File &quot;build/bdist.macosx-10.6-intel/egg/pkg_resources.py&quot;, line 357, in load_entry_point\n  File &quot;build/bdist.macosx-10.6-intel/egg/pkg_resources.py&quot;, line 2394, in load_entry_point\n  File &quot;build/bdist.macosx-10.6-intel/egg/pkg_resources.py&quot;, line 2108, in load\nImportError: No module named pip\n</code></pre>\n<p>How can I solve it?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "python-requests"
+   ],
+   "owner": {
+    "account_id": 2562248,
+    "reputation": 743,
+    "user_id": 2223151,
+    "user_type": "registered",
+    "accept_rate": 33,
+    "profile_image": "https://www.gravatar.com/avatar/dbfa45037eadb290373c39338f19476a?s=256&d=identicon&r=PG",
+    "display_name": "zoey cluff",
+    "link": "https://stackoverflow.com/users/2223151/zoey-cluff"
+   },
+   "is_answered": true,
+   "view_count": 339280,
+   "closed_date": 1728631908,
+   "answer_count": 18,
+   "score": 59,
+   "last_activity_date": 1713670114,
+   "creation_date": 1501144332,
+   "last_edit_date": 1713670114,
+   "question_id": 45345377,
+   "link": "https://stackoverflow.com/questions/45345377/python-module-not-found-even-though-requirement-already-satisfied-in-pip",
+   "closed_reason": "Duplicate",
+   "title": "Python module not found even though &quot;Requirement Already satisfied in Pip&quot;",
+   "body": "<p>Python is saying several packages I installed with pip &quot;ImportError: no module named requests&quot;</p>\n<p>When running pip install requests</p>\n<pre><code>&gt; sudo -H pip install requests \nRequirement already satisfied: requests in /usr/local/lib/python2.7/site-packages \nRequirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python2.7/site-packages (from requests) \nRequirement already satisfied: chardet&lt;3.1.0,&gt;=3.0.2 in /usr/local/lib/python2.7/site-packages (from requests) \nRequirement already satisfied: urllib3&lt;1.22,&gt;=1.21.1 in /usr/local/lib/python2.7/site-packages (from requests) \nRequirement already satisfied: idna&lt;2.6,&gt;=2.5 in /usr/local/lib/python2.7/site-packages (from requests)\n</code></pre>\n<p>it's erroring on twindb_cloudflare, requests, group, tarutil, and MySQL DB. I'm able to run the exact same imports on another script (in the same folder) without error. [Note: I'm running on OS X]</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "roboflow"
+   ],
+   "owner": {
+    "account_id": 27324539,
+    "reputation": 13,
+    "user_id": 20837716,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AEdFTp5bTqDwVlXhF0n7KO7z5rMDdYF_r9QyTJAfDCmX=k-s256",
+    "display_name": "Dima S",
+    "link": "https://stackoverflow.com/users/20837716/dima-s"
+   },
+   "is_answered": true,
+   "view_count": 406,
+   "accepted_answer_id": 78346581,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1713434842,
+   "creation_date": 1713433300,
+   "question_id": 78346417,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78346417/traceback-most-recent-call-last-file-c-users-diplom-pycharmprojects-yolo01",
+   "title": "Traceback (most recent call last): File &quot;C:\\Users\\Diplom\\PycharmProjects\\Yolo01\\Roboflow-4.py&quot;, line 4, in &lt;module&gt; import roboflow",
+   "body": "<p>Error\nTraceback (most recent call last):\nFile &quot;C:\\Users\\Diplom\\PycharmProjects\\Yolo01\\Roboflow-4.py&quot;, line 4, in \nimport roboflow\nFile &quot;C:\\Users\\Diplom\\PycharmProjects\\Yolo01.venv\\Lib\\site-packages\\kiwisolver_<em>init</em>_.py&quot;, line 8, in \nfrom ._cext import (\nImportError: DLL load failed while importing _cext: The specified module was not found.</p>\n<p>Python 3.11 , PyCharm Community Edition 2023.3.5 , windows 10.</p>\n<pre><code>import cv2\nimport tkinter as tk\nfrom PIL import Image, ImageTk\nimport roboflow\nimport numpy as np\n\nclass VideoPlayer:\n    def __init__(self, video_file, master=None, width=480, height=270):\n        self.cap = cv2.VideoCapture(video_file)\n        self.master = master\n        self.canvas = tk.Canvas(master, height=height, width=width)\n        self.delay = int(1000 / self.cap.get(cv2.CAP_PROP_FPS))\n        self.photo = None\n</code></pre>\n<p>pip list\nPackage                Version</p>\n<hr />\n<p>certifi                2023.7.22\nchardet                4.0.0\ncharset-normalizer     3.3.2\ncolorama               0.4.6\ncontourpy              1.2.1\ncycler                 0.10.0\nfonttools              4.51.0\nidna                   2.10\nkiwisolver             1.4.5\nmatplotlib             3.8.4\nmsvc-runtime           14.34.31931\nnumpy                  1.26.4\nopencv-python          4.8.1.78\nopencv-python-headless 4.8.0.74\npackaging              24.0\npillow                 10.3.0\npip                    24.0\npyparsing              2.4.7\npython-dateutil        2.9.0.post0\npython-dotenv          1.0.1\npython-magic           0.4.27\nPyYAML                 6.0.1\nrequests               2.31.0\nrequests-toolbelt      1.0.0\nroboflow               1.1.27\nsetuptools             68.2.0\nsix                    1.16.0\ntk                     0.1.0\ntqdm                   4.66.2\nurllib3                2.2.1\nwget                   3.2\nwheel                  0.41.2</p>\n<p>The following steps did not help:\npip install msvc-runtime\npip uninstall roboflow\npip installs roboflow\npip uninstall kiwisolver\npip install kiwisolver\npython -m pip install roboflow</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "flask"
+   ],
+   "owner": {
+    "account_id": 31612413,
+    "reputation": 11,
+    "user_id": 24432090,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/1f92e29de60aca6cf845ad41f0e8f4c9?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "GOUTHAMA BUDARPU",
+    "link": "https://stackoverflow.com/users/24432090/gouthama-budarpu"
+   },
+   "is_answered": true,
+   "view_count": 1104,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1713419230,
+   "creation_date": 1713356345,
+   "last_edit_date": 1713418862,
+   "question_id": 78340917,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78340917/importerror-cannot-import-name-request-ctx-stack-from-flask",
+   "title": "ImportError: cannot import name &#39;_request_ctx_stack&#39; from &#39;flask&#39;",
+   "body": "<p>I am new to Python and flask framework when I am using flask I am getting &quot;ImportError: cannot import name '_request_ctx_stack' from flask</p>\n<p>I have tried executing the following commands</p>\n<ol>\n<li>pip install --upgrade setuptools --&gt;It executed smoothely</li>\n<li>pip install --upgrade distribute --&gt;It ended by giving following error</li>\n</ol>\n<pre><code>Collecting distribute\n  Using cached distribute-0.7.3.zip (145 kB)\n  Installing build dependencies ... done\n  Getting requirements to build wheel ... done\n  Installing backend dependencies ... done\n  Preparing metadata (pyproject.toml) ... error\n  error: subprocess-exited-with-error\n\n  \u00d7 Preparing metadata (pyproject.toml) did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500&gt; [6 lines of output]\n      usage: setup.py [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]\n         or: setup.py --help [cmd1 cmd2 ...]\n         or: setup.py --help-commands\n         or: setup.py cmd --help\n\n      error: invalid command 'dist_info'\n      [end of output]\n\n  note: This error originates from a subprocess, and is likely not a problem with pip.\nerror: metadata-generation-failed\n\n\u00d7 Encountered error while generating package metadata.\n\u2570\u2500&gt; See above for output.\n\nnote: This is an issue with the package mentioned above, not pip.\nhint: See above for details.\n</code></pre>\n<p>First when I am trying to import the RoleMixin from flask-security I got the error as</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;E:\\Python Practice\\Role Based Access Control\\script.py&quot;, line 1, in &lt;module&gt;\n    from app import app \n    ^^^^^^^^^^^^^^^^^^^\n  File &quot;E:\\Python Practice\\Role Based Access Control\\app\\__init__.py&quot;, line 25, in &lt;module&gt;\n    from app import routes\n    ^^^^^^^^^^^^^^^^^^^^^^\n  File &quot;E:\\Python Practice\\Role Based Access Control\\app\\routes.py&quot;, line 6, in &lt;module&gt;\n    from app.models import User, Role\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File &quot;E:\\Python Practice\\Role Based Access Control\\app\\models.py&quot;, line 3, in &lt;module&gt;\n    from flask_security import RoleMixin\n  File &quot;E:\\Python Practice\\Role Based Access Control\\myenv\\Lib\\site-packages\\flask_security\\__init__.py&quot;, line 15, in &lt;module&gt;\n    from .core import (\n  File &quot;E:\\Python Practice\\Role Based Access Control\\myenv\\Lib\\site-packages\\flask_security\\core.py&quot;, line 86, in &lt;module&gt;\n    from .totp import Totp\n  File &quot;E:\\Python Practice\\Role Based Access Control\\myenv\\Lib\\site-packages\\flask_security\\totp.py&quot;, line 18, in &lt;module&gt;\n    from passlib.pwd import genword\n  File &quot;E:\\Python Practice\\Role Based Access Control\\myenv\\Lib\\site-packages\\passlib\\pwd.py&quot;, line 16, in &lt;module&gt;\n    import pkg_resources\nModuleNotFoundError: No module named 'pkg_resources'\n</code></pre>\n<p>To resolve this I used &quot;pip install --upgrade setuptools&quot;\nafter executing this if run my script I am getting</p>\n<pre><code>ImportError: cannot import name '_request_ctx_stack' from 'flask'\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "scikit-learn",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 4738929,
+    "reputation": 891,
+    "user_id": 5760832,
+    "user_type": "registered",
+    "accept_rate": 67,
+    "profile_image": "https://lh5.googleusercontent.com/-Uwus7NIp4Eo/AAAAAAAAAAI/AAAAAAAAAK4/P6zZ6cMyquw/s256-rj/photo.jpg",
+    "display_name": "Aqua 4",
+    "link": "https://stackoverflow.com/users/5760832/aqua-4"
+   },
+   "is_answered": true,
+   "view_count": 9825,
+   "accepted_answer_id": 59217724,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1712946292,
+   "creation_date": 1575653094,
+   "question_id": 59217723,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/59217723/importerror-cannot-import-name-plot-tree-from-sklearn-tree",
+   "title": "ImportError: cannot import name &#39;plot_tree&#39; from &#39;sklearn.tree&#39;",
+   "body": "<p>Import error when importing plot_tree from sklearn</p>\n\n<p>after doing <strong>pip install sklearn</strong></p>\n\n<p>Error-Log:</p>\n\n<pre><code>from sklearn.tree import DecisionTreeClassifier, plot_tree\n\nImportError: cannot import name 'plot_tree' from 'sklearn.tree'\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "numpy",
+    "tensorflow"
+   ],
+   "owner": {
+    "account_id": 14320442,
+    "reputation": 539,
+    "user_id": 17779615,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/1f3542d223a888d833862660b82632a0?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Susan",
+    "link": "https://stackoverflow.com/users/17779615/susan"
+   },
+   "is_answered": true,
+   "view_count": 24717,
+   "answer_count": 4,
+   "score": 6,
+   "last_activity_date": 1712036535,
+   "creation_date": 1660206917,
+   "last_edit_date": 1660209588,
+   "question_id": 73317676,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/73317676/importerror-usr-lib-aarch64-linux-gnu-libstdc-so-6-version-glibcxx-3-4-30",
+   "title": "ImportError: /usr/lib/aarch64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.30&#39; not found",
+   "body": "<p>I install the kneed package in linux aarch64 architecture in <strong>miniconda3</strong>.\nWhen I import kneed inside python,\nI got the following error</p>\n<pre><code> import kneed\nTraceback (most recent call last):\n  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;\n  File &quot;/home/su/miniconda3/envs/myenv/lib/python3.10/site-packages/kneed/__init__.py&quot;, line 4, in &lt;module&gt;\n    from .knee_locator import KneeLocator\n  File &quot;/home/su/miniconda3/envs/myenv/lib/python3.10/site-packages/kneed/knee_locator.py&quot;, line 3, in &lt;module&gt;\n    from scipy.signal import argrelextrema\n  File &quot;/home/su/miniconda3/envs/myenv/lib/python3.10/site-packages/scipy/signal/__init__.py&quot;, line 309, in &lt;module&gt;\n    from . import _sigtools, windows\n  File &quot;/home/su/miniconda3/envs/myenv/lib/python3.10/site-packages/scipy/signal/windows/__init__.py&quot;, line 41, in &lt;module&gt;\n    from ._windows import *\n  File &quot;/home/su/miniconda3/envs/myenv/lib/python3.10/site-packages/scipy/signal/windows/_windows.py&quot;, line 7, in &lt;module&gt;\n    from scipy import linalg, special, fft as sp_fft\n  File &quot;/home/su/miniconda3/envs/myenv/lib/python3.10/site-packages/scipy/__init__.py&quot;, line 211, in __getattr__\n    return _importlib.import_module(f'scipy.{name}')\n  File &quot;/home/su/miniconda3/envs/myenv/lib/python3.10/importlib/__init__.py&quot;, line 126, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n  File &quot;/home/su/miniconda3/envs/myenv/lib/python3.10/site-packages/scipy/fft/__init__.py&quot;, line 92, in &lt;module&gt;\n    from ._helper import next_fast_len\n  File &quot;/home/su/miniconda3/envs/myenv/lib/python3.10/site-packages/scipy/fft/_helper.py&quot;, line 3, in &lt;module&gt;\n    from ._pocketfft import helper as _helper\n  File &quot;/home/su/miniconda3/envs/myenv/lib/python3.10/site-packages/scipy/fft/_pocketfft/__init__.py&quot;, line 3, in &lt;module&gt;\n    from .basic import *\n  File &quot;/home/su/miniconda3/envs/myenv/lib/python3.10/site-packages/scipy/fft/_pocketfft/basic.py&quot;, line 6, in &lt;module&gt;\n    from . import pypocketfft as pfft\nImportError: /usr/lib/aarch64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.30' not found (required by /home/su/miniconda3/envs/myenv/lib/python3.10/site-packages/scipy/fft/_pocketfft/pypocketfft.cpython-310-aarch64-linux-gnu.so)\n</code></pre>\n<p>When I check libstdc++.so.6,</p>\n<pre><code>ls /usr/lib/aarch64-linux-gnu | grep libstdc++.so.6\nlibstdc++.so.6\nlibstdc++.so.6.0.28\n</code></pre>\n<p>May I know do I know to install any package to solve the <strong>ImportError</strong>?</p>\n<p>The below are packages that I install</p>\n<pre><code>Package                      Version\n---------------------------- ------------\nabsl-py                      1.2.0\nappdirs                      1.4.4\nastunparse                   1.6.3\nattrs                        22.1.0\naudioread                    2.1.9\ncachetools                   5.2.0\ncertifi                      2022.6.15\ncffi                         1.15.1\ncharset-normalizer           2.1.0\ncycler                       0.11.0\ndecorator                    5.1.1\ndistlib                      0.3.5\ndocopt                       0.6.2\nfilelock                     3.8.0\nflatbuffers                  2.0\nfonttools                    4.34.4\nfpdf                         1.7.2\ngast                         0.4.0\ngoogle-auth                  2.10.0\ngoogle-auth-oauthlib         0.4.6\ngoogle-pasta                 0.2.0\ngrpcio                       1.47.0\nh5py                         3.7.0\nhdfs                         2.7.0\nidna                         3.3\njoblib                       1.1.0\njsonschema                   4.9.1\nkeras                        2.9.0\nKeras-Preprocessing          1.1.2\nkiwisolver                   1.4.4\nkneed                        0.8.1\nlibclang                     14.0.6\nlibrosa                      0.9.2\nllvmlite                     0.39.0\nlogger                       1.4\nMarkdown                     3.4.1\nMarkupSafe                   2.1.1\nmatplotlib                   3.5.2\nnumba                        0.56.0\nnumpy                        1.22.0\noauthlib                     3.2.0\nopt-einsum                   3.3.0\npackaging                    21.3\npandas                       1.4.3\nPillow                       9.2.0\npip                          22.2.2\nplatformdirs                 2.5.2\npooch                        1.6.0\nprotobuf                     3.19.4\npyasn1                       0.4.8\npyasn1-modules               0.2.8\npycparser                    2.21\npyparsing                    3.0.9\npyrsistent                   0.18.1\npython-dateutil              2.8.2\npython-Levenshtein           0.12.2\npytz                         2022.1\nPyYAML                       6.0\nrdp                          0.8\nrequests                     2.28.1\nrequests-oauthlib            1.3.1\nresampy                      0.4.0\nrsa                          4.9\nscikit-learn                 1.1.2\nscipy                        1.9.0\nseaborn                      0.11.2\nsetuptools                   63.4.3\nsix                          1.16.0\nSoundFile                    0.10.3.post1\ntensorboard                  2.9.1\ntensorboard-data-server      0.6.1\ntensorboard-plugin-wit       1.8.1\ntensorflow                   2.10.0rc0\ntensorflow-cpu-aws           2.10.0rc0\ntensorflow-estimator         2.9.0\ntensorflow-io-gcs-filesystem 0.26.0\ntermcolor                    1.1.0\nthreadpoolctl                3.1.0\ntyping_extensions            4.3.0\nurllib3                      1.26.11\nvirtualenv                   20.16.3\nwatchdog                     2.1.9\nWerkzeug                     2.2.2\nwheel                        0.37.1\nwrapt                        1.14.1\n</code></pre>\n<p>Moreover the packages <code>kears, kneed, librosa, seaborn, sklearn and tensorflow</code> also give the same error. I am not sure where and how to check the dependency of package version. May I know how can I know which versions are compatible with numpy version? Which versions should I install for those packages <code>kears, kneed, librosa, seaborn, sklearn,  tensorflow and numpy</code> using pip install in <strong>miniconda3</strong>.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "django",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 562179,
+    "reputation": 5071,
+    "user_id": 895169,
+    "user_type": "registered",
+    "accept_rate": 99,
+    "profile_image": "https://www.gravatar.com/avatar/16e8b2f07aa62db62c0090ad816ede8f?s=256&d=identicon&r=PG",
+    "display_name": "Jonnny",
+    "link": "https://stackoverflow.com/users/895169/jonnny"
+   },
+   "is_answered": true,
+   "view_count": 29430,
+   "accepted_answer_id": 40817997,
+   "answer_count": 7,
+   "score": 7,
+   "last_activity_date": 1711387204,
+   "creation_date": 1480091394,
+   "last_edit_date": 1592644375,
+   "question_id": 40809221,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/40809221/no-module-named-psycopg2",
+   "title": "No module named &#39;psycopg2&#39;",
+   "body": "<p>I Installed psycopg2 using pip</p>\n<pre><code>C:\\Users\\username&gt;python -m pip install psycopg2\n</code></pre>\n<p>Adjusted my settings to:</p>\n<pre><code>DATABASES = {\n  'default': {\n    'ENGINE': 'django.db.backends.postgresql_psycopg2', # also tried: django.db.backends.postgresql\n    'NAME': 'name',\n    'USER': 'user',\n    'PASSWORD': 'my_password',\n    'HOST': 'localhost',\n    'PORT': '5432',\n   }\n}\n</code></pre>\n<p>When I attempt to run the server:</p>\n<blockquote>\n<p>import psycopg2 as Database ImportError:</p>\n<p>No module named 'psycopg2'</p>\n</blockquote>\n<p>So I ran this again and got:</p>\n<blockquote>\n<p>python -m pip install psycopg2 Requirement already satisfied (use\n--upgrade to upgrade): psycopg2 in ...</p>\n</blockquote>\n<p>So what have I done wrong? I am new to Django</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "module",
+    "importerror",
+    "langchain",
+    "chromadb"
+   ],
+   "owner": {
+    "account_id": 20652644,
+    "reputation": 108,
+    "user_id": 15162545,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/7foL6.png?s=256",
+    "display_name": "Nasim_Reja",
+    "link": "https://stackoverflow.com/users/15162545/nasim-reja"
+   },
+   "is_answered": false,
+   "view_count": 3617,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1711285069,
+   "creation_date": 1711285069,
+   "question_id": 78214586,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78214586/importerror-with-chromadb-in-python-3-12-0-module-not-found-despite-installati",
+   "title": "ImportError with chromadb in Python 3.12.0 - Module Not Found Despite Installation",
+   "body": "<p>I am working on a project involving text document processing, chunk creation, and embedding, with the intention of storing these in a vector database using ChromaDB. My development environment is VSCode, and I'm using Python 3.12.0. Despite having installed ChromaDB version 0.4.0, I am encountering an import error.</p>\n<p>Here's a simplified version of my code:</p>\n<pre><code>from langchain_community.document_loaders import TextLoader, DirectoryLoader\nfrom langchain.text_splitter import RecursiveCharacterTextSplitter\nfrom langchain_openai import OpenAIEmbeddings\nfrom langchain_community.vectorstores import Chroma\n\n# Code to load documents\ntext_loader_kwargs = {'autodetect_encoding': True}\nloader = DirectoryLoader(&quot;./new_articles/&quot;, glob=&quot;./*.txt&quot;, loader_cls=TextLoader, loader_kwargs=text_loader_kwargs)\ndocuments = loader.load()\n\n# Code to create chunks\ntext_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)\ntext = text_splitter.split_documents(documents)\n\n# Code for embedding and storing in ChromaDB\nembeddings = OpenAIEmbeddings()\npersist_directory = 'db'\nvectordb = Chroma.from_documents(documents=text, embedding=embeddings, persist_directory=persist_directory)\n\nprint(vectordb)\n</code></pre>\n<p>However, when I run this script, I receive the following error:</p>\n<pre><code>import chromadb.config\nModuleNotFoundError: No module named 'chromadb.config'; 'chromadb' is not a package\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  # Stack trace leading to ImportError for chromadb not being found...\n</code></pre>\n<p>I've already run pip install chromadb, and the package shows up in my environment's list of installed packages. I've tried re-installing the package and checking for any naming conflicts in my project directory, but the issue persists.</p>\n<p><strong>Question:</strong>\nHow can I resolve the ModuleNotFoundError and ImportError for ChromaDB in this setup? Is there a compatibility issue with Python 3.12.0, or am I missing a step in the installation process?</p>\n<p><strong>Environment Details:</strong></p>\n<p>Python Version: 3.12.0\nChromaDB Version: 0.4.0\nDevelopment Environment: VSCode\nAny insights or suggestions would be greatly appreciated!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "google-colaboratory",
+    "huggingface-transformers"
+   ],
+   "owner": {
+    "account_id": 17727613,
+    "reputation": 41,
+    "user_id": 12870957,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AAuE7mC8kWDTq8wU6B9zeIA8HSMdnQjIQmTXDkylBvvwGA=k-s256",
+    "display_name": "YOU WANG",
+    "link": "https://stackoverflow.com/users/12870957/you-wang"
+   },
+   "is_answered": true,
+   "view_count": 4822,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1711282589,
+   "creation_date": 1711256673,
+   "last_edit_date": 1711261737,
+   "question_id": 78213449,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78213449/importerror-cannot-import-name-tftrainer-from-transformers-on-colab",
+   "title": "ImportError: cannot import name &#39;TFTrainer&#39; from &#39;transformers&#39; on Colab",
+   "body": "<p>so confused why i couldn't import TFTraniner in colab</p>\n<p>I've tried :\n!pip install TFTranier\n!pip --upgrade transformers\nand reinstall transformers</p>\n<p>but still failed to import TFTranier in colab like in the screenshot\n<a href=\"https://i.sstatic.net/ONidu.png\" rel=\"nofollow noreferrer\">Image</a></p>\n<p>I was trying to follow the code from other people,they successfully import TFTranier from transformers<a href=\"https://i.sstatic.net/Bsk3a.png\" rel=\"nofollow noreferrer\">Origianl code</a></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "jupyter-notebook",
+    "pycharm",
+    "spacy"
+   ],
+   "owner": {
+    "account_id": 20969580,
+    "reputation": 43,
+    "user_id": 15407037,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/6e04af33ef1c59969a9b002e199c0da6?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Vennus",
+    "link": "https://stackoverflow.com/users/15407037/vennus"
+   },
+   "is_answered": true,
+   "view_count": 1445,
+   "accepted_answer_id": 66659074,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1711175372,
+   "creation_date": 1615894563,
+   "last_edit_date": 1615900852,
+   "question_id": 66654470,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/66654470/spacy-importerror-cannot-import-name-deque-in-jupyter-notebook",
+   "title": "spacy ImportError: cannot import name Deque in Jupyter Notebook",
+   "body": "<p>I want to use spacy in a Python project on Juptyer Notebook but when i try to import the module I get the Error &quot;ImportError: cannot import name Deque&quot;. I installed spacy in PyCharm in my virtual env via <code>pip install -U spacy</code></p>\n<p>I've seen another question on here that was similar (<a href=\"https://stackoverflow.com/questions/66034842/importerror-cannot-import-name-deque-with-spacy\">ImportError cannot import name Deque with spacy</a>) but I can import spacy in PyCharm just fine so I assume it's a Jupyter Notebook specific problem.</p>\n<p>I also checked the spacy version on PyCharm and JN and they're both the same, however it seems like my virtual env and JN don't use the same Python Version (3.8.1 in my venv on PyCharm and 3.6.0 on JN)\n[Python Versions in PyCharm and JN]<a href=\"https://i.sstatic.net/WJBjK.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/WJBjK.png\" alt=\"[1]\" /></a></p>\n<p>May that be the problem or is something else causing it?</p>\n<p>I also tried to uninstall and install again in PyCharm but it didn't change anything and also tried to pip install spacy in JN again but that also didn't solve it, JN told me I might have to restart the kernel but after restarting it still couldn't import spacy without that error.\nI've tried so much that after some time i just get the error <code>ImportError: cannot import name errors</code> but I assume it's still the same problme.</p>\n<p>I'm very grateful for any suggestions and tips!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "flask",
+    "vs-code"
+   ],
+   "owner": {
+    "account_id": 21774776,
+    "reputation": 83,
+    "user_id": 16077378,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AOh14Gi1u_Tc8Eeyd0q0hbGOIfXUUEDQPtNp7LKwCm6ONQ=k-s256",
+    "display_name": "Akhil Seeramsetty",
+    "link": "https://stackoverflow.com/users/16077378/akhil-seeramsetty"
+   },
+   "is_answered": true,
+   "view_count": 21659,
+   "accepted_answer_id": 68815252,
+   "answer_count": 2,
+   "score": 2,
+   "last_activity_date": 1710949957,
+   "creation_date": 1629184510,
+   "last_edit_date": 1629194835,
+   "question_id": 68813102,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/68813102/importerror-no-module-named-flask-cors",
+   "title": "ImportError: No module named &#39;flask_cors&#39;",
+   "body": "<p>I have installed flask_cors like so:\npip install Flask-Cors\npip3 install -U flask-cors,\npip install -U flask-cors\npip install flask-cors --upgrade</p>\n<p>This is my code:</p>\n<pre><code>from flask import Flask\nfrom flask_cors import CORS, cross_origin\n\napp = Flask(__name__)\nCORS(app)\n</code></pre>\n<p>any answer to solve this error is appreciated</p>\n<p><a href=\"https://i.sstatic.net/k7KPO.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/k7KPO.png\" alt=\"enter image description here\" /></a>\nThankyou</p>\n"
+  },
+  {
+   "tags": [
+    "python"
+   ],
+   "owner": {
+    "account_id": 19397959,
+    "reputation": 1,
+    "user_id": 14185202,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/487d64718fda62508da598b736af5400?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "user14185202",
+    "link": "https://stackoverflow.com/users/14185202/user14185202"
+   },
+   "is_answered": false,
+   "view_count": 368,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1708884782,
+   "creation_date": 1598658305,
+   "last_edit_date": 1598717825,
+   "question_id": 63642100,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/63642100/importerror-no-module-named-parse-even-after-installing-dataset-and-parse",
+   "title": "ImportError: No module named parse even after installing dataset and parse",
+   "body": "<p>I get the following error. I also installed PIP Parse and dataset using PIP install</p>\n<pre><code>Python 2.7.14 (v2.7.14:84471935ed, Sep 16 2017, 20:25:58) [MSC v.1500 64 bit (AMD64)] on win32\nType &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.\n&gt;&gt;&gt; import dataset\nTraceback (most recent call last):\n  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;\n  File &quot;C:\\Python27amd64\\lib\\site-packages\\dataset\\__init__.py&quot;, line 3, in &lt;module&gt;\n    from dataset.database import Database\n  File &quot;C:\\Python27amd64\\lib\\site-packages\\dataset\\database.py&quot;, line 3, in &lt;module&gt;\n    from urllib.parse import parse_qs, urlparse\nImportError: No module named parse\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "huggingface-transformers",
+    "large-language-model"
+   ],
+   "owner": {
+    "account_id": 945173,
+    "reputation": 962,
+    "user_id": 1167759,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/f30cecb19e3f7d5a463f0a7a6c644ce4?s=256&d=identicon&r=PG",
+    "display_name": "Niklas Heidloff",
+    "link": "https://stackoverflow.com/users/1167759/niklas-heidloff"
+   },
+   "is_answered": false,
+   "view_count": 849,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1708748555,
+   "creation_date": 1700810850,
+   "last_edit_date": 1708748555,
+   "question_id": 77541361,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77541361/lora-fine-tuning-on-cpu-error-using-load-in-8bit-true-requires-accelerate",
+   "title": "LoRA Fine-Tuning on CPU Error: Using `load_in_8bit=True` requires Accelerate",
+   "body": "<p>I'm trying to follow the instructions from the great blog post <a href=\"https://www.philschmid.de/fine-tune-flan-t5-peft\" rel=\"nofollow noreferrer\">Efficient Large Language Model training with LoRA and Hugging Face</a> to fine-tune a small model via LoRA. To prepare as much as possible, I'm trying to run everything locally via CPU first.</p>\n<p>When running 'AutoModelForSeq2SeqLM.from_pretrained' I get the following error:</p>\n<blockquote>\n<p>ImportError: Using <code>load_in_8bit=True</code> requires Accelerate: <code>pip install accelerate</code> and the latest version of bitsandbytes <code>pip install -i https://test.pypi.org/simple/ bitsandbytes</code> or pip install bitsandbytes`</p>\n</blockquote>\n<p>I've tried various ways to import accelerate and bitsandbytes but without success. The fine-tuning code without LoRA works (<a href=\"https://www.philschmid.de/fine-tune-flan-t5-peft\" rel=\"nofollow noreferrer\">Fine-tune FLAN-T5 for chat &amp; dialogue summarization</a>). That one doesn't use accelerate.</p>\n<p>Does anyone know how to fix this issue? Or is accelerate not supported on CPU?</p>\n<p>Here is what I've tried:</p>\n<pre><code>!pip install &quot;peft&quot;\n!pip install &quot;transformers&quot; &quot;datasets&quot; &quot;accelerate&quot; &quot;evaluate&quot; &quot;bitsandbytes&quot; loralib --upgrade --quiet\nor\n!pip install &quot;peft==0.2.0&quot;\n!pip install &quot;transformers==4.27.2&quot; &quot;datasets==2.9.0&quot; &quot;accelerate==0.17.1&quot; &quot;evaluate==0.4.0&quot; &quot;bitsandbytes==0.37.1&quot; loralib --upgrade --quiet\nor\n!pip install -q -U bitsandbytes\n!pip install -q -U git+https://github.com/huggingface/transformers.git \n!pip install -q -U git+https://github.com/huggingface/peft.git\n!pip install -q -U git+https://github.com/huggingface/accelerate.git\n</code></pre>\n<p>Update Nov 27th: I get the same error when running on a V100 GPU.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "django",
+    "django-crispy-forms"
+   ],
+   "owner": {
+    "account_id": 5789641,
+    "reputation": 269,
+    "user_id": 4567634,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/ZvXDO.jpg?s=256",
+    "display_name": "beowwwulf",
+    "link": "https://stackoverflow.com/users/4567634/beowwwulf"
+   },
+   "is_answered": true,
+   "view_count": 123405,
+   "accepted_answer_id": 28573665,
+   "answer_count": 19,
+   "score": 23,
+   "last_activity_date": 1708454105,
+   "creation_date": 1424174050,
+   "last_edit_date": 1424208101,
+   "question_id": 28560968,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/28560968/importerror-no-module-named-crispy-forms",
+   "title": "ImportError: No module named crispy-forms",
+   "body": "<p>I'm working on some django apps, pretty noob still. Would like to use crispy-forms, but eclipse and django doesnt recognize it.</p>\n\n<p>Trying to runserver or shell:</p>\n\n<pre><code>$ python manage.py runserver\n</code></pre>\n\n<p>this happens:</p>\n\n<pre><code>Traceback (most recent call last):\n  File \"manage.py\", line 10, in &lt;module&gt;\n    execute_from_command_line(sys.argv)\n  File \"/usr/local/lib/python2.7/dist-packages/django/core/management/__init__.py\", line 385, in execute_from_command_line\n    utility.execute()\n  File \"/usr/local/lib/python2.7/dist-packages/django/core/management/__init__.py\", line 354, in execute\n    django.setup()\n  File \"/usr/local/lib/python2.7/dist-packages/django/__init__.py\", line 21, in setup\n    apps.populate(settings.INSTALLED_APPS)\n  File \"/usr/local/lib/python2.7/dist-packages/django/apps/registry.py\", line 85, in populate\n    app_config = AppConfig.create(entry)\n  File \"/usr/local/lib/python2.7/dist-packages/django/apps/config.py\", line 87, in create\n    module = import_module(entry)\n  File \"/usr/lib/python2.7/importlib/__init__.py\", line 37, in import_module\n    __import__(name)\nImportError: No module named crispy-forms\n</code></pre>\n\n<p>This is the forms.py I recently added to the site-folder alongside views.py, and it complains about unresolved import of crispy_forms...:</p>\n\n<pre><code>from django.contrib.auth.forms import UserCreationForm\nfrom crispy_forms.helper import FormHelper\nfrom crispy_forms.layout import Layout, ButtonHolder, Submit\nfrom wx.lib.pubsub.core import kwargs\n\nclass RegistrationForm(UserCreationForm):\n    def __init__(self, *args, **kwargs):\n        super(RegistrationForm, self).__init__(*args, **kwargs)\n\n        self.helper = FormHelper()\n        self.helper.layout = Layout(\n            'username',\n            'password1',\n            'password2',\n            ButtonHolder(\n                Submit('register', \n                       'Register', \n                       css_class='btn-prima'\n                )\n            )\n        )\n</code></pre>\n\n<p>This is my part of my settings.py:</p>\n\n<pre><code>    INSTALLED_APPS = (\n        'django.contrib.admin',\n        'django.contrib.auth',\n        'django.contrib.contenttypes',\n        'django.contrib.sessions',\n        'django.contrib.messages',\n        'django.contrib.staticfiles',\n        'polls',\n        'crispy-forms',\n    )\n\n...\nCRISPY_TEMPLATE_PACK = 'bootstrap'\n</code></pre>\n\n<p>I'm running virtualenv, my venv-dir looks like this:</p>\n\n<pre><code>venv/bin$ ls -la\ntotal 2916\ndrwxr-xr-x 3 nr1 nr1    4096 Feb 17 11:24 .\ndrwxr-xr-x 6 nr1 nr1    4096 Feb 16 19:38 ..\n-rw-r--r-- 1 nr1 nr1    2220 Feb 16 19:35 activate\n-rw-r--r-- 1 nr1 nr1    1276 Feb 16 19:35 activate.csh\n-rw-r--r-- 1 nr1 nr1    2489 Feb 16 19:35 activate.fish\n-rw-r--r-- 1 nr1 nr1    1137 Feb 16 19:35 activate_this.py\n-rwxr-xr-x 1 nr1 nr1     300 Feb 16 19:44 django-admin\n-rwxr-xr-x 1 nr1 nr1     159 Feb 16 19:44 django-admin.py\n-rw-r--r-- 1 nr1 nr1     304 Feb 16 19:44 django-admin.pyc\n-rwxr-xr-x 1 nr1 nr1     267 Feb 17 11:24 easy_install\n-rwxr-xr-x 1 nr1 nr1     267 Feb 17 11:24 easy_install-2.7\ndrwxr-xr-x 7 nr1 nr1    4096 Feb 16 19:47 .git\n-rwxr-xr-x 1 nr1 nr1    2364 Feb 17 00:13 pilconvert.py\n-rwxr-xr-x 1 nr1 nr1   15631 Feb 17 00:13 pildriver.py\n-rwxr-xr-x 1 nr1 nr1    2609 Feb 17 00:13 pilfile.py\n-rwxr-xr-x 1 nr1 nr1    1055 Feb 17 00:13 pilfont.py\n-rwxr-xr-x 1 nr1 nr1    2410 Feb 17 00:13 pilprint.py\n-rwxr-xr-x 1 nr1 nr1     239 Feb 17 11:24 pip\n-rwxr-xr-x 1 nr1 nr1     239 Feb 17 11:24 pip2\n-rwxr-xr-x 1 nr1 nr1     239 Feb 17 11:24 pip2.7\n-rwxr-xr-x 1 nr1 nr1 2884984 Feb 17 11:24 python\nlrwxrwxrwx 1 nr1 nr1       6 Feb 17 11:24 python2 -&gt; python\nlrwxrwxrwx 1 nr1 nr1       6 Feb 17 11:24 python2.7 -&gt; python\n-rwxr-xr-x 1 nr1 nr1    3886 Feb 17 00:11 sqlformat\n</code></pre>\n\n<p>I accidentally managed to type in: \npip install python\ntoday, and it seems it did. Could that have any impact on it? I mean, isnt it virtualenv's task to make sure there is no software-conflicts?</p>\n\n<p>Anyway, I cant get any Django-work going now until i figure this out, any help out there?</p>\n\n<p><strong>Update 1</strong>\nchanges:</p>\n\n<pre><code>INSTALLED_APPS = (\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'polls',\n    'crispy_forms',\n)\n\n$ python manage.py runserver\n\nTraceback (most recent call last):\n  File \"manage.py\", line 10, in &lt;module&gt;\n    execute_from_command_line(sys.argv)\n  File \"/usr/local/lib/python2.7/dist-packages/django/core/management/__init__.py\", line 385, in execute_from_command_line\n    utility.execute()\n  File \"/usr/local/lib/python2.7/dist-packages/django/core/management/__init__.py\", line 354, in execute\n    django.setup()\n  File \"/usr/local/lib/python2.7/dist-packages/django/__init__.py\", line 21, in setup\n    apps.populate(settings.INSTALLED_APPS)\n  File \"/usr/local/lib/python2.7/dist-packages/django/apps/registry.py\", line 85, in populate\n    app_config = AppConfig.create(entry)\n  File \"/usr/local/lib/python2.7/dist-packages/django/apps/config.py\", line 87, in create\n    module = import_module(entry)\n  File \"/usr/lib/python2.7/importlib/__init__.py\", line 37, in import_module\n    __import__(name)\nImportError: No module named crispy_forms\n\n\n$ cat requirements.txt \nDjango==1.7.4\ndjango-crispy-forms==1.4.0\ndjango-debug-toolbar==1.2.2\ndjango-extras==0.3\ndjango-grappelli==2.6.3\ndjango-haystack==2.3.1\ndjango-reversion==1.8.5\ndjango-tastypie==0.12.1\neasy-thumbnails==2.2\nPillow==2.7.0\npython-dateutil==2.4.0\npython-mimeparse==0.1.4\nrequests==2.5.1\nsix==1.9.0\nsqlparse==0.1.14\n</code></pre>\n\n<p><strong>update 2: Installing a new django-project, new virtualenv, all new.. SAME THING HAPPENS</strong></p>\n\n<p>(abc)nr1@kali:~/workspace/websites/abc$ pip install django-crispy-forms\nCollecting django-crispy-forms\n  Using cached django-crispy-forms-1.4.0.tar.gz\nInstalling collected packages: django-crispy-forms\n  Running setup.py install for django-crispy-forms\nSuccessfully installed django-crispy-forms-1.4.0</p>\n\n<pre><code>(abc)nr1@kali:~/workspace/websites/abc$ python manage.py runserver\nTraceback (most recent call last):\n  File \"manage.py\", line 10, in &lt;module&gt;\n    execute_from_command_line(sys.argv)\n  File \"/home/nr1/Envs/abc/local/lib/python2.7/site-packages/django/core/management/__init__.py\", line 385, in execute_from_command_line\n    utility.execute()\n  File \"/home/nr1/Envs/abc/local/lib/python2.7/site-packages/django/core/management/__init__.py\", line 354, in execute\n    django.setup()\n  File \"/home/nr1/Envs/abc/local/lib/python2.7/site-packages/django/__init__.py\", line 21, in setup\n    apps.populate(settings.INSTALLED_APPS)\n  File \"/home/nr1/Envs/abc/local/lib/python2.7/site-packages/django/apps/registry.py\", line 85, in populate\n    app_config = AppConfig.create(entry)\n  File \"/home/nr1/Envs/abc/local/lib/python2.7/site-packages/django/apps/config.py\", line 123, in create\n    import_module(entry)\n  File \"/usr/lib/python2.7/importlib/__init__.py\", line 37, in import_module\n    __import__(name)\nImportError: No module named crispy_forms\n</code></pre>\n\n<p>I now try to install crispy_forms to a completely project, looking in my virtualenv, I see its there:</p>\n\n<pre><code>nr1@kali:~/Envs/abc/local/lib/python2.7/site-packages$ ls -la\ntotal 56\ndrwxr-xr-x 12 nr1 nr1 4096 Feb 17 21:50 .\ndrwxr-xr-x  4 nr1 nr1 4096 Feb 17 20:31 ..\ndrwxr-xr-x  5 nr1 nr1 4096 Feb 17 21:50 crispy_forms\ndrwxr-xr-x 17 nr1 nr1 4096 Feb 17 20:40 django\ndrwxr-xr-x  2 nr1 nr1 4096 Feb 17 20:40 Django-1.7.4.dist-info\ndrwxr-xr-x  2 nr1 nr1 4096 Feb 17 21:50 django_crispy_forms-1.4.0-py2.7.egg-info\n-rw-r--r--  1 nr1 nr1  126 Feb 17 20:31 easy_install.py\n-rw-r--r--  1 nr1 nr1  315 Feb 17 20:31 easy_install.pyc\ndrwxr-xr-x  2 nr1 nr1 4096 Feb 17 20:31 _markerlib\ndrwxr-xr-x 10 nr1 nr1 4096 Feb 17 20:31 pip\ndrwxr-xr-x  2 nr1 nr1 4096 Feb 17 20:31 pip-6.0.8.dist-info\ndrwxr-xr-x  4 nr1 nr1 4096 Feb 17 20:31 pkg_resources\ndrwxr-xr-x  4 nr1 nr1 4096 Feb 17 20:31 setuptools\ndrwxr-xr-x  2 nr1 nr1 4096 Feb 17 20:31 setuptools-12.0.5.dist-info\n</code></pre>\n\n<p>So, its clear. Django doesn't even recognize that its installed it. How can that be?? virtualenv says its there, but django cant see it??? wtx...</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "postgresql",
+    "powershell",
+    "windows-10",
+    "psycopg2"
+   ],
+   "owner": {
+    "account_id": 29608779,
+    "reputation": 31,
+    "user_id": 22692535,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/f8bace04df5b588d78b17d3b113dfb67?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Curly",
+    "link": "https://stackoverflow.com/users/22692535/curly"
+   },
+   "is_answered": true,
+   "view_count": 5223,
+   "answer_count": 3,
+   "score": 3,
+   "last_activity_date": 1707737049,
+   "creation_date": 1696554435,
+   "question_id": 77241353,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77241353/psycopg2-importerror-python3-12-on-windows",
+   "title": "psycopg2 importError Python3.12 on Windows",
+   "body": "<p>I have a python script that I built over the last 2 weeks using python3.10.\nThe script did run fine 100s of times until I reinstalled python/modules.</p>\n<p>I recently upgraded to Python 3.12. I had to pip install all of the modules again but now for some reason when I try to run my script the psycopg2 module keeps failing with the follow error:</p>\n<pre><code>packages\\psycopg2\\__init__.py&quot;, line 51, in &lt;module&gt;\n    from psycopg2._psycopg import (                     # noqa\nImportError: DLL load failed while importing _psycopg: The specified module could not be found.\n</code></pre>\n<p>I am running my script from Visual Studio Code 1.83 in a powershell prompt.</p>\n<p>I have tried uninstalling, clearing pip cache and reinstalling.</p>\n<p>I have tried suggested psycopg2-binary package.</p>\n<p>I tried updating Microsoft Visual C++ update. I tried reinstalling python 312.</p>\n<p>I assume this is some weird windows dependency issue.\nCan anyone please help me troubleshoot? I am happy to provide more information if needed.</p>\n"
+  }
+ ]
+}

@@ -1,0 +1,26 @@
+{
+  "total_sampled": 858,
+  "module_no_dist_count": 25,
+  "module_no_dist_rate": 0.029137529137529136,
+  "categories": {
+    "other": 268,
+    "names_module_no_dist": 25,
+    "names_module_no_dist_not_question": 82,
+    "names_both": 142,
+    "names_wrong_dist": 173,
+    "not_import_error": 158,
+    "stdlib_module": 10
+  },
+  "classified_file": "classified.jsonl",
+  "g1_pass": true,
+  "g2_pass": true,
+  "g3_pass": true,
+  "venue_counts": {
+    "stackexchange": 259,
+    "github": 599
+  },
+  "venue_module_no_dist": {
+    "stackexchange": 16,
+    "github": 9
+  }
+}

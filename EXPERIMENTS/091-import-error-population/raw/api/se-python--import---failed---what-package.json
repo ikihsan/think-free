@@ -1,0 +1,92 @@
+{
+ "site": "stackoverflow",
+ "query": "python \"import\" \"failed\" \"what package\"",
+ "class": "generic",
+ "items": [
+  {
+   "tags": [
+    "python",
+    "scipy"
+   ],
+   "owner": {
+    "account_id": 9045701,
+    "reputation": 1,
+    "user_id": 9659861,
+    "user_type": "registered",
+    "profile_image": "https://graph.facebook.com/902516173187103/picture?type=large",
+    "display_name": "Chun Fu",
+    "link": "https://stackoverflow.com/users/9659861/chun-fu"
+   },
+   "is_answered": false,
+   "view_count": 66,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1624056691,
+   "creation_date": 1623877554,
+   "last_edit_date": 1624056691,
+   "question_id": 68010010,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/68010010/multiple-python-installs-import-scipy-is-failing-with-winerror-193",
+   "title": "Multiple Python installs; import scipy is failing with WinError 193",
+   "body": "<p>I install the package  by using anaconda. But when I import in Jupyter Notebook it failed with <code>OSError: WinError 193</code>\nBelow is the Error message:</p>\n<pre><code>&lt;ipython-input-1-4363d2be0702&gt; in &lt;module&gt;\n----&gt; 1 import scipy\n\n~\\AppData\\Roaming\\Python\\Python38\\site-packages\\scipy\\__init__.py in &lt;module&gt;\n    104 \n    105 # Allow distributors to run custom init code\n--&gt; 106 from . import _distributor_init\n    107 \n    108 __all__ += _num.__all__\n\n~\\AppData\\Roaming\\Python\\Python38\\site-packages\\scipy\\_distributor_init.py in &lt;module&gt;\n     24     if os.path.isdir(libs_path):\n     25         for filename in glob.glob(os.path.join(libs_path, '*dll')):\n---&gt; 26             WinDLL(os.path.abspath(filename))\n\n~\\anaconda3\\lib\\ctypes\\__init__.py in __init__(self, name, mode, handle, use_errno, use_last_error, winmode)\n    371 \n    372         if handle is None:\n--&gt; 373             self._handle = _dlopen(self._name, mode)\n    374         else:\n    375             self._handle = handle\n</code></pre>\n<p>Here are what I think might be the reasons it doesn't work:</p>\n<ol>\n<li><p>I have multiple versions: Python 3.7 and 3.8. I downloaded them from download, and I delete Python 3.7 using the <strong>control panel</strong>. However, after I delete them, I can still find some files of Python 3.7. I don't know why. How can I completely delete Python 3.7 by hand because I think that could be an issue for this.</p>\n</li>\n<li><p>The environment might be a mess. But I don't know how to check whether it is correct or not.</p>\n</li>\n</ol>\n<p>I also go to command prompt enter <strong>pip list</strong> to check what package I have downloaded so far. I can find <strong>scipy</strong> in the list. Below are the results.</p>\n<pre><code>Package            Version\n------------------ -------\nattrs              19.3.0\nbackcall           0.2.0\nbleach             3.1.5\ncolorama           0.4.3\ndecorator          4.4.2\ndefusedxml         0.6.0\nentrypoints        0.3\nipykernel          5.3.0\nipython            7.15.0\nipython-genutils   0.2.0\nipywidgets         7.5.1\njedi               0.17.0\nJinja2             2.11.2\njsonschema         3.2.0\njupyter            1.0.0\njupyter-client     6.1.3\njupyter-console    6.1.0\njupyter-core       4.6.3\njupyterthemes      0.20.0\nlesscpy            0.14.0\nMarkupSafe         1.1.1\nmistune            0.8.4\nmpmath             1.1.0\nnbconvert          5.6.1\nnbformat           5.0.6\nnose               1.3.7\nnotebook           6.0.3\nnumpy              1.18.5\npackaging          20.4\npandas             1.0.4\npandocfilters      1.4.2\nparso              0.7.0\npickleshare        0.7.5\npip                20.1.1\nply                3.11\nprometheus-client  0.8.0\nprompt-toolkit     3.0.5\nPygments           2.6.1\npyparsing          2.4.7\npyrsistent         0.16.0\npython-dateutil    2.8.1\npytz               2020.1\npywin32            227\npywinpty           0.5.7\npyzmq              19.0.1\nqtconsole          4.7.4\nQtPy               1.9.0\nscipy              1.4.1\nSend2Trash         1.5.0\nsetuptools         47.1.0\nsix                1.15.0\nsympy              1.6\nterminado          0.8.3\ntestpath           0.4.4\ntornado            6.0.4\ntraitlets          4.3.3\nwcwidth            0.2.4\nwebencodings       0.5.1\nwidgetsnbextension 3.5.1\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "c++",
+    "opencv",
+    "docker",
+    "windows-container"
+   ],
+   "owner": {
+    "account_id": 5630294,
+    "reputation": 91,
+    "user_id": 4457436,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/c77d24f0ac065cb1fed86aabbcf0f79f?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "mangobowl",
+    "link": "https://stackoverflow.com/users/4457436/mangobowl"
+   },
+   "is_answered": false,
+   "view_count": 2249,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1546960552,
+   "creation_date": 1505092463,
+   "question_id": 46147012,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/46147012/opencv-import-failed-in-windows-container-on-windows-server-2016",
+   "title": "opencv import failed in windows container (on Windows Server 2016)",
+   "body": "<p>I run the following container to test my opencv-python environment on Windows Server 2016.</p>\n\n<p><code>docker run -i --rm python:2.7-windowsservercore</code></p>\n\n<p>(the <code>python:2.7-windowsservercore</code> image is an official python image which is base on <code>microsoft/windowsservercore</code>)</p>\n\n<p>and in the interacive console, I got the opencv-python installed by:</p>\n\n<p><code>pip install opencv-python</code></p>\n\n<p>after this finished, I test the opencv-python package by:</p>\n\n<p><code>python -c \"import cv2\"</code></p>\n\n<p>but I got the following error:</p>\n\n<p><code>Traceback (most recent call last):\n  File \"&lt;string&gt;\", line 1, in &lt;module&gt;\n  File \"C:\\Python\\lib\\site-packages\\cv2\\__init__.py\", line 9, in &lt;module&gt;\n    from .cv2 import *\nImportError: DLL load failed: The specified module could not be found.</code></p>\n\n<p>then I installed python-2.7.13 on the host(not inside container), input the same pip install commands, and test <code>python -c \"import cv2\"</code> again, it won't report any error. I wonder if there are some DLL files are missing in the container? What package or software should I install in the container to fix this error?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "numpy",
+    "scipy"
+   ],
+   "owner": {
+    "account_id": 10633269,
+    "reputation": 666,
+    "user_id": 7830700,
+    "user_type": "registered",
+    "accept_rate": 47,
+    "profile_image": "https://lh5.googleusercontent.com/-BzMoAPduw0E/AAAAAAAAAAI/AAAAAAAAAJc/KoSpf7BHKz0/s256-rj/photo.jpg",
+    "display_name": "TheRutubeify",
+    "link": "https://stackoverflow.com/users/7830700/therutubeify"
+   },
+   "is_answered": false,
+   "view_count": 1264,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1508272061,
+   "creation_date": 1508269722,
+   "last_edit_date": 1508272061,
+   "question_id": 46798077,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/46798077/python-conflict-numpy-vs-scipy",
+   "title": "Python conflict Numpy vs Scipy",
+   "body": "<p>I have no idea whats going on with Python 3.6.2(Anaconda), I tried all day to install numpy and scipy! I have 3 error message: (it depend what package I install first, or change the order of install)</p>\n\n<ol>\n<li>ImportError: numpy.core.multiarray failed to import</li>\n<li>ModuleNotFoundError: No module named 'scipy'</li>\n<li>NameError: name 'numpy' is not defined</li>\n</ol>\n\n<p>Versions that I used: \nWindows 10,\nAnaconda (Python 3.6.2),\nNumpy 1.13.3,\nScipy 0.19.1</p>\n\n<p>I tried everything, delete all environment vars. Install new Anaconda(Python 3.6.2)\nDownload numpy-1.13.3+mkl-cp36-cp36m-win_amd64.whl, and opencv_python-3.3.0-cp36-cp36m-win_amd64.whl, install it through pip install, change the order of install. Used <code>conda install scipy</code> And nothing work! </p>\n\n<p>Maybe its versions conflicts ? </p>\n\n<p>Does anybody know, what is the steps to install and use cv2, numpy, scipy?</p>\n"
+  }
+ ]
+}

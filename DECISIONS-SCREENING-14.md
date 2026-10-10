@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-08
+last-verified: 2026-10-10
 -->
 
 # Decisions — screening candidates and judging experiments, part 14
@@ -206,3 +206,17 @@ warning, not a product, and E085 already measured the incumbent's gap.
 **Ceiling.** 93 rows, four ecosystems, Packagist `not_exercised`. The population
 is generated affix mutations, which is not what a person types; E089 does not
 correct that bias, and says so.
+
+## D100 — Import-error population asking "which distribution provides this module" is measurable and exceeds 1% threshold (2026-10-10)
+
+`observed` 2026-10-10, session 2026-10-10-008, E091.
+
+**The situation.** The `pyprovides` resolver (E085) measures a forward coverage of 0.931 on declared distributions and detects the silent wrong-project class at ~0.6% of real imports. But its usefulness depends on whether people actually ask "I'm getting `ImportError: No module named 'X'`, what package do I install?" No experiment had measured this population.
+
+**The choice.** E091 measured 858 real Python import-error reports across Stack Overflow (259) and GitHub issues including library trackers (599). Using a classifier that extracts the module from error messages (`No module named 'X'`), skips stdlib modules, checks for distribution mentions in `pip install` commands, and filters for help-seeking questions, **25 reports (2.91%)** name a module but no distribution.
+
+**Why this is a rule and not a one-off.** The kill gate was declared before the run: G1 rate ≥ 1%, G2 sample ≥ 200, G3 each venue ≥ 50. All three pass. The population is real, measurable, and exceeds the threshold by 2.9×. The most common module→distribution gaps are `cv2→opencv-python`, `sklearn→scikit-learn`, `yaml→pyyaml`, `bs4→beautifulsoup4`, `crypto→pycryptodome`, `jwt→pyjwt`.
+
+**Rejected: close the line.** The population exists and is measurable. **Rejected: treat as candidate validation.** This measures demand for an existing mechanism (pyprovides), not a new candidate. The resolver is already built and its mechanism measured.
+
+**Ceiling.** Unauthenticated API limits (Stack Overflow 300/day, GitHub 10/min). Classifier precision not independently validated. Only two venues measured. Single time snapshot.

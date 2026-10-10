@@ -1,0 +1,35 @@
+{
+ "site": "stackoverflow",
+ "query": "python \"ModuleNotFoundError\" \"what to install\"",
+ "class": "explicit",
+ "items": [
+  {
+   "tags": [
+    "python",
+    "mysql",
+    "windows-10-universal"
+   ],
+   "owner": {
+    "account_id": 20234889,
+    "reputation": 1,
+    "user_id": 14840382,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/6c25a50109f507904a93f4b97503aefd?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Jerrykco",
+    "link": "https://stackoverflow.com/users/14840382/jerrykco"
+   },
+   "is_answered": false,
+   "view_count": 1272,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1608237000,
+   "creation_date": 1608228435,
+   "last_edit_date": 1608237000,
+   "question_id": 65346081,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/65346081/updated-to-python-3-9-1-64bit-from-3-8-32-bit-now-i-cant-get-mysql-code-to-w",
+   "title": "Updated to Python 3.9.1 (64bit) from 3.8 32 bit. Now I can&#39;t get MySQL code to work",
+   "body": "<p>I hope this is what I am supposed to do.....\nBelow is the history</p>\n<pre><code>Microsoft Windows [Version 10.0.19042.685]\n\nC:\\Users\\JK&gt;pip list\nPackage         Version\n--------------- -------\nclick           7.1.2\nFlask           1.1.2\nFlask-MySQL     1.5.1\nitsdangerous    1.1.0\nJinja2          2.11.2\nMarkupSafe      1.1.1\nmysql           0.0.2\nmysql-connector 2.2.9\nmysqlclient     2.0.2\npip             20.3.3\nPyMySQL         0.10.1\nsetuptools      49.2.1\nWerkzeug        1.0.1\n\nC:\\Users\\JK&gt;python \n3.9.1 64 bit (AMD64)] on win32\n</code></pre>\n<p>I tried various suggestions (of what to install) with pip in this thread to no avail. <a href=\"https://stackoverflow.com/questions/32877671/importerror-no-module-named-mysql\">ImportError: No module named &#39;MySQL&#39;</a></p>\n<p>The PyCharm error:\n(&lt;class 'ModuleNotFoundError'&gt;, ModuleNotFoundError(&quot;No module named 'mysql'&quot;)</p>\n<p>I tried the original python code to access mysql first I had working under 3.8 32 bit.</p>\n<p>snipit-1:</p>\n<pre><code>    import mysql.connector &lt;---- gave me a similar error\n    mydb = mysql.connector.connect(\n    host=&quot;localhost&quot;,\n    user=&quot;root&quot;,\n    password=&quot;****&quot;,\n    database='db_name'\n    )\n    mycursor = mydb.cursor()\n</code></pre>\n<p>snipit-2 &lt;---- this comes from a tutorial I found last night from 2019.</p>\n<pre><code>    from flask import MySQL &lt;----- this gave the error\n    mysql = MySQL()\n    app.config['MYSQL_DATABASE_USER'] = 'root'\n    app.config['MYSQL_DATABASE_PASSWORD'] = '*****'\n    app.config['MYSQL_DATABASE_DB'] = 'db_name'\n    app.config['MYSQL_DATABASE_HOST'] = 'localhost'\n    mysql.init_app(app)\n    mysql_connection =  mysql.connect()\n    mycursor = mysql_connection.cursor()\n</code></pre>\n"
+  }
+ ]
+}

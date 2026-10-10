@@ -1,0 +1,157 @@
+{
+ "site": "stackoverflow",
+ "query": "python \"ImportError\" \"what package\"",
+ "class": "explicit",
+ "items": [
+  {
+   "tags": [
+    "python",
+    "installation",
+    "ubuntu-18.04",
+    "ovirt"
+   ],
+   "owner": {
+    "account_id": 7120102,
+    "reputation": 117,
+    "user_id": 5445033,
+    "user_type": "registered",
+    "accept_rate": 40,
+    "profile_image": "https://www.gravatar.com/avatar/c4353f85197c152a9bf7c6eddf346a71?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "johnson",
+    "link": "https://stackoverflow.com/users/5445033/johnson"
+   },
+   "is_answered": false,
+   "view_count": 1660,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1575017874,
+   "creation_date": 1565940297,
+   "last_edit_date": 1565941148,
+   "question_id": 57520470,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/57520470/importerror-no-module-named-ovirtsdk-api",
+   "title": "ImportError: No module named ovirtsdk.api",
+   "body": "<p>I am trying to run a program backup.py from this github\nThe link is added below.</p>\n\n<p><a href=\"https://github.com/wefixit-AT/oVirtBackup/blob/master/backup.py\" rel=\"nofollow noreferrer\">https://github.com/wefixit-AT/oVirtBackup/blob/master/backup.py</a></p>\n\n<p>For that first i made a b.py containg the python as only this much</p>\n\n<pre><code>#!/usr/bin/python\nimport logging\nfrom argparse import ArgumentParser, FileType\nimport ovirtsdk.api\nfrom ovirtsdk.xml import params\nfrom ovirtsdk.infrastructure import errors\nimport sys\nimport time\nfrom vmtools import VMTools\nfrom config import Config\n</code></pre>\n\n<p>When i ran <code>python b.py</code> i got error as ..</p>\n\n<pre><code> python b.py\nTraceback (most recent call last):\n  File \"b.py\", line 4, in &lt;module&gt;\n    import ovirtsdk.api\nImportError: No module named ovirtsdk.api\n</code></pre>\n\n<p>My python version is python 2.7.\nHow can i get rid of this error what package should i install.\nI am using ubuntu 18.04</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "mysql",
+    "pip",
+    "homebrew",
+    "mysql-python"
+   ],
+   "owner": {
+    "account_id": 440769,
+    "reputation": 2512,
+    "user_id": 830516,
+    "user_type": "registered",
+    "accept_rate": 70,
+    "profile_image": "https://www.gravatar.com/avatar/9b687993aa3d3fb03c72e1bfe0a818d8?s=256&d=identicon&r=PG",
+    "display_name": "Xenology",
+    "link": "https://stackoverflow.com/users/830516/xenology"
+   },
+   "is_answered": true,
+   "view_count": 8007,
+   "accepted_answer_id": 27138539,
+   "answer_count": 4,
+   "score": 5,
+   "last_activity_date": 1563832462,
+   "creation_date": 1416620299,
+   "last_edit_date": 1443829419,
+   "question_id": 27073107,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/27073107/mysqldb-and-python-importerror",
+   "title": "MySQLdb and Python ImportError",
+   "body": "<p>I cannot for the life of me figure this one out. I've been searching around the web all day and all the resources seem terribly out dated. From what I can tell getting MySQLdb and Python to play nice together is fairly difficult. I've gotten about as far as I can on this, and I'm not sure how to proceed going forward.</p>\n\n<p>First off, I am running Python 2.7</p>\n\n<p>The error I get when I try and run \"import MySQLdb\" in the live interpreter is this:</p>\n\n<pre><code>ImportError: this is MySQLdb version (1, 2, 2, 'final', 0), but _mysql is version (1, 2, 5, 'final', 1)\n</code></pre>\n\n<p>I also see the following error logs when I run \"pip install mysql-python\" however I'm not sure if thats jsut related to the version mis-match.\n<a href=\"http://pastebin.com/hqVv6aPZ\" rel=\"nofollow\">http://pastebin.com/hqVv6aPZ</a></p>\n\n<p>I have a python project that has a dependency on MySQLdb and I've been trying to get the virtualenv that I'm running Python from to install the package properly. This is what I've done:</p>\n\n<ul>\n<li>I've built MySQL from the source to ensure that I have a 64bit compatible version of MySQL on my machine. I used the --universal flag to ensure this.</li>\n<li>I have verified that I am running a 64bit version of Python as well.</li>\n<li>MySQL came from Homebrew</li>\n<li>mysql-python came from pip</li>\n</ul>\n\n<p>I can't for the life of me figure out what to do here. It seems like there is just a version mis-match between MySQLdb and _mysql on my machine. Is this the case? If so is the solution simply reinstalling an older version of MySQL? It appears that when I force pip to install version 1.2.5 of mysql-python it installs version 1.2.2 of MySQLdb, so i'm lost as to what to do here because I'm not sure what package from homebrew actually correlates to version 1.2.5 for _mysql.</p>\n\n<p>EDIT - </p>\n\n<p>sys.path </p>\n\n<pre><code>'/Users/XXXXXXXXXXX/virtualenvs/qa-automated-tests/lib/python27.zip',\n'/Users/XXXXXXXXXXX/virtualenvs/qa-automated-tests/lib/python2.7',\n'/Users/XXXXXXXXXXX/virtualenvs/qa-automated-tests/lib/python2.7/plat-darwin', \n'/Users/XXXXXXXXXXX/virtualenvs/qa-automated-tests/lib/python2.7/plat-mac', \n'/Users/XXXXXXXXXXX/virtualenvs/qa-automated-tests/lib/python2.7/plat-mac/lib-scriptpackages', '/Users/XXXXXXXXXXX/virtualenvs/qa-automated-tests/Extras/lib/python',\n'/Users/XXXXXXXXXXX/virtualenvs/qa-automated-tests/lib/python2.7/lib-tk', \n'/Users/XXXXXXXXXXX/virtualenvs/qa-automated-tests/lib/python2.7/lib-old', \n'/Users/XXXXXXXXXXX/virtualenvs/qa-automated-tests/lib/python2.7/lib-dynload', \n'/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7', \n'/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-darwin', \n'/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk', \n'/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac', \n'/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac/lib-scriptpackages', \n'/Users/adam.stark/virtualenvs/qa-automated-tests/lib/python2.7/site-packages'\n</code></pre>\n\n<p>Python --version says i'm on version 2.7.5. I've also set the pastebin to public. I'm just not sure what exactly is pertinent information within that dump, it spits back 16 errors.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "pip",
+    "atom-editor"
+   ],
+   "owner": {
+    "account_id": 6136829,
+    "reputation": 117,
+    "user_id": 4785390,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/2e69e347e707e975f0a2c487afc5175a?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "YiLuo",
+    "link": "https://stackoverflow.com/users/4785390/yiluo"
+   },
+   "is_answered": true,
+   "view_count": 1234,
+   "accepted_answer_id": 50553896,
+   "answer_count": 2,
+   "score": -2,
+   "last_activity_date": 1527436958,
+   "creation_date": 1527275021,
+   "last_edit_date": 1527436958,
+   "question_id": 50535418,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/50535418/importerror-no-module-named-xxx-no-matter-what-package-that-is",
+   "title": "ImportError: No module named xxx, no matter what package that is",
+   "body": "<p>So I have Python 3.6.5 installed on my MacOS.</p>\n\n<pre><code>$ python3 --version\n  Python 3.6.5\n</code></pre>\n\n<p>and I have some packages installed through pip3, that I need for the development.</p>\n\n<p>And it turns out that when I import these packages the error message will show up.</p>\n\n<pre><code>import  xxxxxx\n   ImportError: No module named XXXXXX\n</code></pre>\n\n<p>I've tried</p>\n\n<p><code>brew reinstall python</code></p>\n\n<p><code>brew reinstall python3</code></p>\n\n<p>the problem remains.</p>\n\n<p>and I thought the package name should all be lower case when import them, so I did, and it didn't work neither.</p>\n\n<p>What should I check next to find out what caused the error</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "numpy",
+    "scipy"
+   ],
+   "owner": {
+    "account_id": 10633269,
+    "reputation": 666,
+    "user_id": 7830700,
+    "user_type": "registered",
+    "accept_rate": 47,
+    "profile_image": "https://lh5.googleusercontent.com/-BzMoAPduw0E/AAAAAAAAAAI/AAAAAAAAAJc/KoSpf7BHKz0/s256-rj/photo.jpg",
+    "display_name": "TheRutubeify",
+    "link": "https://stackoverflow.com/users/7830700/therutubeify"
+   },
+   "is_answered": false,
+   "view_count": 1264,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1508272061,
+   "creation_date": 1508269722,
+   "last_edit_date": 1508272061,
+   "question_id": 46798077,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/46798077/python-conflict-numpy-vs-scipy",
+   "title": "Python conflict Numpy vs Scipy",
+   "body": "<p>I have no idea whats going on with Python 3.6.2(Anaconda), I tried all day to install numpy and scipy! I have 3 error message: (it depend what package I install first, or change the order of install)</p>\n\n<ol>\n<li>ImportError: numpy.core.multiarray failed to import</li>\n<li>ModuleNotFoundError: No module named 'scipy'</li>\n<li>NameError: name 'numpy' is not defined</li>\n</ol>\n\n<p>Versions that I used: \nWindows 10,\nAnaconda (Python 3.6.2),\nNumpy 1.13.3,\nScipy 0.19.1</p>\n\n<p>I tried everything, delete all environment vars. Install new Anaconda(Python 3.6.2)\nDownload numpy-1.13.3+mkl-cp36-cp36m-win_amd64.whl, and opencv_python-3.3.0-cp36-cp36m-win_amd64.whl, install it through pip install, change the order of install. Used <code>conda install scipy</code> And nothing work! </p>\n\n<p>Maybe its versions conflicts ? </p>\n\n<p>Does anybody know, what is the steps to install and use cv2, numpy, scipy?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pycharm",
+    "virtualenv",
+    "anaconda"
+   ],
+   "owner": {
+    "account_id": 418607,
+    "reputation": 994,
+    "user_id": 795276,
+    "user_type": "registered",
+    "accept_rate": 60,
+    "profile_image": "https://www.gravatar.com/avatar/312ff8240cc4c7962ec8be7d42792567?s=256&d=identicon&r=PG",
+    "display_name": "jpmorris",
+    "link": "https://stackoverflow.com/users/795276/jpmorris"
+   },
+   "is_answered": false,
+   "view_count": 570,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1507754003,
+   "creation_date": 1484733065,
+   "question_id": 41716121,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/41716121/how-to-manage-anaconda-with-pycharm-2016-3-in-linux",
+   "title": "How to manage (ana)conda with pycharm 2016.3 in linux",
+   "body": "<p>I would like to use Anaconda and the newest Pycharm 2016.3 together.  I would like to be able to manage packages in settings->interpreter. If this is not supported, I would like to know the workflow of using these two together. According to another SO question, Pycharm 5 used to have a 'Create conda env' in the interpreter settings, but this seems to be gone now. I have tried:</p>\n\n<p>1) Manually creating a virtual environment with 'conda create --name project numpy' and I add the interpreter ('~/anaconda2/envs/bin/python', the location of python for my created virtual environment.  However, pycharm doesn't allow me to add any packages through settings->interpreter. Running an 'import numpy' through the console shows errors that are pointing to /usr/bin/python, not my virtual env python, and an error 'ImportError: cannot import name multiarray'.  I'm not sure what package to add using conda from the cli, and the pycharm frontend doesn't add packages</p>\n\n<p>2) I've tried the same as 1) but with my global anaconda python as the interpeter ('~/anaconda2/bin/python') and it doesn't seem to be able to connect to the console.</p>\n\n<p>3) Creating a virtual environment through pycharm directly.</p>\n\n<p>I would like to remove my default pythons (/usr/bin/python2.7/3.5 from the list of interpreters in pycharm) for debugging purposes but it won't let me and it seems to be showing packages that my anaconda virtual env doens't have installed. </p>\n\n<p>Is there a way to manage my VIRTUAL enviornment in Conda using pycharm? If not, what steps do I take to make these two play well together assuming I can't manage it through pycharm interepreters settings.</p>\n"
+  }
+ ]
+}

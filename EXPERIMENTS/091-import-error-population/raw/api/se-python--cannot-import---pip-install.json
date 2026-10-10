@@ -1,0 +1,1427 @@
+{
+ "site": "stackoverflow",
+ "query": "python \"cannot import\" \"pip install\"",
+ "class": "inverse",
+ "items": [
+  {
+   "tags": [
+    "python",
+    "telegram",
+    "telegram-bot"
+   ],
+   "owner": {
+    "account_id": 17414581,
+    "reputation": 9,
+    "user_id": 12621181,
+    "user_type": "registered",
+    "profile_image": "https://graph.facebook.com/1802527563214723/picture?type=large",
+    "display_name": "Miclo\u015f Edi",
+    "link": "https://stackoverflow.com/users/12621181/miclo%c5%9f-edi"
+   },
+   "is_answered": false,
+   "view_count": 8352,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1771657425,
+   "creation_date": 1607104621,
+   "last_edit_date": 1607113747,
+   "question_id": 65148440,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/65148440/importerror-cannot-import-name-bot-from-partially-initialized-module-telegra",
+   "title": "ImportError: cannot import name &#39;Bot&#39; from partially initialized module &#39;telegram&#39;",
+   "body": "<p>I'm getting this error whenever I use the command <em>pip install telegram-bot</em> in cmd:</p>\n<pre><code>    C:\\Windows\\system32&gt;pip install telegram-bot\nCollecting telegram-bot\nUsing cached telegram-bot-0.1.tar.gz (51 kB)\n    ERROR: Command errored out with exit status 1:\n     command: 'c:\\program files\\python39\\python.exe' -c 'import sys, setuptools, tokenize; sys.argv[0] = '&quot;'&quot;'C:\\\\Users\\\\miclo\\\\AppData\\\\Local\\\\Temp\\\\pip-install-j1l7uwqx\\\\telegram-bot_a7d2b1d51c264e718c85210726554603\\\\setup.py'&quot;'&quot;'; __file__='&quot;'&quot;'C:\\\\Users\\\\miclo\\\\AppData\\\\Local\\\\Temp\\\\pip-install-j1l7uwqx\\\\telegram-bot_a7d2b1d51c264e718c85210726554603\\\\setup.py'&quot;'&quot;';f=getattr(tokenize, '&quot;'&quot;'open'&quot;'&quot;', open)(__file__);code=f.read().replace('&quot;'&quot;'\\r\\n'&quot;'&quot;', '&quot;'&quot;'\\n'&quot;'&quot;');f.close();exec(compile(code, __file__, '&quot;'&quot;'exec'&quot;'&quot;'))' egg_info --egg-base 'C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-pip-egg-info-4qf8pb7l'\n         cwd: C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-j1l7uwqx\\telegram-bot_a7d2b1d51c264e718c85210726554603\\\n    Complete output (7 lines):\n    Traceback (most recent call last):\n      File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;\n      File &quot;C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-j1l7uwqx\\telegram-bot_a7d2b1d51c264e718c85210726554603\\setup.py&quot;, line 12, in &lt;module&gt;\n        import telegram\n      File &quot;C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-j1l7uwqx\\telegram-bot_a7d2b1d51c264e718c85210726554603\\telegram\\__init__.py&quot;, line 15, in &lt;module&gt;\n        from telegram import Bot, ChatActions\n    ImportError: cannot import name 'Bot' from partially initialized module 'telegram' (most likely due to a circular import) (C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-j1l7uwqx\\telegram-bot_a7d2b1d51c264e718c85210726554603\\telegram\\__init__.py)\n    ----------------------------------------\nERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.\n</code></pre>\n<p>I have installed the latest version of Python and upgraded pip, but nothing changed. I use <em>Pycharm</em> as IDE. When I try to install this module from Pycharm, I get the same error:</p>\n<pre><code>Collecting telegram-bot\n  Using cached telegram-bot-0.1.tar.gz (51 kB)\n\nDEPRECATION: The -b/--build/--build-dir/--build-directory option is deprecated and has no effect anymore. pip 21.1 will remove support for this functionality. A possible replacement is use the TMPDIR/TEMP/TMP environment variable, possibly combined with --no-clean. You can find discussion regarding this at https://github.com/pypa/pip/issues/8333.\n    ERROR: Command errored out with exit status 1:\n     command: 'D:\\Development\\telegram\\venv\\Scripts\\python.exe' -c 'import sys, setuptools, tokenize; sys.argv[0] = '&quot;'&quot;'C:\\\\Users\\\\miclo\\\\AppData\\\\Local\\\\Temp\\\\pip-install-60osryel\\\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\\\setup.py'&quot;'&quot;'; __file__='&quot;'&quot;'C:\\\\Users\\\\miclo\\\\AppData\\\\Local\\\\Temp\\\\pip-install-60osryel\\\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\\\setup.py'&quot;'&quot;';f=getattr(tokenize, '&quot;'&quot;'open'&quot;'&quot;', open)(__file__);code=f.read().replace('&quot;'&quot;'\\r\\n'&quot;'&quot;', '&quot;'&quot;'\\n'&quot;'&quot;');f.close();exec(compile(code, __file__, '&quot;'&quot;'exec'&quot;'&quot;'))' egg_info --egg-base 'C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-pip-egg-info-0ihid_ld'\n         cwd: C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-60osryel\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\\n    Complete output (7 lines):\n    Traceback (most recent call last):\n      File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;\n      File &quot;C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-60osryel\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\setup.py&quot;, line 12, in &lt;module&gt;\n        import telegram\n      File &quot;C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-60osryel\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\telegram\\__init__.py&quot;, line 15, in &lt;module&gt;\n        from telegram import Bot, ChatActions\n    ImportError: cannot import name 'Bot' from partially initialized module 'telegram' (most likely due to a circular import) (C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-60osryel\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\telegram\\__init__.py)\n    ----------------------------------------\nERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.\n</code></pre>\n<p>I'm trying to build a telegram bot and host it with Heroku. When typing <em>heroku logs -t</em> in cmd, I get something similar:</p>\n<pre><code>2020-12-04T20:24:35.852594+00:00 app[web.1]: File &quot;main.py&quot;, line 5, in &lt;module&gt;\n2020-12-04T20:24:35.852826+00:00 app[web.1]: from telegram.ext import CommandHandler, MessageHandler, Filters, Updater\n2020-12-04T20:24:35.852831+00:00 app[web.1]: File &quot;/app/.heroku/python/lib/python3.6/site-packages/telegram/ext/__init__.py&quot;, line 21, in &lt;module&gt;\n2020-12-04T20:24:35.853028+00:00 app[web.1]: from .basepersistence import BasePersistence\n2020-12-04T20:24:35.853033+00:00 app[web.1]: File &quot;/app/.heroku/python/lib/python3.6/site-packages/telegram/ext/basepersistence.py&quot;, line 25, in &lt;module&gt;\n2020-12-04T20:24:35.853242+00:00 app[web.1]: from telegram import Bot\n2020-12-04T20:24:35.853243+00:00 app[web.1]: ImportError: cannot import name 'Bot'\n</code></pre>\n<p>These are my imports:</p>\n<pre><code>import os\nimport telebot\nimport xlrd\nfrom flask import Flask, request\nfrom telegram.ext import CommandHandler, MessageHandler, Filters, Updater\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "import",
+    "modulenotfounderror"
+   ],
+   "owner": {
+    "account_id": 16373531,
+    "reputation": 417,
+    "user_id": 11826257,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/pzV3EcQf.jpg?s=256",
+    "display_name": "Staehlo",
+    "link": "https://stackoverflow.com/users/11826257/staehlo"
+   },
+   "is_answered": true,
+   "view_count": 365,
+   "accepted_answer_id": 79124853,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1754463363,
+   "creation_date": 1729760979,
+   "last_edit_date": 1729790456,
+   "question_id": 79121185,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79121185/pip-install-pyspectra-does-not-find-existing-numpy-installation",
+   "title": "pip install pyspectra does not find existing numpy installation",
+   "body": "<p>I want to analyze near-infrared (NIR) spectra in Python. My spectra are stored in the <a href=\"https://en.wikipedia.org/wiki/SPC_file_format\" rel=\"nofollow noreferrer\">spc file format</a>. So I need a tool that lets me import such files. &quot;Pyspectra&quot; seems to be a good module for this. However, I am unable to install it in a fresh virtual environment with Python 3.12.5 and pip 24.2 on a Windows 10 machine.</p>\n<p><code>pip install pyspectra</code> fails with an error message:<br />\n&quot;<em>Getting requirements to build wheel did not run successfully</em>&quot;.</p>\n<p>The last line of the traceback states:<br />\n<em>ModuleNotFoundError: No module named 'numpy'</em>.</p>\n<p>I installed numpy with <code>pip install numpy</code> and verified that it works with <code>import numpy as np</code>. No problem here. I also made sure that I am in the same virtual environment in which I wish to install pyspectra.</p>\n<p>But I still cannot import pyspectra. Pip continues to claim that it cannot find numpy.</p>\n<p>Could this be a dependency issue between 'pyspectra 0.0.1.2' and 'numpy 2.1.2'?</p>\n<hr />\n<p>For reference: This is my code on the Windows command line</p>\n<pre><code># Create and activate a virtual environment\nC:\\user\\...\\Desktop&gt;python -m venv venv\nC:\\user\\...\\Desktop&gt;venv\\scripts\\activate\n\n# Import numpy (to make sure it is installed)\n(venv) C:\\user\\...\\Desktop&gt;py -m pip install numpy\n\n# Import pyspectra\n(venv) C:\\user\\...\\Desktop&gt;py -m pip install pyspectra\nCollecting pyspectra\n  Using cached pyspectra-0.0.1.2-py3-none-any.whl.metadata (12 kB)\nRequirement already satisfied: numpy in c:\\users\\...\\venv\\lib\\site-packages (from pyspectra) (2.1.2)\nCollecting pandas (from pyspectra)\n  Using cached pandas-2.2.3-cp312-cp312-win_amd64.whl.metadata (19 kB)\nCollecting spc-spectra (from pyspectra)\n  Using cached spc_spectra-0.4.0.tar.gz (8.6 kB)\n  Installing build dependencies ... done\n  Getting requirements to build wheel ... error\n  error: subprocess-exited-with-error\n\n  \u00d7 Getting requirements to build wheel did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500&gt; [24 lines of output]\n      Traceback (most recent call last):\n        [...]\n        File &quot;C:\\Users\\...\\AppData\\Local\\Temp\\pip-install-v_qa0rxl\\spc-spectra_a351371d52ef45edbd585ef2843e5c1e\\spc_spectra\\spc.py&quot;, line 10, in &lt;module&gt;\n          import numpy as np\n      ModuleNotFoundError: No module named 'numpy'\n      [end of output]\n</code></pre>\n<p>Edit: Rewrote question to make it more understandable.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "deep-learning",
+    "importerror",
+    "yolo",
+    "yolov8"
+   ],
+   "owner": {
+    "account_id": 28534209,
+    "reputation": 41,
+    "user_id": 21841155,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/aa3d9012b55e9c883253ddca69335d55?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Rishika Gupta",
+    "link": "https://stackoverflow.com/users/21841155/rishika-gupta"
+   },
+   "is_answered": true,
+   "view_count": 25124,
+   "answer_count": 4,
+   "score": 4,
+   "last_activity_date": 1753545765,
+   "creation_date": 1683444647,
+   "last_edit_date": 1683505176,
+   "question_id": 76192675,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/76192675/importerror-cannot-import-name-yolo-from-ultralytics-unknown-location",
+   "title": "ImportError: cannot import name &#39;YOLO&#39; from &#39;ultralytics&#39; (unknown location)",
+   "body": "<p>I am trying to build a YOLOv8 model, and I have built it using cloning github repo of YOLOv8.\n<a href=\"https://github.com/ultralytics/ultralytics\" rel=\"nofollow noreferrer\">https://github.com/ultralytics/ultralytics</a></p>\n<p>For training the yolov8 docs say that I need to start as follows</p>\n<pre><code>from ultralytics import YOLO\n</code></pre>\n<p>But when I try to do the same after using pip install ultralytics, I get this error:</p>\n<pre><code>ImportError                   Traceback (most recent call last)\n\n/tmp/ipykernel_28/546599741.py in &lt;module&gt;\n----&gt; 1 from ultralytics import YOLO\n      2 \n      3 # Load a model\n      4 model = YOLO('yolov8n.yaml')  # build a new model from YAML\n      5 model = YOLO('yolov8n.pt')  # load a pretrained model (recommended for training)\n\nImportError: cannot import name 'YOLO' from 'ultralytics' (unknown location)\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "importerror",
+    "google-gemini",
+    "google-generativeai",
+    "google-gemini-file-api"
+   ],
+   "owner": {
+    "account_id": 37911634,
+    "reputation": 11,
+    "user_id": 28493910,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/c1650f09662e86d99f8da757b5ba114e?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Umesh Krishnamurthy",
+    "link": "https://stackoverflow.com/users/28493910/umesh-krishnamurthy"
+   },
+   "is_answered": false,
+   "view_count": 1002,
+   "answer_count": 3,
+   "score": 1,
+   "last_activity_date": 1745144105,
+   "creation_date": 1739262819,
+   "question_id": 79429327,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79429327/importerror-cannot-import-name-get-default-text-client-from-google-generativ",
+   "title": "ImportError: Cannot import name &#39;get_default_text_client&#39; from &#39;google.generativeai.client&#39; after upgrading",
+   "body": "<p>I'm encountering an ImportError after upgrading the google-generativeai library. The error is:\nImportError: cannot import name 'get_default_text_client' from 'google.generativeai.client' (/path/to/my/site-packages/google/generativeai/client.py)  # Replace with your actual path!</p>\n<p>I'm using Python [3.10]  and installed the library using pip install --upgrade google-generativeai.</p>\n<p>Here's a minimal code example that reproduces the error:\nPython</p>\n<p>import os\nfrom google.generativeai import text</p>\n<p>os.environ[&quot;GOOGLE_API_KEY&quot;] = &quot;xyz&quot;</p>\n<p>I'm not sure what's causing this issue. Any help would be greatly appreciated!</p>\n<p>I have tried the following:</p>\n<ul>\n<li>Upgrading google-generativeai using pip install --upgrade google-generativeai.</li>\n<li>Uninstalling and reinstalling google-generativeai: pip uninstall google-generativeai followed by pip install google-generativeai.</li>\n<li>Restarting my Jupyter kernel/Python interpreter.</li>\n</ul>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "scikit-learn"
+   ],
+   "owner": {
+    "account_id": 28049012,
+    "reputation": 55,
+    "user_id": 21425230,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AGNmyxaFgKqBcuHbq_bnwqsafmRVECl8pZuFYijXWyx5Rg=k-s256",
+    "display_name": "minh chanh le",
+    "link": "https://stackoverflow.com/users/21425230/minh-chanh-le"
+   },
+   "is_answered": true,
+   "view_count": 339,
+   "accepted_answer_id": 79549746,
+   "answer_count": 3,
+   "score": 0,
+   "last_activity_date": 1743772091,
+   "creation_date": 1732609147,
+   "last_edit_date": 1732650320,
+   "question_id": 79225855,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79225855/cannot-import-name-check-array-key-from-skfda-utils-in-python-3-12-7",
+   "title": "Cannot import name &#39;_check_array_key&#39; from &#39;skfda._utils&#39; in Python 3.12.7",
+   "body": "<p>I am trying to use <code>skfda</code> library in my python code. I have already installed the package using `pip install scikit-fda, however, the error was a little bit strange for me. Can anyone explain why this keeps showing and how to fix this error? Thank you so much!</p>\n<pre class=\"lang-py prettyprint-override\"><code>from skfda.preprocessing.dim_reduction import variable_selection\nimport skfda\n\nmrmr = variable_selection.MinimumRedundancyMaximumRelevance(n_features_to_select=70,method=&quot;MIQ&quot;)\n</code></pre>\n<pre><code>Exception has occurred: ImportError\ncannot import name '\\_check_array_key' from 'skfda.\\_utils' (c:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\skfda\\\\\\_utils\\\\\\_\\_init\\_\\_.py)\n  File &quot;D:\\ShiroSnipee\\Study\\Python\\Project\\sample.py&quot;, line 68, in &lt;module&gt;\n    mrmr = variable_selection.MinimumRedundancyMaximumRelevance(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name '\\_check_array_key' from 'skfda.\\_utils' (c:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\skfda\\\\\\_utils\\\\\\_\\_init\\_\\_.py)\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "google-bigquery",
+    "google-cloud-pubsub"
+   ],
+   "owner": {
+    "account_id": 11451748,
+    "reputation": 391,
+    "user_id": 8393955,
+    "user_type": "registered",
+    "accept_rate": 67,
+    "profile_image": "https://www.gravatar.com/avatar/9292a6af7efc8358c283a1f656d7034d?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Shikha",
+    "link": "https://stackoverflow.com/users/8393955/shikha"
+   },
+   "is_answered": true,
+   "view_count": 39871,
+   "accepted_answer_id": 47029315,
+   "answer_count": 7,
+   "score": 18,
+   "last_activity_date": 1743631431,
+   "creation_date": 1509355409,
+   "question_id": 47011713,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/47011713/importerror-cannot-import-name-pubsub-v1",
+   "title": "ImportError: cannot import name pubsub_v1",
+   "body": "<p>I need to import Pubsub_v1 and bigquery from google.cloud module. I have installed it and pip freeze shows below :</p>\n\n<pre><code>gapic-google-cloud-pubsub-v1==0.15.4\ngoogle-cloud-bigquery==0.26.0\ngoogle-cloud-pubsub==0.27.0\nproto-google-cloud-pubsub-v1==0.15.4\n</code></pre>\n\n<p>In my python script, i am importing the modules as below:</p>\n\n<pre><code>import os \nfrom google.cloud import pubsub_v1 \nimport time \nimport json \nfrom google.cloud import bigquery \n</code></pre>\n\n<p>The script is throwing error as :</p>\n\n<pre><code>ImportError: cannot import name pubsub_v1\n</code></pre>\n\n<p>If i run $sudo pip install --upgrade google-cloud-pubsub then It is able to import pubsub but failing to import Bigquery. I need both modules. Can anybody please help ?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "qgrid"
+   ],
+   "owner": {
+    "account_id": 22738712,
+    "reputation": 61,
+    "user_id": 16900567,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AOh14GghGF1Ckbsn544qYyPR4Ig8TquRuUiVmubly2tM1fk=k-s256",
+    "display_name": "Franco Riottini",
+    "link": "https://stackoverflow.com/users/16900567/franco-riottini"
+   },
+   "is_answered": true,
+   "view_count": 3658,
+   "answer_count": 2,
+   "score": 5,
+   "last_activity_date": 1742392787,
+   "creation_date": 1674044871,
+   "question_id": 75159232,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/75159232/cannot-import-qgrid-in-python",
+   "title": "Cannot import qgrid in Python",
+   "body": "<p>I'm using Jupyter notebook and I have a problem with the qgrid package. I'm receiving this message:</p>\n<p><code>TypeError: register() missing 1 required positional argument: 'widget'</code></p>\n<p>I've tried changing the widget to 7.0 ('pip install ipywidgets~=7.0') but it continues to give me the TypeError. I'm working on VS CODE w/ Python 3.8.3.</p>\n<p>Btw, I will leave here all the error message</p>\n<pre><code>TypeError                                 Traceback (most recent call last)\nCell In[15], line 2\n      1 get_ipython().system('pip install ipywidgets==7.0')\n----&gt; 2 import qgrid\n      4 # Creamos una copia\n      5 df2 = df.copy()\n\nFile c:\\Users\\Franco\\AppData\\Local\\Programs\\Python\\Python38\\lib\\site-packages\\qgrid\\__init__.py:3\n      1 from ._version import version_info, __version__  # noqa F401\n----&gt; 3 from .grid import (\n      4     enable,\n      5     disable,\n      6     set_defaults,\n      7     on,\n      8     off,\n      9     set_grid_option,\n     10     show_grid,\n     11     QgridWidget,\n     12     QGridWidget,\n     13 )\n     16 def _jupyter_nbextension_paths():\n     17     return [\n     18         {\n     19             &quot;section&quot;: &quot;notebook&quot;,\n...\n    562 \n    563     &quot;&quot;&quot;\n    565     _view_name = Unicode('QgridView').tag(sync=True)\n\nTypeError: register() missing 1 required positional argument: 'widget'\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "installation",
+    "pip",
+    "dependencies",
+    "odoo"
+   ],
+   "owner": {
+    "account_id": 29929027,
+    "reputation": 31,
+    "user_id": 22936372,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/92eb71f9cb117557d536de229a3b51fb?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Lucas",
+    "link": "https://stackoverflow.com/users/22936372/lucas"
+   },
+   "is_answered": true,
+   "view_count": 1674,
+   "answer_count": 1,
+   "score": 3,
+   "last_activity_date": 1741895672,
+   "creation_date": 1737722394,
+   "question_id": 79384377,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79384377/error-installing-odoo-dependencies-with-pip-install-r-requirements-txt-impo",
+   "title": "Error Installing Odoo Dependencies with `pip install -r requirements.txt`: &quot;ImportError: cannot import name &#39;get_abi_tag&#39; from &#39;wheel.bdist_wheel&#39;&quot;",
+   "body": "<p>I'm following the official Odoo 18 source installation guide, but I encounter an issue when running :</p>\n<pre><code>pip install -r requirements.txt\n</code></pre>\n<p>Below is the exact error message I receive:</p>\n<pre><code>Ignoring asn1crypto: markers 'python_version &lt; &quot;3.11&quot;' don't match your environment\nIgnoring Babel: markers python_version &lt; &quot;3.11&quot;' don't match your environment ...\nCollecting asn1crypto==1.5.1 (from -r requirements.txt (line 4)) \n  Using cached asn1crypto-1.5.1-py2.py3-none-any.whl.metadata (13 kB) ...\nCollecting rl-renderPM==4.0.3 (from -r requirements.txt (line 78)) \n  Using cached rl_renderPM-4.0.3.tar.gz (36 kB)\nInstalling build dependencies ... done\nGetting requirements to build wheel ... error\nerror: subprocess-exited-with-error\n\u00d7 Getting requirements to build wheel did not run successfully.\n\u2502 exit code: 1\n\u2570\u2500&gt; [20 lines of output]\nTraceback (most recent call last):\n  File &quot;C:\\Users\\Elite183\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process\\_in_process.py&quot;, line 353, in &lt;module&gt;\n    main()\n    ~~~~^^\n  File &quot;C:\\Users\\Elite183\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process\\_in_process.py&quot;, line 335, in main\n    json_out['return_val'] = hook(**hook_input['kwargs'])                                    \n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File &quot;C:\\Users\\Elite183\\AppData\\Local\\Temp\\pip-build-env-62xx76va\\overlay\\Lib\\site-packages\\setuptools\\build_meta.py&quot;, line 334, in get_requires_for_build_wheel\n    return self._get_build_requires(config_settings, requirements=[])\n  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File &quot;C:\\Users\\Elite183\\AppData\\Local\\Temp\\pip-build-env-62xx76va\\overlay\\Lib\\site-packages\\setuptools\\build_meta.py&quot;, line 304, in _get_build_requires\n    self.run_setup()\n    ~~~~~~~~~~~~~~^^\n  File &quot;C:\\Users\\Elite183\\AppData\\Local\\Temp\\pip-build-env-62xx76va\\overlay\\Lib\\site-packages\\setuptools\\build_meta.py&quot;, line 320, in run_setup\n    exec(code, locals())\n    ~~~~^^^^^^^^^^^^^^^^\n  File &quot;&lt;string&gt;&quot;, line 5, in &lt;module&gt;\nImportError: cannot import name 'get_abi_tag' from 'wheel.bdist_wheel' \n  (C:\\Users\\Elite183\\AppData\\Local\\Temp\\pip-build-env-62xx76va\\overlay\\Lib\\site-packages\\wheel\\bdist_wheel.py)\n[end of output]\n</code></pre>\n<p>This error occurs when trying to build the dependencies from <strong>requirements.txt</strong>. Specifically, the issue seems to be related to <strong>wheel.bdist_wheel</strong>.</p>\n<h1>Steps I've Taken So Far:</h1>\n<ol>\n<li>Verified Python Version: I have Python 3.13 installed (as specified in the Odoo installation guide).</li>\n<li>Upgraded pip, setuptools, and wheel:</li>\n</ol>\n<pre><code>pip install --upgrade pip setuptools wheel\n</code></pre>\n<ol start=\"3\">\n<li>Tried Installing Dependencies Individually: I tried installing the dependencies one by one using</li>\n</ol>\n<pre><code>pip install &lt;dependency_name&gt;.\n</code></pre>\n<ol start=\"4\">\n<li><p>Checked Compatibility: I ensured that Python 3.13 is compatible with the required dependencies (greenlet, lxml, Pillow, reportlab).</p>\n</li>\n<li><p>Ignored Version Markers: I've noticed that some markers, such as 'python_version &lt; &quot;3.11&quot;', don't match my environment.</p>\n</li>\n</ol>\n<h1>Questions:</h1>\n<ol>\n<li>Has anyone faced a similar issue when installing Odoo with Python 3.13?</li>\n<li>Could there be a compatibility issue between Python 3.13 and the dependencies, particularly greenlet, lxml, Pillow, or reportlab?</li>\n<li>What steps can I take to resolve this issue and successfully install the Odoo dependencies?</li>\n</ol>\n<p>Thank you in advance for any help or suggestions!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "jupyter-notebook",
+    "yellowbrick"
+   ],
+   "owner": {
+    "account_id": 16665859,
+    "reputation": 159,
+    "user_id": 12044527,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/ci6CC.jpg?s=256",
+    "display_name": "Udishan",
+    "link": "https://stackoverflow.com/users/12044527/udishan"
+   },
+   "is_answered": true,
+   "view_count": 1990,
+   "accepted_answer_id": 73459343,
+   "answer_count": 3,
+   "score": 1,
+   "last_activity_date": 1736347695,
+   "creation_date": 1604722759,
+   "question_id": 64724378,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/64724378/cannot-import-installed-python-library-yellowbrick-to-jupyter-notebook",
+   "title": "Cannot import installed python library yellowbrick to jupyter notebook",
+   "body": "<p>I installed the yellowbrick python library using pip &quot;install yellowbrick&quot;. It was installed, but jupyter notebook cannot import the library. When it imports, results show &quot;No module named 'yellowbrick'&quot;. But library had perfectly installed.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "anaconda",
+    "python-import",
+    "pyautogui"
+   ],
+   "owner": {
+    "account_id": 17073981,
+    "reputation": 43,
+    "user_id": 12354011,
+    "user_type": "registered",
+    "profile_image": "https://lh5.googleusercontent.com/-t6G_usN0mMs/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rcTdD9q4tybTUIvr_6bj1aOa3z5mw/s256-rj/photo.jpg",
+    "display_name": "Kevin Shum",
+    "link": "https://stackoverflow.com/users/12354011/kevin-shum"
+   },
+   "is_answered": true,
+   "view_count": 26160,
+   "protected_date": 1647403432,
+   "answer_count": 10,
+   "score": 4,
+   "last_activity_date": 1734465942,
+   "creation_date": 1573877438,
+   "question_id": 58887481,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/58887481/pyautogui-not-importing-no-module-named-pyautogui",
+   "title": "Pyautogui not importing &quot;No module named &#39;pyautogui&#39; &quot;",
+   "body": "<pre><code>import pyautogui\n\nprint(\"hello\")\n</code></pre>\n\n<p>After running this I am presented with the following:</p>\n\n<pre><code>C:\\Users\\Darkm\\Anaconda3\\envs\\PythonChallenges\\python.exe C:/Users/Darkm/PycharmProjects/PythonChallenges/Automation1.py\nTraceback (most recent call last):\n  File \"C:/Users/Darkm/PycharmProjects/PythonChallenges/Automation1.py\", line 1, in &lt;module&gt;\n    import pyautogui\nModuleNotFoundError: No module named 'pyautogui'\n\nProcess finished with exit code 1\n</code></pre>\n\n<p>Could somebody help me understand why I cannot import pyautogui?</p>\n\n<p>Some background information:</p>\n\n<p>1.) I only have one version of python (3.7.4)</p>\n\n<p>2.) I have already installed the module through \"pip install pyautogui\" in cmd prompt.</p>\n\n<p>3.) Pyautogui is installed under C:\\Users\\Darkm\\Anaconda3\\Lib\\site-packages</p>\n\n<p>4.) Pyautogui does not show up when I go into file > settings > project interpreter and try to add it \nmanually (it just doesn't show up).</p>\n\n<p>5.) Have restarted computer multiple times</p>\n\n<p>At this point I cannot figure out why I'm unable to import pyautogui, any help would be greatly appreciated!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "installation"
+   ],
+   "owner": {
+    "account_id": 16907727,
+    "reputation": 39,
+    "user_id": 12227667,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AAuE7mDs51pCGwd50fEv0gf_zZYt4CP8PEPudohEw-V3Ng=k-s256",
+    "display_name": "Rashid Dar",
+    "link": "https://stackoverflow.com/users/12227667/rashid-dar"
+   },
+   "is_answered": false,
+   "view_count": 4095,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1733372749,
+   "creation_date": 1591771876,
+   "question_id": 62297482,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/62297482/cannot-import-wfdb-module-after-installing-it-using-pip-install-wfdb",
+   "title": "Cannot Import &quot;wfdb&quot; module after installing it using pip install wfdb",
+   "body": "<p>I needed to \"wfdb\" module for my current project, After installing it in my Jupyter notebook using pip install wfdb it was installed successfully. However, when I tried to import, it showed \nModuleNotFoundError: No module named 'wfdb'\nI checked it using pip show  wfdb and the location it returned was \n/home/rashid139/Desktop/django2.x/lib/python3.6/site-packages.\n.</p>\n\n<p>I also checked the site-packages directory and wfdb was present there.\n['numpy',\n 'psycopg2-2.8.4.dist-info',\n 'mpl_toolkits',\n 'pandas',\n 'requests',\n 'requests-2.22.0.dist-info',\n 'mne-0.20.5.dist-info',\n 'sklearn-0.0.dist-info',\n 'scikit_learn.libs',\n 'docutils-0.15.2.dist-info',\n 'pandas-1.0.4.dist-info',\n 'matplotlib-3.2.1.dist-info',\n 'pytz',\n 'matplotlib-3.2.1-py3.6-nspkg.pth',\n 'urllib3-1.25.7.dist-info',\n 'opencv_python-4.2.0.34.dist-info',\n 'rest_framework',\n '<strong>wfdb-3.0.1.dist-info</strong>',\n 'pip',\n 'matplotlib',\n 'sklearn',\n '<strong>wfdb</strong>',\n 'scikit_learn-0.23.1.dist-info']\n Please suggest to me where I have problems importing my wfdb module.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "google-colaboratory",
+    "python-import",
+    "importerror",
+    "physics-engine"
+   ],
+   "owner": {
+    "account_id": 939983,
+    "reputation": 165,
+    "user_id": 968217,
+    "user_type": "registered",
+    "accept_rate": 100,
+    "profile_image": "https://www.gravatar.com/avatar/8d50a1fbe6b9a7baa3803721429ecb5b?s=256&d=identicon&r=PG",
+    "display_name": "Ethan",
+    "link": "https://stackoverflow.com/users/968217/ethan"
+   },
+   "is_answered": false,
+   "view_count": 240,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1731843130,
+   "creation_date": 1701116120,
+   "question_id": 77559693,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77559693/google-colab-not-importing-jumpy-after-installing-brax",
+   "title": "Google Colab not importing jumpy after installing brax",
+   "body": "<p>I've tried restarting the runtime and pip installing brax again using this command, &quot;!pip install git+https://github.com/google/brax.git@main&quot;, but regardless of how many times I do it, &quot;from brax import jumpy as jp&quot; results in &quot;ImportError: cannot import name 'jumpy' from 'brax' (/usr/local/lib/python3.10/dist-packages/brax/<strong>init</strong>.py)&quot;. This error has only been taking place on Google Colab as far as I can tell.</p>\n<p>I don't know how to fix it, this is how it is written in the brax tutorial on their website: <a href=\"https://ymd_h.gitlab.io/ymd_blog/doc/brax/env/\" rel=\"nofollow noreferrer\">https://ymd_h.gitlab.io/ymd_blog/doc/brax/env/</a></p>\n<p>If anyone can help with this I would very much appreciate it.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "django",
+    "django-settings",
+    "installed-applications"
+   ],
+   "owner": {
+    "user_type": "does_not_exist",
+    "display_name": "user17794736"
+   },
+   "is_answered": true,
+   "view_count": 65973,
+   "answer_count": 10,
+   "score": 40,
+   "last_activity_date": 1731149074,
+   "creation_date": 1641835457,
+   "last_edit_date": 1654177131,
+   "question_id": 70656495,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/70656495/importerror-cannot-import-name-ugettext-lazy",
+   "title": "ImportError : cannot import name &#39;ugettext_lazy&#39;",
+   "body": "<p>I'm trying to install suit, I entered this command :\npip install <a href=\"https://github.com/darklow/django-suit/tarball/v2\" rel=\"noreferrer\">https://github.com/darklow/django-suit/tarball/v2</a>\nand wrote this code :</p>\n<pre><code>from suit.apps import DjangoSuitConfig\nclass SuitConfig(DjangoSuitConfig) :\n    layout = 'horizontal'\n</code></pre>\n<p>And added it :</p>\n<pre><code>INSTALLED_APPS = [\n    'products.apps.SuitConfig',\n     .....]\n</code></pre>\n<p>But when I added this last code I had this error :</p>\n<p>InvalidTemplateLibrary: Invalid template library specified. ImportError raised when trying to load 'suit.templatetags.suit_menu': cannot import name 'ugettext_lazy' from 'django.utils.translation' (C:\\Users\\hp\\environments\\env3\\lib\\site-packages\\django\\utils\\translation_<em>init</em>_.py)</p>\n<p>note : django 4.01</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "azure-webjobs",
+    "python-venv",
+    "python-3.9",
+    "extension-modules"
+   ],
+   "owner": {
+    "account_id": 11240864,
+    "reputation": 467,
+    "user_id": 8245218,
+    "user_type": "registered",
+    "profile_image": "https://lh5.googleusercontent.com/-DENIWkDFUPo/AAAAAAAAAAI/AAAAAAAAACQ/oFpgxNKlIk4/s256-rj/photo.jpg",
+    "display_name": "Mainly Karma",
+    "link": "https://stackoverflow.com/users/8245218/mainly-karma"
+   },
+   "is_answered": true,
+   "view_count": 1421,
+   "accepted_answer_id": 66429909,
+   "answer_count": 2,
+   "score": 2,
+   "last_activity_date": 1726584645,
+   "creation_date": 1614616990,
+   "question_id": 66426111,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/66426111/how-to-pip-install-extension-modules-in-azure-web-jobs",
+   "title": "How to pip install extension modules in Azure web jobs?",
+   "body": "<p>I'm trying to schedule a python script that uses an extension module in an Azure web job:</p>\n<pre><code>import sys\n\nsitepackage = &quot;D:\\home\\site\\wwwroot\\env\\Lib\\site-packages&quot;\nsys.path.append(sitepackage)\n\ntry:\n    from bs4 import BeautifulSoup\n    print(&quot;!!! BEAUTIFUL SOUP !!!&quot;)\nexcept ImportError as e:\n    print(e)\n</code></pre>\n<p>I have all the appropriate extension modules pip installed in my (venv) inside of my 'site-packages' folder:\n<a href=\"https://i.sstatic.net/FuNqU.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/FuNqU.png\" alt=\"enter image description here\" /></a></p>\n<p>But it fails to run because it cannot import beautifulsoup4 from bs4:</p>\n<pre><code>error: &quot;No module named bs4&quot;\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "ubuntu",
+    "flask"
+   ],
+   "owner": {
+    "account_id": 21927622,
+    "reputation": 29,
+    "user_id": 16209991,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AATXAJy0UA-_Du6zu8RzKNqv17RytmBRFARuuscTLBE=k-s256",
+    "display_name": "Hyunjun Yoo",
+    "link": "https://stackoverflow.com/users/16209991/hyunjun-yoo"
+   },
+   "is_answered": false,
+   "view_count": 389,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1726223743,
+   "creation_date": 1697468062,
+   "last_edit_date": 1726223743,
+   "question_id": 77303009,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77303009/flask-debugtoolbar-cannot-import-name-reqeust-ctx-stack-from-flask-globals",
+   "title": "Flask_debugtoolbar, cannot import name &#39;_reqeust_ctx_stack&#39; from &#39;flask.globals&#39;",
+   "body": "<p>when i run the code on virtual environment. this is what I get.</p>\n<pre><code>ImportError: cannot import name '_request_ctx_stack' from 'flask.globals'(../venv/lib/python3.10/site-packages/flask/globals.py)\n</code></pre>\n<p>This keeps popping up after I upgrade packages.</p>\n<p>Here's my code.</p>\n<pre><code>from flask import Flask, request, render_template, redirect, flash, session\nfrom flask_debugtoolbar import DebugToolbarExtension\n\napp = Flask(__name__)\n\napp.config['SECRET_KEY'] = &quot;This is demo&quot;\napp.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False\ndeubg = DebugToolbarExtension(app)\n\n@app.route('/')\ndef home_page():\n    &quot;&quot;&quot;Shows home page&quot;&quot;&quot;\n    return render_template('home.html')\n</code></pre>\n<pre><code>these are my packages on my requirement.txtblinker==1.6.3click==8.1.7Flask==3.0.0Flask-DebugToolbar==0.13.1itsdangerous==2.1.2Jinja2==3.1.2MarkupSafe==2.1.3Werkzeug==3.0.0\n</code></pre>\n<p>I've tried pip install flask_debugtoolbar, and I can't seem to find a solution.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "aws-lambda"
+   ],
+   "owner": {
+    "account_id": 9181395,
+    "reputation": 109,
+    "user_id": 6825069,
+    "user_type": "registered",
+    "accept_rate": 33,
+    "profile_image": "https://www.gravatar.com/avatar/54f1c0de170076dfd50a04ae01d4d34b?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "SunainaDG",
+    "link": "https://stackoverflow.com/users/6825069/sunainadg"
+   },
+   "is_answered": true,
+   "view_count": 1369,
+   "accepted_answer_id": 71925034,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1723765961,
+   "creation_date": 1650345882,
+   "last_edit_date": 1650349038,
+   "question_id": 71920043,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/71920043/unable-to-use-python-library-smbprotocol-1-9-0-in-aws-lambda",
+   "title": "Unable to use python library - &quot;smbprotocol&quot; (1.9.0) in AWS Lambda",
+   "body": "<p>I want to use the smbprotocol python library in my Lambda function.</p>\n<p>I tried adding it as a deployment package:</p>\n<pre><code>mypackage.zip\n|\n|--&gt; packages\n|    |\n|    |--&gt;pip\n|    |--&gt;smbprotocol\n|    |--&gt;..\n|--&gt; myscript.py\n</code></pre>\n<p>Gave me the below error:</p>\n<blockquote>\n<p>[ERROR] Runtime.ImportModuleError: Unable to import module\n'generate_sequenceFile_submit_request': cannot import name 'x509' from\n'cryptography.hazmat.bindings._rust'</p>\n</blockquote>\n<p>I tried creating a Layer and using it through layer. Same error.</p>\n<p>The requirments.txt I'm using to create my packages folder or my Layer contains:</p>\n<ul>\n<li>smbprotocol</li>\n<li>Python version I'm using is 3.9</li>\n</ul>\n<p>My Layer is created using a zip file which has a path\n\\python\\lib\\python3.9\\site-packages\\</p>\n<p>(I created the layer by running the below command:\npip install . -t \\python\\lib\\python3.9\\site-packages)</p>\n<p>Wierdly when I run this locally, it works fine inside my virtual environment.</p>\n<p>Im developing in Windows.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "playwright",
+    "rpa",
+    "playwright-python"
+   ],
+   "owner": {
+    "account_id": 33453282,
+    "reputation": 1,
+    "user_id": 25899050,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/180cca645ab0d5e7236aa874aea2351c?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "fatbee7",
+    "link": "https://stackoverflow.com/users/25899050/fatbee7"
+   },
+   "is_answered": true,
+   "view_count": 119,
+   "accepted_answer_id": 78876825,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1723755651,
+   "creation_date": 1723322307,
+   "last_edit_date": 1723746507,
+   "question_id": 78856991,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78856991/importerror-cannot-import-name-cache-from-rpa-core-webdriver",
+   "title": "ImportError: cannot import name &#39;cache&#39; from &#39;RPA.core.webdriver&#39;",
+   "body": "<p>I am creating a webscraper and the idea is to use Selenium, Robocorp and VSCode altogether.</p>\n<p>I understand that Robocorp already has a file YAML that contains de dependencies of the code, but my doubt is, can I simply PIP INSTALL RPA.core.webdriver?</p>\n<p>In my code , there is:</p>\n<pre><code>from RPA.core.webdriver import cache, download, start\n</code></pre>\n<p>and then:</p>\n<pre><code>def set_webdriver(self, browser=&quot;Chrome&quot;):\n    options = self.set_chrome_options()\n    executable_driver_path = cache(browser)\n    if not executable_driver_path:\n        executable_driver_path = download(browser)\n        self.logger.warning(&quot;Using downloaded driver: %s&quot; % executable_driver_path)\n    else:\n        self.logger.warning(&quot;Using cached driver: %s&quot; % executable_driver_path)\n\n    self.driver = start(&quot;Chrome&quot;, executable_path=str(executable_driver_path), options=options)\n</code></pre>\n<p>Since then the error appears. How can I solve this, with conda.yaml?</p>\n<pre><code># For more details on the format and content:\n# https://github.com/robocorp/rcc/blob/master/docs/recipes.md#what-is-in-condayaml\n# Tip: Adding a link to the release notes of the packages helps maintenance and security.\n\nchannels:\n  - conda-forge\n\ndependencies:\n  - python=3.10.12                    # https://pyreadiness.org/3.10\n  - pip=23.2.1                        # https://pip.pypa.io/en/stable/news\n  - robocorp-truststore=0.8.0         # https://pypi.org/project/robocorp-truststore/\n  - nodejs=16.20.2                    # https://github.com/nodejs/node/blob/main/CHANGELOG.md\n  - pip:\n    - robotframework-browser==17.5.2  # https://github.com/MarketSquare/robotframework-browser/releases\n    - rpaframework==27.7.0            # https://rpaframework.org/releasenotes.html\n\nrccPostInstall:\n  - rfbrowser init                    # Initialize Playwright\n</code></pre>\n<p>I tried to use a method that uses a dependency, that I have no idea if it's already in the code.</p>\n<pre><code>`ImportError: cannot import name 'cache' from 'RPA.core.webdriver`\n</code></pre>\n<p><strong>UPDATE</strong>\nI managed to install conda into my machine, ran the conda.YAML, created a environment, but I still cannot import this RPA.core. Does it even exists anymore?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "installation",
+    "python-wheel",
+    "rapids",
+    "cudf"
+   ],
+   "owner": {
+    "account_id": 30691787,
+    "reputation": 43,
+    "user_id": 23531215,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/f17f51a86a80c758f95650aef1cbbfe4?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Sam",
+    "link": "https://stackoverflow.com/users/23531215/sam"
+   },
+   "is_answered": true,
+   "view_count": 2724,
+   "accepted_answer_id": 78817681,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1722904803,
+   "creation_date": 1722444423,
+   "last_edit_date": 1722531137,
+   "question_id": 78817514,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78817514/cudf-installation-failure-didnt-find-wheel-for-cudf-cu12-24-6-1",
+   "title": "cuDF installation failure: &quot;Didn&#39;t find wheel for cudf-cu12 24.6.1&quot;",
+   "body": "<p>I'm trying to install cuDF to gain the glorious powers of multithreading my NVIDIA GPU in my python scripts. However, I can't install cuDF.</p>\n<p>To install cuDF, i went to <a href=\"https://docs.rapids.ai/install\" rel=\"nofollow noreferrer\">https://docs.rapids.ai/install</a> and ran the created command:</p>\n<pre><code>pip install \\     --extra-index-url=https://pypi.nvidia.com \\     cudf-cu12==24.6.* dask-cudf-cu12==24.6.* cuml-cu12==24.6.* \\     cugraph-cu12==24.6.* cuspatial-cu12==24.6.* cuproj-cu12==24.6.* \\     cuxfilter-cu12==24.6.* cucim-cu12==24.6.* pylibraft-cu12==24.6.* \\     raft-dask-cu12==24.6.* cuvs-cu12==24.6.*\n</code></pre>\n<p>but it produced an error in which it says &quot;Didn't find wheel for cudf-cu12 24.6.1&quot; (full error message below). In the error message, it even suggests to run the command</p>\n<pre><code>$ pip install --extra-index-url https://pypi.nvidia.com cudf-cu12\n</code></pre>\n<p>but that produces the same error message- ironically with that same suggestion within it.</p>\n<p>How can I proceed? I installed the CUDA 12 driver, I downgraded my Python to Python 11 as required, I tried the conda install, I tried installing lower versions (CUDA 11 instead of CUDA 12).</p>\n<p>Here is the full output from running the pip install:</p>\n<pre><code>%pip install \\\n    --extra-index-url=https://pypi.nvidia.com \\\n    cudf-cu12==24.6.* dask-cudf-cu12==24.6.* cuml-cu12==24.6.* \\\n    cugraph-cu12==24.6.* cuspatial-cu12==24.6.* cuproj-cu12==24.6.* \\\n    cuxfilter-cu12==24.6.* cucim-cu12==24.6.* pylibraft-cu12==24.6.* \\\n    raft-dask-cu12==24.6.* cuvs-cu12==24.6.*\n</code></pre>\n<blockquote>\n<p>Looking in indexes: <a href=\"https://pypi.org/simple\" rel=\"nofollow noreferrer\">https://pypi.org/simple</a>, <a href=\"https://pypi.nvidia.com\" rel=\"nofollow noreferrer\">https://pypi.nvidia.com</a>\nCollecting cudf-cu12==24.6.*   Using cached cudf_cu12-24.6.1.tar.gz\n(2.6 kB)   Installing build dependencies: started   Installing build\ndependencies: finished with status 'done'   Getting requirements to\nbuild wheel: started   Getting requirements to build wheel: finished\nwith status 'done'   Preparing metadata (pyproject.toml): started<br />\nPreparing metadata (pyproject.toml): finished with status 'error'\nNote: you may need to restart the kernel to use updated packages.<br />\nerror: subprocess-exited-with-error      Preparing metadata\n(pyproject.toml) did not run successfully.   exit code: 1      [62\nlines of output]   INFO:nvidia-stub:Testing wheel\ncudf_cu12-24.6.1-cp310-cp310-manylinux_2_28_aarch64.whl against tag\ncp310-cp310-manylinux_2_28_aarch64   INFO:nvidia-stub:Testing wheel\ncudf_cu12-24.6.1-cp310-cp310-manylinux_2_28_x86_64.whl against tag\ncp310-cp310-manylinux_2_28_x86_64   INFO:nvidia-stub:Testing wheel\ncudf_cu12-24.6.1-cp311-cp311-manylinux_2_28_aarch64.whl against tag\ncp311-cp311-manylinux_2_28_aarch64   INFO:nvidia-stub:Testing wheel\ncudf_cu12-24.6.1-cp311-cp311-manylinux_2_28_x86_64.whl against tag\ncp311-cp311-manylinux_2_28_x86_64   INFO:nvidia-stub:Testing wheel\ncudf_cu12-24.6.1-cp39-cp39-manylinux_2_28_aarch64.whl against tag\ncp39-cp39-manylinux_2_28_aarch64   INFO:nvidia-stub:Testing wheel\ncudf_cu12-24.6.1-cp39-cp39-manylinux_2_28_x86_64.whl against tag\ncp39-cp39-manylinux_2_28_x86_64     File\n&quot;C:\\Users\\samt\\AppData\\Local\\Temp\\pip-build-env-7iipheuq\\overlay\\Lib\\site-packages\\nvidia_stub\\wheel.py&quot;,\nline 177, in download_wheel       return\ndownload_manual(wheel_directory, distribution, version)<br />\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^     File\n&quot;C:\\Users\\samt\\AppData\\Local\\Temp\\pip-build-env-7iipheuq\\overlay\\Lib\\site-packages\\nvidia_stub\\wheel.py&quot;,\nline 144, in download_manual       raise RuntimeError(f&quot;Didn't find\nwheel for {distribution} {version}&quot;)   Traceback (most recent call\nlast):     File\n&quot;C:\\Users\\samt\\AppData\\Local\\Temp\\pip-build-env-7iipheuq\\overlay\\Lib\\site-packages\\nvidia_stub\\wheel.py&quot;,\nline 177, in download_wheel       return\ndownload_manual(wheel_directory, distribution, version)<br />\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^     File\n&quot;C:\\Users\\samt\\AppData\\Local\\Temp\\pip-build-env-7iipheuq\\overlay\\Lib\\site-packages\\nvidia_stub\\wheel.py&quot;,\nline 144, in download_manual       raise RuntimeError(f&quot;Didn't find\nwheel for {distribution} {version}&quot;)   RuntimeError: Didn't find wheel\nfor cudf-cu12 24.6.1      During handling of the above exception,\nanother exception occurred:      Traceback (most recent call last):<br />\nFile\n&quot;C:\\Users\\samt\\anaconda3\\Lib\\site-packages\\pip_vendor\\pyproject_hooks_in_process_in_process.py&quot;,\nline 353, in        main()     File\n&quot;C:\\Users\\samt\\anaconda3\\Lib\\site-packages\\pip_vendor\\pyproject_hooks_in_process_in_process.py&quot;,\nline 335, in main       json_out['return_val'] =\nhook(**hook_input['kwargs'])<br />\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^     File\n&quot;C:\\Users\\samt\\anaconda3\\Lib\\site-packages\\pip_vendor\\pyproject_hooks_in_process_in_process.py&quot;,\nline 152, in prepare_metadata_for_build_wheel       whl_basename =\nbackend.build_wheel(metadata_directory, config_settings)<br />\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^     File\n&quot;C:\\Users\\samt\\AppData\\Local\\Temp\\pip-build-env-7iipheuq\\overlay\\Lib\\site-packages\\nvidia_stub\\buildapi.py&quot;,\nline 29, in build_wheel       return\ndownload_wheel(pathlib.Path(wheel_directory), config_settings)<br />\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^<br />\nFile\n&quot;C:\\Users\\samt\\AppData\\Local\\Temp\\pip-build-env-7iipheuq\\overlay\\Lib\\site-packages\\nvidia_stub\\wheel.py&quot;,\nline 179, in download_wheel       report_install_failure(distribution,\nversion, exception_context)     File\n&quot;C:\\Users\\samt\\AppData\\Local\\Temp\\pip-build-env-7iipheuq\\overlay\\Lib\\site-packages\\nvidia_stub\\error.py&quot;,\nline 63, in report_install_failure       raise InstallFailedError(<br />\nnvidia_stub.error.InstallFailedError:<br />\n*******************************************************************************      The installation of cudf-cu12 for version 24.6.1 failed.      This is\na special placeholder package which downloads a real wheel package<br />\nfrom <a href=\"https://pypi.nvidia.com\" rel=\"nofollow noreferrer\">https://pypi.nvidia.com</a>. If <a href=\"https://pypi.nvidia.com\" rel=\"nofollow noreferrer\">https://pypi.nvidia.com</a> is not\nreachable, we   cannot download the real wheel file to install.<br />\nYou might try installing this package via</p>\n<p>$ pip install --extra-index-url <a href=\"https://pypi.nvidia.com\" rel=\"nofollow noreferrer\">https://pypi.nvidia.com</a> cudf-cu12</p>\n<p>Here is some debug information about your platform to include in any\nbug report:  Python Version: CPython 3.11.9 Operating System: Windows\n10 CPU Architecture: AMD64 Driver Version: 555.99 CUDA Version: 12.5\n*******************************************************************************  [end of output]  note: This error originates from a subprocess, and is\nlikely not a problem with pip. error: metadata-generation-failed\nEncountered error while generating package metadata.  See above for\noutput.  note: This is an issue with the package mentioned above, not\npip. hint: See above for details.</p>\n</blockquote>\n<p>I also tried the conda version of the install created from the RAPIDS site:</p>\n<pre><code>conda create -n rapids-24.06 -c rapidsai -c conda-forge -c nvidia rapids=24.06 python=3.11 'cuda-version&gt;=12.0,&lt;=12.2'\n</code></pre>\n<p>and that produced:</p>\n<pre><code>Channels:\n - rapidsai\n - conda-forge\n - nvidia\n - defaults\nPlatform: win-64\nCollecting package metadata (repodata.json): done\nSolving environment: failed\n\nPackagesNotFoundError: The following packages are not available from current channels:\n\n  - rapids=24.06*\n\nCurrent channels:\n\n  - https://conda.anaconda.org/rapidsai\n  - https://conda.anaconda.org/conda-forge\n  - https://conda.anaconda.org/nvidia\n  - defaults\n\nTo search for alternate channels that may provide the conda package you're\nlooking for, navigate to\n\n    https://anaconda.org\n</code></pre>\n<p>I just don't know how to proceed. Maybe I need to research how to install wheels?</p>\n<p>UPDATE: The error message states I am using microsoft 10, but according to my computer, I am not:</p>\n<blockquote>\n<p>Edition   Windows 11 Pro Version  22H2 Installed on   \u200e2/\u200e4/\u200e2023 OS\nbuild 22621.3958 Experience   Windows Feature Experience Pack\n1000.22700.1026.0</p>\n</blockquote>\n<p>UPDATE: I am now using the WSL2 terminal. I installed anaconda, and I installed RAPIDS as instructed on the website in the WS2L:</p>\n<pre><code>conda create -n rapids-24.06 -c rapidsai -c conda-forge -c nvidia  \\\n    rapids=24.06 python=3.11 'cuda-version&gt;=12.0,&lt;=12.2\n</code></pre>\n<p>And although this was successful, there are still problems. Even inside the WSL2, I cannot import cudf; it gives the module not found error</p>\n<pre><code>(base) aridleprechaun@Samuel-Tanner-Desktop:~$ ls\nAnaconda3-2024.06-1-Linux-x86_64.sh    Anaconda3-2024.06-1-Windows-x86_64.exe    anaconda3\nAnaconda3-2024.06-1-Linux-x86_64.sh.1  Anaconda3-2024.06-1-Windows-x86_64.exe.1\n(base) aridleprechaun@Samuel-Tanner-Desktop:~$ python\nPython 3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:12:24) [GCC 11.2.0] on linux\nType &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.\n&gt;&gt;&gt; import cudf\nTraceback (most recent call last):\n  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;\nModuleNotFoundError: No module named 'cudf' \n</code></pre>\n<p><code>cudf</code> should be already be installed when I installed RAPIDS. Proof/verification I installed RAPIDS:</p>\n<pre><code>(base) aridleprechaun@Samuel-Tanner-Desktop:~$ conda create -n rapids-24.06 -c rapidsai -c conda-forge -c nvidia  \\\n    rapids=24.06 python=3.11 'cuda-version&gt;=12.0,&lt;=12.2'\nWARNING: A conda environment already exists at '/home/aridleprechaun/anaconda3/envs/rapids-24.06'\nRemove existing environment (y/[n])? n\n\n\nCondaSystemExit: Exiting.\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "catboost",
+    "catboostregressor"
+   ],
+   "owner": {
+    "account_id": 14214280,
+    "reputation": 567,
+    "user_id": 10268617,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/f5cb5485bbfdc3cfbb929b2d9479bb19?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Parthiban",
+    "link": "https://stackoverflow.com/users/10268617/parthiban"
+   },
+   "is_answered": true,
+   "view_count": 4879,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1722152632,
+   "creation_date": 1611317952,
+   "last_edit_date": 1611318375,
+   "question_id": 65845064,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/65845064/cannot-import-name-catboostregressor",
+   "title": "cannot import name &#39;CatBoostRegressor&#39;",
+   "body": "<p>I successfully installed catboost using pip install, but when i import the catboostregressor in my code it is throwing below error:</p>\n<pre><code>from catboost import CatBoostRegressor\n\nImportError: cannot import name 'CatBoostRegressor'\n</code></pre>\n<p>Any ideas?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram-bot",
+    "python-telegram-bot"
+   ],
+   "owner": {
+    "account_id": 14249823,
+    "reputation": 11,
+    "user_id": 10293731,
+    "user_type": "registered",
+    "profile_image": "https://lh6.googleusercontent.com/-ECvbcP-648Y/AAAAAAAAAAI/AAAAAAAAAF8/2BEs-NMBBms/s256-rj/photo.jpg",
+    "display_name": "nikalaev",
+    "link": "https://stackoverflow.com/users/10293731/nikalaev"
+   },
+   "is_answered": true,
+   "view_count": 18048,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1721812060,
+   "creation_date": 1681304255,
+   "question_id": 75995740,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/75995740/importerror-cannot-import-name-update-from-telegram",
+   "title": "ImportError: cannot import name &#39;Update&#39; from &#39;telegram&#39;",
+   "body": "<p>from telegram import Update\nImportError: cannot import name 'Update' from 'telegram'</p>\n<pre><code>import requests\nfrom bs4 import BeautifulSoup\nfrom telegram import Update\n\n\nTOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'\n\n\ndef start(update: Update, context: CallbackContext):\n    context.bot.send_message(chat_id=update.effective_chat.id, text=&quot;Welcome to the product search bot! Please enter a product name to search for.&quot;)\n\n\ndef search_product(update: Update, context: CallbackContext):\n    product_name = update.message.text\n    url = f'https://example.com/search?q={product_name}'\n    response = requests.get(url)\n    soup = BeautifulSoup(response.content, 'html.parser')\n    products = soup.find_all('div', class_='product')\n\n    for product in products:\n        name = product.find('h3', class_='product-name').text.strip()\n        price = product.find('div', class_='product-price').text.strip()\n        context.bot.send_message(chat_id=update.effective_chat.id, text=f'{name}\\n{price}')\n\n\ndef main():\n    updater = Updater(TOKEN)\n    dp = updater.dispatcher\n    dp.add_handler(CommandHandler(&quot;start&quot;, start))\n    dp.add_handler(MessageHandler(Filters.text &amp; ~Filters.command, search_product))\n    updater.start_polling()\n    updater.idle()\n\n\nif __name__ == '__main__':\n    main()\n</code></pre>\n<p>I try pip uninstall python-telegram-bot\npip install python-telegram-bot --upgrade --force-reinstall\nfrom telegram import Update\nbut it didnt help</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "tensorflow",
+    "jupyter-notebook",
+    "tensorflow2.0",
+    "object-detection-api"
+   ],
+   "owner": {
+    "account_id": 30650978,
+    "reputation": 11,
+    "user_id": 23497384,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/ACg8ocKZ_0qNtl_OJ1-QXCC-HVRJpQGwhL-RjtHCtz-FhSlT=k-s256",
+    "display_name": "DifferentRatFixer",
+    "link": "https://stackoverflow.com/users/23497384/differentratfixer"
+   },
+   "is_answered": true,
+   "view_count": 165,
+   "accepted_answer_id": 78436072,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1719074574,
+   "creation_date": 1709133571,
+   "last_edit_date": 1709139197,
+   "question_id": 78075594,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78075594/importerror-cannot-import-name-model-lib-v2-from-object-detection-already",
+   "title": "ImportError: cannot import name &#39;model_lib_v2&#39; from &#39;object_detection&#39; (already installed an still not working)",
+   "body": "<p>**Hey guys, currently doing tensorflow object detection and stuck because of an error. Already tried all the method in the internet, still not working.\n**\nI use tensorflow == 2.10.0, the model is <a href=\"http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.tar.gz\" rel=\"nofollow noreferrer\">http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.tar.gz</a>\nand using jupyter notebook, python version = Python 3.10.9, no tensorflow gpu</p>\n<p>Below are everything related to the error:</p>\n<pre><code>(odball) C:\\Users\\someone\\Desktop\\website\\2023\\TensorFlow Object Detection\\TFODBall&gt;python Tensorflow\\models\\research\\object_detection\\model_main_tf2.py --model_dir=Tensorflow\\workspace\\models\\my_ssd_mobnet --pipeline_config_path=Tensorflow\\workspace\\models\\my_ssd_mobnet\\pipeline.config --num_train_steps=4000\nTraceback (most recent call last):\n  File &quot;C:\\Users\\someone\\Desktop\\website\\2023\\TensorFlow Object Detection\\TFODBall\\Tensorflow\\models\\research\\object_detection\\model_main_tf2.py&quot;, line 31, in &lt;module&gt;\n    from object_detection import model_lib_v2\nImportError: cannot import name 'model_lib_v2' from 'object_detection' (C:\\Users\\someone\\Desktop\\website\\2023\\TensorFlow Object Detection\\TFODBall\\odball\\lib\\site-packages\\object_detection\\__init__.py)\n\n[C:\\Users\\someone\\Desktop\\website\\2023\\TensorFlow Object Detection\\TFODBall\\Tensorflow\\models\\research\\object_detection\\model_main_tf2.py](https://i.sstatic.net/mSaqo.png)\n\nThe &quot;from object detection&quot; of the image have indicator \n</code></pre>\n<p>says report missing imports &quot;object detection&quot; could not be resolved</p>\n<p>Solutions I have tried :</p>\n<ol>\n<li>pip install tensorflow-object-detection-api</li>\n<li>uninstall and reinstall tensorflow</li>\n<li>restart kernel</li>\n</ol>\n<p>Below are the pip list :</p>\n<pre><code>Package                         Version         Editable project location\n------------------------------- --------------- ---------------------------------------------------------------------------------------------------------\nabsl-py                         2.1.0\nanyio                           4.3.0\napache-beam                     2.54.0\nargon2-cffi                     23.1.0\nargon2-cffi-bindings            21.2.0\narrow                           1.3.0\nasttokens                       2.4.1\nastunparse                      1.6.3\nasync-lru                       2.0.4\nattrs                           23.2.0\navro-python3                    1.10.2\nBabel                           2.14.0\nbeautifulsoup4                  4.12.3\nbleach                          6.1.0\ncachetools                      5.3.3\ncertifi                         2024.2.2\ncffi                            1.16.0\ncharset-normalizer              3.3.2\ncolorama                        0.4.6\ncomm                            0.2.1\ncontextlib2                     21.6.0\ncontourpy                       1.2.0\ncycler                          0.12.1\nCython                          3.0.8\ndebugpy                         1.8.1\ndecorator                       5.1.1\ndefusedxml                      0.7.1\ndm-tree                         0.1.8\ndocutils                        0.20.1\nexceptiongroup                  1.2.0\nexecuting                       2.0.1\nfastjsonschema                  2.19.1\nflatbuffers                     23.5.26\nfonttools                       4.49.0\nfqdn                            1.5.1\ngast                            0.4.0\ngoogle-auth                     2.28.1\ngoogle-auth-oauthlib            0.4.6\ngoogle-pasta                    0.2.0\ngrpcio                          1.62.0\nh11                             0.14.0\nh5py                            3.10.0\nhttpcore                        1.0.4\nhttpx                           0.27.0\nidna                            3.6\nimportlib-metadata              7.0.1\nipykernel                       6.29.3\nipython                         8.22.1\nipywidgets                      8.1.2\nisoduration                     20.11.0\njaraco.classes                  3.3.1\njedi                            0.19.1\nJinja2                          3.1.3\njson5                           0.9.17\njsonpointer                     2.4\njsonschema                      4.21.1\njsonschema-specifications       2023.12.1\njupyter                         1.0.0\njupyter_client                  8.6.0\njupyter-console                 6.6.3\njupyter_core                    5.7.1\njupyter-events                  0.9.0\njupyter-lsp                     2.2.3\njupyter_server                  2.12.5\njupyter_server_terminals        0.5.2\njupyterlab                      4.1.2\njupyterlab_pygments             0.3.0\njupyterlab_server               2.25.3\njupyterlab_widgets              3.0.10\nkeras                           2.10.0\nKeras-Preprocessing             1.1.2\nkeyring                         24.3.1\nkiwisolver                      1.4.5\nlibclang                        16.0.6\nlvis                            0.5.3\nlxml                            5.1.0\nMarkdown                        3.5.2\nmarkdown-it-py                  3.0.0\nMarkupSafe                      2.1.5\nmatplotlib                      3.8.3\nmatplotlib-inline               0.1.6\nmdurl                           0.1.2\nmistune                         3.0.2\nml-dtypes                       0.3.2\nmore-itertools                  10.2.0\nnamex                           0.0.7\nnbclient                        0.9.0\nnbconvert                       7.16.1\nnbformat                        5.9.2\nnest-asyncio                    1.6.0\nnh3                             0.2.15\nnotebook                        7.1.1\nnotebook_shim                   0.2.4\nnumpy                           1.26.4\noauthlib                        3.2.2\nobject-detection                0.1\nopencv-python                   4.9.0.80\nopt-einsum                      3.3.0\noverrides                       7.7.0\npackaging                       23.2\npandas                          2.2.1\npandocfilters                   1.5.1\nparso                           0.8.3\npillow                          10.2.0\npip                             24.0\npkginfo                         1.9.6\nplatformdirs                    4.2.0\nportalocker                     2.8.2\nprometheus_client               0.20.0\nprompt-toolkit                  3.0.43\nprotobuf                        3.19.6\npsutil                          5.9.8\npure-eval                       0.2.2\npyasn1                          0.5.1\npyasn1-modules                  0.3.0\npycocotools                     2.0.7\npycparser                       2.21\nPygments                        2.17.2\npyparsing                       2.4.7\nPyQt5                           5.15.10\nPyQt5-Qt5                       5.15.2\nPyQt5-sip                       12.13.0\npython-dateutil                 2.8.2\npython-json-logger              2.0.7\npytz                            2024.1\npywin32                         306\npywin32-ctypes                  0.2.2\npywinpty                        2.0.13\nPyYAML                          6.0.1\npyzmq                           25.1.2\nqtconsole                       5.5.1\nQtPy                            2.4.1\nreadme_renderer                 43.0\nreferencing                     0.33.0\nregex                           2023.12.25\nrequests                        2.31.0\nrequests-oauthlib               1.3.1\nrequests-toolbelt               1.0.0\nrfc3339-validator               0.1.4\nrfc3986                         2.0.0\nrfc3986-validator               0.1.1\nrich                            13.7.0\nrpds-py                         0.18.0\nrsa                             4.9\nsacrebleu                       2.2.0\nscipy                           1.12.0\nSend2Trash                      1.8.2\nsetuptools                      65.5.0\nsix                             1.16.0\nslim                            0.1             c:\\users\\someone\\desktop\\website\\2023\\tensorflow object detection\\tfodball\\tensorflow\\models\\research\\slim\nsniffio                         1.3.1\nsoupsieve                       2.5\nstack-data                      0.6.3\ntabulate                        0.9.0\ntensorboard                     2.10.1\ntensorboard-data-server         0.6.1\ntensorboard-plugin-wit          1.8.1\ntensorflow                      2.10.0\ntensorflow-estimator            2.10.0\ntensorflow-io                   0.31.0\ntensorflow-io-gcs-filesystem    0.31.0\ntensorflow-object-detection-api 0.1.1\ntermcolor                       2.4.0\nterminado                       0.18.0\ntf-models-official              2.15.0\ntf-slim                         1.1.0\ntinycss2                        1.2.1\ntomli                           2.0.1\ntornado                         6.4\ntraitlets                       5.14.1\ntwine                           5.0.0\ntypes-python-dateutil           2.8.19.20240106\ntyping_extensions               4.10.0\nuri-template                    1.3.0\nurllib3                         2.2.1\nwcwidth                         0.2.13\nwebcolors                       1.13\nwebencodings                    0.5.1\nwebsocket-client                1.7.0\nWerkzeug                        3.0.1\nwget                            3.2\nwheel                           0.42.0\nwidgetsnbextension              4.0.10\nwrapt                           1.16.0\nzipp                            3.17.0\n</code></pre>\n<p>Solutions I have tried :</p>\n<pre><code>1. pip install tensorflow-object-detection-api\n2. uninstall and reinstall tensorflow\n3. restart kernel \n</code></pre>\n<p>i was expecting the object detection could be resolved, unfortunately its still there causing error</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "jupyter-notebook",
+    "anaconda",
+    "navigator",
+    "anaconda3"
+   ],
+   "owner": {
+    "account_id": 27109393,
+    "reputation": 21,
+    "user_id": 20654770,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/ALm5wu2pHvuo9QdWOpdhwp5RMKRHGe4r10ndLHNpL2oe=k-s256",
+    "display_name": "1010_Sayantan Sen",
+    "link": "https://stackoverflow.com/users/20654770/1010-sayantan-sen"
+   },
+   "is_answered": true,
+   "view_count": 2482,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1716957764,
+   "creation_date": 1716268116,
+   "question_id": 78509739,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78509739/my-anaconda-navigator-wont-launch-from-cmd-or-manually",
+   "title": "My Anaconda Navigator wont launch from cmd or manually",
+   "body": "<p>yesterday, i uninstalled my anti virus and after that , the navigator is not launching any more.</p>\n<p>i tried going to the script file and updating my conda and navigator.\nhowever the navigator update gets stuck after some time.</p>\n<p>i have tried, almost most solutions available, but none of the hit and miss are working.</p>\n<p>conda update conda// works\nconda update anaconda-navigator // this one gets stuck</p>\n<p>pip install PyQt5\npip install pyqtwebengine // both works .</p>\n<p>jupiter opens up but anaconda navigator doesnot</p>\n<p>i tried running navigator directly from script cmd.\nC:\\Users\\sayan.anaconda\\navigator\\scripts&gt; anaconda-navigator</p>\n<p>it provides the following:-\nTraceback (most recent call last):\nFile &quot;C:\\Users\\sayan\\anaconda3\\Scripts\\anaconda-navigator-script.py&quot;, line 6, in \nfrom anaconda_navigator.app.main import main\nFile &quot;C:\\Users\\sayan\\anaconda3\\lib\\site-packages\\anaconda_navigator\\app\\main.py&quot;, line 19, in \nfrom anaconda_navigator.app.start import start_app\nFile &quot;C:\\Users\\sayan\\anaconda3\\lib\\site-packages\\anaconda_navigator\\app\\start.py&quot;, line 27, in \nfrom anaconda_navigator.widgets.main_window import MainWindow\nFile &quot;C:\\Users\\sayan\\anaconda3\\lib\\site-packages\\anaconda_navigator\\widgets\\main_window_<em>init</em>_.py&quot;, line 52, in \nfrom anaconda_navigator.widgets.tabs.community import CommunityTab\nFile &quot;C:\\Users\\sayan\\anaconda3\\lib\\site-packages\\anaconda_navigator\\widgets\\tabs\\community.py&quot;, line 23, in \nfrom PIL.ImageQt import ImageQt\nImportError: cannot import name 'ImageQt' from 'PIL.ImageQt' (C:\\Users\\sayan\\anaconda3\\lib\\site-packages\\PIL\\ImageQt.py)\nPS C:\\Users\\sayan.anaconda\\navigator\\scripts&gt;</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "nlp",
+    "gensim",
+    "data-preprocessing"
+   ],
+   "owner": {
+    "account_id": 28935123,
+    "reputation": 1,
+    "user_id": 22162885,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AAcHTtezVVchu_0a-Vqwpw_XrKH6frQJcWQkfyv709oLDKdEa80=k-s256",
+    "display_name": "Katsu F",
+    "link": "https://stackoverflow.com/users/22162885/katsu-f"
+   },
+   "is_answered": false,
+   "view_count": 618,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1716676729,
+   "creation_date": 1688303095,
+   "question_id": 76599034,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/76599034/how-can-i-solve-installation-error-of-texthero",
+   "title": "How can I solve installation error of texthero?",
+   "body": "<p>When I tried to <code>!pip install texthero</code> on Google Colab, below error happen therefore I cannot import texthero.</p>\n<ul>\n<li>code of pip install</li>\n</ul>\n<pre><code>!pip install texthero\n</code></pre>\n<ul>\n<li>result message with error after <code>pip install</code></li>\n</ul>\n<pre><code>Collecting texthero\n  Downloading texthero-1.1.0-py3-none-any.whl (24 kB)\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nCollecting gensim&lt;4.0,&gt;=3.6.0 (from texthero)\n  Downloading gensim-3.8.3.tar.gz (23.4 MB)\n     \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 23.4/23.4 MB 22.2 MB/s eta 0:00:00\n  Preparing metadata (setup.py) ... done\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nBuilding wheels for collected packages: gensim\n  error: subprocess-exited-with-error\n  \n  \u00d7 python setup.py bdist_wheel did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500&gt; See above for output.\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\n  Building wheel for gensim (setup.py) ... error\n  ERROR: Failed building wheel for gensim\n  Running setup.py clean for gensim\nFailed to build gensim\nERROR: Could not build wheels for gensim, which is required to install pyproject.toml-based projects\n</code></pre>\n<ul>\n<li>error message after <code>import texthero as hero</code></li>\n</ul>\n<pre><code>ModuleNotFoundError: No module named 'texthero'\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "flask"
+   ],
+   "owner": {
+    "account_id": 31612413,
+    "reputation": 11,
+    "user_id": 24432090,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/1f92e29de60aca6cf845ad41f0e8f4c9?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "GOUTHAMA BUDARPU",
+    "link": "https://stackoverflow.com/users/24432090/gouthama-budarpu"
+   },
+   "is_answered": true,
+   "view_count": 1104,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1713419230,
+   "creation_date": 1713356345,
+   "last_edit_date": 1713418862,
+   "question_id": 78340917,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78340917/importerror-cannot-import-name-request-ctx-stack-from-flask",
+   "title": "ImportError: cannot import name &#39;_request_ctx_stack&#39; from &#39;flask&#39;",
+   "body": "<p>I am new to Python and flask framework when I am using flask I am getting &quot;ImportError: cannot import name '_request_ctx_stack' from flask</p>\n<p>I have tried executing the following commands</p>\n<ol>\n<li>pip install --upgrade setuptools --&gt;It executed smoothely</li>\n<li>pip install --upgrade distribute --&gt;It ended by giving following error</li>\n</ol>\n<pre><code>Collecting distribute\n  Using cached distribute-0.7.3.zip (145 kB)\n  Installing build dependencies ... done\n  Getting requirements to build wheel ... done\n  Installing backend dependencies ... done\n  Preparing metadata (pyproject.toml) ... error\n  error: subprocess-exited-with-error\n\n  \u00d7 Preparing metadata (pyproject.toml) did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500&gt; [6 lines of output]\n      usage: setup.py [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]\n         or: setup.py --help [cmd1 cmd2 ...]\n         or: setup.py --help-commands\n         or: setup.py cmd --help\n\n      error: invalid command 'dist_info'\n      [end of output]\n\n  note: This error originates from a subprocess, and is likely not a problem with pip.\nerror: metadata-generation-failed\n\n\u00d7 Encountered error while generating package metadata.\n\u2570\u2500&gt; See above for output.\n\nnote: This is an issue with the package mentioned above, not pip.\nhint: See above for details.\n</code></pre>\n<p>First when I am trying to import the RoleMixin from flask-security I got the error as</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;E:\\Python Practice\\Role Based Access Control\\script.py&quot;, line 1, in &lt;module&gt;\n    from app import app \n    ^^^^^^^^^^^^^^^^^^^\n  File &quot;E:\\Python Practice\\Role Based Access Control\\app\\__init__.py&quot;, line 25, in &lt;module&gt;\n    from app import routes\n    ^^^^^^^^^^^^^^^^^^^^^^\n  File &quot;E:\\Python Practice\\Role Based Access Control\\app\\routes.py&quot;, line 6, in &lt;module&gt;\n    from app.models import User, Role\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File &quot;E:\\Python Practice\\Role Based Access Control\\app\\models.py&quot;, line 3, in &lt;module&gt;\n    from flask_security import RoleMixin\n  File &quot;E:\\Python Practice\\Role Based Access Control\\myenv\\Lib\\site-packages\\flask_security\\__init__.py&quot;, line 15, in &lt;module&gt;\n    from .core import (\n  File &quot;E:\\Python Practice\\Role Based Access Control\\myenv\\Lib\\site-packages\\flask_security\\core.py&quot;, line 86, in &lt;module&gt;\n    from .totp import Totp\n  File &quot;E:\\Python Practice\\Role Based Access Control\\myenv\\Lib\\site-packages\\flask_security\\totp.py&quot;, line 18, in &lt;module&gt;\n    from passlib.pwd import genword\n  File &quot;E:\\Python Practice\\Role Based Access Control\\myenv\\Lib\\site-packages\\passlib\\pwd.py&quot;, line 16, in &lt;module&gt;\n    import pkg_resources\nModuleNotFoundError: No module named 'pkg_resources'\n</code></pre>\n<p>To resolve this I used &quot;pip install --upgrade setuptools&quot;\nafter executing this if run my script I am getting</p>\n<pre><code>ImportError: cannot import name '_request_ctx_stack' from 'flask'\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "scikit-learn",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 4738929,
+    "reputation": 891,
+    "user_id": 5760832,
+    "user_type": "registered",
+    "accept_rate": 67,
+    "profile_image": "https://lh5.googleusercontent.com/-Uwus7NIp4Eo/AAAAAAAAAAI/AAAAAAAAAK4/P6zZ6cMyquw/s256-rj/photo.jpg",
+    "display_name": "Aqua 4",
+    "link": "https://stackoverflow.com/users/5760832/aqua-4"
+   },
+   "is_answered": true,
+   "view_count": 9825,
+   "accepted_answer_id": 59217724,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1712946292,
+   "creation_date": 1575653094,
+   "question_id": 59217723,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/59217723/importerror-cannot-import-name-plot-tree-from-sklearn-tree",
+   "title": "ImportError: cannot import name &#39;plot_tree&#39; from &#39;sklearn.tree&#39;",
+   "body": "<p>Import error when importing plot_tree from sklearn</p>\n\n<p>after doing <strong>pip install sklearn</strong></p>\n\n<p>Error-Log:</p>\n\n<pre><code>from sklearn.tree import DecisionTreeClassifier, plot_tree\n\nImportError: cannot import name 'plot_tree' from 'sklearn.tree'\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "google-colaboratory",
+    "huggingface-transformers"
+   ],
+   "owner": {
+    "account_id": 17727613,
+    "reputation": 41,
+    "user_id": 12870957,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AAuE7mC8kWDTq8wU6B9zeIA8HSMdnQjIQmTXDkylBvvwGA=k-s256",
+    "display_name": "YOU WANG",
+    "link": "https://stackoverflow.com/users/12870957/you-wang"
+   },
+   "is_answered": true,
+   "view_count": 4822,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1711282589,
+   "creation_date": 1711256673,
+   "last_edit_date": 1711261737,
+   "question_id": 78213449,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78213449/importerror-cannot-import-name-tftrainer-from-transformers-on-colab",
+   "title": "ImportError: cannot import name &#39;TFTrainer&#39; from &#39;transformers&#39; on Colab",
+   "body": "<p>so confused why i couldn't import TFTraniner in colab</p>\n<p>I've tried :\n!pip install TFTranier\n!pip --upgrade transformers\nand reinstall transformers</p>\n<p>but still failed to import TFTranier in colab like in the screenshot\n<a href=\"https://i.sstatic.net/ONidu.png\" rel=\"nofollow noreferrer\">Image</a></p>\n<p>I was trying to follow the code from other people,they successfully import TFTranier from transformers<a href=\"https://i.sstatic.net/Bsk3a.png\" rel=\"nofollow noreferrer\">Origianl code</a></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "jupyter-notebook",
+    "pycharm",
+    "spacy"
+   ],
+   "owner": {
+    "account_id": 20969580,
+    "reputation": 43,
+    "user_id": 15407037,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/6e04af33ef1c59969a9b002e199c0da6?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Vennus",
+    "link": "https://stackoverflow.com/users/15407037/vennus"
+   },
+   "is_answered": true,
+   "view_count": 1445,
+   "accepted_answer_id": 66659074,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1711175372,
+   "creation_date": 1615894563,
+   "last_edit_date": 1615900852,
+   "question_id": 66654470,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/66654470/spacy-importerror-cannot-import-name-deque-in-jupyter-notebook",
+   "title": "spacy ImportError: cannot import name Deque in Jupyter Notebook",
+   "body": "<p>I want to use spacy in a Python project on Juptyer Notebook but when i try to import the module I get the Error &quot;ImportError: cannot import name Deque&quot;. I installed spacy in PyCharm in my virtual env via <code>pip install -U spacy</code></p>\n<p>I've seen another question on here that was similar (<a href=\"https://stackoverflow.com/questions/66034842/importerror-cannot-import-name-deque-with-spacy\">ImportError cannot import name Deque with spacy</a>) but I can import spacy in PyCharm just fine so I assume it's a Jupyter Notebook specific problem.</p>\n<p>I also checked the spacy version on PyCharm and JN and they're both the same, however it seems like my virtual env and JN don't use the same Python Version (3.8.1 in my venv on PyCharm and 3.6.0 on JN)\n[Python Versions in PyCharm and JN]<a href=\"https://i.sstatic.net/WJBjK.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/WJBjK.png\" alt=\"[1]\" /></a></p>\n<p>May that be the problem or is something else causing it?</p>\n<p>I also tried to uninstall and install again in PyCharm but it didn't change anything and also tried to pip install spacy in JN again but that also didn't solve it, JN told me I might have to restart the kernel but after restarting it still couldn't import spacy without that error.\nI've tried so much that after some time i just get the error <code>ImportError: cannot import name errors</code> but I assume it's still the same problme.</p>\n<p>I'm very grateful for any suggestions and tips!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 30846429,
+    "reputation": 1,
+    "user_id": 23666488,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/db037401af50e41a4a5ecd57d00d30f1?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Yasin Efe Aksoy",
+    "link": "https://stackoverflow.com/users/23666488/yasin-efe-aksoy"
+   },
+   "is_answered": false,
+   "view_count": 350,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1710882091,
+   "creation_date": 1710882091,
+   "question_id": 78189621,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78189621/cannot-import-name-solver-from-veilcord",
+   "title": "cannot import name &#39;Solver&#39; from &#39;veilcord&#39;",
+   "body": "<p>when I run my python code, it gives an error like this, I tried pip install veilcord and it didn't fix it.</p>\n<pre><code>\nC:\\Users\\Yasin Efe Aksoy\\OneDrive\\Resimler\\Masa\u00fcst\u00fc\\Discord-Account-Creator-main&gt;python main.py\nTraceback (most recent call last):\n  File &quot;C:\\Users\\Yasin Efe Aksoy\\OneDrive\\Resimler\\Masa\u00fcst\u00fc\\Discord-Account-Creator-main\\main.py&quot;, line 12, in &lt;module&gt;\n    from veilcord    import Solver\nImportError: cannot import name 'Solver' from 'veilcord' (C:\\Users\\Yasin Efe Aksoy\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\veilcord\\__init__.py)\n\nC:\\Users\\Yasin Efe Aksoy\\OneDrive\\Resimler\\Masa\u00fcst\u00fc\\Discord-Account-Creator-main&gt;python3 main.py\nTraceback (most recent call last):\n  File &quot;C:\\Users\\Yasin Efe Aksoy\\OneDrive\\Resimler\\Masa\u00fcst\u00fc\\Discord-Account-Creator-main\\main.py&quot;, line 12, in &lt;module&gt;\n    from veilcord    import Solver\nImportError: cannot import name 'Solver' from 'veilcord' (C:\\Users\\Yasin Efe Aksoy\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\veilcord\\__init__.py)\n\nC:\\Users\\Yasin Efe Aksoy\\OneDrive\\Resimler\\Masa\u00fcst\u00fc\\Discord-Account-Creator-main&gt;\n</code></pre>\n<p>when I run my python code, it gives an error like this</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "flask",
+    "vs-code",
+    "flask-wtforms"
+   ],
+   "owner": {
+    "account_id": 2497840,
+    "reputation": 127,
+    "user_id": 13301285,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/fad90d80d8cc9448c2685fb0a37fb668?s=256&d=identicon&r=PG",
+    "display_name": "Pseudocyber",
+    "link": "https://stackoverflow.com/users/13301285/pseudocyber"
+   },
+   "is_answered": true,
+   "view_count": 1122,
+   "answer_count": 2,
+   "score": -1,
+   "last_activity_date": 1710680606,
+   "creation_date": 1649712625,
+   "question_id": 71834509,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/71834509/cannot-import-flask-wtf-into-python-3-9-venv",
+   "title": "Cannot import flask_wtf into Python 3.9 venv",
+   "body": "<p>No matter what I do, I cannot import flask_wtf, or any variation of it - flask-wtf, flask_WTF, flask-WTF, etc.  My linter doesn't recognize it (pylance in VSCode) - gives me error:</p>\n<pre><code>Import &quot;flask_wtf&quot; could not be resolvedPylancereportMissingImports\n</code></pre>\n<p>When I try to run the code, I get:</p>\n<pre><code>    Traceback (most recent call last):\n  File &quot;c:\\Users\\btaylor\\repots\\brannen\\digitalocean\\flask_app\\forms.py&quot;, line 1, in &lt;module&gt;\n    from flask_wtf import Flaskform\nModuleNotFoundError: No module named 'flask_wtf'\n</code></pre>\n<p>OS is Windows 10.  VSCode 1.66.1</p>\n<p>Code:</p>\n<pre><code>from flask_wtf import Flaskform\nfrom wtforms import (StringField, TextAreaField, IntegerField, BooleanField,\n                     RadioField)\nfrom wtforms.validators import InputRequired, Length\n\nclass CourseForm(FlaskForm):\n    title = StringField('Title', validators=[InputRequired(),\n                                             Length(min=10, max=100)])\n    description = TextAreaField('Course Description',\n                                validators=[InputRequired(),\n                                            Length(max=200)])\n    price = IntegerField('Price', validators=[InputRequired()])\n    level = RadioField('Level',\n                       choices=['Beginner', 'Intermediate', 'Advanced'],\n                       validators=[InputRequired()])\n    available = BooleanField('Available', default='checked')\n</code></pre>\n<p>I built a fresh directory, pip uninstalled Flask, created venv dir, activated, pip install the specific versions on this site: <a href=\"https://i.sstatic.net/vpsoe.png\" rel=\"nofollow noreferrer\">digital ocean - How To Use and Validate Web Forms with Flask-WTF</a>: <a href=\"https://www.digitalocean.com/community/tutorials/how-to-use-and-validate-web-forms-with-flask-wtf\" rel=\"nofollow noreferrer\">https://www.digitalocean.com/community/tutorials/how-to-use-and-validate-web-forms-with-flask-wtf</a> and copied their code into the .py file.</p>\n<p>My steps to install the libraries.</p>\n<ul>\n<li><p>.\\venv\\Scripts\\activate</p>\n</li>\n<li><p>pip install flask==2.0.2</p>\n</li>\n<li><p>pip install Flask-WTF==1.0.0</p>\n</li>\n<li><p>pip list</p>\n<p>Package      Version</p>\n<hr />\n<p>click        8.1.2\ncolorama     0.4.4\nFlask        2.0.2\nFlask-WTF    1.0.0\nitsdangerous 2.1.2\nJinja2       3.1.1\nMarkupSafe   2.1.1\npip          22.0.4\nsetuptools   58.1.0\nWerkzeug     2.1.1\nWTForms      3.0.1</p>\n</li>\n</ul>\n<p>pip freeze shows:</p>\n<pre><code>(venv) PS C:\\Users\\btaylor\\repots\\brannen\\digitalocean&gt; pip freeze\nclick==8.1.2\ncolorama==0.4.4\nFlask==2.0.2\nFlask-WTF==1.0.0\nitsdangerous==2.1.2\nJinja2==3.1.1\nMarkupSafe==2.1.1\nWerkzeug==2.1.1\nWTForms==3.0.1\n</code></pre>\n<p>Snip of folder structure</p>\n<p><a href=\"https://i.sstatic.net/vpsoe.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/vpsoe.png\" alt=\"Snip of folder structure\" /></a></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "android",
+    "cmake",
+    "pip",
+    "termux"
+   ],
+   "owner": {
+    "account_id": 30493814,
+    "reputation": 31,
+    "user_id": 23368273,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/ACg8ocLo-5ZJVFWdNHefH8cZFmH7knwdj9JPYhZP5SqB6Ul3=k-s256",
+    "display_name": "Friedrich Lidenbach",
+    "link": "https://stackoverflow.com/users/23368273/friedrich-lidenbach"
+   },
+   "is_answered": true,
+   "view_count": 10800,
+   "answer_count": 2,
+   "score": 3,
+   "last_activity_date": 1710509076,
+   "creation_date": 1707449864,
+   "question_id": 77965881,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77965881/cannot-pip-install-numpy-and-many-other-packages-in-termux-on-an-android-tabl",
+   "title": "Cannot pip install numpy (and many other packages) in Termux (on an Android tablet)",
+   "body": "<p>I was trying to edit some python scripts in my Android Tablet (Lenovo P11 2nd Gen, Android 13) using NVChad on Termux (v.0.118.0). NVChad works just fine, but (as stated in the tittle) I cannot pip install some packages in Termux. Weirdly enought, some packages work just fine. For example, <code>pip install sympy</code> installs sympy without any errors and it works just fine when running the code. However, I cannot import numpy, scipy, pandas, matplotlib, or any other such packages. For example, <code>pip install numpy</code> returns:</p>\n<pre><code>  Collecting numpy\n  Using cached numpy-1.26.4.tar.gz (15.8 MB)\n  Installing build dependencies ... done\n  Getting requirements to build wheel ... done\n  Installing backend dependencies ... error\n  error: subprocess-exited-with-error\n  \u00d7 pip subprocess to install backend dependencies did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500&gt; [67 lines of output]\n      Collecting patchelf&gt;=0.11.0\n        Using cached patchelf-0.17.2.1.tar.gz (167 kB)\n        Installing build dependencies: started\n        Installing build dependencies: finished with status 'done'\n        Getting requirements to build wheel: started\n        ***(Something about building wheel and loading ninja. Everything ends with &quot;done&quot;)***\n        Preparing metadata (pyproject.toml): started\n        Preparing metadata (pyproject.toml): finished with status 'done'\n      Building wheels for collected packages: patchelf, ninja\n        Building wheel for patchelf (pyproject.toml): started\n        Building wheel for patchelf (pyproject.toml): finished with status 'error'\n        error: subprocess-exited-with-error\n        \u00d7 Building wheel for patchelf (pyproject.toml) did not run successfully.\n        \u2502 exit code: 1\n        \u2570\u2500&gt; [11 lines of output]\n            Traceback (most recent call last):\n              File &quot;/data/data/com.termux/files/usr/tmp/pip-build-env-c35ylp3h/overlay/lib/python3.11/site-packages/skbuild/setuptools_wrap.py&quot;, line 645, in setup\n                cmkr = cmaker.CMaker(cmake_executable)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n              File &quot;/data/data/com.termux/files/usr/tmp/pip-build-env-c35ylp3h/overlay/lib/python3.11/site-packages/skbuild/cmaker.py&quot;, line 148, in __init__\n                self.cmake_version = get_cmake_version(self.cmake_executable)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n              File &quot;/data/data/com.termux/files/usr/tmp/pip-build-env-c35ylp3h/overlay/lib/python3.11/site-packages/skbuild/cmaker.py&quot;, line 105, in get_cmake_version\n                raise SKBuildError(msg) from err\n            Problem with the CMake installation, aborting build. CMake executable is cmake\n            [end of output]\n        note: This error originates from a subprocess, and is likely not a problem with pip.\n        ERROR: Failed building wheel for patchelf\n        Building wheel for ninja (pyproject.toml): started\n        Building wheel for ninja (pyproject.toml): finished with status 'error'\n        error: subprocess-exited-with-error\n        \u00d7 Building wheel for ninja (pyproject.toml) did not run successfully.\n        \u2502 exit code: 1\n        \u2570\u2500&gt; [15 lines of output]\n            /data/data/com.termux/files/usr/tmp/pip-build-env-cca3tsj3/overlay/lib/python3.11/site-packages/setuptools_scm/git.py:308: UserWarning: git archive did not support describe output\n              warnings.warn(&quot;git archive did not support describe output&quot;)\n            /data/data/com.termux/files/usr/tmp/pip-build-env-cca3tsj3/overlay/lib/python3.11/site-packages/setuptools_scm/git.py:327: UserWarning: unprocessed git archival found (no export subst applied)\n              warnings.warn(&quot;unprocessed git archival found (no export subst applied)&quot;)\n            Traceback (most recent call last):\n              File &quot;/data/data/com.termux/files/usr/tmp/pip-build-env-cca3tsj3/overlay/lib/python3.11/site-packages/skbuild/setuptools_wrap.py&quot;, line 645, in setup\n                cmkr = cmaker.CMaker(cmake_executable)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n              File &quot;/data/data/com.termux/files/usr/tmp/pip-build-env-cca3tsj3/overlay/lib/python3.11/site-packages/skbuild/cmaker.py&quot;, line 148, in __init__\n                self.cmake_version = get_cmake_version(self.cmake_executable)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n              File &quot;/data/data/com.termux/files/usr/tmp/pip-build-env-cca3tsj3/overlay/lib/python3.11/site-packages/skbuild/cmaker.py&quot;, line 105, in get_cmake_version\n                raise SKBuildError(msg) from err\n            Problem with the CMake installation, aborting build. CMake executable is cmake\n            [end of output]\n        note: This error originates from a subprocess, and is likely not a problem with pip.\n        ERROR: Failed building wheel for ninja\n      Failed to build patchelf ninja\n      ERROR: Could not build wheels for patchelf, ninja, which is required to install pyproject.toml-based projects\n      [end of output]\n  note: This error originates from a subprocess, and is likely not a problem with pip.\nerror: subprocess-exited-with-error\n\u00d7 pip subprocess to install backend dependencies did not run successfully.\n\u2502 exit code: 1\n\u2570\u2500&gt; See above for output.\nnote: This error originates from a subprocess, and is likely not a problem with pip.\n</code></pre>\n<p>I did a bit of research and made sure to <code>pkg update</code>, <code>pkg upgrade</code>, <code>pkg install openssl</code>, <code>pkg build-essential</code>. I was hopping that was gonna be it, maybe install a couple more dependencies and it would be fixed. Instead, after installing build-essential without errors and trying <code>pip install numpy</code> again I got a huge error message. So long in fact, that StackOverflow won't let me post it on it's entirety. I had to remove some parts (with ***parenthesis*** explainning what is missing) It is as follows:</p>\n<pre><code>  Collecting numpy\n  Using cached numpy-1.26.4.tar.gz (15.8 MB)\n  Installing build dependencies ... done\n  Getting requirements to build wheel ... done\n  Installing backend dependencies ... error\n  error: subprocess-exited-with-error\n  \u00d7 pip subprocess to install backend dependencies did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500&gt; [308 lines of output]\n      Collecting patchelf&gt;=0.11.0\n        Using cached patchelf-0.17.2.1.tar.gz (167 kB)\n        Installing build dependencies: started\n        Installing build dependencies: finished with status 'done'\n        Getting requirements to build wheel: started\n        Getting requirements to build wheel: finished with status 'done'\n        Preparing metadata (pyproject.toml): started\n        Preparing metadata (pyproject.toml): finished with status 'done'\n      Building wheels for collected packages: patchelf\n        Building wheel for patchelf (pyproject.toml): started\n        Building wheel for patchelf (pyproject.toml): finished with status 'error'\n        error: subprocess-exited-with-error\n        \u00d7 Building wheel for patchelf (pyproject.toml) did not run successfully.\n        \u2502 exit code: 1\n        \u2570\u2500&gt; [286 lines of output]            -- Trying 'Ninja' generator            --\n            CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):\n              Compatibility with CMake &lt; 3.5 will be removed from a future version of\n              CMake.\n              Update the VERSION argument &lt;min&gt; value or use a ...&lt;max&gt; suffix to tell\n              CMake that the project does not need compatibility with older versions.\n            Not searching for unused variables given on the command line.\n            -- The C compiler identification is Clang 17.0.6\n            -- Detecting C compiler ABI info\n            -- Detecting C compiler ABI info - done\n            -- Check for working C compiler: /data/data/com.termux/files/usr/bin/cc - skipped\n            -- Detecting C compile features\n            -- Detecting C compile features - done\n            -- The CXX compiler identification is Clang 17.0.6\n            -- Detecting CXX compiler ABI info\n            -- Detecting CXX compiler ABI info - done\n            -- Check for working CXX compiler: /data/data/com.termux/files/usr/bin/c++ - skipped\n            -- Detecting CXX compile features\n            -- Detecting CXX compile features - done\n            -- Configuring done (1.9s)\n            -- Generating done (0.0s)\n            -- Build files have been written to: /data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3/_cmake_test_compile/build\n            --            -- Trying 'Ninja' generator - success            Configuring Project\n              Working directory:\n                /data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3/_skbuild/linux-aarch64-3.11/cmake-build\n              Command:\n                ***(A gigantic command)***\n            Not searching for unused variables given on the command line.\n            ***(A bit about the C compiler being Clang)***\n            [1/9] Creating directories for 'build_patchelf'\n            [2/9] No download step for 'build_patchelf'\n            [3/9] No update step for 'build_patchelf'\n            [4/9] Performing patch step for 'build_patchelf'\n            autoreconf: export WARNINGS=all\n            autoreconf: Entering directory '.'\n            autoreconf: configure.ac: not using Gettext\n            autoreconf: running: aclocal --force\n            autoreconf: configure.ac: tracing\n            autoreconf: configure.ac: creating directory build-aux\n            autoreconf: configure.ac: not using Libtool\n            autoreconf: configure.ac: not using Intltool\n            autoreconf: configure.ac: not using Gtkdoc\n            autoreconf: running: /data/data/com.termux/files/usr/bin/autoconf --force\n            autoreconf: configure.ac: not using Autoheader\n            autoreconf: running: automake --add-missing --copy --force-missing\n            configure.ac:14: installing 'build-aux/compile'\n            configure.ac:5: installing 'build-aux/install-sh'\n            configure.ac:5: installing 'build-aux/missing'\n            src/Makefile.am: installing 'build-aux/depcomp'\n            parallel-tests: installing 'build-aux/test-driver'\n            autoreconf: 'build-aux/install-sh' is updated\n            autoreconf: Leaving directory '.'\n            [5/9] Performing configure step for 'build_patchelf'\n            checking for a BSD-compatible install... /data/data/com.termux/files/usr/bin/install -c\n            checking whether build environment is sane... yes\n            checking for a race-free mkdir -p... /data/data/com.termux/files/usr/bin/mkdir -p\n            checking for gawk... gawk\n            checking whether make sets $(MAKE)... yes\n            checking whether make supports nested variables... yes\n            checking for strip... no\n            checking for objdump... no\n            checking for objcopy... no\n            checking for readelf... no\n            checking whether make supports the include directive... yes (GNU style)\n            checking for gcc... gcc\n            checking whether the C compiler works... yes\n            checking for C compiler default output file name... a.out\n            checking for suffix of executables...\n            checking whether we are cross compiling... no\n            checking for suffix of object files... o\n            checking whether the compiler supports GNU C... yes\n            checking whether gcc accepts -g... yes\n            checking for gcc option to enable C11 features... none needed\n            checking whether gcc understands -c and -o together... yes\n            checking dependency style of gcc... gcc3\n            checking for g++... g++\n            checking whether the compiler supports GNU C++... yes\n            checking whether g++ accepts -g... yes\n            checking for g++ option to enable C++11 features... unsupported\n            checking for g++ option to enable C++98 features... unsupported\n            checking dependency style of g++... gcc3\n            checking dependency style of gcc... gcc3\n            checking whether g++ supports C++17 features with -std=c++17... yes\n            checking that generated files are newer than configure... done\n            configure: creating ./config.status\n            config.status: creating Makefile\n            config.status: creating src/Makefile\n            config.status: creating tests/Makefile\n            config.status: creating patchelf.spec\n            config.status: executing depfiles commands\n            [6/9] Performing build step for 'build_patchelf'\n            FAILED: build_patchelf-prefix/src/build_patchelf-stamp/build_patchelf-build /data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3/_skbuild/linux-aarch64-3.11/cmake-build/build_patchelf-prefix/src/build_patchelf-stamp/build_patchelf-build\n            cd /data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3/src/patchelf-upstream &amp;&amp; /data/data/com.termux/files/usr/bin/make check &amp;&amp; /data/data/com.termux/files/usr/bin/cmake -E touch /data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3/_skbuild/linux-aarch64-3.11/cmake-build/build_patchelf-prefix/src/build_patchelf-stamp/build_patchelf-build\n            Making check in src\n            make[1]: Entering directory '/data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3/src/patchelf-upstream/src'\n            g++ -std=c++17 -DPACKAGE_NAME=\\&quot;patchelf\\&quot; -DPACKAGE_TARNAME=\\&quot;patchelf\\&quot; -DPACKAGE_VERSION=\\&quot;0.17.2\\&quot; -DPACKAGE_STRING=\\&quot;patchelf\\ 0.17.2\\&quot; -DPACKAGE_BUGREPORT=\\&quot;\\&quot; -DPACKAGE_URL=\\&quot;\\&quot; -DPACKAGE=\\&quot;patchelf\\&quot; -DVERSION=\\&quot;0.17.2\\&quot; -DHAVE_CXX17=1 -I.    -Wall -std=c++17 -D_FILE_OFFSET_BITS=64     -g -O2 -MT patchelf.o -MD -MP -MF .deps/patchelf.Tpo -c -o patchelf.o patchelf.cc\n            mv -f .deps/patchelf.Tpo .deps/patchelf.Po\n            g++ -std=c++17 -Wall -std=c++17 -D_FILE_OFFSET_BITS=64     -g -O2   -o patchelf patchelf.o\n            make[1]: Leaving directory '/data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3/src/patchelf-upstream/src'\n            Making check in tests\n            make[1]: Entering directory '/data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3/src/patchelf-upstream/tests'\n            /data/data/com.termux/files/usr/bin/make  simple-pie simple main too-many-strtab main-scoped big-dynstr no-rpath contiguous-note-sections libfoo.so libfoo-scoped.so libbar.so libbar-scoped.so libsimple.so libbuildid.so libtoomanystrtab.so phdr-corruption.so libbig-dynstr.debug\n            make[2]: Entering directory '/data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3/src/patchelf-upstream/tests'\n            gcc -DPACKAGE_NAME=\\&quot;patchelf\\&quot; -DPACKAGE_TARNAME=\\&quot;patchelf\\&quot; -DPACKAGE_VERSION=\\&quot;0.17.2\\&quot; -DPACKAGE_STRING=\\&quot;patchelf\\ 0.17.2\\&quot; -DPACKAGE_BUGREPORT=\\&quot;\\&quot; -DPACKAGE_URL=\\&quot;\\&quot; -DPACKAGE=\\&quot;patchelf\\&quot; -DVERSION=\\&quot;0.17.2\\&quot; -DHAVE_CXX17=1 -I.    -fPIC -pie -g -O2 -MT simple_pie-simple.o -MD -MP -MF .deps/simple_pie-simple.Tpo -c -o simple_pie-simple.o `test -f 'simple.c' || echo './'`simple.c\n            gcc: warning: argument unused during compilation: '-pie' [-Wunused-command-line-argument]\n            mv -f .deps/simple_pie-simple.Tpo .deps/simple_pie-simple.Po\n            gcc -fPIC -pie -g -O2   -o simple-pie simple_pie-simple.o\n            gcc -DPACKAGE_NAME=\\&quot;patchelf\\&quot; -DPACKAGE_TARNAME=\\&quot;patchelf\\&quot; -DPACKAGE_VERSION=\\&quot;0.17.2\\&quot; -DPACKAGE_STRING=\\&quot;patchelf\\ 0.17.2\\&quot; -DPACKAGE_BUGREPORT=\\&quot;\\&quot; -DPACKAGE_URL=\\&quot;\\&quot; -DPACKAGE=\\&quot;patchelf\\&quot; -DVERSION=\\&quot;0.17.2\\&quot; -DHAVE_CXX17=1 -I.     -g -O2 -MT simple-simple.o -MD -MP -MF .deps/simple-simple.Tpo -c -o simple-simple.o `test -f 'simple.c' || echo './'`simple.c\n            mv -f .deps/simple-simple.Tpo .deps/simple-simple.Po\n            gcc  -g -O2   -o simple simple-simple.o\n            gcc -DPACKAGE_NAME=\\&quot;patchelf\\&quot; -DPACKAGE_TARNAME=\\&quot;patchelf\\&quot; -DPACKAGE_VERSION=\\&quot;0.17.2\\&quot; -DPACKAGE_STRING=\\&quot;patchelf\\ 0.17.2\\&quot; -DPACKAGE_BUGREPORT=\\&quot;\\&quot; -DPACKAGE_URL=\\&quot;\\&quot; -DPACKAGE=\\&quot;patchelf\\&quot; -DVERSION=\\&quot;0.17.2\\&quot; -DHAVE_CXX17=1 -I.    -fpic -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c\n            mv -f .deps/main.Tpo .deps/main.Po\n            gcc -DPACKAGE_NAME=\\&quot;patchelf\\&quot; -DPACKAGE_TARNAME=\\&quot;patchelf\\&quot; -DPACKAGE_VERSION=\\&quot;0.17.2\\&quot; -DPACKAGE_STRING=\\&quot;patchelf\\ 0.17.2\\&quot; -DPACKAGE_BUGREPORT=\\&quot;\\&quot; -DPACKAGE_URL=\\&quot;\\&quot; -DPACKAGE=\\&quot;patchelf\\&quot; -DVERSION=\\&quot;0.17.2\\&quot; -DHAVE_CXX17=1 -I.    -fpic -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c\n            mv -f .deps/foo.Tpo .deps/foo.Po\n            gcc -DPACKAGE_NAME=\\&quot;patchelf\\&quot; -DPACKAGE_TARNAME=\\&quot;patchelf\\&quot; -DPACKAGE_VERSION=\\&quot;0.17.2\\&quot; -DPACKAGE_STRING=\\&quot;patchelf\\ 0.17.2\\&quot; -DPACKAGE_BUGREPORT=\\&quot;\\&quot; -DPACKAGE_URL=\\&quot;\\&quot; -DPACKAGE=\\&quot;patchelf\\&quot; -DVERSION=\\&quot;0.17.2\\&quot; -DHAVE_CXX17=1 -I.    -fpic -g -O2 -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o bar.c\n            mv -f .deps/bar.Tpo .deps/bar.Po\n            gcc -fpic -g -O2 -Wl,--disable-new-dtags -shared -L.  -Wl,-rpath,`pwd`/no-such-path  -o libbar.so bar.o\n            gcc -fpic -g -O2 -Wl,--disable-new-dtags -shared -L.   -o libfoo.so foo.o -lbar\n            gcc -fpic -g -O2 -Wl,--disable-new-dtags -Wl,-rpath-link=. -L.   -o main main.o -lfoo\n            gcc -DPACKAGE_NAME=\\&quot;patchelf\\&quot; -DPACKAGE_TARNAME=\\&quot;patchelf\\&quot; -DPACKAGE_VERSION=\\&quot;0.17.2\\&quot; -DPACKAGE_STRING=\\&quot;patchelf\\ 0.17.2\\&quot; -DPACKAGE_BUGREPORT=\\&quot;\\&quot; -DPACKAGE_URL=\\&quot;\\&quot; -DPACKAGE=\\&quot;patchelf\\&quot; -DVERSION=\\&quot;0.17.2\\&quot; -DHAVE_CXX17=1 -I.    -fpic -g -O2 -MT too-many-strtab.o -MD -MP -MF .deps/too-many-strtab.Tpo -c -o too-many-strtab.o too-many-strtab.c\n            mv -f .deps/too-many-strtab.Tpo .deps/too-many-strtab.Po\n            gcc  -g -O2 -c -o too-many-strtab2.o too-many-strtab2.s\n            gcc -fpic -g -O2   -o too-many-strtab too-many-strtab.o too-many-strtab2.o\n            gcc -fpic -g -O2 -Wl,--disable-new-dtags -shared -L.   -o libbar-scoped.so bar.o\n            gcc -fpic -g -O2 -Wl,--disable-new-dtags -shared -L.   -o libfoo-scoped.so foo.o -lbar-scoped\n            gcc -fpic -g -O2 -Wl,--disable-new-dtags -Wl,-rpath-link=. -L.   -o main-scoped main.o -lfoo-scoped\n            cat main.c &gt; big-dynstr.c\n            i=1; while [ $i -le 2000 ]; do echo &quot;void f$i(void) { };&quot;; i=$(($i + 1)); done &gt;&gt; big-dynstr.c\n            gcc -DPACKAGE_NAME=\\&quot;patchelf\\&quot; -DPACKAGE_TARNAME=\\&quot;patchelf\\&quot; -DPACKAGE_VERSION=\\&quot;0.17.2\\&quot; -DPACKAGE_STRING=\\&quot;patchelf\\ 0.17.2\\&quot; -DPACKAGE_BUGREPORT=\\&quot;\\&quot; -DPACKAGE_URL=\\&quot;\\&quot; -DPACKAGE=\\&quot;patchelf\\&quot; -DVERSION=\\&quot;0.17.2\\&quot; -DHAVE_CXX17=1 -I.    -fpic -g -O2 -MT big-dynstr.o -MD -MP -MF .deps/big-dynstr.Tpo -c -o big-dynstr.o big-dynstr.c                                                              mv -f .deps/big-dynstr.Tpo .deps/big-dynstr.Po\n            gcc -fpic -g -O2 -Wl,--disable-new-dtags -Wl,-rpath-link=. -L.   -o big-dynstr big-dynstr.o -lfoo\n            gcc -DPACKAGE_NAME=\\&quot;patchelf\\&quot; -DPACKAGE_TARNAME=\\&quot;patchelf\\&quot; -DPACKAGE_VERSION=\\&quot;0.17.2\\&quot; -DPACKAGE_STRING=\\&quot;patchelf\\ 0.17.2\\&quot; -DPACKAGE_BUGREPORT=\\&quot;\\&quot; -DPACKAGE_URL=\\&quot;\\&quot; -DPACKAGE=\\&quot;patchelf\\&quot; -DVERSION=\\&quot;0.17.2\\&quot; -DHAVE_CXX17=1 -I.     -g -O2 -MT no_rpath-no-rpath.o -MD -MP -MF .deps/no_rpath-no-rpath.Tpo -c -o no_rpath-no-rpath.o `test -f 'no-rpath.c' || echo './'`no-rpath.c\n            mv -f .deps/no_rpath-no-rpath.Tpo .deps/no_rpath-no-rpath.Po\n            gcc  -g -O2   -o no-rpath no_rpath-no-rpath.o                     gcc  -g -O2 -c -o contiguous-note-sections.o contiguous-note-sections.s                                                             gcc -pie -g -O2 -nostdlib -T ./contiguous-note-sections.ld  -o contiguous-note-sections contiguous-note-sections.o                  ld.lld: warning: cannot find entry symbol _start; not setting start address\n            make[2]: 'libfoo.so' is up to date.\n            make[2]: 'libfoo-scoped.so' is up to date.\n            make[2]: 'libbar.so' is up to date.                               make[2]: 'libbar-scoped.so' is up to date.\n            gcc -DPACKAGE_NAME=\\&quot;patchelf\\&quot; -DPACKAGE_TARNAME=\\&quot;patchelf\\&quot; -DPACKAGE_VERSION=\\&quot;0.17.2\\&quot; -DPACKAGE_STRING=\\&quot;patchelf\\ 0.17.2\\&quot; -DPACKAGE_BUGREPORT=\\&quot;\\&quot; -DPACKAGE_URL=\\&quot;\\&quot; -DPACKAGE=\\&quot;patchelf\\&quot; -DVERSION=\\&quot;0.17.2\\&quot; -DHAVE_CXX17=1 -I.    -fpic -g -O2 -MT simple.o -MD -MP -MF .deps/simple.Tpo -c -o simple.o simple.c\n            mv -f .deps/simple.Tpo .deps/simple.Po\n            gcc -fpic -g -O2 -Wl,--disable-new-dtags -shared -L.   -o libsimple.so simple.o\n            gcc -fpic -g -O2 -Wl,--disable-new-dtags -shared -L.  -Wl,--build-id  -o libbuildid.so simple.o                                     gcc -fpic -g -O2 -Wl,--disable-new-dtags -shared -L.   -o libtoomanystrtab.so too-many-strtab.o too-many-strtab2.o\n            gcc -DPACKAGE_NAME=\\&quot;patchelf\\&quot; -DPACKAGE_TARNAME=\\&quot;patchelf\\&quot; -DPACKAGE_VERSION=\\&quot;0.17.2\\&quot; -DPACKAGE_STRING=\\&quot;patchelf\\ 0.17.2\\&quot; -DPACKAGE_BUGREPORT=\\&quot;\\&quot; -DPACKAGE_URL=\\&quot;\\&quot; -DPACKAGE=\\&quot;patchelf\\&quot; -DVERSION=\\&quot;0.17.2\\&quot; -DHAVE_CXX17=1 -I.     -g -O2 -MT phdr_corruption_so-void.o -MD -MP -MF .deps/phdr_corruption_so-void.Tpo -c -o phdr_corruption_so-void.o `test -f 'void.c' || echo './'`void.c\n            mv -f .deps/phdr_corruption_so-void.Tpo .deps/phdr_corruption_so-void.Po\n            gcc  -g -O2 -nostdlib -shared -Wl,-T./phdr-corruption.ld  -o phdr-corruption.so phdr_corruption_so-void.o\n            gcc -fPIC -shared -o libbig-dynstr.so big-dynstr.c\n            only-keep-debug libbig-dynstr.so -o libbig-dynstr.debug                                                                             make[2]: only-keep-debug: No such file or directory\n            make[2]: [Makefile:1615: libbig-dynstr.debug] Error 127 (ignored)                                                                   make[2]: Leaving directory '/data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3/src/patchelf-upstream/tests'                                           /data/data/com.termux/files/usr/bin/make  check-TESTS\n            make[2]: Entering directory '/data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3/src/patchelf-upstream/tests'                                          only-keep-debug libbig-dynstr.so -o libbig-dynstr.debug                                                                             make[2]: only-keep-debug: No such file or directory\n            make[2]: [Makefile:1615: libbig-dynstr.debug] Error 127 (ignored)\n            make[3]: Entering directory '/data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3/src/patchelf-upstream/tests'\n            PASS: plain-fail.sh\n            PASS: plain-run.sh\n            PASS: shrink-rpath.sh\n            PASS: set-interpreter-short.sh\n            FAIL: set-interpreter-long.sh                                     FAIL: set-rpath.sh\n            FAIL: add-rpath.sh                                                FAIL: no-rpath.sh\n            FAIL: big-dynstr.sh\n            PASS: set-rpath-library.sh\n            PASS: soname.sh\n            PASS: shrink-rpath-with-allowed-prefixes.sh                       PASS: set-rpath-rel-map.sh\n            FAIL: force-rpath.sh                                              PASS: plain-needed.sh\n            FAIL: output-flag.sh                                              PASS: too-many-strtab.sh\n            FAIL: no-rpath-pie-powerpc.sh                                     FAIL: build-id.sh\n            PASS: invalid-elf.sh                                              PASS: endianness.sh\n            PASS: contiguous-note-sections.sh\n            FAIL: no-gnu-hash.sh                                              PASS: change-abi.sh\n            PASS: grow-file.sh                                                FAIL: no-dynamic-section.sh\n            PASS: args-from-file.sh\n            PASS: basic-flags.sh\n            PASS: set-empty-rpath.sh                                          FAIL: phdr-corruption.sh\n            FAIL: replace-needed.sh                                           FAIL: replace-add-needed.sh\n            FAIL: add-debug-tag.sh\n            PASS: empty-note.sh\n            PASS: no-rpath-amd64.sh\n            PASS: no-rpath-armel.sh\n            PASS: no-rpath-armhf.sh\n            PASS: no-rpath-hurd-i386.sh\n            PASS: no-rpath-i386.sh\n            PASS: no-rpath-ia64.sh\n            PASS: no-rpath-kfreebsd-amd64.sh                                  PASS: no-rpath-kfreebsd-i386.sh\n            PASS: no-rpath-mips.sh\n            PASS: no-rpath-mipsel.sh\n            PASS: no-rpath-powerpc.sh\n            PASS: no-rpath-s390.sh\n            PASS: no-rpath-sh4.sh\n            PASS: no-rpath-sparc.sh                                           ============================================================================\n            Testsuite summary for patchelf 0.17.2            # TOTAL: 48\n            # PASS:  33                                                       # SKIP:  0\n            # XFAIL: 0\n            # FAIL:  15\n            # XPASS: 0\n            # ERROR: 0            See tests/test-suite.log            make[3]: *** [Makefile:944: test-suite.log] Error 1\n            make[3]: Leaving directory '/data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3/src/patchelf-upstream/tests'\n            make[2]: *** [Makefile:1052: check-TESTS] Error 2\n            make[2]: Leaving directory '/data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3/src/patchelf-upstream/tests'                                           make[1]: *** [Makefile:1454: check-am] Error 2\n            make[1]: Leaving directory '/data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3/src/patchelf-upstream/tests'\n            make: *** [Makefile:447: check-recursive] Error 1\n            ninja: build stopped: subcommand failed.\n            Traceback (most recent call last):\n              File &quot;/data/data/com.termux/files/usr/tmp/pip-build-env-j1_i1fdp/overlay/lib/python3.11/site-packages/skbuild/setuptools_wrap.py&quot;, line 674, in setup\n                cmkr.make(make_args, install_target=cmake_install_target, env=env)                                                                File &quot;/data/data/com.termux/files/usr/tmp/pip-build-env-j1_i1fdp/overlay/lib/python3.11/site-packages/skbuild/cmaker.py&quot;, line 697, in make\n                self.make_impl(clargs=clargs, config=config, source_dir=source_dir, install_target=install_target, env=env)\n              File &quot;/data/data/com.termux/files/usr/tmp/pip-build-env-j1_i1fdp/overlay/lib/python3.11/site-packages/skbuild/cmaker.py&quot;, line 742, in make_impl\n                raise SKBuildError(msg)\n\n            An error occurred while building with CMake.\n              Command:\n                /data/data/com.termux/files/usr/bin/cmake --build . --target install --config Release --                                          Install target:\n                install                                                         Source directory:\n                /data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3\n              Working directory:                                                  /data/data/com.termux/files/usr/tmp/pip-install-qa3ercoq/patchelf_a4f55e4e6872436da81e30e2708da6e3/_skbuild/linux-aarch64-3.11/cmake-build\n            Please check the install target is valid and see CMake's output for more information.\n\n            [end of output]\n\n        note: This error originates from a subprocess, and is likely not a problem with pip.\n        ERROR: Failed building wheel for patchelf\n      Failed to build patchelf\n      ERROR: Could not build wheels for patchelf, which is required to install pyproject.toml-based projects\n      [end of output]\n\n  note: This error originates from a subprocess, and is likely not a problem with pip.                                              error: subprocess-exited-with-error\n\n\u00d7 pip subprocess to install backend dependencies did not run successfully.                                                          \u2502 exit code: 1\n\u2570\u2500&gt; See above for output.\nnote: This error originates from a subprocess, and is likely not a problem with pip.\n</code></pre>\n<p>I am at a loss. After checking, cmake appears to be installed (I again updated and upgraded the packages just to make sure). I also considered updating pip, but it seems to be forbiden on Termux, for some reason having to do with a python-pip package of sorts, but I couldn't find more information about it, at least related to simmilar errors. To clarify some other stuff, all my attempts of installing numpy (and the other packages) have been done directly on the Termux console, so I don't think NVChad is behind any of it.</p>\n<p>I would be most grateful if anyone could help. I would be happy to provide any further information at your request. Help me Stack Overflow! You are my only hope!</p>\n<p>PS: Sorry for bad English, not a native speaker.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "amazon-web-services",
+    "numpy",
+    "aws-lambda"
+   ],
+   "owner": {
+    "account_id": 10831687,
+    "reputation": 197,
+    "user_id": 7965834,
+    "user_type": "registered",
+    "accept_rate": 33,
+    "profile_image": "https://graph.facebook.com/1297273330308388/picture?type=large",
+    "display_name": "Sebastian \u0141\u0105cki",
+    "link": "https://stackoverflow.com/users/7965834/sebastian-%c5%81%c4%85cki"
+   },
+   "is_answered": true,
+   "view_count": 30471,
+   "accepted_answer_id": 49163911,
+   "answer_count": 6,
+   "score": 10,
+   "last_activity_date": 1708691283,
+   "creation_date": 1505250301,
+   "last_edit_date": 1505288878,
+   "question_id": 46185297,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/46185297/using-numpy-in-aws-lambda",
+   "title": "Using numpy in AWS Lambda",
+   "body": "<p>I'm looking for a work around to use numpy in AWS lambda. I am not using EC2 just lambda for this so if anyone has a suggestion that'd be appreciated. Currently getting the error:</p>\n\n<p>cannot import name 'multiarray'</p>\n\n<p>Using grunt lambda to create the zip file and upload the function code. All the modules that I use are installed into a folder called python_modules inside the root of the lambda function which includes numpy using pip install and a requirements.txt file.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pandas",
+    "pandas-profiling"
+   ],
+   "owner": {
+    "account_id": 29096742,
+    "reputation": 1,
+    "user_id": 22289480,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AAcHTtfzyPKmPd0DBTKpUoAeCPZho2wi3fcWZonSfkHFdD_YpA=k-s256",
+    "display_name": "Shariful Rajeev",
+    "link": "https://stackoverflow.com/users/22289480/shariful-rajeev"
+   },
+   "is_answered": false,
+   "view_count": 1050,
+   "answer_count": 1,
+   "score": -1,
+   "last_activity_date": 1707057376,
+   "creation_date": 1697781917,
+   "question_id": 77328643,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77328643/i-am-using-pandas-profiling-in-google-coolab-and-found-some-errors",
+   "title": "I am using pandas profiling in google coolab and found some errors",
+   "body": "<p>the problem statement is</p>\n<p>ImportError: cannot import name 'Buffer' from 'typing_extensions' (/usr/local/lib/python3.10/dist-packages/typing_extensions.py)</p>\n<p>i already had the pandas profiling installed. but then again i again run the command</p>\n<p>pip install Pandas_Profiling</p>\n<p>and then to find out the output</p>\n<p>import  pandas_profiling\npandas_profiling.ProfileReport(hotel_data)</p>\n<p>i have already imported pandas</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "multiprocessing",
+    "importerror"
+   ],
+   "owner": {
+    "account_id": 30388685,
+    "reputation": 1,
+    "user_id": 23287970,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/5941d91a6822ffe99068a4829ac4bbf9?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Hakan Yeniavc\u0131",
+    "link": "https://stackoverflow.com/users/23287970/hakan-yeniavc%c4%b1"
+   },
+   "is_answered": true,
+   "view_count": 1364,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1706557574,
+   "creation_date": 1706029894,
+   "question_id": 77868106,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77868106/importerror-cannot-import-name-forkcontext-from-multiprocessing-context",
+   "title": "ImportError: cannot import name &#39;ForkContext&#39; from &#39;multiprocessing.context&#39;",
+   "body": "<p>I am trying to run a repo that I got from github. It shows the error below.\nI removed multiprocessing folder from &quot;C:\\Users\\yenia\\anaconda3\\envs\\matformer\\Lib&quot; but it still occours.\nAnyone has an idea how to fix it ?\nIf necessary, I can give more information. Thanks for your interest.</p>\n<pre><code>(.venv) C:\\Users\\yenia\\PycharmProjects\\Matformer-main\\matformer\\scripts\\mp&gt;python train_mp.py\nTraceback (most recent call last):\n  File &quot;C:\\Users\\yenia\\PycharmProjects\\Matformer-main\\matformer\\scripts\\mp\\train_mp.py&quot;, line 1, in &lt;module&gt;\n    from matformer.train_props import train_prop_model \n  File &quot;c:\\users\\yenia\\pycharmprojects\\matformer-main\\matformer\\train_props.py&quot;, line 7, in &lt;module&gt;\n    from matformer.train import train_dgl\n  File &quot;c:\\users\\yenia\\pycharmprojects\\matformer-main\\matformer\\train.py&quot;, line 39, in &lt;module&gt;\n    from matformer.data import get_train_val_loaders\n  File &quot;c:\\users\\yenia\\pycharmprojects\\matformer-main\\matformer\\data.py&quot;, line 15, in &lt;module&gt;\n    from matformer.graphs import PygGraph, PygStructureDataset\n  File &quot;c:\\users\\yenia\\pycharmprojects\\matformer-main\\matformer\\graphs.py&quot;, line 3, in &lt;module&gt;\n    from multiprocessing.context import ForkContext\nImportError: cannot import name 'ForkContext' from 'multiprocessing.context' (C:\\Program Files\\Python310\\lib\\multiprocessing\\context.py)\n\n</code></pre>\n<p>I imported all of library that needed in repo as mentioned as;\nconda create --name matformer python=3.10\nconda activate matformer\nconda install pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch -c nvidia\nconda install pyg -c pyg\npip install jarvis-tools==2022.9.16\npython setup.py</p>\n<p>cd matformer/scripts/mp\npython train_mp.py</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "clr",
+    "python.net"
+   ],
+   "owner": {
+    "account_id": 30194319,
+    "reputation": 11,
+    "user_id": 23139878,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/584e807b44f6995c0b0f597cb65f34d8?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "user23139878",
+    "link": "https://stackoverflow.com/users/23139878/user23139878"
+   },
+   "is_answered": false,
+   "view_count": 164,
+   "answer_count": 0,
+   "score": 1,
+   "last_activity_date": 1705081022,
+   "creation_date": 1705081022,
+   "question_id": 77808371,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77808371/importerror-cannot-import-name-dlltest-from-mydll-unknown-location-pytho",
+   "title": "ImportError: cannot import name &#39;DllTest&#39; from &#39;myDll&#39; (unknown location) (pythonnet)",
+   "body": "<p>I installed python 3.8 and 3.12 in my computer, and I installed pythonnet 3.0.3 in 3.8 interpreter and 3.12 (venv) respectively, including clr-loader 0.2.6.\nThen I repeated the procedures in the following link:\n<a href=\"https://medium.com/@yashmhatre62/execute-a-vb-net-dll-using-python-5a9422e9ffe1\" rel=\"nofollow noreferrer\">installing pythonnet</a></p>\n<p>However, no matter which interpreter I use, the import error pops up: ImportError: cannot import name 'DllTest' from 'myDll' (unknown location).\nBoth my main.py and myDll.dll are in the same location.</p>\n<p>main.py</p>\n<pre><code>import os\nimport clr\n# myfile = open('C:/Users/k0330/OneDrive/Desktop/Kurse/WS 23 -24/Bachelorarbeit/Python/Project/callMyDll/myDll.dll')\n# clr.AddReference(myfile)\n#clr.AddReference(&quot;C:/Users/k0330/OneDrive/Desktop/Kurse/WS 23 -24/Bachelorarbeit/Python/Project/callMyDll/myDll.dll&quot;)\nclr.AddReference(r&quot;C:\\Users\\k0330\\OneDrive\\Desktop\\Kurse\\WS 23 -24\\Bachelorarbeit\\Python\\VS\\callMyDll\\myDll.dll&quot;)\nfrom myDll import DllTest\n\ndll = DllTest()\ndll.msgboxText()\nprint(FindMax(7,9))\n</code></pre>\n<p>.NET</p>\n<pre><code>Public Class DllTest\n    Public Sub msgboxText()\n        MsgBox(&quot;Hello World!&quot;)\n    End Sub\n\n    Public Function FindMax(ByVal num1 As Integer, ByVal num2 As Integer) As Integer\n        ' local variable declaration */\n        Dim result As Integer\n\n        If (num1 &gt; num2) Then\n            result = num1\n        Else\n            result = num2\n        End If\n        FindMax = result\n    End Function\n\nEnd Class\n</code></pre>\n<p>Then I consulted the resources to try several address types:\n<a href=\"https://stackoverflow.com/questions/60617588/pythonnet-clr-how-to-add-reference-to-a-dll-assembly\">link 1</a>\n<a href=\"https://sites.pitt.edu/%7Enaraehan/python3/file_path_cwd.html\" rel=\"nofollow noreferrer\">file address type</a></p>\n<p>Still the same error.</p>\n<p>I noticed that there is no pythonnet package in the base interpreter 3.12, so I followed the source below by SET Path=&quot;C:\\Users\\k0330\\AppData\\Local\\Programs\\Python\\Python312&quot; in the terminal, and then pip install pythonnet.\n<a href=\"https://stackoverflow.com/questions/26681641/importerror-no-module-named-clr-when-using-cpython-of-python-org\">link 2</a>\nHowever, it said that:\nRequirement already satisfied: pythonnet in c:\\users\\k0330\\onedrive\\desktop\\kurse\\ws 23 -24\\bachelorarbeit\\python\\project\\venv\\lib\\site-packages (3.0.3)\nRequirement already satisfied: clr-loader&lt;0.3.0,&gt;=0.2.6 in c:\\users\\k0330\\onedrive\\desktop\\kurse\\ws 23 -24\\bachelorarbeit\\python\\project\\venv\\lib\\site-packages (from pythonnet) (0.2.6)\nRequirement already satisfied: cffi&gt;=1.13 in c:\\users\\k0330\\onedrive\\desktop\\kurse\\ws 23 -24\\bachelorarbeit\\python\\project\\venv\\lib\\site-packages (from clr-loader&lt;0.3.0,&gt;=0.2.6-&gt;pythonnet) (1.16.0)\nRequirement already satisfied: pycparser in c:\\users\\k0330\\onedrive\\desktop\\kurse\\ws 23 -24\\bachelorarbeit\\python\\project\\venv\\lib\\site-packages (from cffi&gt;=1.13-&gt;clr-loader&lt;0.3.0,&gt;=0.2.6-&gt;pythonnet) (2.21)</p>\n<p>I tried the step above in cmd, also the similar result, but there is still no pythonnet package in base 3.12.\nRequirement already satisfied: pythonnet in c:\\users\\k0330\\appdata\\local\\programs\\python\\python38\\lib\\site-packages (3.0.3)\nRequirement already satisfied: clr-loader&lt;0.3.0,&gt;=0.2.6 in c:\\users\\k0330\\appdata\\local\\programs\\python\\python38\\lib\\site-packages (from pythonnet) (0.2.6)\nRequirement already satisfied: cffi&gt;=1.13 in c:\\users\\k0330\\appdata\\local\\programs\\python\\python38\\lib\\site-packages (from clr-loader&lt;0.3.0,&gt;=0.2.6-&gt;pythonnet) (1.16.0)\nRequirement already satisfied: pycparser in c:\\users\\k0330\\appdata\\local\\programs\\python\\python38\\lib\\site-packages (from cffi&gt;=1.13-&gt;clr-loader&lt;0.3.0,&gt;=0.2.6-&gt;pythonnet) (2.21)</p>\n<p>Thus, I tried all the techniques in the video:\nInstallation by pip and pip3\nI have 3.8, 3.8\\Script, 3.12 and 3.12\\Script in the paths of user variable and system variable.\n<a href=\"https://www.youtube.com/watch?v=I9st-DgQoWc\" rel=\"nofollow noreferrer\">link 3</a></p>\n<p>The results are still the same as above both in Pycharm and VS Code:\nWith 3.8 interpreter: ImportError: cannot import name 'DllTest' from 'myDll' (unknown location)\nWith 3.12 interpreter: ModuleNotFoundError: No module named 'clr'</p>\n<p>How can I solve the problems above?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "python-module"
+   ],
+   "owner": {
+    "account_id": 30171266,
+    "reputation": 1,
+    "user_id": 23121799,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/ACg8ocLpTix1pLfGN8wqF9_1Gg2zB-s5Xy1uqGo1pFCvs1GtiA=k-s256",
+    "display_name": "RARR",
+    "link": "https://stackoverflow.com/users/23121799/rarr"
+   },
+   "is_answered": false,
+   "view_count": 89,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1704914738,
+   "creation_date": 1704911527,
+   "last_edit_date": 1704914738,
+   "question_id": 77795657,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77795657/cannot-import-installed-python-module",
+   "title": "Cannot import installed python module",
+   "body": "<pre class=\"lang-py prettyprint-override\"><code>from binance.spot import Spot\n\nclient = Spot()\n\n# Get server timestamp\nprint(client.time())\n</code></pre>\n<p>I installed the module with the pip install command, but I get the \u201cModuleNotFoundError: No module named 'binance.spot'; 'binance' is not a package\u201d error. Also, when I run the file with py extension in another directory, it works without errors.</p>\n<p>When I type the pip list command, I can see it in the list.</p>\n<p>2 versions of Python were installed. I uninstalled both 3.9 and 3.11. I cleaned the python framework folders in the Library folder and installed python 3.10.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "windows-subsystem-for-linux",
+    "nbdev"
+   ],
+   "owner": {
+    "account_id": 15813772,
+    "reputation": 1592,
+    "user_id": 12285101,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/840e12661f3757869e6386f2016995bc?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Reut",
+    "link": "https://stackoverflow.com/users/12285101/reut"
+   },
+   "is_answered": true,
+   "view_count": 211,
+   "accepted_answer_id": 77736985,
+   "answer_count": 1,
+   "score": -1,
+   "last_activity_date": 1703960435,
+   "creation_date": 1703501019,
+   "question_id": 77713384,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77713384/nbdev-export-pip-install-doesnt-work-on-nbdev-with-windows",
+   "title": "nbdev_export ; pip install doesn&#39;t work on nbdev with windows",
+   "body": "<p>I have downloaded nbdev based on [this tutorial][1] and [the help I got in this post][2].\nBefore I used nbdev on bash , but now unfortunately I have to work with windows.\nNow, I have two notebooks, and I want to import function from notebook1 to notebook2.\nIn order to do this , when I used bash I run this command on the CLI:</p>\n<pre><code>nbdev_export &amp;&amp; pip install ./\n</code></pre>\n<p>However, now ,as I  use windows, I tried to run the following command:</p>\n<pre><code>nbdev_export ; pip install   \n</code></pre>\n<p>But I receive this error:</p>\n<pre><code>(.venv) PS C:\\git\\my_repo&gt; nbdev_export ; pip install\nERROR: You must give at least one requirement to install (see &quot;pip help install&quot;)\n\n[notice] A new release of pip is available: 23.2.1 -&gt; 23.3.2 ##this version allowed me to install quarto\n[notice] To update, run: python.exe -m pip install --upgrade pip\n</code></pre>\n<p>When I run nbdev_export alone it works, so seems like I only missing the right way to use pip install.</p>\n<p><strong>My question is, how can I apply the &quot;pip install&quot; part in windows?</strong>\n[1]: <a href=\"https://nbdev.fast.ai/tutorials/tutorial.html\" rel=\"nofollow noreferrer\">https://nbdev.fast.ai/tutorials/tutorial.html</a>\n[2]: <a href=\"https://stackoverflow.com/questions/77675755/cannot-install-quarto-with-nbdev-install-quarto-importerror-cannot-import-nam/77689819#77689819\">Cannot install quarto with nbdev_install_quarto - ImportError: cannot import name &#39;uname&#39; from &#39;os&#39;</a></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "appkit",
+    "pyttsx3",
+    "nsspeechrecognizer"
+   ],
+   "owner": {
+    "account_id": 30046199,
+    "reputation": 1,
+    "user_id": 23025759,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/ACg8ocLaEkF6OEUtXFcaYag-fIqJA2J16Zrnue3eGI79DS-k=k-s256",
+    "display_name": "fvwjkbf",
+    "link": "https://stackoverflow.com/users/23025759/fvwjkbf"
+   },
+   "is_answered": false,
+   "view_count": 155,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1701528247,
+   "creation_date": 1701508655,
+   "last_edit_date": 1701508794,
+   "question_id": 77589755,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77589755/importerror-cannot-import-name-objc-from-appkit-how-do-i-debug-a-text-to-s",
+   "title": "ImportError: cannot import name &#39;objc&#39; from &#39;AppKit&#39;. How do I debug a text-to-speech error in Python (pyttsx3)?",
+   "body": "<p>The error I'm getting is:</p>\n<p>File &quot;/*********************************/venv/lib/python3.10/site-packages/pyttsx3/drivers/nsss.py&quot;, line 4, in \nfrom AppKit import NSSpeechSynthesizer, objc\nImportError: cannot import name 'objc' from 'AppKit'</p>\n<p>The relevant code of my nsss file is:</p>\n<pre><code>\nfrom Foundation import NSObject\n\nfrom AppKit import NSSpeechSynthesizer, objc\n\nfrom PyObjCTools import AppHelper\n\n\n\ndef buildDriver(proxy):\n\n    return NSSpeechDriver.alloc().initWithProxy(proxy)\n\n\nclass NSSpeechDriver(NSObject):\n    @objc.python_method\n    def initWithProxy(self, proxy):\n        self = super(NSSpeechDriver, self).init()\n        if self:\n            self._proxy = proxy\n            self._tts = NSSpeechSynthesizer.alloc().initWithVoice_(None)\n            self._tts.setDelegate_(self)\n            # default rate\n            self._tts.setRate_(200)\n            self._completed = True\n        return self\n</code></pre>\n<p>As a result of this error, I can't the text-to-speech library the way I want to.</p>\n<p>I tried downloading obj through &quot;pip install&quot; and attempted at editing how appkit/nssspeech is imported. I also tried asking ChatGPT multiple times--all attempts failed.</p>\n<p>I'd really appreciate it if anyone could help me troubleshoot this issue.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "blockchain",
+    "tron",
+    "tronweb"
+   ],
+   "owner": {
+    "account_id": 8569294,
+    "reputation": 47,
+    "user_id": 6420823,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/f05847014084b3cf8bd9d4ef13bb62a2?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Mehedi",
+    "link": "https://stackoverflow.com/users/6420823/mehedi"
+   },
+   "is_answered": true,
+   "view_count": 3716,
+   "accepted_answer_id": 72271027,
+   "answer_count": 2,
+   "score": 3,
+   "last_activity_date": 1700855433,
+   "creation_date": 1648217436,
+   "question_id": 71618317,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/71618317/importing-tronweb-shows-import-error-cannot-import-name-hashable-from-collec",
+   "title": "importing tronweb shows import error: cannot import name &#39;hashable&#39; from &#39;collections&#39;",
+   "body": "<p>After installing tronweb using 'pip install tronweb', when I try to import but it shows an import error which is cannot import name 'hashable' from 'collections'</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pandas",
+    "jupyter-notebook",
+    "anaconda"
+   ],
+   "owner": {
+    "account_id": 26771681,
+    "reputation": 13,
+    "user_id": 20367961,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/ALm5wu3m1in_hYnS7LRHM6YnvYj_H_kLET8xmoEw8U0ajw=k-s256",
+    "display_name": "Jonas S",
+    "link": "https://stackoverflow.com/users/20367961/jonas-s"
+   },
+   "is_answered": false,
+   "view_count": 96,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1700736155,
+   "creation_date": 1700736155,
+   "question_id": 77536228,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77536228/errors-as-im-trying-to-install-pandas-profiling-in-jupyter-notebook",
+   "title": "Errors as i&#39;m trying to install pandas-profiling in jupyter notebook",
+   "body": "<p>I'm pretty new to data science, tried to install pandas-profiling in anaconda to use it in jupyter notebook in the conda prompt.\nHowever, I won't work.\nFirst I tried the pip install pandas-profiling, this gave me lots of errors;</p>\n<blockquote>\n<p>ERROR: Could not install packages due to an OSError: [WinError 5] Adgang n\u00e6gtet: 'C:\\Users\\jonas\\AppData\\Local\\Temp\\pip-uninstall-byfk9r7u\\numpy\\core\\_multiarray_tests.cp39-win_amd64.pyd'\nConsider using the <code>--user</code> option or check the permissions.</p>\n</blockquote>\n<blockquote>\n<p>WARNING: Ignoring invalid distribution -atplotlib (c:\\users\\jonas\\anaconda3\\lib\\site-packages)</p>\n</blockquote>\n<p>Then I wrote 'conda install pandas-profiling' in the prompt and this came up;</p>\n<p><a href=\"https://i.sstatic.net/jA1h8.jpg\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/jA1h8.jpg\" alt=\"enter image description here\" /></a></p>\n<p>However, it still doesn't work, when I'm opening up jupyter notebook and try writing &quot;from pandas_profiling import ProfileReport&quot;... i now get this error inside jupyter notebook:</p>\n<p>ImportError: cannot import name 'ABCIndexClass' from 'pandas.core.dtypes.generic' (C:\\Users\\jonas\\anaconda3\\lib\\site-packages\\pandas\\core\\dtypes\\generic.py)</p>\n<p>Hope anyone can help me out here, it's so complicated for me rn\nthanks a lot in advance!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "libraries"
+   ],
+   "owner": {
+    "account_id": 20386652,
+    "reputation": 58,
+    "user_id": 14955502,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/5197195a6d99c0c6283704284c5c7aca?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Caio Navarro",
+    "link": "https://stackoverflow.com/users/14955502/caio-navarro"
+   },
+   "is_answered": false,
+   "view_count": 1454,
+   "answer_count": 3,
+   "score": 1,
+   "last_activity_date": 1700734461,
+   "creation_date": 1669690949,
+   "question_id": 74608718,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/74608718/importerror-cannot-import-name-tftmodel-from-darts-models",
+   "title": "ImportError: cannot import name &#39;TFTModel&#39; from &#39;darts.models&#39;",
+   "body": "<p>I receive the error message\n&quot;ImportError: cannot import name 'TFTModel' from 'darts.models'&quot; when trying to import the atribute &quot;TFTmodel&quot; from darts using the line</p>\n<pre><code>from darts.models import TFTModel\n</code></pre>\n<p>I have tried using &quot;pip install statsforecast==0.6.0&quot; however that leads to me not being able to use darts since the current darts version isn't compatible with that statsforecast version, and when i try to downgrade the darts version i get a error with pandas that just leads me to upgrade my darts version which puts me in a loop</p>\n<p>The versions im using are\ndarts 0.22.0</p>\n<p>startsforecast 1.3.2</p>\n<p>Windows 10 x64 version 21H2</p>\n<p>python 3.9.13</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "python-import"
+   ],
+   "owner": {
+    "account_id": 14079006,
+    "reputation": 95,
+    "user_id": 10170535,
+    "user_type": "registered",
+    "profile_image": "https://graph.facebook.com/2038344056480037/picture?type=large",
+    "display_name": "Jonathan Teo Joon Yue",
+    "link": "https://stackoverflow.com/users/10170535/jonathan-teo-joon-yue"
+   },
+   "is_answered": true,
+   "view_count": 16410,
+   "accepted_answer_id": 51774761,
+   "answer_count": 4,
+   "score": 2,
+   "last_activity_date": 1698940476,
+   "creation_date": 1533206292,
+   "last_edit_date": 1533209078,
+   "question_id": 51651515,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/51651515/cannot-import-module-after-installed-by-pip",
+   "title": "Cannot import module after installed by pip",
+   "body": "<p>I have already installed my wanted module from pip by using pip install but when i open up a program in idle and put import menu it says module not found what did i do wrong, im using python 3.7 and have the latest version of pip.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "import",
+    "nlp",
+    "spacy",
+    "python-packaging"
+   ],
+   "owner": {
+    "account_id": 18600864,
+    "reputation": 97,
+    "user_id": 13555726,
+    "user_type": "registered",
+    "profile_image": "https://lh4.googleusercontent.com/-mTbOEn-wwhA/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmXrbiVNDMkaK_d--Rx__PV8TAdBw/s256-rj/photo.jpg",
+    "display_name": "Patrick C.",
+    "link": "https://stackoverflow.com/users/13555726/patrick-c"
+   },
+   "is_answered": true,
+   "view_count": 22034,
+   "answer_count": 4,
+   "score": 4,
+   "last_activity_date": 1698384605,
+   "creation_date": 1668544772,
+   "question_id": 74451907,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/74451907/import-spacy-error-cannot-import-name-dataclass-transform",
+   "title": "Import Spacy Error &quot;cannot import name dataclass_transform&quot;",
+   "body": "<p>I am working on a jupyter notebook project which should use spacy. I already used pip install to install spacy in anaconda prompt.</p>\n<p>However, when I tried to import spacy, it gives me the follwing error.</p>\n<p>I wonder what the problem is and what I can do to solve that.</p>\n<pre><code>---------------------------------------------------------------------------\nImportError                               Traceback (most recent call last)\n&lt;ipython-input-96-3173a3034708&gt; in &lt;module&gt;\n      9 #nltk.download()\n     10 from nltk.corpus import stopwords\n---&gt; 11 import spacy\n     12 \n     13 #path where we store the txt files\n\nD:\\Python\\lib\\site-packages\\spacy\\__init__.py in &lt;module&gt;\n      4 \n      5 # set library-specific custom warning handling before doing anything else\n----&gt; 6 from .errors import setup_default_warnings\n      7 \n      8 setup_default_warnings()  # noqa: E402\n\nD:\\Python\\lib\\site-packages\\spacy\\errors.py in &lt;module&gt;\n      1 import warnings\n----&gt; 2 from .compat import Literal\n      3 \n      4 \n      5 class ErrorsWithCodes(type):\n\nD:\\Python\\lib\\site-packages\\spacy\\compat.py in &lt;module&gt;\n      1 &quot;&quot;&quot;Helpers for Python and platform compatibility.&quot;&quot;&quot;\n      2 import sys\n----&gt; 3 from thinc.util import copy_array\n      4 \n      5 try:\n\nD:\\Python\\lib\\site-packages\\thinc\\util.py in &lt;module&gt;\n      6 import functools\n      7 from wasabi import table\n----&gt; 8 from pydantic import create_model, ValidationError\n      9 import inspect\n     10 import os\n\nD:\\Python\\lib\\site-packages\\pydantic\\__init__.cp38-win_amd64.pyd in init pydantic.__init__()\n\nD:\\Python\\lib\\site-packages\\pydantic\\dataclasses.cp38-win_amd64.pyd in init pydantic.dataclasses()\n\nImportError: cannot import name dataclass_transform\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "github",
+    "deep-learning",
+    "forecasting",
+    "multivariate-time-series"
+   ],
+   "owner": {
+    "account_id": 27811527,
+    "reputation": 9,
+    "user_id": 21233826,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AEdFTp7iyhlfN1Jqf0_iQPn8g7W5bPyxG1fu_YaovzYb=k-s256",
+    "display_name": "Khansa",
+    "link": "https://stackoverflow.com/users/21233826/khansa"
+   },
+   "is_answered": false,
+   "view_count": 312,
+   "answer_count": 1,
+   "score": -1,
+   "last_activity_date": 1698068587,
+   "creation_date": 1696244288,
+   "question_id": 77215054,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77215054/cannot-import-name-regressor-from-gmdh",
+   "title": "cannot import name &#39;Regressor&#39; from &#39;gmdh&#39;",
+   "body": "<p><strong>I have installed gmdhpy through</strong>\npip install git+git://github.com/kvoyager/GmdhPy.git</p>\n<p><strong>While trying to import from gmdhpy.gmdh import Regressor it gives error:</strong></p>\n<p>cannot import name 'Regressor' from 'gmdh' (C:\\Users\\HP\\PycharmProjects\\pythonProject\\venv\\lib\\site-packages\\gmdh_<em>init</em>_.py)</p>\n<p><strong>i am working in python using Pycharm in windows 10 environment.</strong></p>\n<p><strong>I want to do time series forecasting through Group Method of Data Handling and i think Regressor library file would be good for it.</strong></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "dataprep"
+   ],
+   "owner": {
+    "account_id": 29721224,
+    "reputation": 1,
+    "user_id": 22778446,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/ACg8ocJvpM2Mkr4C-zedfExtqqif-od2230gjYeLc_OQp7wr=k-s256",
+    "display_name": "Sebastian Rodriguez Rodriguez",
+    "link": "https://stackoverflow.com/users/22778446/sebastian-rodriguez-rodriguez"
+   },
+   "is_answered": false,
+   "view_count": 456,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1697876471,
+   "creation_date": 1697874273,
+   "question_id": 77335138,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77335138/importerror-when-trying-to-import-plot-from-dataprep-eda",
+   "title": "ImportError when trying to import plot from dataprep.eda",
+   "body": "<p>I recently swap from window based pc to a macbookair m2. Now I'm trying to use the plot from dataprep but is not working and giving me several errors (it used to work correctly in windows).</p>\n<p>This is the code I'm using:\n%pip install dataprep\nimport dataprep\nfrom dataprep.eda import plot</p>\n<p>I get this error after running the third line 'from dataprep.eda import plot':</p>\n<p>ImportError: cannot import name 'Ttest_1sampResult' from 'scipy.stats.stats'</p>\n<p>At the begining the error was different but as I try to solve it by updating packes and staff, this is the last error I encounter (all related with running the third line from dataprep.eda import plot'.</p>\n<p>I have tried unstailling scipy and reinstalling it again, downgrading and updating it but nothings work.</p>\n<p>any help would be appreciated</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "sdk",
+    "crm",
+    "zoho",
+    "zcrmsdk"
+   ],
+   "owner": {
+    "account_id": 28498176,
+    "reputation": 1,
+    "user_id": 21809754,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/a24ab089d40dd4edefcc70e87a275412?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "bogo",
+    "link": "https://stackoverflow.com/users/21809754/bogo"
+   },
+   "is_answered": true,
+   "view_count": 414,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1696834580,
+   "creation_date": 1683148689,
+   "question_id": 76168063,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/76168063/zcrmsdk-for-python-importerror-cannot-import-name-zcrmrestclient-from-zcr",
+   "title": "zcrmsdk for python -- ImportError: cannot import name &#39;ZCRMRestClient&#39; from &#39;zcrmsdk&#39;",
+   "body": "<p>I installed zcrmsdk as many doc said in Zoho:</p>\n<p><strong>pip install zcrmsdk</strong></p>\n<p>Every example start with:</p>\n<p><strong>from zcrmsdk import ZCRMRestClient,ZohoOAuth</strong></p>\n<p>but, this line failed with :</p>\n<p><em>ImportError: cannot import name 'ZCRMRestClient' from 'zcrmsdk'</em></p>\n<p>so, is there any documentation updated to run this example using python 3.9 + zcrmsdk 3.1.0 ??</p>\n<p>I'm trying to create the simplest code to bring a Lead (for example)</p>\n"
+  },
+  {
+   "tags": [
+    "python"
+   ],
+   "owner": {
+    "account_id": 28023289,
+    "reputation": 1,
+    "user_id": 21403724,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AGNmyxZiD6fOm4-QsKH3i-pgbWTsMuXAlnxPMIPvpsaA=k-s256",
+    "display_name": "Rokaishek",
+    "link": "https://stackoverflow.com/users/21403724/rokaishek"
+   },
+   "is_answered": false,
+   "view_count": 323,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1694871982,
+   "creation_date": 1694871982,
+   "question_id": 77118037,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77118037/im-trying-to-install-glove-python-using-python-setup-py-install-or-pip-insta",
+   "title": "I&#39;m trying to install glove_python using &quot;python setup.py install&quot; or &quot;pip install glove_python&quot;, only errors comes to me? What should I do?",
+   "body": "<pre><code>Collecting glove_python\n  Using cached glove_python-0.1.0.tar.gz (263 kB)\n  Preparing metadata (setup.py) ... done\nRequirement already satisfied: numpy in c:\\users\\10295\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from glove_python) (1.25.0)\nCollecting scipy (from glove_python)\n  Obtaining dependency information for scipy from https://files.pythonhosted.org/packages/06/15/e73734f9170b66c6a84a0bd7e03586e87e77404e2eb8e34749fc49fa43f7/scipy-1.11.2-cp311-cp311-win_amd64.whl.metadata\n  Using cached scipy-1.11.2-cp311-cp311-win_amd64.whl.metadata (59 kB)\nUsing cached scipy-1.11.2-cp311-cp311-win_amd64.whl (44.0 MB)\nBuilding wheels for collected packages: glove_python\n  Building wheel for glove_python (setup.py) ... error\n  error: subprocess-exited-with-error\n\n  \u00d7 python setup.py bdist_wheel did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500&gt; [112 lines of output]\n      C:\\Users\\10295\\PycharmProjects\\pythonProject1\\venv\\Lib\\site-packages\\setuptools\\dist.py:745: SetuptoolsDeprecationWarning: Invalid dash-separated options\n      !!\n\n              ********************************************************************************\n              Usage of dash-separated 'description-file' will not be supported in future\n              versions. Please use the underscore name 'description_file' instead.\n\n              By 2023-Sep-26, you need to update your project and remove deprecated calls\n              or your builds will no longer be supported.\n\n              See https://setuptools.pypa.io/en/latest/userguide/declarative_config.html for details.\n              ********************************************************************************\n\n      !!\n        opt = self.warn_dash_deprecation(opt, section)\n      running bdist_wheel\n      running build\n      running build_py\n      creating build\n      creating build\\lib.win-amd64-cpython-311\n      creating build\\lib.win-amd64-cpython-311\\glove\n      copying glove\\corpus.py -&gt; build\\lib.win-amd64-cpython-311\\glove\n      copying glove\\glove.py -&gt; build\\lib.win-amd64-cpython-311\\glove\n      copying glove\\__init__.py -&gt; build\\lib.win-amd64-cpython-311\\glove\n      running build_ext\n      building 'glove.glove_cython' extension\n      creating build\\temp.win-amd64-cpython-311\n      creating build\\temp.win-amd64-cpython-311\\Release\n      creating build\\temp.win-amd64-cpython-311\\Release\\glove\n      H:\\C++\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX86\\x64\\cl.exe /c /nologo /O2 /W3 /GL /DNDEBUG /MD -IC:\\Users\\10295\\PycharmProjects\\pythonProject1\\venv\\include -IC:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include -IC:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\Include -IH:\\C++\\VC\\Tools\\MSVC\\\n14.36.32532\\include -IH:\\C++\\VC\\Tools\\MSVC\\14.36.32532\\ATLMFC\\include -IH:\\C++\\VC\\Auxiliary\\VS\\include &quot;-IC:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.22621.0\\ucrt&quot; &quot;-IC:\\Program Files (x86)\\Windows Kits\\10\\\\include\\10.0.22621.0\\\\um&quot; &quot;-IC:\\Program Files (x86)\\Windows Kits\\10\\\\include\\10.0.22621.0\\\\shared\n&quot; &quot;-IC:\\Program Files (x86)\\Windows Kits\\10\\\\include\\10.0.22621.0\\\\winrt&quot; &quot;-IC:\\Program Files (x86)\\Windows Kits\\10\\\\include\\10.0.22621.0\\\\cppwinrt&quot; &quot;-IC:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\include\\um&quot; /Tcglove/glove_cython.c /Fobuild\\temp.win-amd64-cpython-311\\Release\\glove/glove_cython.obj -fopenmp -ffast-math -march=native\n      cl : Command line warning D9002 : ignoring unknown option '-fopenmp'\n      cl : Command line warning D9002 : ignoring unknown option '-ffast-math'\n      cl : Command line warning D9002 : ignoring unknown option '-march=native'\n      glove_cython.c\n      glove/glove_cython.c(886): error C2106: '=': left operand must be l-value\n      glove/glove_cython.c(927): error C2106: '=': left operand must be l-value\n      glove/glove_cython.c(1692): warning C4244: '=': conversion from 'Py_ssize_t' to 'int', possible loss of data\n      glove/glove_cython.c(1701): warning C4244: '=': conversion from 'Py_ssize_t' to 'int', possible loss of data\n      glove/glove_cython.c(2348): warning C4244: '=': conversion from 'Py_ssize_t' to 'int', possible loss of data\n      glove/glove_cython.c(2357): warning C4244: '=': conversion from 'Py_ssize_t' to 'int', possible loss of data\n      glove/glove_cython.c(14104): error C2105: '++' needs l-value\n      glove/glove_cython.c(14106): error C2105: '--' needs l-value\n      glove/glove_cython.c(14388): error C2105: '++' needs l-value\n      glove/glove_cython.c(14390): error C2105: '--' needs l-value\n      glove/glove_cython.c(14625): error C2105: '++' needs l-value\n      glove/glove_cython.c(14627): error C2105: '--' needs l-value\n      glove/glove_cython.c(15036): warning C4047: 'function': 'PyObject *' differs in levels of indirection from 'int'\n      glove/glove_cython.c(15036): warning C4024: 'PyCode_New': different types for formal and actual parameter 14\n      glove/glove_cython.c(15036): warning C4047: 'function': 'int' differs in levels of indirection from 'PyObject *'\n      glove/glove_cython.c(15036): warning C4024: 'PyCode_New': different types for formal and actual parameter 15\n      glove/glove_cython.c(15036): error C2198: 'PyCode_New': too few arguments for call\n      glove/glove_cython.c(15048): warning C4047: 'function': 'PyObject *' differs in levels of indirection from 'int'\n      glove/glove_cython.c(15048): warning C4024: 'PyCode_New': different types for formal and actual parameter 14\n      glove/glove_cython.c(15048): warning C4047: 'function': 'int' differs in levels of indirection from 'PyObject *'\n      glove/glove_cython.c(15048): warning C4024: 'PyCode_New': different types for formal and actual parameter 15\n      glove/glove_cython.c(15048): error C2198: 'PyCode_New': too few arguments for call\n      glove/glove_cython.c(15114): warning C4996: 'PyEval_InitThreads': deprecated in 3.9\n      glove/glove_cython.c(15221): error C2039: 'tp_print': is not a member of '_typeobject'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/object.h(148): note: see declaration of '_typeobject'\n      glove/glove_cython.c(15224): error C2039: 'tp_print': is not a member of '_typeobject'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/object.h(148): note: see declaration of '_typeobject'\n      glove/glove_cython.c(15235): error C2039: 'tp_print': is not a member of '_typeobject'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/object.h(148): note: see declaration of '_typeobject'\n      glove/glove_cython.c(15244): error C2039: 'tp_print': is not a member of '_typeobject'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/object.h(148): note: see declaration of '_typeobject'\n      glove/glove_cython.c(15587): warning C4996: 'PyUnicode_GET_SIZE': deprecated in 3.3\n      glove/glove_cython.c(15603): warning C4996: 'PyUnicode_GET_SIZE': deprecated in 3.3\n      glove/glove_cython.c(16714): warning C4996: 'PyUnicode_FromUnicode': deprecated in 3.3\n      glove/glove_cython.c(16753): error C2039: 'exc_type': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16754): error C2039: 'exc_value': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16755): error C2039: 'exc_traceback': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16767): error C2039: 'exc_type': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16768): error C2039: 'exc_value': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16769): error C2039: 'exc_traceback': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16770): error C2039: 'exc_type': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16771): error C2039: 'exc_value': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16772): error C2039: 'exc_traceback': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16815): error C2039: 'exc_type': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16816): error C2039: 'exc_value': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16817): error C2039: 'exc_traceback': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16818): error C2039: 'exc_type': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16819): error C2039: 'exc_value': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16820): error C2039: 'exc_traceback': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16842): error C2039: 'exc_type': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16843): error C2039: 'exc_value': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16844): error C2039: 'exc_traceback': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16845): error C2039: 'exc_type': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16846): error C2039: 'exc_value': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(16847): error C2039: 'exc_traceback': is not a member of '_ts'\n      C:\\Users\\10295\\AppData\\Local\\Programs\\Python\\Python311\\include\\cpython/pystate.h(82): note: see declaration of '_ts'\n      glove/glove_cython.c(17012): fatal error C1083: Cannot open include file: 'longintrepr.h': No such file or directory\n      error: command 'H:\\\\C++\\\\VC\\\\Tools\\\\MSVC\\\\14.36.32532\\\\bin\\\\HostX86\\\\x64\\\\cl.exe' failed with exit code 2\n      [end of output]\n\n  note: This error originates from a subprocess, and is likely not a problem with pip.\n  ERROR: Failed building wheel for glove_python\n  Running setup.py clean for glove_python\n  error: subprocess-exited-with-error\n\n  \u00d7 python setup.py clean did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500&gt; [21 lines of output]\n      C:\\Users\\10295\\PycharmProjects\\pythonProject1\\venv\\Lib\\site-packages\\setuptools\\dist.py:745: SetuptoolsDeprecationWarning: Invalid dash-separated options\n      !!\n\n              ********************************************************************************\n              Usage of dash-separated 'description-file' will not be supported in future\n              versions. Please use the underscore name 'description_file' instead.\n\n              By 2023-Sep-26, you need to update your project and remove deprecated calls\n              or your builds will no longer be supported.\n\n              See https://setuptools.pypa.io/en/latest/userguide/declarative_config.html for details.\n              ********************************************************************************\n\n      !!\n        opt = self.warn_dash_deprecation(opt, section)\n      usage: setup.py [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]\n         or: setup.py --help [cmd1 cmd2 ...]\n         or: setup.py --help-commands\n         or: setup.py cmd --help\n\n      error: option --all not recognized\n      [end of output]\n\n  note: This error originates from a subprocess, and is likely not a problem with pip.\n  ERROR: Failed cleaning build dir for glove_python\nFailed to build glove_python\nERROR: Could not build wheels for glove_python, which is required to install pyproject.toml-based projects\n\n</code></pre>\n<p>I tried &quot;python setup.py install&quot; and &quot;pip install glove_python&quot;,only errors come\nI tried &quot;pip install mittens&quot; and &quot;from mittens import Glove&quot; and my python-V is 3.7.16(by using a venv).However, I got erro: &quot;ImportError: cannot import name 'Glove' from 'mittens' (E:\\anaconda3\\envs\\python37\\lib\\site-packages\\mittens_<em>init</em>_.py)&quot;</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "ios",
+    "matplotlib",
+    "kivy",
+    "kivymd"
+   ],
+   "owner": {
+    "account_id": 19022710,
+    "reputation": 37,
+    "user_id": 13886451,
+    "user_type": "registered",
+    "profile_image": "https://lh5.googleusercontent.com/-sWnAUs0EOzY/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmP1pEM-OpvXHP-vU72lkI-TeNXVg/s256-rj/photo.jpg",
+    "display_name": "Aditya Bihani",
+    "link": "https://stackoverflow.com/users/13886451/aditya-bihani"
+   },
+   "is_answered": false,
+   "view_count": 159,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1694540838,
+   "creation_date": 1626965474,
+   "question_id": 68487007,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/68487007/matplotlib-not-installing-via-toolchain-command-while-converting-kivy-app-into-i",
+   "title": "Matplotlib not installing via toolchain command while converting kivy app into iOS; kivymd giving problems too",
+   "body": "<p>I have an app which makes use of kivy and kivy md along with python libraries like matplotlib.</p>\n<p>How and when do I install kivymd and matplotlib such that the kivy app runs on the Xcode simulator.</p>\n<p>I have tried installing matplotlib and kivymd via the toolchain pip install  command but keep getting an error for matplotlib as:\nCould not find a version that satisfies the requirement matplotlib (from versions: )</p>\n<p>No matching distribution found for matplotlib</p>\n<p>kivymd on the other hand, even though gets installed via the toolchain command gives an error when the app runs on Xcode :</p>\n<p>.8/site-packages/PIL/Image.py&quot;, line 114, in </p>\n<pre><code> from . import _imaging as core\n</code></pre>\n<p>ImportError: cannot import name '_imaging' from 'PIL'</p>\n<p>Can someone please help me out.</p>\n<p>there are no extensive tutorials which discuss how to convert kivy apps which make use of kivymd and matplotlib into iOS apps.</p>\n<p>Thank you.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "flask",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 17668425,
+    "reputation": 167,
+    "user_id": 12825232,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/-EDjb2YvPOTY/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdir8R2JYWoccKhzM6M4DPwGhyhUA/s256-rj/photo.jpg",
+    "display_name": "Chaitanya Gujarathi",
+    "link": "https://stackoverflow.com/users/12825232/chaitanya-gujarathi"
+   },
+   "is_answered": true,
+   "view_count": 9185,
+   "answer_count": 4,
+   "score": 9,
+   "last_activity_date": 1692261411,
+   "creation_date": 1626935644,
+   "last_edit_date": 1626936286,
+   "question_id": 68480169,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/68480169/cannot-import-name-scheme-keys-from-pip-internal-models-scheme-error",
+   "title": "Cannot import name &#39;SCHEME_KEYS&#39; from &#39;pip._internal.models.scheme&#39; Error",
+   "body": "<p>I want to install flask in my virtual environment . I used &quot;pip install flask&quot; commmand ,but I got this error:</p>\n<pre><code>raceback (most recent call last):\n  File &quot;C:\\Users\\user\\anaconda3\\lib\\runpy.py&quot;, line 194, in _run_module_as_main\n    return _run_code(code, main_globals, None,\n  File &quot;C:\\Users\\user\\anaconda3\\lib\\runpy.py&quot;, line 87, in _run_code\n    exec(code, run_globals)\n  File &quot;C:\\Users\\user\\Desktop\\news_bot\\myvenv\\Scripts\\pip.exe\\__main__.py&quot;, line 4, in &lt;module&gt;\n  File &quot;c:\\users\\user\\desktop\\news_bot\\myvenv\\lib\\site-packages\\pip\\_internal\\cli\\main.py&quot;, line 10, in &lt;module&gt;\n    from pip._internal.cli.autocompletion import autocomplete\n  File &quot;c:\\users\\user\\desktop\\news_bot\\myvenv\\lib\\site-packages\\pip\\_internal\\cli\\autocompletion.py&quot;, line 9, in &lt;module&gt;\n    from pip._internal.cli.main_parser import create_main_parser\n  File &quot;c:\\users\\user\\desktop\\news_bot\\myvenv\\lib\\site-packages\\pip\\_internal\\cli\\main_parser.py&quot;, line 7, in &lt;module&gt;\n    from pip._internal.cli import cmdoptions\n  File &quot;c:\\users\\user\\desktop\\news_bot\\myvenv\\lib\\site-packages\\pip\\_internal\\cli\\cmdoptions.py&quot;, line 24, in &lt;module&gt;\n    from pip._internal.cli.progress_bars import BAR_TYPES\n  File &quot;c:\\users\\user\\desktop\\news_bot\\myvenv\\lib\\site-packages\\pip\\_internal\\cli\\progress_bars.py&quot;, line 12, in &lt;module&gt;\n    from pip._internal.utils.logging import get_indentation\n  File &quot;c:\\users\\user\\desktop\\news_bot\\myvenv\\lib\\site-packages\\pip\\_internal\\utils\\logging.py&quot;, line 18, in &lt;module&gt;\n    from pip._internal.utils.misc import ensure_dir\n  File &quot;c:\\users\\user\\desktop\\news_bot\\myvenv\\lib\\site-packages\\pip\\_internal\\utils\\misc.py&quot;, line 31, in &lt;module&gt;\n    from pip._internal.locations import (\n  File &quot;c:\\users\\user\\desktop\\news_bot\\myvenv\\lib\\site-packages\\pip\\_internal\\locations\\__init__.py&quot;, line 7, in &lt;module&gt;\n    from pip._internal.models.scheme import SCHEME_KEYS, Scheme\nImportError: cannot import name 'SCHEME_KEYS' from 'pip._internal.models.scheme' (c:\\users\\user\\desktop\\news_bot\\myvenv\\lib\\site-packages\\pip\\_internal\\models\\scheme.py)\n</code></pre>\n<p>I had updated pip and after updation I am getting this error.</p>\n<p>OS:Windows</p>\n<p>Python version:3.8.5</p>\n<p>Thanks :)</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "anaconda",
+    "pymol"
+   ],
+   "owner": {
+    "account_id": 16064250,
+    "reputation": 131,
+    "user_id": 11594362,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/54e4e294f4047306071cd76d0c4fcadf?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Ben",
+    "link": "https://stackoverflow.com/users/11594362/ben"
+   },
+   "is_answered": true,
+   "view_count": 3723,
+   "answer_count": 2,
+   "score": 6,
+   "last_activity_date": 1692210409,
+   "creation_date": 1562319590,
+   "question_id": 56900468,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/56900468/how-do-i-add-libraries-to-pymol",
+   "title": "How do I add libraries to pymol?",
+   "body": "<p>I have pymol downloaded and in use on my mac. I open it from the applications folder. I can successfully run a python script in it. However, I cannot import any libraries within that script. The way I currently know to add importable libraries to a python environment is through anaconda navigator. Is there a way to get anaconda to see the pymol application as a environment that I could then add libraries to?</p>\n\n<p>Is there an easier way to add the libraries? I have tried to use pip install, but I don't understand it much, and I have been unable to find a way to pip install into my pymol environment.</p>\n\n<p>Sorry, if this question has a very simple answer, I am new to programming.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "twilio"
+   ],
+   "owner": {
+    "account_id": 12997943,
+    "reputation": 1,
+    "user_id": 9394910,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/s256-rj/photo.jpg",
+    "display_name": "Rishabh Shrivastav",
+    "link": "https://stackoverflow.com/users/9394910/rishabh-shrivastav"
+   },
+   "is_answered": false,
+   "view_count": 1026,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1689455771,
+   "creation_date": 1519404883,
+   "question_id": 48952723,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/48952723/cannot-import-name-client-error-while-using-twilio",
+   "title": "cannot import name Client error while using twilio",
+   "body": "<p>I am using the following code:</p>\n\n<pre><code>from twilio.rest import Client\n\naccount_sid = \"xxxxxxxxxxx\"\n\nauth_token  = \"xxxxxxxxxxxxxxx\"\n\nclient = Client(account_sid, auth_token)\n\nmessage = client.messages.create(\n    to=\"xxxxxxxxx\", \n    from_=\"+xxxxxxxx\",\n    body=\"Hello from Python!\")\n\nprint(message.sid)\n</code></pre>\n\n<p>I have also used : pip install twilio\nand    conda install -c ceyhun twilio    from terminal (MacOS). But the error pertains as --  ImportError: cannot import name Client</p>\n\n<p>Please help me out.</p>\n"
+  }
+ ]
+}

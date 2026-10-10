@@ -1,0 +1,165 @@
+[
+ {
+  "venue": "stackexchange",
+  "site": "stackoverflow",
+  "query": "python \"ImportError\" \"No module named\"",
+  "class": "core",
+  "n": 50,
+  "file": "se-python--ImportError---No-module-named.json"
+ },
+ {
+  "venue": "stackexchange",
+  "site": "stackoverflow",
+  "query": "python \"ModuleNotFoundError\" \"No module named\"",
+  "class": "core",
+  "n": 50,
+  "file": "se-python--ModuleNotFoundError---No-module-named.json"
+ },
+ {
+  "venue": "stackexchange",
+  "site": "stackoverflow",
+  "query": "python \"ImportError\" \"what package\"",
+  "class": "explicit",
+  "n": 5,
+  "file": "se-python--ImportError---what-package.json"
+ },
+ {
+  "venue": "stackexchange",
+  "site": "stackoverflow",
+  "query": "python \"ModuleNotFoundError\" \"what to install\"",
+  "class": "explicit",
+  "n": 1,
+  "file": "se-python--ModuleNotFoundError---what-to-install.json"
+ },
+ {
+  "venue": "stackexchange",
+  "site": "stackoverflow",
+  "query": "python \"pip install\" \"ImportError\"",
+  "class": "pip_then_import",
+  "n": 50,
+  "file": "se-python--pip-install---ImportError.json"
+ },
+ {
+  "venue": "stackexchange",
+  "site": "stackoverflow",
+  "query": "python \"import\" \"failed\" \"what package\"",
+  "class": "generic",
+  "n": 3,
+  "file": "se-python--import---failed---what-package.json"
+ },
+ {
+  "venue": "stackexchange",
+  "site": "stackoverflow",
+  "query": "python \"cannot import\" \"pip install\"",
+  "class": "inverse",
+  "n": 50,
+  "file": "se-python--cannot-import---pip-install.json"
+ },
+ {
+  "venue": "stackexchange",
+  "site": "stackoverflow",
+  "query": "python \"No module named\" \"pip\"",
+  "class": "module_plus_pip",
+  "n": 50,
+  "file": "se-python--No-module-named---pip.json"
+ },
+ {
+  "venue": "github",
+  "query": "\"ImportError\" \"No module named\" language:python type:issue",
+  "class": "core",
+  "n": 50,
+  "file": "gh-ImportError---No-module-named--language-python-type-issue.json"
+ },
+ {
+  "venue": "github",
+  "query": "\"ModuleNotFoundError\" \"No module named\" language:python type:issue",
+  "class": "core",
+  "n": 50,
+  "file": "gh-ModuleNotFoundError---No-module-named--language-python-type-issue.json"
+ },
+ {
+  "venue": "github",
+  "query": "\"import error\" \"what package\" language:python type:issue",
+  "class": "explicit",
+  "n": 50,
+  "file": "gh-import-error---what-package--language-python-type-issue.json"
+ },
+ {
+  "venue": "github",
+  "query": "\"pip install\" \"import failed\" language:python type:issue",
+  "class": "pip_then_import",
+  "n": 50,
+  "file": "gh-pip-install---import-failed--language-python-type-issue.json"
+ },
+ {
+  "venue": "github",
+  "query": "\"cannot import\" \"pip install\" language:python type:issue",
+  "class": "inverse",
+  "n": 49,
+  "file": "gh-cannot-import---pip-install--language-python-type-issue.json"
+ },
+ {
+  "venue": "github",
+  "repo": "python/cpython",
+  "query": "(\"ImportError\" OR \"ModuleNotFoundError\") type:issue",
+  "class": "library_tracker",
+  "n": 50,
+  "file": "repo-python-cpython.json"
+ },
+ {
+  "venue": "github",
+  "repo": "numpy/numpy",
+  "query": "(\"ImportError\" OR \"ModuleNotFoundError\") type:issue",
+  "class": "library_tracker",
+  "n": 50,
+  "file": "repo-numpy-numpy.json"
+ },
+ {
+  "venue": "github",
+  "repo": "pandas-dev/pandas",
+  "query": "(\"ImportError\" OR \"ModuleNotFoundError\") type:issue",
+  "class": "library_tracker",
+  "n": 50,
+  "file": "repo-pandas-dev-pandas.json"
+ },
+ {
+  "venue": "github",
+  "repo": "psf/requests",
+  "query": "(\"ImportError\" OR \"ModuleNotFoundError\") type:issue",
+  "class": "library_tracker",
+  "n": 50,
+  "file": "repo-psf-requests.json"
+ },
+ {
+  "venue": "github",
+  "repo": "django/django",
+  "query": "(\"ImportError\" OR \"ModuleNotFoundError\") type:issue",
+  "class": "library_tracker",
+  "n": 0,
+  "file": "repo-django-django.json"
+ },
+ {
+  "venue": "github",
+  "repo": "pallets/flask",
+  "query": "(\"ImportError\" OR \"ModuleNotFoundError\") type:issue",
+  "class": "library_tracker",
+  "n": 50,
+  "file": "repo-pallets-flask.json"
+ },
+ {
+  "venue": "github",
+  "repo": "sqlalchemy/sqlalchemy",
+  "query": "(\"ImportError\" OR \"ModuleNotFoundError\") type:issue",
+  "class": "library_tracker",
+  "n": 50,
+  "file": "repo-sqlalchemy-sqlalchemy.json"
+ },
+ {
+  "venue": "github",
+  "repo": "pytest-dev/pytest",
+  "query": "(\"ImportError\" OR \"ModuleNotFoundError\") type:issue",
+  "class": "library_tracker",
+  "n": 50,
+  "file": "repo-pytest-dev-pytest.json"
+ }
+]
