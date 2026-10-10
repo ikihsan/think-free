@@ -327,6 +327,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/090-reverse-index/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-10 | 2 documents |
 | `EXPERIMENTS/091-anova-answerability/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-10 | 2 documents |
 | `EXPERIMENTS/091-import-error-population/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-10 | ## Summary |
+| `EXPERIMENTS/092-module-provider-demand/` | `EXPERIMENTS/092-module-provider-demand/PROTOCOL.md` | active | 2026-10-10 | 3 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-principle.md/` | `EXPERIMENTS/PLAN.md` | withdrawn | 2026-10-10 | 1 documents |
