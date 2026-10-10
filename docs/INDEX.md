@@ -321,6 +321,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/088-instrument-discrimination/` | `docs/INDEX.md` | active | 2026-10-10 | observed 2026-10-10, session 2026-10-10-004, VM instance-20260717-0944. |
 | `EXPERIMENTS/089-substitute-or-neighbour/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-10 | Session 2026-10-10-005, VM instance-20260717-0944. Protocol declared in |
 | `EXPERIMENTS/090-reverse-index/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-10 | 2 documents |
+| `EXPERIMENTS/091-anova-answerability/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-10 | 2 documents |
 | `EXPERIMENTS/091-import-error-population/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-10 | ## Summary |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
