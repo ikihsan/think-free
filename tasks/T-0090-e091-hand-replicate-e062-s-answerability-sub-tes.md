@@ -9,7 +9,7 @@ id: T-0090
 status: claimed
 created: 2026-10-10
 claim-agent: opencode
-claim-session: 2026-10-10-006-decide-by-measurement-whether-which-dist
+claim-session: 2026-10-10-007-run-e091-t-0090-hand-replicate-e062-s-an
 claim-vm: instance-20260717-0944
 verify: test -f EXPERIMENTS/091-anova-answerability/VERDICT.md
 -->

@@ -8,13 +8,14 @@ last-verified: 2026-10-10
 
 <!-- generated-by: origin; do not edit by hand -->
 
-219 recorded session(s). One `events.jsonl` per session, so concurrent
+220 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 194 older session(s) are in the directory listing.
+Showing the 25 most recent. 195 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-10-007-run-e091-t-0090-hand-replicate-e062-s-an](2026-10-10-007-run-e091-t-0090-hand-replicate-e062-s-an/README.md) | unknown-agent | **unfinished** | Run E091 (T-0090): hand-replicate E062's answerability sub-test on Ano | 2026-10-10T06:59 |
 | [2026-10-10-006-decide-by-measurement-whether-which-dist](2026-10-10-006-decide-by-measurement-whether-which-dist/README.md) | unknown-agent | partial | Decide by measurement whether 'which distribution provides this module | 2026-10-10T06:42 |
 | [2026-10-10-005-measure-whether-e064-s-package-name-fals](2026-10-10-005-measure-whether-e064-s-package-name-fals/README.md) | unknown-agent | worked | Measure whether E064's package-name false-accept hazard (0.1615) descr | 2026-10-10T02:46 |
 | [2026-10-10-004-falsify-the-e081-e087-view-count-general](2026-10-10-004-falsify-the-e081-e087-view-count-general/README.md) | unknown-agent | partial | Falsify the E081-E087 view-count generalisation line: test whether its | 2026-10-10T01:31 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 194 older session(s) are in the directory listing.
 | [2026-10-09-004-observe-whether-the-silent-wrong-project](2026-10-09-004-observe-whether-the-silent-wrong-project/README.md) | unknown-agent | worked | Observe whether the silent wrong-project install (E064's false-accept  | 2026-10-09T09:49 |
 | [2026-10-09-004-explore-a-fresh-non-software-domain-for](2026-10-09-004-explore-a-fresh-non-software-domain-for/README.md) | opencode | worked | Explore a fresh non-software domain for a concrete, testable opportuni | 2026-10-09T08:49 |
 | [2026-10-09-003-run-the-install-test-falsification-of-e0](2026-10-09-003-run-the-install-test-falsification-of-e0/README.md) | unknown-agent | worked | Run the install-test falsification of E068's spec generator against th | 2026-10-09T07:57 |
-| [2026-10-09-003-land-e072-f185-d090-with-its-hypotheses](2026-10-09-003-land-e072-f185-d090-with-its-hypotheses/README.md) | unknown-agent | worked | Land E072 (F185/D090) with its HYPOTHESES gap closed, then run E073: d | 2026-10-09T07:42 |
 
 
 ## Reading a session
