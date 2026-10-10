@@ -174,6 +174,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0087-e055-build-a-tool-neutral-git-index-postconditio.md`](../tasks/T-0087-e055-build-a-tool-neutral-git-index-postconditio.md) | `tasks/INDEX.md` | active | 2026-10-08 | ## Goal |
 | [`tasks/T-0088-e086-measure-whether-real-python-import-error-re.md`](../tasks/T-0088-e086-measure-whether-real-python-import-error-re.md) | `tasks/INDEX.md` | active | 2026-10-10 | ## Goal |
 | [`tasks/T-0089-e090-measure-whether-a-module-to-distribution-re.md`](../tasks/T-0089-e090-measure-whether-a-module-to-distribution-re.md) | `tasks/INDEX.md` | active | 2026-10-10 | ## Goal |
+| [`tasks/T-0090-e091-hand-replicate-e062-s-answerability-sub-tes.md`](../tasks/T-0090-e091-hand-replicate-e062-s-answerability-sub-tes.md) | `tasks/INDEX.md` | active | 2026-10-10 | ## Goal |
 
 ## RESEARCH
 
@@ -319,6 +320,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/087-environmental-monitoring/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/088-instrument-discrimination/` | `docs/INDEX.md` | active | 2026-10-10 | observed 2026-10-10, session 2026-10-10-004, VM instance-20260717-0944. |
 | `EXPERIMENTS/089-substitute-or-neighbour/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-10 | Session 2026-10-10-005, VM instance-20260717-0944. Protocol declared in |
+| `EXPERIMENTS/090-reverse-index/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-10 | 1 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-principle.md/` | `EXPERIMENTS/PLAN.md` | withdrawn | 2026-10-10 | 1 documents |
