@@ -322,6 +322,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/087-environmental-monitoring/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/088-instrument-discrimination/` | `docs/INDEX.md` | active | 2026-10-10 | observed 2026-10-10, session 2026-10-10-004, VM instance-20260717-0944. |
 | `EXPERIMENTS/089-substitute-or-neighbour/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-10 | Session 2026-10-10-005, VM instance-20260717-0944. Protocol declared in |
+| `EXPERIMENTS/090-fresh-observation-structured-faults/` | `docs/INDEX.md` | active | 2026-10-10 | 4 documents |
 | `EXPERIMENTS/090-instrument-discrimination/` | `docs/INDEX.md` | active | 2026-10-10 | 1 documents |
 | `EXPERIMENTS/090-reverse-index/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-10 | 2 documents |
 | `EXPERIMENTS/091-anova-answerability/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-10 | 2 documents |
