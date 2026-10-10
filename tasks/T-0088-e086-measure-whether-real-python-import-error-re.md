@@ -6,11 +6,11 @@ last-verified: 2026-10-10
 
 <!-- task-meta
 id: T-0088
-status: open
+status: claimed
 created: 2026-10-10
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-10-003-e086-measure-demand-for-a-module-to-dist
+claim-vm: instance-20260717-0947
 verify: test -f EXPERIMENTS/086-import-error-demand/VERDICT.md
 -->
 

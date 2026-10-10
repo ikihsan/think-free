@@ -269,3 +269,4 @@
 {"action": "complete", "reason": "E054 landed: lockfile-closure measurement complete, harness verify passes (drift-observed). Task row flipped from stale claimed to done.", "schema": "origin.task.claim/1", "task": "T-0085", "ts": "2026-10-08T14:12:56+00:00"}
 {"action": "complete", "reason": "E055 landed: F088/D081, tool-neutral git index postcondition checker falsified against its own bytes. Verify gate run on git 2.56.0 (dev machine); this VM's git 2.25.1 refuses the git-hunk arm. Raw results confirm git_version 2.56.0.", "schema": "origin.task.claim/1", "task": "T-0087", "ts": "2026-10-08T14:16:33+00:00"}
 {"action": "create", "schema": "origin.task.claim/1", "task": "T-0088", "ts": "2026-10-10T01:09:17+00:00"}
+{"action": "claim", "agent": "opencode", "schema": "origin.task.claim/1", "session": "2026-10-10-003-e086-measure-demand-for-a-module-to-dist", "task": "T-0088", "ts": "2026-10-10T01:10:07+00:00", "vm": "instance-20260717-0947"}
