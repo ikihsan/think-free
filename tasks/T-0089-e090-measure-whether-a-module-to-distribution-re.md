@@ -6,11 +6,11 @@ last-verified: 2026-10-10
 
 <!-- task-meta
 id: T-0089
-status: open
+status: claimed
 created: 2026-10-10
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: unknown-agent
+claim-session: 2026-10-10-006-decide-by-measurement-whether-which-dist
+claim-vm: 
 verify: test -f EXPERIMENTS/090-reverse-index/VERDICT.md
 -->
 
