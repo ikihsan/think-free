@@ -8,7 +8,7 @@ last-verified: 2026-10-08
 
 Split out of [`DECISIONS-SCREENING-13.md`](DECISIONS-SCREENING-13.md) on 2026-10-08 when that file reached the 300-line cap. The rule is unchanged: a decision is recorded when the choice was genuinely open, with evidence, alternatives, and reason.
 
-Decisions **D084–D088, D093**. Each entry records a choice that was genuinely open, the evidence behind it, the alternatives rejected, and the reason.
+Decisions **D084–D088, D095–D097**. Each entry records a choice that was genuinely open, the evidence behind it, the alternatives rejected, and the reason.
 
 ## D084 — Arrival at a need is a different quantity from a statement of need (2026-10-08)
 
@@ -73,7 +73,7 @@ Decisions **D084–D088, D093**. Each entry records a choice that was genuinely 
 
 **Ceiling.** 16 of 20 repositories, one arXiv year, all deep-learning GitHub code, Python 3.10 only, no GPU. The oracle as amended cannot catch a spec that *omits* a needed dependency — it probes what the spec claimed, not what the code wants — so a generator that silently dropped half a dependency could pass every arm here. `DECL` is the strongest alternative available without inventing a mechanism; a colleague who fixes the install by hand is not measured and remains the honest ceiling. This closes E068's direction as implemented; it does not disprove that an environment can be inferred from a repository, and it says nothing about adoption.
 
-## D093 — A mechanism that passes synthetic kill gates but requires identifier linkage that does not exist in practice is not a candidate (2026-10-09)
+## D096 — A mechanism that passes synthetic kill gates but requires identifier linkage that does not exist in practice is not a candidate (2026-10-09)
 
 `observed` 2026-10-09, session 2026-10-09-018, E080.
 
@@ -152,3 +152,57 @@ probes written by the agent that interprets them. F109 shows this instrument
 fails to discriminate. It does not show that no classifier over Bing can, and
 it says nothing about whether structured fault/error-code domains hold unserved
 needs — that population was never measured here, and remains open.
+
+## D097 — A rate whose ground truth is definitional is a count of the generator's assumption, and it is read as a rate about the world only after someone reads the artifacts (2026-10-10)
+
+`observed` 2026-10-10, session `2026-10-10-005`, E089, F110.
+
+**The situation.** F099 is the reason the package-name line is closed *against*
+building: "0.1615 of plausible near-miss package names resolve to a real,
+different artifact — the existence bit every installer, IDE and checker returns
+is materially insufficient." The sentence is in `STATE.md`'s dashboard and is
+the mission's strongest modern evidence about installer failure. E064's protocol
+grounds it definitionally: the intended artifact of every mutated name "is the
+original", so any resolving mutation "is a false accept **by construction**".
+
+That is a claim about people — that they type `requests-utils` meaning
+`requests` — made by the mutation operator and never measured. E089 read the 93
+descriptions E064 had already fetched, committed, and never opened.
+
+**The evidence.** 11 of 93 present themselves as providing the seed's capability
+under their own name (0.118, CI95 [0.067, 0.199]); 44 are derivatives with a
+stated purpose; 38 are other, **13 of them parked names** whose install succeeds
+and imports nothing. The same rule labels **0 of 30** intended artifacts
+`equivalent`, so the trigger is specific. Seven of the eleven say it in their own
+words. **11 of 576 = 0.0191, against the 0.1615 that was quoted** — and E085's
+independent hand-read of real declared dependencies put the silent rate at 0.6%,
+so two measurements on different populations agree.
+
+**The choice.** Annotate F099 and the dashboard sentence rather than delete the
+experiment, and keep the line closed — now on a number that can be defended. The
+existence bit is still insufficient; it is not insufficient at the strength
+0.1615 implies.
+
+**Why this is a rule and not a one-off.** The record has three instances of the
+same shape, and they are its most expensive errors: E081's G2 asserts the labels
+it checks against (F109), E029's control was a relabelled replicate of its
+treatment arm (F049), and E064's ground truth is definitional (F110). In each
+case **the instrument produced the label and the label was then read as a fact
+about the world**. The rule: *a label produced by a generator's own assumption is
+not evidence about the world until the artifacts it names have been read.* The
+check is cheap — E089 needed no fetch, no classifier, and no budget, only the
+descriptions already sitting in the repository unopened.
+
+**Rejected: delete F099.** The 93 resolutions are `observed` and real; the
+defect is in the label applied to them, not in the measurement. **Rejected: keep
+0.1615 and add a footnote.** The sentence's force comes from its number, and a
+footnote under a number that is 8.5x too high leaves the wrong figure in every
+reader's memory — F109's failure was exactly that. **Rejected: treat 11 as a new
+build target.** 11 real packages still present themselves as drop-in
+replacements for other real packages and nothing says so, but at ~1.9% of
+plausible near-miss names and ~0.6% of real declared dependencies that is a
+warning, not a product, and E085 already measured the incumbent's gap.
+
+**Ceiling.** 93 rows, four ecosystems, Packagist `not_exercised`. The population
+is generated affix mutations, which is not what a person types; E089 does not
+correct that bias, and says so.

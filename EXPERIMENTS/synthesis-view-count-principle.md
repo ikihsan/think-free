@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: EXPERIMENTS/PLAN.md
+status: withdrawn
+last-verified: 2026-10-10
+-->
+
 # Synthesis: View-Count Principle Generalization Across 7 Domains
 
 > **WITHDRAWN 2026-10-10 by E088 (F109, D095).** This document was written from

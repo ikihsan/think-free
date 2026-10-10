@@ -317,9 +317,10 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/086-building-code-compliance/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/087-environmental-monitoring/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/088-instrument-discrimination/` | `docs/INDEX.md` | active | 2026-10-10 | observed 2026-10-10, session 2026-10-10-004, VM instance-20260717-0944. |
+| `EXPERIMENTS/089-substitute-or-neighbour/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-10 | Session 2026-10-10-005, VM instance-20260717-0944. Protocol declared in |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
-| `EXPERIMENTS/synthesis-view-count-principle.md/` | `—` | — | — | 1 documents |
+| `EXPERIMENTS/synthesis-view-count-principle.md/` | `EXPERIMENTS/PLAN.md` | withdrawn | 2026-10-10 | 1 documents |
 
 ## Generated maps
 

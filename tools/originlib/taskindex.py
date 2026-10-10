@@ -72,7 +72,15 @@ def render_tasks_index() -> str:
     table = ["| Task | Status | Claimed by | Verify | Created |", "|---|---|---|---|---|"]
     table += ["| " + " | ".join(str(c) for c in row) + " |" for row in rows[:MAX_INDEX_ROWS]]
     if len(rows) > MAX_INDEX_ROWS:
-        table.append(f"| _… {len(rows) - MAX_INDEX_ROWS} more in `tasks/`_ | | | | |")
+        # Every task must be reachable from this index, or `doc lint` reports it
+        # as an orphan: a task past the row cap had no inbound link at all, which
+        # is why T-0088 was the only failure among 88. The overflow carries its
+        # own links, compactly, so the cap stays a display choice and not a
+        # reachability one.
+        rest = rows[MAX_INDEX_ROWS:]
+        linked = ", ".join("[%s](%s)" % (r[0].split("`")[1][:-3], r[0].split("`")[1])
+                           for r in rest)
+        table.append("| _%d more in `tasks/`:_ %s | | | | |" % (len(rest), linked))
     table.append("")
     tail = [
         "## How tasks run on another machine",

@@ -8,13 +8,14 @@ last-verified: 2026-10-10
 
 <!-- generated-by: origin; do not edit by hand -->
 
-217 recorded session(s). One `events.jsonl` per session, so concurrent
+218 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 192 older session(s) are in the directory listing.
+Showing the 25 most recent. 193 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-10-005-measure-whether-e064-s-package-name-fals](2026-10-10-005-measure-whether-e064-s-package-name-fals/README.md) | unknown-agent | **unfinished** | Measure whether E064's package-name false-accept hazard (0.1615) descr | 2026-10-10T01:36 |
 | [2026-10-10-004-falsify-the-e081-e087-view-count-general](2026-10-10-004-falsify-the-e081-e087-view-count-general/README.md) | unknown-agent | partial | Falsify the E081-E087 view-count generalisation line: test whether its | 2026-10-10T01:31 |
 | [2026-10-10-003-fresh-observation-in-new-domain-building](2026-10-10-003-fresh-observation-in-new-domain-building/README.md) | unknown-agent | worked | Fresh observation in new domain: building automation HVAC fault codes  | 2026-10-10T00:22 |
 | [2026-10-10-002-fresh-observation-in-new-domain-industri](2026-10-10-002-fresh-observation-in-new-domain-industri/README.md) | unknown-agent | worked | Fresh observation in new domain: industrial equipment fault codes (PLC | 2026-10-10T00:14 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 192 older session(s) are in the directory listing.
 | [2026-10-09-003-run-the-install-test-falsification-of-e0](2026-10-09-003-run-the-install-test-falsification-of-e0/README.md) | unknown-agent | worked | Run the install-test falsification of E068's spec generator against th | 2026-10-09T07:57 |
 | [2026-10-09-003-land-e072-f185-d090-with-its-hypotheses](2026-10-09-003-land-e072-f185-d090-with-its-hypotheses/README.md) | unknown-agent | worked | Land E072 (F185/D090) with its HYPOTHESES gap closed, then run E073: d | 2026-10-09T07:42 |
 | [2026-10-09-002-record-artifact-for-e067-generate-py](2026-10-09-002-record-artifact-for-e067-generate-py/README.md) | unknown-agent | worked | Record artifact for E067 generate.py | 2026-10-09T00:35 |
-| [2026-10-09-002-land-the-unlanded-e067-e070-work-with-a](2026-10-09-002-land-the-unlanded-e067-e070-work-with-a/README.md) | unknown-agent | worked | Land the unlanded E067-E070 work with a source manifest for the 5.5GB  | 2026-10-09T02:54 |
 
 
 ## Reading a session

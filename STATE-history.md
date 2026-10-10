@@ -167,3 +167,35 @@ moves to the file whose invariant owns it, never shortened to fit.
 ## Sessions in this file
 
 ## Honest limitations of this state (moved from STATE.md 2026-10-06)
+
+## Moved here 2026-10-10 — session detail split out of `STATE.md` at the cap
+
+The dashboard and the reload point stay in [`STATE.md`](STATE.md); a session's
+full reading moves here once it is no longer in flight.
+
+- **Session 2026-10-10-001 (this VM): E085, F108, D093, D094.** The
+  authorized-but-unrun did-you-mean checker (E070's "a reversible prototype is
+  authorized") was run as the denominator-correct measurement nobody had made:
+  **of dependencies real projects declare, how often does the declared
+  distribution fail to provide a module the code imports?** A new instrument
+  reads a wheel's zip **central directory over HTTP `Range`** — two requests,
+  **zero payload bytes, nothing installed** — and resolved 538 of 578 declared
+  distributions (**0.931**), recovering the true provider for **10 of 10**
+  controls with **0 of 10** false flags. Across 13 usable repositories and 500
+  scored imported modules: **254 covered, 152 name-collisions where installing
+  the name works, 88 loud, 6 silent.** Rate **0.0120**, Wilson CI95
+  [0.0055, 0.0259] → declared G3 **HOLD**; the declared **G4 precision gate
+  FAILS** — all 6 rows hand-read, **3 true 3 false = 0.50** against 0.80 —
+  corrected **3 of 500 = 0.6%**, at the kill line. **E064's 0.1615 does not
+  transfer to declared names** (F108). The class is real and was reproduced by
+  hand: `pip install Crypto` exits 0, installs a different project **plus 8 of
+  its dependencies**, prints `Successfully installed Crypto-1.4.1` so `pip list`
+  shows the name satisfied, and `import Crypto` raises `ModuleNotFoundError`.
+  **deptry 0.25.1 cannot detect the class at all** — 951 of its 974 findings on
+  these repos are DEP001 noise with nothing installed, and **0 findings** on a
+  project that declares `sklearn`, imports it, and installs nothing (F108).
+  Five instrumentation defects found and repaired, **two of which moved the
+  verdict** (stdlib *packages* all missed: 6 findings became 12; module names
+  resolved only among declared distributions, which suppressed the target class
+  by construction and produced a spurious KILL). `pyprovides/` prototype, 17
+  tests, `status: draft`, unreleased.

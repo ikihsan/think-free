@@ -18,10 +18,10 @@ Fresh observation in the 3D printing hardware/firmware domain to discover whethe
 | [`classify.py`](classify.py) | Fault type classification and printer model extraction |
 | [`measure.py`](measure.py) | Gate evaluation logic |
 | [`run.py`](run.py) | Main experiment runner |
-| [`raw/topics_<forum>.jsonl`](raw/) | Raw topic data per forum (exempt from line cap) |
-| [`raw/classified_<forum>.jsonl`](raw/) | Classified topics per forum (exempt from line cap) |
-| [`raw/posts_<forum>.jsonl`](raw/) | Reply posts for fault topics (exempt from line cap) |
-| [`raw/classified_all.jsonl`](raw/) | Combined classified data across all forums |
+| [`raw/topics_<forum>.jsonl` | Raw topic data per forum (exempt from line cap) |
+| [`raw/classified_<forum>.jsonl` | Classified topics per forum (exempt from line cap) |
+| [`raw/posts_<forum>.jsonl` | Reply posts for fault topics (exempt from line cap) |
+| [`raw/classified_all.jsonl` | Combined classified data across all forums |
 | [`results.json`](results.json) | Aggregated gate results |
 | [`VERDICT.md`](VERDICT.md) | Gate evaluation results and decision |
 

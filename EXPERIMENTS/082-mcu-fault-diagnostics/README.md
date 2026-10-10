@@ -16,7 +16,7 @@ Fresh observation in the microcontroller fault/exception codes domain to discove
 | [`CLASSIFICATION_RULES.md`](CLASSIFICATION_RULES.md) | Classification criteria for fault types and root cause specificity |
 | [`fetch.py`](fetch.py) | Data acquisition from electronics.stackexchange.com API (full version) |
 | [`analyze_preliminary.py`](analyze_preliminary.py) | Analysis on title+tag data only (no answer data needed) |
-| [`raw/questions_raw.json`](raw/questions_raw.json) | Raw questions from API (exempt from line cap) |
+| [`raw/topics_all.jsonl`](raw/topics_all.jsonl) | Raw questions from API (exempt from line cap) |
 | [`analysis/preliminary_gate_results.json`](analysis/preliminary_gate_results.json) | Machine-readable gate results |
 | [`analysis/title_candidates.json`](analysis/title_candidates.json) | Title candidates (exempt from line cap) |
 | [`VERDICT.md`](VERDICT.md) | Gate evaluation results and decision |
