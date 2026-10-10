@@ -1,6 +1,21 @@
 # Synthesis: View-Count Principle Generalization Across 7 Domains
 
-## Experiment Summary (E081-E087)
+> **WITHDRAWN 2026-10-10 by E088 (F109, D095).** This document was written from
+> E081–E087 and committed. E088 showed the instrument those seven experiments
+> used cannot tell a real answer from a nonexistent entity: **8 of 20
+> nonexistent products were classified `served`**, every one of them on pages
+> that never mention the subject. Two further defects: all 500 corpus rows are
+> `<term> <verb> <sequence integer>` rather than harvested need statements, and
+> E081's declared Stack Exchange control arm appears in none of the seven
+> directories. No run in E081–E087 measured a view count at all — the term
+> appears in their `PROTOCOL.md` prose and nowhere in their code or data.
+>
+> **Every number below is retained unchanged so the withdrawal is auditable.
+> None of it is evidence about any domain.** The tables are reported as the
+> commits read at the time, not as findings. The standing reading is in
+> [`088-instrument-discrimination/README.md`](088-instrument-discrimination/README.md).
+
+## Experiment Summary (E081-E087) — withdrawn, retained for audit
 
 | Experiment | Domain | Partially_served % | Served % | Key characteristic |
 |---|---|---|---|---|
@@ -45,7 +60,10 @@
 - Control: 53.3% served, 36.7% partially_served, 10.0% unserved
 - Intermediate pattern between the technical gradient and the regulatory boundary
 
-## Key Mission Findings
+## Key Mission Findings — withdrawn, see F109
+
+Each of the five findings below is retracted by E088. They are kept verbatim so
+a reader can see exactly what was claimed.
 
 1. **Generalization**: The view-count principle generalizes consistently across technical/non-software domains (E081-E085), with a systematic dose-response gradient of partially_served rates that correlates with domain code-structure.
 

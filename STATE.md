@@ -82,6 +82,44 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
+**Session `2026-10-10-004` (this VM) ran E088 and closed the
+`fresh observation in a new domain` route at the instrument.** E081-E087 --
+seven sessions, `2026-10-09-022` ... `2026-10-10-003` -- ran one "fresh domain"
+each and produced a committed cross-domain synthesis claiming the view-count
+principle generalises with a dose-response gradient. E088 froze **40 probes
+whose labels are known by construction** (20 with abundant public
+documentation, 20 naming entities that do not exist) and ran E087's own
+`bing_search()` and `classify_served()` unchanged over them. **G1 FAIL: 8 of 20
+nonexistent products classified `served`** (0.40); 11 of 20 genuinely-served
+questions classified `served` (0.55); difference +0.150, **Newcombe CI95
+[-0.148, +0.414], spanning 0**. All 8 false positives are off-topic -- the
+subject is mentioned in **0 of 20** known-unserved retrievals, and the
+substring `app` (in a 19-word list with `tool`, `guide`, `fix`) fired on
+clipart vectors, Windows-10 app tutorials and spam (F109, D095).
+
+**Three defects, all in the record, none in the populations.** No run in
+E081-E087 read a view count -- the term is in their `PROTOCOL.md` prose only.
+All **500** corpus rows are `<term> <verb> <sequence integer>`, not harvested
+needs, and E081's declared Stack Exchange control arm (110 rows carrying
+`view_count`) is absent from all seven directories; `control-needs.jsonl` is
+byte-identical across E083-E087. And the scrape was not returning results:
+empty-title rate **0.331 (E081) to 0.640 (E084)**. The 28 raw JSONL files all
+seven rest on were untracked and gitignored -- **committed with F109** so the
+claim is checkable.
+
+**What G3's pass does and does not mean.** The synthesis's declared ordering
+E081 <= E082 <= E083 <= E084 <= E085 *does* hold, on all rows and on
+relevant-only rows, and is reported as observed. It is not evidence:
+`partially_served` is produced by the classifier, so restricting rows cannot
+move it. The ordering tracks which query template trips the keyword list, not
+domain structure. **E088's own G2 was too lenient and is recorded against
+itself** -- it passes at 0.763 while most of the blocks it read are ads and
+spam; F101's shape, in a gate written after reading F101.
+
+**The population question is untouched.** E088 measured a classifier against 40
+probes; it never measured a real need statement. Whether structured
+fault/error-code domains hold unserved needs was not asked.
+
 **Session `2026-10-09-015` (this VM) ran E079 ArXiv reproducibility falsification experiment.** Information-sufficiency witness W-ARXIV-1 **FAIL (as predicted)**: two synthetic repos with identical permitted inputs (unpinned requirements.txt, same imports, README structure) but requiring different pinned numpy versions cannot be distinguished from static analysis alone. This bounds the claim — any deterministic tool seeing only static inputs produces identical pinned requirements for both, causing one to fail. Harvest finds papers (4 unique in pilot), tool prototype extracts imports but over-generates (includes stdlib/internal modules), test infrastructure needs `python3.8-venv`. Kill gates predeclared: G1 install≥80%, G3 combined≥30%, G4 tool>baseline+10pp. **Decision: `hold`** — witness passed (bound demonstrated), full experiment not run due to env constraints.
 
 **Session `2026-10-09-003` (this VM) ran E069 to a recorded verdict:
@@ -188,6 +226,7 @@ and its paths are then attributed to whoever holds the tree
   resolved only among declared distributions, which suppressed the target class
   by construction and produced a spurious KILL). `pyprovides/` prototype, 17
   tests, `status: draft`, unreleased.
+- **Session 2026-10-10-004 (this VM): E088, F109, D095.** The `fresh observation in a new domain` route is closed at the instrument. **8 of 20 nonexistent products classified `served`** by E087's own unchanged classifier, all on pages that never mention the subject; difference from genuinely-served probes +0.150, CI95 [-0.148, +0.414], spanning 0. All 500 E081-E087 corpus rows are `<term> <verb> <n>` templates; no run in those seven directories read a view count; their 28 raw JSONL files were untracked and gitignored and are now committed. `synthesis-view-count-principle.md` is withdrawn in place, numbers retained for audit. E088's own G2 recorded as too lenient.
 - **Session 2026-10-09-026 (this VM): E084.** Fresh observation in PX4 drone autopilot fault codes on `discuss.px4.io` Discourse forum. **854 topics, 54 fault topics (6.3%), 36 qualified (views>0, replies>0)**. G1 **FAIL** (~39 estimated structured cases vs 100 threshold), G2 PASS (100% concentration — only 8 fault types), G3 PASS* (17 airframe/FC combos from post bodies), G4 PASS (88.9% SPECIFIC root causes), G5 PENDING. Negative control (meta.discourse.org) 6.7% false positive rate. **No candidate emerges** — population too small. Recorded as F107.
 - **Session 2026-10-09-025 (this VM): E083.** Fresh observation in 3D printer fault codes on 5 Discourse forums (Creality, LulzBot, Home Assistant, openHAB, Arduino). **500 topics, 79 fault topics (15.8%)**. G2 PASS (73.4% concentration), **G3 FAIL (1.8 avg models/fault vs 10 threshold)** — manufacturer forums silo discussions by brand. G1/G4/G5 pending reply analysis. view_count instrument validated at 100%. Negative control (cooking forum) 5% false positive rate. **No candidate emerges** — brand silos prevent cross-model coverage. Recorded as F106.
 - **Session 2026-10-09-021 (this VM): E079.** Fresh observation in automotive OBD2 codes on Mechanics.SE. **G2 FAIL (29% vs 30%)**, G3 PASS (30 vehicle configs), G1/G4 blocked by API throttle. 210 title candidates, 262 code mentions, 159 unique codes — high dispersion. Long-tail distribution (top 10 = 29%) suggests insufficient concentration. Answer data inaccessible without API key.
@@ -239,23 +278,13 @@ remedy and trips any CI format gate. **Nothing to build.** The fresh observation
 reload point asked for is now done (E062), and it returned the instrument rather than
 a candidate.
 
-**The single most useful next action, after E069 and E079.** E069 showed the failure
-that has been costing this mission the most: **a predeclared kill gate whose
-passing region contains only vacuous cases cannot fail, and the tool that
-computes it will still report a pass** (F101, D088). K1 asked for 3 clean
-installs; the only 3 installable specs named nothing. One empty file moved the
-verdict from KILL to "mechanism holds". E079 confirmed the same pattern:
-the information-sufficiency witness **fails as predicted**, proving that
-static inputs (unpinned requirements.txt, imports, README) cannot distinguish
-repos needing different pinned versions. The tool must either run trial
-installations (expensive, compute-bound) or use heuristics (may guess wrong).
-So the next candidate's protocol must **enumerate what its gate's passing
-value can be made of, before the run** — and `analyze.py` must read bytes
-that exist before the run ends, not a file the run writes at the end (which
-is how E069's own analysis tool could not have produced its verdict). Both
-are small changes to how a protocol is written, and both are worth more than
-another screen: seven emptiness measurements already retired the harvest
-route, and a seventh would retire nothing new.
+**The single most useful next action, after E088.** E069 showed a predeclared kill gate whose passing region contains only vacuous cases cannot fail (F101, D088). **E088 showed the same failure one level earlier, and this time it cost seven sessions and a committed synthesis: no run in E081-E087 ever checked that its instrument separated a known-served case from a known-unserved one.** Each of the seven wrote its own G2 'control validity' gate, and E081's asserts the labels it checks against, so it cannot fail (F109, D095).
+
+**So the next work is not another domain and not another screen: it is a real need population, measured by an instrument that has first passed a discrimination test on labels known by construction.** The concrete opportunity E088 leaves open is that the seven domains it closed were closed on *instrument* grounds and never on *population* grounds. Whether structured fault/error-code domains -- aviation, industrial PLC, medical device -- hold needs that are unserved is an open question with a cheap first step: read the actual practitioner rows that exist on those venues, by hand, before any classifier is written. Reading is what ended the need-harvest route honestly (E045, F081) and it is the one step this route never took.
+
+A protocol for that work must (a) name the instrument and call that instrument rather than a local copy, (b) pass a discrimination test before any population row is read, and (c) enumerate what its gate's passing value can be made of (D088, D095).
+
+**Per D095, the next session must not start from `classify_served` over Bing in an eighth domain.** E088 showed that instrument classifies 40% of nonexistent entities as `served` and reads no arrival count, so the route's output was never a measurement of its own variable. Seven sessions and a committed synthesis rested on it (F109).
 
 **Per D083, the next session must start from fresh observation in a new domain.**
 The ArXiv reproducibility line (E067→E069→E079) is closed on measured grounds:

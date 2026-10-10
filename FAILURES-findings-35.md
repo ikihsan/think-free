@@ -257,3 +257,74 @@ on; `results.json`, `classified-pairs.json`, `control-results.json`,
 regenerates offline. **F106 and F107 were skipped when allocating this
 identifier: both are already claimed in prose (STATE.md, an E083 VERDICT) with
 no body, and `origin id next` reads bodies only, so it offered F106.**
+## F109 — Seven "fresh observation in a new domain" experiments measured a keyword list, not a domain; 8 of 20 nonexistent products were classified `served` (E088)
+
+Session `2026-10-10-004`, VM `instance-20260717-0944`. Full reading in
+[`EXPERIMENTS/088-instrument-discrimination/README.md`](../EXPERIMENTS/088-instrument-discrimination/README.md).
+
+**What was run.** E088 froze 40 probe queries whose labels are known *by
+construction* — 20 with abundant public documentation (`how to reverse a string
+in python`, `tar extract a single file from archive`) and 20 naming entities
+that do not exist (`Brantmore Trellis-9 startup checklist`, `Corvane Stellarium-19
+bearing tolerance`) — then ran the **unmodified** E087 `bing_search()` and
+`classify_served()` over them. Gates were declared in `PROTOCOL.md` before the
+harvest; the kill gate was "a candidate only if G1 **and** G3 pass".
+
+**What was found.**
+- **G1 FAIL.** 8 of 20 nonexistent products classified `served` (0.40).
+  11 of 20 genuinely-served questions classified `served` (0.55). Difference
+  +0.150, **Newcombe CI95 [−0.148, +0.414], spanning 0**. Sensitivity 0.55,
+  specificity 0.60 — the instrument is near chance in both directions.
+- **All 8 false positives are off-topic.** The subject is mentioned in
+  **0 of 20** known-unserved retrievals, and **8 of 8** rows the instrument
+  called `served` were called so on pages that never mention the thing asked
+  about. Read raw: *"Brantmore Trellis-9 startup checklist"* returned clipart
+  icon vectors; *"Halberdix Ferrolux-6 coolant mixing ratio"* returned *"Is it
+  bad idea to disable apps from running in the background?"*; *"Corvane
+  Stellarium-19 bearing tolerance"* returned adult-content spam. The firing
+  keyword is `app` in 7 of 8 — a 19-word substring list containing `app`,
+  `tool`, `method`, `guide`, `fix`, `solution` matched against the concatenation
+  of every retrieved title and snippet.
+- **The corpora are not what the protocols declare.** All **500** corpus rows
+  across E081–E087 match `<term> <verb> <integer>`, the integer a sequence
+  counter (`"centrifuge E01 error 1"`, `"pipettometer error code 2"`). E081's
+  `PROTOCOL.md` names its control arm as "E062 non-software Stack Exchange
+  corpus (110 no-remedy rows) … title, body, `view_count`, `is_answered`"; no
+  Stack Exchange row exists in any of the seven directories, and
+  `raw/control-needs.jsonl` is byte-identical (md5 `848be7f5…`) across
+  E083–E087. `view_count` occurs in those directories only in `PROTOCOL.md`
+  prose; no code path or data file reads an arrival count.
+- **A second, independent defect: the scrape is not returning search results.**
+  Empty-title rate over committed treatment rows runs **0.331 (E081) to 0.640
+  (E084)**; a third to two-thirds of extracted HTML blocks were ad slots, nav
+  blocks, or spam. E084 — placed mid-slope by the gradient — has the worst
+  retrieval of the seven.
+- **G3 PASS.** The synthesis's declared ordering E081 ≤ E082 ≤ E083 ≤ E084 ≤
+  E085 holds on all rows and on relevant-only rows. It is reported as observed
+  and it is uninformative about domains: `partially_served` is produced by the
+  classifier, relevance restriction never touches the classifier, and the
+  ordering therefore tracks which query template trips the chrome list.
+
+**The record defect this exposed.** `EXPERIMENTS/synthesis-view-count-principle.md`
+committed a dose-response gradient, a regulatory-domain boundary at E086, and
+intermediate behaviour at E087 — none of which any run in those seven
+directories measured, because no run measured an arrival count. Seven sessions
+(`2026-10-09-022` … `2026-10-10-003`) and a cross-domain synthesis rest on a
+classifier that cannot distinguish a real answer from a nonexistent entity.
+The 28 raw JSONL files all seven experiments rest on were **untracked and
+gitignored**; they are committed with this finding so the claim can be checked.
+
+**The gate I wrote was too lenient.** E088's own G2 asked only whether any
+non-chrome content token appeared anywhere in five HTML blocks; it passes at
+0.763 while most of those blocks are not results. A gate whose passing region
+is that wide cannot fail — F101's shape, one layer down, in a gate written
+*after* reading F101. Recorded against this finding rather than quietly
+amended.
+
+**What it buys, and what it does not.** It closes seven experiments, one
+committed synthesis, and the route that produces them: running an eighth domain
+through `classify_served` over Bing repeats a measurement already shown not to
+measure its own variable. It does **not** touch the underlying population
+question — whether structured fault/error-code domains hold needs that are
+unserved. E088 measured a classifier against 40 probes; it never measured a
+real need statement. That question is untouched (D095).

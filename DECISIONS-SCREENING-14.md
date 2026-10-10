@@ -88,3 +88,67 @@ Decisions **D084–D088, D093**. Each entry records a choice that was genuinely 
 **Rejected: advance to product engineering.** The identifier linkage problem is the hard part, not the matching logic. **Rejected: test on real receipts now.** Requires authorized data collection; not a reversible experiment. **Rejected: partner with a loyalty program.** Beyond current authorization.
 
 **Ceiling.** 5 seeds, 30 products, 3 formats, stdlib Python. Measures matching logic correctness given identifiers; does not measure identifier availability, OCR noise, store-brand UPC divergence, recall data sparsity, or user adoption.
+
+## D095 — An instrument must be shown to discriminate a known-positive from a known-negative before its numbers are read (2026-10-10)
+
+`observed` 2026-10-10, session `2026-10-10-004`, E088, F109.
+
+**The situation.** Seven consecutive sessions ran E081–E087, each a "fresh
+observation in a new domain", and a committed synthesis
+(`EXPERIMENTS/synthesis-view-count-principle.md`) reported a dose-response
+gradient across domains, a regulatory-domain boundary, and intermediate
+behaviour — describing all of it as the view-count principle generalising.
+E088 froze 40 probes whose labels are known by construction and ran E087's own
+`bing_search()` and `classify_served()` unchanged over them. **8 of 20
+nonexistent products were classified `served`**; 11 of 20 genuinely-served
+questions were classified `served`; the difference's CI95 spans zero. Every one
+of the eight false positives is a page set that never mentions the subject.
+
+**The choice.** A measurement instrument must pass a discrimination test —
+labels known by construction, both arms, before any population is read — before
+any number it produces is interpreted. Where that test is absent, the numbers
+are not weak evidence; they are uninterpretable, and the line is closed rather
+than carried forward. Applied here it closes E081–E087 and the synthesis.
+
+**Why this is a rule and not a one-off.** E081–E087 each declared a G2 "control
+validity" gate. E081's implementation hardcodes
+`true_labels = ['unserved'] * 5 + ['served'] * 5` — the gate asserts the
+labels it then checks the classifier against, so it cannot fail. That is F101's
+failure mode, and it survived seven experiments because each protocol wrote its
+own version of the gate rather than inheriting a validated one. A gate that
+agrees with its own assumption is not a control. The instrument has to be shown
+to separate cases whose answer is not in question.
+
+**Why the working practice follows from it.** `view_count` was adopted as an
+arrival measure in D084 and is not in question. What was in question was
+whether an instrument *claiming* to measure it did. F109 does not touch
+D084's rule, the E062 finding, or the arrival measure itself.
+
+**Rejected: keep the seven experiments and discount their confidence.** The
+gradient ordering does survive relevance restriction, which makes the results
+look robust. It is not evidence: `partially_served` is produced by the
+classifier, so restricting rows to relevant ones cannot move it. **Rejected:
+re-run the domains with a better classifier.** That is a different experiment
+and it needs a different question; the population question is still unasked.
+**Rejected: report only the G1 failure and leave the synthesis standing.** The
+synthesis is the artifact that would be read next, and it is false as written.
+
+**Standing consequence: an experiment's protocol names the instrument and the
+run must call that instrument, not a local copy.** E088 imports E087's
+`classify_served` rather than reimplementing it, so a change to the instrument
+cannot leave the older experiment's numbers describing a different thing.
+Seven directories carrying seven near-identical `outcome.py` copies is how the
+drift went unnoticed.
+
+**Rejected, and recorded against this decision: trust a declared control
+gate.** E088's own G2 — "does any non-chrome content token appear anywhere in
+five HTML blocks" — passes at 0.763 while a third to two-thirds of those
+blocks are ad slots and spam. It is written after F101 and reproduces F101's
+shape. The rule above is not satisfied by *declaring* a gate; only by observing
+that the gate can fail.
+
+**Ceiling.** One search engine, one classifier, 40 probes, n=20 per arm, and
+probes written by the agent that interprets them. F109 shows this instrument
+fails to discriminate. It does not show that no classifier over Bing can, and
+it says nothing about whether structured fault/error-code domains hold unserved
+needs — that population was never measured here, and remains open.

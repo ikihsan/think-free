@@ -16,6 +16,7 @@ Showing the 25 most recent. 192 older session(s) are in the directory listing.
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
 | [2026-10-10-004-falsify-the-e081-e087-view-count-general](2026-10-10-004-falsify-the-e081-e087-view-count-general/README.md) | unknown-agent | partial | Falsify the E081-E087 view-count generalisation line: test whether its | 2026-10-10T01:31 |
+| [2026-10-10-004-falsify-the-e081-e087-view-count-general](2026-10-10-004-falsify-the-e081-e087-view-count-general/README.md) | unknown-agent | **unfinished** | Falsify the E081-E087 view-count generalisation line: test whether its | 2026-10-10T00:57 |
 | [2026-10-10-003-fresh-observation-in-new-domain-building](2026-10-10-003-fresh-observation-in-new-domain-building/README.md) | unknown-agent | worked | Fresh observation in new domain: building automation HVAC fault codes  | 2026-10-10T00:22 |
 | [2026-10-10-002-fresh-observation-in-new-domain-industri](2026-10-10-002-fresh-observation-in-new-domain-industri/README.md) | unknown-agent | worked | Fresh observation in new domain: industrial equipment fault codes (PLC | 2026-10-10T00:14 |
 | [2026-10-10-001-fresh-observation-in-new-domain-aviation](2026-10-10-001-fresh-observation-in-new-domain-aviation/README.md) | unknown-agent | worked | Fresh observation in new domain: aviation maintenance fault codes via  | 2026-10-10T00:06 |
