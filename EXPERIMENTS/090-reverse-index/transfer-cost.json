@@ -1,0 +1,580 @@
+{
+ "bytes_fetched": {
+  "max": 9652267,
+  "mean": 351182.7,
+  "n": 60,
+  "p50": 111174,
+  "p90": 475666,
+  "p99": 9652267,
+  "total": 21070961
+ },
+ "extrapolated_full_build_bytes": 5267740500,
+ "extrapolated_full_build_requests": 30000,
+ "extrapolation_note": "the full build's transferred bytes were not logged for the first 1080 projects; the total below is the measured per-project distribution multiplied by the number of ok projects, and is labelled inferred",
+ "fetched_share_of_wheel": 0.214276,
+ "measured_ok": 60,
+ "requests": {
+  "max": 3,
+  "mean": 2.0,
+  "n": 60,
+  "p50": 2,
+  "p90": 2,
+  "p99": 3,
+  "total": 123
+ },
+ "rows": [
+  {
+   "bytes_fetched": 35206,
+   "project": "lambdatest-selenium-driver",
+   "requests": 2,
+   "seconds": 0.595,
+   "status": "ok",
+   "wheel": "lambdatest_selenium_driver-1.0.9-py3-none-any.whl",
+   "wheel_bytes": 12051
+  },
+  {
+   "bytes_fetched": 344380,
+   "project": "fast-simplification",
+   "requests": 2,
+   "seconds": 1.6,
+   "status": "ok",
+   "wheel": "fast_simplification-0.2.0-cp312-cp312-macosx_11_0_arm64.whl",
+   "wheel_bytes": 148463
+  },
+  {
+   "bytes_fetched": 112092,
+   "project": "reflex-components-radix",
+   "requests": 2,
+   "seconds": 1.0,
+   "status": "ok",
+   "wheel": "reflex_components_radix-0.10.0-py3-none-any.whl",
+   "wheel_bytes": 271981
+  },
+  {
+   "bytes_fetched": 65022,
+   "project": "types-wtforms",
+   "requests": 2,
+   "seconds": 1.001,
+   "status": "ok",
+   "wheel": "types_wtforms-3.2.1.20260518-py3-none-any.whl",
+   "wheel_bytes": 24303
+  },
+  {
+   "bytes_fetched": 111174,
+   "project": "argostranslate",
+   "requests": 2,
+   "seconds": 0.513,
+   "status": "ok",
+   "wheel": "argostranslate-1.11.0-py3-none-any.whl",
+   "wheel_bytes": 41551
+  },
+  {
+   "bytes_fetched": 117435,
+   "project": "stac-fastapi-api",
+   "requests": 2,
+   "seconds": 0.802,
+   "status": "ok",
+   "wheel": "stac_fastapi_api-7.0.0-py3-none-any.whl",
+   "wheel_bytes": 15208
+  },
+  {
+   "bytes_fetched": 82184,
+   "project": "wonderwords",
+   "requests": 2,
+   "seconds": 0.709,
+   "status": "ok",
+   "wheel": "wonderwords-3.0.1-py3-none-any.whl",
+   "wheel_bytes": 51658
+  },
+  {
+   "bytes_fetched": 807569,
+   "project": "flytekit",
+   "requests": 2,
+   "seconds": 1.475,
+   "status": "ok",
+   "wheel": "flytekit-1.16.29-py3-none-any.whl",
+   "wheel_bytes": 678692
+  },
+  {
+   "bytes_fetched": 11487,
+   "project": "jinja2-strcase",
+   "requests": 2,
+   "seconds": 0.316,
+   "status": "ok",
+   "wheel": "jinja2_strcase-0.0.2-py2.py3-none-any.whl",
+   "wheel_bytes": 3933
+  },
+  {
+   "bytes_fetched": 475666,
+   "project": "mitsuba",
+   "requests": 2,
+   "seconds": 3.2,
+   "status": "ok",
+   "wheel": "mitsuba-3.9.1-cp310-cp310-win_amd64.whl",
+   "wheel_bytes": 45317647
+  },
+  {
+   "bytes_fetched": 104645,
+   "project": "javascript",
+   "requests": 2,
+   "seconds": 1.084,
+   "status": "ok",
+   "wheel": "javascript-1!1.2.6-py3-none-any.whl",
+   "wheel_bytes": 34802
+  },
+  {
+   "bytes_fetched": 99048,
+   "project": "lark",
+   "requests": 2,
+   "seconds": 1.299,
+   "status": "ok",
+   "wheel": "lark-1.3.1-py3-none-any.whl",
+   "wheel_bytes": 113151
+  },
+  {
+   "bytes_fetched": 74717,
+   "project": "flask-sqlalchemy",
+   "requests": 2,
+   "seconds": 1.101,
+   "status": "ok",
+   "wheel": "flask_sqlalchemy-3.1.1-py3-none-any.whl",
+   "wheel_bytes": 25125
+  },
+  {
+   "bytes_fetched": 20128,
+   "project": "pytest-test-groups",
+   "requests": 2,
+   "seconds": 0.803,
+   "status": "ok",
+   "wheel": "pytest_test_groups-1.2.1-py3-none-any.whl",
+   "wheel_bytes": 5278
+  },
+  {
+   "bytes_fetched": 297923,
+   "project": "dify-plugin",
+   "requests": 2,
+   "seconds": 1.72,
+   "status": "ok",
+   "wheel": "dify_plugin-0.10.2-py3-none-any.whl",
+   "wheel_bytes": 379282
+  },
+  {
+   "bytes_fetched": 54501,
+   "project": "ddt",
+   "requests": 2,
+   "seconds": 1.077,
+   "status": "ok",
+   "wheel": "ddt-1.7.2-py2.py3-none-any.whl",
+   "wheel_bytes": 7065
+  },
+  {
+   "bytes_fetched": 406453,
+   "project": "mechbench-compute",
+   "requests": 2,
+   "seconds": 0.7,
+   "status": "ok",
+   "wheel": "mechbench_compute-0.196.0-py3-none-any.whl",
+   "wheel_bytes": 974624
+  },
+  {
+   "bytes_fetched": 76884,
+   "project": "timelib",
+   "requests": 2,
+   "seconds": 0.914,
+   "status": "ok",
+   "wheel": "timelib-0.3.0-cp39-cp39-macosx_12_0_arm64.whl",
+   "wheel_bytes": 175032
+  },
+  {
+   "bytes_fetched": 148615,
+   "project": "neo4j-graphrag",
+   "requests": 2,
+   "seconds": 1.085,
+   "status": "ok",
+   "wheel": "neo4j_graphrag-1.22.0-py3-none-any.whl",
+   "wheel_bytes": 301520
+  },
+  {
+   "bytes_fetched": 308564,
+   "project": "acme",
+   "requests": 2,
+   "seconds": 1.2,
+   "status": "ok",
+   "wheel": "acme-5.8.0-py3-none-any.whl",
+   "wheel_bytes": 95024
+  },
+  {
+   "bytes_fetched": 204698,
+   "project": "types-aiobotocore-batch",
+   "requests": 2,
+   "seconds": 0.9,
+   "status": "ok",
+   "wheel": "types_aiobotocore_batch-3.9.2-py3-none-any.whl",
+   "wheel_bytes": 47738
+  },
+  {
+   "bytes_fetched": 33361,
+   "project": "pydantic-function-models",
+   "requests": 2,
+   "seconds": 0.616,
+   "status": "ok",
+   "wheel": "pydantic_function_models-0.1.12-py3-none-any.whl",
+   "wheel_bytes": 6969
+  },
+  {
+   "bytes_fetched": 98911,
+   "project": "paver",
+   "requests": 2,
+   "seconds": 1.083,
+   "status": "ok",
+   "wheel": "Paver-1.3.4-py2.py3-none-any.whl",
+   "wheel_bytes": 428636
+  },
+  {
+   "bytes_fetched": 180068,
+   "project": "hana-ml",
+   "requests": 2,
+   "seconds": 2.122,
+   "status": "ok",
+   "wheel": "hana_ml-2.30.26091800-py3-none-any.whl",
+   "wheel_bytes": 10017267
+  },
+  {
+   "bytes_fetched": 76773,
+   "project": "jaxlie",
+   "requests": 2,
+   "seconds": 0.996,
+   "status": "ok",
+   "wheel": "jaxlie-1.5.0-py3-none-any.whl",
+   "wheel_bytes": 24243
+  },
+  {
+   "bytes_fetched": 246279,
+   "project": "mypy-boto3-route53-recovery-readiness",
+   "requests": 2,
+   "seconds": 1.485,
+   "status": "ok",
+   "wheel": "mypy_boto3_route53_recovery_readiness-1.43.0-py3-none-any.whl",
+   "wheel_bytes": 30240
+  },
+  {
+   "bytes_fetched": 112469,
+   "project": "pyrnnoise",
+   "requests": 2,
+   "seconds": 1.42,
+   "status": "ok",
+   "wheel": "pyrnnoise-0.4.5-py3-none-win_amd64.whl",
+   "wheel_bytes": 13263766
+  },
+  {
+   "bytes_fetched": 78305,
+   "project": "tsdb",
+   "requests": 2,
+   "seconds": 0.878,
+   "status": "ok",
+   "wheel": "tsdb-0.8-py3-none-any.whl",
+   "wheel_bytes": 34336
+  },
+  {
+   "bytes_fetched": 28240,
+   "project": "deprecat",
+   "requests": 2,
+   "seconds": 0.9,
+   "status": "ok",
+   "wheel": "deprecat-2.1.3-py2.py3-none-any.whl",
+   "wheel_bytes": 10138
+  },
+  {
+   "bytes_fetched": 169528,
+   "project": "django-postgres-extra",
+   "requests": 2,
+   "seconds": 0.222,
+   "status": "ok",
+   "wheel": "django_postgres_extra-3.0.1-py3-none-any.whl",
+   "wheel_bytes": 103201
+  },
+  {
+   "bytes_fetched": 221640,
+   "project": "keystonemiddleware",
+   "requests": 2,
+   "seconds": 0.878,
+   "status": "ok",
+   "wheel": "keystonemiddleware-13.0.1-py3-none-any.whl",
+   "wheel_bytes": 135499
+  },
+  {
+   "bytes_fetched": 9652267,
+   "project": "grpcio-tools",
+   "requests": 2,
+   "seconds": 3.5,
+   "status": "ok",
+   "wheel": "grpcio_tools-1.84.0-cp313-cp313-win32.whl",
+   "wheel_bytes": 1022115
+  },
+  {
+   "bytes_fetched": 661969,
+   "project": "hf-xet",
+   "requests": 2,
+   "seconds": 2.117,
+   "status": "ok",
+   "wheel": "hf_xet-1.7.0-cp314-cp314t-macosx_11_0_arm64.whl",
+   "wheel_bytes": 3553588
+  },
+  {
+   "bytes_fetched": 46515,
+   "project": "celery-redbeat",
+   "requests": 2,
+   "seconds": 0.641,
+   "status": "ok",
+   "wheel": "celery_redbeat-2.4.2-py2.py3-none-any.whl",
+   "wheel_bytes": 16526
+  },
+  {
+   "bytes_fetched": 37519,
+   "project": "terminaltables",
+   "requests": 2,
+   "seconds": 0.642,
+   "status": "ok",
+   "wheel": "terminaltables-3.1.10-py2.py3-none-any.whl",
+   "wheel_bytes": 15155
+  },
+  {
+   "bytes_fetched": 12194,
+   "project": "bloom-filter2",
+   "requests": 2,
+   "seconds": 0.346,
+   "status": "ok",
+   "wheel": "bloom_filter2-2.0.0-py3-none-any.whl",
+   "wheel_bytes": 6755
+  },
+  {
+   "bytes_fetched": 80115,
+   "project": "ruamel-ordereddict",
+   "requests": 2,
+   "seconds": 0.761,
+   "status": "ok",
+   "wheel": "ruamel.ordereddict-0.4.15-cp27-cp27m-win32.whl",
+   "wheel_bytes": 28764
+  },
+  {
+   "bytes_fetched": 523841,
+   "project": "aws-cdk-aws-cloudfront",
+   "requests": 2,
+   "seconds": 1.815,
+   "status": "ok",
+   "wheel": "aws_cdk.aws_cloudfront-1.204.0-py3-none-any.whl",
+   "wheel_bytes": 726920
+  },
+  {
+   "bytes_fetched": 316351,
+   "project": "beanie",
+   "requests": 2,
+   "seconds": 1.478,
+   "status": "ok",
+   "wheel": "beanie-2.2.0-py3-none-any.whl",
+   "wheel_bytes": 93116
+  },
+  {
+   "bytes_fetched": 231147,
+   "project": "genie-libs-conf",
+   "requests": 3,
+   "seconds": 2.713,
+   "status": "ok",
+   "wheel": "genie_libs_conf-26.9-py3-none-any.whl",
+   "wheel_bytes": 1075582
+  },
+  {
+   "bytes_fetched": 138549,
+   "project": "intel-cmplr-lic-rt",
+   "requests": 2,
+   "seconds": 0.862,
+   "status": "ok",
+   "wheel": "intel_cmplr_lic_rt-2026.1.2-py2.py3-none-manylinux_2_28_x86_64.whl",
+   "wheel_bytes": 18912
+  },
+  {
+   "bytes_fetched": 151415,
+   "project": "memfabric-hybrid",
+   "requests": 2,
+   "seconds": 0.327,
+   "status": "ok",
+   "wheel": "memfabric_hybrid-1.2.1-cp312-cp312-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl",
+   "wheel_bytes": 3743942
+  },
+  {
+   "bytes_fetched": 16342,
+   "project": "hashring",
+   "requests": 2,
+   "seconds": 0.698,
+   "status": "ok",
+   "wheel": "hashring-1.5.1-py2.py3-none-any.whl",
+   "wheel_bytes": 5920
+  },
+  {
+   "bytes_fetched": 58182,
+   "project": "robocorp-workitems",
+   "requests": 2,
+   "seconds": 0.357,
+   "status": "ok",
+   "wheel": "robocorp_workitems-1.5.1-py3-none-any.whl",
+   "wheel_bytes": 22001
+  },
+  {
+   "bytes_fetched": 405392,
+   "project": "aws-cdk-aws-acmpca",
+   "requests": 2,
+   "seconds": 1.222,
+   "status": "ok",
+   "wheel": "aws_cdk.aws_acmpca-1.204.0-py3-none-any.whl",
+   "wheel_bytes": 196445
+  },
+  {
+   "bytes_fetched": 468236,
+   "project": "netifaces-plus",
+   "requests": 2,
+   "seconds": 0.553,
+   "status": "ok",
+   "wheel": "netifaces_plus-0.12.5-cp38-cp38-macosx_10_9_x86_64.whl",
+   "wheel_bytes": 13635
+  },
+  {
+   "bytes_fetched": 55563,
+   "project": "marshmallow-mongoengine",
+   "requests": 2,
+   "seconds": 0.531,
+   "status": "ok",
+   "wheel": "marshmallow_mongoengine-0.31.2-py2.py3-none-any.whl",
+   "wheel_bytes": 12237
+  },
+  {
+   "bytes_fetched": 66368,
+   "project": "conventional-pre-commit",
+   "requests": 2,
+   "seconds": 0.782,
+   "status": "ok",
+   "wheel": "conventional_pre_commit-4.4.0-py3-none-any.whl",
+   "wheel_bytes": 16825
+  },
+  {
+   "bytes_fetched": 67647,
+   "project": "zerobouncesdk",
+   "requests": 2,
+   "seconds": 0.376,
+   "status": "ok",
+   "wheel": "zerobouncesdk-2.2.4-py3-none-any.whl",
+   "wheel_bytes": 22508
+  },
+  {
+   "bytes_fetched": 143157,
+   "project": "stix",
+   "requests": 2,
+   "seconds": 0.57,
+   "status": "ok",
+   "wheel": "stix-1.2.0.11-py2.py3-none-any.whl",
+   "wheel_bytes": 290566
+  },
+  {
+   "bytes_fetched": 17329,
+   "project": "mermaid-builder",
+   "requests": 2,
+   "seconds": 0.714,
+   "status": "ok",
+   "wheel": "mermaid_builder-0.0.3-py3-none-any.whl",
+   "wheel_bytes": 6696
+  },
+  {
+   "bytes_fetched": 76936,
+   "project": "pyclean",
+   "requests": 2,
+   "seconds": 0.496,
+   "status": "ok",
+   "wheel": "pyclean-3.7.0-py3-none-any.whl",
+   "wheel_bytes": 28374
+  },
+  {
+   "bytes_fetched": 26339,
+   "project": "ps-mem",
+   "requests": 2,
+   "seconds": 0.499,
+   "status": "ok",
+   "wheel": "ps_mem-3.14-py2.py3-none-any.whl",
+   "wheel_bytes": 19268
+  },
+  {
+   "bytes_fetched": 123632,
+   "project": "appengine-python-standard",
+   "requests": 2,
+   "seconds": 0.53,
+   "status": "ok",
+   "wheel": "appengine_python_standard-3.0.2-py3-none-any.whl",
+   "wheel_bytes": 1001664
+  },
+  {
+   "bytes_fetched": 1841957,
+   "project": "pulumi-azure",
+   "requests": 3,
+   "seconds": 1.917,
+   "status": "ok",
+   "wheel": "pulumi_azure-6.40.0-py3-none-any.whl",
+   "wheel_bytes": 7878737
+  },
+  {
+   "bytes_fetched": 86152,
+   "project": "multiscale-spatial-image",
+   "requests": 2,
+   "seconds": 0.312,
+   "status": "ok",
+   "wheel": "multiscale_spatial_image-2.1.0-py3-none-any.whl",
+   "wheel_bytes": 29775
+  },
+  {
+   "bytes_fetched": 43369,
+   "project": "django-choices",
+   "requests": 2,
+   "seconds": 0.301,
+   "status": "ok",
+   "wheel": "django_choices-2.0.0-py3-none-any.whl",
+   "wheel_bytes": 10226
+  },
+  {
+   "bytes_fetched": 119304,
+   "project": "wfdb",
+   "requests": 2,
+   "seconds": 0.332,
+   "status": "ok",
+   "wheel": "wfdb-4.3.1-py3-none-any.whl",
+   "wheel_bytes": 163935
+  },
+  {
+   "bytes_fetched": 289374,
+   "project": "pyqt5",
+   "requests": 3,
+   "seconds": 2.061,
+   "status": "ok",
+   "wheel": "PyQt5-5.15.11-cp38-abi3-win32.whl",
+   "wheel_bytes": 5433308
+  },
+  {
+   "bytes_fetched": 109835,
+   "project": "dynamodb-encryption-sdk",
+   "requests": 2,
+   "seconds": 0.6,
+   "status": "ok",
+   "wheel": "dynamodb_encryption_sdk-3.3.0-py2.py3-none-any.whl",
+   "wheel_bytes": 103802
+  }
+ ],
+ "sampled": 60,
+ "sampling_unit": "a distinct project with status ok, drawn at random from the projects build_index.py read",
+ "schema": "e090.transfer-cost/1",
+ "seed": 20261010,
+ "wheel_bytes": {
+  "max": 45317647,
+  "mean": 1638928.7,
+  "n": 60,
+  "p50": 47738,
+  "p90": 3743942,
+  "p99": 45317647,
+  "total": 98335720
+ }
+}

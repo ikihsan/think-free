@@ -1,0 +1,407 @@
+{
+ "arm_forward": {
+  "n": 10,
+  "recovered": 9,
+  "rows": [
+   {
+    "module": "numpy",
+    "project": "numpy",
+    "recovered": true,
+    "status": "ok"
+   },
+   {
+    "module": "requests",
+    "project": "requests",
+    "recovered": true,
+    "status": "ok"
+   },
+   {
+    "module": "pandas",
+    "project": "pandas",
+    "recovered": true,
+    "status": "ok"
+   },
+   {
+    "module": "matplotlib",
+    "project": "matplotlib",
+    "recovered": true,
+    "status": "ok"
+   },
+   {
+    "module": "scipy",
+    "project": "scipy",
+    "recovered": true,
+    "status": "ok"
+   },
+   {
+    "module": "yaml",
+    "project": "yaml",
+    "recovered": false,
+    "status": "no-such-project"
+   },
+   {
+    "module": "PIL",
+    "project": "Pillow",
+    "recovered": true,
+    "status": "ok"
+   },
+   {
+    "module": "bs4",
+    "project": "beautifulsoup4",
+    "recovered": true,
+    "status": "ok"
+   },
+   {
+    "module": "zmq",
+    "project": "pyzmq",
+    "recovered": true,
+    "status": "ok"
+   },
+   {
+    "module": "pymysql",
+    "project": "PyMySQL",
+    "recovered": true,
+    "status": "ok"
+   }
+  ],
+  "threshold": 8
+ },
+ "arm_negative": {
+  "n": 30,
+  "resolved": 0,
+  "rows": [
+   {
+    "got": [],
+    "module": "zzq_0",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_1",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_2",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_3",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_4",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_5",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_6",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_7",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_8",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_9",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_10",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_11",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_12",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_13",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_14",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_15",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_16",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_17",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_18",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_19",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_20",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_21",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_22",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_23",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_24",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_25",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_26",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_27",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_28",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_29",
+    "resolved": false
+   }
+  ],
+  "threshold": 0
+ },
+ "arm_positive": {
+  "n": 21,
+  "resolved_correct": 19,
+  "rows": [
+   {
+    "correct": true,
+    "expected": "beautifulsoup4",
+    "got": [
+     "beautifulsoup4"
+    ],
+    "module": "bs4"
+   },
+   {
+    "correct": true,
+    "expected": "opencv-python",
+    "got": [
+     "opencv-python"
+    ],
+    "module": "cv2"
+   },
+   {
+    "correct": true,
+    "expected": "pillow",
+    "got": [
+     "Pillow",
+     "pillow"
+    ],
+    "module": "PIL"
+   },
+   {
+    "correct": true,
+    "expected": "scikit-learn",
+    "got": [
+     "scikit-learn"
+    ],
+    "module": "sklearn"
+   },
+   {
+    "correct": true,
+    "expected": "pycryptodome",
+    "got": [
+     "pycryptodome"
+    ],
+    "module": "Crypto"
+   },
+   {
+    "correct": true,
+    "expected": "python-dateutil",
+    "got": [
+     "python-dateutil"
+    ],
+    "module": "dateutil"
+   },
+   {
+    "correct": true,
+    "expected": "python-dotenv",
+    "got": [
+     "python-dotenv"
+    ],
+    "module": "dotenv"
+   },
+   {
+    "correct": true,
+    "expected": "pyzmq",
+    "got": [
+     "pyzmq"
+    ],
+    "module": "zmq"
+   },
+   {
+    "correct": true,
+    "expected": "PyOpenGL",
+    "got": [
+     "PyOpenGL"
+    ],
+    "module": "OpenGL"
+   },
+   {
+    "correct": true,
+    "expected": "pyserial",
+    "got": [
+     "pyserial"
+    ],
+    "module": "serial"
+   },
+   {
+    "correct": true,
+    "expected": "mysqlclient",
+    "got": [
+     "mysqlclient"
+    ],
+    "module": "MySQLdb"
+   },
+   {
+    "correct": true,
+    "expected": "psycopg2-binary",
+    "got": [
+     "psycopg2-binary"
+    ],
+    "module": "psycopg2"
+   },
+   {
+    "correct": true,
+    "expected": "PyYAML",
+    "got": [
+     "PyYAML"
+    ],
+    "module": "yaml"
+   },
+   {
+    "correct": true,
+    "expected": "PyJWT",
+    "got": [
+     "PyJWT"
+    ],
+    "module": "jwt"
+   },
+   {
+    "correct": true,
+    "expected": "pyusb",
+    "got": [
+     "pyusb"
+    ],
+    "module": "usb"
+   },
+   {
+    "correct": true,
+    "expected": "attrs",
+    "got": [
+     "attrs"
+    ],
+    "module": "attr"
+   },
+   {
+    "correct": false,
+    "expected": "pywin32",
+    "got": [],
+    "module": "win32api"
+   },
+   {
+    "correct": false,
+    "expected": "tk",
+    "got": [],
+    "module": "Tkinter"
+   },
+   {
+    "correct": true,
+    "expected": "PyMuPDF",
+    "got": [
+     "PyMuPDF"
+    ],
+    "module": "fitz"
+   },
+   {
+    "correct": true,
+    "expected": "python-docx",
+    "got": [
+     "python-docx"
+    ],
+    "module": "docx"
+   },
+   {
+    "correct": true,
+    "expected": "lxml",
+    "got": [
+     "lxml"
+    ],
+    "module": "lxml"
+   }
+  ],
+  "threshold": 18
+ },
+ "build_seconds": 7.5,
+ "g0": "PASS",
+ "index_size": 39,
+ "n_projects_read": 29,
+ "schema": "e090.g0/1",
+ "status_counts": {
+  "no-such-project": 1,
+  "ok": 28
+ }
+}

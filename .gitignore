@@ -124,6 +124,9 @@ EXPERIMENTS/072-git-file-presence/repos/
 # E085's per-distribution resolution cache: 762 files, 3.1 MB, regenerable
 # from PyPI, and the repo already ignores E068's equivalent.
 EXPERIMENTS/085-declared-not-provided/cache/
+# E090's baseline cache: per-name PyPI lookups for the `pip install M`
+# baseline, regenerable from PyPI by analyze.py, same clause.
+EXPERIMENTS/090-reverse-index/baseline-cache/
 .pyprovides-cache/
 
 # `origin session finish` lock: a committed lock is a lock nothing holds

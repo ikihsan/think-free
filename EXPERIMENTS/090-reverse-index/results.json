@@ -1,0 +1,887 @@
+{
+ "baseline": {
+  "exists_but_does_not_ship": [
+   "Crypto",
+   "Imath",
+   "MLX",
+   "OpenEXR",
+   "SeC",
+   "analyze",
+   "benchmarks",
+   "bs4",
+   "collector",
+   "common_utils",
+   "discord",
+   "docling",
+   "dotenv",
+   "fastmcp",
+   "gi",
+   "google",
+   "imwatermark",
+   "key_value",
+   "ledger",
+   "mooncake",
+   "nested_models",
+   "pkg1",
+   "prompts",
+   "ptoas",
+   "pydantic_ai",
+   "pynvml",
+   "recording",
+   "resource",
+   "shop",
+   "snowflake",
+   "some_library",
+   "t5x",
+   "trtllm_kernel",
+   "tuning",
+   "ujson"
+  ],
+  "status_counts": {
+   "no-such-project": 1094,
+   "no-wheel": 190,
+   "ok": 686
+  }
+ },
+ "cost": {
+  "seconds": {
+   "max": 677.81,
+   "mean": 8.625,
+   "n": 15000,
+   "p50": 3.185,
+   "p90": 16.701,
+   "p99": 83.394
+  },
+  "total_wheel_bytes": 35370664730,
+  "wheel_bytes": {
+   "max": 743068852,
+   "mean": 2358044.315,
+   "n": 15000,
+   "p50": 40583,
+   "p90": 1972958,
+   "p99": 47694999
+  }
+ },
+ "coverage_by_repository_reuse": [
+  {
+   "added_over_pip_install": 116,
+   "added_share": 0.0589,
+   "coverage": 0.3137,
+   "covered": 618,
+   "denominator": 1970,
+   "min_repositories": 1,
+   "pip_install_works": 651
+  },
+  {
+   "added_over_pip_install": 48,
+   "added_share": 0.1655,
+   "coverage": 0.7724,
+   "covered": 224,
+   "denominator": 290,
+   "min_repositories": 2,
+   "pip_install_works": 186
+  },
+  {
+   "added_over_pip_install": 28,
+   "added_share": 0.1739,
+   "coverage": 0.8075,
+   "covered": 130,
+   "denominator": 161,
+   "min_repositories": 3,
+   "pip_install_works": 104
+  },
+  {
+   "added_over_pip_install": 9,
+   "added_share": 0.1071,
+   "coverage": 0.7619,
+   "covered": 64,
+   "denominator": 84,
+   "min_repositories": 5,
+   "pip_install_works": 55
+  },
+  {
+   "added_over_pip_install": 4,
+   "added_share": 0.093,
+   "coverage": 0.6512,
+   "covered": 28,
+   "denominator": 43,
+   "min_repositories": 10,
+   "pip_install_works": 24
+  }
+ ],
+ "g2": {
+  "coverage": 0.3137,
+  "covered": 618,
+  "denominator": 1970,
+  "gate": "coverage >= 0.70 with baseline fallback disabled",
+  "uncovered_examples": [
+   "BUILD_CONSTANTS",
+   "FILE",
+   "FLA_KDA",
+   "GroundingDINO",
+   "KTransformersOps",
+   "MLX",
+   "OpenEXR",
+   "Pinyin2Hanzi",
+   "QtQuick",
+   "RAFT",
+   "RAG_ChatBot",
+   "SeC",
+   "VideoMamba",
+   "__future__",
+   "_architecture_core",
+   "_architecture_visual",
+   "_archlib",
+   "_capabilitylib",
+   "_cmdtext",
+   "_common",
+   "_control_backends",
+   "_core",
+   "_doc_skip_checks",
+   "_frame_grid",
+   "_imp",
+   "_ledger",
+   "_module_tree",
+   "_thread",
+   "_toolchain_changes",
+   "_toolchain_query",
+   "_toolchain_runtime",
+   "_toolchain_store",
+   "_tp_layout_fakes",
+   "_typeshed",
+   "_winapi",
+   "a",
+   "a19_common",
+   "academictorrents",
+   "access_policy",
+   "act_quant",
+   "actuator",
+   "adapters",
+   "add_model",
+   "admin",
+   "admission",
+   "agents_census",
+   "agree",
+   "aiter",
+   "align_speakers",
+   "amane",
+   "analytic_kernel",
+   "analyze",
+   "analyze_moe_model",
+   "analyze_profile",
+   "analyze_sessions",
+   "animate_svg",
+   "anitopy",
+   "any_charm_base",
+   "apex",
+   "app"
+  ],
+  "verdict": "FAIL"
+ },
+ "g2_decontaminated": {
+  "coverage": 0.3132,
+  "covered": 613,
+  "denominator": 1957,
+  "note": "same index, population minus the names the importing repository provides itself; read beside g2, never instead of it",
+  "uncovered_examples": [
+   "BUILD_CONSTANTS",
+   "FILE",
+   "FLA_KDA",
+   "GroundingDINO",
+   "KTransformersOps",
+   "MLX",
+   "OpenEXR",
+   "Pinyin2Hanzi",
+   "QtQuick",
+   "RAFT",
+   "RAG_ChatBot",
+   "SeC",
+   "VideoMamba",
+   "__future__",
+   "_architecture_core",
+   "_architecture_visual",
+   "_archlib",
+   "_capabilitylib",
+   "_cmdtext",
+   "_common",
+   "_control_backends",
+   "_core",
+   "_doc_skip_checks",
+   "_frame_grid",
+   "_imp",
+   "_ledger",
+   "_module_tree",
+   "_thread",
+   "_toolchain_changes",
+   "_toolchain_query",
+   "_toolchain_runtime",
+   "_toolchain_store",
+   "_tp_layout_fakes",
+   "_typeshed",
+   "_winapi",
+   "a",
+   "a19_common",
+   "academictorrents",
+   "access_policy",
+   "act_quant",
+   "actuator",
+   "adapters",
+   "add_model",
+   "admin",
+   "admission",
+   "agents_census",
+   "agree",
+   "aiter",
+   "align_speakers",
+   "amane",
+   "analytic_kernel",
+   "analyze",
+   "analyze_moe_model",
+   "analyze_profile",
+   "analyze_sessions",
+   "animate_svg",
+   "anitopy",
+   "any_charm_base",
+   "apex",
+   "app"
+  ],
+  "verdict": "FAIL"
+ },
+ "g3": {
+  "added_decontaminated": 113,
+  "added_examples": [
+   "AppKit",
+   "ApplicationServices",
+   "CoreFoundation",
+   "Crypto",
+   "Foundation",
+   "Imath",
+   "OpenSSL",
+   "PIL",
+   "PyObjCTools",
+   "PyOpenColorIO",
+   "Quartz",
+   "System",
+   "_black_version",
+   "_pytest",
+   "absl",
+   "alpaca",
+   "analytics",
+   "argon2",
+   "azure",
+   "backports",
+   "bench",
+   "benchmarks",
+   "bs4",
+   "bson",
+   "cache",
+   "cassandra",
+   "cleanfid",
+   "cli",
+   "com",
+   "common",
+   "conftest",
+   "core",
+   "cuda",
+   "cupy",
+   "cupyx",
+   "cuvs",
+   "cv2",
+   "data",
+   "dateutil",
+   "deep_ep",
+   "deep_gemm",
+   "discord",
+   "docling",
+   "docs",
+   "docx",
+   "dotenv",
+   "exceptions",
+   "external",
+   "fastmcp",
+   "fitz",
+   "fla",
+   "flash_attn",
+   "flashinfer",
+   "git",
+   "google",
+   "googleapiclient",
+   "graphql",
+   "grpc",
+   "grpc_health",
+   "grpc_tools",
+   "hydra",
+   "imwatermark",
+   "key_value",
+   "main",
+   "markdown_it",
+   "megatron",
+   "mem0",
+   "model_utils",
+   "models",
+   "mooncake",
+   "msilib",
+   "nacl",
+   "nvidia",
+   "objc",
+   "open_clip",
+   "pillow_avif",
+   "pkcs11",
+   "pptx",
+   "probe",
+   "pyannote"
+  ],
+  "added_over_baseline": 116,
+  "baseline_works": 651,
+  "denominator": 1970,
+  "gate": "share resolved by the index and not by pip install >= 0.02",
+  "resolved_by_index": 618,
+  "share": 0.0589,
+  "share_decontaminated": 0.0577,
+  "verdict": "PASS"
+ },
+ "index": {
+  "k_curve": [
+   {
+    "coverage": 0.1,
+    "coverage_decontaminated": 0.1002,
+    "covered": 197,
+    "covered_decontaminated": 196,
+    "k": 500,
+    "modules_indexed": 516
+   },
+   {
+    "coverage": 0.1401,
+    "coverage_decontaminated": 0.14,
+    "covered": 276,
+    "covered_decontaminated": 274,
+    "k": 1000,
+    "modules_indexed": 960
+   },
+   {
+    "coverage": 0.1995,
+    "coverage_decontaminated": 0.1988,
+    "covered": 393,
+    "covered_decontaminated": 389,
+    "k": 2500,
+    "modules_indexed": 2242
+   },
+   {
+    "coverage": 0.2548,
+    "coverage_decontaminated": 0.254,
+    "covered": 502,
+    "covered_decontaminated": 497,
+    "k": 5000,
+    "modules_indexed": 5278
+   },
+   {
+    "coverage": 0.2949,
+    "coverage_decontaminated": 0.2943,
+    "covered": 581,
+    "covered_decontaminated": 576,
+    "k": 10000,
+    "modules_indexed": 10316
+   },
+   {
+    "coverage": 0.3137,
+    "coverage_decontaminated": 0.3132,
+    "covered": 618,
+    "covered_decontaminated": 613,
+    "k": 15000,
+    "modules_indexed": 14387
+   }
+  ],
+  "modules_indexed": 14387,
+  "projects_ok": 13920,
+  "projects_read": 15000,
+  "status_counts": {
+   "no-such-project": 3,
+   "no-wheel": 1034,
+   "ok": 13920,
+   "read-error:ConnectionResetError": 3,
+   "read-error:IncompleteRead": 4,
+   "read-error:URLError": 18,
+   "read-error:timeout": 18
+  }
+ },
+ "leakage": {
+  "broad_leak": 1110,
+  "broad_share": 0.5635,
+  "by_class": {
+   "nested-vendored": 1097,
+   "root-namespace": 11,
+   "src-layout": 2
+  },
+  "g2_coverage_ceiling_broad": 0.4365,
+  "g2_coverage_ceiling_strict": 0.9934,
+  "internal_names": 1149,
+  "l2_verdict": "ok",
+  "population": 1970,
+  "repositories_cloned": 60,
+  "schema": "e090.leakage/2",
+  "strict_leak": 13,
+  "strict_share": 0.0066
+ },
+ "per_repo_coverage": [
+  {
+   "coverage": 0.3226,
+   "n_covered": 10,
+   "n_modules": 31,
+   "repo": "ronf/asyncssh",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.5141,
+   "n_covered": 91,
+   "n_modules": 177,
+   "repo": "hpcaitech/ColossalAI",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.4109,
+   "n_covered": 53,
+   "n_modules": 129,
+   "repo": "daymade/claude-code-skills",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.6286,
+   "n_covered": 22,
+   "n_modules": 35,
+   "repo": "vllm-project/vllm-metal",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.5,
+   "n_covered": 22,
+   "n_modules": 44,
+   "repo": "fla-org/flash-linear-attention",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.7288,
+   "n_covered": 86,
+   "n_modules": 118,
+   "repo": "jxxghp/MoviePilot",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.7432,
+   "n_covered": 55,
+   "n_modules": 74,
+   "repo": "langchain-ai/open-swe",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": null,
+   "n_covered": 0,
+   "n_modules": 0,
+   "repo": "grqz/grqz",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.72,
+   "n_covered": 18,
+   "n_modules": 25,
+   "repo": "onnx/onnx",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.8,
+   "n_covered": 4,
+   "n_modules": 5,
+   "repo": "521xueweihan/GitHub520",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.7,
+   "n_covered": 14,
+   "n_modules": 20,
+   "repo": "tensorly/tensorly",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 1.0,
+   "n_covered": 1,
+   "n_modules": 1,
+   "repo": "garylab/MakeMoneyWithAI",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.5,
+   "n_covered": 8,
+   "n_modules": 16,
+   "repo": "wy51ai/edulab",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.549,
+   "n_covered": 28,
+   "n_modules": 51,
+   "repo": "psf/black",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.9545,
+   "n_covered": 21,
+   "n_modules": 22,
+   "repo": "rentruewang/aioway",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.1333,
+   "n_covered": 2,
+   "n_modules": 15,
+   "repo": "MG1937/ASC",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.6667,
+   "n_covered": 2,
+   "n_modules": 3,
+   "repo": "alecmuffett/real-world-onion-sites",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.6,
+   "n_covered": 36,
+   "n_modules": 60,
+   "repo": "zhouxiaoka/autoclip",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.4138,
+   "n_covered": 12,
+   "n_modules": 29,
+   "repo": "initialcommit-com/git-sim",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.5577,
+   "n_covered": 58,
+   "n_modules": 104,
+   "repo": "kvcache-ai/ktransformers",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.539,
+   "n_covered": 76,
+   "n_modules": 141,
+   "repo": "raullenchai/Rapid-MLX",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.5294,
+   "n_covered": 72,
+   "n_modules": 136,
+   "repo": "lightseekorg/tokenspeed",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.0526,
+   "n_covered": 1,
+   "n_modules": 19,
+   "repo": "zhongerxin/iPhone-use",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.8512,
+   "n_covered": 103,
+   "n_modules": 121,
+   "repo": "semantica-agi/semantica",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.5584,
+   "n_covered": 86,
+   "n_modules": 154,
+   "repo": "ModelTC/LightX2V",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.6238,
+   "n_covered": 63,
+   "n_modules": 101,
+   "repo": "marcelotduarte/cx_Freeze",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 1.0,
+   "n_covered": 3,
+   "n_modules": 3,
+   "repo": "nix-community/NUR",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.5455,
+   "n_covered": 6,
+   "n_modules": 11,
+   "repo": "speedyapply/JobSpy",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.2124,
+   "n_covered": 41,
+   "n_modules": 193,
+   "repo": "tile-ai/tilelang",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.4522,
+   "n_covered": 52,
+   "n_modules": 115,
+   "repo": "datamodel-code-generator/datamodel-code-generator",
+   "stratum": "A-popular"
+  },
+  {
+   "coverage": 0.75,
+   "n_covered": 3,
+   "n_modules": 4,
+   "repo": "Argh94/ProxyProwler",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.537,
+   "n_covered": 29,
+   "n_modules": 54,
+   "repo": "peach-mitao/peach",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.6,
+   "n_covered": 9,
+   "n_modules": 15,
+   "repo": "edgytoast/avp-ports-index",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.3333,
+   "n_covered": 1,
+   "n_modules": 3,
+   "repo": "Phocinae/Phocinae-Largha-150M-v1",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.2593,
+   "n_covered": 21,
+   "n_modules": 81,
+   "repo": "WizerdBaChe/claude-share",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.675,
+   "n_covered": 27,
+   "n_modules": 40,
+   "repo": "z291173301/MDCx",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 1.0,
+   "n_covered": 3,
+   "n_modules": 3,
+   "repo": "IntensiveCoLearning/DeFi",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.0,
+   "n_covered": 0,
+   "n_modules": 1,
+   "repo": "Nasratullah-Shafiq/Pharmacy",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.5,
+   "n_covered": 2,
+   "n_modules": 4,
+   "repo": "WeblateOrg/language-data",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.8,
+   "n_covered": 4,
+   "n_modules": 5,
+   "repo": "BodduSriPavan-111/chandassu",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.7619,
+   "n_covered": 16,
+   "n_modules": 21,
+   "repo": "luxardolabs/luxupt",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.381,
+   "n_covered": 8,
+   "n_modules": 21,
+   "repo": "shakfu/aldakit",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.75,
+   "n_covered": 12,
+   "n_modules": 16,
+   "repo": "nisargpatel28/AgenticPlayground",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 1.0,
+   "n_covered": 4,
+   "n_modules": 4,
+   "repo": "olob0/olob0",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.75,
+   "n_covered": 3,
+   "n_modules": 4,
+   "repo": "looztra/kubesplit",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.7647,
+   "n_covered": 26,
+   "n_modules": 34,
+   "repo": "canonical/openfga-operator",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.4127,
+   "n_covered": 26,
+   "n_modules": 63,
+   "repo": "zigzag-tech/livestack",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 1.0,
+   "n_covered": 1,
+   "n_modules": 1,
+   "repo": "aniaan/aniaan",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 1.0,
+   "n_covered": 2,
+   "n_modules": 2,
+   "repo": "TAKETODAY/TAKETODAY",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.4653,
+   "n_covered": 47,
+   "n_modules": 101,
+   "repo": "NodeJSmith/hassette",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.0208,
+   "n_covered": 1,
+   "n_modules": 48,
+   "repo": "40508597/rwgj_sy",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.75,
+   "n_covered": 9,
+   "n_modules": 12,
+   "repo": "rwnobrega/komm",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.5269,
+   "n_covered": 49,
+   "n_modules": 93,
+   "repo": "Code2Collapse/ComfyUI-CustomNodePacks",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.6667,
+   "n_covered": 40,
+   "n_modules": 60,
+   "repo": "mirror29/inalpha",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.7308,
+   "n_covered": 19,
+   "n_modules": 26,
+   "repo": "munich-quantum-toolkit/problemsolver",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.0,
+   "n_covered": 0,
+   "n_modules": 23,
+   "repo": "BobbyYue/3080-brief",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.0833,
+   "n_covered": 39,
+   "n_modules": 468,
+   "repo": "samdickson22/clash-simulator",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.3478,
+   "n_covered": 8,
+   "n_modules": 23,
+   "repo": "petfold/ontodag",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": 0.6562,
+   "n_covered": 21,
+   "n_modules": 32,
+   "repo": "Rgveda/GolemQ",
+   "stratum": "B-longtail"
+  },
+  {
+   "coverage": null,
+   "n_covered": 0,
+   "n_modules": 0,
+   "repo": "nebulacouriervent/FC27-Editor-Suite",
+   "stratum": "B-longtail"
+  }
+ ],
+ "per_stratum_coverage": {
+  "A-popular": {
+   "coverage": 0.4331,
+   "covered": 515,
+   "distinct_modules": 1189,
+   "repos": 29,
+   "repos_with_any_covered": 29
+  },
+  "B-longtail": {
+   "coverage": 0.2526,
+   "covered": 242,
+   "distinct_modules": 958,
+   "repos": 29,
+   "repos_with_any_covered": 27
+  }
+ },
+ "population": {
+  "distinct_modules": 1970,
+  "per_stratum_modules": {
+   "A-popular": 1189,
+   "B-longtail": 958
+  },
+  "python_files_read": 33529,
+  "repositories_ok": 60
+ },
+ "schema": "e090.results/1",
+ "union": {
+  "both": 502,
+  "conditional_value": {
+   "covered": 618,
+   "note": "among the names the index covers, the share `pip install <module>` does not resolve",
+   "pip_install_misses": 116,
+   "share": 0.1877
+  },
+  "index_only": 116,
+  "neither": 1203,
+  "note": "index and `pip install <module>` together, over the pooled population. This is the share of imported names for which one of the two free mechanisms names a provider at all.",
+  "pip_install_only": 149,
+  "union_share": 0.3893
+ }
+}

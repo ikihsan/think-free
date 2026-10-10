@@ -1,0 +1,1068 @@
+==============================================================================
+[seq 2] 2026-10-10T02:51:26+00:00
+$ bash -c curl -s -o /dev/null -w "pypi:%{http_code} " https://pypi.org/simple/ ; curl -s -o /dev/null -w "github:%{http_code} " https://api.github.com/rate_limit; curl -s -o /dev/null -w "se:%{http_code}\n" https://api.stackexchange.com/2.3/info?site=stackoverflow
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+pypi:200 github:200 se:200
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 14708  redactions: none
+==============================================================================
+[seq 8] 2026-10-10T03:00:31+00:00
+$ python3 EXPERIMENTS/090-reverse-index/g0_discrimination.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/090-reverse-index/g0_discrimination.py", line 30, in <module>
+    from pyprovides import provides, pypi, _pick_wheel, _central_directory, \
+ModuleNotFoundError: No module named 'pyprovides'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 3309  redactions: none
+==============================================================================
+[seq 9] 2026-10-10T03:00:53+00:00
+$ python3 EXPERIMENTS/090-reverse-index/g0_discrimination.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "arm_forward": {
+  "n": 10,
+  "recovered": 9,
+  "rows": [
+   {
+    "module": "numpy",
+    "project": "numpy",
+    "recovered": true,
+    "status": "ok"
+   },
+   {
+    "module": "requests",
+    "project": "requests",
+    "recovered": true,
+    "status": "ok"
+   },
+   {
+    "module": "pandas",
+    "project": "pandas",
+    "recovered": true,
+    "status": "ok"
+   },
+   {
+    "module": "matplotlib",
+    "project": "matplotlib",
+    "recovered": true,
+    "status": "ok"
+   },
+   {
+    "module": "scipy",
+    "project": "scipy",
+    "recovered": true,
+    "status": "ok"
+   },
+   {
+    "module": "yaml",
+    "project": "yaml",
+    "recovered": false,
+    "status": "no-such-project"
+   },
+   {
+    "module": "PIL",
+    "project": "Pillow",
+    "recovered": true,
+    "status": "ok"
+   },
+   {
+    "module": "bs4",
+    "project": "beautifulsoup4",
+    "recovered": true,
+    "status": "ok"
+   },
+   {
+    "module": "zmq",
+    "project": "pyzmq",
+    "recovered": true,
+    "status": "ok"
+   },
+   {
+    "module": "pymysql",
+    "project": "PyMySQL",
+    "recovered": true,
+    "status": "ok"
+   }
+  ],
+  "threshold": 8
+ },
+ "arm_negative": {
+  "n": 30,
+  "resolved": 0,
+  "rows": [
+   {
+    "got": [],
+    "module": "zzq_0",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_1",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_2",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_3",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_4",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_5",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_6",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_7",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_8",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_9",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_10",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_11",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_12",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_13",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_14",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_15",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_16",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_17",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_18",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_19",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_20",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_21",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_22",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_23",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_24",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_25",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_26",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_27",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_28",
+    "resolved": false
+   },
+   {
+    "got": [],
+    "module": "zzq_29",
+    "resolved": false
+   }
+  ],
+  "threshold": 0
+ },
+ "build_seconds": 7.5,
+ "g0": "PASS",
+ "index_size": 39,
+ "n_projects_read": 29,
+ "schema": "e090.g0/1",
+ "status_counts": {
+  "no-such-project": 1,
+  "ok": 28
+ }
+}
+positive failures: [('win32api', 'pywin32', []), ('Tkinter', 'tk', [])]
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 11593  redactions: none
+==============================================================================
+[seq 10] 2026-10-10T03:16:05+00:00
+$ python3 EXPERIMENTS/090-reverse-index/harvest.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+selected 60 repositories (A-popular=30, B-longtail=30)
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/090-reverse-index/harvest.py", line 226, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/090-reverse-index/harvest.py", line 199, in main
+    per_stratum.setdefault(h["stratum"], set()).update(h["modules"])
+KeyError: 'stratum'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 726812  redactions: none
+==============================================================================
+[seq 11] 2026-10-10T03:23:29+00:00
+$ python3 EXPERIMENTS/090-reverse-index/harvest.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+selected 60 repositories (A-popular=30, B-longtail=30)
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/090-reverse-index/harvest.py", line 226, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/090-reverse-index/harvest.py", line 199, in main
+    per_stratum.setdefault(h["stratum"], set()).update(h["modules"])
+KeyError: 'stratum'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 685986  redactions: none
+==============================================================================
+[seq 18] 2026-10-10T04:44:24+00:00
+$ python3 EXPERIMENTS/090-reverse-index/leakage.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+repositories cloned: 60 of 60 (failed: none)
+population: 1970 distinct names
+repo-internal names: 1149  leaked (single-repo): 1110  share 0.5635
+sample leaked: ['FLA_KDA', 'PyQt5', 'PyQt6', 'PySide2', 'PySide6', 'RAG_ChatBot', '_architecture_core', '_architecture_visual', '_archlib', '_capabilitylib', '_cmdtext', '_common', '_control_backends', '_core', '_doc_skip_checks', '_frame_grid', '_ledger', '_module_tree', '_toolchain_changes', '_toolchain_query', '_toolchain_runtime', '_toolchain_store', '_tp_layout_fakes', 'a', 'access_policy']
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 492313  redactions: none
+==============================================================================
+[seq 21] 2026-10-10T04:53:03+00:00
+$ python3 EXPERIMENTS/090-reverse-index/leakage.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+repositories cloned: 60 of 60 (failed: none)
+population: 1970 distinct names
+classes (single-repo hits): {'nested-vendored': 1097, 'root-namespace': 11, 'src-layout': 2}
+strict leak 13 (0.0066)  broad leak 1110 (0.5635)
+G2 coverage ceiling: strict 0.9934  broad 0.4365
+sample strict leaked: ['benchmarks', 'charms', 'docker', 'docs', 'examples', 'flows', 'imitation', 'lightx2v_kernel', 'lightx2v_train', 'maint', 'mqt', 'openswe', 'testing']
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 436828  redactions: none
+==============================================================================
+[seq 22] 2026-10-10T04:53:19+00:00
+$ python3 EXPERIMENTS/090-reverse-index/transfer_cost.py 60
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sampled 60, ok 60
+bytes fetched per project: {"n": 60, "p50": 111174, "p90": 475666, "p99": 9652267, "max": 9652267, "mean": 351182.7, "total": 21070961}
+requests per project: {"n": 60, "p50": 2, "p90": 2, "p99": 3, "max": 3, "mean": 2.0, "total": 123}
+wheel bytes per project: {"n": 60, "p50": 47738, "p90": 3743942, "p99": 45317647, "max": 45317647, "mean": 1638928.7, "total": 98335720}
+fetched share of wheel: 0.214276
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 63770  redactions: none
+==============================================================================
+[seq 23] 2026-10-10T04:55:50+00:00
+$ python3 EXPERIMENTS/090-reverse-index/analyze.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population: 1970 distinct module names from 60 repositories
+leakage: strict 13 of 1970 (0.0066) -> de-contaminated population 1957
+projects read: 15000 (13920 ok) of 15000 ranked
+status mix: [('ok', 13920), ('no-wheel', 1034), ('read-error:timeout', 18), ('read-error:URLError', 18), ('read-error:IncompleteRead', 4), ('no-such-project', 3), ('read-error:ConnectionResetError', 3)]
+  K=500    index=516     covered=197   coverage=0.1000  decontaminated=196   0.1002
+  K=1000   index=960     covered=276   coverage=0.1401  decontaminated=274   0.1400
+  K=2500   index=2242    covered=393   coverage=0.1995  decontaminated=389   0.1988
+  K=5000   index=5278    covered=502   coverage=0.2548  decontaminated=497   0.2540
+  K=10000  index=10316   covered=581   coverage=0.2949  decontaminated=576   0.2943
+  K=15000  index=14387   covered=618   coverage=0.3137  decontaminated=613   0.3132
+baseline: 1970 modules, one PyPI lookup each
+{
+ "baseline": {
+  "exists_but_does_not_ship": [
+   "Crypto",
+   "Imath",
+   "MLX",
+   "OpenEXR",
+   "SeC",
+   "analyze",
+   "benchmarks",
+   "bs4",
+   "collector",
+   "common_utils",
+   "discord",
+   "docling",
+   "dotenv",
+   "fastmcp",
+   "gi",
+   "google",
+   "imwatermark",
+   "key_value",
+   "ledger",
+   "mooncake",
+   "nested_models",
+   "pkg1",
+   "prompts",
+   "ptoas",
+   "pydantic_ai",
+   "pynvml",
+   "recording",
+   "resource",
+   "shop",
+   "snowflake",
+   "some_library",
+   "t5x",
+   "trtllm_kernel",
+   "tuning",
+   "ujson"
+  ],
+  "status_counts": {
+   "no-such-project": 1094,
+   "no-wheel": 190,
+   "ok": 686
+  }
+ },
+ "g2": {
+  "coverage": 0.3137,
+  "covered": 618,
+  "denominator": 1970,
+  "gate": "coverage >= 0.70 with baseline fallback disabled",
+  "uncovered_examples": [
+   "BUILD_CONSTANTS",
+   "FILE",
+   "FLA_KDA",
+   "GroundingDINO",
+   "KTransformersOps",
+   "MLX",
+   "OpenEXR",
+   "Pinyin2Hanzi",
+   "QtQuick",
+   "RAFT",
+   "RAG_ChatBot",
+   "SeC",
+   "VideoMamba",
+   "__future__",
+   "_architecture_core",
+   "_architecture_visual",
+   "_archlib",
+   "_capabilitylib",
+   "_cmdtext",
+   "_common",
+   "_control_backends",
+   "_core",
+   "_doc_skip_checks",
+   "_frame_grid",
+   "_imp",
+   "_ledger",
+   "_module_tree",
+   "_thread",
+   "_toolchain_changes",
+   "_toolchain_query",
+   "_toolchain_runtime",
+   "_toolchain_store",
+   "_tp_layout_fakes",
+   "_typeshed",
+   "_winapi",
+   "a",
+   "a19_common",
+   "academictorrents",
+   "access_policy",
+   "act_quant",
+   "actuator",
+   "adapters",
+   "add_model",
+   "admin",
+   "admission",
+   "agents_census",
+   "agree",
+   "aiter",
+   "align_speakers",
+   "amane",
+   "analytic_kernel",
+   "analyze",
+   "analyze_moe_model",
+   "analyze_profile",
+   "analyze_sessions",
+   "animate_svg",
+   "anitopy",
+   "any_charm_base",
+   "apex",
+   "app"
+  ],
+  "verdict": "FAIL"
+ },
+ "g3": {
+  "added_decontaminated": 113,
+  "added_examples": [
+   "AppKit",
+   "ApplicationServices",
+   "CoreFoundation",
+   "Crypto",
+   "Foundation",
+   "Imath",
+   "OpenSSL",
+   "PIL",
+   "PyObjCTools",
+   "PyOpenColorIO",
+   "Quartz",
+   "System",
+   "_black_version",
+   "_pytest",
+   "absl",
+   "alpaca",
+   "analytics",
+   "argon2",
+   "azure",
+   "backports",
+   "bench",
+   "benchmarks",
+   "bs4",
+   "bson",
+   "cache",
+   "cassandra",
+   "cleanfid",
+   "cli",
+   "com",
+   "common",
+   "conftest",
+   "core",
+   "cuda",
+   "cupy",
+   "cupyx",
+   "cuvs",
+   "cv2",
+   "data",
+   "dateutil",
+   "deep_ep",
+   "deep_gemm",
+   "discord",
+   "docling",
+   "docs",
+   "docx",
+   "dotenv",
+   "exceptions",
+   "external",
+   "fastmcp",
+   "fitz",
+   "fla",
+   "flash_attn",
+   "flashinfer",
+   "git",
+   "google",
+   "googleapiclient",
+   "graphql",
+   "grpc",
+   "grpc_health",
+   "grpc_tools",
+   "hydra",
+   "imwatermark",
+   "key_value",
+   "main",
+   "markdown_it",
+   "megatron",
+   "mem0",
+   "model_utils",
+   "models",
+   "mooncake",
+   "msilib",
+   "nacl",
+   "nvidia",
+   "objc",
+   "open_clip",
+   "pillow_avif",
+   "pkcs11"
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 136010  redactions: none
+==============================================================================
+[seq 24] 2026-10-10T04:57:03+00:00
+$ python3 EXPERIMENTS/090-reverse-index/analyze.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population: 1970 distinct module names from 60 repositories
+leakage: strict 13 of 1970 (0.0066) -> de-contaminated population 1957
+projects read: 15000 (13920 ok) of 15000 ranked
+status mix: [('ok', 13920), ('no-wheel', 1034), ('read-error:timeout', 18), ('read-error:URLError', 18), ('read-error:IncompleteRead', 4), ('no-such-project', 3), ('read-error:ConnectionResetError', 3)]
+  K=500    index=516     covered=197   coverage=0.1000  decontaminated=196   0.1002
+  K=1000   index=960     covered=276   coverage=0.1401  decontaminated=274   0.1400
+  K=2500   index=2242    covered=393   coverage=0.1995  decontaminated=389   0.1988
+  K=5000   index=5278    covered=502   coverage=0.2548  decontaminated=497   0.2540
+  K=10000  index=10316   covered=581   coverage=0.2949  decontaminated=576   0.2943
+  K=15000  index=14387   covered=618   coverage=0.3137  decontaminated=613   0.3132
+baseline: 1970 modules, one PyPI lookup each
+{
+ "baseline": {
+  "exists_but_does_not_ship": [
+   "Crypto",
+   "Imath",
+   "MLX",
+   "OpenEXR",
+   "SeC",
+   "analyze",
+   "benchmarks",
+   "bs4",
+   "collector",
+   "common_utils",
+   "discord",
+   "docling",
+   "dotenv",
+   "fastmcp",
+   "gi",
+   "google",
+   "imwatermark",
+   "key_value",
+   "ledger",
+   "mooncake",
+   "nested_models",
+   "pkg1",
+   "prompts",
+   "ptoas",
+   "pydantic_ai",
+   "pynvml",
+   "recording",
+   "resource",
+   "shop",
+   "snowflake",
+   "some_library",
+   "t5x",
+   "trtllm_kernel",
+   "tuning",
+   "ujson"
+  ],
+  "status_counts": {
+   "no-such-project": 1094,
+   "no-wheel": 190,
+   "ok": 686
+  }
+ },
+ "g2": {
+  "coverage": 0.3137,
+  "covered": 618,
+  "denominator": 1970,
+  "gate": "coverage >= 0.70 with baseline fallback disabled",
+  "uncovered_examples": [
+   "BUILD_CONSTANTS",
+   "FILE",
+   "FLA_KDA",
+   "GroundingDINO",
+   "KTransformersOps",
+   "MLX",
+   "OpenEXR",
+   "Pinyin2Hanzi",
+   "QtQuick",
+   "RAFT",
+   "RAG_ChatBot",
+   "SeC",
+   "VideoMamba",
+   "__future__",
+   "_architecture_core",
+   "_architecture_visual",
+   "_archlib",
+   "_capabilitylib",
+   "_cmdtext",
+   "_common",
+   "_control_backends",
+   "_core",
+   "_doc_skip_checks",
+   "_frame_grid",
+   "_imp",
+   "_ledger",
+   "_module_tree",
+   "_thread",
+   "_toolchain_changes",
+   "_toolchain_query",
+   "_toolchain_runtime",
+   "_toolchain_store",
+   "_tp_layout_fakes",
+   "_typeshed",
+   "_winapi",
+   "a",
+   "a19_common",
+   "academictorrents",
+   "access_policy",
+   "act_quant",
+   "actuator",
+   "adapters",
+   "add_model",
+   "admin",
+   "admission",
+   "agents_census",
+   "agree",
+   "aiter",
+   "align_speakers",
+   "amane",
+   "analytic_kernel",
+   "analyze",
+   "analyze_moe_model",
+   "analyze_profile",
+   "analyze_sessions",
+   "animate_svg",
+   "anitopy",
+   "any_charm_base",
+   "apex",
+   "app"
+  ],
+  "verdict": "FAIL"
+ },
+ "g3": {
+  "added_decontaminated": 113,
+  "added_examples": [
+   "AppKit",
+   "ApplicationServices",
+   "CoreFoundation",
+   "Crypto",
+   "Foundation",
+   "Imath",
+   "OpenSSL",
+   "PIL",
+   "PyObjCTools",
+   "PyOpenColorIO",
+   "Quartz",
+   "System",
+   "_black_version",
+   "_pytest",
+   "absl",
+   "alpaca",
+   "analytics",
+   "argon2",
+   "azure",
+   "backports",
+   "bench",
+   "benchmarks",
+   "bs4",
+   "bson",
+   "cache",
+   "cassandra",
+   "cleanfid",
+   "cli",
+   "com",
+   "common",
+   "conftest",
+   "core",
+   "cuda",
+   "cupy",
+   "cupyx",
+   "cuvs",
+   "cv2",
+   "data",
+   "dateutil",
+   "deep_ep",
+   "deep_gemm",
+   "discord",
+   "docling",
+   "docs",
+   "docx",
+   "dotenv",
+   "exceptions",
+   "external",
+   "fastmcp",
+   "fitz",
+   "fla",
+   "flash_attn",
+   "flashinfer",
+   "git",
+   "google",
+   "googleapiclient",
+   "graphql",
+   "grpc",
+   "grpc_health",
+   "grpc_tools",
+   "hydra",
+   "imwatermark",
+   "key_value",
+   "main",
+   "markdown_it",
+   "megatron",
+   "mem0",
+   "model_utils",
+   "models",
+   "mooncake",
+   "msilib",
+   "nacl",
+   "nvidia",
+   "objc",
+   "open_clip",
+   "pillow_avif",
+   "pkcs11"
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2582  redactions: none
+==============================================================================
+[seq 25] 2026-10-10T05:04:14+00:00
+$ python3 EXPERIMENTS/090-reverse-index/analyze.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population: 1970 distinct module names from 60 repositories
+leakage: strict 13 of 1970 (0.0066) -> de-contaminated population 1957
+projects read: 15000 (13920 ok) of 15000 ranked
+status mix: [('ok', 13920), ('no-wheel', 1034), ('read-error:timeout', 18), ('read-error:URLError', 18), ('read-error:IncompleteRead', 4), ('no-such-project', 3), ('read-error:ConnectionResetError', 3)]
+  K=500    index=516     covered=197   coverage=0.1000  decontaminated=196   0.1002
+  K=1000   index=960     covered=276   coverage=0.1401  decontaminated=274   0.1400
+  K=2500   index=2242    covered=393   coverage=0.1995  decontaminated=389   0.1988
+  K=5000   index=5278    covered=502   coverage=0.2548  decontaminated=497   0.2540
+  K=10000  index=10316   covered=581   coverage=0.2949  decontaminated=576   0.2943
+  K=15000  index=14387   covered=618   coverage=0.3137  decontaminated=613   0.3132
+baseline: 1970 modules, one PyPI lookup each
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/090-reverse-index/analyze.py", line 245, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/090-reverse-index/analyze.py", line 226, in main
+    result = report.build({
+  File "/home/ubuntu/think-free/EXPERIMENTS/090-reverse-index/report.py", line 18, in build
+    "distinct_modules": len(population),
+NameError: name 'population' is not defined
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 5190  redactions: none
+==============================================================================
+[seq 26] 2026-10-10T05:04:27+00:00
+$ python3 EXPERIMENTS/090-reverse-index/analyze.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population: 1970 distinct module names from 60 repositories
+leakage: strict 13 of 1970 (0.0066) -> de-contaminated population 1957
+projects read: 15000 (13920 ok) of 15000 ranked
+status mix: [('ok', 13920), ('no-wheel', 1034), ('read-error:timeout', 18), ('read-error:URLError', 18), ('read-error:IncompleteRead', 4), ('no-such-project', 3), ('read-error:ConnectionResetError', 3)]
+  K=500    index=516     covered=197   coverage=0.1000  decontaminated=196   0.1002
+  K=1000   index=960     covered=276   coverage=0.1401  decontaminated=274   0.1400
+  K=2500   index=2242    covered=393   coverage=0.1995  decontaminated=389   0.1988
+  K=5000   index=5278    covered=502   coverage=0.2548  decontaminated=497   0.2540
+  K=10000  index=10316   covered=581   coverage=0.2949  decontaminated=576   0.2943
+  K=15000  index=14387   covered=618   coverage=0.3137  decontaminated=613   0.3132
+baseline: 1970 modules, one PyPI lookup each
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/090-reverse-index/analyze.py", line 245, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/090-reverse-index/analyze.py", line 226, in main
+    result = report.build({
+  File "/home/ubuntu/think-free/EXPERIMENTS/090-reverse-index/report.py", line 118, in build
+    "status_counts": dict(Counter(b["status"] for b in base)),
+NameError: name 'Counter' is not defined
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2598  redactions: none
+==============================================================================
+[seq 27] 2026-10-10T05:04:38+00:00
+$ python3 EXPERIMENTS/090-reverse-index/analyze.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population: 1970 distinct module names from 60 repositories
+leakage: strict 13 of 1970 (0.0066) -> de-contaminated population 1957
+projects read: 15000 (13920 ok) of 15000 ranked
+status mix: [('ok', 13920), ('no-wheel', 1034), ('read-error:timeout', 18), ('read-error:URLError', 18), ('read-error:IncompleteRead', 4), ('no-such-project', 3), ('read-error:ConnectionResetError', 3)]
+  K=500    index=516     covered=197   coverage=0.1000  decontaminated=196   0.1002
+  K=1000   index=960     covered=276   coverage=0.1401  decontaminated=274   0.1400
+  K=2500   index=2242    covered=393   coverage=0.1995  decontaminated=389   0.1988
+  K=5000   index=5278    covered=502   coverage=0.2548  decontaminated=497   0.2540
+  K=10000  index=10316   covered=581   coverage=0.2949  decontaminated=576   0.2943
+  K=15000  index=14387   covered=618   coverage=0.3137  decontaminated=613   0.3132
+baseline: 1970 modules, one PyPI lookup each
+{
+ "g2": {
+  "coverage": 0.3137,
+  "covered": 618,
+  "denominator": 1970,
+  "gate": "coverage >= 0.70 with baseline fallback disabled",
+  "uncovered_examples": [
+   "BUILD_CONSTANTS",
+   "FILE",
+   "FLA_KDA",
+   "GroundingDINO",
+   "KTransformersOps",
+   "MLX",
+   "OpenEXR",
+   "Pinyin2Hanzi",
+   "QtQuick",
+   "RAFT",
+   "RAG_ChatBot",
+   "SeC",
+   "VideoMamba",
+   "__future__",
+   "_architecture_core",
+   "_architecture_visual",
+   "_archlib",
+   "_capabilitylib",
+   "_cmdtext",
+   "_common",
+   "_control_backends",
+   "_core",
+   "_doc_skip_checks",
+   "_frame_grid",
+   "_imp",
+   "_ledger",
+   "_module_tree",
+   "_thread",
+   "_toolchain_changes",
+   "_toolchain_query",
+   "_toolchain_runtime",
+   "_toolchain_store",
+   "_tp_layout_fakes",
+   "_typeshed",
+   "_winapi",
+   "a",
+   "a19_common",
+   "academictorrents",
+   "access_policy",
+   "act_quant",
+   "actuator",
+   "adapters",
+   "add_model",
+   "admin",
+   "admission",
+   "agents_census",
+   "agree",
+   "aiter",
+   "align_speakers",
+   "amane",
+   "analytic_kernel",
+   "analyze",
+   "analyze_moe_model",
+   "analyze_profile",
+   "analyze_sessions",
+   "animate_svg",
+   "anitopy",
+   "any_charm_base",
+   "apex",
+   "app"
+  ],
+  "verdict": "FAIL"
+ },
+ "g2_decontaminated": {
+  "coverage": 0.3132,
+  "covered": 613,
+  "denominator": 1957,
+  "note": "same index, population minus the names the importing repository provides itself; read beside g2, never instead of it",
+  "uncovered_examples": [
+   "BUILD_CONSTANTS",
+   "FILE",
+   "FLA_KDA",
+   "GroundingDINO",
+   "KTransformersOps",
+   "MLX",
+   "OpenEXR",
+   "Pinyin2Hanzi",
+   "QtQuick",
+   "RAFT",
+   "RAG_ChatBot",
+   "SeC",
+   "VideoMamba",
+   "__future__",
+   "_architecture_core",
+   "_architecture_visual",
+   "_archlib",
+   "_capabilitylib",
+   "_cmdtext",
+   "_common",
+   "_control_backends",
+   "_core",
+   "_doc_skip_checks",
+   "_frame_grid",
+   "_imp",
+   "_ledger",
+   "_module_tree",
+   "_thread",
+   "_toolchain_changes",
+   "_toolchain_query",
+   "_toolchain_runtime",
+   "_toolchain_store",
+   "_tp_layout_fakes",
+   "_typeshed",
+   "_winapi",
+   "a",
+   "a19_common",
+   "academictorrents",
+   "access_policy",
+   "act_quant",
+   "actuator",
+   "adapters",
+   "add_model",
+   "admin",
+   "admission",
+   "agents_census",
+   "agree",
+   "aiter",
+   "align_speakers",
+   "amane",
+   "analytic_kernel",
+   "analyze",
+   "analyze_moe_model",
+   "analyze_profile",
+   "analyze_sessions",
+   "animate_svg",
+   "anitopy",
+   "any_charm_base",
+   "apex",
+   "app"
+  ],
+  "verdict": "FAIL"
+ },
+ "g3": {
+  "added_decontaminated": 113,
+  "added_examples": [
+   "AppKit",
+   "ApplicationServices",
+   "CoreFoundation",
+   "Crypto",
+   "Foundation",
+   "Imath",
+   "OpenSSL",
+   "PIL",
+   "PyObjCTools",
+   "PyOpenColorIO",
+   "Quartz",
+   "System",
+   "_black_version",
+   "_pytest",
+   "absl",
+   "alpaca",
+   "analytics",
+   "argon2",
+   "azure",
+   "backports",
+   "bench",
+   "benchmarks",
+   "bs4",
+   "bson",
+   "cache",
+   "cassandra",
+   "cleanfid",
+   "cli",
+   "com",
+   "common",
+   "conftest",
+   "core",
+   "cuda",
+   "cupy",
+   "cupyx",
+   "cuvs",
+   "cv2",
+   "data",
+   "dateutil",
+   "deep_ep",
+   "deep_gemm",
+   "discord",
+   "docling",
+   "docs",
+   "docx",
+   "dotenv",
+   "exceptions",
+   "external",
+   "fastmcp",
+   "fitz",
+   "fla",
+   "flash_attn",
+   "flashinfer",
+   "git",
+   "google",
+   "googleapiclient",
+   "graphql",
+   "grpc",
+   "grpc_health",
+   "grpc_tools",
+   "hydra",
+   "imwatermark",
+   "key_value",
+   "main",
+   "markdown_it",
+   "megatron",
+   "mem0",
+   "model_utils",
+   "models",
+   "mooncake",
+   "msilib",
+   "nacl",
+   "nvidia",
+   "objc",
+   "open_clip",
+   "pillow_avif",
+   "pkcs11",
+   "pptx",
+   "probe",
+   "pyannote"
+  ],
+  "added_over_baseline": 116,
+  "baseline_works": 651,
+  "denominator": 1970,
+  "gate": "share resolved by the index and not by pip install >= 0.02",
+  "resolved_by_index": 618,
+  "share": 0.0589,
+  "share_decontaminated": 0.0577,
+  "verdict": "PASS"
+ },
+ "union": {
+  "both": 502,
+  "
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2521  redactions: none
