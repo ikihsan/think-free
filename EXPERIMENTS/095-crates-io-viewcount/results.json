@@ -1,0 +1,63 @@
+{
+  "need_count": 42,
+  "random_count": 504,
+  "need_active": 42,
+  "random_active": 504,
+  "proportion_test": {
+    "need_active_rate": 1.0,
+    "random_active_rate": 1.0,
+    "difference": 0.0,
+    "z_score": 0,
+    "p_value": 1.00000029980098,
+    "wilson_ci_need": [
+      0.9161983874908382,
+      1.0000000000000002
+    ],
+    "wilson_ci_lower_bound": 0.9161983874908382
+  },
+  "mannwhitney_total": {
+    "need_nonzero_count": 42,
+    "random_nonzero_count": 504,
+    "need_log_mean": 6.3015626760601435,
+    "random_log_mean": 6.887270062248419,
+    "u_statistic": 8876.0,
+    "p_value": 0.08207317926719074,
+    "rank_biserial_r": 0.1613756613756614
+  },
+  "mannwhitney_recent": {
+    "need_nonzero_count": 42,
+    "random_nonzero_count": 504,
+    "need_log_mean": 5.235093238793302,
+    "random_log_mean": 4.695813433713729,
+    "u_statistic": 9130.5,
+    "p_value": 0.13895481637422236,
+    "rank_biserial_r": 0.1373299319727891
+  },
+  "gates": {
+    "G1_sample_size": {
+      "pass": false,
+      "need_n": 42,
+      "random_n": 504,
+      "threshold": ">= 100 each"
+    },
+    "G2_significance": {
+      "pass": false,
+      "prop_p": 1.00000029980098,
+      "mw_p": 0.13895481637422236,
+      "threshold": "p < 0.05"
+    },
+    "G3_effect_size": {
+      "pass": true,
+      "wilson_lb": 0.9161983874908382,
+      "rank_biserial": 0.1373299319727891,
+      "threshold": "Wilson LB > 0.60 or |r| > 0.3"
+    },
+    "G4_arrival_field": {
+      "pass": true,
+      "need_rate": 1.0,
+      "random_rate": 1.0,
+      "threshold": ">= 95%"
+    }
+  },
+  "all_gates_pass": false
+}

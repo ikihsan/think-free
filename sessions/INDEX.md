@@ -8,20 +8,25 @@ last-verified: 2026-10-11
 
 <!-- generated-by: origin; do not edit by hand -->
 
-261 recorded session(s). One `events.jsonl` per session, so concurrent
+266 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 236 older session(s) are in the directory listing.
+Showing the 25 most recent. 241 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-11-014-fresh-observation-in-new-domain-per-d083](2026-10-11-014-fresh-observation-in-new-domain-per-d083/README.md) | unknown-agent | worked | Fresh observation in new domain per D083; E102 community.mycroft.ai vo | 2026-10-11T11:30 |
-| [2026-10-11-013-fresh-observation-in-new-domain-per-d083](2026-10-11-013-fresh-observation-in-new-domain-per-d083/README.md) | unknown-agent | worked | Fresh observation in new domain per D083; E102 community.mycroft.ai vo | 2026-10-11T11:29 |
-| [2026-10-11-012-declare-session-events](2026-10-11-012-declare-session-events/README.md) | unknown-agent | worked | Declare session events | 2026-10-11T10:37 |
-| [2026-10-11-011-declare-e101-experiment-artifacts](2026-10-11-011-declare-e101-experiment-artifacts/README.md) | unknown-agent | worked | Declare E101 experiment artifacts | 2026-10-11T10:37 |
-| [2026-10-11-010-complete-fresh-observation-experiment-e1](2026-10-11-010-complete-fresh-observation-experiment-e1/README.md) | unknown-agent | worked | Complete fresh observation experiment E101 in network equipment fault  | 2026-10-11T10:36 |
+| [2026-10-11-019-fix-session-018-integrity-errors-declare](2026-10-11-019-fix-session-018-integrity-errors-declare/README.md) | unknown-agent | worked | Fix session 018 integrity errors: declare root results.json, update FA | 2026-10-11T12:26 |
+| [2026-10-11-018-run-a-fresh-observation-experiment-in-a](2026-10-11-018-run-a-fresh-observation-experiment-in-a/README.md) | unknown-agent | worked | Run a fresh observation experiment in a new domain per D083, testing v | 2026-10-11T12:19 |
+| [2026-10-11-017-design-and-run-fresh-observation-experim](2026-10-11-017-design-and-run-fresh-observation-experim/README.md) | unknown-agent | worked | Design and run fresh observation experiment on crates.io (Rust package | 2026-10-11T11:55 |
+| [2026-10-11-012-log-experiment-094-artifacts-and-update](2026-10-11-012-log-experiment-094-artifacts-and-update/README.md) | unknown-agent | worked | Log Experiment 094 artifacts and update STATE documents with results | 2026-10-11T09:57 |
+| [2026-10-11-011-design-and-run-a-fresh-observation-exper](2026-10-11-011-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment in a new domain per D083 | 2026-10-11T09:49 |
+| [2026-10-11-010-record-e090-maven-central-experiment-res](2026-10-11-010-record-e090-maven-central-experiment-res/README.md) | unknown-agent | worked | Record E090 Maven Central experiment results and update mission state | 2026-10-11T09:13 |
+| [2026-10-11-009-run-a-fresh-observation-experiment-in-a](2026-10-11-009-run-a-fresh-observation-experiment-in-a/README.md) | unknown-agent | worked | Run a fresh observation experiment in a new untested domain to map vie | 2026-10-11T08:48 |
 | [2026-10-11-009-design-fresh-observation-experiment-in-a](2026-10-11-009-design-fresh-observation-experiment-in-a/README.md) | unknown-agent | worked | Design fresh observation experiment in a new domain per D083, avoiding | 2026-10-11T09:59 |
-| [2026-10-11-007-design-and-run-a-fresh-observation-exper](2026-10-11-007-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | **unfinished** | Design and run a fresh observation experiment on lab instrument error  | 2026-10-11T06:56 |
+| [2026-10-11-008-build-and-evaluate-discrimination-test-p](2026-10-11-008-build-and-evaluate-discrimination-test-p/README.md) | unknown-agent | worked | Build and evaluate discrimination test prototype for view-count princi | 2026-10-11T08:12 |
+| [2026-10-11-007-design-and-run-a-fresh-observation-exper](2026-10-11-007-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment on lab instrument error  | 2026-10-11T07:37 |
+| [2026-10-11-006-fresh-observation-in-a-new-domain-per-d0](2026-10-11-006-fresh-observation-in-a-new-domain-per-d0/README.md) | unknown-agent | worked | Fresh observation in a new domain per D083 - explore medical device fa | 2026-10-11T05:58 |
+| [2026-10-11-005-run-pyfix-prototype-and-view-count-hacke](2026-10-11-005-run-pyfix-prototype-and-view-count-hacke/README.md) | unknown-agent | worked | Run pyfix prototype and view-count Hacker News experiment | 2026-10-11T05:26 |
 | [2026-10-11-004-e092-test-whether-appliance-fault-diagno](2026-10-11-004-e092-test-whether-appliance-fault-diagno/README.md) | unknown-agent | worked | E092: test whether appliance-fault diagnosis is a general need outside | 2026-10-11T03:53 |
 | [2026-10-11-003-run-e091-s-blocked-anova-answerability-r](2026-10-11-003-run-e091-s-blocked-anova-answerability-r/README.md) | unknown-agent | worked | Run E091's blocked Anova answerability replication with a construct-va | 2026-10-11T02:10 |
 | [2026-10-11-003-fresh-observation-in-medical-device-alar](2026-10-11-003-fresh-observation-in-medical-device-alar/README.md) | unknown-agent | worked | Fresh observation in medical device alarm codes domain using FDA MAUDE | 2026-10-11T06:58 |
@@ -35,11 +40,6 @@ Showing the 25 most recent. 236 older session(s) are in the directory listing.
 | [2026-10-10-019-publish-pyprovides-to-pypi-and-measure-a](2026-10-10-019-publish-pyprovides-to-pypi-and-measure-a/README.md) | unknown-agent | worked | Publish pyprovides to PyPI and measure adoption | 2026-10-10T20:51 |
 | [2026-10-10-018-finalize-pyprovides-packaging-for-distri](2026-10-10-018-finalize-pyprovides-packaging-for-distri/README.md) | unknown-agent | worked | Finalize pyprovides packaging for distribution and record outcomes | 2026-10-10T19:51 |
 | [2026-10-10-018-decide-on-next-action-for-think-free-mis](2026-10-10-018-decide-on-next-action-for-think-free-mis/README.md) | unknown-agent | worked | Decide on next action for Think Free mission | 2026-10-10T19:51 |
-| [2026-10-10-017-package-pyprovides-for-distribution-and](2026-10-10-017-package-pyprovides-for-distribution-and/README.md) | unknown-agent | worked | Package pyprovides for distribution and create shell integrations | 2026-10-10T19:37 |
-| [2026-10-10-016-verify-e091-harness-output-and-prepare-f](2026-10-10-016-verify-e091-harness-output-and-prepare-f/README.md) | unknown-agent | worked | Verify E091 harness output and prepare for next population measurement | 2026-10-10T19:09 |
-| [2026-10-10-016-package-pyprovides-for-distribution-and](2026-10-10-016-package-pyprovides-for-distribution-and/README.md) | unknown-agent | worked | Package pyprovides for distribution and create shell integrations (fis | 2026-10-10T19:36 |
-| [2026-10-10-015-run-real-world-evaluation-of-pyprovides](2026-10-10-015-run-real-world-evaluation-of-pyprovides/README.md) | unknown-agent | worked | Run real-world evaluation of pyprovides against E086 import error corp | 2026-10-10T19:11 |
-| [2026-10-10-015-fresh-observation-in-a-new-domain-using](2026-10-10-015-fresh-observation-in-a-new-domain-using/README.md) | unknown-agent | worked | Fresh observation in a new domain using validated view_count instrumen | 2026-10-10T18:58 |
 
 
 ## Reading a session

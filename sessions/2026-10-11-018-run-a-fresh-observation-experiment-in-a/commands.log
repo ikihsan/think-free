@@ -1,0 +1,22 @@
+==============================================================================
+[seq 2] 2026-10-11T12:14:59+00:00
+$ python3 EXPERIMENTS/102-nuget-viewcount/run.py --gate --need 40 --random 40
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+=== GATE RESULTS ===
+  G1: PASS — need-related: 40, random: 40 (threshold: 30 each)
+  G2: PASS — Mann-Whitney U=3.0, p=0.000000, Cliff's delta=0.996
+  G3: PASS — 40/40 need-related above random median (Wilson LB=0.9124, threshold=0.60)
+  G4: PASS — All 80 sampled packages have totalDownloads > 0 (filtered at fetch)
+
+OVERALL: PASS
+
+
+[stderr]
+Fetching need-related packages...
+  Got 40 need-related packages
+Fetching random packages...
+  Got 40 random packages
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5717  redactions: none

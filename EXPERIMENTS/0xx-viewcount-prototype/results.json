@@ -1,0 +1,60 @@
+{
+  "g1": {
+    "rows": 30,
+    "g1_pass": true
+  },
+  "g3": {
+    "served": 0,
+    "partial": 0,
+    "unserved": 30,
+    "served_frac": 0.0,
+    "total": 30
+  },
+  "g4": {
+    "top20_served_partial": 0,
+    "top20_total": 20,
+    "g4_pass": false,
+    "g4_detail": "0/20 served or partially_served (requires >= 17/20)"
+  },
+  "classifications": [
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved",
+    "unserved"
+  ],
+  "class_distribution": {
+    "unserved": 30
+  },
+  "overall": {
+    "g1": "PASS",
+    "g3": "served=0.000 (0/30)",
+    "g4": "FAIL",
+    "overall": "SOME GATES FAILED"
+  }
+}

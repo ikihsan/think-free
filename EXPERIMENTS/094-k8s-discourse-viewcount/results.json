@@ -1,0 +1,62 @@
+{
+  "experiment": "094-k8s-discourse-viewcount",
+  "timestamp": "2026-10-11T09:47:21.467005Z",
+  "source": "https://discuss.kubernetes.io/c/general-discussions/6",
+  "gates": {
+    "G1_population": {
+      "pass": false,
+      "error_n": 76,
+      "non_error_n": 93
+    },
+    "G2_viewcount_separation": {
+      "pass": true,
+      "u_statistic": 2896.0,
+      "p_value": 0.0437765222632005,
+      "error_median": 282.5,
+      "non_error_median": 180
+    },
+    "G3_unserved_fraction": {
+      "pass": false,
+      "error_unserved": 57,
+      "error_total": 76,
+      "fraction": 0.75,
+      "ci95_lower": 0.6422303597102301,
+      "ci95_upper": 0.833712006174221
+    },
+    "G4_viewcount_coverage": {
+      "pass": true,
+      "coverage": 1.0
+    }
+  },
+  "summary": {
+    "error_topics": {
+      "n": 76,
+      "median_views": 282.5,
+      "mean_views": 6871.75,
+      "unserved_count": 57,
+      "unserved_fraction": 0.75,
+      "unserved_ci95": [
+        0.6422303597102301,
+        0.833712006174221
+      ]
+    },
+    "non_error_topics": {
+      "n": 93,
+      "median_views": 180,
+      "mean_views": 2871.7741935483873,
+      "unserved_count": 78,
+      "unserved_fraction": 0.8387096774193549,
+      "unserved_ci95": [
+        0.7507967733749074,
+        0.8997500990435575
+      ]
+    }
+  },
+  "classification_counts": {
+    "error": 76,
+    "non_error": 93,
+    "excluded": 3,
+    "unclassified": 328
+  },
+  "all_gates_pass": false
+}

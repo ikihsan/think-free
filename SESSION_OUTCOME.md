@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-11
+-->
+
 # Session Outcome - Think Free Investigation
 
 **Date:** 2026-10-11  

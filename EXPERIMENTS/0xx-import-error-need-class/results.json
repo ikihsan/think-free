@@ -1,0 +1,20 @@
+{
+  "total_pairs": 100,
+  "resolved": 13,
+  "resolution_rate": 0.13,
+  "valid_identifier_unresolved": 70,
+  "resolution_categories": {
+    "resolved": 13,
+    "valid_identifier_not_resolved": 61,
+    "camelcase_identifier_not_resolved": 9,
+    "invalid_identifier": 17
+  },
+  "need_classifications": {
+    "technique-or-expertise": 100
+  },
+  "g1_retrieval_pass": true,
+  "g4_answerability_pass": false,
+  "served_fraction": 0.13,
+  "kill_gate_met": false,
+  "experiment": "E0XX-import-error-with-need-classification"
+}
