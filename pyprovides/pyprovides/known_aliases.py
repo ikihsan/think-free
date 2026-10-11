@@ -5,6 +5,8 @@ These are module names that don't match their distribution name (e.g.,
 import sklearn comes from pip install scikit-learn).
 """
 
+import typing
+
 # Module name -> distribution name (as it appears on PyPI)
 KNOWN_ALIASES = {
     "sklearn": "scikit-learn",
@@ -58,15 +60,16 @@ STDLIB_MODULES = frozenset([
     "datetime", "zoneinfo", "timeit", "schedule", "threading", "multiprocessing",
     "concurrent", "concurrent.futures", "subprocess", "sched", "queue",
     "contextvars", "asyncio", "asyncio.events", "asyncio.coroutines",
-    "asyncio.tasks", "asyncio.streams", "asyncio.protocols", "asyncio.transports",
-    "asyncio.base_events", "asyncio.base_subprocess", "asyncio.base_tasks",
-    "asyncio.constants", "asyncio.coroutines", "asyncio.events", "asyncio.exceptions",
-    "asyncio.format_helpers", "asyncio.futures", "asyncio.locks", "asyncio.log",
-    "asyncio.proactor_events", "asyncio.protocols", "asyncio.queues",
-    "asyncio.runners", "asyncio.selector_events", "asyncio.sslproto",
-    "asyncio.staggered", "asyncio.streams", "asyncio.subprocess", "asyncio.tasks",
-    "asyncio.timeouts", "asyncio.transports", "asyncio.trsock", "asyncio.unix_events",
-    "asyncio.windows_events", "asyncio.windows_utils",
+    "asyncio.tasks", "asyncio.streams", "asyncio.protocols", "asyncio.base_events",
+    "asyncio.base_subprocess", "asyncio.constants", "asyncio.coroutines",
+    "asyncio.exceptions", "asyncio.format_helpers", "asyncio.futures",
+    "asyncio.locks", "asyncio.log", "asyncio.proactor_events",
+    "asyncio.protocols", "asyncio.queues", "asyncio.runners",
+    "asyncio.selector_events", "asyncio.sslproto",
+    "asyncio.staggered", "asyncio.streams", "asyncio.subprocess",
+    "asyncio.tasks", "asyncio.timeouts", "asyncio.transports",
+    "asyncio.trsock", "asyncio.unix_events", "asyncio.windows_events",
+    "asyncio.windows_utils",
 ])
 
 
@@ -76,7 +79,7 @@ def is_stdlib(module_name: str) -> bool:
     return top in STDLIB_MODULES
 
 
-def get_alias(module_name: str) -> str | None:
+def get_alias(module_name: str) -> typing.Optional[str]:
     """Get the distribution name for a known alias, or None if not known."""
     return KNOWN_ALIASES.get(module_name)
 

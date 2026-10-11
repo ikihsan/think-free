@@ -111,7 +111,7 @@ def cmd_fix_import(args):
                (["--dry-run"] if args.dry_run else []) + \
                (["--"] if args.command and args.command[0] != "--" else []) + \
                args.command
-    from .fix_import import main as fix_import_main
+    from .prototype import main as fix_import_main
     return fix_import_main()
 
 
