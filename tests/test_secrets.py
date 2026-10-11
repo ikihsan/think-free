@@ -62,6 +62,25 @@ class SecretScanTest(unittest.TestCase):
         found = secrets.names(secrets.scan(SAMPLES["github-token"]))
         self.assertEqual(found, ["github-token"])
 
+    def test_hyphenated_compound_is_not_a_credential(self) -> None:
+        # Observed 2026-10-11: a Stack Exchange URL slug
+        # (`fmg-863-sk-washing-machine-to-use-more-water`) refused a legitimate
+        # data artifact. A `sk-` preceded by `-` is a compound, not a key.
+        slug = (
+            "https://diy.stackexchange.com/questions/63378/"
+            "how-to-make-ariston-hotpoint-fmg-863-sk-washing-machine-to-use-more-water"
+        )
+        self.assertNotIn("openai-key", secrets.names(secrets.scan(slug)))
+        self.assertNotIn("anthropic-key", secrets.names(secrets.scan(slug)))
+
+    def test_real_keys_still_detected_after_hyphen_fix(self) -> None:
+        for sample in (
+            SAMPLES["openai-key"],
+            f"token={SAMPLES['openai-key']}",
+            f"sk-proj-{SAMPLES['openai-key'][3:]}",
+        ):
+            self.assertIn("openai-key", secrets.names(secrets.scan(sample)), sample)
+
     def test_findings_never_include_the_secret(self) -> None:
         findings = secrets.scan(SAMPLES["github-token"])
         self.assertTrue(findings)
