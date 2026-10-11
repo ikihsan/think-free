@@ -15,7 +15,7 @@ Showing the 25 most recent. 239 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-11-017-design-and-run-fresh-observation-experim](2026-10-11-017-design-and-run-fresh-observation-experim/README.md) | unknown-agent | **unfinished** | Design and run fresh observation experiment on crates.io (Rust package | 2026-10-11T10:28 |
+| [2026-10-11-017-design-and-run-fresh-observation-experim](2026-10-11-017-design-and-run-fresh-observation-experim/README.md) | unknown-agent | worked | Design and run fresh observation experiment on crates.io (Rust package | 2026-10-11T11:55 |
 | [2026-10-11-012-log-experiment-094-artifacts-and-update](2026-10-11-012-log-experiment-094-artifacts-and-update/README.md) | unknown-agent | worked | Log Experiment 094 artifacts and update STATE documents with results | 2026-10-11T09:57 |
 | [2026-10-11-011-design-and-run-a-fresh-observation-exper](2026-10-11-011-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment in a new domain per D083 | 2026-10-11T09:49 |
 | [2026-10-11-010-record-e090-maven-central-experiment-res](2026-10-11-010-record-e090-maven-central-experiment-res/README.md) | unknown-agent | worked | Record E090 Maven Central experiment results and update mission state | 2026-10-11T09:13 |
