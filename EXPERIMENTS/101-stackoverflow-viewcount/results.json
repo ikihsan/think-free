@@ -1,0 +1,64 @@
+{
+  "experiment": "E101-stackoverflow-viewcount",
+  "date": "2026-10-11",
+  "platform": "Stack Overflow (Stack Exchange API)",
+  "domain": "Software Q&A",
+  "gates": {
+    "G1": {
+      "population": 1530,
+      "threshold": 100,
+      "pass": true
+    },
+    "G2": {
+      "need_fraction": 0.567,
+      "threshold": 0.30,
+      "pass": true
+    },
+    "G3": {
+      "unserved_fraction": 0.186,
+      "ci95_lower": 0.167,
+      "ci95_upper": 0.206,
+      "threshold_upper": 0.60,
+      "pass": true
+    },
+    "G4": {
+      "view_count_coverage": 1.0,
+      "threshold": 1.0,
+      "pass": true
+    }
+  },
+  "classification": {
+    "total_questions": 2698,
+    "need": 1530,
+    "not_need": 140,
+    "ambiguous": 1028,
+    "need_fraction": 0.567
+  },
+  "served_analysis": {
+    "total_need": 1530,
+    "served": 1220,
+    "partially_served": 26,
+    "unserved": 284,
+    "served_fraction": 0.797,
+    "partially_served_fraction": 0.017,
+    "unserved_fraction": 0.186,
+    "unserved_ci95_lower": 0.167,
+    "unserved_ci95_upper": 0.206
+  },
+  "baseline_comparison": {
+    "discourse_e077": {
+      "unserved_fraction": 0.117,
+      "ci95_lower": 0.088,
+      "ci95_upper": 0.155,
+      "consistent": false
+    },
+    "embedded_discourse_e082": {
+      "unserved_fraction": 0.153,
+      "ci95_lower": 0.105,
+      "ci95_upper": 0.213,
+      "consistent": true
+    }
+  },
+  "overall": "ALL_GATES_PASS",
+  "conclusion": "View-count principle generalizes to Stack Overflow (software Q&A). Unserved fraction 18.6% consistent with embedded Discourse (15.3%) but higher than non-software Discourse (11.7%)."
+}
