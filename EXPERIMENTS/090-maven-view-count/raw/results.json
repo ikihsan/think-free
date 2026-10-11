@@ -1,0 +1,44 @@
+{
+  "experiment": "090-maven-view-count",
+  "verdict": "failed: G3 not met; G4 not met",
+  "date": "2026-10-11",
+  "gates": {
+    "G1": {
+      "met": true,
+      "observed": 28,
+      "threshold": 15,
+      "reason": "sufficient classified items"
+    },
+    "G2": {
+      "met": true,
+      "observed": "waived (automated run)",
+      "threshold": "\u22650.85 accuracy on seeded controls",
+      "reason": "automated run - G2 control validity waived"
+    },
+    "G3": {
+      "met": false,
+      "observed": {
+        "p_need": 0.6,
+        "p_random": 0.5217391304347826,
+        "difference": 0.07826086956521738,
+        "lower_bound_10pp": -0.4069154605875542
+      },
+      "threshold": "Wilson CI95 lower bound > 10.0pp margin"
+    },
+    "G4": {
+      "met": false,
+      "observed": {
+        "total_with_arrivals": 15,
+        "total_packages": 28,
+        "arrival_rate": 0.5357142857142857
+      },
+      "threshold": "\u226595.0% of packages carry positive arrivals"
+    }
+  },
+  "summary": {
+    "classified_total": 28,
+    "need_related_active": 3,
+    "random_active": 12,
+    "arrival_rate": 0.5357142857142857
+  }
+}

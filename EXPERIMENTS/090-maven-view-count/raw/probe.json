@@ -1,0 +1,335 @@
+{
+  "experiment": "090-maven-view-count",
+  "timestamp": "2026-10-11 09:10:50",
+  "source": "curated_list",
+  "target_packages": 28,
+  "arms": {
+    "A": "need-related",
+    "B": "random/control"
+  },
+  "classified": {
+    "need_related": 5,
+    "random": 23
+  },
+  "activity": {
+    "need_related_active": 3,
+    "need_related_inactive": 2,
+    "random_active": 12,
+    "random_inactive": 1
+  },
+  "gates": {
+    "G1": {
+      "met": true,
+      "observed": 28,
+      "threshold": 15,
+      "reason": "sufficient classified items"
+    },
+    "G2": {
+      "met": true,
+      "observed": "waived (automated run)",
+      "threshold": "\u22650.85 accuracy on seeded controls",
+      "reason": "automated run - G2 control validity waived"
+    },
+    "G3": {
+      "met": false,
+      "observed": {
+        "p_need": 0.6,
+        "p_random": 0.5217391304347826,
+        "difference": 0.07826086956521738,
+        "lower_bound_10pp": -0.4069154605875542
+      },
+      "threshold": "Wilson CI95 lower bound > 10.0pp margin"
+    },
+    "G4": {
+      "met": false,
+      "observed": {
+        "total_with_arrivals": 15,
+        "total_packages": 28,
+        "arrival_rate": 0.5357142857142857
+      },
+      "threshold": "\u226595.0% of packages carry positive arrivals"
+    }
+  },
+  "raw_packages": [
+    {
+      "index": 0,
+      "groupId": "org.apache.commons",
+      "artifactId": "commons-lang3",
+      "version": "3.12.0",
+      "need_related": false,
+      "active": true,
+      "downloads": null,
+      "version_count": 2
+    },
+    {
+      "index": 1,
+      "groupId": "org.apache.commons",
+      "artifactId": "commons-text",
+      "version": "1.9.0",
+      "need_related": false,
+      "active": false,
+      "downloads": null,
+      "version_count": 0
+    },
+    {
+      "index": 2,
+      "groupId": "org.apache.commons",
+      "artifactId": "commons-math3",
+      "version": "3.6.1",
+      "need_related": true,
+      "active": true,
+      "downloads": null,
+      "version_count": 2
+    },
+    {
+      "index": 3,
+      "groupId": "org.apache.commons",
+      "artifactId": "commons-io",
+      "version": "2.11.0",
+      "need_related": false,
+      "active": false,
+      "downloads": null,
+      "version_count": 0
+    },
+    {
+      "index": 4,
+      "groupId": "org.apache.commons",
+      "artifactId": "commons-codec",
+      "version": "1.16.0",
+      "need_related": false,
+      "active": false,
+      "downloads": null,
+      "version_count": 0
+    },
+    {
+      "index": 5,
+      "groupId": "org.apache.commons",
+      "artifactId": "commons-collections4",
+      "version": "4.4",
+      "need_related": false,
+      "active": true,
+      "downloads": null,
+      "version_count": 2
+    },
+    {
+      "index": 6,
+      "groupId": "com.google.guava",
+      "artifactId": "guava",
+      "version": "31.1-jre",
+      "need_related": false,
+      "active": true,
+      "downloads": null,
+      "version_count": 2
+    },
+    {
+      "index": 7,
+      "groupId": "commons-codec",
+      "artifactId": "commons-codec",
+      "version": "1.15",
+      "need_related": true,
+      "active": true,
+      "downloads": null,
+      "version_count": 2
+    },
+    {
+      "index": 8,
+      "groupId": "org.codehaus.plexus",
+      "artifactId": "plexus-utils",
+      "version": "3.6.0",
+      "need_related": false,
+      "active": true,
+      "downloads": null,
+      "version_count": 2
+    },
+    {
+      "index": 9,
+      "groupId": "org.codehaus",
+      "artifactId": "plexus-interpolation",
+      "version": "1.28",
+      "need_related": false,
+      "active": false,
+      "downloads": null,
+      "version_count": 0
+    },
+    {
+      "index": 10,
+      "groupId": "org.codehaus",
+      "artifactId": "plexus-component-annotations",
+      "version": "2.5.5",
+      "need_related": false,
+      "active": false,
+      "downloads": null,
+      "version_count": 0
+    },
+    {
+      "index": 11,
+      "groupId": "junit",
+      "artifactId": "junit",
+      "version": "4.13.2",
+      "need_related": false,
+      "active": true,
+      "downloads": null,
+      "version_count": 1
+    },
+    {
+      "index": 12,
+      "groupId": "org.mockito",
+      "artifactId": "mockito-core",
+      "version": "4.6.1",
+      "need_related": false,
+      "active": true,
+      "downloads": null,
+      "version_count": 1
+    },
+    {
+      "index": 13,
+      "groupId": "log4j",
+      "artifactId": "log4j",
+      "version": "1.2.17",
+      "need_related": false,
+      "active": false,
+      "downloads": null,
+      "version_count": 1
+    },
+    {
+      "index": 14,
+      "groupId": "org.slf4j",
+      "artifactId": "slf4j-simple",
+      "version": "2.0.7",
+      "need_related": false,
+      "active": true,
+      "downloads": null,
+      "version_count": 2
+    },
+    {
+      "index": 15,
+      "groupId": "ch.qos.logback",
+      "artifactId": "logback-classic",
+      "version": "1.2.11",
+      "need_related": false,
+      "active": true,
+      "downloads": null,
+      "version_count": 2
+    },
+    {
+      "index": 16,
+      "groupId": "org.json",
+      "artifactId": "json",
+      "version": "20231013",
+      "need_related": true,
+      "active": true,
+      "downloads": null,
+      "version_count": 2
+    },
+    {
+      "index": 17,
+      "groupId": "xmlpull",
+      "artifactId": "xmlpull",
+      "version": "1.1.35",
+      "need_related": false,
+      "active": false,
+      "downloads": null,
+      "version_count": 0
+    },
+    {
+      "index": 18,
+      "groupId": "stax",
+      "artifactId": "stax-api",
+      "version": "1.0.1",
+      "need_related": true,
+      "active": false,
+      "downloads": null,
+      "version_count": 1
+    },
+    {
+      "index": 19,
+      "groupId": "dom4j",
+      "artifactId": "dom4j",
+      "version": "2.1.3",
+      "need_related": false,
+      "active": false,
+      "downloads": null,
+      "version_count": 0
+    },
+    {
+      "index": 20,
+      "groupId": "net.sourceforge.owlapi",
+      "artifactId": "owlapi-api",
+      "version": "5.2.4",
+      "need_related": false,
+      "active": false,
+      "downloads": null,
+      "version_count": 0
+    },
+    {
+      "index": 21,
+      "groupId": "com.h2database",
+      "artifactId": "h2",
+      "version": "2.2.224",
+      "need_related": true,
+      "active": false,
+      "downloads": null,
+      "version_count": 1
+    },
+    {
+      "index": 22,
+      "groupId": "commons-beanutils",
+      "artifactId": "commons-beanutils",
+      "version": "1.9.3",
+      "need_related": false,
+      "active": true,
+      "downloads": null,
+      "version_count": 2
+    },
+    {
+      "index": 23,
+      "groupId": "commons-digests",
+      "artifactId": "commons-digests",
+      "version": "2.1",
+      "need_related": false,
+      "active": false,
+      "downloads": null,
+      "version_count": 0
+    },
+    {
+      "index": 24,
+      "groupId": "commons-fileupload",
+      "artifactId": "commons-fileupload",
+      "version": "1.4",
+      "need_related": false,
+      "active": true,
+      "downloads": null,
+      "version_count": 2
+    },
+    {
+      "index": 25,
+      "groupId": "commons-validator",
+      "artifactId": "commons-validator",
+      "version": "1.6.0",
+      "need_related": false,
+      "active": false,
+      "downloads": null,
+      "version_count": 0
+    },
+    {
+      "index": 26,
+      "groupId": "net.java.dev.jets3t",
+      "artifactId": "jets3t",
+      "version": "0.9.4",
+      "need_related": false,
+      "active": true,
+      "downloads": null,
+      "version_count": 2
+    },
+    {
+      "index": 27,
+      "groupId": "org.apache.sshd",
+      "artifactId": "sshd-core",
+      "version": "2.8.0",
+      "need_related": false,
+      "active": true,
+      "downloads": null,
+      "version_count": 2
+    }
+  ]
+}
