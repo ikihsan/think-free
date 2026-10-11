@@ -1,0 +1,242 @@
+==============================================================================
+[seq 2] 2026-10-11T02:17:05+00:00
+$ python3 -c 
+import urllib.request, json
+u='https://api.stackexchange.com/2.3/search/advanced?site=diy&tagged=appliance&answered=false&sort=votes&order=desc&pagesize=10&filter=default'
+d=json.load(urllib.request.urlopen(u, timeout=30))
+print('quota:', d['quota_remaining'], '/', d['quota_max'], 'has_more:', d['has_more'])
+for it in d['items'][:10]:
+    print(it['question_id'], 'views=%s' % it.get('view_count'), 'ans=%s' % it.get('answer_count'), 'score=%s' % it.get('score'), it['title'][:75])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+quota: 43 / 300 has_more: False
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 570  redactions: none
+==============================================================================
+[seq 3] 2026-10-11T02:17:38+00:00
+$ python3 -c 
+import urllib.request, json
+u='https://api.stackexchange.com/2.3/search/advanced?site=diy&tagged=appliance&answered=false&sort=votes&order=desc&pagesize=10'
+d=json.load(urllib.request.urlopen(u, timeout=30))
+print('items:', len(d.get('items',[])), 'has_more:', d.get('has_more'), 'quota:', d['quota_remaining'])
+print('error:', d.get('error_message'))
+u2='https://api.stackexchange.com/2.3/search/advanced?site=diy&tagged=appliance&sort=votes&order=desc&pagesize=10'
+d2=json.load(urllib.request.urlopen(u2, timeout=30))
+print('no-answered-filter items:', len(d2.get('items',[])), 'quota:', d2['quota_remaining'])
+for it in d2['items'][:5]:
+    print(' ', it['question_id'], 'views=%s'%it.get('view_count'), 'answered=%s'%it.get('is_answered'), it['title'][:70])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+items: 0 has_more: False quota: 42
+error: None
+no-answered-filter items: 0 quota: 41
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 817  redactions: none
+==============================================================================
+[seq 4] 2026-10-11T02:17:51+00:00
+$ python3 -c 
+import urllib.request, json
+def get(u):
+    return json.load(urllib.request.urlopen(u, timeout=30))
+# does the tag exist on diy?
+try:
+    d=get('https://api.stackexchange.com/2.3/tags/appliance/info?site=diy')
+    print('tag info:', [(t['name'], t['count']) for t in d['items']])
+except Exception as e:
+    print('tag info err', e)
+# plain questions with tag
+d=get('https://api.stackexchange.com/2.3/questions?site=diy&tagged=appliance&pagesize=5&sort=votes&order=desc')
+print('questions tagged appliance:', len(d['items']))
+for it in d['items'][:5]:
+    print(' ', it['question_id'], 'views=%s'%it.get('view_count'), it['title'][:70])
+# what tags exist matching appl
+d=get('https://api.stackexchange.com/2.3/tags?site=diy&inname=appl&pagesize=20')
+print('tags inname appl:', [(t['name'], t['count']) for t in d['items']])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tag info: []
+questions tagged appliance: 0
+tags inname appl: [('appliances', 713)]
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1905  redactions: none
+==============================================================================
+[seq 5] 2026-10-11T02:18:31+00:00
+$ python3 -c 
+import urllib.request, json
+def get(u):
+    return json.load(urllib.request.urlopen(u, timeout=30))
+d=get('https://api.stackexchange.com/2.3/search/advanced?site=diy&tagged=appliances&answered=false&sort=votes&order=desc&pagesize=25')
+print('unanswered appliances:', len(d['items']), 'has_more:', d['has_more'], 'quota:', d['quota_remaining'])
+items=sorted(d['items'], key=lambda x:-x.get('view_count',0))
+for it in items[:12]:
+    print(' ', it['question_id'], 'views=%s'%it.get('view_count'), 'ans=%s'%it.get('answer_count'), it['title'][:75])
+print('--- related tags:')
+d=get('https://api.stackexchange.com/2.3/tags?site=diy&inname=washer&pagesize=10')
+print([(t['name'],t['count']) for t in d['items']])
+d=get('https://api.stackexchange.com/2.3/tags?site=diy&inname=fridge&pagesize=10')
+print([(t['name'],t['count']) for t in d['items']])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+unanswered appliances: 25 has_more: True quota: 37
+  2959 views=725370 ans=10 How long should I wait before plugging in a new refrigerator?
+  30507 views=361409 ans=4 Where does the ground wire go in a 3-prong dryer cord configuration?
+  3767 views=165441 ans=3 How do I replace oven insulation that has been soiled by mice and smells ba
+  111570 views=104733 ans=4 Disable the LG washer/dryer melody at end of the cycle?
+  13103 views=93997 ans=1 What is the correct way to wire a 4 prong oven receptacle?
+  38026 views=57376 ans=2 What could be causing an orange flame on all appliances?
+  153062 views=51953 ans=3 Can I use a regular E26 LED bulb as a replacement for a refrigerator light 
+  70182 views=43735 ans=1 What is the cloth around my dishwasher and do I need it?
+  243267 views=25093 ans=4 What would cause a microwave oven to trip the breaker when I open the door 
+  1494 views=23667 ans=5 Can a dryer be vented through the roof?
+  174645 views=20436 ans=6 How can I repair this gas leak on my new range? Teflon tape isn&#39;t worki
+  185008 views=17651 ans=10 Propane appliances throwing orange flames suddenly and generator&#39;s back
+--- related tags:
+[('dishwasher', 616), ('washer', 192), ('pressure-washer', 38), ('clothes-washer', 24), ('stacked-washer-dryer', 17)]
+[('fridge', 6)]
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1498  redactions: none
+==============================================================================
+[seq 6] 2026-10-11T02:21:30+00:00
+$ python3 EXPERIMENTS/092-appliance-diagnosis/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+page 1: 100 items, has_more=True, quota=34
+page 2: 100 items, has_more=True, quota=34
+page 3: 100 items, has_more=True, quota=32
+page 4: 100 items, has_more=True, quota=31
+page 5: 100 items, has_more=True, quota=30
+page 6: 100 items, has_more=True, quota=30
+page 7: 100 items, has_more=True, quota=29
+page 8: 13 items, has_more=False, quota=28
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/092-appliance-diagnosis/fetch.py", line 92, in <module>
+    main()
+  File "EXPERIMENTS/092-appliance-diagnosis/fetch.py", line 80, in main
+    f.write(json.dumps(seen[q]) + "\n")
+NameError: name 'q' is not defined
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 8616  redactions: none
+==============================================================================
+[seq 7] 2026-10-11T02:21:52+00:00
+$ python3 EXPERIMENTS/092-appliance-diagnosis/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+page 1: 100 items, has_more=True, quota=26
+page 2: 100 items, has_more=True, quota=25
+page 3: 100 items, has_more=True, quota=24
+page 4: 100 items, has_more=True, quota=24
+page 5: 100 items, has_more=True, quota=22
+page 6: 100 items, has_more=True, quota=22
+page 7: 100 items, has_more=True, quota=20
+page 8: 13 items, has_more=False, quota=19
+pool: 707 unique questions, 707 with body text
+top view_count: [725370, 17651, 104733, 8032, 20436]
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6208  redactions: none
+==============================================================================
+[seq 8] 2026-10-11T02:34:29+00:00
+$ python3 EXPERIMENTS/092-appliance-diagnosis/g0_probes.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+answerable: 10/10 correct, unanswerable: 10/10 correct, G0 PASS
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 98  redactions: none
+==============================================================================
+[seq 9] 2026-10-11T02:38:47+00:00
+$ python3 EXPERIMENTS/092-appliance-diagnosis/attempts.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/092-appliance-diagnosis/attempts.py", line 398, in <module>
+    main()
+  File "EXPERIMENTS/092-appliance-diagnosis/attempts.py", line 379, in main
+    open("sample.tsv").read().strip().split("\n")[1:]]
+FileNotFoundError: [Errno 2] No such file or directory: 'sample.tsv'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 577  redactions: none
+==============================================================================
+[seq 10] 2026-10-11T02:40:21+00:00
+$ python3 attempts.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/092-appliance-diagnosis
+------------------------------------------------------------------------------
+attempts written: 40 rows, all attempt_first=True
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 93  redactions: none
+==============================================================================
+[seq 11] 2026-10-11T02:40:53+00:00
+$ python3 fetch_threads.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/092-appliance-diagnosis
+------------------------------------------------------------------------------
+answers: 100 items, quota 18
+comments: 100 items, quota 17
+threads with >=1 answer: 38 of 40
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1779  redactions: none
+==============================================================================
+[seq 12] 2026-10-11T02:42:07+00:00
+$ python3 fetch_threads.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/092-appliance-diagnosis
+------------------------------------------------------------------------------
+answers: 140 items, quota 15
+comments: 133 items, quota 13
+threads with >=1 answer: 40 of 40
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3609  redactions: none
+==============================================================================
+[seq 13] 2026-10-11T02:49:46+00:00
+$ python3 grades.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/092-appliance-diagnosis
+------------------------------------------------------------------------------
+graded 40 rows: 32 served, 8 unserved
+  unserved: rank 27 qid 25889 (answerable)
+  unserved: rank 30 qid 100820 (answerable)
+  unserved: rank 35 qid 44874 (answerable)
+  unserved: rank 38 qid 44314 (answerable)
+  unserved: rank 70 qid 185008 (vendor)
+  unserved: rank 75 qid 146599 (answerable)
+  unserved: rank 76 qid 28904 (answerable)
+  unserved: rank 85 qid 235566 (answerable)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 191  redactions: none
+==============================================================================
+[seq 14] 2026-10-11T03:01:20+00:00
+$ python3 score.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/092-appliance-diagnosis
+------------------------------------------------------------------------------
+selftest: PMF == exhaustive enumeration on 155 random small tables
+
+== K1: served share on the answerable class ==
+all rows:      32/40 = 0.8000, Wilson CI95 [0.6524, 0.8950]
+answerable:    30/37 = 0.8108, Wilson CI95 [0.6580, 0.9052]
+K1 (lower CI95 bound >= 0.50): PASS
+
+== G2: composition (declared, no threshold) ==
+top-150 pool:  66 diagnosis-shaped of 150 = 44.0%
+  remedy mix:  {'answerable': 61, 'vendor': 3, 'repair': 2}
+  answerable share of diagnosis rows: 61/66 = 0.9242, Wilson CI95 [0.8346, 0.9672]
+sample (40):   remedy mix {'answerable': 37, 'vendor': 2, 'repair': 1}
+
+== Fisher exact tests (one-tailed, brute force) ==
+E092 served share vs E091 Anova served share:
+  32/40 vs 5/20 -> p = 0.000055
+E092 answerable class vs E091 Anova answerable class:
+  30/37 vs 4/7 -> p = 0.181897
+answerable share of the diagnosis population:
+  E092 61/66 vs E091 Anova 7/20 -> p = 4.72826e-07
+E092 answerable class vs E062's 17/20:
+  30/37 vs 17/20 -> p = 0.764446
+
+== K2: Arm A (program-shaped remedies) ==
+0 of 40: every remedy in the sample is knowledge, a physical part/repair, or a vendor action. No row's resolution is a self-contained program.
+
+wrote results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 901  redactions: none
