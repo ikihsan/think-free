@@ -1,0 +1,919 @@
+{
+  "experiment": "108-dockerhub-viewcount",
+  "protocol": "PROTOCOL.md",
+  "seed": 42,
+  "need_images": [
+    {
+      "name": "islandora/cache",
+      "pull_count": 225521,
+      "star_count": 0,
+      "short_description": "Buildkit Cache repository to speedup builds performed by Github Actions.",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "lehighlts/cache",
+      "pull_count": 5830,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "plugins/cache",
+      "pull_count": 6767707,
+      "star_count": 1,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "deis/cache",
+      "pull_count": 338918,
+      "star_count": 5,
+      "short_description": "Cache server for the Deis open source PaaS.",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "aceliang/cache",
+      "pull_count": 2490334,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "ezkrg/cache",
+      "pull_count": 33549,
+      "star_count": 0,
+      "short_description": "buildx --cache-from / --cache-to",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "aztecprotocol/cache",
+      "pull_count": 451773,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "harness/cache",
+      "pull_count": 345402,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "mcaptcha/cache",
+      "pull_count": 361878,
+      "star_count": 0,
+      "short_description": "Redis module that implements leaky bucket algorithm ",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "bluespice/cache",
+      "pull_count": 21401,
+      "star_count": 0,
+      "short_description": "This service is acting as the main application cache",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "ypcloud/cache",
+      "pull_count": 100079,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "bithealth/cache",
+      "pull_count": 83906,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "apinizercloud/cache",
+      "pull_count": 61818,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "up234/cache",
+      "pull_count": 3039,
+      "star_count": 0,
+      "short_description": "cache",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "libops/cache",
+      "pull_count": 33989,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "wty21cn/cache",
+      "pull_count": 2540,
+      "star_count": 0,
+      "short_description": "wty21cn's image building cache",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "hrma017/cache",
+      "pull_count": 1508,
+      "star_count": 0,
+      "short_description": "cache",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "aevea/cache",
+      "pull_count": 23319,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "dockerpasv/cache",
+      "pull_count": 22300,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "kiwicom/cache",
+      "pull_count": 21840,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "mickkael/cache",
+      "pull_count": 2188,
+      "star_count": 0,
+      "short_description": "cache for the builds",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "ppaslan/cache",
+      "pull_count": 20860,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "ballerina/cache",
+      "pull_count": 18789,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "schemathesis/cache",
+      "pull_count": 19744,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "belegovgithub/cache",
+      "pull_count": 18043,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "aclsystems/cache",
+      "pull_count": 2142,
+      "star_count": 0,
+      "short_description": "Memoria cache para sistema Alumno",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "dimastw/cache",
+      "pull_count": 14766,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "olix0r/cache",
+      "pull_count": 1164,
+      "star_count": 0,
+      "short_description": "build cache",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "yiftahf/cache",
+      "pull_count": 1291,
+      "star_count": 0,
+      "short_description": "Simple Stupid Cache",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "ulboralabs/cache",
+      "pull_count": 1170,
+      "star_count": 0,
+      "short_description": "Cache Rest Service",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "cocov/cache",
+      "pull_count": 9235,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "eatzy/cache",
+      "pull_count": 1035,
+      "star_count": 0,
+      "short_description": "Eatzy Cache container",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "nftmart/cache",
+      "pull_count": 7466,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "kvaps/cache",
+      "pull_count": 8102,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "franparradaw/cache",
+      "pull_count": 7758,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "theofuchs/cache",
+      "pull_count": 6544,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "rizaltriwahyudi/cache",
+      "pull_count": 5958,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "jagyas/cache",
+      "pull_count": 5861,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "dara29/cache",
+      "pull_count": 6125,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "apinizerqa/cache",
+      "pull_count": 5490,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "borndigital/cache",
+      "pull_count": 5488,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "ghdl/cache",
+      "pull_count": 5930,
+      "star_count": 0,
+      "short_description": "Images with external dependencies almost in the edge, but not part of GHDL.",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "seobutik/cache",
+      "pull_count": 5280,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "kbaig/cache",
+      "pull_count": 5174,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "databahn/cache",
+      "pull_count": 5467,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "themehta/cache",
+      "pull_count": 5377,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "hellgreeny/cache",
+      "pull_count": 4514,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "zeahub/cache",
+      "pull_count": 4365,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "uqamcloud/cache",
+      "pull_count": 3819,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "valus/cache",
+      "pull_count": 411,
+      "star_count": 0,
+      "short_description": "Cache",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "zloystudent/cache",
+      "pull_count": 3645,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "itbgk/cache",
+      "pull_count": 3817,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "devpanel/cache",
+      "pull_count": 3742,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "buddy/cache",
+      "pull_count": 3702,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    },
+    {
+      "name": "rahulpx9/cache",
+      "pull_count": 3462,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "need-related"
+    }
+  ],
+  "random_images": [
+    {
+      "name": "alpine",
+      "pull_count": 12346974512,
+      "star_count": 11563,
+      "short_description": "A minimal Docker image based on Alpine Linux with a complete package index and only 5 MB in size!",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "amazonlinux",
+      "pull_count": 983338597,
+      "star_count": 1489,
+      "short_description": "Amazon Linux provides a stable, secure, and high-performance execution environment for applications.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "rezanbv/a",
+      "pull_count": 26756,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "naren487/a",
+      "pull_count": 22223,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "adminer",
+      "pull_count": 407497035,
+      "star_count": 980,
+      "short_description": "Database management in a single PHP file.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "siva1403/a",
+      "pull_count": 34262,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "dheorb/a",
+      "pull_count": 25094,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "amazoncorretto",
+      "pull_count": 156937374,
+      "star_count": 501,
+      "short_description": "Corretto is a no-cost, production-ready distribution of the Open Java Development Kit (OpenJDK).",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "archlinux",
+      "pull_count": 34515813,
+      "star_count": 667,
+      "short_description": "Arch Linux is a simple, lightweight Linux distribution aimed for flexibility.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "arangodb",
+      "pull_count": 41487543,
+      "star_count": 294,
+      "short_description": "ArangoDB - a scalable graph database system to drive value from connected data, faster.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "adoptopenjdk",
+      "pull_count": 102661082,
+      "star_count": 378,
+      "short_description": "DEPRECATED; use https://hub.docker.com/_/eclipse-temurin/",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "aerospike",
+      "pull_count": 20197445,
+      "star_count": 148,
+      "short_description": "Aerospike \u2013 the reliable, high performance, distributed database optimized for flash and RAM.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "azul-zulu",
+      "pull_count": 173792,
+      "star_count": 1,
+      "short_description": "Azul Zulu is a fully tested, compatibility verified, and trusted binary distribution of OpenJDK.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "apptcion0407/a",
+      "pull_count": 536,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "zogak/a",
+      "pull_count": 135,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "sriramvenkatasai123/a",
+      "pull_count": 96,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "ngocsonng97/a",
+      "pull_count": 47,
+      "star_count": 0,
+      "short_description": "",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "couchbase",
+      "pull_count": 90590178,
+      "star_count": 931,
+      "short_description": "Couchbase Server is a NoSQL document database with a distributed architecture.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "vault",
+      "pull_count": 555131581,
+      "star_count": 1181,
+      "short_description": "Vault is a tool for securely accessing secrets via a unified interface and tight access control.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "cirros",
+      "pull_count": 6935823,
+      "star_count": 79,
+      "short_description": "CirrOS is a Tiny OS that specializes in running on a cloud.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "ubuntu",
+      "pull_count": 10097822894,
+      "star_count": 17875,
+      "short_description": "Ubuntu is a Debian-based Linux operating system based on free software.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "neo4j",
+      "pull_count": 326159000,
+      "star_count": 1389,
+      "short_description": "Neo4j is a highly scalable, robust native graph database.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "node",
+      "pull_count": 7113583793,
+      "star_count": 14206,
+      "short_description": "Node.js is a JavaScript-based platform for server-side and networking applications.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "golang",
+      "pull_count": 2708877498,
+      "star_count": 5123,
+      "short_description": "Go (golang) is a general purpose, higher-level, imperative programming language.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "maven",
+      "pull_count": 778619325,
+      "star_count": 1674,
+      "short_description": "Apache Maven is a software project management and comprehension tool.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "logstash",
+      "pull_count": 202575386,
+      "star_count": 2275,
+      "short_description": "Logstash is a tool for managing events and logs.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "mysql",
+      "pull_count": 5179731079,
+      "star_count": 16190,
+      "short_description": "MySQL is a widely used, open-source relational database management system (RDBMS).",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "jetty",
+      "pull_count": 46316830,
+      "star_count": 411,
+      "short_description": "Jetty provides a Web server and javax.servlet container.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "composer",
+      "pull_count": 239516386,
+      "star_count": 1129,
+      "short_description": "Composer is a dependency manager written in and for PHP.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "mariadb",
+      "pull_count": 3211291978,
+      "star_count": 6116,
+      "short_description": "MariaDB Server is a high performing open source relational database, forked from MySQL.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "ruby",
+      "pull_count": 1580682867,
+      "star_count": 2410,
+      "short_description": "Ruby is a dynamic, reflective, object-oriented, general-purpose, open-source programming language.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "perl",
+      "pull_count": 255602274,
+      "star_count": 478,
+      "short_description": "Perl is a high-level, general-purpose, interpreted, dynamic programming language.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "chronograf",
+      "pull_count": 157943970,
+      "star_count": 370,
+      "short_description": "Chronograf is a visualization tool for time series data in InfluxDB.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "debian",
+      "pull_count": 1753961590,
+      "star_count": 5323,
+      "short_description": "Debian is a Linux distribution that's composed entirely of free and open-source software.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "r-base",
+      "pull_count": 11959685,
+      "star_count": 561,
+      "short_description": "R is a system for statistical computation and graphics.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "rust",
+      "pull_count": 156627492,
+      "star_count": 1139,
+      "short_description": "Rust is a systems programming language focused on safety, speed, and concurrency.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "portainer/portainer-ce",
+      "pull_count": 1561625685,
+      "star_count": 2689,
+      "short_description": "Portainer CE - a lightweight service delivery platform for containerized applications ",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "buildpack-deps",
+      "pull_count": 262100215,
+      "star_count": 689,
+      "short_description": "A collection of common build dependencies used for installing various modules, e.g., gems.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "clojure",
+      "pull_count": 42010844,
+      "star_count": 365,
+      "short_description": "Clojure is a dialect of Lisp that runs on the JVM.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "pypy",
+      "pull_count": 41679328,
+      "star_count": 401,
+      "short_description": "PyPy is a fast, compliant alternative implementation of the Python language.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "swipl",
+      "pull_count": 3234059,
+      "star_count": 74,
+      "short_description": "SWI-Prolog offers a comprehensive free Prolog environment.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "geonetwork",
+      "pull_count": 6884342,
+      "star_count": 91,
+      "short_description": "GeoNetwork is a FOSS catalog for spatially referenced resources.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "mediawiki",
+      "pull_count": 49436233,
+      "star_count": 618,
+      "short_description": "MediaWiki is a free software open source wiki package written in PHP.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "odoo",
+      "pull_count": 55083559,
+      "star_count": 1522,
+      "short_description": "Odoo (formerly known as OpenERP) is a suite of open-source business apps.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "google/guestbook-python-redis",
+      "pull_count": 2364178,
+      "star_count": 5,
+      "short_description": "A simple guestbook example written in Python.  It works against a redis backend.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "percona",
+      "pull_count": 239829162,
+      "star_count": 647,
+      "short_description": "Percona Server is a fork of the MySQL relational database management system created by Percona.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "lightstreamer",
+      "pull_count": 7225040,
+      "star_count": 95,
+      "short_description": "Lightstreamer is a real-time messaging server optimized for the Internet.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "pingidentity/pingdatasync",
+      "pull_count": 3014147,
+      "star_count": 9,
+      "short_description": "This image provides a standalone PingDataSync",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "couchdb",
+      "pull_count": 206537466,
+      "star_count": 597,
+      "short_description": "CouchDB is a database that uses JSON for documents, an HTTP API, & JavaScript/declarative indexing.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "gradle",
+      "pull_count": 304209938,
+      "star_count": 628,
+      "short_description": "Gradle is a fast, reliable, and flexible open-source build tool with an elegant, extensible DSL.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "hylang",
+      "pull_count": 28280179,
+      "star_count": 70,
+      "short_description": "Hy is a Lisp dialect that translates expressions into Python's abstract syntax tree.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "redmine",
+      "pull_count": 74919865,
+      "star_count": 1269,
+      "short_description": "Redmine is a flexible project management web application written using Ruby on Rails framework",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "hashicorp/dashboard-service",
+      "pull_count": 302359,
+      "star_count": 4,
+      "short_description": "Demo service for a class on HashiCorp Consul. Fetches a number from a backend counting service.",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "formio/pdf-server",
+      "pull_count": 2319589,
+      "star_count": 4,
+      "short_description": "A PDF Server backend for form.io",
+      "full_description": "",
+      "classification": "random"
+    },
+    {
+      "name": "redislabs/redisgraph",
+      "pull_count": 2117950,
+      "star_count": 28,
+      "short_description": "A graph database module for Redis",
+      "full_description": "",
+      "classification": "random"
+    }
+  ],
+  "gates": {
+    "G1": {
+      "need_count": 55,
+      "random_count": 55,
+      "pass": true,
+      "details": "need-related: 55, random: 55 (threshold: 50 each)"
+    },
+    "G2": {
+      "u_statistic": 288.0,
+      "p_value": 2.475797344914099e-13,
+      "cliff_delta": -0.8095867768595041,
+      "pass": false,
+      "details": "Mann-Whitney U=288.0, p=0.000000, Cliff's delta=-0.810 (threshold p<0.05, delta>0.147)"
+    },
+    "G3": {
+      "need_above_random_median": 0,
+      "need_total": 55,
+      "proportion": 0.0,
+      "wilson_lower_bound": 0.0,
+      "pass": false,
+      "details": "0/55 need-related above random median (Wilson LB=0.0000, threshold=0.60)"
+    },
+    "G4": {
+      "need_with_pulls": 55,
+      "random_with_pulls": 55,
+      "pass": true,
+      "details": "All 110 sampled images have pull_count > 0 (filtered at fetch)"
+    }
+  },
+  "overall_pass": false
+}

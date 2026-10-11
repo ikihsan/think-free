@@ -8,10 +8,10 @@ last-verified: 2026-10-12
 
 <!-- generated-by: origin; do not edit by hand -->
 
-296 recorded session(s). One `events.jsonl` per session, so concurrent
+297 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 271 older session(s) are in the directory listing.
+Showing the 25 most recent. 272 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
@@ -22,6 +22,7 @@ Showing the 25 most recent. 271 older session(s) are in the directory listing.
 | [2026-10-11-045-log-artifacts-from-e108-packagist-view-c](2026-10-11-045-log-artifacts-from-e108-packagist-view-c/README.md) | unknown-agent | worked | Log artifacts from E108 Packagist view-count experiment | 2026-10-11T19:25 |
 | [2026-10-11-044-fresh-observation-experiment-test-view-c](2026-10-11-044-fresh-observation-experiment-test-view-c/README.md) | unknown-agent | worked | Fresh observation experiment: test view-count principle on Packagist ( | 2026-10-11T19:24 |
 | [2026-10-11-043-build-a-cross-platform-need-discovery-pr](2026-10-11-043-build-a-cross-platform-need-discovery-pr/README.md) | unknown-agent | worked | Build a cross-platform need-discovery prototype leveraging the validat | 2026-10-11T19:05 |
+| [2026-10-11-042-run-fresh-observation-experiment-in-a-ne](2026-10-11-042-run-fresh-observation-experiment-in-a-ne/README.md) | unknown-agent | worked | Run fresh observation experiment in a new domain per D083 - test view- | 2026-10-11T19:05 |
 | [2026-10-11-041-declare-artifacts-from-e107-experiment-a](2026-10-11-041-declare-artifacts-from-e107-experiment-a/README.md) | opencode | worked | Declare artifacts from E107 experiment and finalize session | 2026-10-11T18:21 |
 | [2026-10-11-040-execute-t-0091-fresh-observation-experim](2026-10-11-040-execute-t-0091-fresh-observation-experim/README.md) | opencode | worked | Execute T-0091: Fresh observation experiment testing view-count princi | 2026-10-11T18:19 |
 | [2026-10-11-038-finalize-view-count-principle-research-a](2026-10-11-038-finalize-view-count-principle-research-a/README.md) | unknown-agent | worked | Finalize view-count principle research and record session outcome | 2026-10-11T17:49 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 271 older session(s) are in the directory listing.
 | [2026-10-11-023-design-and-run-fresh-observation-experim](2026-10-11-023-design-and-run-fresh-observation-experim/README.md) | unknown-agent | worked | Design and run fresh observation experiment on GitHub code repositorie | 2026-10-11T15:11 |
 | [2026-10-11-022-recover-context-improve-pyprovides-proto](2026-10-11-022-recover-context-improve-pyprovides-proto/README.md) | unknown-agent | worked | Recover context, improve pyprovides prototype, and document next steps | 2026-10-11T14:48 |
 | [2026-10-11-021-design-and-run-rubygems-view-count-princ](2026-10-11-021-design-and-run-rubygems-view-count-princ/README.md) | unknown-agent | worked | Design and run RubyGems view-count principle test as fresh observation | 2026-10-11T14:06 |
-| [2026-10-11-020-continue-view-count-principle-fresh-obse](2026-10-11-020-continue-view-count-principle-fresh-obse/README.md) | unknown-agent | worked | Continue view-count principle fresh observation experiments per D083 | 2026-10-11T13:39 |
 
 
 ## Reading a session
