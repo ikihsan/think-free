@@ -1,0 +1,43 @@
+{
+  "experiment": "E101 Hugging Face Hub view-count principle",
+  "protocol": "PROTOCOL.md",
+  "gates": {
+    "g1_retrieval": {
+      "pass": true,
+      "need_related_count": 241,
+      "random_count": 700,
+      "min_required": 30
+    },
+    "g2_activity_difference": {
+      "pass": false,
+      "need_related_active_rate": 0.12448132780082988,
+      "random_active_rate": 0.08571428571428572,
+      "need_related_active": 30,
+      "need_related_total": 241,
+      "random_active": 60,
+      "random_total": 700,
+      "t_statistic": 1.7022385643513485,
+      "p_value": 0.08871065623170948,
+      "alpha": 0.05
+    },
+    "g3_need_related_floor": {
+      "pass": false,
+      "wilson_lower_bound": 0.08860346325995835,
+      "threshold": 0.6,
+      "active": 30,
+      "total": 241
+    },
+    "summary": {
+      "active_threshold": 100,
+      "overall_pass": false
+    }
+  },
+  "arms": {
+    "need_related": {
+      "count": 241
+    },
+    "random": {
+      "count": 700
+    }
+  }
+}
