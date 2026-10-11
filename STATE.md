@@ -54,7 +54,7 @@ prototype (F099, F110, D086, D097).**
 clause, two prior runs, and the writing agent itself had already met. A real G0
 discrimination gate passed first (10/10 answerable answered, 10/10 unanswerable
 declined). On 20 highest-arrival Anova appliance threads a free general assistant
-serves 5 of 20 = 0.2500, CI95 [0.1119, 0.4687], rejecting E062's Steam 0.85
+serves 5 of 20 = 0.2500, CI95 [0.1119, 0.4687], rejecting E062's 0.85 for this venue
 outright, and **0 of 20 remedies is a self-contained program**. The reason is
 composition, not weakness: **13 of 20 = 0.65 of this venue's highest-arrival
 needs are bound to a vendor or a screwdriver**, and the assistant served 4 of 7
@@ -66,6 +66,29 @@ because arrival counts over-represent broken products. Running it also found the
 mission's own Fisher tail summing from the wrong term (a fabricated 22x
 significance, p 0.001354 against a true 0.030702) and a comparison row built from
 the population size (F114). No candidate; the Anova venue is closed as a route.**
+
+**E092 then ran the test E091's §6 named — is appliance-fault
+diagnosis a general need outside one vendor's forum — on Home
+Improvement Stack Exchange (707 unanswered `appliances` questions,
+66 of the top 150 by view_count diagnosis-shaped = 44.0%, 61 of 66
+answerable-class = 92.4% against Anova's 7/20, Fisher p = 4.7e-07),
+with G0 discrimination passed (10/10, 10/10) and attempts committed
+before any thread was read. A free general assistant served the
+answerable class at 30/37 = 0.8108, Wilson CI95 [0.6580, 0.9052] —
+K1's lower bound clears the declared 0.50, the share is
+indistinguishable from E062's 17/20 on non-software Stack Exchange
+(p = 0.764) and from Anova's own answerable class (p = 0.182), and
+**0 of 40 resolutions is a self-contained program** (F115, D104).
+The diagnosis line closes for good: the population is real, large,
+and reachable, but the strongest accessible alternative serves it,
+and the venue difference is composition measured directly in a
+second venue. E092 also corrected the record: E091's writeup
+mischaracterized E062's 17/20 population as "Steam" — the Steam arm
+was retired before any row was fetched, and the 17/20 was measured
+on six non-software Stack Exchange sites (12 of the top-20 on `diy`
+itself), which strengthens rather than weakens the composition
+reading.** No candidate.
+
 Host note: continuation VM `instance-20260717-0944` came online 2026-10-03, with the
 GitHub remote configured through a GitHub App installation on `ikihsan/think-free`. It
 runs **Python 3.8.10 and git 2.25.1**, not the 3.14.6/2.55.0 recorded from the development

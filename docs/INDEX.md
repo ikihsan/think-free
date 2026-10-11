@@ -332,6 +332,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/091-fresh-observation-aviation-fault-codes/` | `docs/INDEX.md` | active | 2026-10-10 | 4 documents |
 | `EXPERIMENTS/091-import-error-population/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-10 | ## Summary |
 | `EXPERIMENTS/091-vendor-unsure-recurrence/` | `docs/INDEX.md` | active | 2026-10-11 | 3 documents |
+| `EXPERIMENTS/092-appliance-diagnosis/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-11 | 2 documents |
 | `EXPERIMENTS/092-comparison-forum-vs-websearch/` | `docs/INDEX.md` | active | 2026-10-11 | 3 documents |
 | `EXPERIMENTS/093-fresh-observation-lab-instrument-errors/` | `docs/INDEX.md` | active | 2026-10-11 | 3 documents |
 | `EXPERIMENTS/096-aviation-view-count/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |

@@ -91,11 +91,17 @@ C-clamp — is in the answerable class, and no vendor-bound row is served at all
 
 So the rejection of E062's generalization is **not** evidence that a general
 assistant is weak here. It is evidence that the two venues hold different
-populations. E062 sampled *Steam*, where the thing you own is software and the
-remedy is a config change or a guide. This venue is a consumer-hardware vendor
-forum, where the highest-arrival needs are overwhelmingly "my appliance is
+populations. E062 sampled six *non-software Stack Exchange sites* — its
+Steam arm was retired before any row was fetched (`AMENDMENT-1.md`,
+`raw/steam-probe.json`), and 12 of its top-20 by view_count were `diy`
+itself — where the remedy sought is a technique, a guide, or a part.
+This venue is a consumer-hardware vendor forum, where the
+highest-arrival needs are overwhelmingly "my appliance is
 broken", and the remedy is a return, a board swap, or a firmware change only the
-vendor can ship.
+vendor can ship. (Corrected 2026-10-11, E092/F115: the draft of this
+section mischaracterized E062's population as "Steam"; the correction
+strengthens the composition reading, because E062's 0.85 is itself a
+mostly-physical-domain knowledge-population number.)
 
 ## 4. The claim this actually supports
 
@@ -119,7 +125,9 @@ because a broken product is what generates arrivals.
 ## 5. What this does not establish
 
 - **It is one venue, 20 rows, one reader.** The composition table is a single
-  reader's classification of 20 threads. E062's Steam population was not
+  reader's classification of 20 threads. E062's population (non-software
+  Stack Exchange; re-classified here against its committed
+  `answerability-top20.tsv`) was not
   re-classified here, so the contrast is between two numbers produced by
   different sessions with the same instrument — which is the comparison the
   mission should distrust least, but has not verified.

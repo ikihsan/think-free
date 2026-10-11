@@ -11,12 +11,12 @@ part holds decisions taken when a **measured** capability or reach number
 retires a build direction, or when a measurement's own instrument is found
 wanting. Nothing was shortened to make room.
 
-Decisions **D098, D099, D102, D103**. Each entry records a choice that was
+Decisions **D098, D099, D102, D103, D104**. Each entry records a choice that was
 genuinely open, the options considered, and what was decided.
 
 | id | decision |
 |---|---|
-| [`DECISIONS-SCREENING-18.md`](DECISIONS-SCREENING-18.md) | D098 — a prebuilt module→distribution index over a popular slice of PyPI is not a product; the conditional advantage over `pip install M` is 0.1877 and the reach is 0.3137 (E090, F111); D099 — the incumbent a gate is measured against must be the strongest one the protocol names, and E090 named three and ran one; D102 — the package-name line closes on demand: E091's 2.91% re-reads to 2–4 genuine of 858, under the 1% gate (F113); D103 — the Anova venue is closed as a route, and "unserved share" is redefined as a property of ownership composition: 13 of 20 highest-arrival appliance needs are vendor- or repair-bound, and the assistant's 5/20 is 4 of 7 answerable rows against 1 of 13 elsewhere (E091, F114) |
+| [`DECISIONS-SCREENING-18.md`](DECISIONS-SCREENING-18.md) | D098 — a prebuilt module→distribution index over a popular slice of PyPI is not a product; the conditional advantage over `pip install M` is 0.1877 and the reach is 0.3137 (E090, F111); D099 — the incumbent a gate is measured against must be the strongest one the protocol names, and E090 named three and ran one; D102 — the package-name line closes on demand: E091's 2.91% re-reads to 2–4 genuine of 858, under the 1% gate (F113); D103 — the Anova venue is closed as a route, and "unserved share" is redefined as a property of ownership composition: 13 of 20 highest-arrival appliance needs are vendor- or repair-bound, and the assistant's 5/20 is 4 of 7 answerable rows against 1 of 13 elsewhere (E091, F114); D104 — the appliance-fault-diagnosis line closes for good: on a multi-vendor knowledge venue the diagnosis population is real (44% of high-arrival unanswered rows) and 92% answerable-class, and a free general assistant serves that class at 0.81 with 0 of 40 program-shaped remedies (E092, F115) |
 
 ## D098 — The reverse index is retired; what E090 measured instead
 
@@ -155,3 +155,72 @@ two answerable-class failures were wrong-kind diagnoses, not
 refusals — and a runnable test of that class outside one vendor's own
 forum is the named next action (`EXPERIMENTS/091-anova-answerability/
 RESULT.md` §6).
+
+## D104 — The appliance-fault-diagnosis line closes for good (E092, F115)
+
+**Decision.** Close the appliance-fault-diagnosis
+route, per the protocol's own K1 branch. Do not build
+a diagnosis tool for appliance faults: the population
+is real and reachable, the strongest accessible
+alternative already serves it, and no program-shaped
+remedy exists in it.
+
+**Why.** E092 ran the test D103's reopening
+condition named — a multi-vendor knowledge venue
+(Home Improvement Stack Exchange, tag `appliances`)
+with the ownership mix reported and vendor- and
+repair-bound rows classified beside the rate. The
+population is large: 44% of the 150 highest-arrival
+unanswered questions are diagnosis-shaped, and 92% of
+those are answerable-class — against 35% on E091's
+Anova vendor forum (Fisher p = 4.7e-07). The
+assistant served the answerable class at 30/37 =
+0.8108, Wilson CI95 [0.6580, 0.9052]: the lower
+bound clears the declared 0.50, and the share is
+indistinguishable from E062's 17/20 on non-software
+Stack Exchange (p = 0.764) and from Anova's own
+answerable class, 4/7 (p = 0.182). Arm A is 0 of 40.
+
+**The mechanism is composition, now measured twice.**
+The overall served shares differ between venues
+(0.80 vs 0.25, p = 0.000055) because the answerable
+share of the population differs (92% vs 35%). Where
+a venue's curation keeps vendor-bound rows out, the
+assistant serves ~0.81 of what remains; where it
+does not, the overall share falls — and the residue
+is a support queue, not a knowledge gap. E091's
+central claim survives its own "Steam" correction:
+E062's 0.85 was measured on non-software Stack
+Exchange (12 of its top-20 on `diy` itself), which
+makes the E092/E062 agreement (p = 0.764) the
+strongest cross-venue evidence the record has.
+
+**Options considered.** (a) Reopen the line on the
+7 answerable-class misses — rejected: they are
+wrong-first-hypothesis errors at a 0.19 rate, not
+an unserved population, and the misses are less-common
+resolutions (chloramine attacking a molded
+reservoir, defrost heaters stuck on), which is the
+same failure shape a program would inherit. (b) Build
+for the vendor- and repair-bound residue — rejected:
+that residue is a support queue (D103), and it is
+not a population a program can serve. (c) Close the
+line — adopted.
+
+**Consequences.** The diagnosis route is closed on
+both of D103's limbs: the answerable-class unserved
+share does not clear the gate, and the population
+contains no program-shaped remedy. The fault-code
+domain line (E079, E082, E083, E084) and the
+diagnosis line (E091, E092) are both closed, on
+population and on service respectively.
+
+**Reopening condition.** A differently-situated
+population — one where the answerable-class served
+share clears the gate with a CI lower bound below
+0.50, measured on rows nobody has read — or a
+program-shaped remedy observed in a sampled
+resolution. A second venue of the same shape (a
+knowledge forum with curation) would be measuring
+the same population twice; the record does not need
+it.

@@ -174,7 +174,7 @@ observable-venue claim only.
 ## F114 — "Unserved share" is a property of what a community owns, not of the community: 13 of 20 highest-arrival appliance needs are bound to a vendor or a screwdriver (E091)
 
 **The claim under test.** E062 found that a free general assistant answers 17 of
-20 of the highest-arrival unremedied needs in a Steam population (0.85). The
+20 of the highest-arrival unremedied needs in a non-software Stack Exchange population (0.85). The
 mission then reused "unserved share" as a property of a venue across E063, E071,
 E077, E082, E084 and compared the numbers. T-0090 (E091) replicated the
 construction by hand on the Anova cooking forum — a consumer-hardware vendor
@@ -239,7 +239,7 @@ exhaustive enumeration across 120 random 2×2 tables and pins both live values.
 assigned after the grades existed, by the same reader, from the same threads. The
 cleanest subset, the 7 rows whose attempts were written before any thread was
 read, shows **nothing** (2 of 4 versus 1 of 3, p = 0.6286) and is reported for
-exactly that reason rather than leaned on. E062's Steam population was not
+exactly that reason rather than leaned on. E062's population (six non-software Stack Exchange sites, 12 of the top-20 on `diy` itself — its Steam arm was retired before any row was fetched) was not
 re-classified with the same instrument, so the 0.85-vs-0.25 contrast is between
 two numbers produced by different sessions.
 
