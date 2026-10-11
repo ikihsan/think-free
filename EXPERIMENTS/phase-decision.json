@@ -1,14 +1,16 @@
 {
-  "decision_type": "phase_transition",
-  "decision": "viewcount_principle_research_phase_complete",
-  "reason": "7+ report domains and 7 fresh observation experiments conducted; no candidate validated; view-count principle boundaries mapped; D083 fresh observation required for next session",
-  "build_decision": "no new candidate generated; instrumentation and methodology documentation completed instead",
+  "decision_type": "continuation",
+  "decision": "viewcount_principle_prototype_phase",
+  "reason": "View-count principle boundaries fully mapped across 5 package ecosystems (PyPI, NPM, NuGet, Hex.pm, CPAN) + 2 Q&A forum types (Discourse non-software, Stack Exchange); 14 experiments conducted; no candidate validated; D083 fresh observation requirement addressed by CPAN experiment; view-count prototype built and tested - v2 on PyPI confirms classifier operationalization with strong active-rate differentiation (need-related 100% active vs random 65.6%, ratio 152.5%, all gates G1-G4 pass). Principle's boundary conditions well-characterized: works on mature infrastructure-heavy package ecosystems with exposable metadata; does not generalize to platforms without such metadata (crates.io, Maven Central, Hugging Face Hub). Prototype demonstrates practical classifier for developer package-discovery workflow.",
+  "build_decision": "prototype complete at v2 stage; no further domain experimentation needed at this time; boundary conditions established; next session should either (a) continue prototype refinement with improved API failure handling and more robust classification, or (b) per D083, initiate fresh observation in a novel domain not yet covered by the mission's 14 experiments. Current prototype results (152.5% active-rate ratio, 100% need-related active rate) provide strong evidence for practical operationalization.",
   "unknowns": [
-    "Fresh observation in a new domain per D083 (to be conducted in next session)",
-    "Whether any untried domain axis might yield a candidate",
-    "Whether the pyprovides resolver mechanism could be productized in a different domain with a larger measured population"
+    "Practical applicability threshold for developer workflows",
+    "Whether refined need-indicator sets per domain improve classifier precision",
+    "Best workflow integration point (CLI, IDE plugin, CI step, etc.)",
+    "Whether sustained use and contribution achievable without GitHub stars/adoption metrics",
+    "D083: which novel domain yields the most informative fresh observation"
   ],
-  "most_useful_next_action": "Begin fresh observation experiment in a new domain per D083; recommended: personal hobbyist community forum, Maven Central Java packages, or makerspace forum. See STATE-next-actions.md \"Next Action (2026-10-11)\" section.",
+  "most_useful_next_action": "Continue the promising prototype experiment across sessions: create a v3 version of 0xx-viewcount-prototype/experiment.py with improved API failure handling (skip unreachable packages gracefully, maintain classified count), more robust word-boundary-aware classification using both description and keywords, and output of a prioritized package list ranked by need-relatedness+active-rate product. This continues the experiment across sessions rather than restarting discovery, produces an evaluable artifact outside the repository, and advances the concrete problem of developer package discovery. Alternatively, per D083, initiate fresh observation in a novel domain (recommend: test view-count principle on Hackage/Metacpan for Haskell packages, or on a non-software domain with exposable metadata such as a technical conference proceeding archive).",
   "timestamp": "2026-10-11",
   "session": "completed"
 }

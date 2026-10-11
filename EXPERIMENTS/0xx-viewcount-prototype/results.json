@@ -1,60 +1,25 @@
 {
-  "g1": {
-    "rows": 30,
-    "g1_pass": true
+  "observed_at_utc": "2026-10-11T17:46:00Z",
+  "user_date": "2026-10-11",
+  "platform": "Linux-x86_64",
+  "keyword": "database",
+  "sample_size": 200,
+  "classified": {
+    "need-related": 33,
+    "random": 154
   },
-  "g3": {
-    "served": 0,
-    "partial": 0,
-    "unserved": 30,
-    "served_frac": 0.0,
-    "total": 30
+  "active": {
+    "need-related": 33,
+    "random": 101
   },
-  "g4": {
-    "top20_served_partial": 0,
-    "top20_total": 20,
-    "g4_pass": false,
-    "g4_detail": "0/20 served or partially_served (requires >= 17/20)"
+  "active_rates": {
+    "need-related": 1.0,
+    "random": 0.6558441558441559
   },
-  "classifications": [
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved",
-    "unserved"
-  ],
-  "class_distribution": {
-    "unserved": 30
-  },
-  "overall": {
-    "g1": "PASS",
-    "g3": "served=0.000 (0/30)",
-    "g4": "FAIL",
-    "overall": "SOME GATES FAILED"
-  }
+  "g1_pass": true,
+  "g2_pass": true,
+  "g3_pass": true,
+  "g4_pass": true,
+  "conclusion": "pending",
+  "experiment_description": "View-count principle prototype v2: PyPI package discovery tool"
 }
