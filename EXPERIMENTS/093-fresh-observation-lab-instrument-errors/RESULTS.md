@@ -1,5 +1,11 @@
 # E093 — Fresh observation in laboratory instrument error codes domain
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-11
+-->
+
 **Generated**: 2026-10-10T18:38:39+00:00
 
 ## Treatment Arm (40 rows)

@@ -47,6 +47,7 @@ owning index and what it is for.
 | I want to | Read |
 |---|---|
 | Know where things stand | [`STATE.md`](STATE.md) |
+| See what the last session concluded and what it left open | [`SESSION_OUTCOME.md`](SESSION_OUTCOME.md) |
 | Work on this repository as an agent | [`AGENTS.md`](AGENTS.md) |
 | Understand the rules | [`AGENTS.md`](AGENTS.md), then [`docs/INDEX.md`](docs/INDEX.md) |
 | See what was investigated | [`RESEARCH.md`](RESEARCH.md), [`RESEARCH/`](RESEARCH/) |
@@ -89,7 +90,7 @@ byte-identical to upstream. See
 | Investigations | All six roles sealed; the cross-report screen is `RESEARCH/SYNTHESIS.md` |
 | Experiments | Nine run. Three invention claims disproved, one mechanism confirmed whose candidate died of it. None validated |
 | Hypotheses | Candidates recorded, none selected |
-| Product | [`pyprovides`](pyprovides/) — MIT-licensed prototype resolver for which PyPI distribution provides a given Python module; installed via `pip install pyprovides`; shell integrations `pyfix` (zsh/fish) available; measured demand: 19.35% of import errors name no distribution (E086) |
+| Product | [`pyprovides`](pyprovides/) — MIT-licensed prototype resolver for which PyPI distribution provides a given Python module; shell integrations `pyfix` (zsh/fish) available; the demand line is closed on measured grounds (genuine module-only rate 0.23–0.47%, under the 1% gate — F113, D102), so it stays a prototype, unreleased |
 | Users, adoption, stars | None. No claims. |
 | Unattended execution | Not verified; see [`docs/operations/scheduling-and-supervision.md`](docs/operations/scheduling-and-supervision.md) |
 

@@ -16,6 +16,10 @@ Protocol: [`PROTOCOL.md`](PROTOCOL.md), amended before the measurement by
 [`AMENDMENT-4.md`](AMENDMENT-4.md). Raw: `cache/`, `results.json`,
 `classified-pairs.json`, `control-results.json`, `deptry-baseline.json`,
 `controlled-comparison.json`, `install-proof.txt`, `silent-class-proof.txt`.
+The write-up made at the moment of the HOLD verdict, before the precision
+re-read below corrected it, is kept verbatim as
+[`CLOSURE.md`](CLOSURE.md); where the two disagree on the rate, **this README
+is the corrected reading** and CLOSURE.md's 1.2% is the uncorrected figure.
 
 ## The gates
 

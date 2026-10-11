@@ -33,12 +33,20 @@ return every module a distribution ships, with **nothing installed**. deptry
 cannot do this before an install, and names a module without ever naming its
 provider.
 
-**E086 COMPLETED (2026-10-10):** Measured whether *"which distribution provides
-this module"* is actually asked. **Result: 19.35% of real ImportError/ModuleNotFoundError
-reports name a module and no distribution** (Wilson CI95 [9.19%, 36.28%]).
-**KILL GATE EXCEEDED** — threshold was 1%, measured rate is 19× the threshold.
-Discrimination test passed (G1 FPR=6.7%, G2 TPR=100%, G3 Precision=90.9%).
-**Decision: BUILD** — the resolver has a measured use case.
+**E086 (2026-10-10, small sample, no committed corpus in this checkout):**
+6 of 31 reports module-only (19.35%, CI95 [9.19%, 36.28%]) — superseded by
+the large-sample re-read below.
+
+**E091 re-read CLOSED the line (2026-10-11, F113, D102):** E091's classifier
+counted 25 of 858 (2.91%, gate ≥1% passed), but a hand-read of all 25 rows
+against committed bodies finds **2 genuine + 2 borderline (0.23–0.47%)** —
+19 of 23 are installed-but-broken env issues, own-project files, or
+maintainer bug reports (`EXPERIMENTS/091-import-error-population/REREAD.md`).
+The strict reading's CI excludes the gate. Session 009's "NONE genuine"
+closure reached the same verdict with no artifact; the evidence now exists.
+**Decision: CLOSE** — the resolver has no observed population. `pyprovides`
+stays a prototype, unreleased, `status: draft`. E087 usage measurement is
+superseded.
 
 **Resolver integration built (this session):** `pyprovides fix-import` command
 runs a user command, detects ModuleNotFoundError/ImportError from stderr,
@@ -51,7 +59,9 @@ Item 0: **View-count principle on PyPI conclusive** — E071 gates all pass, pri
 
 Items 0a–0f: All closed per prior decisions (E044/E045/E047/E048).
 
-**Package-name line: OPEN — resolver has measured demand** (E086: 19.35% module-only rate, CI95 lower bound 9.19% >> 1% kill gate). Resolver integration built and tested (pyprovides fix-import). Next: measure actual usage in developer workflow.
+**Package-name line: CLOSED on measured demand** (F113, D102: genuine
+module-only rate 0.23–0.47%, under the 1% gate). Next: fresh observation in
+a new domain per D083.
 
 ## Fresh observation needed
 
@@ -81,4 +91,18 @@ Four structured-fault-code domains tested: Automotive OBD2 (E079) fails concentr
 - cv2 and MySQLdb fail due to missing system dependencies (pkg-config, OpenGL, MySQL client libs), not pyfix limitation
 - Multi-import test: Python stops at first ImportError, so only one suggestion per run
 
-**Next action:** Publish pyprovides to PyPI (if authorized) and measure adoption via download/install metrics. Shell integrations (pyfix.zsh, pyfix.fish) are ready. If PyPI publication proceeds, measure adoption via download/install metrics and developer workflow usage.
+**Next action (superseded 2026-10-11 by F113/D102):** publication is
+withdrawn — there is no measured demand population (genuine rate 0.23–0.47%,
+under the 1% gate), so download metrics cannot validate anything. Do not
+publish to chase adoption numbers.
+
+## Superseded working notes
+
+Two root-level summaries written by earlier sessions are kept for their raw
+numbers and are **not** part of the live plan. The live plan is this file plus
+[`STATE-next-actions-closed.md`](STATE-next-actions-closed.md).
+
+| Document | Why it is archived |
+|---|---|
+| [`THINK_FREE_SUMMARY.md`](THINK_FREE_SUMMARY.md) | E091–E093 session summary. Its conclusions were superseded by the discrimination findings F111/F112 and by the package-name closure F113/D102; the per-experiment numbers it carries survive in the experiment directories it names. |
+| [`NEXT-STEPS-SUMMARY.md`](NEXT-STEPS-SUMMARY.md) | E081/E084 next-steps summary from 2026-10-10. Superseded by this file before it was ever the live plan. Renamed from `DECISIONS-NEXT-STEPS.md` on 2026-10-11: it is a session summary, not a decision record, and the `DECISIONS-` prefix put it in the namespace that `test_decision_files` holds to every session obligation. |

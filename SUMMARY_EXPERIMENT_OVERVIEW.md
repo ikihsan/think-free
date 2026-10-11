@@ -1,5 +1,11 @@
 # Think Free: E091/E092/E093 Experiment Summary
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-11
+-->
+
 **Date**: 2026-10-10
 
 ## Practical Difficulty

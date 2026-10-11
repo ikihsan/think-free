@@ -11,12 +11,12 @@ part holds decisions taken when a **measured** capability or reach number
 retires a build direction, or when a measurement's own instrument is found
 wanting. Nothing was shortened to make room.
 
-Decisions **D098, D099**. Each entry records a choice that was
+Decisions **D098, D099, D102**. Each entry records a choice that was
 genuinely open, the options considered, and what was decided.
 
 | id | decision |
 |---|---|
-| [`DECISIONS-SCREENING-18.md`](DECISIONS-SCREENING-18.md) | D098 — a prebuilt module→distribution index over a popular slice of PyPI is not a product; the conditional advantage over `pip install M` is 0.1877 and the reach is 0.3137 (E090, F111); D099 — the incumbent a gate is measured against must be the strongest one the protocol names, and E090 named three and ran one |
+| [`DECISIONS-SCREENING-18.md`](DECISIONS-SCREENING-18.md) | D098 — a prebuilt module→distribution index over a popular slice of PyPI is not a product; the conditional advantage over `pip install M` is 0.1877 and the reach is 0.3137 (E090, F111); D099 — the incumbent a gate is measured against must be the strongest one the protocol names, and E090 named three and ran one; D102 — the package-name line closes on demand: E091's 2.91% re-reads to 2–4 genuine of 858, under the 1% gate (F113) |
 
 ## D098 — The reverse index is retired; what E090 measured instead
 
@@ -80,3 +80,30 @@ G3 passed and would have been read as a reason to build.
 imports, three arms — `pip install M`, a free general assistant, and the
 mechanism — on the same cases. It reuses E044's design, which is the only
 precedent in this record for running agents against real cases.
+## D102 — The package-name line closes on demand; a 46-second closure is replaced by a read one
+
+**Decision.** Close the `pyprovides` package-name line on measured demand
+grounds. Retire the "Decision: BUILD" the E086/E091 readings carried in
+`STATE-next-actions.md`. `pyprovides` stays a prototype, unreleased,
+`status: draft`. E087's usage measurement is superseded — there is no
+measured demand for usage to confirm.
+
+**Why.** E091's classifier passed its ≥1% gate at 25/858 (2.91%), and that
+figure was recorded as a demand population. The re-read (`EXPERIMENTS/
+091-import-error-population/REREAD.md`, F113) hand-judged all 25 rows against
+their committed bodies: 2 genuine + 2 borderline of 858 (0.23–0.47%), both
+under the gate, the strict reading's CI excluding it. Session 009's
+"NONE genuine" closure reached the same verdict with no commands and no
+artifact; this decision keeps its conclusion and replaces its evidence.
+
+**Options considered.** (a) Keep the line open on E091's 2.91% — rejected:
+the figure does not survive its own rows. (b) Keep it open on E086's 19.35%
+(6/31) — rejected: no committed corpus or verdict for that sample exists in
+this checkout, and the large-sample re-read supersedes it. (c) Narrow to the
+2 genuine rows' shape (beginner what-to-install) — rejected: 2 of 858 is not
+a population any artifact can be built for; a differently-situated population
+(IDE telemetry, beginner venues) is a new measurement, not a narrowing.
+
+**Reopening condition.** A new population measurement, on rows nobody has
+read, clearing 1% genuine "which distribution provides X?" with committed
+bodies — not a re-read of E091's rows and not a retrieval-failure G1.

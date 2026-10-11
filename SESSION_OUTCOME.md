@@ -12,11 +12,14 @@ Recorded on 2026-10-10.
 
 Analysis of E091 (858 Python import-error reports from SO + GH) and E092 (40 SO questions detailed classification):
 
-- E091: 25 `names_module_no_dist` reports (2.91% rate), but NONE are genuine "which distribution provides this module?" help-seeking questions
-  - 16 from SE: environment issue descriptions (module named but import fails in certain environment)
-  - 9 from GH: module mentions, not help-seeking questions
+- E091: 25 `names_module_no_dist` reports (2.91% rate), re-read row by row
+  against committed bodies on 2026-10-11 (`EXPERIMENTS/091-import-error-population/REREAD.md`,
+  `reread.json`, F113): **2 genuine + 2 borderline of 858 (0.23–0.47%)**
+  - 19 of 23 distinct URLs are installed-but-broken environment issues, own-project files, or maintainer bug reports
+  - the 2 genuine rows: a telegram-bot beginner asking "What do I have to install?" and a docker-engine/docker-distribution confusion
+  - 25 rows = 23 distinct URLs (pyspark, unidecode harvested twice); 4 rows name a distribution yet counted as naming none
   - 82 `names_module_no_dist_not_question`: not help-seeking questions at all
-  - The actual "module-only" rate (genuine "which distribution provides X?" questions) is effectively 0%
+  - Genuine module-only rate is 0.23% strict (CI95 [0.06%, 0.85%], excludes 1%), 0.47% inclusive
 
 - E092: Of 40 SO questions with "No module named" in body, only 2 were "module-only" (5% raw, ~28% of classifiable)
   - Most import-error questions are about environment mismatches (venv, conda, Docker, CI), binary compatibility (DLL load), installation process failures, path/import structure issues, version conflicts

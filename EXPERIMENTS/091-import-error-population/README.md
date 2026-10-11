@@ -70,9 +70,19 @@ last-verified: 2026-10-10
 
 ## Key Findings
 
-1. **Population exists**: 2.91% of import-error reports are help-seeking questions that name a module but not its distribution. This translates to a real, measurable demand.
+1. **Population does not clear the gate on re-read**: the classifier counted
+   2.91%, but a hand-read of all 25 rows against committed bodies finds
+   **2 genuine + 2 borderline of 858 (0.23–0.47%)**, under the 1% gate —
+   see `REREAD.md` / `reread.json` (F113). 19 of 23 are installed-but-broken
+   env issues, own-project files, or maintainer bug reports. The 25 rows are
+   23 distinct URLs (two harvested twice).
 
-2. **Most common module→distribution gaps** (from the 25 `names_module_no_dist`):
+2. **The gap list below does not describe the 25 rows** (F113): cv2,
+   sklearn, yaml, bs4, crypto, jwt, dateutil and dotenv appear in **0 of
+   the 25** classified rows. The list is retained as the alias cases the
+   mechanism handles, not as this population's measurement.
+
+3. **Most common module→distribution gaps** (from the 25 `names_module_no_dist`):
    - `cv2` → `opencv-python`
    - `sklearn` → `scikit-learn`
    - `yaml` → `pyyaml`
@@ -93,7 +103,10 @@ The `pyprovides` resolver (built in E085) addresses exactly this population:
 - Forward coverage: 0.931 on 578 declared distributions from 24 real repositories
 - Silent class rate: ~0.6% on real imports (E085, F108)
 
-This experiment confirms the **demand side** exists at a measurable rate (2.91% of import-error reports). The resolver has a real population to serve.
+This experiment's classifier reading (2.91%) did not survive its re-read:
+genuine "which distribution provides this module?" reports are 2–4 of 858
+(0.23–0.47%), under the 1% gate — the demand population is not measured
+(`REREAD.md`, F113, D102). The resolver has no observed population to serve.
 
 ## Artifacts
 

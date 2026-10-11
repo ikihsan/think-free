@@ -80,7 +80,11 @@ python3 -m unittest pyprovides.tests.test_core
   back **HOLD** and its G4 precision gate **FAIL**ed: the class this detects
   occurs in about **0.6%** of imported modules in that corpus, and the flagged
   rows were half instrument artifact. The linter idea is closed on measured
-  grounds, not on a screen.
+  grounds, not on a screen. **The demand question is now measured too, and
+  negative:** genuine "which distribution provides this module?" reports are
+  2–4 of 858 import-error reports (0.23–0.47%), under the 1% gate
+  (`EXPERIMENTS/091-import-error-population/REREAD.md`, F113, D102) — so the
+  resolver line as a whole is closed, and this tool stays a prototype.
 - **Anything but Python.** `npm`, `cargo` and `crates` ship the same wheel
   layout; none was measured.
 - **Which distribution provides a module**, in the general case. **Measured, and

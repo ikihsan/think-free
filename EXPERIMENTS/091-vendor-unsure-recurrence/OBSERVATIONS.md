@@ -1,5 +1,11 @@
 # E091 — Fresh Observation: Vendor-Unsure Fault Recurrence
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-11
+-->
+
 ## Session 2026-10-10-007 (continuation from E090)
 
 **Goal**: Measure the fraction of practitioner fault threads on MrPLC.com that involve vendor inability to diagnose root cause AND recurrence after module/replacement. Follow-up to E090 observation (PLC-1: "Rockwell unsure of cause" + recurrence after module replacement).

@@ -1,10 +1,10 @@
 <!-- origin-meta
 owner: docs/INDEX.md
-status: active
-last-verified: 2026-10-10
+status: archived
+last-verified: 2026-10-11
 -->
 
-# Decision & Continuation — Think Free Session Summary
+# Next-steps summary — Think Free session, 2026-10-10 (archived)
 
 **Date**: 2026-10-10, Asia/Kolkata  
 **Phase**: B — fresh observation in new domain (per D083)

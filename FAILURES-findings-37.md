@@ -131,3 +131,42 @@ all three would have been invisible without a declared control.
 **What this does not rule out.** The view-count principle itself — the principle that independent arrivals at a need, measured on every row, is the instrument the mission was missing (E062, STATE.md). The principle remains valid; the classifier implementation is what fails the discrimination test. A different instrument (e.g., human judgment of actual resolution guides, platform-specific arrival metrics) could yet pass G2 and enable population measurement.
 
 **G2 FAIL at 0.70.** The discrimination boundary is why this kills the classifier approach for population measurement without first establishing hand-classified labels. The gate is not reachable by extending K or tweaking keywords — the fundamental problem is keyword ambiguity in search result content.
+
+## F113 — E091's demand rate does not survive its own rows: 2 genuine + 2 borderline of 858, under the 1% gate
+
+**The claim under test.** E091 harvested 858 real import-error reports and its
+classifier counted 25 as help-seeking questions naming a module but no
+distribution (2.91%), passing the predeclared ≥1% gate — recorded as "the
+resolver has a demand population" (D100-series row). Session 009 then asserted
+NONE of the 25 is genuine, in 46 seconds with no commands and no committed
+artifact. Both numbers are now checked against the committed bodies.
+
+**The re-read.** All 25 rows hand-read against full bodies in `raw/api/`
+(`EXPERIMENTS/091-import-error-population/REREAD.md`, per-row verdicts in
+`reread.json`, rubric fixed before any body was read). 25 rows = 23 distinct
+URLs: pyspark and unidecode were harvested twice through overlapping queries.
+Of the 23: **2 genuine** (telegram bot beginner asking "What do I have to
+install?"; INGInious reporter with the engine running but the `docker`
+distribution missing), **2 borderline** (a guidance-seeking `graphics`
+question where a glumpy install and local files are indistinguishable;
+`mpuserver` "where can this file be found"), **19 not-genuine**
+(installed-but-broken env/venv/sudo/PATH issues where the distribution is
+already named, own-project files, stdlib/py2 confusion, maintainer bug
+reports, MicroPython with no PyPI distribution involved).
+
+**Tally.** Strict 2/858 = 0.0023, Wilson CI95 [0.0006, 0.0085] — excludes
+0.01. Inclusive 4/858 = 0.0047, CI95 [0.0018, 0.0119]. Both fail E091's own
+gate. "NONE genuine" is corrected to two; the gate conclusion stands either
+way, and the strict reading — the question the line needs — clears it
+decisively.
+
+**What this rules out.** The demand population for the module→distribution
+resolver on observable venues (Stack Overflow, GitHub issues). E087's usage
+measurement is superseded: there is no measured demand for usage to confirm.
+The forward mechanism (0.931, E085) and a query-time reverse answer are
+untouched — instruments, not populations, and neither is a candidate without
+one (D102).
+
+**What it does not rule out.** A differently-situated population (IDE
+telemetry, beginner-only venues) was never measured; this closes the
+observable-venue claim only.

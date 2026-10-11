@@ -3,43 +3,43 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-10
+last-verified: 2026-10-11
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
 
-234 recorded session(s). One `events.jsonl` per session, so concurrent
+225 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 209 older session(s) are in the directory listing.
+Showing the 25 most recent. 200 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-10-021-package-pyprovides-resolver-for-pypi-dis](2026-10-10-021-package-pyprovides-resolver-for-pypi-dis/README.md) | unknown-agent | **unfinished** | Package pyprovides resolver for PyPI distribution and prepare shell in | 2026-10-10T22:25 |
-| [2026-10-10-020-measure-pyprovides-adoption-and-evaluate](2026-10-10-020-measure-pyprovides-adoption-and-evaluate/README.md) | unknown-agent | worked | Measure pyprovides adoption and evaluate integrations | 2026-10-10T22:22 |
-| [2026-10-10-019-publish-pyprovides-to-pypi-and-measure-a](2026-10-10-019-publish-pyprovides-to-pypi-and-measure-a/README.md) | unknown-agent | worked | Publish pyprovides to PyPI and measure adoption | 2026-10-10T20:51 |
-| [2026-10-10-018-finalize-pyprovides-packaging-for-distri](2026-10-10-018-finalize-pyprovides-packaging-for-distri/README.md) | unknown-agent | worked | Finalize pyprovides packaging for distribution and record outcomes | 2026-10-10T19:51 |
-| [2026-10-10-017-package-pyprovides-for-distribution-and](2026-10-10-017-package-pyprovides-for-distribution-and/README.md) | unknown-agent | worked | Package pyprovides for distribution and create shell integrations | 2026-10-10T19:37 |
-| [2026-10-10-016-package-pyprovides-for-distribution-and](2026-10-10-016-package-pyprovides-for-distribution-and/README.md) | unknown-agent | worked | Package pyprovides for distribution and create shell integrations (fis | 2026-10-10T19:36 |
+| [2026-10-11-002-restore-a-green-doc-lint-so-work-can-lan](2026-10-11-002-restore-a-green-doc-lint-so-work-can-lan/README.md) | unknown-agent | **unfinished** | Restore a green doc lint so work can land, then test whether a local-s | 2026-10-11T00:38 |
+| [2026-10-11-001-test-the-contested-pyprovides-line-closu](2026-10-11-001-test-the-contested-pyprovides-line-closu/README.md) | unknown-agent | worked | Test the contested pyprovides line-closure by hand-reading E091's 25 m | 2026-10-11T00:26 |
+| [2026-10-10-018-decide-on-next-action-for-think-free-mis](2026-10-10-018-decide-on-next-action-for-think-free-mis/README.md) | unknown-agent | worked | Decide on next action for Think Free mission | 2026-10-10T19:51 |
+| [2026-10-10-016-verify-e091-harness-output-and-prepare-f](2026-10-10-016-verify-e091-harness-output-and-prepare-f/README.md) | unknown-agent | worked | Verify E091 harness output and prepare for next population measurement | 2026-10-10T19:09 |
 | [2026-10-10-015-run-real-world-evaluation-of-pyprovides](2026-10-10-015-run-real-world-evaluation-of-pyprovides/README.md) | unknown-agent | worked | Run real-world evaluation of pyprovides against E086 import error corp | 2026-10-10T19:11 |
-| [2026-10-10-014-fresh-observation-in-aviation-maintenanc](2026-10-10-014-fresh-observation-in-aviation-maintenanc/README.md) | unknown-agent | worked | Fresh observation in aviation maintenance fault codes — discrimination | 2026-10-10T16:50 |
+| [2026-10-10-015-fresh-observation-in-a-new-domain-using](2026-10-10-015-fresh-observation-in-a-new-domain-using/README.md) | unknown-agent | worked | Fresh observation in a new domain using validated view_count instrumen | 2026-10-10T18:58 |
+| [2026-10-10-014-test-pyprovides-find-against-e086-import](2026-10-10-014-test-pyprovides-find-against-e086-import/README.md) | unknown-agent | worked | Test pyprovides find against E086 import error corpus to measure resol | 2026-10-10T17:13 |
 | [2026-10-10-013-prototype-query-time-reverse-lookup-give](2026-10-10-013-prototype-query-time-reverse-lookup-give/README.md) | opencode | worked | Prototype query-time reverse lookup: given a module name, find which P | 2026-10-10T15:23 |
 | [2026-10-10-012-begin-fresh-observation-in-structured-fa](2026-10-10-012-begin-fresh-observation-in-structured-fa/README.md) | unknown-agent | worked | Begin fresh observation in structured fault/error-code domains by read | 2026-10-10T14:09 |
-| [2026-10-10-011-measure-real-python-import-error-reports](2026-10-10-011-measure-real-python-import-error-reports/README.md) | unknown-agent | worked | Measure real Python import-error reports that name a module and no dis | 2026-10-10T12:26 |
-| [2026-10-10-010-record-e090-hand-classification-results](2026-10-10-010-record-e090-hand-classification-results/README.md) | unknown-agent | worked | Record E090 hand classification results and decide next action per D08 | 2026-10-10T12:02 |
+| [2026-10-10-011-hand-read-practitioner-discussions-in-me](2026-10-10-011-hand-read-practitioner-discussions-in-me/README.md) | unknown-agent | partial | hand-read practitioner discussions in medical device fault code domain | 2026-10-10T14:11 |
+| [2026-10-10-010-fresh-observation-in-medical-device-alar](2026-10-10-010-fresh-observation-in-medical-device-alar/README.md) | unknown-agent | partial | Fresh observation in medical device alarm codes domain using FDA MAUDE | 2026-10-10T13:57 |
 | [2026-10-10-009-run-fresh-observation-in-embedded-microc](2026-10-10-009-run-fresh-observation-in-embedded-microc/README.md) | unknown-agent | worked | Run fresh observation in embedded/microcontroller fault codes domain u | 2026-10-10T10:53 |
-| [2026-10-10-008-measure-import-error-population-asking-w](2026-10-10-008-measure-import-error-population-asking-w/README.md) | unknown-agent | worked | Measure import-error population asking 'which distribution provides th | 2026-10-10T09:08 |
-| [2026-10-10-007-run-e091-t-0090-hand-replicate-e062-s-an](2026-10-10-007-run-e091-t-0090-hand-replicate-e062-s-an/README.md) | unknown-agent | partial | Run E091 (T-0090): hand-replicate E062's answerability sub-test on Ano | 2026-10-10T08:43 |
+| [2026-10-10-009-close-package-name-line-validate-view-co](2026-10-10-009-close-package-name-line-validate-view-co/README.md) | unknown-agent | worked | Close package-name line, validate view-count principle on aviation mai | 2026-10-10T12:37 |
+| [2026-10-10-008-measure-the-rate-of-real-importerror-mod](2026-10-10-008-measure-the-rate-of-real-importerror-mod/README.md) | unknown-agent | worked | Measure the rate of real ImportError/ModuleNotFoundError reports that  | 2026-10-10T11:54 |
+| [2026-10-10-007-run-e091-t-0090-hand-replicate-e062-s-an](2026-10-10-007-run-e091-t-0090-hand-replicate-e062-s-an/README.md) | unknown-agent | no-change | Run E091 (T-0090): hand-replicate E062's answerability sub-test on Ano | 2026-10-10T08:10 |
+| [2026-10-10-006-fresh-observation-in-structured-fault-er](2026-10-10-006-fresh-observation-in-structured-fault-er/README.md) | unknown-agent | worked | Fresh observation in structured fault/error-code domain (aviation/indu | 2026-10-10T10:16 |
 | [2026-10-10-006-decide-by-measurement-whether-which-dist](2026-10-10-006-decide-by-measurement-whether-which-dist/README.md) | unknown-agent | partial | Decide by measurement whether 'which distribution provides this module | 2026-10-10T06:42 |
-| [2026-10-10-005-measure-whether-e064-s-package-name-fals](2026-10-10-005-measure-whether-e064-s-package-name-fals/README.md) | unknown-agent | worked | Measure whether E064's package-name false-accept hazard (0.1615) descr | 2026-10-10T02:46 |
-| [2026-10-10-004-falsify-the-e081-e087-view-count-general](2026-10-10-004-falsify-the-e081-e087-view-count-general/README.md) | unknown-agent | partial | Falsify the E081-E087 view-count generalisation line: test whether its | 2026-10-10T01:31 |
-| [2026-10-10-003-fresh-observation-in-new-domain-building](2026-10-10-003-fresh-observation-in-new-domain-building/README.md) | unknown-agent | worked | Fresh observation in new domain: building automation HVAC fault codes  | 2026-10-10T00:22 |
-| [2026-10-10-002-fresh-observation-in-new-domain-industri](2026-10-10-002-fresh-observation-in-new-domain-industri/README.md) | unknown-agent | worked | Fresh observation in new domain: industrial equipment fault codes (PLC | 2026-10-10T00:14 |
-| [2026-10-10-001-fresh-observation-in-new-domain-aviation](2026-10-10-001-fresh-observation-in-new-domain-aviation/README.md) | unknown-agent | worked | Fresh observation in new domain: aviation maintenance fault codes via  | 2026-10-10T00:06 |
+| [2026-10-10-005-commit-session-integrity-fixes-and-e091](2026-10-10-005-commit-session-integrity-fixes-and-e091/README.md) | opencode | worked | Commit session integrity fixes and E091 experiment data | 2026-10-10T09:09 |
+| [2026-10-10-004-run-e091-hand-replicate-e062-s-answerabi](2026-10-10-004-run-e091-hand-replicate-e062-s-answerabi/README.md) | opencode | partial | Run E091: hand-replicate E062's answerability sub-test on Anova cookin | 2026-10-10T09:08 |
+| [2026-10-10-003-fresh-observation-in-industrial-plc-scad](2026-10-10-003-fresh-observation-in-industrial-plc-scad/README.md) | unknown-agent | no-change | Fresh observation in industrial PLC/SCADA fault-code domain: read actu | 2026-10-10T08:56 |
 | [2026-10-09-026-fresh-observation-in-industrial-plc-scad](2026-10-09-026-fresh-observation-in-industrial-plc-scad/README.md) | unknown-agent | worked | Fresh observation in industrial PLC/SCADA fault codes: measure code co | 2026-10-10T00:11 |
 | [2026-10-09-024-run-fresh-observation-experiment-in-elec](2026-10-09-024-run-fresh-observation-experiment-in-elec/README.md) | unknown-agent | partial | Run fresh observation experiment in electronics.stackexchange.com doma | 2026-10-09T22:31 |
-| [2026-10-09-022-fresh-observation-in-new-domain-medical](2026-10-09-022-fresh-observation-in-new-domain-medical/README.md) | unknown-agent | worked | Fresh observation in new domain: medical device alarm codes via view-c | 2026-10-10T00:01 |
-| [2026-10-09-021-fresh-observation-in-new-domain-laborato](2026-10-09-021-fresh-observation-in-new-domain-laborato/README.md) | unknown-agent | worked | Fresh observation in new domain: laboratory instrument error codes via | 2026-10-09T23:56 |
+| [2026-10-09-020-begin-fresh-observation-in-a-new-domain](2026-10-09-020-begin-fresh-observation-in-a-new-domain/README.md) | unknown-agent | worked | Begin fresh observation in a new domain to find a testable invention o | 2026-10-09T18:45 |
+| [2026-10-09-015-determine-next-experiment-direction-afte](2026-10-09-015-determine-next-experiment-direction-afte/README.md) | unknown-agent | worked | Determine next experiment direction after E069/E073/E075/E078 closures | 2026-10-09T20:13 |
+| [2026-10-09-007-commit-pending-e070-experiment-artifacts](2026-10-09-007-commit-pending-e070-experiment-artifacts/README.md) | unknown-agent | worked | Commit pending E070 experiment artifacts and continue prototype work | 2026-10-09T11:42 |
 
 
 ## Reading a session

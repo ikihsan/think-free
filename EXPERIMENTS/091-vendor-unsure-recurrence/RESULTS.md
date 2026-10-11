@@ -1,5 +1,11 @@
 # E091 — Results: Vendor-Unsure Fault Recurrence Measurement
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-11
+-->
+
 ## Experiment: E091
 
 ### Baseline Measurement (9 practitioner rows from E090, MrPLC.com)

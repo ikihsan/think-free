@@ -22,5 +22,14 @@
   "venue_module_no_dist": {
     "stackexchange": 16,
     "github": 9
-  }
+  },
+  "reread_genuine": 2,
+  "reread_borderline": 2,
+  "reread_rate_strict": 0.0023,
+  "reread_rate_inclusive": 0.0047,
+  "reread_pct_strict": 0.23,
+  "reread_pct_inclusive": 0.47,
+  "classifier_rate_pct": 2.91,
+  "reread_artifact": "REREAD.md + reread.json (session 2026-10-11-001)",
+  "reread_gate": "FAIL: genuine 2/858 (0.0023) and inclusive 4/858 (0.0047) both under the 0.01 kill gate; classifier G1 pass superseded (F113, D102)"
 }

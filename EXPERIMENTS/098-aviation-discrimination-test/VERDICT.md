@@ -1,5 +1,11 @@
 # E098 — Aviation Fault Code Population Measurement
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-11
+-->
+
 ## Instrument Validation Status
 
 ✅ **Discrimination Test PASSED** (aviation_fault_classifier)

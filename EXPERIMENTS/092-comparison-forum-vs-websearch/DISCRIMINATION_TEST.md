@@ -1,5 +1,11 @@
 # E092 — Discrimination test: forum listing vs web search query data
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-11
+-->
+
 **Generated**: 2026-10-10T18:24:16+00:00
 
 ## G1 Discrimination Gate Results Across Formats
