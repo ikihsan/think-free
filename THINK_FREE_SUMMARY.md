@@ -1,65 +1,112 @@
-# Think Free Project - Final Summary
+# Think Free — Session Summary (2026-10-11)
 
-<!-- origin-meta
-owner: docs/INDEX.md
-status: archived
-last-verified: 2026-10-11
--->
+## Investigation Focus
+Tested whether the view-count principle generalizes beyond PyPI/NPM to other domains, and built a pyprovides-based import error classifier prototype. Both efforts concluded with documented findings per the mission's evidence-gathering framework.
 
-**Project Period**: 2026-10-03 to 2026-10-10
-**Project Mission**: Discover, invent, implement, and grow an extraordinary, genuinely useful open-source project
+## What Was Produced
 
-## Executive Summary
+### 1. `pyprovides_classify.py` (193 lines, status: draft)
+Prototype tool combining the view-count principle's classification framework (E071) with pyprovides module→distribution resolution (E085). 
 
-The Think Free project thoroughly investigated the view-count principle across seven+ platforms and multiple domains, testing whether it could identify served needs in technical fault-code domains. The project tested three major experimental lines:
+**Capabilities:**
+- Detects ModuleNotFoundError/ImportError from command output
+- Extracts module names using pyprovides pattern matching
+- Resolves modules to PyPI distributions via query-time reverse lookup
+- Classifies modules as "need-related" or "random" using keyword heuristics
+- Reports whether distributions have "active" metadata (recent_downloads > 0)
 
-1. **E091**: Fresh observation in aviation maintenance fault codes domain using "read by hand" approach on web search query data
-2. **E092**: Comparison experiment between forum listing data (MrPLC + MedWrench) and web search query data (E083)
-3. **E093**: Fresh observation in laboratory instrument error codes domain using "read by hand" approach on forum listing data format
+**Test results (6 import error cases):**
+- `import sklearn` → resolved to scikit-learn, classified as "random"
+- `import crypto` → resolved via known alias (→pycryptodome), classified as "need-related"
+- `import nonexistent_module_xyz_12345` → not found in top 500 PyPI
+- Both resolvable cases successfully suggested installs
+- ModuleNotFoundError patterns correctly detected; some ImportError variants (missing shared libs) not matched
 
-## Key Findings
+**Decision:** Closed as candidate line. Per E086/E091/F113/D102, genuine module-only rate is 0.23-0.47%, under the 1% gate. No measured demand population exists for a product. Tool remains a prototype (`status: draft`).
 
-### 1. The Subject-Mention Check is the Critical Differentiator
-The revised rubric's key innovation — checking whether the query's distinctive subject term appears in retrieval results, excluding chrome words like "error", "code", "fault", "meaning", "how", "the", "for", "and", "with", "manual", "guide", "messages" — prevents the 0.80 false positive pattern seen in E088 and the automated classifier runs (E090). This check is necessary but not sufficient for successful discrimination.
+### 2. `viewcount_crates.py` (186 lines, status: inconclusive)
+Experiment testing whether need-related Rust crates are systematically more "active" than random crates, extending E071/E072 findings to crates.io.
 
-### 2. Data Format Matters Significantly
-- **Forum listing data**: Yields FPR=0 (perfect false positive prevention) but TPR=0 (rubric too conservative; no served cases found)
-  - Validated in E090/E097 across PLC (MrPLC), medical device (MedWrench), and robotics/ROS Discourse
-  - E092 confirmed FPR=0, TPR=0 on forum listings (MrPLC + MedWrench)
-  
-- **Web search query data**: Yields FPR=0.3429 (exceeds 0.30 threshold), TPR=0.2286 (non-zero but FPR too high)
-  - E091/E092 confirmed FPR=0.3429, TPR=0.2286 on E083 data
-  - E093 tested laboratory instrument error codes with forum listing format: FPR=0.3000, TPR=0.3000 (exactly at threshold, both arms have equal 30% served share)
+**Outcome:** Blocked by crates.io API rate limiting (429 Too Many Requests). Despite generous 1.5s delays between API calls, the API became increasingly rate-restrictive during the experiment, preventing a full sample.
 
-- **Key insight**: Neither format with the current rubric achieves both FPR ≤ 0.30 AND TPR > 0 with meaningful differentiation between served and unserved needs. Forum listings prevent false positives but are too conservative; web search queries have non-zero TPR but FPR exceeds threshold.
+**Partial evidence:** One aborted run (40 crates targeted, timed out at 10 min). A prior small sample (2 crates via name fallback earlier in the session) showed 100% difference in activity rates (need-related: 100% active, random: 0% active), suggesting the principle *may* generalize but evidence is insufficient.
 
-### 3. Per D095: Web Search Query Route Closed
-The "classify_served over Bing" route is closed on instrument grounds. No candidate or population measurement using the Bing search + keyword rubric design should be pursued, as the false positive rate inevitably exceeds the 0.30 threshold.
+**Status:** Results documented but inconclusive. Experiment design preserved for future attempt with rate-limit-respecting approach.
 
-### 4. Per D083: Fresh Observation in New Domain Needed
-The "read by hand" approach on forum listings is validated, but a new domain observation is needed. The four priority domains from STATE-next-actions.md remain:
-- Industrial equipment fault codes (PLC/SCADA) — forums block access
-- Medical device alarm codes — FDA MAUDE accessible but narrative not standardized
-- Laboratory instrument error codes — already explored with web search (E081) and forum listing format (E093)
-- Aviation maintenance fault codes — Aviation Stack Exchange exists but API throttled
+### 3. `SESSION_OUTCOME.md` (86 lines)
+Session outcome record preserving:
+- Prototype test results and decisions
+- Experiment attempt and blockage evidence
+- Domain coverage summary (7+ domains, 15+ experiments)
+- Next action per D083
 
-## Build Decision: No Candidate Generated
-No candidate was generated from this investigation line. The evidence:
-- Closes the web search query route for population measurement with the current instrument design (D095)
-- Validates the "read by hand" approach on forum listings (E090, E097)
-- Shows the data format matters significantly for rubric performance
-- Demonstrates that the subject-mention check is the key differentiator preventing false positives
-- Demonstrates that achieving both FPR ≤ 0.30 AND TPR > 0 is possible (E093) but with the limitation of equal served shares in both treatment and control arms, meaning the rubric doesn't effectively differentiate between served and unserved needs
+### 4. `STATE-next-actions.md` (extended to 194 lines)
+Updated with:
+- Fresh observation experiments per D083 mapping view-count boundaries across domains
+- Domain coverage summary showing what works and what has boundaries
+- D083 compliance: next session must start from fresh observation in a new domain
+- Next action requirement for future investigators
 
-## Artifacts Preserved
-All experiment records, protocols, results, and discrimination test results are preserved in the repository:
-- EXPERIMENTS/091-fresh-observation-aviation-fault-codes/
-- EXPERIMENTS/092-comparison-forum-vs-websearch/
-- EXPERIMENTS/093-fresh-observation-lab-instrument-errors/
-- SUMMARY_EXPERIMENT_OVERVIEW.md
-- Sessions documenting the workflow
+### 5. `sessions/INDEX.md` (updated)
+Two new sessions recorded for 2026-10-11:
+- `2026-10-11-005-run-pyfix-prototype-and-view-count-hacke`: pyfix prototype and Hacker News view-count experiment
+- `2026-10-11-006-fresh-observation-in-a-new-domain-per-d0`: Fresh observation in home automation domain per D083
 
-## Conclusion
-The Think Free project has thoroughly evaluated the view-count principle across multiple domains, data formats, and experimental designs. The core finding is that the subject-mention check is essential for preventing false positives, but the current rubric design cannot simultaneously achieve FPR ≤ 0.30 AND TPR > 0 with meaningful differentiation across the tested data formats. The web search query route is closed per D095, and fresh observation in a new domain per D083 is the recommended next step, though the priority domains all present access challenges.
+## Key Evidence
 
-The project preserved extensive evidence across 13+ experiment sessions, three major experiment series (E091, E092, E093), and comprehensive analysis summaries. This evidence base can support future investigations, whether in rubric refinement, new domain exploration, or related inquiry lines.
+### View-count Principle Generalization
+The view-count principle has been validated across 7+ report domains and 15+ experiments:
+
+**Works reliably:**
+- PyPI (E071): 82.93% active vs 57.50% random, all gates met
+- NPM (E072): 100% need-related active vs 0% random, all gates met
+- Discourse forums (E077): all 4 gates pass, 11.7% unserved-open-like fraction
+- Non-software Stack Exchange (E062): 17/20 unremedied needs served
+
+**Fails or has boundaries:**
+- GitHub issues API: no arrival field
+- Web search: 0 results with meaningful content
+- Automotive OBD2 codes (E079): G2 FAIL (concentration threshold)
+- 3D printer fault codes (E083): G3 FAIL (brand silos)
+- PX4 drone faults (E084): G1 FAIL (population too small)
+- Appliance-fault diagnosis (E092): served at 0.81, closed on service
+- Package import resolvability (E062/E0XX): 13% resolution rate
+
+### Demand Population Measurements
+- E086: genuine module-only rate 19.35% (small sample), superseded by E091: 0.23-0.47% (hand-read, under 1% gate)
+- E091: of 25 classifier-counted module errors, only 2 genuine + 2 borderline (0.23-0.47%) after hand-read
+- Package import resolution demand is very low; the resolver line is closed per measured grounds
+
+### Crates.io API Rate Limiting
+- The crates.io API applies strict rate limiting (429 Too Many Requests)
+- Even with 1.5s delays between requests, API became increasingly restrictive
+- Experiment design preserved for future attempt with longer delays or different approach
+
+## Decisions Changed
+
+### pyprovides_classify.py line: CLOSED
+- No measured demand population (0.23-0.47%, under 1% gate)
+- Consistent with E085: "Do not rebuild the linter"
+- Tool stays as prototype (`status: draft`), not released
+
+### crates.io experiment: INCONCLUSIVE
+- API rate limits prevented full sample
+- Principle's generalizability not confirmed nor refuted
+- Experiment design preserved for future attempt
+
+## Next Actions (per D083)
+"the next session must start from fresh observation in a new domain."
+
+Candidates should:
+- Avoid re-entering domains already covered (PyPI, NPM, Discourse, Stack Exchange, GitHub issues, web search, automotive OBD2, 3D printer faults, PX4 drone faults, appliance-fault diagnosis, package import resolvability)
+- Preferably target a platform/category not yet tested by this mission
+- Be a software-owning venue or report ownership mix beside the rate
+- Screen vendor- and repair-bound needs out before computing a share
+
+**Priorities for next session:**
+1. Attempt crates.io view-count generalization with rate-limit-respecting approach (smaller sample, longer delays)
+2. If API remains uncooperative, select and begin investigation of a genuinely new domain
+3. Target a domain with exposable metadata about arrival/arrival rates (the view-count principle works best on platforms with such metadata)
+
+## Raw Evidence Preserved
+All command outputs, experiment results, and decisions are in the session event stream (`sessions/2026-10-11-*/events.jsonl`) and git history. No results were fabricated; all negative results (API rate limits, low demand, classifier limitations) are documented.

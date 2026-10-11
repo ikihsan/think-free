@@ -1,0 +1,2054 @@
+{
+  "classifications": [
+    {
+      "item_id": "item_000",
+      "label": "served",
+      "rationale": "Seeded control s1: names a well-known solution pattern (vendor error code lookup)",
+      "title": "Is there a tool to look up error code 0x8001 from Allen-Bradley CompactLogix?",
+      "view_count": 100,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_001",
+      "label": "served",
+      "rationale": "Seeded control s2: names a well-known solution pattern",
+      "title": "Need a database to interpret fault code 0x1234 from Siemens S7-1500",
+      "view_count": 100,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_002",
+      "label": "unserved-open-like",
+      "rationale": "Seeded control u1: concrete need, no code tool named",
+      "title": "Need a tool to interpret error code 0x5678 from my Modbus device",
+      "view_count": 100,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_003",
+      "label": "unserved-open-like",
+      "rationale": "Seeded control u2: concrete need, no tool named",
+      "title": "Need a database to decode fault messages from my OPC UA server",
+      "view_count": 100,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_004",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "About the Ignition category",
+      "view_count": 6653,
+      "fault_codes": [],
+      "instrument_types": [
+        "electron_microscopy",
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_005",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition Edge/Gateway Architecture Questions",
+      "view_count": 43,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_006",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition in my own words, whats yours?",
+      "view_count": 79,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_007",
+      "label": "not_a_need",
+      "rationale": "Not a need statement (announcement, job posting, etc.)",
+      "title": "Uncertain_InitialValue for query tags after update from 8.1.45 to 8.1.55",
+      "view_count": 62,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_008",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "[IGN-18186] UDT instances break when copied",
+      "view_count": 203,
+      "fault_codes": [
+        "18186"
+      ],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_009",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Trouble Hitting API Endpoints - 401",
+      "view_count": 69,
+      "fault_codes": [
+        "401"
+      ],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_010",
+      "label": "served",
+      "rationale": "Names or implies existing tool/service for fault code lookup",
+      "title": "Tag Report Tool - Search for Alarm Pipeline?",
+      "view_count": 135,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_011",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "OPC UA Server Max Connection number and Rate Limiter",
+      "view_count": 103,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_012",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "[IGN-18211]system.config.getResources and collectionName=local",
+      "view_count": 51,
+      "fault_codes": [
+        "18211"
+      ],
+      "instrument_types": [
+        "electron_microscopy"
+      ]
+    },
+    {
+      "item_id": "item_013",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Can you open 2 Tag Browsers at the same time?",
+      "view_count": 75,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_014",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Tag Historian Expression Binding issues",
+      "view_count": 151,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_015",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition Designer - Connection Refused on Backup Restore",
+      "view_count": 1278,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_016",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Free Ignition Modules and Resources Wiki - Links and Details",
+      "view_count": 3296,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_017",
+      "label": "unserved-open-like",
+      "rationale": "Concrete need involving fault codes, no code tool named",
+      "title": "Alarm Label String from OPC Tag",
+      "view_count": 68,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_018",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Gateway Network and Remote Historian disconnecting after upgrade to Ignition 8.3",
+      "view_count": 85,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_019",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "[IGN-7291] Accordion header content does not get translated",
+      "view_count": 97,
+      "fault_codes": [
+        "7291"
+      ],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_020",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Favorite Ignition AI Applications / Implementation",
+      "view_count": 374,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_021",
+      "label": "served",
+      "rationale": "Names or implies existing tool/service for fault code lookup",
+      "title": "Title: Intermittent Gateway Tag Event delays / PLC heartbeat timeout on script-heavy InTouch 2012 migration",
+      "view_count": 81,
+      "fault_codes": [
+        "2012"
+      ],
+      "instrument_types": [
+        "chromatography"
+      ]
+    },
+    {
+      "item_id": "item_022",
+      "label": "unserved-open-like",
+      "rationale": "Concrete need involving fault codes, no code tool named",
+      "title": "[IGN-3934] Is there any reason there isn't a way to restart the gateway from the web interface?",
+      "view_count": 4064,
+      "fault_codes": [
+        "3934"
+      ],
+      "instrument_types": [
+        "flow_cytometry"
+      ]
+    },
+    {
+      "item_id": "item_023",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Flint for Ignition with symlinked folders causing resource location problems?",
+      "view_count": 247,
+      "fault_codes": [],
+      "instrument_types": [
+        "mass_spectrometry"
+      ]
+    },
+    {
+      "item_id": "item_024",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "8.3 Database Connections Configuration as Code",
+      "view_count": 164,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_025",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Gateway Deployment Modes: Use core as development collection?",
+      "view_count": 167,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_026",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition report will not show second page",
+      "view_count": 230,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_027",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "[IGN-6850] Unable to set Progress Bar text color via style class",
+      "view_count": 498,
+      "fault_codes": [
+        "6850"
+      ],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_028",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Reference tag verses second or more OPC tags to same PLC address",
+      "view_count": 54,
+      "fault_codes": [],
+      "instrument_types": [
+        "chromatography"
+      ]
+    },
+    {
+      "item_id": "item_029",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Paste tag with 'x' numeric suffix positions",
+      "view_count": 150,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_030",
+      "label": "unserved-open-like",
+      "rationale": "Concrete need involving fault codes, no code tool named",
+      "title": "How to integrate PLC alarm array with Ignition native alarming?",
+      "view_count": 165,
+      "fault_codes": [],
+      "instrument_types": [
+        "chromatography"
+      ]
+    },
+    {
+      "item_id": "item_031",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Execution speed comparison of system.tag.query / browse --> browse wins",
+      "view_count": 790,
+      "fault_codes": [],
+      "instrument_types": [
+        "electron_microscopy"
+      ]
+    },
+    {
+      "item_id": "item_032",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Is it possible to use system.tag.browse with placeholders?",
+      "view_count": 77,
+      "fault_codes": [],
+      "instrument_types": [
+        "electron_microscopy"
+      ]
+    },
+    {
+      "item_id": "item_033",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Report Module - tag history",
+      "view_count": 79,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_034",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "New User Interface plugin for Ignition",
+      "view_count": 401,
+      "fault_codes": [],
+      "instrument_types": [
+        "flow_cytometry"
+      ]
+    },
+    {
+      "item_id": "item_035",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "DNP3-SA Driver roadmap?",
+      "view_count": 69,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_036",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Dark mode for Ignition 8.3 Designer",
+      "view_count": 1114,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_037",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Installing two gateways",
+      "view_count": 115,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_038",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Clarification Required: Ignition Perspective Mobile and Workstation Licensing",
+      "view_count": 84,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_039",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "[Bug] Core Historian merging history from different tags",
+      "view_count": 39,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_040",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Is it possible to open a local serial device from Perspective?",
+      "view_count": 379,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_041",
+      "label": "not_a_need",
+      "rationale": "Not a need statement (announcement, job posting, etc.)",
+      "title": "Io.ia.sdk.modl Gradle Plugin and Module Generator Releases",
+      "view_count": 449,
+      "fault_codes": [],
+      "instrument_types": [
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_042",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "NEW Ignition SDK Programmer's Guide",
+      "view_count": 4073,
+      "fault_codes": [],
+      "instrument_types": [
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_043",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition SDK Programmer's Guide",
+      "view_count": 7736,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_044",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "AI and the future of Ignition development",
+      "view_count": 588,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_045",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition without OPC-UA?",
+      "view_count": 185,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_046",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "SDK Artifact Repo `nexus.inductiveautomation.com` | Downtime | 2026-10-02 17:00 PDT (2026-10-03 00:00 UTC)",
+      "view_count": 34,
+      "fault_codes": [
+        "2026"
+      ],
+      "instrument_types": [
+        "flow_cytometry",
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_047",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Performance problems with Tag Provider",
+      "view_count": 212,
+      "fault_codes": [],
+      "instrument_types": [
+        "mass_spectrometry"
+      ]
+    },
+    {
+      "item_id": "item_048",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Downtime | SDK Artifact Repo `nexus.inductiveautomation.com` | 2026-08-26 18:00 PDT (2026-08-27 01:00 UTC)",
+      "view_count": 49,
+      "fault_codes": [
+        "2026"
+      ],
+      "instrument_types": [
+        "flow_cytometry",
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_049",
+      "label": "not_a_need",
+      "rationale": "Not a need statement (announcement, job posting, etc.)",
+      "title": "[IGN-17532]NPE in ViewNode.onChildrenSelected after calling IgnitionDesigner.updateProject() from a module",
+      "view_count": 103,
+      "fault_codes": [
+        "17532"
+      ],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_050",
+      "label": "not_a_need",
+      "rationale": "Not a need statement (announcement, job posting, etc.)",
+      "title": "Ignition SDK Training Project Build Failure - Plugin 'io.ia.sdk.modl' version '0.1.1' Could Not Be Resolved",
+      "view_count": 105,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_051",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Downtime | SDK Artifact Repo `nexus.inductiveautomation.com` | 2026-08-05 12:00PM PST (1800 UTC)",
+      "view_count": 67,
+      "fault_codes": [
+        "2026",
+        "1800"
+      ],
+      "instrument_types": [
+        "flow_cytometry",
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_052",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "`testcontainers-ignition`: a Java library for testing with Ignition Docker containers",
+      "view_count": 314,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_053",
+      "label": "unserved-open-like",
+      "rationale": "Concrete need involving fault codes, no code tool named",
+      "title": "Error message when upgrading module with same certificate - Ignition 8.3",
+      "view_count": 137,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_054",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "OPC Quick Client doesn't show nodes from a custom Device-API driver (8.3.3)",
+      "view_count": 119,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_055",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "8.3 Editing of a singleton resource in the gateway ui",
+      "view_count": 150,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_056",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "What do I need to do in order to get my module white-listed for Ignition Edge?",
+      "view_count": 243,
+      "fault_codes": [],
+      "instrument_types": [
+        "microscopy"
+      ]
+    },
+    {
+      "item_id": "item_057",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition logic for opening windows",
+      "view_count": 155,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_058",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Reimplementating system.device.addDevice functionality",
+      "view_count": 435,
+      "fault_codes": [],
+      "instrument_types": [
+        "electron_microscopy"
+      ]
+    },
+    {
+      "item_id": "item_059",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Historian SDK API Changes in Ignition 8.3.3",
+      "view_count": 395,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_060",
+      "label": "unserved-open-like",
+      "rationale": "Concrete need involving fault codes, no code tool named",
+      "title": "Error when trying to read custom device tags",
+      "view_count": 246,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_061",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Experimental Gateway logs viewer",
+      "view_count": 258,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_062",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition SDK UA device editor for local device / port object",
+      "view_count": 144,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_063",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Is ignition-module-tools working for version 8.3?",
+      "view_count": 238,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_064",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Remote Historian forwarding to a Custom Historian over the Gateway Network (8.3 SDK)",
+      "view_count": 125,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_065",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "How to get SecurityPolicy and Whitelist from gateway network settings?",
+      "view_count": 43,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_066",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition Module Starter now available",
+      "view_count": 347,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_067",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "[IGN-15726]Project settings in Perspective 8.3 for components",
+      "view_count": 402,
+      "fault_codes": [
+        "15726"
+      ],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_068",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition 8.3 SDK UA Device - activating and deactivating items",
+      "view_count": 137,
+      "fault_codes": [],
+      "instrument_types": [
+        "mass_spectrometry",
+        "electron_microscopy"
+      ]
+    },
+    {
+      "item_id": "item_069",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Attach running Gateway to local debugger in Ignition 8.3",
+      "view_count": 58,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_070",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Remote tags subscription, case to manage or not in the module: failover, disconnection?",
+      "view_count": 96,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_071",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Managed Tag Provider",
+      "view_count": 70,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_072",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "First module done - TagSocket",
+      "view_count": 84,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_073",
+      "label": "unserved-open-like",
+      "rationale": "Concrete need involving fault codes, no code tool named",
+      "title": "Backup gateway constantly reboots with error when installing a module in 8.3 redundancy mode",
+      "view_count": 332,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_074",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Unable to query raw data for multiple tags in custom historian module",
+      "view_count": 175,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_075",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "GatewayModuleHook 8.1 Listener for install and Uninstall",
+      "view_count": 86,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_076",
+      "label": "not_a_need",
+      "rationale": "Not a need statement (announcement, job posting, etc.)",
+      "title": "Tag configuration update listener",
+      "view_count": 150,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_077",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "TagStructureListener not getting moved tags",
+      "view_count": 111,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_078",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "TagHistoryQueryParams aggregation mode now required in Ignition 8.3.4?",
+      "view_count": 202,
+      "fault_codes": [],
+      "instrument_types": [
+        "mass_spectrometry"
+      ]
+    },
+    {
+      "item_id": "item_079",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "[IGN-15726]Adding module-specific session properties",
+      "view_count": 151,
+      "fault_codes": [
+        "15726"
+      ],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_080",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Using Ignition\u2019s License Key Mechanism for a Proprietary Module",
+      "view_count": 100,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_081",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Querying Tag History with a Limit",
+      "view_count": 107,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_082",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Label bug in module configuration page (Ignition 8.1.48)",
+      "view_count": 280,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_083",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Get SMTP Profile configurations via code (Ignition 8.1.48)",
+      "view_count": 110,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_084",
+      "label": "unserved-open-like",
+      "rationale": "Concrete need involving fault codes, no code tool named",
+      "title": "Error saving tag changes to a Remote Tag Provider",
+      "view_count": 2613,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_085",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Module for designer sync with gateway",
+      "view_count": 230,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_086",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Is there a central Ignition SSL keychain available?",
+      "view_count": 114,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_087",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Debug on module startup in Ignition 8.3",
+      "view_count": 112,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_088",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "ManagedTagProvider queries",
+      "view_count": 66,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_089",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "About the 3rd Party Modules category",
+      "view_count": 4123,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_090",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Post your Ignition Modules",
+      "view_count": 4506,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_091",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "New module : Ignition Git Pro for CI/CD with Github, Gitlab & Gitea",
+      "view_count": 229,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_092",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "How you ask depends more than what protocol you use ... (Protocol benchmarks)",
+      "view_count": 70,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_093",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "New modules: Bosch Rexroth CtrlX, Schneider Electric UMAS, Siemens S7/S7+, Siemens S7-WebAPI",
+      "view_count": 151,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_094",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Downtime | SDK Artifact Repo `nexus.inductiveautomation.com` | 2026-10-02 17:00 PDT (2026-10-03 00:00 UTC)",
+      "view_count": 37,
+      "fault_codes": [
+        "2026"
+      ],
+      "instrument_types": [
+        "flow_cytometry",
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_095",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Benchmark article possibly interesting for users asking themselves how to integrate Beckhoff PLCs (ADS vs OPC-UA)",
+      "view_count": 86,
+      "fault_codes": [],
+      "instrument_types": [
+        "mass_spectrometry",
+        "chromatography"
+      ]
+    },
+    {
+      "item_id": "item_096",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Introducing i4Cortex's FileCortex: Free Static File Serving for Ignition",
+      "view_count": 149,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_097",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Automation Professionals' Advanced Modbus Driver",
+      "view_count": 12728,
+      "fault_codes": [],
+      "instrument_types": [
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_098",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Automation Professionals' EtherNet/IP Communication Suite V2",
+      "view_count": 21190,
+      "fault_codes": [],
+      "instrument_types": [
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_099",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "ToddySoft Connect 1.2.0 \u2014 Beckhoff ADS driver for Ignition (now with auto discovery & automated route setup)",
+      "view_count": 86,
+      "fault_codes": [],
+      "instrument_types": [
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_100",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "SDK Artifact Repo `nexus.inductiveautomation.com` | Downtime | 2026-08-26 18:00 PDT (2026-08-27 01:00 UTC)",
+      "view_count": 49,
+      "fault_codes": [
+        "2026"
+      ],
+      "instrument_types": [
+        "flow_cytometry",
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_101",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Interest in a Siemens S7-WebAPI driver?",
+      "view_count": 131,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_102",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Downtime | SDK Artifact Repo `nexus.inductiveautomation.com` | 2026-08-05 12:00PM PST [1800 UTC]",
+      "view_count": 65,
+      "fault_codes": [
+        "2026",
+        "1800"
+      ],
+      "instrument_types": [
+        "flow_cytometry",
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_103",
+      "label": "not_a_need",
+      "rationale": "Not a need statement (announcement, job posting, etc.)",
+      "title": "Beckhoff ADS Driver released",
+      "view_count": 213,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_104",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition Java Version",
+      "view_count": 125,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_105",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Modbus Server Driver",
+      "view_count": 1244,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_106",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "How to create Equipment State Class using scripting in Ignition",
+      "view_count": 253,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_107",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "system.device.addDevice() - Advanced Modbus",
+      "view_count": 114,
+      "fault_codes": [],
+      "instrument_types": [
+        "electron_microscopy"
+      ]
+    },
+    {
+      "item_id": "item_108",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "SNMP function for Ignition version 8",
+      "view_count": 10043,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_109",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Kymera Systems Modules Ignition 8.3 availability",
+      "view_count": 77,
+      "fault_codes": [],
+      "instrument_types": [
+        "mass_spectrometry",
+        "electron_microscopy"
+      ]
+    },
+    {
+      "item_id": "item_110",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Historical Tag Path in Ignition SDK",
+      "view_count": 1739,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_111",
+      "label": "unserved-open-like",
+      "rationale": "Concrete need involving fault codes, no code tool named",
+      "title": "Advanced Modbus Driver - Usefulness of the Value Error",
+      "view_count": 129,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_112",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "LoRaWAN IoT Module for Ignition SCADA",
+      "view_count": 179,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_113",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Automation Professionals' Image Streamer Driver Module",
+      "view_count": 17649,
+      "fault_codes": [],
+      "instrument_types": [
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_114",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition Extensions - Convenience utilities for advanced users",
+      "view_count": 17988,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_115",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition 8.3: Building a custom tag historian module",
+      "view_count": 1263,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_116",
+      "label": "unserved-open-like",
+      "rationale": "Concrete need involving fault codes, no code tool named",
+      "title": "3D Engine module RangeError: byte length of Uint32Array should be a multiple of 4",
+      "view_count": 1590,
+      "fault_codes": [
+        "Error: b"
+      ],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_117",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Chi Ignition TCP",
+      "view_count": 219,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_118",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "8.3: Ignition SDK module compatibility with previous versions",
+      "view_count": 349,
+      "fault_codes": [],
+      "instrument_types": [
+        "genomics_sequencing"
+      ]
+    },
+    {
+      "item_id": "item_119",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Snmp-Ignition-Module SNMP v3 Setup",
+      "view_count": 509,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_120",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Cirrus link modules for Ignition 8.3",
+      "view_count": 336,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_121",
+      "label": "not_a_need",
+      "rationale": "Not a need statement (announcement, job posting, etc.)",
+      "title": "Is it possible to download the Sepasoft MES module for testing with the Ignition demo?",
+      "view_count": 182,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_122",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Gateway Web Page Security in 8.3",
+      "view_count": 113,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_123",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "MQTT Distributor and Engine Module for Ignition Edge",
+      "view_count": 291,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_124",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Why tag derived is non include in MQTT Transmission?",
+      "view_count": 61,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_125",
+      "label": "not_a_need",
+      "rationale": "Not a need statement (announcement, job posting, etc.)",
+      "title": "How to Expedite Answers on the Forum",
+      "view_count": 4743,
+      "fault_codes": [
+        "292"
+      ],
+      "instrument_types": [
+        "electron_microscopy",
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_126",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Other online PLC Forum resources",
+      "view_count": 9155,
+      "fault_codes": [],
+      "instrument_types": [
+        "mass_spectrometry",
+        "chromatography",
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_127",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Reiki vs Ignition",
+      "view_count": 116,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_128",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition and HAProxy",
+      "view_count": 54,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_129",
+      "label": "served",
+      "rationale": "Names or implies existing tool/service for fault code lookup",
+      "title": "ICC 2025 - How to download contacts from the IA Events app",
+      "view_count": 288,
+      "fault_codes": [
+        "2025"
+      ],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_130",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Schneider Electric UMAS driver?",
+      "view_count": 2044,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_131",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition and eye strain",
+      "view_count": 180,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_132",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Built a search platform for automation contractors. Ignition folks, tell me what's wrong with it",
+      "view_count": 103,
+      "fault_codes": [],
+      "instrument_types": [
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_133",
+      "label": "unserved-open-like",
+      "rationale": "Concrete need involving fault codes, no code tool named",
+      "title": "Logs showing error messages in gateway",
+      "view_count": 88,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_134",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "[IGN-9717] SECS/GEM module creates PostgreSQL schema it cannot itself work with",
+      "view_count": 227,
+      "fault_codes": [
+        "9717"
+      ],
+      "instrument_types": [
+        "electron_microscopy"
+      ]
+    },
+    {
+      "item_id": "item_135",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Custom Logger tool to Filter Gateway Log Noise",
+      "view_count": 75,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_136",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "How safe are multiple systems writing to the same PLC location?",
+      "view_count": 135,
+      "fault_codes": [],
+      "instrument_types": [
+        "mass_spectrometry",
+        "electron_microscopy",
+        "chromatography"
+      ]
+    },
+    {
+      "item_id": "item_137",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Architecture for ERP integration in Ignition \u2014 REST API vs MQTT vs direct DB vs UDTs (for read + write at MES scale)?",
+      "view_count": 404,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_138",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Dark Mode Ignition? Eye Strain",
+      "view_count": 1553,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_139",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "ChatGPT to build Ignition projects",
+      "view_count": 1074,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_140",
+      "label": "unserved-open-like",
+      "rationale": "Concrete need involving fault codes, no code tool named",
+      "title": "Ignition Designer Launcher Connection Exception Issue",
+      "view_count": 6708,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_141",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Free OPC UA simulator + web browser client, useful for testing gateway connections",
+      "view_count": 293,
+      "fault_codes": [],
+      "instrument_types": [
+        "microscopy"
+      ]
+    },
+    {
+      "item_id": "item_142",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Do's and Don'ts when developing First Project with Ignition?",
+      "view_count": 6193,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_143",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "AI agent for Ignition development",
+      "view_count": 4170,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_144",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "CDU data into Ignition \u2014 anyone done this?",
+      "view_count": 146,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_145",
+      "label": "unserved-open-like",
+      "rationale": "Concrete need involving fault codes, no code tool named",
+      "title": "Paid Research Study for Building Operations, Energy Management & SCADA Professionals \u2013 $500 Honorarium",
+      "view_count": 300,
+      "fault_codes": [
+        "500"
+      ],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_146",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Azure Injector not publishing after Tag Agent modification",
+      "view_count": 124,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_147",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "AI Powered SCADA",
+      "view_count": 5077,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_148",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Logix Tag Simulator",
+      "view_count": 335,
+      "fault_codes": [],
+      "instrument_types": [
+        "microscopy"
+      ]
+    },
+    {
+      "item_id": "item_149",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition Failover",
+      "view_count": 114,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_150",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Tag Historian During Failover",
+      "view_count": 167,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_151",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "What Are the Best PLC Learning Resources for Linux Users?",
+      "view_count": 113,
+      "fault_codes": [],
+      "instrument_types": [
+        "chromatography"
+      ]
+    },
+    {
+      "item_id": "item_152",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Automate Show Chicago 2026",
+      "view_count": 103,
+      "fault_codes": [
+        "2026"
+      ],
+      "instrument_types": [
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_153",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "PLC Learning resources for Linux",
+      "view_count": 213,
+      "fault_codes": [],
+      "instrument_types": [
+        "chromatography"
+      ]
+    },
+    {
+      "item_id": "item_154",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "How to show multiple machine status tags (1 = Running, 0 = Off) over time",
+      "view_count": 130,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_155",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Issue while opening project (restored gateway backup from another server)",
+      "view_count": 241,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_156",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "VM Ignition Set Up",
+      "view_count": 151,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_157",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Need suggestions about Ignition scada",
+      "view_count": 107,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_158",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "BacBus BACnet/IP and Modbus/TCP IOS utility",
+      "view_count": 58,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_159",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Yaskawa 2200 conection",
+      "view_count": 89,
+      "fault_codes": [
+        "2200"
+      ],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_160",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition Pricing",
+      "view_count": 268,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_161",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Transitioning from Java Development to SCADA Engineering \u2013 Seeking Real-Time Industrial Experience",
+      "view_count": 145,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_162",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Camera in Ignition",
+      "view_count": 127,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_163",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "IFM Proof-Of-Concept project, need help on connecting to a DIO hub to Ignition",
+      "view_count": 1092,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_164",
+      "label": "not_a_need",
+      "rationale": "Not a need statement (announcement, job posting, etc.)",
+      "title": "Getting a Save button to commit changes to the tag value of instances and have the changes be directed and update an SQL query",
+      "view_count": 62,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_165",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Building a Digital Membership Card System with Ignition Perspective and API Integration",
+      "view_count": 82,
+      "fault_codes": [],
+      "instrument_types": [
+        "electron_microscopy"
+      ]
+    },
+    {
+      "item_id": "item_166",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Normalize any OEM tag data to a universal schema via API",
+      "view_count": 91,
+      "fault_codes": [],
+      "instrument_types": [
+        "electron_microscopy"
+      ]
+    },
+    {
+      "item_id": "item_167",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition in Morocco",
+      "view_count": 216,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_168",
+      "label": "not_a_need",
+      "rationale": "Disqualified: requests content/service/price/access/human work",
+      "title": "Help Needed: Stuck at 100% Progress - Cannot Download 8.3 IU Credential",
+      "view_count": 168,
+      "fault_codes": [
+        "100"
+      ],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_169",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Why so little consensus on UNS/OPC-UA debates?",
+      "view_count": 598,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_170",
+      "label": "not_a_need",
+      "rationale": "Not a need statement (announcement, job posting, etc.)",
+      "title": "About the Maker category",
+      "view_count": 3877,
+      "fault_codes": [],
+      "instrument_types": [
+        "chromatography",
+        "microscopy",
+        "lab_automation"
+      ]
+    },
+    {
+      "item_id": "item_171",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Siemens Enhanced Driver not working with Ignition Maker 8.3.9",
+      "view_count": 98,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_172",
+      "label": "unserved-open-like",
+      "rationale": "Concrete need involving fault codes, no code tool named",
+      "title": "Perspective not showing up in designer exit error 0",
+      "view_count": 137,
+      "fault_codes": [
+        "error 0"
+      ],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_173",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Why won't my memory tag bind to a slider?",
+      "view_count": 101,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_174",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Potential use cases for Ignition Maker at home - has anyone tried these?",
+      "view_count": 5665,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_175",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Integrate Unifi Access into Ignition Maker Edition",
+      "view_count": 107,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_176",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "After upgrading Ignition on RPI Edition changed from Maker to Standard",
+      "view_count": 152,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_177",
+      "label": "unserved-open-like",
+      "rationale": "Concrete need involving fault codes, no code tool named",
+      "title": "[IGN-13926] Tag binding active but no component displays the tag value",
+      "view_count": 341,
+      "fault_codes": [
+        "13926"
+      ],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_178",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "ClickPLC C201CPU, ignition slow to read changes to modbus tags, 0.74s delay to",
+      "view_count": 99,
+      "fault_codes": [],
+      "instrument_types": [
+        "chromatography"
+      ]
+    },
+    {
+      "item_id": "item_179",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Trying to make an OPC-UA connection in Maker?",
+      "view_count": 200,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_180",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Perspective app hangs up connecting to public facing gateway",
+      "view_count": 290,
+      "fault_codes": [],
+      "instrument_types": [
+        "flow_cytometry"
+      ]
+    },
+    {
+      "item_id": "item_181",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "[BUG-12097] Ignition designer is not launching",
+      "view_count": 424,
+      "fault_codes": [
+        "12097"
+      ],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_182",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "RPi3/4 and Ignition 8 Maker Editon - Possible?",
+      "view_count": 9011,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_183",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "How to make a table/list from OPC struct tags",
+      "view_count": 142,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_184",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "How to connect Arduino Uno to Ignition SCADA",
+      "view_count": 403,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_185",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Connecting to Smart Home Devices",
+      "view_count": 9950,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_186",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Connection dabatase in Ignition",
+      "view_count": 154,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_187",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Setting Up Ignition Gateway on Ubuntu VPS",
+      "view_count": 242,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_188",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Ignition Maker activation failing",
+      "view_count": 313,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_189",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "HiveMQ broker with Ignition Transmitter",
+      "view_count": 2626,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_190",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Button change value to opc tag",
+      "view_count": 98,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_191",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Gateway crashed and cannot restart",
+      "view_count": 148,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_192",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Communication Between Ignition and Python Program via Mosquitto",
+      "view_count": 161,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_193",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Maker ignition designer doesn't launch",
+      "view_count": 149,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_194",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Attempting to write to tags with a button press",
+      "view_count": 358,
+      "fault_codes": [],
+      "instrument_types": [
+        "electron_microscopy"
+      ]
+    },
+    {
+      "item_id": "item_195",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "OPC-UA or MQTT?",
+      "view_count": 1045,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_196",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Overview of all tag bindings",
+      "view_count": 332,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_197",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "OPC-UA UDT to JSON Object",
+      "view_count": 279,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_198",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Write back to same MQTT tag",
+      "view_count": 397,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_199",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Gateway Crashes Every Night",
+      "view_count": 494,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_200",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "UDT member folders and tags deleted after gateway restart",
+      "view_count": 3047,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_201",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "MQTT JSON Object in ignition",
+      "view_count": 398,
+      "fault_codes": [],
+      "instrument_types": []
+    },
+    {
+      "item_id": "item_202",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "OPC path for nested UDT",
+      "view_count": 351,
+      "fault_codes": [],
+      "instrument_types": [
+        "microscopy"
+      ]
+    },
+    {
+      "item_id": "item_203",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "Organize array of nested OPCUA tags",
+      "view_count": 358,
+      "fault_codes": [],
+      "instrument_types": [
+        "microscopy"
+      ]
+    },
+    {
+      "item_id": "item_204",
+      "label": "not_a_need",
+      "rationale": "Does not state a concrete need involving fault codes",
+      "title": "How to get JSON tag to display as object",
+      "view_count": 377,
+      "fault_codes": [],
+      "instrument_types": []
+    }
+  ],
+  "gates": {
+    "G1_need_prevalence": {
+      "pass": true,
+      "detail": "21 vc_positive items (threshold 15)",
+      "value": 21
+    },
+    "G2_control_validity": {
+      "pass": true,
+      "detail": "Control accuracy: 4/4 = 1.00 (threshold 0.85)",
+      "value": 1.0
+    },
+    "G3_unserved_fraction": {
+      "pass": false,
+      "detail": "Unserved fraction: 0.762 (16/21), Wilson CI95: [0.549, 0.894], upper < 0.60: False",
+      "value": 0.7619047619047619,
+      "ci": [
+        0.5490841802765406,
+        0.8937214361088773
+      ]
+    },
+    "G4_view_count_validation": {
+      "pass": true,
+      "detail": "View positive rate: 1.000 (205/205)",
+      "value": 1.0
+    },
+    "counts": {
+      "total": 205,
+      "vc_positive": 21,
+      "served": 5,
+      "unserved_open_like": 16,
+      "not_a_need": 184,
+      "view_positive": 205
+    }
+  }
+}

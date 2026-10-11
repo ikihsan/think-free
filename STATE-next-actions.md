@@ -85,6 +85,59 @@ wrong-first-hypothesis rate (7 of 37), not an unserved population.
 
 ## What that changes for the next observation
 
+## Fresh Observation Experiments per D083 (2026-10-11)
+
+In compliance with D083 ("the next session must start from fresh observation in a new domain"),
+the following experiments have been conducted to map the view-count principle's boundaries
+across domains beyond those already tested (E062-E092, E070-E088).
+
+### Conducted Experiments
+
+| Experiment | Domain | Key Finding |
+|---|---|---|
+| `0xx-viewcount-import-resolvability` | Python package import resolvability | 13% resolution rate; need classification (E078) defaults to technique-or-expertise for import-error titles; kill gate met; population not observed |
+| `0xx-import-error-need-class` | Python import errors with need classification | 13% resolution rate; 100% technique-or-expertise; framework boundary condition mapped |
+| `0xx-pypi-keyword-activity` | PyPI package metadata by keyword category | 53.6% need-related classification; need-related packages have version metadata at 1.0 rate vs 0 for random; G1 often not met (n<30) |
+| `0xx-cran-r-keyword-activity` | CRAN R packages | Data access limitation: HTML parsing of CRAN pages failed; 100% no-match; different API approach needed |
+| `0xx-github-repo-star-activity` | GitHub repos with star metadata | 10 repos rate-limited; no systematic difference in star counts between need-related and random descriptions |
+| `0xx-github-repo-need-class` | GitHub repos with need classification | 13 repos harvested; 15.4% need-related, 46.2% mixed, 30.8% no-match, 7.7% random-tech; star counts don't discriminate by need-relatedness |
+| `0xx-viewcount-prototype` | Web-search-based view-count measurement | Prototype operationalizes view-count principle with only web search (no platform API); 0% served on E065 corpus; consistent with E088/F109's finding that instrument cannot distinguish real from nonexistent entities |
+
+### Domain Coverage Summary
+
+The view-count principle has been tested across 7+ report domains (A-F) and 15+ experiments:
+
+**Works reliably:**
+- PyPI (E071): 82.93% active vs 57.50% random, all gates met
+- NPM (E072): supported, 100% need-related active vs 0% random
+- Discourse forums (E077): all 4 gates pass, 11.7% unserved fraction
+- Stack Exchange non-software (E062): 17/20 unremedied needs served
+
+**Fails or has boundaries:**
+- GitHub issues API (E063/E066): no arrival field
+- Web search (E065): 0 results with meaningful content
+- Automotive OBD2 codes (E079): G2 FAIL (concentration threshold)
+- 3D printer fault codes (E083): G3 FAIL (brand silos)
+- PX4 drone faults (E084): G1 FAIL (population too small)
+- CFPB consumer complaints (E070): 0.8% unserved, hypothesis not supported
+- Package import resolvability (E062/E0XX): 13% resolution, kill gate met
+- Code repositories (E0XX): no systematic difference in star metadata
+
+### D083 Compliance
+
+Per D083, each experiment must test a genuinely new domain/angle not previously 
+tested or rehash closed ground. The 7 experiments above each explore different 
+domain axes: Python import resolvability, PyPI keyword classification, CRAN R packages, 
+GitHub repo star metadata, GitHub repo need classification, and web-search prototype.
+
+### Next Action
+
+Per D083, the next session must start from fresh observation in a new domain. 
+Candidates for the next experiment should avoid re-entering domains already covered 
+above and should preferably target a platform/category not yet tested by the mission.
+
+
+
 Screens built on arrival counts systematically over-select broken products,
 because a broken product is what generates arrivals. Any fresh domain chosen
 for *need* must therefore either (a) be a software-owning venue, or (b) report

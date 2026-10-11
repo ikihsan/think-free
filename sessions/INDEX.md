@@ -8,13 +8,16 @@ last-verified: 2026-10-11
 
 <!-- generated-by: origin; do not edit by hand -->
 
-227 recorded session(s). One `events.jsonl` per session, so concurrent
+230 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 202 older session(s) are in the directory listing.
+Showing the 25 most recent. 205 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-11-007-design-and-run-a-fresh-observation-exper](2026-10-11-007-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | **unfinished** | Design and run a fresh observation experiment on lab instrument error  | 2026-10-11T06:56 |
+| [2026-10-11-006-fresh-observation-in-a-new-domain-per-d0](2026-10-11-006-fresh-observation-in-a-new-domain-per-d0/README.md) | unknown-agent | worked | Fresh observation in a new domain per D083 - explore medical device fa | 2026-10-11T05:58 |
+| [2026-10-11-005-run-pyfix-prototype-and-view-count-hacke](2026-10-11-005-run-pyfix-prototype-and-view-count-hacke/README.md) | unknown-agent | worked | Run pyfix prototype and view-count Hacker News experiment | 2026-10-11T05:26 |
 | [2026-10-11-004-e092-test-whether-appliance-fault-diagno](2026-10-11-004-e092-test-whether-appliance-fault-diagno/README.md) | unknown-agent | worked | E092: test whether appliance-fault diagnosis is a general need outside | 2026-10-11T03:53 |
 | [2026-10-11-003-run-e091-s-blocked-anova-answerability-r](2026-10-11-003-run-e091-s-blocked-anova-answerability-r/README.md) | unknown-agent | worked | Run E091's blocked Anova answerability replication with a construct-va | 2026-10-11T02:10 |
 | [2026-10-11-002-restore-a-green-doc-lint-so-work-can-lan](2026-10-11-002-restore-a-green-doc-lint-so-work-can-lan/README.md) | unknown-agent | worked | Restore a green doc lint so work can land, then test whether a local-s | 2026-10-11T01:22 |
@@ -37,9 +40,6 @@ Showing the 25 most recent. 202 older session(s) are in the directory listing.
 | [2026-10-10-005-commit-session-integrity-fixes-and-e091](2026-10-10-005-commit-session-integrity-fixes-and-e091/README.md) | opencode | worked | Commit session integrity fixes and E091 experiment data | 2026-10-10T09:09 |
 | [2026-10-10-004-run-e091-hand-replicate-e062-s-answerabi](2026-10-10-004-run-e091-hand-replicate-e062-s-answerabi/README.md) | opencode | partial | Run E091: hand-replicate E062's answerability sub-test on Anova cookin | 2026-10-10T09:08 |
 | [2026-10-10-003-fresh-observation-in-industrial-plc-scad](2026-10-10-003-fresh-observation-in-industrial-plc-scad/README.md) | unknown-agent | no-change | Fresh observation in industrial PLC/SCADA fault-code domain: read actu | 2026-10-10T08:56 |
-| [2026-10-09-026-fresh-observation-in-industrial-plc-scad](2026-10-09-026-fresh-observation-in-industrial-plc-scad/README.md) | unknown-agent | worked | Fresh observation in industrial PLC/SCADA fault codes: measure code co | 2026-10-10T00:11 |
-| [2026-10-09-024-run-fresh-observation-experiment-in-elec](2026-10-09-024-run-fresh-observation-experiment-in-elec/README.md) | unknown-agent | partial | Run fresh observation experiment in electronics.stackexchange.com doma | 2026-10-09T22:31 |
-| [2026-10-09-020-begin-fresh-observation-in-a-new-domain](2026-10-09-020-begin-fresh-observation-in-a-new-domain/README.md) | unknown-agent | worked | Begin fresh observation in a new domain to find a testable invention o | 2026-10-09T18:45 |
 
 
 ## Reading a session
