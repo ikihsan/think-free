@@ -1,0 +1,111 @@
+==============================================================================
+[seq 2] 2026-10-11T00:14:23+00:00
+$ python3 -c 
+import json, math
+lab=json.load(open('EXPERIMENTS/091-import-error-population/reread.json'))
+rows=[json.loads(l) for l in open('EXPERIMENTS/091-import-error-population/classified.jsonl')]
+n=len(rows); assert n==lab['gate']['denominator']==858, n
+def wilson(k,n,z=1.96):
+    if n==0: return (0,0)
+    p=k/n; d=1+z*z/n; c=p+z*z/(2*n); m=z*math.sqrt(p*(1-p)/n+z*z/(4*n*n)); return ((c-m)/d,(c+m)/d)
+from collections import Counter
+c=Counter(l['verdict'] for l in lab['labels'])
+print('labels:',dict(c),'distinct urls:',len(lab['labels']))
+for k,name in [(sum(1 for l in lab['labels'] if l['verdict']=='genuine'),'strict'),(sum(1 for l in lab['labels'] if l['verdict'] in ('genuine','borderline')),'inclusive')]:
+    lo,hi=wilson(k,n); print(f'{name}: {k}/{n} = {k/n:.4f}, Wilson CI95 [{lo:.4f}, {hi:.4f}], gate 0.01 ->', 'PASS (keep open)' if k/n>=0.01 else 'FAIL (close)')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+labels: {'not-genuine': 19, 'genuine': 2, 'borderline': 2} distinct urls: 23
+strict: 2/858 = 0.0023, Wilson CI95 [0.0006, 0.0085], gate 0.01 -> FAIL (close)
+inclusive: 4/858 = 0.0047, Wilson CI95 [0.0018, 0.0119], gate 0.01 -> FAIL (close)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 217  redactions: none
+==============================================================================
+[seq 4] 2026-10-11T00:24:25+00:00
+$ python3 -m unittest tests.test_result_numbers tests.test_result_numbers_falsified tests.test_decision_files tests.test_decision_header tests.test_decision_row_pattern tests.test_identifier_enforcement tests.test_identifiers
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+EE..F.E.....EE
+======================================================================
+ERROR: test_result_numbers (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_result_numbers
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+  File "/home/ubuntu/think-free/tests/test_result_numbers.py", line 22, in <module>
+    from harness import RepoTest
+ModuleNotFoundError: No module named 'harness'
+
+
+======================================================================
+ERROR: test_result_numbers_falsified (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_result_numbers_falsified
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+  File "/home/ubuntu/think-free/tests/test_result_numbers_falsified.py", line 30, in <module>
+    from harness import SOURCE_ROOT
+ModuleNotFoundError: No module named 'harness'
+
+
+======================================================================
+ERROR: test_decision_header (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_decision_header
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+  File "/home/ubuntu/think-free/tests/test_decision_header.py", line 31, in <module>
+    from harness import RepoTest
+ModuleNotFoundError: No module named 'harness'
+
+
+======================================================================
+ERROR: test_identifier_enforcement (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_identifier_enforcement
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+  File "/home/ubuntu/think-free/tests/test_identifier_enforcement.py", line 25, in <module>
+    from harness import RepoTest
+ModuleNotFoundError: No module named 'harness'
+
+
+======================================================================
+ERROR: test_identifiers (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_identifiers
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+  File "/home/ubuntu/think-free/tests/test_identifiers.py", line 24, in <module>
+    from harness import RepoTest
+ModuleNotFoundError: No module named 'harness'
+
+
+======================================================================
+FAIL: test_the_mission_record_list_covers_every_decision_file (tests.test_decision_files.DecisionFileListTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_decision_files.py", line 97, in test_the_mission_record_list_covers_every_decision_file
+    self.assertEqual(sorted(self.on_disk() - listed), [], "a decision file no session obligation reaches")
+AssertionError: Lists differ: ['DECISIONS-NEXT-STEPS.md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'DECISIONS-NEXT-STEPS.md'
+
+- ['DECISIONS-NEXT-STEPS.md']
++ [] : a decision file no session obligation reaches
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.037s
+
+FAILED (failures=1, errors=5)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 492  redactions: none

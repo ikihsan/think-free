@@ -1,0 +1,352 @@
+==============================================================================
+[seq 2] 2026-10-11T01:26:55+00:00
+$ python3 EXPERIMENTS/091-anova-answerability/fetch.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rows=40  stored first_post chars=7917
+lengths: min=148 median=200 max=204
+rows at/over the 199-200 cut: 38 of 40
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 194  redactions: none
+==============================================================================
+[seq 3] 2026-10-11T01:27:36+00:00
+$ python3 EXPERIMENTS/091-anova-answerability/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rows=21  stored=4158  full=10675  retained=0.390
+rows where stored text is a prefix of full: 12 of 21
+wrote full.jsonl
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 37014  redactions: none
+==============================================================================
+[seq 4] 2026-10-11T01:28:47+00:00
+$ python3 EXPERIMENTS/091-anova-answerability/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rows=21  stored=4158  full=10675  retained=0.390
+rows where stored text is a prefix of full: 12 of 21
+A1 population accessibility: 0 of 20 stored rows re-fetched, all with full text: True
+wrote full.jsonl
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 37065  redactions: none
+==============================================================================
+[seq 5] 2026-10-11T01:29:43+00:00
+$ python3 EXPERIMENTS/091-anova-answerability/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rows=21  stored=4158  full=10675  retained=0.390
+rows where stored text is a prefix of full: 12 of 21
+A1 population accessibility: 20 of 20 stored rows re-fetched, all with full text: True
+wrote full.jsonl
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 37174  redactions: none
+==============================================================================
+[seq 10] 2026-10-11T01:30:31+00:00
+$ python3 EXPERIMENTS/091-anova-answerability/g0_probes.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+wrote g0_probes.json: 20 probes, 10 answerable, 10 unanswerable
+labels are known by construction and independent of any thread
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 41  redactions: none
+==============================================================================
+[seq 15] 2026-10-11T01:31:52+00:00
+$ python3 EXPERIMENTS/091-anova-answerability/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+population rows with no grade: ['9020', '6924', '132', '4681', '12987', '3051', '8811', '10550', '13044', '5115']
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 104  redactions: none
+==============================================================================
+[seq 16] 2026-10-11T01:33:50+00:00
+$ python3 EXPERIMENTS/091-anova-answerability/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population rows            : 20
+attempt-first discipline   : 18 rows
+thread-exposed before write: 2 rows  ['4261', '12736']
+
+ARM B  served share
+  all rows graded      :  5 of 20 = 0.2500  Wilson CI95 [0.1119, 0.4687]
+  attempt-first subset :  5 of 18 = 0.2778  Wilson CI95 [0.1250, 0.5087]
+
+K1  served share CI95 lower bound >= 0.50
+    all rows  : FAIL (0.1119)
+    subset    : FAIL (0.1250)
+K2  cannot reject E062's 17/20 = 0.8500 CI95 [0.6396, 0.9476]
+    this venue strictly lower  (upper < 0.6396): True
+    this venue strictly higher (lower > 0.9476): False
+    verdict: GENERALIZATION REJECTED
+
+ARM A  tool-shaped remedies: 1 of 20
+    86     Remedy is 'the app does the pairing' - a vendor design fact, not a program.
+    12241  Remedy is router/network configuration. A program can diagnose but the fix is in the asker's network.
+    1096   Remedy alternates between a user repair and a vendor return/exchange.
+    5021   Remedy is component-level soldering by the owner - a physical repair.
+    722    Remedy is a physical clamp. Thread's convergent answer is a C-clamp; that is an artifact, not a program.
+    26273  Remedy alternates between cleaning, bag handling, and a control-board part.
+    717    Remedy is a firmware change Anova declined to make. No program serves it.
+    12736  Remedy is a steam shield / physical workaround and a UPS.
+    4261   Remedy is a vendor product decision, deferred for years.
+    9165   Remedy is a warranty claim or a physical repair.
+    9020   
+    6924   
+    132    
+    4681   
+    3051   
+    8811   
+    10550  
+    13044  
+    12987  
+    5115   
+
+wrote results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 191  redactions: none
+==============================================================================
+[seq 18] 2026-10-11T01:35:58+00:00
+$ python3 EXPERIMENTS/091-anova-answerability/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population rows            : 20
+attempt-first discipline   : 7 rows  ['86', '717', '722', '1096', '5021', '12241', '26273']
+thread-exposed before write: 13 rows  ['132', '3051', '4261', '4681', '5115', '6924', '8811', '9020', '9165', '10550', '12736', '12987', '13044']
+
+ARM B  served share
+  all rows graded      :  5 of 20 = 0.2500  Wilson CI95 [0.1119, 0.4687]
+  attempt-first subset :  3 of  7 = 0.4286  Wilson CI95 [0.1582, 0.7495]
+
+K1  served share CI95 lower bound >= 0.50
+    all rows  : FAIL (0.1119)
+    subset    : FAIL (0.1582)
+K2  cannot reject E062's 17/20 = 0.8500 CI95 [0.6396, 0.9476]
+    this venue strictly lower  (upper < 0.6396): True
+    this venue strictly higher (lower > 0.9476): False
+    verdict: GENERALIZATION REJECTED
+
+ARM A  tool-shaped remedies: 0 of 20 rows assessed
+    86     Remedy is 'the app does the pairing' - a vendor design fact, not a program.
+    12241  Remedy is router/network configuration. A program could diagnose; the fix is in the asker's network.
+    1096   Remedy alternates between a user repair and a vendor return/exchange.
+    5021   Remedy is component-level board work - a physical repair.
+    722    Remedy is a physical C-clamp. That is an artifact, not a program.
+    26273  Remedy alternates between cleaning, bag handling, and a control-board part.
+    717    Remedy is a mute the vendor declined to build. No program serves it.
+    12736  Remedy is a steam shield and a UPS - artifacts.
+    4261   Remedy is a vendor product decision, deferred for years.
+    9165   Remedy is a warranty claim or a physical repair.
+    9020   Remedy is a button sequence arrived at by a support phone call, or a reseated coil housing. NEW THIS SESSION - previously unassessed.
+    6924   Remedy is sideloading the vendor's APK. NEW THIS SESSION - previously unassessed.
+    132    Remedy is a jumper wire between two sensors - hardware repair. NEW THIS SESSION - previously unassessed.
+    4681   Remedy is changing a Wi-Fi password to meet the vendor's documented rule. Nearest miss in the set: a checker for the vendor's published credential constraint is a program, but it is a one-off against one vendor's published document and the vendor's own setup wizard covers it. NEW THIS SESSION - previously unassessed.
+    3051   Remedy is a return/exchange against an order. NEW THIS SESSION - previously unassessed.
+    8811   Remedy is manual account intervention by the vendor's support team. NEW THIS SESSION - previously unassessed.
+    10550  Remedy is a vendor software fix. NEW THIS SESSION - previously unassessed.
+    13044  Remedy is a vendor software fix. NEW THIS SESSION - previously unassessed.
+    12987  Remedy is a vendor software fix. NEW THIS SESSION - previously unassessed.
+    5115   Remedy is a hardware specification, already in the app's docs. NEW THIS SESSION - previously unassessed.
+
+wrote results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 101  redactions: none
+==============================================================================
+[seq 19] 2026-10-11T01:36:03+00:00
+$ python3 EXPERIMENTS/091-anova-answerability/compose.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+COMPOSITION of the 20 highest-arrival needs in this venue
+  (class is the thread's remedy, assigned without reference to the assistant grades)
+
+  class         served  unserved    share
+  answerable         4         3    0.350
+  repair             1         6    0.350
+  vendor             0         6    0.300
+
+  needs requiring a vendor or a screwdriver: 13 of 20 = 0.6500
+
+  assistant served answerable-class needs at 4 of 7; the other classes at 16 of 16
+  Fisher one-tailed (answerable vs the rest): p = 0.000000
+  Fisher one-tailed (answerable vs vendor only): p = 0.048951
+
+  attempt-first subset only (grades fixed before any thread was read):
+    answerable 2 served of 4; other 1 served of 3
+    Fisher one-tailed: p = 0.114286
+    ^ the cleanest subset is also the smallest. It is reported, not leaned on.
+
+wrote composition.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 212  redactions: none
+==============================================================================
+[seq 20] 2026-10-11T01:36:18+00:00
+$ python3 EXPERIMENTS/091-anova-answerability/compose.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+COMPOSITION of the 20 highest-arrival needs in this venue
+  (class is the thread's remedy, assigned without reference to the assistant grades)
+
+  class         served  unserved    share
+  answerable         4         3    0.350
+  repair             1         6    0.350
+  vendor             0         6    0.300
+
+  needs requiring a vendor or a screwdriver: 13 of 20 = 0.6500
+
+  assistant served answerable-class needs at 4 of 7; the other classes at 1 of 1
+  Fisher one-tailed (answerable vs the rest): p = 0.001354
+  Fisher one-tailed (answerable vs vendor only): p = 0.048951
+
+  attempt-first subset only (grades fixed before any thread was read):
+    answerable 2 served of 4; other 1 served of 3
+    Fisher one-tailed: p = 0.114286
+    ^ the cleanest subset is also the smallest. It is reported, not leaned on.
+
+wrote composition.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 105  redactions: none
+==============================================================================
+[seq 21] 2026-10-11T01:39:01+00:00
+$ python3 EXPERIMENTS/091-anova-answerability/compose.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+COMPOSITION of the 20 highest-arrival needs in this venue
+  (class is the thread's remedy, assigned without reference to the assistant grades)
+
+  class         served  unserved    share
+  answerable         4         3    0.350
+  repair             1         6    0.350
+  vendor             0         6    0.300
+
+  needs requiring a vendor or a screwdriver: 13 of 20 = 0.6500
+
+  assistant served answerable-class needs at 4 of 7; the other classes at 1 of 13
+  Fisher one-tailed (answerable vs the rest): p = 0.030702
+  Fisher one-tailed (answerable vs vendor only): p = 0.048951
+
+  attempt-first subset only (grades fixed before any thread was read):
+    answerable 2 served of 4; other 1 served of 3
+    Fisher one-tailed: p = 0.628571
+    ^ the cleanest subset is also the smallest. It is reported, not leaned on.
+
+wrote composition.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 114  redactions: none
+==============================================================================
+[seq 22] 2026-10-11T01:39:16+00:00
+$ python3 -m unittest discover -s EXPERIMENTS/091-anova-answerability -t EXPERIMENTS/091-anova-answerability -p test_*.py -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_degenerate_tables (test_fisher.TestFisherGreater) ... ok
+test_matches_exhaustive_enumeration (test_fisher.TestFisherGreater) ... ok
+test_pmf_sums_to_one (test_fisher.TestFisherGreater) ... ok
+test_tail_is_not_the_max_term_when_row_two_has_successes (test_fisher.TestFisherGreater)
+The exact regression: c > 0 is when the bug bit. ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.161s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 416  redactions: none
+==============================================================================
+[seq 32] 2026-10-11T01:41:47+00:00
+$ python3 EXPERIMENTS/091-anova-answerability/fetch.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rows=40  stored first_post chars=7917
+lengths: min=148 median=200 max=204
+rows at/over the 199-200 cut: 38 of 40
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 262  redactions: none
+==============================================================================
+[seq 33] 2026-10-11T01:41:55+00:00
+$ python3 EXPERIMENTS/091-anova-answerability/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population rows            : 20
+attempt-first discipline   : 7 rows  ['86', '717', '722', '1096', '5021', '12241', '26273']
+thread-exposed before write: 13 rows  ['132', '3051', '4261', '4681', '5115', '6924', '8811', '9020', '9165', '10550', '12736', '12987', '13044']
+
+ARM B  served share
+  all rows graded      :  5 of 20 = 0.2500  Wilson CI95 [0.1119, 0.4687]
+  attempt-first subset :  3 of  7 = 0.4286  Wilson CI95 [0.1582, 0.7495]
+
+K1  served share CI95 lower bound >= 0.50
+    all rows  : FAIL (0.1119)
+    subset    : FAIL (0.1582)
+K2  cannot reject E062's 17/20 = 0.8500 CI95 [0.6396, 0.9476]
+    this venue strictly lower  (upper < 0.6396): True
+    this venue strictly higher (lower > 0.9476): False
+    verdict: GENERALIZATION REJECTED
+
+ARM A  tool-shaped remedies: 0 of 20 rows assessed
+    86     Remedy is 'the app does the pairing' - a vendor design fact, not a program.
+    12241  Remedy is router/network configuration. A program could diagnose; the fix is in the asker's network.
+    1096   Remedy alternates between a user repair and a vendor return/exchange.
+    5021   Remedy is component-level board work - a physical repair.
+    722    Remedy is a physical C-clamp. That is an artifact, not a program.
+    26273  Remedy alternates between cleaning, bag handling, and a control-board part.
+    717    Remedy is a mute the vendor declined to build. No program serves it.
+    12736  Remedy is a steam shield and a UPS - artifacts.
+    4261   Remedy is a vendor product decision, deferred for years.
+    9165   Remedy is a warranty claim or a physical repair.
+    9020   Remedy is a button sequence arrived at by a support phone call, or a reseated coil housing. NEW THIS SESSION - previously unassessed.
+    6924   Remedy is sideloading the vendor's APK. NEW THIS SESSION - previously unassessed.
+    132    Remedy is a jumper wire between two sensors - hardware repair. NEW THIS SESSION - previously unassessed.
+    4681   Remedy is changing a Wi-Fi password to meet the vendor's documented rule. Nearest miss in the set: a checker for the vendor's published credential constraint is a program, but it is a one-off against one vendor's published document and the vendor's own setup wizard covers it. NEW THIS SESSION - previously unassessed.
+    3051   Remedy is a return/exchange against an order. NEW THIS SESSION - previously unassessed.
+    8811   Remedy is manual account intervention by the vendor's support team. NEW THIS SESSION - previously unassessed.
+    10550  Remedy is a vendor software fix. NEW THIS SESSION - previously unassessed.
+    13044  Remedy is a vendor software fix. NEW THIS SESSION - previously unassessed.
+    12987  Remedy is a vendor software fix. NEW THIS SESSION - previously unassessed.
+    5115   Remedy is a hardware specification, already in the app's docs. NEW THIS SESSION - previously unassessed.
+
+wrote results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 95  redactions: none
+==============================================================================
+[seq 34] 2026-10-11T01:42:00+00:00
+$ python3 EXPERIMENTS/091-anova-answerability/compose.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+COMPOSITION of the 20 highest-arrival needs in this venue
+  (class is the thread's remedy, assigned without reference to the assistant grades)
+
+  class         served  unserved    share
+  answerable         4         3    0.350
+  repair             1         6    0.350
+  vendor             0         6    0.300
+
+  needs requiring a vendor or a screwdriver: 13 of 20 = 0.6500
+
+  assistant served answerable-class needs at 4 of 7; the other classes at 1 of 13
+  Fisher one-tailed (answerable vs the rest): p = 0.030702
+  Fisher one-tailed (answerable vs vendor only): p = 0.048951
+
+  attempt-first subset only (grades fixed before any thread was read):
+    answerable 2 served of 4; other 1 served of 3
+    Fisher one-tailed: p = 0.628571
+    ^ the cleanest subset is also the smallest. It is reported, not leaned on.
+
+wrote composition.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 90  redactions: none
+==============================================================================
+[seq 35] 2026-10-11T01:42:02+00:00
+$ python3 -m unittest discover -s EXPERIMENTS/091-anova-answerability -t EXPERIMENTS/091-anova-answerability -p test_*.py -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_degenerate_tables (test_fisher.TestFisherGreater) ... ok
+test_matches_exhaustive_enumeration (test_fisher.TestFisherGreater) ... ok
+test_pmf_sums_to_one (test_fisher.TestFisherGreater) ... ok
+test_tail_is_not_the_max_term_when_row_two_has_successes (test_fisher.TestFisherGreater)
+The exact regression: c > 0 is when the bug bit. ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.119s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 462  redactions: none

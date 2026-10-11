@@ -1,0 +1,421 @@
+==============================================================================
+[seq 3] 2026-10-10T08:59:21+00:00
+$ python3 -c 
+import urllib.request, json
+url = 'https://community.anovaculinary.com/categories.json'
+req = urllib.request.Request(url, headers={'User-Agent': 'E091-protocol/1.0'})
+with urllib.request.urlopen(req, timeout=30) as resp:
+    data = json.load(resp)
+    for cat in data['category_list']['categories']:
+        print(f"{cat['id']}: {cat['name']} (topics: {cat.get('topic_count', 0)}, desc: {cat.get('description', '')[:80]})")
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+28: Anova Precision® Cooker (topics: 1524, desc: Your source for all things Anova Precision® Cooker. Whether you have a question,)
+31: Anova Precision® Oven (topics: 492, desc: A space for Anova Precision® Oven users to talk recipes, share tips and tricks, )
+32: Accessories (topics: 52, desc: Sometimes a little help can go a long way, and that’s where our line of Anova Pr)
+29: General (topics: 599, desc: Does your post refuse to be defined by one of our preexisting boards? Try postin)
+26: Announcements (topics: 35, desc: Here you'll find out any important announcements, updates, or news about Anova C)
+1: Uncategorized (topics: 0, desc: )
+20: Anova Support (topics: 1120, desc: Have an issue with any of our products? Post here for some community assistance )
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2377  redactions: none
+==============================================================================
+[seq 4] 2026-10-10T08:59:30+00:00
+$ python3 -c 
+import urllib.request, json, time
+url = 'https://community.anovaculinary.com/c/anova-support/20.json?order=views'
+req = urllib.request.Request(url, headers={'User-Agent': 'E091-protocol/1.0'})
+with urllib.request.urlopen(req, timeout=30) as resp:
+    data = json.load(resp)
+    for topic in data['topic_list']['topics'][:5]:
+        print(f"ID: {topic['id']}, Views: {topic.get('views', 0)}, Replies: {topic.get('reply_count', 0)}, Title: {topic['title'][:80]}")
+    print(f"Total topics in this page: {len(data['topic_list']['topics'])}")
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+ID: 86, Views: 69552, Replies: 11, Title: Bluetooth PIN
+ID: 334, Views: 67914, Replies: 53, Title: Timer Function on the Anova Precision Cooker
+ID: 1162, Views: 51337, Replies: 9, Title: Video: Setting the timer and switching from Celsius to Fahrenheit
+ID: 12241, Views: 45955, Replies: 6, Title: My Anova wont connect to my WIFI?
+ID: 751, Views: 39048, Replies: 21, Title: Delayed Start Option
+Total topics in this page: 30
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2424  redactions: none
+==============================================================================
+[seq 5] 2026-10-10T08:59:52+00:00
+$ python3 -c 
+import urllib.request, json, time
+all_topics = []
+page = 0
+while len(all_topics) < 100:
+    url = f'https://community.anovaculinary.com/c/anova-support/20.json?order=views&page={page}'
+    req = urllib.request.Request(url, headers={'User-Agent': 'E091-protocol/1.0'})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        data = json.load(resp)
+    topics = data['topic_list']['topics']
+    if not topics:
+        break
+    all_topics.extend(topics)
+    page += 1
+    time.sleep(0.5)
+    if page > 10:
+        break
+
+print(f'Fetched {len(all_topics)} topics')
+# Filter: views > 0, replies >= 1
+filtered = [t for t in all_topics if t.get('views', 0) > 0 and t.get('reply_count', 0) >= 1]
+print(f'After filter (views>0, replies>=1): {len(filtered)}')
+for t in filtered[:25]:
+    print(f"ID: {t['id']:5d}, Views: {t.get('views', 0):6d}, Replies: {t.get('reply_count', 0):2d}, Title: {t['title'][:80]}")
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Fetched 120 topics
+After filter (views>0, replies>=1): 102
+ID:    86, Views:  69552, Replies: 11, Title: Bluetooth PIN
+ID:   334, Views:  67914, Replies: 53, Title: Timer Function on the Anova Precision Cooker
+ID:  1162, Views:  51337, Replies:  9, Title: Video: Setting the timer and switching from Celsius to Fahrenheit
+ID: 12241, Views:  45955, Replies:  6, Title: My Anova wont connect to my WIFI?
+ID:   751, Views:  39048, Replies: 21, Title: Delayed Start Option
+ID:  1096, Views:  30585, Replies: 19, Title: Problem / long lasting beep on my Anova
+ID:   247, Views:  26277, Replies:  5, Title: Video: Setting the Timer / Temperature
+ID:  5021, Views:  23790, Replies: 15, Title: Current temp stuck at 32 degrees
+ID:  4411, Views:  22503, Replies: 13, Title: Make it possible to disable the beep sound. Now please!
+ID: 12105, Views:  22467, Replies:  5, Title: Cleaning the Anova
+ID:  1093, Views:  22424, Replies:  8, Title: How do I Turn off the loud beeps
+ID:   792, Views:  21460, Replies: 30, Title: Precision Cooker WI-FI connection issues
+ID: 12736, Views:  20504, Replies: 13, Title: Shutting Off
+ID:   722, Views:  20461, Replies:  6, Title: Clamp broken - ideas to hold unit in place?
+ID:   765, Views:  19643, Replies:  2, Title: WiFi vs Bluethooth models?
+ID: 26273, Views:  19199, Replies:  4, Title: vacuum seal not sealing
+ID:  1191, Views:  17783, Replies: 40, Title: API / Developer SDK
+ID:   717, Views:  17020, Replies: 21, Title: Anyway to "snooze" the beeping when the timer is done?
+ID: 14136, Views:  15575, Replies:  1, Title: Defrost Mode?
+ID:  9524, Views:  15512, Replies: 46, Title: My experiences after a few weeks
+ID:  9076, Views:  15179, Replies:  1, Title: How to sous vide a small gammon joint?
+ID:  4261, Views:  14922, Replies: 25, Title: Connecting more than one mobile device to APC Wifi
+ID:  9020, Views:  14637, Replies:  5, Title: Beeping Keeps Going Off ?
+ID:  4058, Views:  13980, Replies: 11, Title: Ice Bath Option in Wifi App
+ID:  6924, Views:  13957, Replies:  4, Title: Bluetooth Pairing PIN
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 11616  redactions: none
+==============================================================================
+[seq 6] 2026-10-10T09:00:53+00:00
+$ python3 -c 
+import urllib.request, json, time
+
+# Fetch first post for top 30 topics to assess problem statement clarity
+top_ids = [86, 334, 1162, 12241, 751, 1096, 247, 5021, 4411, 12105, 1093, 792, 12736, 722, 765, 26273, 1191, 717, 14136, 9524, 9076, 4261, 9020, 4058, 6924, 12241, 5021, 4411]
+
+for tid in top_ids[:30]:
+    url = f'https://community.anovaculinary.com/t/{tid}.json'
+    req = urllib.request.Request(url, headers={'User-Agent': 'E091-protocol/1.0'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            data = json.load(resp)
+        posts = data['post_stream']['posts']
+        first_post = posts[0]['cooked'][:300]
+        # Strip HTML tags roughly
+        import re
+        text = re.sub('<[^>]+>', '', first_post)
+        text = re.sub('\s+', ' ', text).strip()
+        print(f'ID: {tid:5d} | {text[:200]}')
+        print()
+    except Exception as e:
+        print(f'ID: {tid:5d} | ERROR: {e}')
+    time.sleep(0.3)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+ID:    86 | I just got my Anova in the mail and I was trying to pair it to bluetooth with my phone. It asks for a PIN and I tried the usual 0000 and 1234 but neither worked. Does anyone know what the PIN is? Also
+
+ID:   334 | Actually a couple of timer questions. It appears that after the cooker has reached temperature, to activate the timer you need to: Hold the "play" button down for 8 seconds. During that time the displ
+
+ID:  1162 | A quick video on how to set the physical timer and switch the temperature from C to F <a href="https://www.youtube.com/watch?v=sJdNmLCI7cw"
+
+ID: 12241 | Ive used my new anova 10 times and this is the first time it wont connect, ive tried unplugging a few times but nothing is working? Any suggestions?
+
+ID:   751 | The Wi-Fi Precision Cooker FAQ states that there is a delayed start option. How exactly does it work and where is this option in the app? <img src="http://i.imgur.com
+
+ID:  1096 | HI Everyone , I have recently had a problem with my Anova, it won t stop beeping not due to the lack of water. Coud you please tell me if there is a solution to this problem. I only bought 2 years ago
+
+ID:   247 | Here is a quick video to reference if you have run into issues setting the timer and keeping the temperature set in F. Setting the timer/temp
+
+ID:  5021 | Just got the precision cooker and excited to use it. Plugged it in and downloaded the app and everything seemed fine…but after i set the desired temp and pressed play and could her the motor start run
+
+ID:  4411 | Have seen massive amounts of comments on this topic, in fact seems to be the main issue customers have. Obviously a mistake in product design, and frankly, a really stupid one. It’s as if those respon
+
+ID: 12105 | Simple basic question. How do you clean the Anova? Generally, not a problem (I’ve only used it twice) but this last time I was concerned that some of the meat juices were outside the seal area of my b
+
+ID:  1093 | Is there anyway to turn off the beep? Or at least turn it way down? My wife has a medical condition where her hearing is super sensitive. The beep is extremely shrill and loud and really hurts her ear
+
+ID:   792 | Hi All,I wanted to briefly touch base that we’re aware of an ongoing issue affecting some WI-FI cookers.We’re doing our best to get this resolved ASAP.As soon as I have updates I’ll be updating this m
+
+ID: 12736 | APC is shutting off during cooks. This unit is a replacement for the original that suffered the same issue. Sometime during the cooking process, the unit shuts itself off. No error codes. Submitted re
+
+ID:   722 | Still holding together but probably not for long - very brittle plastic.I don’t think they sell replacement parts or offer warranty outside of US so I need to come up with an alternative. I’m sure thi
+
+ID:   765 | Dear Community,I am about to buy my first sous vide circulator, and am leaning towards Anova. Considering the somewhat confusing pricing (often, the WiFi model is cheaper than the BT, for example) I a
+
+ID: 26273 | I have the Anova Vacuum sealer and it’s worked fine in the past, but now, it just keeps sucking air out of the bag but the heater to seal never comes on. I’m assuming the gasket has gone funky, but, I
+
+ID:  1191 | Hi. I did search but haven’t seen anything recent about this. Was it ever released?
+
+ID:   717 | So once the timer is done, it beeps… which is nice. But it beeps EVERY 5 SECONDS… and this gets annoying. Sometimes I’m in the middle of something and I figure, if I can just finish what I’m doing I’l
+
+ID: 14136 | I’ve been using my Anova to defrost meat for grilling when I forget to take it out of the freezer early enough. My current method is essentially to put the frozen sealed meat in an ice bath in a small
+
+ID:  9524 | I received my cooker and have made some interesting and delicious meals with it. Below are my impressions. The immersion heater itself works, and is accurate. Measuring with four other thermometers (o
+
+ID:  9076 | Help - new user here! I have had great success with fish and meat, but cannot find timings for a small gammon joint?
+
+ID:  4261 | Some context… I have multiple android devices running versions of marshmallow and nougat, all with the latest version of the anova app from the play store. However, whenever I successfully pair a new 
+
+ID:  9020 | For some reason the timing or temperature Beep Keeps going off. I’m cooking a Pork Shoulder for 24-48 hrs… and the temp is staying around the correct temp (165) but it varies up or down a few degrees,
+
+ID:  4058 | Hi, there used to be an ice bath option where the app will warm you on when the water gets to the point where the meat isn’t safe without cooking it. I can’t find it in the app any longer. And can’t f
+
+ID:  6924 | Hi guys. I’m chasing the PIN for Bluetooth pairing. Yes, I know I’m not supposed to need one, but I do on my Chuwei tablet. I have had it paired to my APC in the past when the cooker first arrived in 
+
+ID: 12241 | Ive used my new anova 10 times and this is the first time it wont connect, ive tried unplugging a few times but nothing is working? Any suggestions?
+
+ID:  5021 | Just got the precision cooker and excited to use it. Plugged it in and downloaded the app and everything seemed fine…but after i set the desired temp and pressed play and could her the motor start run
+
+ID:  4411 | Have seen massive amounts of comments on this topic, in fact seems to be the main issue customers have. Obviously a mistake in product design, and frankly, a really stupid one. It’s as if those respon
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 47471  redactions: none
+==============================================================================
+[seq 7] 2026-10-10T09:01:40+00:00
+$ python3 -c 
+import urllib.request, json, time, re
+
+# Fetch more topics from page 3-4
+all_topics = []
+for page in range(3, 8):
+    url = f'https://community.anovaculinary.com/c/anova-support/20.json?order=views&page={page}'
+    req = urllib.request.Request(url, headers={'User-Agent': 'E091-protocol/1.0'})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        data = json.load(resp)
+    topics = data['topic_list']['topics']
+    if not topics:
+        break
+    all_topics.extend(topics)
+    time.sleep(0.5)
+
+filtered = [t for t in all_topics if t.get('views', 0) > 0 and t.get('reply_count', 0) >= 1]
+print(f'Additional topics: {len(filtered)}')
+for t in filtered[:20]:
+    print(f"ID: {t['id']:5d}, Views: {t.get('views', 0):6d}, Replies: {t.get('reply_count', 0):2d}, Title: {t['title'][:80]}")
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Additional topics: 103
+ID: 13737, Views:   6397, Replies: 10, Title: Sous vide while you work
+ID:  9393, Views:   6394, Replies: 19, Title: Linking Alexa Skill
+ID: 13298, Views:   6391, Replies:  2, Title: Stasher Bag - Removing Odor
+ID: 12987, Views:   6366, Replies:  7, Title: Push Notification on iOS not working?
+ID:  9165, Views:   6322, Replies:  2, Title: Straighten the impeller
+ID:  7017, Views:   6290, Replies: 15, Title: Give us App Feedback!
+ID:   132, Views:   6193, Replies:  1, Title: Low Water Alarm
+ID:  4681, Views:   6120, Replies: 10, Title: Eero + APC WiFi = Fail
+ID:  3966, Views:   6068, Replies:  2, Title: Bags bursting when cooking more than 2 hours
+ID:  7063, Views:   5881, Replies: 12, Title: Anova app developers are here to listen to your requests!
+ID: 12599, Views:   5779, Replies:  2, Title: Moving to the UK will my north american sous vide machine work
+ID:  3051, Views:   5750, Replies: 19, Title: I have received the wrong device
+ID:  8811, Views:   5674, Replies:  1, Title: Password reset: how?
+ID: 22467, Views:   5653, Replies: 12, Title: Best way to sear your meat after SV
+ID: 16033, Views:   5592, Replies:  3, Title: Ziplock bags filling with water
+ID: 10550, Views:   5452, Replies:  4, Title: Anova App Timer Resetting
+ID: 13044, Views:   5383, Replies:  4, Title: Timer Confusing or Broken?
+ID:  9496, Views:   5357, Replies:  7, Title: Cooking time per weight
+ID:  5115, Views:   5353, Replies:  4, Title: Why does my phone have to be on 2.5 Ghz wifi?
+ID:   659, Views:   5312, Replies:  3, Title: Does anyone have a fix for WiFi connection issues?
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 14874  redactions: none
+==============================================================================
+[seq 8] 2026-10-10T09:02:29+00:00
+$ python3 -c 
+import urllib.request, json, time, re
+
+top_ids = [13737, 9393, 13298, 12987, 9165, 7017, 132, 4681, 3966, 7063, 12599, 3051, 8811, 22467, 16033, 10550, 13044, 9496, 5115, 659]
+
+for tid in top_ids:
+    url = f'https://community.anovaculinary.com/t/{tid}.json'
+    req = urllib.request.Request(url, headers={'User-Agent': 'E091-protocol/1.0'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            data = json.load(resp)
+        posts = data['post_stream']['posts']
+        first_post = posts[0]['cooked'][:300]
+        text = re.sub('<[^>]+>', '', first_post)
+        text = re.sub('\s+', ' ', text).strip()
+        print(f'ID: {tid:5d} | {text[:200]}')
+        print()
+    except Exception as e:
+        print(f'ID: {tid:5d} | ERROR: {e}')
+    time.sleep(0.3)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+ID: 13737 | I bought my daughter an Anova when she moved into her first apartment, but she confesses she never uses it. She claims that when she gets home from work she doesn’t want to wait a long time for dinner
+
+ID:  9393 | I’ve downloaded the Anova app, synced to both Bluetooth and Wi-Fi. I created an account outside of the App. I tried to locate where to create an account inside the app (as instructions say) but it is 
+
+ID: 13298 | Hi there, I have been using Stasher since my 1st SV with Anova and it has been great. However, there is only one issue where Heavy marinated sauce odor tends to stay on the bag and it is really hard t
+
+ID: 12987 | I’ve been trying to figure out why the Anova isn’t telling me when it’s up to temperature, ready to cook, or finished cooking on iOS via push notification - the only way I can check is if I look at th
+
+ID:  9165 | Is there a way I can straighten out the impeller? My unit is a little more than a year old. I have the bluetooth version, purchased from Amazon. I pulled it from the box to use it today and the impell
+
+ID:  7017 | Hey Anova Food Nerd Family! It has been a little while since I have talked to you, I missed you guys! I’m now working on our app team and I know in the past there has been a lot of feedback regarding 
+
+ID:   132 | Three weeks into having my Anova Precision Cooker (release version, not hacker special) and after a number of uses including multiple 24hr+ cooks, it now works for only 30 seconds before triggering th
+
+ID:  4681 | Please tell me if I’m hosed or if there is hope for a fix… I’m on day two with my APC Wifi model, and have not been able to get it to connect to my Eero wifi. I assume it’s because the app says it wan
+
+ID:  3966 | I have tried my new cooker twice and both times the bag broke while cooking. I am using Ikea ziplock bags. What am I doing wrong?
+
+ID:  7063 | Hey Anovafoodnerd family! I wanted to let you know some really exciting news. We’re going to have our developers and designers come to YOU, our amazing community, to directly hear your feedback and an
+
+ID: 12599 | As title says Im moving to the UK and would like to know if my north american anova sous vide machine would work with a UK adapter down there? Please advise and if so any special adapters?
+
+ID:  3051 | Hi Everyone, yesterday (December the 14th) I receive my Anova Precision cooker with a little delay, but when I was trying to pair it with the app, I realized that was the wrong one. I´ve buyed the wi-
+
+ID:  8811 | I need to reset my password for connecting to the device, as I’ve forgotten what it was. But when I ask the app for a password reset link, the website just takes me to a page that says “Your email add
+
+ID: 22467 | The only thing I disagree with, is that the torch is super practical and easy. Mine stays hooked up to our 20 lb propane
+
+ID: 16033 | The last 3 times I used ziplock bags the bags filled with water and essentially ruined my super. Each time I pulled the bag out of the pot the water from the bag was draining very slowly from one of t
+
+ID: 10550 | Hello, I’m not sure if this issue has been brought up before, but a cursory examination of the threads didn’t turn anything up. I use my Wi-Fi APC with my phone app almost exclusively, in that i set t
+
+ID: 13044 | I’m on my second day of using the Wi-Fi version of the device. In both instances I started by using existing recipes from the app. After preheating the timer changed from 90 minutes or 30 minutes to —
+
+ID:  9496 | For instance, how long should I cook a 25 oz steak at 65 C ?
+
+ID:  5115 | I’m trying to wrap my head around the requirement for my iPhone to be on the 2.5ghz network for the device to connect to the wifi. And i can’t find it. I’m hoping someone from Anova can provide the de
+
+ID:   659 | My WiFi unit will not connect to my network. Bluetooth pairs and the WiFi network name appears, but the app gives me an 'Whoops" message repeatedly. Tried resetting the cooker, app, phone, router and 
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 33303  redactions: none
+==============================================================================
+[seq 9] 2026-10-10T09:03:48+00:00
+$ python3 -c 
+import urllib.request, json, time, re
+
+# The 20 candidate topics for the population
+pop_ids = [86, 12241, 1096, 5021, 12736, 722, 26273, 717, 4261, 9020, 6924, 132, 4681, 12987, 9165, 3051, 8811, 10550, 13044, 5115, 659]
+
+# Fetch full first post and check last few posts for resolution
+for tid in pop_ids:
+    url = f'https://community.anovaculinary.com/t/{tid}.json'
+    req = urllib.request.Request(url, headers={'User-Agent': 'E091-protocol/1.0'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            data = json.load(resp)
+        posts = data['post_stream']['posts']
+        first_post = posts[0]['cooked']
+        text = re.sub('<[^>]+>', '', first_post)
+        text = re.sub('\s+', ' ', text).strip()
+        
+        # Check last 3 posts for resolution indicators
+        last_posts = posts[-3:] if len(posts) >= 3 else posts
+        last_text = ' '.join([re.sub('<[^>]+>', '', p['cooked']) for p in last_posts])
+        last_text = re.sub('\s+', ' ', last_text).strip()[:500]
+        
+        print(f'ID: {tid:5d} | Title: {data["title"][:60]}')
+        print(f'  First: {text[:150]}')
+        print(f'  Last: {last_text[:150]}')
+        print()
+    except Exception as e:
+        print(f'ID: {tid:5d} | ERROR: {e}')
+    time.sleep(0.3)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+ID:    86 | Title: Bluetooth PIN
+  First: I just got my Anova in the mail and I was trying to pair it to bluetooth with my phone. It asks for a PIN and I tried the usual 0000 and 1234 but neit
+  Last: HP: samsung S4Android: 5.0.1Connection was not usual. failed many times. I tried these steps, work for me:1. Turn off BT from quick access menu at the
+
+ID: 12241 | Title: My Anova wont connect to my WIFI?
+  First: Ive used my new anova 10 times and this is the first time it wont connect, ive tried unplugging a few times but nothing is working? Any suggestions?
+  Last: Hi There I just restarted my phone after restarting the Annova and the router and doing all the steps they mentioned in the trouble shooting area. The
+
+ID:  1096 | Title: Problem / long lasting beep on my Anova
+  First: HI Everyone , I have recently had a problem with my Anova, it won t stop beeping not due to the lack of water. Coud you please tell me if there is a s
+  Last: Yes! I am glad to hear it’s working now! What have you been cooking with your Anova? Folks, here is the way you get your Anova working once its had th
+
+ID:  5021 | Title: Current temp stuck at 32 degrees
+  First: Just got the precision cooker and excited to use it. Plugged it in and downloaded the app and everything seemed fine…but after i set the desired temp 
+  Last: Do you think one of these would work? aliexpress.com 2.08US $ |5pcs/lot L6599DTR SOP16 L6599D SOP L6599 SOP 16 new... Smarter Shopping, Better Living!
+
+ID: 12736 | Title: Shutting Off
+  First: APC is shutting off during cooks. This unit is a replacement for the original that suffered the same issue. Sometime during the cooking process, the u
+  Last: Hi There I know this may sound like a stupid question but is your water level staying well over the min. level? twm It’s not a stupid question at all.
+
+ID:   722 | Title: Clamp broken - ideas to hold unit in place?
+  First: Still holding together but probably not for long - very brittle plastic.I don’t think they sell replacement parts or offer warranty outside of US so I
+  Last: You can purchase one on Amazon for around $20 and it won’t last. I fixed mine twice! My solution is an aluminum C-clamp (like the one photographers us
+
+ID: 26273 | Title: vacuum seal not sealing
+  First: I have the Anova Vacuum sealer and it’s worked fine in the past, but now, it just keeps sucking air out of the bag but the heater to seal never comes 
+  Last: Have had a similar problem twice. Both times it was fixed by cleaning the seal and sealing surface. It was not forming a good seal, so the vacuum sens
+
+ID:   717 | Title: Anyway to "snooze" the beeping when the timer is done?
+  First: So once the timer is done, it beeps… which is nice. But it beeps EVERY 5 SECONDS… and this gets annoying. Sometimes I’m in the middle of something and
+  Last: Hey @scottmb! Check that the water is above the “min” line sometime that can affect the beeping noise. Right now though the timer has to either be man
+
+ID:  4261 | Title: Connecting more than one mobile device to APC Wifi
+  First: Some context… I have multiple android devices running versions of marshmallow and nougat, all with the latest version of the anova app from the play s
+  Last: Wouldn’t you find the same for a UE Boom? Just spent a good 20 mins trying to get our anova to pair to two phones over wifi. We’re saying it can’t? Bl
+
+ID:  9020 | Title: Beeping Keeps Going Off ?
+  First: For some reason the timing or temperature Beep Keeps going off. I’m cooking a Pork Shoulder for 24-48 hrs… and the temp is staying around the correct 
+  Last: Hi Alyssa nope not yet should I? Yes, please! They can troubleshoot and get to the nitty gritty to what’s going on with your cooker! Ok so I realise t
+
+ID:  6924 | Title: Bluetooth Pairing PIN
+  First: Hi guys. I’m chasing the PIN for Bluetooth pairing. Yes, I know I’m not supposed to need one, but I do on my Chuwei tablet. I have had it paired to my
+  Last: Yep, there is. (if people want to load an APK, rather than directly from the Google Play store). Newest version: APKPure.com Anova APK for Android Dow
+
+ID:   132 | Title: Low Water Alarm
+  First: Three weeks into having my Anova Precision Cooker (release version, not hacker special) and after a number of uses including multiple 24hr+ cooks, it 
+  Last: My anova had the same problem. I fixed the error simply connecting the 2 sensors with a wire. I could not replace it because the warranty is over. Now
+
+ID:  4681 | Title: Eero + APC WiFi = Fail
+  First: Please tell me if I’m hosed or if there is hope for a fix… I’m on day two with my APC Wifi model, and have not been able to get it to connect to my Ee
+  Last: Thanks everyone for jumping and helping out @wakajazz with the the connection issue. You guys the real MVPs. Ahhh so sorry for the late reply!! Had to
+
+ID: 12987 | Title: Push Notification on iOS not working?
+  First: I’ve been trying to figure out why the Anova isn’t telling me when it’s up to temperature, ready to cook, or finished cooking on iOS via push notifica
+  Last: Hi, could you advise if this bug has been fixed? The timer on my app isn’t sending notifications, and my settings are correct. Anova no longer comes t
+
+ID:  9165 | Title: Straighten the impeller
+  First: Is there a way I can straighten out the impeller? My unit is a little more than a year old. I have the bluetooth version, purchased from Amazon. I pul
+  Last: Without actually seeing the issue, it’s hard for me to come with a conclusion. There can be a couple of reasons. If you’re personally having trouble w
+
+ID:  3051 | Title: I have received the wrong device
+  First: Hi Everyone, yesterday (December the 14th) I receive my Anova Precision cooker with a little delay, but when I was trying to pair it with the app, I r
+  Last: Dear Hunter Conrad, Thank you for fast reply and all the help, I really wish I would be appointed to you at first mail. The support girl really contac
+
+ID:  8811 | Title: Password reset: how?
+  First: I need to reset my password for connecting to the device, as I’ve forgotten what it was. But when I ask the app for a password reset link, the website
+  Last: Let me know of the outcome! @neilnjae All sorted now, thanks to some manual intervention by the support team. I’m happy it’s sorted! Thanks for keepin
+
+ID: 10550 | Title: Anova App Timer Resetting
+  First: Hello, I’m not sure if this issue has been brought up before, but a cursory examination of the threads didn’t turn anything up. I use my Wi-Fi APC wit
+  Last: It’s January 2019 and this problem is still occurring. I got an anova for Christmas and I absolutely love it except for this timer issue. Latest relea
+
+ID: 13044 | Title: Timer Confusing or Broken?
+  First: I’m on my second day of using the Wi-Fi version of the device. In both instances I started by using existing recipes from the app. After preheating th
+  Last: So, when you get that fixed how will you be notifying owners and how will we patch the fix? My issue with the timer is that when I use it with the app
+
+ID:  5115 | Title: Why does my phone have to be on 2.5 Ghz wifi?
+  First: I’m trying to wrap my head around the requirement for my iPhone to be on the 2.5ghz network for the device to connect to the wifi. And i can’t find it
+  Last: Heh. Just be on the 2.4GHz SSID with your phone during setup. After that, it doesn’t matter. I don’t know for sure, but just a thought: Don’t forget t
+
+ID:   659 | Title: Does anyone have a fix for WiFi connection issues?
+  First: My WiFi unit will not connect to my network. Bluetooth pairs and the WiFi network name appears, but the app gives me an 'Whoops" message repeatedly. T
+  Last: This forum is hosted on the Anova website. Given that, I think it’s entirely reasonable for me to assume that Anova support monitors the forum. And I 
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 35108  redactions: none
