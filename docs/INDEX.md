@@ -78,8 +78,6 @@ Skill bodies under `.agents/skills/` are indexed by
 |---|---|---|---|---|
 | [`sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md`](../sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md) | `docs/INDEX.md` | stale | 2026-10-08 | Date: 2026-10-07 |
 | [`sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md`](../sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session 2026-10-08-013, VM instance-20260717-0944, 2026-10-08. Defect 24. |
-| [`sessions/2026-10-10-008-synthesize-5-domain-unserved-fraction-me/synthesis.md`](../sessions/2026-10-10-008-synthesize-5-domain-unserved-fraction-me/synthesis.md) | `—` | — | — | ## Observation |
-| [`sessions/2026-10-10-009-measure-6th-domain-hvac/synthesis.md`](../sessions/2026-10-10-009-measure-6th-domain-hvac/synthesis.md) | `—` | — | — | ## Observation |
 | [`sessions/README.md`](../sessions/README.md) | `docs/INDEX.md` | active | 2026-10-03 | The append-only record of every working session in this repository. |
 
 ## tasks
@@ -177,6 +175,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0088-e086-measure-whether-real-python-import-error-re.md`](../tasks/T-0088-e086-measure-whether-real-python-import-error-re.md) | `tasks/INDEX.md` | active | 2026-10-10 | ## Goal |
 | [`tasks/T-0089-e090-measure-whether-a-module-to-distribution-re.md`](../tasks/T-0089-e090-measure-whether-a-module-to-distribution-re.md) | `tasks/INDEX.md` | active | 2026-10-10 | ## Goal |
 | [`tasks/T-0090-e091-hand-replicate-e062-s-answerability-sub-tes.md`](../tasks/T-0090-e091-hand-replicate-e062-s-answerability-sub-tes.md) | `tasks/INDEX.md` | active | 2026-10-10 | ## Goal |
+| [`tasks/T-0091-run-a-fresh-observation-experiment-testing-the-v.md`](../tasks/T-0091-run-a-fresh-observation-experiment-testing-the-v.md) | `tasks/INDEX.md` | active | 2026-10-11 | ## Goal |
 
 ## RESEARCH
 
@@ -292,7 +291,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/071-pip-name-guard-prototype/` | `docs/INDEX.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/071-viewcount-denominator/` | `docs/INDEX.md` | complete | 2026-10-09 | Date: 2026-10-09 · Session: 2026-10-09-002 · Status: complete — |
 | `EXPERIMENTS/072-fresh-observation-protocol/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 met, G3 measured, G4 not applicable to prototype |
-| `EXPERIMENTS/072-git-file-presence/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | 1 documents |
+| `EXPERIMENTS/072-git-file-presence/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 |  |
 | `EXPERIMENTS/072-merchant-noise-raw/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 did not fire. No |
 | `EXPERIMENTS/072-npm-view-count-prototype/` | `docs/INDEX.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/073-piecewise-price/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 fail. The pwc repair |
@@ -362,8 +361,10 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/103-hex-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
 | `EXPERIMENTS/103-viewcount-emacs/` | `EXPERIMENTS/103-viewcount-emacs` | active | 2026-10-11 | Status: Experiment in progress. |
 | `EXPERIMENTS/104-ci-adoption/` | `EXPERIMENTS/104-ci-adoption` | active | 2026-10-11 | Status: Experiment in progress. |
+| `EXPERIMENTS/104-rubygems-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/105-software-se-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | Status: Experiment complete. |
 | `EXPERIMENTS/105-viewcount-synthesis/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
+| `EXPERIMENTS/106-pypi-viewcount-prototype/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
