@@ -1,0 +1,83 @@
+==============================================================================
+[seq 2] 2026-10-11T18:14:36+00:00
+$ python3 EXPERIMENTS/107-github-repos-viewcount/harvest.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== E107 — GitHub Repositories View-Count Principle Harvest (search-only) ===
+Target: 80 repositories per group
+
+=== Harvesting need-related repositories ===
+  Searching topic: web-framework
+  Rate limit remaining: 9
+    Collected 10 repositories...
+    Collected 20 repositories...
+    Collected 30 repositories...
+    Collected 40 repositories...
+    Collected 50 repositories...
+    Collected 60 repositories...
+    Collected 70 repositories...
+    Collected 80 repositories...
+  Finished need-related: 80 repositories
+
+=== Harvesting random repositories ===
+  Searching topic: utils
+  Rate limit remaining: 8
+    Collected 10 repositories...
+    Collected 20 repositories...
+    Collected 30 repositories...
+    Collected 40 repositories...
+    Collected 50 repositories...
+    Collected 60 repositories...
+    Collected 70 repositories...
+    Collected 80 repositories...
+  Finished random: 80 repositories
+
+=== Classifying repositories ===
+
+Classification results:
+  ambiguous: 10
+  need-related: 77
+  random: 73
+
+Raw data saved to EXPERIMENTS/107-github-repos-viewcount/raw_data.json
+Total repositories: 160
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 13787  redactions: none
+==============================================================================
+[seq 3] 2026-10-11T18:14:51+00:00
+$ python3 EXPERIMENTS/107-github-repos-viewcount/analyze.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== E107 — Gate Evaluation ===
+Total repositories loaded: 160
+Need-related: 77
+Random: 73
+Ambiguous: 10
+
+Activity rates (stars>0 & pushed≤365d):
+  Need-related: 65/77 = 0.844
+  Random: 26/73 = 0.356
+
+G1 - Classified sample size ≥ 100 (50 per group): PASS
+  Total classified: 150 (need: 77, random: 73)
+
+G2 - Mann-Whitney U test (p<0.05, Cliff's δ>0.147): PASS
+  U statistic: 489.0
+  p-value: 0.000000
+  Cliff's delta: 0.8260
+  Need median stars: 2796
+  Random median stars: 325
+
+G3 - Wilson CI95 LB for proportion above random median > 0.60: PASS
+  Random median: 325
+  Need above median: 77/77 = 1.000
+  Wilson CI95 lower bound: 0.9525
+
+G4 - Both categories represented: PASS
+  Need-related: 77, Random: 73
+
+=== Overall: ALL GATES PASS — Principle supported on GitHub repositories ===
+
+Results saved to EXPERIMENTS/107-github-repos-viewcount/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 213  redactions: none

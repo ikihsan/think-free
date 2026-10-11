@@ -279,3 +279,4 @@
 {"action": "claim", "agent": "opencode", "schema": "origin.task.claim/1", "session": "2026-10-10-007-run-e091-t-0090-hand-replicate-e062-s-an", "task": "T-0090", "ts": "2026-10-10T07:04:54+00:00", "vm": "instance-20260717-0944"}
 {"action": "create", "schema": "origin.task.claim/1", "task": "T-0091", "ts": "2026-10-11T17:42:06+00:00"}
 {"action": "claim", "schema": "origin.task.claim/1", "task": "T-0091", "ts": "2026-10-11T17:50:55+00:00"}
+{"action": "complete", "reason": "E107 completed: view-count principle tested on GitHub code repositories with 150 classified repos (77 need-related, 73 random). All four gates pass: G1 sample size 150, G2 p\u22480.000 \u03b4=0.826, G3 Wilson LB=0.952, G4 both categories. Need median stars 2,796 vs random 325 (8.6\u00d7). Principle generalizes to GitHub repositories via star counts.", "schema": "origin.task.claim/1", "task": "T-0091", "ts": "2026-10-11T18:19:35+00:00"}

@@ -49,3 +49,40 @@ merging them made this file exceed its line cap while adding an outcome.
 | **NuGet (E102)** | ✅ | Strong separation, all gates met |
 
 **Earlier experiments (E001–E080) are recorded in [`HYPOTHESES-results-2.md`](HYPOTHESES-results-2.md) and [`HYPOTHESES-results-3.md`](HYPOTHESES-results-3.md).**
+
+## E107 — GitHub code repositories view-count principle test
+
+**Result:** `observed`, 2026-10-11, `EXPERIMENTS/107-github-repos-viewcount/`
+
+**Protocol:** Fresh observation per D083. Sample repositories via GitHub Search API using need-related topics (web-framework, database, cache, auth, etc.) vs generic topics (utils, common, core, example, demo, etc.). Classify by topics + description keywords. Compare `stargazers_count` as arrival metric; active = stars>0 AND pushed≤365d.
+
+**Gate evaluation:**
+
+- **G1 (Sample size):** PASS — 77 need-related, 73 random (threshold: 50 each, 100 total)
+- **G2 (Separation):** PASS — Mann-Whitney U=489, p≈0.000, Cliff's δ=0.826
+- **G3 (Effect magnitude):** PASS — 77/77 need-related above random median, Wilson LB=0.952 (>0.60)
+- **G4 (Both categories):** PASS — both groups non-empty
+
+**Key numbers:**
+- Need-related median: 2,796 stars (range: 870 – 179,767)
+- Random median: 325 stars (range: 129 – 12,291)
+- Separation: ~8.6× median difference
+- Need-related active rate: 84.4% (stars>0 & recent pushes)
+- Random active rate: 35.6%
+
+**Conclusion:** View-count principle generalizes strongly to GitHub code repositories via star counts. All four predeclared gates pass. This extends the principle to code hosting platforms, joining package registries (PyPI, NPM, NuGet, Hex.pm, CPAN) and Q&A forums (Stack Exchange, Discourse, Code Review).
+
+**Comparison with other platforms:**
+| Platform | Supported? | Metric | Notes |
+|----------|-----------|--------|-------|
+| PyPI (E071) | ✅ | downloads | 82.9% vs 57.5% active |
+| NPM (E072) | ✅ | downloads | 100% vs 0% active (binary) |
+| NuGet (E102) | ✅ | downloads | Strong separation, all gates met |
+| Hex.pm (E103) | ✅ | downloads | Need median 220× random |
+| CPAN (E0xx) | ✅ | metadata activity | 94.5% vs 86.5% active |
+| Code Review SE (E100) | ✅ | view_count | 73.3% unserved need rate |
+| **GitHub repos (E107)** | ✅ | **stars** | **Need median 8.6× random, δ=0.826** |
+| Maven Central (E090) | ❌ | downloads | 60% vs 52%, not significant |
+| crates.io (E095) | ❌ | downloads | All crates active (100%), no discrimination |
+| Hugging Face Hub (E101) | ❌ | downloads | 12.4% vs 8.6%, not significant |
+| GitHub Issues (E063) | ❌ | — | No arrival field |
