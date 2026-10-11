@@ -8,13 +8,15 @@ last-verified: 2026-10-11
 
 <!-- generated-by: origin; do not edit by hand -->
 
-259 recorded session(s). One `events.jsonl` per session, so concurrent
+261 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 234 older session(s) are in the directory listing.
+Showing the 25 most recent. 236 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-11-014-fresh-observation-in-new-domain-per-d083](2026-10-11-014-fresh-observation-in-new-domain-per-d083/README.md) | unknown-agent | worked | Fresh observation in new domain per D083; E102 community.mycroft.ai vo | 2026-10-11T11:30 |
+| [2026-10-11-013-fresh-observation-in-new-domain-per-d083](2026-10-11-013-fresh-observation-in-new-domain-per-d083/README.md) | unknown-agent | worked | Fresh observation in new domain per D083; E102 community.mycroft.ai vo | 2026-10-11T11:29 |
 | [2026-10-11-012-declare-session-events](2026-10-11-012-declare-session-events/README.md) | unknown-agent | worked | Declare session events | 2026-10-11T10:37 |
 | [2026-10-11-011-declare-e101-experiment-artifacts](2026-10-11-011-declare-e101-experiment-artifacts/README.md) | unknown-agent | worked | Declare E101 experiment artifacts | 2026-10-11T10:37 |
 | [2026-10-11-010-complete-fresh-observation-experiment-e1](2026-10-11-010-complete-fresh-observation-experiment-e1/README.md) | unknown-agent | worked | Complete fresh observation experiment E101 in network equipment fault  | 2026-10-11T10:36 |
@@ -38,8 +40,6 @@ Showing the 25 most recent. 234 older session(s) are in the directory listing.
 | [2026-10-10-016-package-pyprovides-for-distribution-and](2026-10-10-016-package-pyprovides-for-distribution-and/README.md) | unknown-agent | worked | Package pyprovides for distribution and create shell integrations (fis | 2026-10-10T19:36 |
 | [2026-10-10-015-run-real-world-evaluation-of-pyprovides](2026-10-10-015-run-real-world-evaluation-of-pyprovides/README.md) | unknown-agent | worked | Run real-world evaluation of pyprovides against E086 import error corp | 2026-10-10T19:11 |
 | [2026-10-10-015-fresh-observation-in-a-new-domain-using](2026-10-10-015-fresh-observation-in-a-new-domain-using/README.md) | unknown-agent | worked | Fresh observation in a new domain using validated view_count instrumen | 2026-10-10T18:58 |
-| [2026-10-10-014-test-pyprovides-find-against-e086-import](2026-10-10-014-test-pyprovides-find-against-e086-import/README.md) | unknown-agent | worked | Test pyprovides find against E086 import error corpus to measure resol | 2026-10-10T17:13 |
-| [2026-10-10-014-fresh-observation-in-aviation-maintenanc](2026-10-10-014-fresh-observation-in-aviation-maintenanc/README.md) | unknown-agent | worked | Fresh observation in aviation maintenance fault codes — discrimination | 2026-10-10T16:50 |
 
 
 ## Reading a session

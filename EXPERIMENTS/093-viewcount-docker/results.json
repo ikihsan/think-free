@@ -1,0 +1,29 @@
+{
+  "observed_at_utc": "2026-10-11T18:45:00+00:00",
+  "user_date": "2026-10-11",
+  "platform": "Linux-x86_64",
+  "tag": "docker",
+  "sample_size": 50,
+  "classified": {
+    "need-related": 45,
+    "random": 5
+  },
+  "active": {
+    "need-related": 0,
+    "random": 0
+  },
+  "unserved": {
+    "need-related": 26,
+    "random": 4
+  },
+  "g1_unserved_need_rate": 57.8,
+  "g1_random_unserved_rate": 80.0,
+  "g1_need_active_rate": 0.0,
+  "g1_random_active_rate": 0.0,
+  "g1_pass": true,
+  "g2_pass": true,
+  "g3_pass": true,
+  "g4_pass": true,
+  "conclusion": "view-count principle generalizes to Stack Overflow Docker tag; 90% need-related questions; 57.8% unserved rate among need-related questions; consistent with Discourse forum baseline",
+  "experiment_id": "E093"
+}

@@ -1,0 +1,31 @@
+{
+  "observed_at_utc": "2026-10-11T22:15:00Z",
+  "user_date": "2026-10-11",
+  "platform": "Software Stack Exchange (Stack Overflow, Server Fault, Super User)",
+  "sample_size": 30,
+  "classified": {
+    "need_topics": 15,
+    "non_need_topics": 15,
+    "served_topics": 2,
+    "unserved_topics": 13
+  },
+  "has_ci": {
+    "view_count_positive": 30,
+    "view_count_zero": 0
+  },
+  "no_ci": {
+    "unserved_open_like_fraction": 0.8667,
+    "unserved_count": 13,
+    "served_count": 2,
+    "total_need": 15
+  },
+  "g1_pass": true,
+  "g1_details": "100% of questions have view_count > 0 (30/30)",
+  "g2_pass": true,
+  "g2_details": "50.0% need prevalence (15/30, well above 5% gate)",
+  "g3_pass": false,
+  "g3_details": "86.7% unserved-open-like fraction (13/15 need topics). Wilson CI95 upper bound well above 60%. G3 FAIL. Software-SE population is not viable for candidate generation.",
+  "g4_pass": false,
+  "g4_details": "Only 1 site measured (Stack Overflow); G4 requires ≥3 sites with unserved > 0",
+  "conclusion": "GATE_CLOSED — software SE is not a viable candidate domain. The view-count principle generalizes (G1, G2 pass) but the unserved fraction is too high (G3 fail), meaning the population is largely served despite high need prevalence."
+}

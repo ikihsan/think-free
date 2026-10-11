@@ -1,0 +1,47 @@
+{
+  "experiment": "E102",
+  "title": "Fresh observation in voice assistant/AI forum via Discourse",
+  "session": "2026-10-11-013",
+  "date": "2026-10-11",
+  "domain": "community.mycroft.ai (voice assistant/AI forum)",
+  "hypothesis": "The view-count principle generalizes to voice assistant/AI communities on Discourse forums, and the unserved-open-like fraction is consistent with the Discourse platform baseline of ~11-15%.",
+  "sample": {
+    "size": 150,
+    "harvested_pages": 5,
+    "instance_count": 1
+  },
+  "results": {
+    "view_count": {
+      "total": 150,
+      "vc_positive": 150,
+      "vc_positive_rate": 1.0,
+      "gate_g4": "PASS - 100% of topics have view_count > 0"
+    },
+    "classification": {
+      "total": 150,
+      "need_topics": 18,
+      "need_rate": 0.12,
+      "unserved_open_like": 18,
+      "unserved_rate": 0.12,
+      "wilson_ci95": [
+        0.0773,
+        0.1817
+      ],
+      "served_like": 132
+    },
+    "gates": {
+      "G1_retrieval": "PASS - 150 topics harvested from 1 Discourse instance",
+      "G2_control_validity": "N/A - single arm measurement per protocol",
+      "G3_measurement": "PASS - unserved fraction 12.0% CI95 [7.7%, 18.2%]",
+      "G4_view_count": "PASS - 100% VC-positive, exceeds 95% threshold",
+      "overall": "CONFIRMED - principle generalizes to new domain"
+    }
+  },
+  "conclusion": "HYPOTHESIS SUPPORTED. The view-count principle generalizes to community.mycroft.ai (voice assistant/AI forum). Unserved-open-like fraction 12.0% is consistent with Discourse platform invariance (E077: 11.7%, E082: 15.3%, E101: 10.0%). No candidate validated - consistent with the mission's broader finding that unserved needs are served by a free general assistant at high rates.",
+  "raw_evidence": {
+    "harvested_from": "https://community.mycroft.ai/latest.json (pages 0-4)",
+    "classification_rubric": "E074 unserved-open-like: no platform resolution + concrete need + not content/service/price/access/human work request",
+    "view_count_instrument": "100% of topics have view_count > 0 (independent arrivals observed)"
+  },
+  "CORRECTION": null
+}
