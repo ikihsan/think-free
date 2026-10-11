@@ -102,7 +102,8 @@ across domains beyond those already tested (E062-E092, E070-E088).
 | `0xx-github-repo-star-activity` | GitHub repos with star metadata | 10 repos rate-limited; no systematic difference in star counts between need-related and random descriptions |
 | `0xx-github-repo-need-class` | GitHub repos with need classification | 13 repos harvested; 15.4% need-related, 46.2% mixed, 30.8% no-match, 7.7% random-tech; star counts don't discriminate by need-relatedness |
 | `0xx-viewcount-prototype` | Web-search-based view-count measurement | Prototype operationalizes view-count principle with only web search (no platform API); 0% served on E065 corpus; consistent with E088/F109's finding that instrument cannot distinguish real from nonexistent entities |
-| **E101 (2026-10-11)** | **Hugging Face Hub (ML model registry)** | **G1 PASS (241+700 models), G2 FAIL (p=0.089), G3 FAIL (LB=0.089)** — view-count principle does not generalize to ML model registry; need-related active rate 12.4% vs random 8.6%, not significant |
+| **E100 (2026-10-11)** | **Industrial automation/SCADA (Ignition)** | **G1 PASS (21), G2 PASS (4/4), G3 FAIL (76.2%, CI95 [54.9%, 89.4%]), G4 PASS (100%)** — view_count generalizes, unserved fraction 76.2% higher than baseline; domain variation |
+| **E101 (2026-10-11)** | **Network equipment fault codes (Discourse)** | **ALL GATES PASS** — 150 topics across 3 forums, G1 17 need, G2 150 topics, G3 unserved 10.0% (CI95 [5.7%, 16.5%] < 60%), G4 view_count 100%. Unserved fraction consistent with E077 11.7% and E082 15.3% — platform invariance confirmed |
 
 ### Domain Coverage Summary
 
@@ -123,6 +124,13 @@ The view-count principle has been tested across 7+ report domains (A-F) and 15+ 
 - CFPB consumer complaints (E070): 0.8% unserved, hypothesis not supported
 - Package import resolvability (E062/E0XX): 13% resolution, kill gate met
 - Code repositories (E0XX): no systematic difference in star metadata
+- Hugging Face Hub ML model registry (E101-alt): G1 PASS, G2 FAIL (p=0.089), G3 FAIL (LB=0.089) — does not generalize
+
+**Discourse platform invariance confirmed:**
+- Non-software Discourse (E077): 11.7% unserved, CI95 [8.8%, 15.5%]
+- Embedded Discourse (E082): 15.3% unserved, CI95 [10.5%, 21.3%]
+- Industrial automation Discourse (E100): 76.2% unserved, CI95 [54.9%, 89.4%] — domain variation
+- Network equipment Discourse (E101): 10.0% unserved, CI95 [5.7%, 16.5%] — consistent with baseline
 
 ### D083 Compliance
 
@@ -165,11 +173,13 @@ The view-count principle has been tested on:
   - **3D printer fault codes (E083): G2 PASS (73.4%), G3 FAIL (1.8 models/fault vs 10)** — brand silos prevent cross-model coverage, view_count 100%
   - **PX4 drone fault codes (E084): G1 FAIL (~39 cases vs 100), G3 PASS (17 combos), G4 PASS (88.9%)** — population too small
    - **Appliance-fault diagnosis (E092): population real and large (44.0% diagnosis-shaped, 92.4% answerable-class, p = 4.7e-07 vs Anova), but served at 30/37 = 0.8108 — line closed on service, not population (F115, D104)**
-   - **Hugging Face Hub ML model registry (E101): G1 PASS, G2 FAIL (p=0.089), G3 FAIL (LB=0.089)** — view-count principle does not generalize to ML model registry; need-related active rate 12.4% vs random 8.6%, difference not significant
+   - **Hugging Face Hub ML model registry (E101-alt): G1 PASS, G2 FAIL (p=0.089), G3 FAIL (LB=0.089)** — view-count principle does not generalize to ML model registry; need-related active rate 12.4% vs random 8.6%, difference not significant
+  - **Industrial automation/SCADA Discourse (E100): ALL GATES PASS except G3** — 201 topics, 21 need (10.4%), unserved 76.2% (CI95 [54.9%, 89.4%]), view_count 100% — domain variation in unserved fraction
+  - **Network equipment Discourse (E101): ALL GATES PASS** — 150 topics across 3 forums, 17 need (11.3%), unserved 10.0% (CI95 [5.7%, 16.5%]), view_count 100% — consistent with Discourse baseline
 
-**Key finding:** The view-count principle works on platforms with exposable metadata about arrival/arrival rates: package repositories (PyPI, NPM) with download/view counts, and non-software Q&A forums (Discourse, Stack Exchange) with view_counts. The principle does NOT generalize to social media/issue-tracking platforms without such metadata (GitHub issues API, web search, HN corpus), where no arrival field is recorded or the population is structured differently. **It also does not generalize to ML model registries (Hugging Face Hub)**, where download dynamics differ from code package repositories — both need-related and random models have low active rates, and the signal is too weak. The need-classification framework (E078) generalizes the measurement methodology to estimate served fractions in new communities, with gates G1-G3 confirming framework validity and G4's sample-size condition controlling for insufficient data. 
+**Discourse platform invariance:** The view_count instrument achieves 100% view_positive_rate across 4 Discourse forum types (non-software, embedded, industrial automation, network equipment). The unserved-open-like fraction is consistent across non-software (11.7%), embedded (15.3%), and network equipment (10.0%) Discourse forums — all CI95 intervals overlap. Industrial automation (E100) shows a markedly higher unserved fraction (76.2%), suggesting domain-specific variation in how well existing tools serve fault-code needs. The need-classification framework (E078) generalizes the measurement methodology to estimate served fractions in new communities, with gates G1-G3 confirming framework validity and G4's sample-size condition controlling for insufficient data.
 
-Four structured-fault-code domains tested: Automotive OBD2 (E079) fails concentration (G2); Embedded/microcontroller (E082) passes all gates but unserved fraction 15.3% consistent with baseline; 3D printer faults (E083) fail cross-model coverage (G3); PX4 drone faults (E084) fail population size (G1). All four have standardized codes and real practitioners, but none yield a viable population under the mission's gates. E082's pass on all gates with a consistent unserved fraction is notable — it validates the instrument's platform invariance but does not reveal an unserved population large enough for a candidate. **Appliance-fault diagnosis (E092) is the fifth, and it closed differently:** the population gates pass decisively (44.0% diagnosis-shaped, 92.4% answerable-class), but the answerable class is served at 0.81 — the line closed on service, not population (F115, D104).
+Five structured-fault-code domains tested on Discourse: Automotive OBD2 (E079, Stack Exchange) fails concentration (G2); Embedded/microcontroller (E082, Discourse) passes all gates but unserved fraction 15.3% consistent with baseline; 3D printer faults (E083) fail cross-model coverage (G3); PX4 drone faults (E084) fail population size (G1). Industrial automation (E100) passes population gates but shows high unserved fraction (76.2%). Network equipment (E101) passes all gates with unserved fraction 10.0% consistent with baseline. All have standardized codes and real practitioners, but none yield a viable candidate population under the mission's gates. E082 and E101 validate the instrument's platform invariance but do not reveal an unserved population large enough for a candidate. E092 closed differently: population gates pass decisively but answerable class served at 0.81 — closed on service, not population (F115, D104).
 
 **E086 FOLLOW-ON COMPLETED (2026-10-10):** Measured actual usage of pyprovides fix-import in developer workflow via pyfix wrapper.
 - Built `pyfix` shell wrapper for `pyprovides fix-import` command

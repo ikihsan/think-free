@@ -8,13 +8,16 @@ last-verified: 2026-10-11
 
 <!-- generated-by: origin; do not edit by hand -->
 
-256 recorded session(s). One `events.jsonl` per session, so concurrent
+259 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 231 older session(s) are in the directory listing.
+Showing the 25 most recent. 234 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-11-012-declare-session-events](2026-10-11-012-declare-session-events/README.md) | unknown-agent | worked | Declare session events | 2026-10-11T10:37 |
+| [2026-10-11-011-declare-e101-experiment-artifacts](2026-10-11-011-declare-e101-experiment-artifacts/README.md) | unknown-agent | worked | Declare E101 experiment artifacts | 2026-10-11T10:37 |
+| [2026-10-11-010-complete-fresh-observation-experiment-e1](2026-10-11-010-complete-fresh-observation-experiment-e1/README.md) | unknown-agent | worked | Complete fresh observation experiment E101 in network equipment fault  | 2026-10-11T10:36 |
 | [2026-10-11-009-design-fresh-observation-experiment-in-a](2026-10-11-009-design-fresh-observation-experiment-in-a/README.md) | unknown-agent | worked | Design fresh observation experiment in a new domain per D083, avoiding | 2026-10-11T09:59 |
 | [2026-10-11-007-design-and-run-a-fresh-observation-exper](2026-10-11-007-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | **unfinished** | Design and run a fresh observation experiment on lab instrument error  | 2026-10-11T06:56 |
 | [2026-10-11-004-e092-test-whether-appliance-fault-diagno](2026-10-11-004-e092-test-whether-appliance-fault-diagno/README.md) | unknown-agent | worked | E092: test whether appliance-fault diagnosis is a general need outside | 2026-10-11T03:53 |
@@ -37,9 +40,6 @@ Showing the 25 most recent. 231 older session(s) are in the directory listing.
 | [2026-10-10-015-fresh-observation-in-a-new-domain-using](2026-10-10-015-fresh-observation-in-a-new-domain-using/README.md) | unknown-agent | worked | Fresh observation in a new domain using validated view_count instrumen | 2026-10-10T18:58 |
 | [2026-10-10-014-test-pyprovides-find-against-e086-import](2026-10-10-014-test-pyprovides-find-against-e086-import/README.md) | unknown-agent | worked | Test pyprovides find against E086 import error corpus to measure resol | 2026-10-10T17:13 |
 | [2026-10-10-014-fresh-observation-in-aviation-maintenanc](2026-10-10-014-fresh-observation-in-aviation-maintenanc/README.md) | unknown-agent | worked | Fresh observation in aviation maintenance fault codes — discrimination | 2026-10-10T16:50 |
-| [2026-10-10-013-prototype-query-time-reverse-lookup-give](2026-10-10-013-prototype-query-time-reverse-lookup-give/README.md) | opencode | worked | Prototype query-time reverse lookup: given a module name, find which P | 2026-10-10T15:23 |
-| [2026-10-10-012-begin-fresh-observation-in-structured-fa](2026-10-10-012-begin-fresh-observation-in-structured-fa/README.md) | unknown-agent | worked | Begin fresh observation in structured fault/error-code domains by read | 2026-10-10T14:09 |
-| [2026-10-10-011-measure-real-python-import-error-reports](2026-10-10-011-measure-real-python-import-error-reports/README.md) | unknown-agent | worked | Measure real Python import-error reports that name a module and no dis | 2026-10-10T12:26 |
 
 
 ## Reading a session

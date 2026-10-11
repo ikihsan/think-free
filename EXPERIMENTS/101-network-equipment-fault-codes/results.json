@@ -1,0 +1,87 @@
+{
+  "aggregate": {
+    "all_gates_pass": true,
+    "gates": {
+      "G1_need_prevalence": true,
+      "G2_control_validity": true,
+      "G3_unserved_fraction": true,
+      "G4_view_count": true
+    },
+    "summary": {
+      "need_count": 17,
+      "need_fraction": 0.11333333333333333,
+      "served_count": 2,
+      "served_fraction": 0.013333333333333334,
+      "total": 150,
+      "unserved_open_like_count": 15,
+      "unserved_open_like_fraction": 0.1,
+      "vc_positive": 150,
+      "view_positive_rate": 1.0
+    }
+  },
+  "forums": [
+    {
+      "domain": "forum.mikrotik.com",
+      "gates": {
+        "G1_need_prevalence": false,
+        "G2_control_validity": false,
+        "G3_unserved_fraction": true,
+        "G4_view_count": true
+      },
+      "summary": {
+        "need_count": 9,
+        "need_fraction": 0.18,
+        "not_need_count": 41,
+        "served_count": 2,
+        "served_fraction": 0.04,
+        "total": 50,
+        "unserved_open_like_count": 7,
+        "unserved_open_like_fraction": 0.14,
+        "vc_positive": 50,
+        "view_positive_rate": 1.0
+      }
+    },
+    {
+      "domain": "community.cambiumnetworks.com",
+      "gates": {
+        "G1_need_prevalence": false,
+        "G2_control_validity": false,
+        "G3_unserved_fraction": true,
+        "G4_view_count": true
+      },
+      "summary": {
+        "need_count": 2,
+        "need_fraction": 0.04,
+        "not_need_count": 48,
+        "served_count": 0,
+        "served_fraction": 0.0,
+        "total": 50,
+        "unserved_open_like_count": 2,
+        "unserved_open_like_fraction": 0.04,
+        "vc_positive": 50,
+        "view_positive_rate": 1.0
+      }
+    },
+    {
+      "domain": "community.f5.com",
+      "gates": {
+        "G1_need_prevalence": false,
+        "G2_control_validity": false,
+        "G3_unserved_fraction": true,
+        "G4_view_count": true
+      },
+      "summary": {
+        "need_count": 6,
+        "need_fraction": 0.12,
+        "not_need_count": 44,
+        "served_count": 0,
+        "served_fraction": 0.0,
+        "total": 50,
+        "unserved_open_like_count": 6,
+        "unserved_open_like_fraction": 0.12,
+        "vc_positive": 50,
+        "view_positive_rate": 1.0
+      }
+    }
+  ]
+}
