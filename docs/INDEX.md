@@ -346,6 +346,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/100-lab-instrument-error-codes/` | `docs/INDEX.md` | active | 2026-10-11 | Session: 2026-10-11-007, VM instance-20260717-0947, observed 2026-10-11. |
 | `EXPERIMENTS/101-huggingface-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/101-stackoverflow-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | owner: docs/INDEX.md |
+| `EXPERIMENTS/102-nuget-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |

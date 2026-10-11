@@ -297,5 +297,3 @@ when* clauses.
 **Uncertainty:** Whether real receipts/loyalty exports have sufficient identifier coverage; whether store-brand UPC divergence breaks matching; whether FDA recall UPC sparsity (~40%) makes matching infeasible; whether consumers would use such a tool.
 
 **Decision:** `hold` — mechanism passes synthetic kill gates but real-world identifier linkage is the unaddressed bottleneck. Loyalty programs already serve their members. Not a candidate for product engineering.
-
-**Reconsider when:** Real receipt/loyalty corpus with ground truth is available for testing; or a store-agnostic purchase data source with UPCs emerges.
