@@ -32,8 +32,12 @@ logs/
 .origin/
 tools/__pycache__/
 
-# Session event streams are tracked; session working directories are not
-sessions/*/
+# Session event streams are tracked; session working directories are not.
+# The contents pattern is load-bearing: git cannot re-include a file whose
+# parent directory is excluded, so `sessions/*/` makes the negations dead and
+# `finish --push` cannot commit a session record without -f (observed on
+# git 2.25.1, 2026-10-11).
+sessions/*/*
 !sessions/*/events.jsonl
 !sessions/*/commands.log
 !sessions/*/README.md
