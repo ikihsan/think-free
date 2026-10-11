@@ -78,8 +78,6 @@ Skill bodies under `.agents/skills/` are indexed by
 |---|---|---|---|---|
 | [`sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md`](../sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md) | `docs/INDEX.md` | stale | 2026-10-08 | Date: 2026-10-07 |
 | [`sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md`](../sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session 2026-10-08-013, VM instance-20260717-0944, 2026-10-08. Defect 24. |
-| [`sessions/2026-10-10-008-synthesize-5-domain-unserved-fraction-me/synthesis.md`](../sessions/2026-10-10-008-synthesize-5-domain-unserved-fraction-me/synthesis.md) | `—` | — | — | ## Observation |
-| [`sessions/2026-10-10-009-measure-6th-domain-hvac/synthesis.md`](../sessions/2026-10-10-009-measure-6th-domain-hvac/synthesis.md) | `—` | — | — | ## Observation |
 | [`sessions/README.md`](../sessions/README.md) | `docs/INDEX.md` | active | 2026-10-03 | The append-only record of every working session in this repository. |
 
 ## tasks
@@ -292,7 +290,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/071-pip-name-guard-prototype/` | `docs/INDEX.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/071-viewcount-denominator/` | `docs/INDEX.md` | complete | 2026-10-09 | Date: 2026-10-09 · Session: 2026-10-09-002 · Status: complete — |
 | `EXPERIMENTS/072-fresh-observation-protocol/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 met, G3 measured, G4 not applicable to prototype |
-| `EXPERIMENTS/072-git-file-presence/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | 1 documents |
+| `EXPERIMENTS/072-git-file-presence/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 |  |
 | `EXPERIMENTS/072-merchant-noise-raw/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 did not fire. No |
 | `EXPERIMENTS/072-npm-view-count-prototype/` | `docs/INDEX.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/073-piecewise-price/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 fail. The pwc repair |
@@ -335,18 +333,34 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/091-vendor-unsure-recurrence/` | `docs/INDEX.md` | active | 2026-10-11 | 3 documents |
 | `EXPERIMENTS/092-appliance-diagnosis/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-11 | 2 documents |
 | `EXPERIMENTS/092-comparison-forum-vs-websearch/` | `docs/INDEX.md` | active | 2026-10-11 | 3 documents |
+| `EXPERIMENTS/092-viewcount-maven/` | `EXPERIMENTS/092-viewcount-maven` | active | 2026-10-11 | Status: Experiment in progress. |
 | `EXPERIMENTS/093-fresh-observation-lab-instrument-errors/` | `docs/INDEX.md` | active | 2026-10-11 | 3 documents |
+| `EXPERIMENTS/093-viewcount-docker/` | `EXPERIMENTS/093-viewcount-docker` | active | 2026-10-11 | Status: Experiment in progress. |
 | `EXPERIMENTS/094-k8s-discourse-viewcount/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-11 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/094-viewcount-kubernetes/` | `EXPERIMENTS/094-viewcount-kubernetes` | active | 2026-10-11 | Status: Experiment in progress. |
 | `EXPERIMENTS/095-crates-io-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
+| `EXPERIMENTS/095-viewcount-discussions/` | `EXPERIMENTS/095-viewcount-discussions` | active | 2026-10-11 | Status: Experiment in progress. |
 | `EXPERIMENTS/096-aviation-view-count/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
+| `EXPERIMENTS/096-viewcount-aws/` | `EXPERIMENTS/096-viewcount-aws` | active | 2026-10-11 | Status: Experiment in progress. |
+| `EXPERIMENTS/097-pyproject-toml/` | `EXPERIMENTS/097-pyproject-toml` | active | 2026-10-11 | Status: Experiment in progress. |
 | `EXPERIMENTS/097-ros-error-codes-fresh/` | `docs/INDEX.md` | active | 2026-10-10 | 2 documents |
 | `EXPERIMENTS/098-aviation-discrimination-test/` | `docs/INDEX.md` | active | 2026-10-10 | 2 documents |
 | `EXPERIMENTS/098-home-assistant-fresh/` | `docs/INDEX.md` | active | 2026-10-11 | 2 documents |
+| `EXPERIMENTS/098-viewcount-sf/` | `EXPERIMENTS/098-viewcount-sf` | active | 2026-10-11 | Status: Experiment in progress. |
 | `EXPERIMENTS/099-medical-device-discrimination/` | `docs/INDEX.md` | active | 2026-10-10 | 1 documents |
+| `EXPERIMENTS/099-viewcount-superuser/` | `EXPERIMENTS/099-viewcount-superuser` | active | 2026-10-11 | Status: Experiment in progress. |
 | `EXPERIMENTS/100-lab-instrument-error-codes/` | `docs/INDEX.md` | active | 2026-10-11 | Session: 2026-10-11-007, VM instance-20260717-0947, observed 2026-10-11. |
+| `EXPERIMENTS/100-viewcount-cre/` | `EXPERIMENTS/100-viewcount-cre` | active | 2026-10-11 | Status: Experiment in progress. |
 | `EXPERIMENTS/101-huggingface-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
+| `EXPERIMENTS/101-network-equipment-fault-codes/` | `docs/INDEX.md` | active | 2026-10-11 | Session: 2026-10-11-XXX, VM instance-20260717-0944, observed 2026-10-11. |
 | `EXPERIMENTS/101-stackoverflow-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | owner: docs/INDEX.md |
+| `EXPERIMENTS/101-viewcount-terraform/` | `EXPERIMENTS/101-viewcount-terraform` | active | 2026-10-11 | Status: Experiment in progress. |
 | `EXPERIMENTS/102-nuget-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
+| `EXPERIMENTS/102-viewcount-vim/` | `EXPERIMENTS/102-viewcount-vim` | active | 2026-10-11 | Status: Experiment in progress. |
+| `EXPERIMENTS/103-hex-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
+| `EXPERIMENTS/103-viewcount-emacs/` | `EXPERIMENTS/103-viewcount-emacs` | active | 2026-10-11 | Status: Experiment in progress. |
+| `EXPERIMENTS/104-ci-adoption/` | `EXPERIMENTS/104-ci-adoption` | active | 2026-10-11 | Status: Experiment in progress. |
+| `EXPERIMENTS/105-software-se-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | Status: Experiment complete. |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |

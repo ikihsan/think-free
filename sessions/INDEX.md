@@ -8,19 +8,25 @@ last-verified: 2026-10-11
 
 <!-- generated-by: origin; do not edit by hand -->
 
-266 recorded session(s). One `events.jsonl` per session, so concurrent
+272 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 241 older session(s) are in the directory listing.
+Showing the 25 most recent. 247 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-11-025-design-and-run-a-fresh-observation-exper](2026-10-11-025-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment in a new domain per D083 | 2026-10-11T16:43 |
 | [2026-10-11-019-fix-session-018-integrity-errors-declare](2026-10-11-019-fix-session-018-integrity-errors-declare/README.md) | unknown-agent | worked | Fix session 018 integrity errors: declare root results.json, update FA | 2026-10-11T12:26 |
 | [2026-10-11-018-run-a-fresh-observation-experiment-in-a](2026-10-11-018-run-a-fresh-observation-experiment-in-a/README.md) | unknown-agent | worked | Run a fresh observation experiment in a new domain per D083, testing v | 2026-10-11T12:19 |
 | [2026-10-11-017-design-and-run-fresh-observation-experim](2026-10-11-017-design-and-run-fresh-observation-experim/README.md) | unknown-agent | worked | Design and run fresh observation experiment on crates.io (Rust package | 2026-10-11T11:55 |
+| [2026-10-11-014-fresh-observation-in-new-domain-per-d083](2026-10-11-014-fresh-observation-in-new-domain-per-d083/README.md) | unknown-agent | worked | Fresh observation in new domain per D083; E102 community.mycroft.ai vo | 2026-10-11T11:30 |
+| [2026-10-11-013-fresh-observation-in-new-domain-per-d083](2026-10-11-013-fresh-observation-in-new-domain-per-d083/README.md) | unknown-agent | worked | Fresh observation in new domain per D083; E102 community.mycroft.ai vo | 2026-10-11T11:29 |
 | [2026-10-11-012-log-experiment-094-artifacts-and-update](2026-10-11-012-log-experiment-094-artifacts-and-update/README.md) | unknown-agent | worked | Log Experiment 094 artifacts and update STATE documents with results | 2026-10-11T09:57 |
+| [2026-10-11-012-declare-session-events](2026-10-11-012-declare-session-events/README.md) | unknown-agent | worked | Declare session events | 2026-10-11T10:37 |
 | [2026-10-11-011-design-and-run-a-fresh-observation-exper](2026-10-11-011-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment in a new domain per D083 | 2026-10-11T09:49 |
+| [2026-10-11-011-declare-e101-experiment-artifacts](2026-10-11-011-declare-e101-experiment-artifacts/README.md) | unknown-agent | worked | Declare E101 experiment artifacts | 2026-10-11T10:37 |
 | [2026-10-11-010-record-e090-maven-central-experiment-res](2026-10-11-010-record-e090-maven-central-experiment-res/README.md) | unknown-agent | worked | Record E090 Maven Central experiment results and update mission state | 2026-10-11T09:13 |
+| [2026-10-11-010-complete-fresh-observation-experiment-e1](2026-10-11-010-complete-fresh-observation-experiment-e1/README.md) | unknown-agent | worked | Complete fresh observation experiment E101 in network equipment fault  | 2026-10-11T10:36 |
 | [2026-10-11-009-run-a-fresh-observation-experiment-in-a](2026-10-11-009-run-a-fresh-observation-experiment-in-a/README.md) | unknown-agent | worked | Run a fresh observation experiment in a new untested domain to map vie | 2026-10-11T08:48 |
 | [2026-10-11-009-design-fresh-observation-experiment-in-a](2026-10-11-009-design-fresh-observation-experiment-in-a/README.md) | unknown-agent | worked | Design fresh observation experiment in a new domain per D083, avoiding | 2026-10-11T09:59 |
 | [2026-10-11-008-build-and-evaluate-discrimination-test-p](2026-10-11-008-build-and-evaluate-discrimination-test-p/README.md) | unknown-agent | worked | Build and evaluate discrimination test prototype for view-count princi | 2026-10-11T08:12 |
@@ -34,12 +40,6 @@ Showing the 25 most recent. 241 older session(s) are in the directory listing.
 | [2026-10-11-002-land-e100-evidence-repair-the-gitignore](2026-10-11-002-land-e100-evidence-repair-the-gitignore/README.md) | unknown-agent | worked | Land E100 evidence, repair the .gitignore defect that dropped 26 sessi | 2026-10-11T06:14 |
 | [2026-10-11-001-test-the-contested-pyprovides-line-closu](2026-10-11-001-test-the-contested-pyprovides-line-closu/README.md) | unknown-agent | worked | Test the contested pyprovides line-closure by hand-reading E091's 25 m | 2026-10-11T00:26 |
 | [2026-10-11-001-measure-pyprovides-resolver-correctness](2026-10-11-001-measure-pyprovides-resolver-correctness/README.md) | unknown-agent | worked | Measure pyprovides resolver correctness on real independent import-err | 2026-10-11T01:56 |
-| [2026-10-10-022-prepare-pyprovides-for-pypi-publication](2026-10-10-022-prepare-pyprovides-for-pypi-publication/README.md) | unknown-agent | worked | Prepare pyprovides for PyPI publication and measure adoption | 2026-10-11T00:02 |
-| [2026-10-10-021-package-pyprovides-resolver-for-pypi-dis](2026-10-10-021-package-pyprovides-resolver-for-pypi-dis/README.md) | unknown-agent | worked | Package pyprovides resolver for PyPI distribution and prepare shell in | 2026-10-10T22:39 |
-| [2026-10-10-020-measure-pyprovides-adoption-and-evaluate](2026-10-10-020-measure-pyprovides-adoption-and-evaluate/README.md) | unknown-agent | worked | Measure pyprovides adoption and evaluate integrations | 2026-10-10T22:22 |
-| [2026-10-10-019-publish-pyprovides-to-pypi-and-measure-a](2026-10-10-019-publish-pyprovides-to-pypi-and-measure-a/README.md) | unknown-agent | worked | Publish pyprovides to PyPI and measure adoption | 2026-10-10T20:51 |
-| [2026-10-10-018-finalize-pyprovides-packaging-for-distri](2026-10-10-018-finalize-pyprovides-packaging-for-distri/README.md) | unknown-agent | worked | Finalize pyprovides packaging for distribution and record outcomes | 2026-10-10T19:51 |
-| [2026-10-10-018-decide-on-next-action-for-think-free-mis](2026-10-10-018-decide-on-next-action-for-think-free-mis/README.md) | unknown-agent | worked | Decide on next action for Think Free mission | 2026-10-10T19:51 |
 
 
 ## Reading a session
