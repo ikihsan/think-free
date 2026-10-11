@@ -106,6 +106,7 @@ across domains beyond those already tested (E062-E092, E070-E088).
 | **E101 (2026-10-11)** | **Hugging Face Hub (ML model registry)** | **G1 PASS (241+700 models), G2 FAIL (p=0.089), G3 FAIL (LB=0.089)** — view-count principle does not generalize to ML model registry; need-related active rate 12.4% vs random 8.6%, not significant |
 | **E090 (2026-10-11)** | **Maven Central (Java/JAR packages)** | **G1 passed (28 classified), G3 FAIL** — need-related activity rate 60% vs random 52.2%, difference 7.8 pp (CI95 lower bound −0.41 < 10 pp), G4 FAIL — arrival-field rate 53.6% (below 95% threshold). Principle does not generalize to Maven Central POM metadata. |
 | **E095 (2026-10-11)** | **crates.io (Rust package registry)** | **G1 FAIL (70 need-related), G2 FAIL (p=0.082/0.139), G4 PASS** — all crates have recent_downloads > 0 (100% active), no binary discrimination; threshold-dependent results inconsistent; random crates have higher total downloads. Principle does not robustly generalize to crates.io. |
+| **E103 (2026-10-11)** | **Hex.pm (Elixir/Erlang package registry)** | **ALL GATES PASS** — 200 packages (100 need-related, 100 random), G2 p≈0.000 (Cliff's δ=0.861), G3 Wilson LB=0.946 (99/100 need-related above random median). Need median 80,078 vs random 365 (220×). Principle generalizes strongly to Elixir/Erlang ecosystem. |
 
 ### Domain Coverage Summary
 
@@ -114,6 +115,8 @@ The view-count principle has been tested across 7+ report domains (A-F) and 15+ 
 **Works reliably:**
 - PyPI (E071): 82.93% active vs 57.50% random, all gates met
 - NPM (E072): supported, 100% need-related active vs 0% random
+- **NuGet (E102): all gates pass, p=1.7e-14, Cliff's δ=0.996**
+- **Hex.pm (E103): all gates pass, p≈0.000, Cliff's δ=0.861, need median 220× random**
 - Discourse forums (E077): all 4 gates pass, 11.7% unserved fraction
 - Stack Exchange non-software (E062): 17/20 unremedied needs served
 
@@ -136,10 +139,10 @@ The view-count principle has been tested across 7+ report domains (A-F) and 15+ 
 ### D083 Compliance
 
 Per D083, each experiment must test a genuinely new domain/angle not previously 
-tested or rehash closed ground. The 9 experiments above each explore different 
+tested or rehash closed ground. The 10 experiments above each explore different 
 domain axes: Python import resolvability, PyPI keyword classification, CRAN R packages, 
 GitHub repo star metadata, GitHub repo need classification, web-search prototype,
-Kubernetes Discourse, Maven Central, and Hugging Face Hub ML model registry.
+Kubernetes Discourse, Maven Central, Hugging Face Hub ML model registry, and **Hex.pm (Elixir/Erlang package registry)**.
 
 ### Next Action
 
@@ -167,6 +170,8 @@ The view-count principle has been tested on:
   - Web search (E065): 0 results with meaningful content
   - PyPI metadata (E071): supported (82.93% vs 57.50%, all gates met)
   - NPM metadata (E072): supported (82.93% vs 57.50% analog, all gates met; 100% need-related active vs 0% random)
+  - **NuGet (E102): supported (all gates pass, p=1.7e-14, Cliff's δ=0.996)**
+  - **Hex.pm (E103): supported (all gates pass, p≈0.000, Cliff's δ=0.861, need median 220× random)**
   - **Discourse forums (E077): all 4 gates pass** — view_count principle works on non-software Q&A forums, 11.7% unserved-open-like fraction, CI95 [8.8%, 15.5%]
   - **Need-classification prototype (E078): framework validated** — G1-G3 pass demonstrates the three-clause unserved-open-like rubric and classification rules are operational; G4's sample-size requirement is by design (needs ≥2 unserved threads to detect served fraction < 100%)
   - **Automotive OBD2 codes (E079): G2 FAIL** — 29% code concentration vs 30% threshold, high dispersion (159 codes/262 mentions), G1/G4 blocked by API throttle
@@ -179,7 +184,7 @@ The view-count principle has been tested on:
   - **Hugging Face Hub ML model registry (E101): G1 PASS, G2 FAIL (p=0.089), G3 FAIL (LB=0.089)** — view-count principle does not generalize to ML model registry; need-related active rate 12.4% vs random 8.6%, difference not significant
   - **crates.io Rust package registry (E095): G1 FAIL (70 need-related), G2 FAIL (p=0.082/0.139), G4 PASS** — all crates have recent_downloads > 0 (100% active), no binary discrimination; threshold-dependent results inconsistent; random crates have higher total downloads. Principle does not robustly generalize to crates.io.
 
-**Key finding:** The view-count principle works on platforms with exposable metadata about arrival/arrival rates: package repositories (PyPI, NPM) with download/view counts, and non-software Q&A forums (Discourse, Stack Exchange) with view_counts. The principle does NOT generalize to social media/issue-tracking platforms without such metadata (GitHub issues API, web search, HN corpus), nor to Maven Central (Java/JAR packages), where the activity-rate difference between need-related and random packages is not observed (need-related 60% vs random 52.2%, difference 7.8 pp, Wilson CI95 lower bound −0.41 < 10 pp) and the arrival-field rate is only 53.6% (below the 95% threshold). **It also does not generalize to ML model registries (Hugging Face Hub)**, where download dynamics differ from code package repositories — both need-related and random models have low active rates, and the signal is too weak. **It also does not robustly generalize to crates.io (Rust package registry)**, where all crates have recent_downloads > 0 (100% active), eliminating binary discrimination, and threshold-based analyses yield inconsistent results. The need-classification framework (E078) generalizes the measurement methodology to estimate served fractions in new communities, with gates G1-G3 confirming framework validity and G4's sample-size condition controlling for insufficient data. **Kubernetes Discourse shows the view-count separation effect (G2) holds on a software-focused Discourse forum, but the unserved fraction is drastically higher than other Discourse forums — suggesting forum culture/community dynamics dominate the unserved metric.**
+**Key finding:** The view-count principle works on platforms with exposable metadata about arrival/arrival rates: package repositories (PyPI, NPM, **NuGet, Hex.pm**) with download/view counts, and non-software Q&A forums (Discourse, Stack Exchange) with view_counts. The principle does NOT generalize to social media/issue-tracking platforms without such metadata (GitHub issues API, web search, HN corpus), nor to Maven Central (Java/JAR packages), where the activity-rate difference between need-related and random packages is not observed (need-related 60% vs random 52.2%, difference 7.8 pp, Wilson CI95 lower bound −0.41 < 10 pp) and the arrival-field rate is only 53.6% (below the 95% threshold). **It also does not generalize to ML model registries (Hugging Face Hub)**, where download dynamics differ from code package repositories — both need-related and random models have low active rates, and the signal is too weak. **It also does not robustly generalize to crates.io (Rust package registry)**, where all crates have recent_downloads > 0 (100% active), eliminating binary discrimination, and threshold-based analyses yield inconsistent results. The need-classification framework (E078) generalizes the measurement methodology to estimate served fractions in new communities, with gates G1-G3 confirming framework validity and G4's sample-size condition controlling for insufficient data. **Kubernetes Discourse shows the view-count separation effect (G2) holds on a software-focused Discourse forum, but the unserved fraction is drastically higher than other Discourse forums — suggesting forum culture/community dynamics dominate the unserved metric.** **Hex.pm shows the strongest separation yet observed (need median 220× random median), reinforcing that mature, infrastructure-heavy package ecosystems exhibit the principle.**
 
 Four structured-fault-code domains tested: Automotive OBD2 (E079) fails concentration (G2); Embedded/microcontroller (E082) passes all gates but unserved fraction 15.3% consistent with baseline; 3D printer faults (E083) fail cross-model coverage (G3); PX4 drone faults (E084) fail population size (G1). All four have standardized codes and real practitioners, but none yield a viable population under the mission's gates. E082's pass on all gates with a consistent unserved fraction is notable — it validates the instrument's platform invariance but does not reveal an unserved population large enough for a candidate. **Appliance-fault diagnosis (E092) is the fifth, and it closed differently:** the population gates pass decisively (44.0% diagnosis-shaped, 92.4% answerable-class), but the answerable class is served at 0.81 — the line closed on service, not population (F115, D104).
 
