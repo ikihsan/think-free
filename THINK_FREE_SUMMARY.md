@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-11
+-->
+
 # Think Free — Session Summary (2026-10-11)
 
 ## Investigation Focus

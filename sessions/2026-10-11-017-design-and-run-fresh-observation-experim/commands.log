@@ -1,0 +1,456 @@
+==============================================================================
+[seq 2] 2026-10-11T10:28:26+00:00
+$ curl -s https://crates.io/api/v1/crates?page=1&per_page=5
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 276  redactions: none
+==============================================================================
+[seq 3] 2026-10-11T10:41:17+00:00
+$ python3 EXPERIMENTS/095-crates-io-viewcount/collect.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+============================================================
+E095: crates.io view-count data collection
+============================================================
+
+1. Fetching need-related crates...
+  Fetching debugging page 1...
+HTTP Error 404 for https://crates.io/api/v1/keywords/debugging/crates?per_page=100&page=1: Not Found
+  debugging: 0 crates
+  Fetching error-handling page 1...
+HTTP Error 404 for https://crates.io/api/v1/keywords/error-handling/crates?per_page=100&page=1: Not Found
+  error-handling: 0 crates
+  Fetching profiling page 1...
+HTTP Error 404 for https://crates.io/api/v1/keywords/profiling/crates?per_page=100&page=1: Not Found
+  profiling: 0 crates
+  Fetching logging page 1...
+HTTP Error 404 for https://crates.io/api/v1/keywords/logging/crates?per_page=100&page=1: Not Found
+  logging: 0 crates
+  Fetching monitoring page 1...
+HTTP Error 404 for https://crates.io/api/v1/keywords/monitoring/crates?per_page=100&page=1: Not Found
+  monitoring: 0 crates
+  Fetching tracing page 1...
+HTTP Error 404 for https://crates.io/api/v1/keywords/tracing/crates?per_page=100&page=1: Not Found
+  tracing: 0 crates
+  Fetching diagnostics page 1...
+HTTP Error 404 for https://crates.io/api/v1/keywords/diagnostics/crates?per_page=100&page=1: Not Found
+  diagnostics: 0 crates
+  Fetching observability page 1...
+HTTP Error 404 for https://crates.io/api/v1/keywords/observability/crates?per_page=100&page=1: Not Found
+  observability: 0 crates
+  Fetching benchmarking page 1...
+HTTP Error 404 for https://crates.io/api/v1/keywords/benchmarking/crates?per_page=100&page=1: Not Found
+  benchmarking: 0 crates
+  Fetching error page 1...
+HTTP Error 404 for https://crates.io/api/v1/keywords/error/crates?per_page=100&page=1: Not Found
+  error: 0 crates
+  Fetching panic page 1...
+HTTP Error 404 for https://crates.io/api/v1/keywords/panic/crates?per_page=100&page=1: Not Found
+  panic: 0 crates
+  Fetching backtrace page 1...
+HTTP Error 404 for https://crates.io/api/v1/keywords/backtrace/crates?per_page=100&page=1: Not Found
+  backtrace: 0 crates
+
+Total unique need-related crates: 0
+Need-related sample size: 0
+
+2. Fetching random crates...
+  Fetching random page 1811 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1811: Bad Request
+  Fetching random page 1151 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1151: Bad Request
+  Fetching random page 1983 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1983: Bad Request
+  Fetching random page 2297 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2297: Bad Request
+  Fetching random page 2474 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2474: Bad Request
+  Fetching random page 2798 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2798: Bad Request
+  Fetching random page 683 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=683: Bad Request
+  Fetching random page 1052 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1052: Bad Request
+  Fetching random page 2800 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2800: Bad Request
+  Fetching random page 2511 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2511: Bad Request
+  Fetching random page 406 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=406: Bad Request
+  Fetching random page 3249 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=3249: Bad Request
+  Fetching random page 1218 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1218: Bad Request
+  Fetching random page 588 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=588: Bad Request
+  Fetching random page 820 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=820: Bad Request
+  Fetching random page 3424 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=3424: Bad Request
+  Fetching random page 3431 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=3431: Bad Request
+  Fetching random page 2683 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2683: Bad Request
+  Fetching random page 2660 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2660: Bad Request
+  Fetching random page 1061 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1061: Bad Request
+  Fetching random page 1625 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1625: Bad Request
+  Fetching random page 1125 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1125: Bad Request
+  Fetching random page 2006 (got 0/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2006: Bad Request
+  Fetching random page 66 (got 0/200)...
+  Fetching random page 382 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=382: Bad Request
+  Fetching random page 785 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=785: Bad Request
+  Fetching random page 3207 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=3207: Bad Request
+  Fetching random page 1775 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1775: Bad Request
+  Fetching random page 3121 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=3121: Bad Request
+  Fetching random page 3456 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=3456: Bad Request
+  Fetching random page 1190 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1190: Bad Request
+  Fetching random page 1630 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1630: Bad Request
+  Fetching random page 357 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=357: Bad Request
+  Fetching random page 2996 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2996: Bad Request
+  Fetching random page 2366 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2366: Bad Request
+  Fetching random page 2036 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2036: Bad Request
+  Fetching random page 1938 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1938: Bad Request
+  Fetching random page 2484 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2484: Bad Request
+  Fetching random page 608 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=608: Bad Request
+  Fetching random page 2655 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2655: Bad Request
+  Fetching random page 611 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=611: Bad Request
+  Fetching random page 1122 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1122: Bad Request
+  Fetching random page 842 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=842: Bad Request
+  Fetching random page 1170 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1170: Bad Request
+  Fetching random page 276 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=276: Bad Request
+  Fetching random page 1443 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1443: Bad Request
+  Fetching random page 3432 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=3432: Bad Request
+  Fetching random page 1634 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1634: Bad Request
+  Fetching random page 2943 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2943: Bad Request
+  Fetching random page 1090 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1090: Bad Request
+  Fetching random page 2168 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2168: Bad Request
+  Fetching random page 3197 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=3197: Bad Request
+  Fetching random page 3212 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=3212: Bad Request
+  Fetching random page 1701 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1701: Bad Request
+  Fetching random page 1807 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1807: Bad Request
+  Fetching random page 2223 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2223: Bad Request
+  Fetching random page 2670 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2670: Bad Request
+  Fetching random page 761 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=761: Bad Request
+  Fetching random page 2406 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2406: Bad Request
+  Fetching random page 2287 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2287: Bad Request
+  Fetching random page 1962 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1962: Bad Request
+  Fetching random page 2842 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2842: Bad Request
+  Fetching random page 1232 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1232: Bad Request
+  Fetching random page 2311 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2311: Bad Request
+  Fetching random page 3288 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=3288: Bad Request
+  Fetching random page 2049 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2049: Bad Request
+  Fetching random page 1477 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=1477: Bad Request
+  Fetching random page 2228 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=2228: Bad Request
+  Fetching random page 3427 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=3427: Bad Request
+  Fetching random page 916 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=916: Bad Request
+  Fetching random page 945 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=945: Bad Request
+  Fetching random page 111 (got 100/200)...
+Random sample size: 200
+
+3. Fetching detailed crate info...
+  Progress: 0/200
+  Progress: 20/200
+  Progress: 40/200
+  Progress: 60/200
+  Progress: 80/200
+  Progress: 100/200
+  Progress: 120/200
+  Progress: 140/200
+  Progress: 160/200
+  Progress: 180/200
+
+Need-related with details: 0
+Random with details: 200
+
+Saved raw data to EXPERIMENTS/095-crates-io-viewcount/raw/crates_data.json
+Collection complete.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 477044  redactions: none
+==============================================================================
+[seq 4] 2026-10-11T10:59:59+00:00
+$ python3 EXPERIMENTS/095-crates-io-viewcount/collect_v2.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+============================================================
+E095: crates.io view-count data collection v2
+============================================================
+
+1. Fetching random crates from first 400 pages...
+  Fetching page 209 (got 0/300)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=209: Bad Request
+  Fetching page 20 (got 0/300)...
+  Fetching page 49 (got 100/300)...
+  Fetching page 73 (got 200/300)...
+
+Fetched 300 unique crates
+
+2. Fetching detailed crate info (keywords, categories)...
+  Progress: 0/300
+  Progress: 50/300
+  Progress: 100/300
+  Progress: 150/300
+  Progress: 200/300
+  Progress: 250/300
+
+Got details for 300 crates
+
+3. Classifying crates...
+Need-related: 2
+Not need-related: 298
+
+Example need-related crates:
+  aingle-observability: keywords=['aingle', 'logging', 'observability', 'telemetry', 'tracing'], categories=['development-tools::debugging'], downloads=599, recent=12
+  ainoio-agent: keywords=['integrations', 'monitoring', 'tracking'], categories=[], downloads=9455, recent=23
+
+Saved raw data to EXPERIMENTS/095-crates-io-viewcount/raw/crates_data_v2.json
+Collection complete.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 340625  redactions: none
+==============================================================================
+[seq 5] 2026-10-11T11:11:51+00:00
+$ python3 EXPERIMENTS/095-crates-io-viewcount/collect_v3.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+============================================================
+E095: crates.io view-count data collection v3
+============================================================
+
+1. Searching for need-related crates by keyword...
+  Searching logging (got 0/30)...
+  logging: 30 crates
+  Searching monitoring (got 0/30)...
+  monitoring: 30 crates
+  Searching observability (got 0/30)...
+  observability: 30 crates
+  Searching tracing (got 0/30)...
+  tracing: 30 crates
+  Searching telemetry (got 0/30)...
+  telemetry: 30 crates
+  Searching tracking (got 0/30)...
+  tracking: 30 crates
+  Searching debug (got 0/30)...
+  debug: 30 crates
+  Searching debugging (got 0/30)...
+  debugging: 30 crates
+  Searching error (got 0/30)...
+  error: 30 crates
+  Searching profiling (got 0/30)...
+  profiling: 30 crates
+  Searching benchmark (got 0/30)...
+  benchmark: 30 crates
+  Searching testing (got 0/30)...
+  testing: 30 crates
+  Searching panic (got 0/30)...
+  panic: 30 crates
+  Searching backtrace (got 0/30)...
+  backtrace: 30 crates
+  Searching diagnostics (got 0/30)...
+  diagnostics: 30 crates
+  Searching troubleshooting (got 0/30)...
+  troubleshooting: 30 crates
+
+Total unique need-related crate names: 346
+
+2. Fetching details for need-related crates...
+  Progress: 0/346
+  Progress: 50/346
+  Progress: 100/346
+  Progress: 150/346
+  Progress: 200/346
+  Progress: 250/346
+  Progress: 300/346
+Got details for 346 need-related crates
+
+3. Fetching random crates for comparison...
+  Fetching random page 5 (got 0/200)...
+  Fetching random page 201 (got 100/200)...
+HTTP Error 400 for https://crates.io/api/v1/crates?per_page=100&page=201: Bad Request
+  Fetching random page 111 (got 100/200)...
+
+4. Fetching details for random crates...
+  Progress: 0/200
+  Progress: 50/200
+  Progress: 100/200
+  Progress: 150/200
+Got details for 200 random crates
+
+5. Verifying classification...
+Verified need-related: 42
+Verified random: 504
+
+Example need-related crates:
+  rsearch-ingest: keywords=['fips', 'logging', 'loki', 'opensearch', 'search'], categories=['database-implementations', 'text-processing'], downloads=163, recent=163
+  oximedia-clips: keywords=['clips', 'logging', 'management', 'media', 'multimedia'], categories=['data-structures', 'multimedia'], downloads=303, recent=107
+  tarn-lsp: keywords=['api', 'cli', 'lsp', 'tarn', 'testing'], categories=['command-line-utilities', 'development-tools::testing'], downloads=234, recent=28
+  rsearch-storage: keywords=['fips', 'logging', 'loki', 'opensearch', 'search'], categories=['database-implementations', 'text-processing'], downloads=283, recent=283
+  thag_profiler: keywords=['flamegraph', 'instrumentation', 'performance', 'profiling', 'tracing'], categories=['command-line-utilities', 'development-tools', 'development-tools::profiling'], downloads=1086, recent=167
+  druid-stat: keywords=['druid', 'metrics', 'monitoring', 'sql'], categories=['development-tools'], downloads=51, recent=51
+  rsearch-common: keywords=['fips', 'logging', 'loki', 'opensearch', 'search'], categories=['database-implementations', 'text-processing'], downloads=348, recent=348
+  hooq: keywords=['anyhow', 'error', 'eyre', 'log', 'proc-macro'], categories=['development-tools', 'development-tools::debugging', 'rust-patterns'], downloads=203454, recent=88855
+  await-tree-attributes: keywords=['actor', 'async', 'attributes', 'backtrace', 'tokio'], categories=['development-tools::debugging'], downloads=87962, recent=21058
+  iserversupport-syslog-errors: keywords=['linux', 'logs', 'monitoring', 'server', 'syslog'], categories=['command-line-utilities', 'os::linux-apis'], downloads=12, recent=12
+
+Example random crates:
+  druid-proxy: keywords=['database', 'druid', 'proxy'], categories=['database'], downloads=30, recent=30
+  vkteams-bot-cli: keywords=['api', 'automation', 'bot', 'mcp', 'vkteams'], categories=['command-line-utilities', 'api-bindings', 'web-programming'], downloads=18038, recent=26
+  go-brrr: keywords=['ast', 'code-analysis', 'llm', 'tokenization', 'tree-sitter'], categories=['development-tools', 'text-processing', 'command-line-utilities'], downloads=32, recent=8
+  logos-derive: keywords=['lexer', 'lexical', 'no_std', 'parser', 'tokenizer'], categories=['parsing', 'text-processing'], downloads=86145635, recent=24083037
+  magellan: keywords=['ast', 'cli', 'code-analysis', 'code-indexing', 'source-code'], categories=['command-line-utilities', 'development-tools'], downloads=2689, recent=711
+  rigspark-cli: keywords=['llama-cpp', 'llm', 'local-llm', 'ollama', 'vram'], categories=['artificial-intelligence', 'command-line-utilities'], downloads=55, recent=55
+  quvyta-desktop: keywords=['desktop', 'ssh', 'terminal', 'tui', 'window-manager'], categories=['command-line-utilities'], downloads=161, recent=161
+  orbok-extract: keywords=[], categories=[], downloads=1345, recent=315
+  kcan: keywords=['actuator', 'aisling', 'can', 'cubemars', 'scrin'], categories=['science::robotics', 'hardware-support', 'embedded'], downloads=329, recent=110
+  mempal: keywords=['agents', 'mcp', 'memory', 'search', 'sqlite'], categories=['command-line-utilities', 'development-tools'], downloads=578, recent=171
+
+Saved raw data to EXPERIMENTS/095-crates-io-viewcount/raw/crates_data_v3.json
+Collection complete.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 518303  redactions: none
+==============================================================================
+[seq 6] 2026-10-11T11:13:54+00:00
+$ python3 EXPERIMENTS/095-crates-io-viewcount/analyze.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/095-crates-io-viewcount/analyze.py", line 11, in <module>
+    from scipy import stats
+ModuleNotFoundError: No module named 'scipy'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 520  redactions: none
+==============================================================================
+[seq 7] 2026-10-11T11:15:25+00:00
+$ python3 EXPERIMENTS/095-crates-io-viewcount/analyze.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+============================================================
+E095: crates.io view-count principle test - Analysis
+============================================================
+
+Need-related crates: 42
+Random crates: 504
+
+Activity (recent_downloads > 0):
+  Need-related: 42/42 = 1.0000
+  Random: 504/504 = 1.0000
+
+Proportion test:
+  Need active rate: 1.0000
+  Random active rate: 1.0000
+  Difference: 0.0000
+  z-score: 0.0000
+  p-value: 1.000000
+  Wilson CI95 for need: [0.9162, 1.0000]
+  Wilson CI95 lower bound: 0.9162
+
+Total downloads (all):
+  Need median: 268.5
+  Random median: 1114.5
+
+Recent downloads (all):
+  Need median: 112.5
+  Random median: 83.0
+
+Mann-Whitney U test (total downloads, log scale):
+  Need non-zero: 42
+  Random non-zero: 504
+  Need log mean: 6.30
+  Random log mean: 6.89
+  U statistic: 8876
+  p-value: 0.082073
+  Rank-biserial r: 0.1614
+
+Mann-Whitney U test (recent downloads, log scale):
+  Need non-zero: 42
+  Random non-zero: 504
+  Need log mean: 5.24
+  Random log mean: 4.70
+  U statistic: 9130
+  p-value: 0.138955
+  Rank-biserial r: 0.1373
+
+============================================================
+GATE EVALUATION
+============================================================
+
+G1_sample_size: FAIL
+  need_n: 42
+  random_n: 504
+  threshold: >= 100 each
+
+G2_significance: FAIL
+  prop_p: 1.00000029980098
+  mw_p: 0.13895481637422236
+  threshold: p < 0.05
+
+G3_effect_size: PASS
+  wilson_lb: 0.9161983874908382
+  rank_biserial: 0.1373299319727891
+  threshold: Wilson LB > 0.60 or |r| > 0.3
+
+G4_arrival_field: PASS
+  need_rate: 1.0
+  random_rate: 1.0
+  threshold: >= 95%
+
+============================================================
+OVERALL: SOME GATES FAIL
+============================================================
+
+Results saved to EXPERIMENTS/095-crates-io-viewcount/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 392  redactions: none

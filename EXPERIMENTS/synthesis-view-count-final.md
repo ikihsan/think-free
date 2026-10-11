@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-11
+-->
+
 # Synthesis: View-Count Principle — 5 Fresh Observations (2026)
 
 ## Experiment Summary

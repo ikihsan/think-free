@@ -327,6 +327,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/090-fresh-observation-structured-faults/` | `docs/INDEX.md` | active | 2026-10-10 | 4 documents |
 | `EXPERIMENTS/090-hand-classification/` | `docs/INDEX.md` | active | 2026-10-10 | ## Experiment performed 2026-10-10 |
 | `EXPERIMENTS/090-instrument-discrimination/` | `docs/INDEX.md` | active | 2026-10-10 | 1 documents |
+| `EXPERIMENTS/090-maven-view-count/` | `docs/INDEX.md` | active | 2026-10-11 | Experiment directory: EXPERIMENTS/090-maven-view-count/ |
 | `EXPERIMENTS/090-reverse-index/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-10 | 2 documents |
 | `EXPERIMENTS/091-anova-answerability/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-11 | 6 documents |
 | `EXPERIMENTS/091-fresh-observation-aviation-fault-codes/` | `docs/INDEX.md` | active | 2026-10-10 | 4 documents |
@@ -335,16 +336,19 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/092-appliance-diagnosis/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-11 | 2 documents |
 | `EXPERIMENTS/092-comparison-forum-vs-websearch/` | `docs/INDEX.md` | active | 2026-10-11 | 3 documents |
 | `EXPERIMENTS/093-fresh-observation-lab-instrument-errors/` | `docs/INDEX.md` | active | 2026-10-11 | 3 documents |
+| `EXPERIMENTS/094-k8s-discourse-viewcount/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-11 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/095-crates-io-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
 | `EXPERIMENTS/096-aviation-view-count/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/097-ros-error-codes-fresh/` | `docs/INDEX.md` | active | 2026-10-10 | 2 documents |
 | `EXPERIMENTS/098-aviation-discrimination-test/` | `docs/INDEX.md` | active | 2026-10-10 | 2 documents |
 | `EXPERIMENTS/098-home-assistant-fresh/` | `docs/INDEX.md` | active | 2026-10-11 | 2 documents |
 | `EXPERIMENTS/099-medical-device-discrimination/` | `docs/INDEX.md` | active | 2026-10-10 | 1 documents |
 | `EXPERIMENTS/100-lab-instrument-error-codes/` | `docs/INDEX.md` | active | 2026-10-11 | Session: 2026-10-11-007, VM instance-20260717-0947, observed 2026-10-11. |
+| `EXPERIMENTS/101-huggingface-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/101-stackoverflow-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | owner: docs/INDEX.md |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
-| `EXPERIMENTS/synthesis-view-count-final.md/` | `—` | — | — | 1 documents |
+| `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/synthesis-view-count-principle.md/` | `EXPERIMENTS/PLAN.md` | withdrawn | 2026-10-10 | 1 documents |
 
 ## Generated maps
