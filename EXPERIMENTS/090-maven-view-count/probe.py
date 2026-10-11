@@ -2,10 +2,10 @@
 """
 E090 — Maven Central view-count measurement probe.
 
-Uses a pre-selected curated list of Maven packages (fallback when search API
-is rate-limited or times out). Classifies each as need-related or random,
-measures activity from POM metadata, runs predeclared gates, and writes
-raw/probe.json and results.json.
+Fetches POMs from Maven Central, classifies packages as need-related or random,
+measures activity, runs predeclared gates, and writes raw/probe.json and
+results.json. Split from original probe.py to comply with 300-line cap;
+helper functions moved to pom_utils.py.
 """
 
 import json
@@ -14,12 +14,12 @@ import sys
 import time
 import urllib.request
 import urllib.error
-import xml.etree.ElementTree as ET
 from collections import Counter
 
+# Import helpers from pom_utils
+from pom_utils import fetch_pom, parse_pom, classify_need_related, is_active, SEDED_CONTROLS
+
 # ── Configuration ──────────────────────────────────────────────────────
-# Curated list of 30 known Maven Central packages spanning need-related
-# and random categories. Each entry is groupId:artifactId:version.
 CURATED_PACKAGES = [
     # Need-related: utilities with descriptive names
     "org.apache.commons:commons-lang3:3.12.0",      # need-related (utils)
@@ -56,132 +56,9 @@ CURATED_PACKAGES = [
 ]
 
 MAX_PACKAGES = len(CURATED_PACKAGES)
-DOWNLOAD_THRESHOLD = 1  # downloads > 0 => active
-MIN_VERSIONS_FOR_ACTIVE = 2  # ≥2 visible historical versions => active
-
-# Gate thresholds
 G1_THRESHOLD = 15  # ≥15 classified items
 G3_MARGIN = 0.10  # 10 percentage-point margin for p_need - p_random
 G4_THRESHOLD = 0.95  # ≥95% of packages carry positive arrivals
-
-# Seeded control items (for G2, waived in fully automated run)
-SEDED_CONTROLS = {
-    "s1": "org.apache.commons:commons-lang3:3.12.0",  # served
-    "s2": "org.codehaus.plexus:plexus-utils:3.6.0",    # served
-    "u1": "net.sourceforge.bytecode:bytecode-utils:1.2.3",  # unserved-open-like
-    "u2": "net.sourceforge.ssu:simple-utils:0.9.0",        # unserved-open-like
-}
-
-# ── Helpers ──────────────────────────────────────────────────────────
-
-
-def fetch_pom(group_id, artifact_id, version):
-    """Fetch POM XML for a Maven artifact. Returns raw XML text or None."""
-    # Maven Central POM URL format
-    url = f"https://repo1.maven.org/maven2/{group_id.replace('.', '/')}/{artifact_id}/{version}/{artifact_id}-{version}.pom"
-    req = urllib.request.Request(
-        url,
-        headers={"User-Agent": "Mozilla/5.0 (Think-Free-Mission-E090)"},
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            return resp.read().decode("utf-8")
-    except urllib.error.HTTPError as e:
-        if e.code == 404:
-            return None  # artifact not found
-        raise
-    except URLError as e:
-        print(f"URL error for {group_id}:{artifact_id}:{version}: {e}", file=sys.stderr)
-        return None
-
-
-def parse_pom(xml_text):
-    """Parse POM XML and return a dict of key fields."""
-    if xml_text is None:
-        return None
-    try:
-        root = ET.fromstring(xml_text)
-        ns = {"m": "http://maven.apache.org/POM/4.0.0"}
-        name = root.findtext("m:name", "", ns) or ""
-        packaging = root.findtext("m:packaging", "jar", ns)
-        # Extract download count if present
-        downloads_elem = root.find("m:downloads", ns)
-        downloads = None
-        if downloads_elem is not None:
-            try:
-                downloads = int(downloads_elem.text or "0")
-            except ValueError:
-                downloads = None
-        # Count distinct historical versions visible in POM hierarchy
-        version_count = 1  # the current version itself
-        # Look for <parent> element
-        parent = root.find("m:parent", ns)
-        if parent is not None:
-            parent_version = parent.findtext("m:version", "", ns)
-            if parent_version and parent_version != "" and not parent_version.endswith("-SNAPSHOT"):
-                version_count += 1
-        # Look at <dependencyManagement> entries as a history proxy
-        dep_mgmt = root.find("m:dependencyManagement", ns)
-        if dep_mgmt is not None:
-            version_count += len(dep_mgmt.findall("m:dependency", ns))
-        # Check for developers section
-        developers = root.find("m:developers", ns) is not None
-        # Check for <issueManagement>
-        issue_mgmt = root.find("m:issueManagement", ns) is not None
-        return {
-            "name": name,
-            "packaging": packaging,
-            "downloads": downloads,
-            "version_count": version_count,
-            "has_developers": developers,
-            "has_issue_mgmt": issue_mgmt,
-        }
-    except ET.ParseError as e:
-        print(f"XML parse error: {e}", file=sys.stderr)
-        return None
-
-
-def classify_need_related(artifact_id, name):
-    """Classify a package as need-related based on artifactId/name tokens."""
-    # Build token set from artifactId
-    tokens = set(artifact_id.lower().replace("-", "_").split("_"))
-    # Also add tokens from the package name
-    if name:
-        tokens.update(name.lower().split())
-    # Need-related categories (heuristic keyword matching)
-    need_keywords = {
-        "parser", "parse", "read", "write", "io", "stream",
-        "compress", "decompress", "zip", "gzip", "unzip", "tar",
-        "date", "time", "calendar", "format", "period", "duration",
-        "text", "string", "filter", "transform", "codec", "encode", "decode",
-        "math", "numeric", "calc", "stat", "random", "probability",
-        "file", "resource", "path",
-        "util", "collection",
-        "json", "xml", "pull", "stax", "dom4j", "owl",
-        "h2", "database",
-    }
-    # Exclude generic terms
-    excluded = {"core", "common", "base", "api", "framework", "simple", "platform",
-                "junit", "mockito", "log4j", "slf4j", "logback"}
-    relevant_matches = tokens.intersection(need_keywords) - excluded
-    if len(relevant_matches) >= 1:
-        return True  # need-related
-    return False  # random
-
-
-def is_active(pom_data):
-    """Determine if a package is 'active' based on POM metadata."""
-    if pom_data is None:
-        return False
-    # Active if: downloads > 0 OR ≥2 visible versions OR has developers section
-    if pom_data["downloads"] is not None and pom_data["downloads"] > 0:
-        return True
-    if pom_data["version_count"] >= MIN_VERSIONS_FOR_ACTIVE:
-        return True
-    if pom_data["has_developers"]:
-        return True
-    return False
-
 
 # ── Main ──────────────────────────────────────────────────────────────
 
@@ -200,7 +77,6 @@ def main():
         "raw_packages": [],
     }
 
-    # Step 1: Process each curated package
     print(f"Processing {MAX_PACKAGES} curated Maven Central packages...")
     print(f"  (source: curated list, fallback when search API is unavailable)")
 
@@ -217,7 +93,8 @@ def main():
             classified_items.append({
                 "index": i, "groupId": "unknown", "artifactId": "unknown",
                 "version": "unknown", "need_related": False, "active": False,
-                "pom_fetched": False,
+                "pom_fetched": False, "downloads": None,
+                "version_count": 0, "has_developers": False,
             })
             continue
 
@@ -233,7 +110,7 @@ def main():
                 "index": i, "groupId": group_id, "artifactId": artifact_id,
                 "version": version, "need_related": False, "active": False,
                 "pom_fetched": False, "downloads": None,
-                               "version_count": 0, "has_developers": False,
+                "version_count": 0, "has_developers": False,
             })
             continue
 
@@ -265,7 +142,7 @@ def main():
         # Be polite to the server
         time.sleep(0.2)
 
-    # Step 2: Compute gate outcomes
+    # Compute gate outcomes
     n_classified = len(classified_items)
     n_need_related = sum(1 for c in classified_items if c["need_related"])
     n_random = sum(1 for c in classified_items if not c["need_related"])
@@ -332,7 +209,7 @@ def main():
         },
     }
 
-    # Step 3: Fill output summary
+    # Fill output summary
     output["classified"] = {
         "need_related": n_need_related,
         "random": n_random,
@@ -357,7 +234,7 @@ def main():
         for c in classified_items
     ]
 
-    # Step 4: Write raw/probe.json and derive results.json
+    # Write raw/probe.json and derive results.json
     write_output(output)
     print("\nExperiment complete. Results written to raw/probe.json and results.json")
 
@@ -409,5 +286,4 @@ def write_output(output_dict):
 
 
 if __name__ == "__main__":
-    import os
     main()

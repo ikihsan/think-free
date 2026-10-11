@@ -16,7 +16,7 @@ Showing the 25 most recent. 231 older session(s) are in the directory listing.
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
 | [2026-10-11-009-design-fresh-observation-experiment-in-a](2026-10-11-009-design-fresh-observation-experiment-in-a/README.md) | unknown-agent | worked | Design fresh observation experiment in a new domain per D083, avoiding | 2026-10-11T09:59 |
-| [2026-10-11-007-design-and-run-a-fresh-observation-exper](2026-10-11-007-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | **unfinished** | Design and run a fresh observation experiment on lab instrument error  | 2026-10-11T06:56 |
+| [2026-10-11-007-design-and-run-a-fresh-observation-exper](2026-10-11-007-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment on lab instrument error  | 2026-10-11T07:37 |
 | [2026-10-11-004-e092-test-whether-appliance-fault-diagno](2026-10-11-004-e092-test-whether-appliance-fault-diagno/README.md) | unknown-agent | worked | E092: test whether appliance-fault diagnosis is a general need outside | 2026-10-11T03:53 |
 | [2026-10-11-003-run-e091-s-blocked-anova-answerability-r](2026-10-11-003-run-e091-s-blocked-anova-answerability-r/README.md) | unknown-agent | worked | Run E091's blocked Anova answerability replication with a construct-va | 2026-10-11T02:10 |
 | [2026-10-11-003-fresh-observation-in-medical-device-alar](2026-10-11-003-fresh-observation-in-medical-device-alar/README.md) | unknown-agent | worked | Fresh observation in medical device alarm codes domain using FDA MAUDE | 2026-10-11T06:58 |

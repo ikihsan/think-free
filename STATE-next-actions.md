@@ -95,6 +95,7 @@ across domains beyond those already tested (E062-E092, E070-E088).
 
 | Experiment | Domain | Key Finding |
 |---|---|---|
+| `094-k8s-discourse-viewcount` | Kubernetes Discourse forum (discuss.kubernetes.io) | **G1 FAIL** (76 error, 93 non-error < 100 each), **G2 PASS** (p=0.044, error median 282.5 > non-error 180), **G3 FAIL** (unserved 75% CI95 [64%, 83%] >> Discourse baseline 11-15%), **G4 PASS** (100% view coverage). View-count separation holds but forum dynamics differ drastically — most topics unanswered. |
 | `0xx-viewcount-import-resolvability` | Python package import resolvability | 13% resolution rate; need classification (E078) defaults to technique-or-expertise for import-error titles; kill gate met; population not observed |
 | `0xx-import-error-need-class` | Python import errors with need classification | 13% resolution rate; 100% technique-or-expertise; framework boundary condition mapped |
 | `0xx-pypi-keyword-activity` | PyPI package metadata by keyword category | 53.6% need-related classification; need-related packages have version metadata at 1.0 rate vs 0 for random; G1 often not met (n<30) |
@@ -103,6 +104,7 @@ across domains beyond those already tested (E062-E092, E070-E088).
 | `0xx-github-repo-need-class` | GitHub repos with need classification | 13 repos harvested; 15.4% need-related, 46.2% mixed, 30.8% no-match, 7.7% random-tech; star counts don't discriminate by need-relatedness |
 | `0xx-viewcount-prototype` | Web-search-based view-count measurement | Prototype operationalizes view-count principle with only web search (no platform API); 0% served on E065 corpus; consistent with E088/F109's finding that instrument cannot distinguish real from nonexistent entities |
 | **E101 (2026-10-11)** | **Hugging Face Hub (ML model registry)** | **G1 PASS (241+700 models), G2 FAIL (p=0.089), G3 FAIL (LB=0.089)** — view-count principle does not generalize to ML model registry; need-related active rate 12.4% vs random 8.6%, not significant |
+| **E090 (2026-10-11)** | **Maven Central (Java/JAR packages)** | **G1 passed (28 classified), G3 FAIL** — need-related activity rate 60% vs random 52.2%, difference 7.8 pp (CI95 lower bound −0.41 < 10 pp), G4 FAIL — arrival-field rate 53.6% (below 95% threshold). Principle does not generalize to Maven Central POM metadata. |
 
 ### Domain Coverage Summary
 
@@ -114,6 +116,9 @@ The view-count principle has been tested across 7+ report domains (A-F) and 15+ 
 - Discourse forums (E077): all 4 gates pass, 11.7% unserved fraction
 - Stack Exchange non-software (E062): 17/20 unremedied needs served
 
+**Partial / mixed:**
+- **Kubernetes Discourse (E094): G2 PASS (view-count separation p=0.044), G1/G3 FAIL** — error topics have higher views but population too small for gates and unserved fraction 75% (CI95 [64%, 83%]) far exceeds Discourse baseline 11-15%. Forum dynamics differ: most topics go unanswered.
+
 **Fails or has boundaries:**
 - GitHub issues API (E063/E066): no arrival field
 - Web search (E065): 0 results with meaningful content
@@ -123,20 +128,22 @@ The view-count principle has been tested across 7+ report domains (A-F) and 15+ 
 - CFPB consumer complaints (E070): 0.8% unserved, hypothesis not supported
 - Package import resolvability (E062/E0XX): 13% resolution, kill gate met
 - Code repositories (E0XX): no systematic difference in star metadata
+- **Maven Central (E090): G1 PASS, G3/G4 FAIL** — activity-rate difference not significant, arrival-field rate only 53.6%
+- **Hugging Face Hub (E101): G1 PASS, G2/G3 FAIL** — download dynamics differ from code package registries, signal too weak
 
 ### D083 Compliance
 
 Per D083, each experiment must test a genuinely new domain/angle not previously 
-tested or rehash closed ground. The 7 experiments above each explore different 
+tested or rehash closed ground. The 9 experiments above each explore different 
 domain axes: Python import resolvability, PyPI keyword classification, CRAN R packages, 
-GitHub repo star metadata, GitHub repo need classification, and web-search prototype.
+GitHub repo star metadata, GitHub repo need classification, web-search prototype,
+Kubernetes Discourse, Maven Central, and Hugging Face Hub ML model registry.
 
 ### Next Action
 
 Per D083, the next session must start from fresh observation in a new domain. 
 Candidates for the next experiment should avoid re-entering domains already covered 
 above and should preferably target a platform/category not yet tested by the mission.
-
 
 
 Screens built on arrival counts systematically over-select broken products,
@@ -164,10 +171,12 @@ The view-count principle has been tested on:
   - **Embedded/microcontroller fault codes (E082): ALL GATES PASS** — 150 topics across 3 Discourse forums, unserved 15.3% (CI95 [10.5%, 21.3%]), view_count 100% — consistent with Discourse baseline 11.7%, confirming platform invariance
   - **3D printer fault codes (E083): G2 PASS (73.4%), G3 FAIL (1.8 models/fault vs 10)** — brand silos prevent cross-model coverage, view_count 100%
   - **PX4 drone fault codes (E084): G1 FAIL (~39 cases vs 100), G3 PASS (17 combos), G4 PASS (88.9%)** — population too small
-   - **Appliance-fault diagnosis (E092): population real and large (44.0% diagnosis-shaped, 92.4% answerable-class, p = 4.7e-07 vs Anova), but served at 30/37 = 0.8108 — line closed on service, not population (F115, D104)**
-   - **Hugging Face Hub ML model registry (E101): G1 PASS, G2 FAIL (p=0.089), G3 FAIL (LB=0.089)** — view-count principle does not generalize to ML model registry; need-related active rate 12.4% vs random 8.6%, difference not significant
+  - **Appliance-fault diagnosis (E092): population real and large (44.0% diagnosis-shaped, 92.4% answerable-class, p = 4.7e-07 vs Anova), but served at 30/37 = 0.8108 — line closed on service, not population (F115, D104)**
+  - **Maven Central view-count (E090): G1 passed (28 classified), G3 FAIL** — need-related activity rate 60% vs random 52.2%, difference 7.8 pp (CI95 lower bound −0.41 < 10 pp), G4 FAIL — arrival-field rate 53.6% (below 95% threshold). Principle does not generalize to Maven Central POM metadata.
+  - **Kubernetes Discourse (E094): G2 PASS, G1/G3 FAIL** — view-count separation significant (p=0.044) but unserved fraction 75% (CI95 [64%, 83%]) far above baseline; classification rules need expansion (328 unclassified of 500).
+  - **Hugging Face Hub ML model registry (E101): G1 PASS, G2 FAIL (p=0.089), G3 FAIL (LB=0.089)** — view-count principle does not generalize to ML model registry; need-related active rate 12.4% vs random 8.6%, difference not significant
 
-**Key finding:** The view-count principle works on platforms with exposable metadata about arrival/arrival rates: package repositories (PyPI, NPM) with download/view counts, and non-software Q&A forums (Discourse, Stack Exchange) with view_counts. The principle does NOT generalize to social media/issue-tracking platforms without such metadata (GitHub issues API, web search, HN corpus), where no arrival field is recorded or the population is structured differently. **It also does not generalize to ML model registries (Hugging Face Hub)**, where download dynamics differ from code package repositories — both need-related and random models have low active rates, and the signal is too weak. The need-classification framework (E078) generalizes the measurement methodology to estimate served fractions in new communities, with gates G1-G3 confirming framework validity and G4's sample-size condition controlling for insufficient data. 
+**Key finding:** The view-count principle works on platforms with exposable metadata about arrival/arrival rates: package repositories (PyPI, NPM) with download/view counts, and non-software Q&A forums (Discourse, Stack Exchange) with view_counts. The principle does NOT generalize to social media/issue-tracking platforms without such metadata (GitHub issues API, web search, HN corpus), nor to Maven Central (Java/JAR packages), where the activity-rate difference between need-related and random packages is not observed (need-related 60% vs random 52.2%, difference 7.8 pp, Wilson CI95 lower bound −0.41 < 10 pp) and the arrival-field rate is only 53.6% (below the 95% threshold). **It also does not generalize to ML model registries (Hugging Face Hub)**, where download dynamics differ from code package repositories — both need-related and random models have low active rates, and the signal is too weak. The need-classification framework (E078) generalizes the measurement methodology to estimate served fractions in new communities, with gates G1-G3 confirming framework validity and G4's sample-size condition controlling for insufficient data. **Kubernetes Discourse shows the view-count separation effect (G2) holds on a software-focused Discourse forum, but the unserved fraction is drastically higher than other Discourse forums — suggesting forum culture/community dynamics dominate the unserved metric.**
 
 Four structured-fault-code domains tested: Automotive OBD2 (E079) fails concentration (G2); Embedded/microcontroller (E082) passes all gates but unserved fraction 15.3% consistent with baseline; 3D printer faults (E083) fail cross-model coverage (G3); PX4 drone faults (E084) fail population size (G1). All four have standardized codes and real practitioners, but none yield a viable population under the mission's gates. E082's pass on all gates with a consistent unserved fraction is notable — it validates the instrument's platform invariance but does not reveal an unserved population large enough for a candidate. **Appliance-fault diagnosis (E092) is the fifth, and it closed differently:** the population gates pass decisively (44.0% diagnosis-shaped, 92.4% answerable-class), but the answerable class is served at 0.81 — the line closed on service, not population (F115, D104).
 
