@@ -6,11 +6,11 @@ last-verified: 2026-10-11
 
 <!-- task-meta
 id: T-0091
-status: open
+status: claimed
 created: 2026-10-11
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: 
+claim-session: 
+claim-vm: 
 verify: ls EXPERIMENTS/107-github-repos-viewcount/results.json && python3 -m json.tool EXPERIMENTS/107-github-repos-viewcount/results.json
 -->
 
