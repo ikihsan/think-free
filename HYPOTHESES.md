@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-03
+last-verified: 2026-10-11
 -->
 
 # Hypotheses — what is being considered and what would kill it
@@ -86,6 +86,16 @@ never followed, and their reply subtrees are the only channel available that is
 contemporaneous, demand-side and written by practitioners rather than by a search
 engine. All 1276 parent threads captured — 278,686 comments, 1391 needs against
 277,295 matched controls.
+
+**E102 tested the view-count principle on NuGet** (`EXPERIMENTS/102-nuget-viewcount/`).
+Fresh observation per D083. 40 need-related packages (tags: configuration, auth, logging,
+database, caching, etc.) vs 40 random packages (alphabetical sampling). All four gates PASS:
+G1 retrieval (40/40 ≥ 30), G2 separation (Mann-Whitney p=1.7×10⁻¹⁴, Cliff's δ=0.996),
+G3 effect magnitude (Wilson LB=0.912 > 0.60), G4 arrival field (100% coverage).
+Need-related median 7.8M downloads vs random 195K (~40×). View-count principle
+generalizes to NuGet, joining PyPI and NPM. Caveat: need-related queries retrieved
+mostly official Microsoft/Azure packages; effect size inflated by publisher confounding.
+`observed`.
 
 The declared kill gate fired on three estimators: **1.235x** the same-thread control
 rate at all ages, 1.238x at ≥180 days, 1.286x within-story, against a bar of 1.5 fixed

@@ -1,74 +1,1123 @@
 {
-  "experiment": "E078",
-  "dataset": "e078_test_data.jsonl",
-  "n_samples": 9,
-  "need_fraction": 0.8888888888888888,
-  "unserved_fraction": 0.0,
-  "wilson_ci95_upper": 0.0,
+  "experiment": "102-nuget-viewcount",
+  "protocol": "PROTOCOL.md",
+  "seed": 42,
+  "need_packages": [
+    {
+      "id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+      "version": "8.6.0",
+      "total_downloads": 177978841,
+      "description": "Microsoft.Extensions.Configuration.AzureAppConfiguration is a configuration provider for the .NET Core framework that allows developers to use Microsoft Azure App Configuration service as a configuration source in their applications.",
+      "tags": [
+        "Microsoft",
+        "Azure",
+        "Configuration",
+        "AppConfig",
+        "AppConfiguration",
+        "AzureAppConfiguration"
+      ],
+      "title": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+      "classification": "need-related"
+    },
+    {
+      "id": "Microsoft.Extensions.Configuration.KeyPerFile",
+      "version": "10.0.12",
+      "total_downloads": 59242845,
+      "description": "Configuration provider that uses files in a directory for Microsoft.Extensions.Configuration.\n\nThis package was built from the source code at https://github.com/dotnet/dotnet/tree/95017c711e6afc1085133d440e42b4bd78155701",
+      "tags": [
+        "configuration"
+      ],
+      "title": "Microsoft.Extensions.Configuration.KeyPerFile",
+      "classification": "need-related"
+    },
+    {
+      "id": "Microsoft.Extensions.Configuration.AzureKeyVault",
+      "version": "3.1.24",
+      "total_downloads": 95581093,
+      "description": "Azure KeyVault configuration provider implementation for Microsoft.Extensions.Configuration.\n    \n    This library has been replaced by the following new Azure SDK.\n\n    https://www.nuget.org/packages/Azure.Extensions.AspNetCore.Configuration.Secrets\n\n    It is recommended that you move to the new package.",
+      "tags": [
+        "configuration",
+        "azure",
+        "keyvault"
+      ],
+      "title": "Microsoft.Extensions.Configuration.AzureKeyVault",
+      "classification": "need-related"
+    },
+    {
+      "id": "Azure.Data.AppConfiguration",
+      "version": "1.11.1",
+      "total_downloads": 179327586,
+      "description": "This is the Microsoft Azure Application Configuration Service client library",
+      "tags": [
+        "Microsoft",
+        "Azure",
+        "Application",
+        "Configuration",
+        "Data",
+        "AppConfig",
+        "windowsazureofficial",
+        "azureofficial"
+      ],
+      "title": "Azure.Data.AppConfiguration",
+      "classification": "need-related"
+    },
+    {
+      "id": "Microsoft.Azure.AppConfiguration.AspNetCore",
+      "version": "8.6.0",
+      "total_downloads": 95354408,
+      "description": "Microsoft.Azure.AppConfiguration.AspNetCore allows developers to use Microsoft Azure App Configuration service as a configuration source in their applications. This package adds additional features for ASP.NET Core applications to the existing package Microsoft.Extensions.Configuration.AzureAppConfiguration.",
+      "tags": [
+        "Microsoft",
+        "Azure",
+        "Configuration",
+        "AppConfig",
+        "AppConfiguration",
+        "AzureAppConfiguration",
+        "aspnetcore"
+      ],
+      "title": "Microsoft.Azure.AppConfiguration.AspNetCore",
+      "classification": "need-related"
+    },
+    {
+      "id": "Amazon.Extensions.Configuration.SystemsManager",
+      "version": "7.1.1",
+      "total_downloads": 71939380,
+      "description": ".NET Configuration Extensions for AWS Systems Manager",
+      "tags": [
+        "AWS",
+        "Amazon",
+        "aws-sdk-v4",
+        "SimpleSystemsManagement",
+        "configuration"
+      ],
+      "title": ".NET Configuration Extensions for AWS Systems Manager",
+      "classification": "need-related"
+    },
+    {
+      "id": "App.Metrics.Extensions.Configuration",
+      "version": "4.3.0",
+      "total_downloads": 39381541,
+      "description": "Microsoft.Extensions.Configuration support for App Metrics e.g. appsettings.json",
+      "tags": [
+        "appmetrics",
+        "configuration"
+      ],
+      "title": "App.Metrics.Extensions.Configuration",
+      "classification": "need-related"
+    },
+    {
+      "id": "Microsoft.WindowsAzure.ConfigurationManager",
+      "version": "3.2.3",
+      "total_downloads": 95980421,
+      "description": "Microsoft Azure Configuration Manager provides a unified API to load configuration settings regardless of where the application is hosted - whether on-premises or in a Cloud Service.",
+      "tags": [
+        "Microsoft",
+        "\"Microsoft",
+        "Azure\"",
+        "Configuration",
+        "\"Configuration",
+        "Manager\"",
+        "cloud",
+        "azureofficial",
+        "windowsazureofficial"
+      ],
+      "title": "Microsoft Azure Configuration Manager",
+      "classification": "need-related"
+    },
+    {
+      "id": "Microsoft.Azure.WebJobs.Extensions.OpenApi.Configuration.AppSettings",
+      "version": "1.6.0",
+      "total_downloads": 27879470,
+      "description": "This package provides a base app settings capability deserialising environment variables into IConfiguration object.",
+      "tags": [
+        "Azure-Functions",
+        "Configuration",
+        "AppSettings"
+      ],
+      "title": "Microsoft.Azure.WebJobs.Extensions.OpenApi.Configuration.AppSettings",
+      "classification": "need-related"
+    },
+    {
+      "id": "Microsoft.Configuration.ConfigurationBuilders.Base",
+      "version": "3.0.0",
+      "total_downloads": 22286377,
+      "description": "In .Net 4.7.1, the configuration system allows applications to use ConfigurationBuilders to build up and modify configuration at runtime when it is loaded. This package provides a base framework to ease development of basic key/value configuration builders.",
+      "tags": [
+        "Microsoft",
+        "Configuration",
+        "Builders"
+      ],
+      "title": "Microsoft Configuration Builders - Base",
+      "classification": "need-related"
+    },
+    {
+      "id": "NetEscapades.Configuration.Yaml",
+      "version": "3.1.0",
+      "total_downloads": 20102511,
+      "description": "YAML configuration provider implementation to use with Microsoft.Extensions.Configuration.",
+      "tags": [
+        "configuration",
+        "yaml",
+        "yml"
+      ],
+      "title": "NetEscapades.Configuration.Yaml",
+      "classification": "need-related"
+    },
+    {
+      "id": "dotenv.net",
+      "version": "4.2.0",
+      "total_downloads": 12454165,
+      "description": "A library to read variables from a .env file and populate the environment variables.",
+      "tags": [
+        "dot",
+        "env",
+        "dotnet",
+        ".net",
+        "environment-variables",
+        "dotenv",
+        "configuration",
+        "env-vars",
+        "cross-platform",
+        "csharp",
+        "dotnet-core",
+        "settings",
+        "devops",
+        "utility",
+        "parsing",
+        "variable-management",
+        "configuration-provider",
+        "application-secrets"
+      ],
+      "title": "dotenv.net",
+      "classification": "need-related"
+    },
+    {
+      "id": "Microsoft.Configuration.ConfigurationBuilders.Environment",
+      "version": "3.0.0",
+      "total_downloads": 11147573,
+      "description": "A basic key/value Configuration Builder for the .Net Framework that draws from environment variables.",
+      "tags": [
+        "Microsoft",
+        "Configuration",
+        "Builders",
+        "Environment"
+      ],
+      "title": "Microsoft Configuration Builders - Environment",
+      "classification": "need-related"
+    },
+    {
+      "id": "Steeltoe.Extensions.Configuration.CloudFoundryBase",
+      "version": "4.0.0",
+      "total_downloads": 10728453,
+      "description": "Configuration Provider for reading Cloud Foundry Environment Variables.",
+      "tags": [
+        "configuration",
+        "CloudFoundry",
+        "vcap"
+      ],
+      "title": "Steeltoe.Extensions.Configuration.CloudFoundryBase",
+      "classification": "need-related"
+    },
+    {
+      "id": "Steeltoe.Extensions.Configuration.Abstractions",
+      "version": "4.0.0",
+      "total_downloads": 9742071,
+      "description": "Abstractions used in Steeltoe Configuration libraries.",
+      "tags": [
+        "configuration",
+        "spring",
+        "boot"
+      ],
+      "title": "Steeltoe.Extensions.Configuration.Abstractions",
+      "classification": "need-related"
+    },
+    {
+      "id": "Steeltoe.Extensions.Configuration.PlaceholderBase",
+      "version": "4.0.0",
+      "total_downloads": 8180455,
+      "description": "Configuration provider for resolving property placeholders in configuration values.",
+      "tags": [
+        "configuration",
+        "placeholders",
+        "spring",
+        "boot"
+      ],
+      "title": "Steeltoe.Extensions.Configuration.PlaceholderBase",
+      "classification": "need-related"
+    },
+    {
+      "id": "Nett",
+      "version": "0.15.0",
+      "total_downloads": 8001917,
+      "description": "Library for reading and writing TOML files",
+      "tags": [
+        "TOML",
+        "Serialization",
+        "Configuration"
+      ],
+      "title": "Nett",
+      "classification": "need-related"
+    },
+    {
+      "id": "App.Metrics.Health.Extensions.Configuration",
+      "version": "3.2.0",
+      "total_downloads": 7574656,
+      "description": "Microsoft.Extensions.Configuration support for App Metrics Health e.g. appsettings.json",
+      "tags": [
+        "appmetrics",
+        "health",
+        "configuration"
+      ],
+      "title": "App.Metrics.Health.Extensions.Configuration",
+      "classification": "need-related"
+    },
+    {
+      "id": "Soenneker.Extensions.Configuration",
+      "version": "4.0.901",
+      "total_downloads": 7809156,
+      "description": "A collection of helpful IConfiguration extension methods",
+      "tags": [
+        "configuration",
+        "extension",
+        "c#",
+        ".net",
+        "dotnet"
+      ],
+      "title": "Soenneker.Extensions.Configuration",
+      "classification": "need-related"
+    },
+    {
+      "id": "Microsoft.Configuration.ConfigurationBuilders.UserSecrets",
+      "version": "3.0.0",
+      "total_downloads": 6197941,
+      "description": "A basic key/value Configuration Builder for the .Net Framework that draws from a a 'secrets' file outside of source control.",
+      "tags": [
+        "Microsoft",
+        "Configuration",
+        "Builders"
+      ],
+      "title": "Microsoft Configuration Builders - UserSecrets",
+      "classification": "need-related"
+    },
+    {
+      "id": "Steeltoe.Extensions.Configuration.ConfigServerBase",
+      "version": "4.0.0",
+      "total_downloads": 7286964,
+      "description": "Configuration provider for reading from Spring Cloud Config Server.",
+      "tags": [
+        "configuration",
+        "Spring",
+        "Cloud",
+        "Config",
+        "Server"
+      ],
+      "title": "Steeltoe.Extensions.Configuration.ConfigServerBase",
+      "classification": "need-related"
+    },
+    {
+      "id": "Microsoft.Extensions.SecretManager.Tools",
+      "version": "2.0.2",
+      "total_downloads": 5868796,
+      "description": "Command line tool to manage user secrets for Microsoft.Extensions.Configuration.",
+      "tags": [
+        "configuration",
+        "secrets",
+        "usersecrets"
+      ],
+      "title": "Microsoft.Extensions.SecretManager.Tools",
+      "classification": "need-related"
+    },
+    {
+      "id": "RockLib.Configuration.ObjectFactory",
+      "version": "4.0.0",
+      "total_downloads": 6103446,
+      "description": "Creates objects from IConfiguration and IConfigurationSection objects. A replacement for some of the functionality of Microsoft.Extensions.Configuration.Binder.",
+      "tags": [
+        "Configuration",
+        "Factory",
+        "Binder",
+        "IConfiguration",
+        "IConfigurationSection"
+      ],
+      "title": "RockLib.Configuration.ObjectFactory",
+      "classification": "need-related"
+    },
+    {
+      "id": "RockLib.Configuration",
+      "version": "5.0.0",
+      "total_downloads": 6056119,
+      "description": "Provides a central location for an instance of IConfigurationRoot to be used as the \"default\" configuration by .NET libraries and applications. Replaces some of the functionality of the .NET Framework System.Configuration.ConfigurationManager class.",
+      "tags": [
+        "Configuration",
+        "ConfigurationRoot",
+        "IConfigurationRoot",
+        "ConfigurationManager",
+        "AppSettings"
+      ],
+      "title": "RockLib.Configuration",
+      "classification": "need-related"
+    },
+    {
+      "id": "NetEscapades.Configuration.Validation",
+      "version": "2.0.0",
+      "total_downloads": 1069854,
+      "description": "A package to validate strongly typed configuration on app startup",
+      "tags": [
+        "configuration",
+        "validation",
+        "strongly",
+        "typed",
+        "settings"
+      ],
+      "title": "NetEscapades.Configuration.Validation",
+      "classification": "need-related"
+    },
+    {
+      "id": "Microsoft.Configuration.ConfigurationBuilders.Azure",
+      "version": "3.0.0",
+      "total_downloads": 4496392,
+      "description": "A set of Configuration Builders for the .Net Framework that draw from Azure resources.",
+      "tags": [
+        "Microsoft",
+        "Configuration",
+        "Builders",
+        "Azure"
+      ],
+      "title": "Microsoft Configuration Builders - Azure Builders",
+      "classification": "need-related"
+    },
+    {
+      "id": "Winton.Extensions.Configuration.Consul",
+      "version": "3.4.0",
+      "total_downloads": 9618339,
+      "description": "Provides support for configuring .NET Core applications with Consul",
+      "tags": [
+        ".NET",
+        "Core",
+        "dotnetcore",
+        "ASP.NET",
+        "aspnetcore",
+        "configuration",
+        "consul",
+        "winton",
+        "wintoncode"
+      ],
+      "title": "Winton.Extensions.Configuration.Consul",
+      "classification": "need-related"
+    },
+    {
+      "id": "CacheManager.Microsoft.Extensions.Configuration",
+      "version": "3.0.0",
+      "total_downloads": 5087664,
+      "description": "CacheManager extension package to use Microsoft.Extensions.Configuration to configure the CacheManager instance. CacheManager is an open source caching abstraction layer for .NET written in C#. This is the ASP.NET Core configuration integration package.",
+      "tags": [
+        "Caching",
+        "Cache",
+        "CacheManager",
+        "Distributed",
+        "Configuration"
+      ],
+      "title": "CacheManager.Microsoft.Extensions.Configuration",
+      "classification": "need-related"
+    },
+    {
+      "id": "RockLib.Diagnostics",
+      "version": "5.0.0",
+      "total_downloads": 3802312,
+      "description": "Makes configuring tracing easy and standardized for .NET Core, .NET Standard, and .NET Framework.",
+      "tags": [
+        "RockLib",
+        "Trace",
+        "TraceSource",
+        "Configuration"
+      ],
+      "title": "RockLib.Diagnostics",
+      "classification": "need-related"
+    },
+    {
+      "id": "Unity.Configuration",
+      "version": "5.11.2",
+      "total_downloads": 5396859,
+      "description": "Unity Configuration",
+      "tags": [
+        "Unity",
+        "Container",
+        "unitycontainer",
+        "Microsoft.Practices.Unity",
+        "IoC",
+        "Configuration"
+      ],
+      "title": "Unity.Configuration",
+      "classification": "need-related"
+    },
+    {
+      "id": "Ecng.Configuration",
+      "version": "1.0.280",
+      "total_downloads": 5001315,
+      "description": "Ecng system framework",
+      "tags": [
+        "Ecng",
+        "Configuration",
+        "REST",
+        "WebSockets",
+        "JSON",
+        "Serialization"
+      ],
+      "title": "Ecng.Configuration",
+      "classification": "need-related"
+    },
+    {
+      "id": "Com.Ctrip.Framework.Apollo",
+      "version": "2.11.0",
+      "total_downloads": 2812836,
+      "description": "\u643a\u7a0bApollo\u5ba2\u6237\u7aef\n\n\u3000\u3000\u4e0eMicrosoft.Extensions.Configuration\u96c6\u6210\u8bf7\u4f7f\u7528Com.Ctrip.Framework.Apollo.Configuration\u5305\n\u3000\u3000\u4e0eSystem.Configuration.ConfigurationManager\u96c6\u6210(.net 4.7.1\u53ca\u4ee5\u540e\u7248\u672c)\u8bf7\u4f7f\u7528Com.Ctrip.Framework.Apollo.ConfigurationManager\u5305\n\u3000\u3000\u76f4\u63a5\u4f7f\u7528ApolloConfigurationManager\u8bf7\u4f7f\u7528Com.Ctrip.Framework.Apollo.Configuration\u6216\u8005Com.Ctrip.Framework.Apollo.ConfigurationManager\n\n\u53d1\u5e03\u65e5\u5fd7\u8bf7\u70b9\u51fb\u6253\u5f00 https://github.com/apolloconfig/apollo.net/releases",
+      "tags": [
+        "apollo",
+        "configcenter",
+        "configuration",
+        "ctrip"
+      ],
+      "title": "Com.Ctrip.Framework.Apollo",
+      "classification": "need-related"
+    },
+    {
+      "id": "Microsoft.Azure.AppConfiguration.Functions.Worker",
+      "version": "8.6.0",
+      "total_downloads": 5919790,
+      "description": "Microsoft.Azure.AppConfiguration.Functions.Worker allows developers to use the Microsoft Azure App Configuration service as a configuration source in their applications. This package adds additional features to the existing package Microsoft.Extensions.Configuration.AzureAppConfiguration for .NET Azure Functions running in an isolated process.",
+      "tags": [
+        "Microsoft",
+        "Azure",
+        "Configuration",
+        "AppConfig",
+        "AppConfiguration",
+        "AzureAppConfiguration",
+        "FunctionsWorker",
+        "AzureFunctions",
+        "IsolatedProcess",
+        "OutOfProcess"
+      ],
+      "title": "Microsoft.Azure.AppConfiguration.Functions.Worker",
+      "classification": "need-related"
+    },
+    {
+      "id": "Soenneker.Json.OptionsCollection",
+      "version": "4.0.1297",
+      "total_downloads": 4131448,
+      "description": "A collection of common options for System.Text.Json and JSON.net",
+      "tags": [
+        "json",
+        "options",
+        "configuration",
+        "c#",
+        ".net",
+        "dotnet"
+      ],
+      "title": "Soenneker.Json.OptionsCollection",
+      "classification": "need-related"
+    },
+    {
+      "id": "Microsoft.AspNetCore.AzureAppServices.SiteExtension",
+      "version": "10.0.12",
+      "total_downloads": 4112380,
+      "description": "This site extension enables logging integration for ASP.NET Core applications on Azure App Service.\n\nThis package was built from the source code at https://github.com/dotnet/dotnet/tree/95017c711e6afc1085133d440e42b4bd78155701",
+      "tags": [
+        "aspnet",
+        "logging",
+        "aspnetcore",
+        "AzureSiteExtension",
+        "keyvault",
+        "configuration",
+        "dataprotection"
+      ],
+      "title": "ASP.NET Core Logging Integration",
+      "classification": "need-related"
+    },
+    {
+      "id": "FlexibleConfiguration",
+      "version": "2.0.0",
+      "total_downloads": 2597270,
+      "description": "Configure a .NET application from a variety of sources.",
+      "tags": [
+        "configuration",
+        "json",
+        "yaml",
+        "environment"
+      ],
+      "title": "FlexibleConfiguration",
+      "classification": "need-related"
+    },
+    {
+      "id": "Wodsoft.Extensions.Options.ConfigurationExtensions",
+      "version": "1.1.3",
+      "total_downloads": 2681909,
+      "description": "Provides additional configuration specific functionality related to Options.",
+      "tags": [
+        "aspnetcore",
+        "configuration",
+        "options"
+      ],
+      "title": "Wodsoft.Extensions.Options.ConfigurationExtensions",
+      "classification": "need-related"
+    },
+    {
+      "id": "Com.Ctrip.Framework.Apollo.Configuration",
+      "version": "2.11.0",
+      "total_downloads": 2646894,
+      "description": "\u643a\u7a0bApollo\u5ba2\u6237\u7aef\n\n\u3000\u3000\u4e0eMicrosoft.Extensions.Configuration\u96c6\u6210\u8bf7\u4f7f\u7528Com.Ctrip.Framework.Apollo.Configuration\u5305\n\u3000\u3000\u4e0eSystem.Configuration.ConfigurationManager\u96c6\u6210(.net 4.7.1\u53ca\u4ee5\u540e\u7248\u672c)\u8bf7\u4f7f\u7528Com.Ctrip.Framework.Apollo.ConfigurationManager\u5305\n\u3000\u3000\u76f4\u63a5\u4f7f\u7528ApolloConfigurationManager\u8bf7\u4f7f\u7528Com.Ctrip.Framework.Apollo.Configuration\u6216\u8005Com.Ctrip.Framework.Apollo.ConfigurationManager\n\n\u53d1\u5e03\u65e5\u5fd7\u8bf7\u70b9\u51fb\u6253\u5f00 https://github.com/apolloconfig/apollo.net/releases",
+      "tags": [
+        "apollo",
+        "configcenter",
+        "configuration",
+        "ctrip"
+      ],
+      "title": "Com.Ctrip.Framework.Apollo.Configuration",
+      "classification": "need-related"
+    },
+    {
+      "id": "Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration",
+      "version": "3.0.0",
+      "total_downloads": 2404214,
+      "description": "A set of Configuration Builders for the .Net Framework that draw from Azure AppConfiguration stores.",
+      "tags": [
+        "Microsoft",
+        "Configuration",
+        "Builders",
+        "AzureAppConfiguration"
+      ],
+      "title": "Microsoft Configuration Builders - AzureAppConfiguration Builder",
+      "classification": "need-related"
+    },
+    {
+      "id": "EnterpriseLibrary.TransientFaultHandling.Configuration",
+      "version": "6.0.1304",
+      "total_downloads": 8636916,
+      "description": "This package enables configuring the Transient Fault Handling Application Block (\"Topaz\") using declarative configuration such as the app.config file. Configuring the block is also supported by the Enterprise Library Configuration Tool available in the Visual Studio Extensions Gallery.",
+      "tags": [
+        "entlib",
+        "entlib6",
+        "enterprise",
+        "library",
+        "elazure",
+        "Windows",
+        "Azure",
+        "block",
+        "declarative",
+        "configuration",
+        "topaz"
+      ],
+      "title": "Enterprise Library - Transient Fault Handling Application Block - Declarative configuration support",
+      "classification": "need-related"
+    }
+  ],
+  "random_packages": [
+    {
+      "id": "DeepL.net",
+      "version": "1.22.1",
+      "total_downloads": 2556374,
+      "description": "DeepL.net is the official DeepL .NET client library.",
+      "tags": [
+        "deepl",
+        "translation",
+        "api",
+        "i18n",
+        "language",
+        "translator"
+      ],
+      "title": "DeepL.net",
+      "classification": "random"
+    },
+    {
+      "id": "imL.Core",
+      "version": "0.8.8.21",
+      "total_downloads": 2220873,
+      "description": "Not so free tools.",
+      "tags": [
+        "imL",
+        "imL.Core"
+      ],
+      "title": "imL.Core",
+      "classification": "random"
+    },
+    {
+      "id": "NiL.JS",
+      "version": "2.6.1722",
+      "total_downloads": 681601,
+      "description": "ECMAScript 6 (ES2015) engine",
+      "tags": [
+        "js",
+        "javascript",
+        "java",
+        "script",
+        "ecma",
+        "ecmascript",
+        "es2015",
+        "v8",
+        "niljs",
+        "nil",
+        "nilproject"
+      ],
+      "title": "NiL.JS",
+      "classification": "random"
+    },
+    {
+      "id": "D2L.CodeStyle.Analyzers",
+      "version": "0.229.0",
+      "total_downloads": 679851,
+      "description": "D2L.CodeStyle analyzers",
+      "tags": [],
+      "title": "D2L.CodeStyle.Analyzers",
+      "classification": "random"
+    },
+    {
+      "id": "D2L.LaunchDarkly.CommonSdk",
+      "version": "2.9.2.3",
+      "total_downloads": 537292,
+      "description": "LaunchDarkly common code for .NET and Xamarin clients",
+      "tags": [],
+      "title": "D2L.LaunchDarkly.CommonSdk",
+      "classification": "random"
+    },
+    {
+      "id": "D2L.CodeStyle.Annotations",
+      "version": "0.35.0",
+      "total_downloads": 534827,
+      "description": "D2L.CodeStyle Annotations",
+      "tags": [],
+      "title": "D2L.CodeStyle.Annotations",
+      "classification": "random"
+    },
+    {
+      "id": "D2L.LaunchDarkly.ServerSdk",
+      "version": "5.11.0.3",
+      "total_downloads": 505778,
+      "description": "Package Description",
+      "tags": [],
+      "title": "D2L.LaunchDarkly.ServerSdk",
+      "classification": "random"
+    },
+    {
+      "id": "L.Common.Core",
+      "version": "2.2.94",
+      "total_downloads": 279359,
+      "description": "Package Description",
+      "tags": [],
+      "title": "L.Common.Core",
+      "classification": "random"
+    },
+    {
+      "id": "L.52Abp.Core",
+      "version": "7.3.0.5",
+      "total_downloads": 262348,
+      "description": "52ABP\u6846\u67b6\u7684\u6838\u5fc3\u5e93",
+      "tags": [],
+      "title": "L.52Abp.Core",
+      "classification": "random"
+    },
+    {
+      "id": "D2L.CodeStyle.TestAnalyzers",
+      "version": "0.32.0",
+      "total_downloads": 436937,
+      "description": "D2L.CodeStyle test analyzers",
+      "tags": [],
+      "title": "D2L.CodeStyle.TestAnalyzers",
+      "classification": "random"
+    },
+    {
+      "id": "CoCoL",
+      "version": "1.8.4",
+      "total_downloads": 209936,
+      "description": "Concurrent Communications Library",
+      "tags": [
+        "Multithreading",
+        "Multiprocessing",
+        "Concurrency",
+        "CSP",
+        "Go",
+        "Golang",
+        "Actor"
+      ],
+      "title": "CoCoL",
+      "classification": "random"
+    },
+    {
+      "id": "L.52Abp.Common",
+      "version": "5.0.7.1",
+      "total_downloads": 212965,
+      "description": "52ABP\u6846\u67b6\u7684\u5de5\u5177\u5e93",
+      "tags": [],
+      "title": "L.52Abp.Common",
+      "classification": "random"
+    },
+    {
+      "id": "D2L.Hypermedia.Siren",
+      "version": "2.3.0",
+      "total_downloads": 261700,
+      "description": "Helper classes for using Siren Hypermedia in .NET.",
+      "tags": [],
+      "title": "D2L.Hypermedia.Siren",
+      "classification": "random"
+    },
+    {
+      "id": "L.52Abp",
+      "version": "7.3.0.5",
+      "total_downloads": 205613,
+      "description": "52ABP\u6846\u67b6\u7684\u6838\u5fc3\u5e93",
+      "tags": [],
+      "title": "L.52Abp",
+      "classification": "random"
+    },
+    {
+      "id": "L10NSharp",
+      "version": "11.0.1",
+      "total_downloads": 195213,
+      "description": "L10NSharp is a .NET localization library. It collects strings which need localization when your application first runs and saves them in a XLIFF file.",
+      "tags": [],
+      "title": "L10NSharp",
+      "classification": "random"
+    },
+    {
+      "id": "D2L.Security.OAuth2",
+      "version": "15.0.1",
+      "total_downloads": 318425,
+      "description": "Library for interacting with OAuth2 based flows in D2L systems",
+      "tags": [],
+      "title": "D2L.Security.OAuth2",
+      "classification": "random"
+    },
+    {
+      "id": "D2L.MQTT.Packets",
+      "version": "1.0.0",
+      "total_downloads": 229769,
+      "description": "A .NET implementation of the MQTT control packets",
+      "tags": [
+        "MQTT"
+      ],
+      "title": "D2L.MQTT.Packets",
+      "classification": "random"
+    },
+    {
+      "id": "L.52Abp.Application",
+      "version": "7.3.0.5",
+      "total_downloads": 176335,
+      "description": "52ABP\u6846\u67b6Application\u5e94\u7528\u5c42\u7684\u57fa\u7c7b",
+      "tags": [],
+      "title": "L.52Abp.Application",
+      "classification": "random"
+    },
+    {
+      "id": "D2L.Services.Core.Exceptions",
+      "version": "2.0.1.15",
+      "total_downloads": 272098,
+      "description": "An abstract exception class that represents an error that occurred while communicating with a service. Provides a consistent way to catch service related errors.",
+      "tags": [],
+      "title": "D2L.Services.Core.Exceptions",
+      "classification": "random"
+    },
+    {
+      "id": "DeepL",
+      "version": "0.4.3",
+      "total_downloads": 105730,
+      "description": "DeepL.NET is an unofficial, fully-featured .NET client for the DeepL translation service.",
+      "tags": [
+        "deepl",
+        "translation",
+        "deep",
+        "learning",
+        "nlp",
+        "natural",
+        "language",
+        "processing"
+      ],
+      "title": "DeepL.NET",
+      "classification": "random"
+    },
+    {
+      "id": "L1L2RedisCache",
+      "version": "1.2.3",
+      "total_downloads": 103265,
+      "description": "Package Description",
+      "tags": [],
+      "title": "L1L2RedisCache",
+      "classification": "random"
+    },
+    {
+      "id": "D2L.LaunchDarkly.EventSource",
+      "version": "3.0.0",
+      "total_downloads": 225494,
+      "description": "LaunchDarkly .NET Event Source library for Server Sent Events",
+      "tags": [],
+      "title": "D2L.LaunchDarkly.EventSource",
+      "classification": "random"
+    },
+    {
+      "id": "D2L.Security.OAuth2.TestFramework",
+      "version": "15.0.1",
+      "total_downloads": 303603,
+      "description": "Library for obtaining authorization in tests",
+      "tags": [],
+      "title": "D2L.Security.OAuth2.TestFramework",
+      "classification": "random"
+    },
+    {
+      "id": "D2L.Extensibility.AuthSdk",
+      "version": "2.0.0",
+      "total_downloads": 179922,
+      "description": "D2L.Extensibility.AuthSdk",
+      "tags": [],
+      "title": "D2L.Extensibility.AuthSdk",
+      "classification": "random"
+    },
+    {
+      "id": "L.52Abp.Web.Core",
+      "version": "7.3.0.5",
+      "total_downloads": 124101,
+      "description": "52ABP\u6846\u67b6Web\u7c7b\u5e93\u7684\u6838\u5fc3\u5e93",
+      "tags": [],
+      "title": "L.52Abp.Web.Core",
+      "classification": "random"
+    },
+    {
+      "id": "NiL.JS.NetCore",
+      "version": "2.5.1419",
+      "total_downloads": 122608,
+      "description": "ECMAScript 6 (ES2015) engine",
+      "tags": [
+        "js",
+        "javascript",
+        "java",
+        "script",
+        "ecma",
+        "ecmascript",
+        "es2015",
+        "v8",
+        "niljs",
+        "nil",
+        "nilproject"
+      ],
+      "title": "NiL.JS.NetCore",
+      "classification": "random"
+    },
+    {
+      "id": "MN.L10n",
+      "version": "4.1.5",
+      "total_downloads": 90995,
+      "description": "MultiNet L10n\nTranslation package",
+      "tags": [
+        "L10n",
+        "translation"
+      ],
+      "title": "MN.L10n",
+      "classification": "random"
+    },
+    {
+      "id": "L",
+      "version": "5.0.0",
+      "total_downloads": 43246,
+      "description": "Logging as simple as it can be.",
+      "tags": [
+        "log",
+        "logging",
+        "zero",
+        "configuration"
+      ],
+      "title": "L",
+      "classification": "random"
+    },
+    {
+      "id": "boost_math_tr1l-vc140",
+      "version": "1.86.0",
+      "total_downloads": 139212,
+      "description": "boost_math_tr1l-vc140. Compiler: Visual Studio 2015 Update 3.",
+      "tags": [
+        "native",
+        "nativepackage",
+        "C++",
+        "Boost",
+        "binaries",
+        "vc140",
+        "math_tr1l"
+      ],
+      "title": "boost_math_tr1l-vc140",
+      "classification": "random"
+    },
+    {
+      "id": "boost_math_c99l-vc140",
+      "version": "1.86.0",
+      "total_downloads": 119789,
+      "description": "boost_math_c99l-vc140. Compiler: Visual Studio 2015 Update 3.",
+      "tags": [
+        "native",
+        "nativepackage",
+        "C++",
+        "Boost",
+        "binaries",
+        "vc140",
+        "math_c99l"
+      ],
+      "title": "boost_math_c99l-vc140",
+      "classification": "random"
+    },
+    {
+      "id": "L.52Abp.EntityFrameworkCore",
+      "version": "7.3.0.5",
+      "total_downloads": 94339,
+      "description": "52ABP\u6846\u67b6\u7684\u6838\u5fc3\u5e93",
+      "tags": [],
+      "title": "L.52Abp.EntityFrameworkCore",
+      "classification": "random"
+    },
+    {
+      "id": "boost_math_tr1l-vc120",
+      "version": "1.75.0",
+      "total_downloads": 94230,
+      "description": "boost_math_tr1l-vc120. Compiler: Visual Studio 2013 Update 5.",
+      "tags": [
+        "native",
+        "nativepackage",
+        "C++",
+        "Boost",
+        "binaries",
+        "vc120",
+        "math_tr1l"
+      ],
+      "title": "boost_math_tr1l-vc120",
+      "classification": "random"
+    },
+    {
+      "id": "StackRedis.L1",
+      "version": "0.2.1",
+      "total_downloads": 52137,
+      "description": "In-Memory \"L1\" cache for the .NET StackExchange.Redis library.",
+      "tags": [],
+      "title": "StackRedis.L1",
+      "classification": "random"
+    },
+    {
+      "id": "ch1seL.TonNet.Abstract",
+      "version": "1.28.0.1",
+      "total_downloads": 91870,
+      "description": "Free TON Client for .NET",
+      "tags": [
+        "FREETON",
+        "TON",
+        "CSharp",
+        "dotnet",
+        "net5"
+      ],
+      "title": "ch1seL.TonNet.Abstract",
+      "classification": "random"
+    },
+    {
+      "id": "L.Wpf.Toolkit",
+      "version": "20.7.30.4",
+      "total_downloads": 51172,
+      "description": "Package Description",
+      "tags": [],
+      "title": "L.Wpf.Toolkit",
+      "classification": "random"
+    },
+    {
+      "id": "L.Prism.Wpf.Toolkit",
+      "version": "20.7.30.1",
+      "total_downloads": 48669,
+      "description": "Package Description",
+      "tags": [],
+      "title": "L.Prism.Wpf.Toolkit",
+      "classification": "random"
+    },
+    {
+      "id": "boost_math_tr1l-vc141",
+      "version": "1.87.0",
+      "total_downloads": 82810,
+      "description": "boost_math_tr1l-vc141. Compiler: Visual Studio 2017 15.9.67.",
+      "tags": [
+        "native",
+        "nativepackage",
+        "C++",
+        "Boost",
+        "binaries",
+        "vc141",
+        "math_tr1l"
+      ],
+      "title": "boost_math_tr1l-vc141",
+      "classification": "random"
+    },
+    {
+      "id": "boost_math_c99l-vc120",
+      "version": "1.75.0",
+      "total_downloads": 81030,
+      "description": "boost_math_c99l-vc120. Compiler: Visual Studio 2013 Update 5.",
+      "tags": [
+        "native",
+        "nativepackage",
+        "C++",
+        "Boost",
+        "binaries",
+        "vc120",
+        "math_c99l"
+      ],
+      "title": "boost_math_c99l-vc120",
+      "classification": "random"
+    },
+    {
+      "id": "boost_math_tr1l-vc110",
+      "version": "1.75.0",
+      "total_downloads": 80162,
+      "description": "boost_math_tr1l-vc110. Compiler: Visual Studio 2012 Update 4.",
+      "tags": [
+        "native",
+        "nativepackage",
+        "C++",
+        "Boost",
+        "binaries",
+        "vc110",
+        "math_tr1l"
+      ],
+      "title": "boost_math_tr1l-vc110",
+      "classification": "random"
+    },
+    {
+      "id": "Jumoo.TranslationManager.Connector.DeepL",
+      "version": "16.0.0",
+      "total_downloads": 82147,
+      "description": "DeepL Translation Api Connector for Translation Manager for Umbraco",
+      "tags": [
+        "umbraco",
+        "umbraco-marketplace"
+      ],
+      "title": "Connector for DeepL Translation Api for Translation Manager",
+      "classification": "random"
+    }
+  ],
   "gates": {
-    "G1_classification_validity": {
+    "G1": {
+      "need_count": 40,
+      "random_count": 40,
       "pass": true,
-      "detail": "single-rater well-defined rules"
+      "details": "need-related: 40, random: 40 (threshold: 30 each)"
     },
-    "G2_need_prevalence": {
+    "G2": {
+      "u_statistic": 3.0,
+      "p_value": 1.7319479184152442e-14,
+      "cliff_delta": 0.99625,
       "pass": true,
-      "need_fraction": 0.8888888888888888
+      "details": "Mann-Whitney U=3.0, p=0.000000, Cliff's delta=0.996"
     },
-    "G3_served_fraction_measurable": {
+    "G3": {
+      "need_above_random_median": 40,
+      "need_total": 40,
+      "proportion": 1.0,
+      "wilson_lower_bound": 0.9123754607496077,
       "pass": true,
-      "wilson_upper": 0.0
+      "details": "40/40 need-related above random median (Wilson LB=0.9124, threshold=0.60)"
     },
-    "G4_cross_signal": {
-      "pass": false,
-      "unserved_count": 0
+    "G4": {
+      "need_with_downloads": 40,
+      "random_with_downloads": 40,
+      "pass": true,
+      "details": "All 80 sampled packages have totalDownloads > 0 (filtered at fetch)"
     }
   },
-  "all_gates_pass": false,
-  "classified_threads": [
-    {
-      "title": "How do I fix my leaky faucet?",
-      "classification": "need",
-      "unserved_open_like": false
-    },
-    {
-      "title": "Look at my new mechanical keyboard build!",
-      "classification": "non-need",
-      "unserved_open_like": false
-    },
-    {
-      "title": "Why is my Python script giving a KeyError?",
-      "classification": "need",
-      "unserved_open_like": false
-    },
-    {
-      "title": "How do I center a div in CSS?",
-      "classification": "need",
-      "unserved_open_like": false
-    },
-    {
-      "title": "What laptop should I buy for programming?",
-      "classification": "need",
-      "unserved_open_like": false
-    },
-    {
-      "title": "How to solve this integral calculus problem?",
-      "classification": "need",
-      "unserved_open_like": false
-    },
-    {
-      "title": "My database query is very slow, help!",
-      "classification": "need",
-      "unserved_open_like": false
-    },
-    {
-      "title": "Issue with git merge conflict",
-      "classification": "need",
-      "unserved_open_like": false
-    },
-    {
-      "title": "Recommend a good VS Code extension",
-      "classification": "need",
-      "unserved_open_like": false
-    }
-  ]
+  "overall_pass": true
 }

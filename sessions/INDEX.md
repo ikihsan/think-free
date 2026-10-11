@@ -8,13 +8,15 @@ last-verified: 2026-10-11
 
 <!-- generated-by: origin; do not edit by hand -->
 
-264 recorded session(s). One `events.jsonl` per session, so concurrent
+266 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 239 older session(s) are in the directory listing.
+Showing the 25 most recent. 241 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-11-019-fix-session-018-integrity-errors-declare](2026-10-11-019-fix-session-018-integrity-errors-declare/README.md) | unknown-agent | worked | Fix session 018 integrity errors: declare root results.json, update FA | 2026-10-11T12:26 |
+| [2026-10-11-018-run-a-fresh-observation-experiment-in-a](2026-10-11-018-run-a-fresh-observation-experiment-in-a/README.md) | unknown-agent | worked | Run a fresh observation experiment in a new domain per D083, testing v | 2026-10-11T12:19 |
 | [2026-10-11-017-design-and-run-fresh-observation-experim](2026-10-11-017-design-and-run-fresh-observation-experim/README.md) | unknown-agent | worked | Design and run fresh observation experiment on crates.io (Rust package | 2026-10-11T11:55 |
 | [2026-10-11-012-log-experiment-094-artifacts-and-update](2026-10-11-012-log-experiment-094-artifacts-and-update/README.md) | unknown-agent | worked | Log Experiment 094 artifacts and update STATE documents with results | 2026-10-11T09:57 |
 | [2026-10-11-011-design-and-run-a-fresh-observation-exper](2026-10-11-011-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment in a new domain per D083 | 2026-10-11T09:49 |
@@ -38,8 +40,6 @@ Showing the 25 most recent. 239 older session(s) are in the directory listing.
 | [2026-10-10-019-publish-pyprovides-to-pypi-and-measure-a](2026-10-10-019-publish-pyprovides-to-pypi-and-measure-a/README.md) | unknown-agent | worked | Publish pyprovides to PyPI and measure adoption | 2026-10-10T20:51 |
 | [2026-10-10-018-finalize-pyprovides-packaging-for-distri](2026-10-10-018-finalize-pyprovides-packaging-for-distri/README.md) | unknown-agent | worked | Finalize pyprovides packaging for distribution and record outcomes | 2026-10-10T19:51 |
 | [2026-10-10-018-decide-on-next-action-for-think-free-mis](2026-10-10-018-decide-on-next-action-for-think-free-mis/README.md) | unknown-agent | worked | Decide on next action for Think Free mission | 2026-10-10T19:51 |
-| [2026-10-10-017-package-pyprovides-for-distribution-and](2026-10-10-017-package-pyprovides-for-distribution-and/README.md) | unknown-agent | worked | Package pyprovides for distribution and create shell integrations | 2026-10-10T19:37 |
-| [2026-10-10-016-verify-e091-harness-output-and-prepare-f](2026-10-10-016-verify-e091-harness-output-and-prepare-f/README.md) | unknown-agent | worked | Verify E091 harness output and prepare for next population measurement | 2026-10-10T19:09 |
 
 
 ## Reading a session
