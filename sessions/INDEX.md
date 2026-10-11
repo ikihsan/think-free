@@ -15,7 +15,7 @@ Showing the 25 most recent. 200 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-11-002-restore-a-green-doc-lint-so-work-can-lan](2026-10-11-002-restore-a-green-doc-lint-so-work-can-lan/README.md) | unknown-agent | **unfinished** | Restore a green doc lint so work can land, then test whether a local-s | 2026-10-11T00:38 |
+| [2026-10-11-002-restore-a-green-doc-lint-so-work-can-lan](2026-10-11-002-restore-a-green-doc-lint-so-work-can-lan/README.md) | unknown-agent | worked | Restore a green doc lint so work can land, then test whether a local-s | 2026-10-11T01:22 |
 | [2026-10-11-001-test-the-contested-pyprovides-line-closu](2026-10-11-001-test-the-contested-pyprovides-line-closu/README.md) | unknown-agent | worked | Test the contested pyprovides line-closure by hand-reading E091's 25 m | 2026-10-11T00:26 |
 | [2026-10-10-018-decide-on-next-action-for-think-free-mis](2026-10-10-018-decide-on-next-action-for-think-free-mis/README.md) | unknown-agent | worked | Decide on next action for Think Free mission | 2026-10-10T19:51 |
 | [2026-10-10-016-verify-e091-harness-output-and-prepare-f](2026-10-10-016-verify-e091-harness-output-and-prepare-f/README.md) | unknown-agent | worked | Verify E091 harness output and prepare for next population measurement | 2026-10-10T19:09 |
