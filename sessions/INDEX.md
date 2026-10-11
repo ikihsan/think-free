@@ -8,13 +8,14 @@ last-verified: 2026-10-11
 
 <!-- generated-by: origin; do not edit by hand -->
 
-284 recorded session(s). One `events.jsonl` per session, so concurrent
+285 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 259 older session(s) are in the directory listing.
+Showing the 25 most recent. 260 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-11-038-finalize-view-count-principle-research-a](2026-10-11-038-finalize-view-count-principle-research-a/README.md) | unknown-agent | worked | Finalize view-count principle research and record session outcome | 2026-10-11T17:49 |
 | [2026-10-11-037-synthesize-view-count-principle-across-e](2026-10-11-037-synthesize-view-count-principle-across-e/README.md) | unknown-agent | worked | Synthesize view-count principle across ecosystems and produce boundary | 2026-10-11T17:24 |
 | [2026-10-11-030-provide-user-summary](2026-10-11-030-provide-user-summary/README.md) | unknown-agent | worked | Provide user summary | 2026-10-11T16:33 |
 | [2026-10-11-029-pyfix-prototype-completion-verified](2026-10-11-029-pyfix-prototype-completion-verified/README.md) | unknown-agent | worked | pyfix prototype completion verified | 2026-10-11T16:33 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 259 older session(s) are in the directory listing.
 | [2026-10-11-011-declare-e101-experiment-artifacts](2026-10-11-011-declare-e101-experiment-artifacts/README.md) | unknown-agent | worked | Declare E101 experiment artifacts | 2026-10-11T10:37 |
 | [2026-10-11-010-record-e090-maven-central-experiment-res](2026-10-11-010-record-e090-maven-central-experiment-res/README.md) | unknown-agent | worked | Record E090 Maven Central experiment results and update mission state | 2026-10-11T09:13 |
 | [2026-10-11-010-complete-fresh-observation-experiment-e1](2026-10-11-010-complete-fresh-observation-experiment-e1/README.md) | unknown-agent | worked | Complete fresh observation experiment E101 in network equipment fault  | 2026-10-11T10:36 |
-| [2026-10-11-009-run-a-fresh-observation-experiment-in-a](2026-10-11-009-run-a-fresh-observation-experiment-in-a/README.md) | unknown-agent | worked | Run a fresh observation experiment in a new untested domain to map vie | 2026-10-11T08:48 |
 
 
 ## Reading a session

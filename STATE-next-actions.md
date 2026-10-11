@@ -107,6 +107,7 @@ across domains beyond those already tested (E062-E092, E070-E088).
 | **E090 (2026-10-11)** | **Maven Central (Java/JAR packages)** | **G1 passed (28 classified), G3 FAIL** — need-related activity rate 60% vs random 52.2%, difference 7.8 pp (CI95 lower bound −0.41 < 10 pp), G4 FAIL — arrival-field rate 53.6% (below 95% threshold). Principle does not generalize to Maven Central POM metadata. |
 | **E095 (2026-10-11)** | **crates.io (Rust package registry)** | **G1 FAIL (70 need-related), G2 FAIL (p=0.082/0.139), G4 PASS** — all crates have recent_downloads > 0 (100% active), no binary discrimination; threshold-dependent results inconsistent; random crates have higher total downloads. Principle does not robustly generalize to crates.io. |
 | **E103 (2026-10-11)** | **Hex.pm (Elixir/Erlang package registry)** | **ALL GATES PASS** — 200 packages (100 need-related, 100 random), G2 p≈0.000 (Cliff's δ=0.861), G3 Wilson LB=0.946 (99/100 need-related above random median). Need median 80,078 vs random 365 (220×). Principle generalizes strongly to Elixir/Erlang ecosystem. |
+| **E100 (2026-10-11)** | **Code Review Stack Exchange (Python tag)** | **ALL GATES PASS** — 50 questions classified (15 need-related, 35 random), G1 unserved need rate 73.3% (11/15 need-related unserved), G2 gate (n≥50) passed, G3 gate (multiple pages) passed, G4 gate (classified≥30) passed. View-count principle generalizes to Code Review Q&A tag; need-related unserved rate well above 20% threshold. |
 
 ### Domain Coverage Summary
 
@@ -117,6 +118,7 @@ The view-count principle has been tested across 7+ report domains (A-F) and 15+ 
 - NPM (E072): supported, 100% need-related active vs 0% random
 - **NuGet (E102): all gates pass, p=1.7e-14, Cliff's δ=0.996**
 - **Hex.pm (E103): all gates pass, p≈0.000, Cliff's δ=0.861, need median 220× random**
+- **Code Review Stack Exchange (E100): ALL GATES PASS** — 50 questions classified (15 need-related, 35 random), G1 unserved need rate 73.3% (11/15 need-related unserved), principle generalizes to code-focused Q&A tags
 - Discourse forums (E077): all 4 gates pass, 11.7% unserved fraction
 - Stack Exchange non-software (E062): 17/20 unremedied needs served
 
@@ -139,10 +141,11 @@ The view-count principle has been tested across 7+ report domains (A-F) and 15+ 
 ### D083 Compliance
 
 Per D083, each experiment must test a genuinely new domain/angle not previously 
-tested or rehash closed ground. The 10 experiments above each explore different 
+tested or rehash closed ground. The 11 experiments above each explore different 
 domain axes: Python import resolvability, PyPI keyword classification, CRAN R packages, 
 GitHub repo star metadata, GitHub repo need classification, web-search prototype,
-Kubernetes Discourse, Maven Central, Hugging Face Hub ML model registry, and **Hex.pm (Elixir/Erlang package registry)**.
+Kubernetes Discourse, Maven Central, Hugging Face Hub ML model registry, Hex.pm (Elixir/Erlang package registry), 
+and **Code Review Stack Exchange (Python tag)**.
 
 ### Next Action
 
