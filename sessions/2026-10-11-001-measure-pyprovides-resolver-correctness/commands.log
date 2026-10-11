@@ -1,0 +1,66 @@
+==============================================================================
+[seq 56] 2026-10-11T01:34:49+00:00
+$ python3 EXPERIMENTS/100-query-time-resolver-vs-alternatives/rescore.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+module               pop body  a1 pip M       a2 alias       a3 ablated     a4 full       
+Bio                  B   True  wrong          missed-shipper missed-shipper missed-shipper
+PIL                  B   True  inconclusive   direct         direct         direct        
+board                A   True  direct         missed-shipper direct         direct        
+bs4                  B   True  wrong          direct         direct         direct        
+clients              A   True  direct         missed-shipper direct         direct        
+cpickle              A   True  inconclusive   inconclusive   inconclusive   inconclusive  
+cv2                  B   True  inconclusive   direct         inconclusive   direct        
+dateutil             B   True  inconclusive   direct         direct         direct        
+dbus                 A   True  inconclusive   inconclusive   inconclusive   inconclusive  
+depthflow            A   True  direct         missed-shipper direct         direct        
+dir_one              A   True  inconclusive   inconclusive   inconclusive   inconclusive  
+docker               A   True  direct         missed-shipper direct         direct        
+dotenv               B   False wrong          direct         direct         direct        
+examples             A   True  direct         missed-shipper direct         direct        
+exceptions           A   True  inconclusive   inconclusive   inconclusive   inconclusive  
+git                  B   True  inconclusive   direct         direct         direct        
+google               A   True  wrong          right-abstain  direct         direct        
+graphics             A   True  inconclusive   inconclusive   inconclusive   inconclusive  
+mido                 A   True  direct         missed-shipper direct         direct        
+module1              A   True  wrong          right-abstain  right-abstain  right-abstain 
+mpuserver            A   True  inconclusive   inconclusive   inconclusive   inconclusive  
+mt                   A   True  direct         missed-shipper direct         direct        
+pygame               A   True  direct         missed-shipper direct         direct        
+pyspark              A   True  wrong          right-abstain  right-abstain  right-abstain 
+serial               B   True  direct         direct         direct         direct        
+sklearn              B   True  inconclusive   direct         direct         direct        
+source_salesforce    A   True  wrong          right-abstain  right-abstain  right-abstain 
+streamlit            A   True  direct         missed-shipper direct         direct        
+telegram             A   True  wrong          right-abstain  right-abstain  right-abstain 
+umail                A   True  wrong          right-abstain  right-abstain  right-abstain 
+unidecode            A   True  direct         missed-shipper direct         direct        
+voluptuous_openapi   A   True  direct         missed-shipper direct         direct        
+yaml                 B   True  inconclusive   direct         direct         direct        
+
+TALLIES  ok = direct + right-abstain. 'ns' counted separately.
+  A a1  ok=11  ns=0   wrong=6   incon=6   unver=0   notrun=0   n=23
+  A a2  ok=6   ns=0   wrong=0   incon=6   unver=0   notrun=0   n=23
+  A a3  ok=17  ns=0   wrong=0   incon=6   unver=0   notrun=0   n=23
+  A a4  ok=17  ns=0   wrong=0   incon=6   unver=0   notrun=0   n=23
+  A a5  ok=12  ns=0   wrong=2   incon=6   unver=0   notrun=0   n=23
+  B a1  ok=1   ns=0   wrong=3   incon=6   unver=0   notrun=0   n=10
+  B a2  ok=9   ns=0   wrong=0   incon=0   unver=0   notrun=0   n=10
+  B a3  ok=8   ns=0   wrong=0   incon=1   unver=0   notrun=0   n=10
+  B a4  ok=9   ns=0   wrong=0   incon=0   unver=0   notrun=0   n=10
+  B a5  ok=10  ns=0   wrong=0   incon=0   unver=0   notrun=0   n=10
+
+POPULATION B (the gate population), body-checked:
+  Bio          body_names_M=True  a3=missed-shipper a4=missed-shipper a5=direct
+  PIL          body_names_M=True  a3=direct         a4=direct         a5=direct
+  bs4          body_names_M=True  a3=direct         a4=direct         a5=direct
+  cv2          body_names_M=True  a3=inconclusive   a4=direct         a5=direct
+  dateutil     body_names_M=True  a3=direct         a4=direct         a5=direct
+  dotenv       body_names_M=False a3=direct         a4=direct         a5=direct
+  git          body_names_M=True  a3=direct         a4=direct         a5=direct
+  serial       body_names_M=True  a3=direct         a4=direct         a5=direct
+  sklearn      body_names_M=True  a3=direct         a4=direct         a5=direct
+  yaml         body_names_M=True  a3=direct         a4=direct         a5=direct
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 211  redactions: none

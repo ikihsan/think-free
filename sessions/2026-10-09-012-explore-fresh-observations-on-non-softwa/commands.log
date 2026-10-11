@@ -1,0 +1,446 @@
+==============================================================================
+[seq 2] 2026-10-09T15:06:27+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Get all Stack Exchange sites
+url = 'https://api.stackexchange.com/2.3/sites?pagesize=500&filter=!6WPIompMg6)Z9'
+resp = urllib.request.urlopen(url)
+data = json.load(resp)
+
+# Filter for non-software sites
+software_keywords = ['stackoverflow', 'serverfault', 'superuser', 'askubuntu', 'unix', 'apple', 'android', 'raspberry', 'arduino', 'bitcoin', 'crypto', 'dba', 'devops', 'security', 'software', 'programmer', 'code', 'webmaster', 'webapps', 'opensource', 'freelance', 'startup', 'engineering', 'electronics', 'robotics', 'datascience', 'ai', 'ml', 'quant', 'math', 'stats', 'cs', 'theoretical', 'computational']
+
+non_software = []
+for site in data['items']:
+    name = site['name'].lower()
+    api_site = site['api_site_parameter']
+    if not any(kw in name for kw in software_keywords) and not any(kw in api_site for kw in software_keywords):
+        if site['site_type'] == 'main_site' and not site.get('closed_beta_date'):
+            non_software.append({
+                'name': site['name'],
+                'api_parameter': api_site,
+                'url': site['site_url'],
+                'questions_per_minute': site.get('questions_per_minute', 0),
+                'total_questions': site.get('total_questions', 0)
+            })
+
+# Sort by activity
+non_software.sort(key=lambda x: x['questions_per_minute'], reverse=True)
+
+print(f'Total non-software sites: {len(non_software)}')
+for s in non_software[:30]:
+    print(f"  {s['name']:40s} ({s['api_parameter']:20s}) {s['questions_per_minute']:.2f} q/min, {s['total_questions']:,} total")
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "<string>", line 7, in <module>
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1293  redactions: none
+==============================================================================
+[seq 3] 2026-10-09T15:06:40+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Get all Stack Exchange sites
+url = 'https://api.stackexchange.com/2.3/sites?pagesize=500'
+resp = urllib.request.urlopen(url)
+data = json.load(resp)
+
+# Filter for non-software sites
+software_keywords = ['stackoverflow', 'serverfault', 'superuser', 'askubuntu', 'unix', 'apple', 'android', 'raspberry', 'arduino', 'bitcoin', 'crypto', 'dba', 'devops', 'security', 'software', 'programmer', 'code', 'webmaster', 'webapps', 'opensource', 'freelance', 'startup', 'engineering', 'electronics', 'robotics', 'datascience', 'ai', 'ml', 'quant', 'math', 'stats', 'cs', 'theoretical', 'computational']
+
+non_software = []
+for site in data['items']:
+    name = site['name'].lower()
+    api_site = site['api_site_parameter']
+    if not any(kw in name for kw in software_keywords) and not any(kw in api_site for kw in software_keywords):
+        if site['site_type'] == 'main_site' and not site.get('closed_beta_date'):
+            non_software.append({
+                'name': site['name'],
+                'api_parameter': api_site,
+                'url': site['site_url'],
+                'questions_per_minute': site.get('questions_per_minute', 0),
+                'total_questions': site.get('total_questions', 0)
+            })
+
+# Sort by activity
+non_software.sort(key=lambda x: x['questions_per_minute'], reverse=True)
+
+print(f'Total non-software sites: {len(non_software)}')
+for s in non_software[:30]:
+    print(f"  {s['name']:40s} ({s['api_parameter']:20s}) {s['questions_per_minute']:.2f} q/min, {s['total_questions']:,} total")
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Total non-software sites: 2
+  Meta Stack Exchange                      (meta                ) 0.00 q/min, 0 total
+  Ask Patents                              (patents             ) 0.00 q/min, 0 total
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 611  redactions: none
+==============================================================================
+[seq 4] 2026-10-09T15:08:31+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Get all Stack Exchange sites
+url = 'https://api.stackexchange.com/2.3/sites?pagesize=500'
+resp = urllib.request.urlopen(url)
+data = json.load(resp)
+
+# More precise software/developer site filters
+software_sites = {
+    'stackoverflow', 'serverfault', 'superuser', 'askubuntu', 'unix', 'apple',
+    'android', 'raspberrypi', 'arduino', 'bitcoin', 'ethereum', 'crypto',
+    'dba', 'devops', 'security', 'softwareengineering', 'programmers',
+    'codegolf', 'codereview', 'webmasters', 'webapps', 'opensource',
+    'freelancing', 'startups', 'engineering', 'electronics', 'robotics',
+    'datascience', 'ai', 'machinelearning', 'quant', 'mathoverflow',
+    'stats', 'cs', 'theoreticalcs', 'computerscience', 'computergraphics',
+    'gamedev', 'blender', 'graphicdesign', 'ux', 'productivity', 'projectmanagement',
+    'sharepoint', 'salesforce', 'magento', 'wordpress', 'drupal', 'joomla',
+    'craftcms', 'expressionengine', 'sitecore', 'umbraco', 'kentico',
+    'oracle', 'sql', 'postgresql', 'mysql', 'mongodb', 'redis', 'cassandra',
+    'elasticsearch', 'kafka', 'spark', 'hadoop', 'kubernetes', 'docker',
+    'jenkins', 'ansible', 'terraform', 'vagrant', 'packer', 'consul',
+    'vault', 'nomad', 'prometheus', 'grafana', 'elk', 'logstash',
+    'puppet', 'chef', 'saltstack', 'rundeck', 'drone', 'circleci',
+    'travisci', 'github', 'gitlab', 'bitbucket', 'jira', 'confluence',
+    'trello', 'asana', 'slack', 'discord', 'mattermost', 'rocket.chat',
+    'zulip', 'matrix', 'irc', 'telegram', 'whatsapp', 'signal',
+    'email', 'outlook', 'gmail', 'thunderbird', 'evolution', 'k9mail',
+    'browser', 'firefox', 'chrome', 'safari', 'edge', 'opera',
+    'vivaldi', 'brave', 'tor', 'torproject', 'privacy', 'vpn',
+    'wireguard', 'openvpn', 'networking', 'cisco', 'juniper', 'pfsense',
+    'openwrt', 'dd-wrt', 'tomato', 'asuswrt', 'meraki', 'ubiquiti',
+    'mikrotik', 'fortinet', 'paloalto', 'checkpoint', 'f5', 'a10',
+    'citrix', 'vmware', 'virtualbox', 'hyperv', 'qemu', 'kvm', 'xen',
+    'proxmox', 'ovirt', 'rancher', 'openshift', 'k3s', 'k0s', 'kind',
+    'minikube', 'microk8s', 'k3d', 'kind', 'kubevirt', 'kubeflow',
+    'istio', 'linkerd', 'consul', 'vault', 'nomad', 'packer', 'vagrant',
+    'terraform', 'ansible', 'chef', 'puppet', 'salt', 'rundeck',
+    'drone', 'circleci', 'travisci', 'github', 'gitlab', 'bitbucket',
+    'jira', 'confluence', 'trello', 'asana', 'slack', 'discord',
+    'mattermost', 'rocket', 'zulip', 'matrix', 'irc', 'telegram',
+    'whatsapp', 'signal', 'email', 'outlook', 'gmail', 'thunderbird',
+    'evolution', 'k9mail', 'browser', 'firefox', 'chrome', 'safari',
+    'edge', 'opera', 'vivaldi', 'brave', 'tor', 'privacy', 'vpn',
+    'wireguard', 'openvpn', 'networking', 'cisco', 'juniper', 'pfsense',
+    'openwrt', 'ddwrt', 'tomato', 'asuswrt', 'meraki', 'ubiquiti',
+    'mikrotik', 'fortinet', 'paloalto', 'checkpoint', 'f5', 'a10',
+    'citrix', 'vmware', 'virtualbox', 'hyperv', 'qemu', 'kvm', 'xen',
+    'proxmox', 'ovirt', 'rancher', 'openshift', 'k3s', 'k0s', 'kind',
+    'minikube', 'microk8s', 'k3d', 'kubeflow', 'istio', 'linkerd',
+}
+
+# Also exclude by name patterns
+software_patterns = ['stack', 'overflow', 'server', 'super', 'user', 'ubuntu', 'unix', 'linux', 'bsd', 'windows', 'mac', 'osx', 'ios', 'android', 'mobile', 'web', 'app', 'api', 'dev', 'code', 'program', 'script', 'software', 'hardware', 'electronics', 'robot', 'data', 'ai', 'ml', 'quant', 'math', 'stat', 'cs', 'computer', 'graphic', 'game', 'design', 'ux', 'product', 'project', 'manage', 'share', 'sales', 'force', 'magento', 'wordpress', 'drupal', 'joomla', 'craft', 'expression', 'sitecore', 'umbraco', 'kentico', 'oracle', 'sql', 'postgres', 'mysql', 'mongo', 'redis', 'cassandra', 'elastic', 'kafka', 'spark', 'hadoop', 'kube', 'docker', 'jenkins', 'ansible', 'terraform', 'vagrant', 'packer', 'consul', 'vault', 'nomad', 'prometheus', 'grafana', 'elk', 'logstash', 'puppet', 'chef', 'salt', 'rundeck', 'drone', 'circle', 'travis', 'github', 'gitlab', 'bitbucket', 'jira', 'confluence', 'trello', 'asana', 'slack', 'discord', 'mattermost', 'rocket', 'zulip', 'matrix', 'irc', 'telegram', 'whatsapp', 'signal', 'email', 'outlook', 'gmail', 'thunderbird', 'evolution', 'k9mail', 'browser', 'firefox', 'chrome', 'safari', 'edge', 'opera', 'vivaldi', 'brave', 'tor', 'privacy', 'vpn', 'wireguard', 'openvpn', 'network', 'cisco', 'juniper', 'pfsense', 'openwrt', 'ddwrt', 'tomato', 'asuswrt', 'meraki', 'ubiquiti', 'mikrotik', 'fortinet', 'paloalto', 'checkpoint', 'f5', 'a10', 'citrix', 'vmware', 'virtualbox', 'hyperv', 'qemu', 'kvm', 'xen', 'proxmox', 'ovirt', 'rancher', 'openshift', 'k3s', 'k0s', 'kind', 'minikube', 'microk8s', 'k3d', 'kubeflow', 'istio', 'linkerd']
+
+# Print ALL sites first to see what's there
+all_sites = []
+for site in data['items']:
+    if site['site_type'] == 'main_site' and not site.get('closed_beta_date'):
+        all_sites.append({
+            'name': site['name'],
+            'api_parameter': site['api_site_parameter'],
+            'url': site['site_url'],
+            'questions_per_minute': site.get('questions_per_minute', 0),
+            'total_questions': site.get('total_questions', 0)
+        })
+
+all_sites.sort(key=lambda x: x['questions_per_minute'], reverse=True)
+
+print(f'Total main sites: {len(all_sites)}')
+for s in all_sites[:50]:
+    print(f"  {s['name']:45s} ({s['api_parameter']:25s}) {s['questions_per_minute']:.2f} q/min, {s['total_questions']:,} total")
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Total main sites: 8
+  Stack Overflow                                (stackoverflow            ) 0.00 q/min, 0 total
+  Server Fault                                  (serverfault              ) 0.00 q/min, 0 total
+  Super User                                    (superuser                ) 0.00 q/min, 0 total
+  Meta Stack Exchange                           (meta                     ) 0.00 q/min, 0 total
+  Ask Patents                                   (patents                  ) 0.00 q/min, 0 total
+  MathOverflow                                  (mathoverflow.net         ) 0.00 q/min, 0 total
+  CS50                                          (cs50                     ) 0.00 q/min, 0 total
+  Stack Overflow for Agents Meta                (agents.meta.stackoverflow) 0.00 q/min, 0 total
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 563  redactions: none
+==============================================================================
+[seq 5] 2026-10-09T15:09:46+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Test cooking.stackexchange.com
+url = 'https://api.stackexchange.com/2.3/questions?site=cooking&pagesize=5&order=desc&sort=activity'
+resp = urllib.request.urlopen(url)
+data = json.load(resp)
+print('Cooking Stack Exchange:')
+for q in data['items']:
+    print(f"  Q{q['question_id']}: {q['title'][:60]}... views={q['view_count']}, answers={q['answer_count']}, score={q['score']}")
+
+print()
+
+# Test diy.stackexchange.com
+url = 'https://api.stackexchange.com/2.3/questions?site=diy&pagesize=5&order=desc&sort=activity'
+resp = urllib.request.urlopen(url)
+data = json.load(resp)
+print('DIY Stack Exchange:')
+for q in data['items']:
+    print(f"  Q{q['question_id']}: {q['title'][:60]}... views={q['view_count']}, answers={q['answer_count']}, score={q['score']}")
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Cooking Stack Exchange:
+  Q137284: What are the occasional dark spots inside potatoes?... views=105, answers=1, score=2
+  Q137290: How can I remove a rust spot from a Teflon pan?... views=49, answers=1, score=0
+  Q137274: What would be accomplished by washing my clean-from-the-supe... views=556, answers=3, score=3
+  Q130460: What is the texture of rum baba? (just the unsoaked bread)... views=204, answers=1, score=5
+  Q133294: How to properly develop and cook seitan made from wheat flou... views=337, answers=2, score=6
+
+DIY Stack Exchange:
+  Q332355: No hot water: cold cylinder, seized Grundfos UPS3 and Vailla... views=23, answers=1, score=0
+  Q332252: replacing undermount with drop-in sink possible?... views=97, answers=2, score=0
+  Q312935: AO Smith water heater is leaking from both top nipples... views=674, answers=1, score=2
+  Q332059: How can I repair a partially cut floor truss chord?... views=1004, answers=8, score=3
+  Q332301: Washing machine sometimes hums and won&#39;t spin... views=562, answers=2, score=7
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1590  redactions: none
+==============================================================================
+[seq 6] 2026-10-09T15:10:05+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+sites_to_test = [
+    'travel', 'gardening', 'money', 'parenting', 'workplace', 'academia',
+    'english', 'ell', 'history', 'politics', 'philosophy', 'skeptics',
+    'puzzling', 'scifi', 'fantasy', 'movies', 'tv', 'music', 'arts',
+    'crafts', 'photography', 'video', 'sound', 'graphicdesign', 'ux',
+    'physics', 'chemistry', 'biology', 'earthscience', 'astronomy', 'space',
+    'aviation', 'drones', '3dprinting', 'woodworking', 'homebrew', 'coffee',
+    'tea', 'beer', 'wine', 'baking', 'nutrition', 'fitness', 'outdoors',
+    'bicycles', 'motorcycles', 'cars', 'mechanics', 'landscaping',
+    'sustainability', 'economics', 'personalfinance', 'law', 'patents',
+    'entrepreneurship', 'careers', 'productivity', 'lifeskills',
+    'pregnancy', 'babies', 'education', 'gradschool', 'college',
+    'languagelearning', 'japanese', 'chinese', 'french', 'german',
+    'spanish', 'russian', 'italian', 'portuguese', 'latin', 'greek',
+    'hebrew', 'arabic', 'korean', 'hindi', 'turkish', 'polish'
+]
+
+for site in sites_to_test[:10]:
+    try:
+        url = f'https://api.stackexchange.com/2.3/questions?site={site}&pagesize=3&order=desc&sort=activity'
+        resp = urllib.request.urlopen(url, timeout=10)
+        data = json.load(resp)
+        if data['items']:
+            views = [q['view_count'] for q in data['items']]
+            print(f'{site:20s}: {len(data["items"])} questions, views: {views}')
+        else:
+            print(f'{site:20s}: no questions returned')
+    except Exception as e:
+        print(f'{site:20s}: ERROR - {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+travel              : 3 questions, views: [23, 965, 455]
+gardening           : 3 questions, views: [41, 117, 118]
+money               : 3 questions, views: [45, 2190, 273]
+parenting           : 3 questions, views: [10137, 8720, 90]
+workplace           : 3 questions, views: [2376, 292, 2198]
+academia            : 3 questions, views: [79, 743, 391]
+english             : 3 questions, views: [3, 195, 143]
+ell                 : 3 questions, views: [11358, 26, 53]
+history             : 3 questions, views: [3937, 255, 1969]
+politics            : 3 questions, views: [74, 2802, 194]
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3990  redactions: none
+==============================================================================
+[seq 7] 2026-10-09T15:10:39+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+sites_to_test = [
+    'philosophy', 'skeptics', 'puzzling', 'scifi', 'fantasy', 'movies', 'tv', 'music', 'arts',
+    'crafts', 'photography', 'video', 'sound', 'graphicdesign', 'ux',
+    'physics', 'chemistry', 'biology', 'earthscience', 'astronomy', 'space',
+    'aviation', 'drones', '3dprinting', 'woodworking', 'homebrew', 'coffee',
+    'tea', 'beer', 'wine', 'baking', 'nutrition', 'fitness', 'outdoors',
+    'bicycles', 'motorcycles', 'cars', 'mechanics', 'landscaping',
+    'sustainability', 'economics', 'personalfinance', 'law', 'patents',
+    'entrepreneurship', 'careers', 'productivity', 'lifeskills',
+    'pregnancy', 'babies', 'education', 'gradschool', 'college',
+    'languagelearning', 'japanese', 'chinese', 'french', 'german',
+    'spanish', 'russian', 'italian', 'portuguese', 'latin', 'greek',
+    'hebrew', 'arabic', 'korean', 'hindi', 'turkish', 'polish'
+]
+
+for site in sites_to_test[10:20]:
+    try:
+        url = f'https://api.stackexchange.com/2.3/questions?site={site}&pagesize=3&order=desc&sort=activity'
+        resp = urllib.request.urlopen(url, timeout=10)
+        data = json.load(resp)
+        if data['items']:
+            views = [q['view_count'] for q in data['items']]
+            print(f'{site:20s}: {len(data["items"])} questions, views: {views}')
+        else:
+            print(f'{site:20s}: no questions returned')
+    except Exception as e:
+        print(f'{site:20s}: ERROR - {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+photography         : 3 questions, views: [588, 933, 78]
+video               : 3 questions, views: [986, 41, 52]
+sound               : 3 questions, views: [22, 3270, 642]
+graphicdesign       : 3 questions, views: [6, 485, 12]
+ux                  : 3 questions, views: [151, 20, 98]
+physics             : 3 questions, views: [695, 19, 53]
+chemistry           : 3 questions, views: [63, 160, 674]
+biology             : 3 questions, views: [8, 567, 648]
+earthscience        : 3 questions, views: [1215, 212, 84]
+astronomy           : 3 questions, views: [40, 31, 845]
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3682  redactions: none
+==============================================================================
+[seq 8] 2026-10-09T15:10:59+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+sites_to_test = [
+    'aviation', 'drones', '3dprinting', 'woodworking', 'homebrew', 'coffee',
+    'tea', 'beer', 'wine', 'baking', 'nutrition', 'fitness', 'outdoors',
+    'bicycles', 'motorcycles', 'cars', 'mechanics', 'landscaping',
+    'sustainability', 'economics', 'personalfinance', 'law', 'patents',
+    'entrepreneurship', 'careers', 'productivity', 'lifeskills',
+    'pregnancy', 'babies', 'education', 'gradschool', 'college',
+    'languagelearning', 'japanese', 'chinese', 'french', 'german',
+    'spanish', 'russian', 'italian', 'portuguese', 'latin', 'greek',
+    'hebrew', 'arabic', 'korean', 'hindi', 'turkish', 'polish'
+]
+
+for site in sites_to_test:
+    try:
+        url = f'https://api.stackexchange.com/2.3/questions?site={site}&pagesize=3&order=desc&sort=activity'
+        resp = urllib.request.urlopen(url, timeout=10)
+        data = json.load(resp)
+        if data['items']:
+            views = [q['view_count'] for q in data['items']]
+            print(f'{site:20s}: {len(data["items"])} questions, views: {views}')
+        else:
+            print(f'{site:20s}: no questions returned')
+    except Exception as e:
+        print(f'{site:20s}: ERROR - {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+aviation            : 3 questions, views: [57, 17740, 1674]
+drones              : 3 questions, views: [26, 173, 172]
+3dprinting          : 3 questions, views: [2960, 9821, 27]
+woodworking         : 3 questions, views: [35280, 4112, 424]
+homebrew            : 3 questions, views: [548, 3338, 244]
+coffee              : 3 questions, views: [55, 1460, 534]
+tea                 : ERROR - HTTP Error 400: Bad Request
+beer                : 3 questions, views: [113, 63, 516]
+wine                : ERROR - HTTP Error 400: Bad Request
+baking              : ERROR - HTTP Error 400: Bad Request
+nutrition           : ERROR - HTTP Error 400: Bad Request
+fitness             : ERROR - HTTP Error 429: Too Many Requests
+outdoors            : ERROR - HTTP Error 429: Too Many Requests
+bicycles            : ERROR - HTTP Error 429: Too Many Requests
+motorcycles         : ERROR - HTTP Error 429: Too Many Requests
+cars                : ERROR - HTTP Error 429: Too Many Requests
+mechanics           : ERROR - HTTP Error 429: Too Many Requests
+landscaping         : ERROR - HTTP Error 429: Too Many Requests
+sustainability      : ERROR - HTTP Error 429: Too Many Requests
+economics           : ERROR - HTTP Error 429: Too Many Requests
+personalfinance     : ERROR - HTTP Error 429: Too Many Requests
+law                 : ERROR - HTTP Error 429: Too Many Requests
+patents             : ERROR - HTTP Error 429: Too Many Requests
+entrepreneurship    : ERROR - HTTP Error 429: Too Many Requests
+careers             : ERROR - HTTP Error 429: Too Many Requests
+productivity        : ERROR - HTTP Error 429: Too Many Requests
+lifeskills          : ERROR - HTTP Error 429: Too Many Requests
+pregnancy           : ERROR - HTTP Error 429: Too Many Requests
+babies              : ERROR - HTTP Error 429: Too Many Requests
+education           : ERROR - HTTP Error 429: Too Many Requests
+gradschool          : ERROR - HTTP Error 429: Too Many Requests
+college             : ERROR - HTTP Error 429: Too Many Requests
+languagelearning    : ERROR - HTTP Error 429: Too Many Requests
+japanese            : ERROR - HTTP Error 429: Too Many Requests
+chinese             : ERROR - HTTP Error 429: Too Many Requests
+french              : ERROR - HTTP Error 429: Too Many Requests
+german              : ERROR - HTTP Error 429: Too Many Requests
+spanish             : ERROR - HTTP Error 429: Too Many Requests
+russian             : ERROR - HTTP Error 429: Too Many Requests
+italian             : ERROR - HTTP Error 429: Too Many Requests
+portuguese          : ERROR - HTTP Error 429: Too Many Requests
+latin               : ERROR - HTTP Error 429: Too Many Requests
+greek               : ERROR - HTTP Error 429: Too Many Requests
+hebrew              : ERROR - HTTP Error 429: Too Many Requests
+arabic              : ERROR - HTTP Error 429: Too Many Requests
+korean              : ERROR - HTTP Error 429: Too Many Requests
+hindi               : ERROR - HTTP Error 429: Too Many Requests
+turkish             : ERROR - HTTP Error 429: Too Many Requests
+polish              : ERROR - HTTP Error 429: Too Many Requests
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7932  redactions: none
+==============================================================================
+[seq 9] 2026-10-09T15:19:08+00:00
+$ python3 EXPERIMENTS/077-se-nonsoftware-viewcount/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/077-se-nonsoftware-viewcount/run.py", line 130, in <module>
+    def fetch_questions_page(site: str, page: int) -> dict | None:
+TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 794  redactions: none
+==============================================================================
+[seq 10] 2026-10-09T15:19:44+00:00
+$ python3 EXPERIMENTS/077-se-nonsoftware-viewcount/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/077-se-nonsoftware-viewcount/run.py", line 149, in <module>
+    def harvest_site_questions(site: str, max_questions: int = QUESTIONS_PER_SITE) -> list[dict]:
+TypeError: 'type' object is not subscriptable
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 602  redactions: none
+==============================================================================
+[seq 11] 2026-10-09T15:21:12+00:00
+$ python3 EXPERIMENTS/077-se-nonsoftware-viewcount/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/077-se-nonsoftware-viewcount/run.py", line 261, in <module>
+    def save_raw_data(site: str, questions: list[dict], classified: list[dict], output_dir: str):
+TypeError: 'type' object is not subscriptable
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 625  redactions: none

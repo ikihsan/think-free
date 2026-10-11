@@ -1,0 +1,146 @@
+==============================================================================
+[seq 2] 2026-10-09T21:44:36+00:00
+$ python3 EXPERIMENTS/080-food-recall-matching/run.py --generate-fixtures EXPERIMENTS/080-food-recall-matching/fixtures
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/080-food-recall-matching/run.py", line 172, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/080-food-recall-matching/run.py", line 155, in main
+    write_fixtures(args.generate_fixtures)
+  File "/home/ubuntu/think-free/EXPERIMENTS/080-food-recall-matching/fixtures.py", line 272, in write_fixtures
+    fixtures = generate_fixtures()
+  File "/home/ubuntu/think-free/EXPERIMENTS/080-food-recall-matching/fixtures.py", line 119, in generate_fixtures
+    not_recalled_products = random.sample(not_recalled_products, 25)
+  File "/usr/lib/python3.8/random.py", line 363, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 811  redactions: none
+==============================================================================
+[seq 3] 2026-10-09T21:47:08+00:00
+$ python3 EXPERIMENTS/080-food-recall-matching/run.py --generate-fixtures EXPERIMENTS/080-food-recall-matching/fixtures
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Generated fixtures in EXPERIMENTS/080-food-recall-matching/fixtures
+  Recalls: 15
+  receipt: 30 purchases (15 recalled, 15 clean)
+  loyalty_csv: 30 purchases (15 recalled, 15 clean)
+  manual_entry: 30 purchases (15 recalled, 15 clean)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 233  redactions: none
+==============================================================================
+[seq 4] 2026-10-09T21:47:14+00:00
+$ python3 EXPERIMENTS/080-food-recall-matching/run.py --fixtures EXPERIMENTS/080-food-recall-matching/fixtures
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+============================================================
+E080 FOOD RECALL MATCHING - FALSIFICATION EXPERIMENT
+============================================================
+
+PER-FORMAT METRICS:
+------------------------------------------------------------
+
+  receipt:
+    TP=15  FP= 0  FN= 0  TN=15
+    Precision: 1.000  (gate: ≥80%)
+    Recall:    1.000  (gate: ≥60%)
+    Specificity: 1.000  (gate: 1.000)
+    F1:        1.000
+
+  loyalty_csv:
+    TP= 4  FP= 0  FN=11  TN=15
+    Precision: 1.000  (gate: ≥80%)
+    Recall:    0.267  (gate: ≥60%)
+    Specificity: 1.000  (gate: 1.000)
+    F1:        0.421
+
+  manual_entry:
+    TP=13  FP= 0  FN= 2  TN=15
+    Precision: 1.000  (gate: ≥80%)
+    Recall:    0.867  (gate: ≥60%)
+    Specificity: 1.000  (gate: 1.000)
+    F1:        0.929
+
+KILL GATE RESULTS:
+------------------------------------------------------------
+  G1_precision [receipt]: PASS
+  G1_precision [loyalty_csv]: PASS
+  G1_precision [manual_entry]: PASS
+  G2_recall [receipt]: PASS
+  G2_recall [loyalty_csv]: FAIL
+  G2_recall [manual_entry]: PASS
+  G3_format_coverage: PASS
+  G4_negative_control [receipt]: PASS
+  G4_negative_control [loyalty_csv]: PASS
+  G4_negative_control [manual_entry]: PASS
+
+============================================================
+OVERALL VERDICT: FAIL
+============================================================
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 301  redactions: none
+==============================================================================
+[seq 5] 2026-10-09T21:48:28+00:00
+$ python3 EXPERIMENTS/080-food-recall-matching/run.py --generate-fixtures EXPERIMENTS/080-food-recall-matching/fixtures
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Generated fixtures in EXPERIMENTS/080-food-recall-matching/fixtures
+  Recalls: 15
+  receipt: 30 purchases (15 recalled, 15 clean)
+  loyalty_csv: 30 purchases (15 recalled, 15 clean)
+  manual_entry: 30 purchases (15 recalled, 15 clean)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 297  redactions: none
+==============================================================================
+[seq 6] 2026-10-09T21:48:37+00:00
+$ python3 EXPERIMENTS/080-food-recall-matching/run.py --fixtures EXPERIMENTS/080-food-recall-matching/fixtures
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+============================================================
+E080 FOOD RECALL MATCHING - FALSIFICATION EXPERIMENT
+============================================================
+
+PER-FORMAT METRICS:
+------------------------------------------------------------
+
+  receipt:
+    TP=15  FP= 0  FN= 0  TN=15
+    Precision: 1.000  (gate: ≥80%)
+    Recall:    1.000  (gate: ≥60%)
+    Specificity: 1.000  (gate: 1.000)
+    F1:        1.000
+
+  loyalty_csv:
+    TP=15  FP= 0  FN= 0  TN=15
+    Precision: 1.000  (gate: ≥80%)
+    Recall:    1.000  (gate: ≥60%)
+    Specificity: 1.000  (gate: 1.000)
+    F1:        1.000
+
+  manual_entry:
+    TP=14  FP= 0  FN= 1  TN=15
+    Precision: 1.000  (gate: ≥80%)
+    Recall:    0.933  (gate: ≥60%)
+    Specificity: 1.000  (gate: 1.000)
+    F1:        0.966
+
+KILL GATE RESULTS:
+------------------------------------------------------------
+  G1_precision [receipt]: PASS
+  G1_precision [loyalty_csv]: PASS
+  G1_precision [manual_entry]: PASS
+  G2_recall [receipt]: PASS
+  G2_recall [loyalty_csv]: PASS
+  G2_recall [manual_entry]: PASS
+  G3_format_coverage: PASS
+  G4_negative_control [receipt]: PASS
+  G4_negative_control [loyalty_csv]: PASS
+  G4_negative_control [manual_entry]: PASS
+
+============================================================
+OVERALL VERDICT: PASS
+============================================================
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 241  redactions: none

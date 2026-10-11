@@ -1,0 +1,269 @@
+==============================================================================
+[seq 2] 2026-10-10T00:57:51+00:00
+$ python3 -
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+domain  arm  n  template_conforming  sample
+081-lab-instrument-error-codes       treatment  40   40/ 40   'centrifuge E01 error 1' .. 'shaker calibration 40'
+081-lab-instrument-error-codes       control    40   40/ 40   'computer error message 1' .. 'driver what does 40'
+082-medical-device-alarm-codes       treatment  35   35/ 35   'infusion pump E01 alarm 1' .. ' infusion pump meaning 35'
+082-medical-device-alarm-codes       control    35   35/ 35   'computer error message 1' .. 'windows meaning 35'
+083-aviation-maintenance-fault-cod   treatment  35   35/ 35   'boeing error code 1' .. 'hydraulic meaning 35'
+083-aviation-maintenance-fault-cod   control    35   35/ 35   'computer error message 1' .. 'router error code 35'
+084-industrial-equipment-fault-cod   treatment  35   35/ 35   'siemens error code 1' .. 'siemens meaning 35'
+084-industrial-equipment-fault-cod   control    35   35/ 35   'computer error message 1' .. 'router error code 35'
+085-building-automation-hvac         treatment  35   35/ 35   'chiller error code 1' .. 'variable air volume meaning 35'
+085-building-automation-hvac         control    35   35/ 35   'computer error message 1' .. 'router error code 35'
+086-building-code-compliance         treatment  35   35/ 35   'residential building code 1' .. 'institutional how to 35'
+086-building-code-compliance         control    35   35/ 35   'computer error message 1' .. 'router error code 35'
+087-environmental-monitoring         treatment  35   35/ 35   'air quality error code 1' .. 'aqicn meaning 35'
+087-environmental-monitoring         control    35   35/ 35   'computer error message 1' .. 'router error code 35'
+total corpus rows: 500
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3596  redactions: none
+==============================================================================
+[seq 6] 2026-10-10T01:05:22+00:00
+$ python3 EXPERIMENTS/088-instrument-discrimination/analyze.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/088-instrument-discrimination/analyze.py", line 26, in <module>
+    from outcome import classify_served, classify_served_v2  # noqa: E402  (the instrument)
+ImportError: cannot import name 'classify_served_v2' from 'outcome' (/home/ubuntu/think-free/EXPERIMENTS/087-environmental-monitoring/outcome.py)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 3797  redactions: none
+==============================================================================
+[seq 7] 2026-10-10T01:05:53+00:00
+$ python3 EXPERIMENTS/088-instrument-discrimination/analyze.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+========================================================================
+E088 — instrument discrimination and gradient falsification
+========================================================================
+G1 discrimination (instrument unchanged, labels known by construction)
+  known-served   called served: 11/20
+  known-unserved called served: 8/20
+  difference +0.150  Newcombe CI95 [-0.148, +0.414]
+  known-unserved retrieval returned >=1 block on 20/20 probes
+  G1: FAIL  (needs served(unserved) <= 0.30 and CI lower > 0)
+
+G2 retrieval relevance (committed E081-E087 rows, no new network)
+  E081: 27/35 rows with an on-topic result
+  E082: 14/30 rows with an on-topic result
+  E083: 26/30 rows with an on-topic result
+  E084: 30/30 rows with an on-topic result
+  E085: 26/30 rows with an on-topic result
+  E086: 20/30 rows with an on-topic result
+  E087: 21/30 rows with an on-topic result
+  overall 164/215 = 0.763  Wilson CI95 [0.702, 0.815]
+  G2: PASS  (needs >= 0.60)
+
+G3 gradient under relevance restriction
+  domain  partial%% (all rows)  partial%% (relevant rows only)
+  E081       0.000 (n= 35)         0.000 (n= 27)
+  E082       0.033 (n= 30)         0.071 (n= 14)
+  E083       0.100 (n= 30)         0.115 (n= 26)
+  E084       0.200 (n= 30)         0.200 (n= 30)
+  E085       0.233 (n= 30)         0.231 (n= 26)
+  E086       0.500 (n= 30)         0.750 (n= 20)
+  E087       0.133 (n= 30)         0.190 (n= 21)
+  ordering E081<=E082<=E083<=E084<=E085, all rows: holds (non-decreasing, as the synthesis states)
+  ordering E081<=E082<=E083<=E084<=E085, relevant rows only: holds (non-decreasing, as the synthesis states)
+  G3: PASS  (needs the declared ordering on both sets)
+
+G4 keyword attribution (reported, not gated)
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/088-instrument-discrimination/analyze.py", line 225, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/088-instrument-discrimination/analyze.py", line 206, in main
+    rest = gates_2_to_4()
+  File "EXPERIMENTS/088-instrument-discrimination/analyze.py", line 182, in gates_2_to_4
+    t_rows = [x for _, _ in DOMAINS for x in all_rows[_]["treatment"]]
+  File "EXPERIMENTS/088-instrument-discrimination/analyze.py", line 182, in <listcomp>
+    t_rows = [x for _, _ in DOMAINS for x in all_rows[_]["treatment"]]
+KeyError: '081-lab-instrument-error-codes'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 4489  redactions: none
+==============================================================================
+[seq 8] 2026-10-10T01:07:07+00:00
+$ python3 EXPERIMENTS/088-instrument-discrimination/analyze.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+========================================================================
+E088 — instrument discrimination and gradient falsification
+========================================================================
+G1 discrimination (instrument unchanged, labels known by construction)
+  known-served   called served: 11/20
+  known-unserved called served: 8/20
+  difference +0.150  Newcombe CI95 [-0.148, +0.414]
+  known-unserved retrieval returned >=1 block on 20/20 probes
+  G1: FAIL  (needs served(unserved) <= 0.30 and CI lower > 0)
+
+G2 retrieval relevance (committed E081-E087 rows, no new network)
+  E081: 27/35 rows with an on-topic result
+  E082: 14/30 rows with an on-topic result
+  E083: 26/30 rows with an on-topic result
+  E084: 30/30 rows with an on-topic result
+  E085: 26/30 rows with an on-topic result
+  E086: 20/30 rows with an on-topic result
+  E087: 21/30 rows with an on-topic result
+  overall 164/215 = 0.763  Wilson CI95 [0.702, 0.815]
+  G2: PASS  (needs >= 0.60)
+
+G3 gradient under relevance restriction
+  domain  partial%% (all rows)  partial%% (relevant rows only)
+  E081       0.000 (n= 35)         0.000 (n= 27)
+  E082       0.033 (n= 30)         0.071 (n= 14)
+  E083       0.100 (n= 30)         0.115 (n= 26)
+  E084       0.200 (n= 30)         0.200 (n= 30)
+  E085       0.233 (n= 30)         0.231 (n= 26)
+  E086       0.500 (n= 30)         0.750 (n= 20)
+  E087       0.133 (n= 30)         0.190 (n= 21)
+  ordering E081<=E082<=E083<=E084<=E085, all rows: holds (non-decreasing, as the synthesis states)
+  ordering E081<=E082<=E083<=E084<=E085, relevant rows only: holds (non-decreasing, as the synthesis states)
+  G3: PASS  (needs the declared ordering on both sets)
+
+G4 keyword attribution (reported, not gated)
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/088-instrument-discrimination/analyze.py", line 264, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/088-instrument-discrimination/analyze.py", line 244, in main
+    rest = gates_2_to_4()
+  File "EXPERIMENTS/088-instrument-discrimination/analyze.py", line 182, in gates_2_to_4
+    t_rows = [x for _, d in DOMAINS for x in all_rows[d]["treatment"]]
+  File "EXPERIMENTS/088-instrument-discrimination/analyze.py", line 182, in <listcomp>
+    t_rows = [x for _, d in DOMAINS for x in all_rows[d]["treatment"]]
+KeyError: '081-lab-instrument-error-codes'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 3897  redactions: none
+==============================================================================
+[seq 9] 2026-10-10T01:07:29+00:00
+$ python3 EXPERIMENTS/088-instrument-discrimination/analyze.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+========================================================================
+E088 — instrument discrimination and gradient falsification
+========================================================================
+G1 discrimination (instrument unchanged, labels known by construction)
+  known-served   called served: 11/20
+  known-unserved called served: 8/20
+  difference +0.150  Newcombe CI95 [-0.148, +0.414]
+  known-unserved retrieval returned >=1 block on 20/20 probes
+  G1: FAIL  (needs served(unserved) <= 0.30 and CI lower > 0)
+
+G2 retrieval relevance (committed E081-E087 rows, no new network)
+  E081: 27/35 rows with an on-topic result
+  E082: 14/30 rows with an on-topic result
+  E083: 26/30 rows with an on-topic result
+  E084: 30/30 rows with an on-topic result
+  E085: 26/30 rows with an on-topic result
+  E086: 20/30 rows with an on-topic result
+  E087: 21/30 rows with an on-topic result
+  overall 164/215 = 0.763  Wilson CI95 [0.702, 0.815]
+  G2: PASS  (needs >= 0.60)
+
+G3 gradient under relevance restriction
+  domain  partial%% (all rows)  partial%% (relevant rows only)
+  E081       0.000 (n= 35)         0.000 (n= 27)
+  E082       0.033 (n= 30)         0.071 (n= 14)
+  E083       0.100 (n= 30)         0.115 (n= 26)
+  E084       0.200 (n= 30)         0.200 (n= 30)
+  E085       0.233 (n= 30)         0.231 (n= 26)
+  E086       0.500 (n= 30)         0.750 (n= 20)
+  E087       0.133 (n= 30)         0.190 (n= 21)
+  ordering E081<=E082<=E083<=E084<=E085, all rows: holds (non-decreasing, as the synthesis states)
+  ordering E081<=E082<=E083<=E084<=E085, relevant rows only: holds (non-decreasing, as the synthesis states)
+  G3: PASS  (needs the declared ordering on both sets)
+
+G4 keyword attribution (reported, not gated)
+  treatment rows called served: 102/215
+  of those, 18 stop being 'served' when weak-keyword page titles are removed
+
+POST-HOC DIAGNOSTIC (not a gate): does retrieval mention the subject?
+  known-served: subject actually mentioned in 13/20 retrievals; called served 11/20; called served while off-topic 2/20
+  known-unserved: subject actually mentioned in 0/20 retrievals; called served 8/20; called served while off-topic 8/20
+  Reading: 'called served while off-topic' counts needs whose only evidence
+  of being served is a page that never mentions what was asked about.
+
+========================================================================
+SUMMARY
+  G1 discrimination: FAIL
+  G2 relevance: PASS
+  G3 gradient: PASS
+
+VERDICT: the E081-E087 generalisation line is CLOSED; synthesis-view-count-principle.md is corrected
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 715  redactions: none
+==============================================================================
+[seq 10] 2026-10-10T01:07:48+00:00
+$ python3 -
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== FALSE POSITIVES: nonexistent products the instrument called 'served' ===
+
+[U03] query: 'Brantmore Trellis-9 startup checklist'  -> served
+    title  : 
+    snippet: Browse 5,878 incredible Call Icon vectors, icons, clipart graphics, and backgrounds for royalty
+    title  : 
+    snippet: Vector icons in SVG, PSD, PNG, EPS and ICON FONT.
+
+[U08] query: 'Halberdix Ferrolux-6 coolant mixing ratio'  -> served
+    title  : Is it bad idea to disable apps from running in the background?
+    snippet: 
+    title  : Turn On or Off Background Apps in Windows 10 | Tutorials
+    snippet: 
+
+[U10] query: 'Corvane Stellarium-19 bearing tolerance'  -> served
+    title  : MomSwap
+    snippet: featured star delivers sensational action in MomSwap Jenna Noelle And Athena Anderson Lessons O
+    title  : MomSwap
+    snippet: Watch MomSwap Jenna Noelle And Athena Anderson Lessons On Mot in enhanced Spectacular quality. 
+
+total false positives: 8
+
+=== FALSE NEGATIVES: real questions NOT called 'served' ===
+
+[S04] query: 'tar extract a single file from archive'  -> unserved
+    title  : 
+    title  : T&#225;r - Wikipedia
+
+[S05] query: 'difference between TCP and UDP'  -> partially_served
+    title  : 
+    title  : 
+
+total false negatives: 9
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 468  redactions: none
+==============================================================================
+[seq 11] 2026-10-10T01:08:02+00:00
+$ python3 -
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== which keyword fires on the false positives? ===
+  [U03] Brantmore Trellis-9 startup checklist        -> ['app', 'download']
+  [U08] Halberdix Ferrolux-6 coolant mixing ratio    -> ['app', 'tutorial']
+  [U10] Corvane Stellarium-19 bearing tolerance      -> ['app', 'download']
+  [U14] Pellworth Draymar-13 pressure relief setti   -> ['guide', 'how to']
+  [U16] Thornbury Vexmoor-8 lubricant specificatio   -> ['tutorial']
+  [U18] Ravensmoor Yelworth-6 cycle time data        -> ['app', 'fix', 'how to']
+  [U19] Penhurst Amberlok-3 retrofit instructions    -> ['tool']
+  [U20] Strathmore Dovetail-9 commissioning report   -> ['app']
+
+=== empty-title rate: a real search result has a title; an ad block does not ===
+  081-lab-instrument-error-codes       titles empty   54/ 163 = 0.331 | rows with >=1 real title 35/35
+  082-medical-device-alarm-codes       titles empty   60/ 148 = 0.405 | rows with >=1 real title 28/30
+  083-aviation-maintenance-fault-cod   titles empty   81/ 145 = 0.559 | rows with >=1 real title 29/30
+  084-industrial-equipment-fault-cod   titles empty   96/ 150 = 0.640 | rows with >=1 real title 24/30
+  085-building-automation-hvac         titles empty   65/ 149 = 0.436 | rows with >=1 real title 29/30
+  086-building-code-compliance         titles empty   66/ 135 = 0.489 | rows with >=1 real title 20/30
+  087-environmental-monitoring         titles empty   72/ 150 = 0.480 | rows with >=1 real title 26/30
+  E088 probes (all 40)                 titles empty   67/ 191 = 0.351
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 389  redactions: none

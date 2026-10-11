@@ -1,0 +1,99 @@
+==============================================================================
+[seq 3] 2026-10-11T04:28:17+00:00
+$ python3 -c 
+import sys, time
+sys.path.insert(0, 'tools')
+from originlib.doclint import lint
+from pathlib import Path
+start = time.time()
+result = lint(Path('.'))
+elapsed = time.time() - start
+print(f'lint completed in {elapsed:.1f}s')
+print(f'files checked: {result.checked}')
+print(f'violations: {len(result.violations)}')
+for v in result.violations[:30]:
+    print(f'  {v}')
+print(f'infos: {len(result.infos)}')
+for i in result.infos[:10]:
+    print(f'  {i}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+/usr/lib/python3/dist-packages/requests/__init__.py:89: RequestsDependencyWarning: urllib3 (2.2.3) or chardet (3.0.4) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+Traceback (most recent call last):
+  File "<string>", line 7, in <module>
+  File "/home/ubuntu/think-free/tools/originlib/doclint.py", line 300, in lint
+    check_links(result, files)
+  File "/home/ubuntu/think-free/tools/originlib/doclint.py", line 260, in check_links
+    rel = path.relative_to(base).as_posix()
+  File "/usr/lib/python3.8/pathlib.py", line 908, in relative_to
+    raise ValueError("{!r} does not start with {!r}"
+ValueError: '.agents/skills/brainstorming/SKILL.md' does not start with '/home/ubuntu/think-free'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 134902  redactions: none
+==============================================================================
+[seq 4] 2026-10-11T04:30:08+00:00
+$ python3 -c 
+import sys, time
+sys.path.insert(0, 'tools')
+from originlib.doclint import lint
+from pathlib import Path
+start = time.time()
+result = lint(Path('.'))
+elapsed = time.time() - start
+print(f'lint completed in {elapsed:.1f}s')
+print(f'files checked: {result.checked}')
+print(f'violations: {len(result.violations)}')
+for v in result.violations[:30]:
+    print(f'  {v}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+/usr/lib/python3/dist-packages/requests/__init__.py:89: RequestsDependencyWarning: urllib3 (2.2.3) or chardet (3.0.4) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+Traceback (most recent call last):
+  File "<string>", line 7, in <module>
+  File "/home/ubuntu/think-free/tools/originlib/doclint.py", line 300, in lint
+    check_links(result, files)
+  File "/home/ubuntu/think-free/tools/originlib/doclint.py", line 260, in check_links
+    rel = path.relative_to(base).as_posix()
+  File "/usr/lib/python3.8/pathlib.py", line 908, in relative_to
+    raise ValueError("{!r} does not start with {!r}"
+ValueError: '.agents/skills/brainstorming/SKILL.md' does not start with '/home/ubuntu/think-free'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 103106  redactions: none
+==============================================================================
+[seq 5] 2026-10-11T04:35:25+00:00
+$ python3 -c 
+import sys, time
+sys.path.insert(0, 'tools')
+from originlib.doclint import lint
+from pathlib import Path
+start = time.time()
+result = lint(Path('.'))
+elapsed = time.time() - start
+print(f'lint completed in {elapsed:.1f}s')
+print(f'files checked: {result.checked}')
+print(f'violations: {len(result.violations)}')
+for v in result.violations[:30]:
+    print(f'  {v}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+/usr/lib/python3/dist-packages/requests/__init__.py:89: RequestsDependencyWarning: urllib3 (2.2.3) or chardet (3.0.4) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+Traceback (most recent call last):
+  File "<string>", line 7, in <module>
+  File "/home/ubuntu/think-free/tools/originlib/doclint.py", line 304, in lint
+    check_links(result, files)
+  File "/home/ubuntu/think-free/tools/originlib/doclint.py", line 264, in check_links
+    rel = path.relative_to(base).as_posix()
+  File "/usr/lib/python3.8/pathlib.py", line 908, in relative_to
+    raise ValueError("{!r} does not start with {!r}"
+ValueError: '.agents/skills/brainstorming/SKILL.md' does not start with '/home/ubuntu/think-free'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 277411  redactions: none

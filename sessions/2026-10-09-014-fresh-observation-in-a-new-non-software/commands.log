@@ -1,0 +1,472 @@
+==============================================================================
+[seq 2] 2026-10-09T17:33:54+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Test FDA food recall API
+url = 'https://api.fda.gov/food/enforcement.json?limit=5'
+try:
+    with urllib.request.urlopen(url, timeout=10) as response:
+        data = json.load(response)
+        print('FDA API accessible')
+        print(f'Total results: {data.get("meta", {}).get("results", {}).get("total", "unknown")}')
+        if 'results' in data and data['results']:
+            r = data['results'][0]
+            print(f'Sample recall: {r.get("product_description", "N/A")[:80]}')
+            print(f'Reason: {r.get("reason_for_recall", "N/A")[:80]}')
+            print(f'Classification: {r.get("classification", "N/A")}')
+            print(f'Date: {r.get("report_date", "N/A")}')
+except Exception as e:
+    print(f'FDA API error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+FDA API accessible
+Total results: 29471
+Sample recall: CytoDetox, Hydrolyzed Clinoptilolite Fragments, 1 oz./30 mL, OTC Non-Sterile.  D
+Reason: Recall initiated as a precautionary measure due to potential risk of product con
+Classification: Class II
+Date: 20161102
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2534  redactions: none
+==============================================================================
+[seq 3] 2026-10-09T17:34:12+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Test NYC Open Data restaurant inspection API
+url = 'https://data.cityofnewyork.us/resource/43nn-pn8j.json?$limit=5'
+try:
+    with urllib.request.urlopen(url, timeout=15) as response:
+        data = json.load(response)
+        print('NYC inspection API accessible')
+        print(f'Records returned: {len(data)}')
+        if data:
+            r = data[0]
+            print(f'Sample fields: {list(r.keys())}')
+            print(f'CAMIS: {r.get("camis", "N/A")}')
+            print(f'DBA: {r.get("dba", "N/A")}')
+            print(f'Score: {r.get("score", "N/A")}')
+            print(f'Grade: {r.get("grade", "N/A")}')
+            print(f'Violation: {r.get("violation_description", "N/A")[:80]}')
+except Exception as e:
+    print(f'NYC API error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+NYC inspection API accessible
+Records returned: 5
+Sample fields: ['camis', 'dba', 'boro', 'building', 'street', 'phone', 'inspection_date', 'critical_flag', 'record_date', 'latitude', 'longitude', 'bbl']
+CAMIS: 50126972
+DBA: MASALA CORP
+Score: N/A
+Grade: N/A
+Violation: N/A
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3486  redactions: none
+==============================================================================
+[seq 4] 2026-10-09T17:34:27+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Test NYC Open Data restaurant inspection API - get more fields
+url = 'https://data.cityofnewyork.us/resource/43nn-pn8j.json?$limit=10&$select=camis,dba,boro,inspection_date,score,grade,violation_code,violation_description,critical_flag'
+try:
+    with urllib.request.urlopen(url, timeout=15) as response:
+        data = json.load(response)
+        print(f'Records returned: {len(data)}')
+        for i, r in enumerate(data):
+            print(f'{i}: {r.get("dba", "N/A")[:30]} | Score: {r.get("score", "N/A")} | Grade: {r.get("grade", "N/A")} | Violation: {r.get("violation_description", "N/A")[:60]} | Critical: {r.get("critical_flag", "N/A")}')
+except Exception as e:
+    print(f'NYC API error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Records returned: 10
+0: MASALA CORP | Score: N/A | Grade: N/A | Violation: N/A | Critical: Not Applicable
+1: KOSTANTINA FROZEN YOGURT | Score: N/A | Grade: N/A | Violation: N/A | Critical: Not Applicable
+2: REMYMIDTOWN LLC | Score: N/A | Grade: N/A | Violation: N/A | Critical: Not Applicable
+3: KUMNESS INC. | Score: N/A | Grade: N/A | Violation: N/A | Critical: Not Applicable
+4: TM:RW CAFE | Score: N/A | Grade: N/A | Violation: N/A | Critical: Not Applicable
+5: CONALL'S PUBLIC HOUSE | Score: N/A | Grade: N/A | Violation: N/A | Critical: Not Applicable
+6: ACAPULCO | Score: 0 | Grade: N/A | Violation: N/A | Critical: Not Applicable
+7: BAKER FALLS | Score: N/A | Grade: N/A | Violation: N/A | Critical: Not Applicable
+8: KING BARKA | Score: 50 | Grade: N/A | Violation: Hot TCS food item not held at or above 140 °F. | Critical: Critical
+9: TENDERS | Score: N/A | Grade: N/A | Violation: N/A | Critical: Not Applicable
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1851  redactions: none
+==============================================================================
+[seq 5] 2026-10-09T17:34:38+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Test NYC Open Data - get records with violations
+url = 'https://data.cityofnewyork.us/resource/43nn-pn8j.json?$where=violation_description%20IS%20NOT%20NULL&$limit=20'
+try:
+    with urllib.request.urlopen(url, timeout=15) as response:
+        data = json.load(response)
+        print(f'Records with violations: {len(data)}')
+        for i, r in enumerate(data[:10]):
+            print(f'{i}: {r.get("dba", "N/A")[:30]} | Score: {r.get("score", "N/A")} | Grade: {r.get("grade", "N/A")} | Critical: {r.get("critical_flag", "N/A")} | Violation: {r.get("violation_description", "N/A")[:80]}')
+except Exception as e:
+    print(f'NYC API error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Records with violations: 20
+0: KING BARKA | Score: 50 | Grade: N/A | Critical: Critical | Violation: Hot TCS food item not held at or above 140 °F.
+1: CHEZ MATY ET SOKHNA | Score: 42 | Grade: C | Critical: Critical | Violation: Evidence of rats or live rats in establishment's food or non-food areas.
+2: MEXICAN GRILL | Score: 32 | Grade: N/A | Critical: Critical | Violation: Sanitized equipment or utensil, including in-use food dispensing utensil, improp
+3: SHANGERILA RESTAURANT | Score: 21 | Grade: N/A | Critical: Critical | Violation: Hot food item not held at or above 140º F.
+4: BROOKLYN CRAB | Score: 24 | Grade: B | Critical: Not Critical | Violation: Establishment is not free of harborage or conditions conducive to rodents, insec
+5: LALIBELA ETHIOPIAN RESTAURANT | Score: 25 | Grade: N/A | Critical: Critical | Violation: Hot TCS food item not held at or above 140 °F.
+6: THE ROW HARLEM | Score: 27 | Grade: N | Critical: Critical | Violation: Hot TCS food item not held at or above 140 °F.
+7: PUBLIC ARTS / ARTSPACE | Score: 65 | Grade: N | Critical: Critical | Violation: Sewage disposal system is not provided, improper, inadequate or unapproved.
+8: WORLD YACHT DUCHESS | Score: 12 | Grade: A | Critical: Not Critical | Violation: Accurate thermometer not provided in refrigerated or hot holding equipment.
+9: CITI FIELD NATHAN'S FAMOUS STA | Score: 11 | Grade: A | Critical: Critical | Violation: Hot TCS food item not held at or above 140 °F.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1167  redactions: none
+==============================================================================
+[seq 6] 2026-10-09T17:35:00+00:00
+$ python3 -c 
+import urllib.request
+import json
+from collections import Counter
+
+# Fetch FDA recalls - get more data
+url = 'https://api.fda.gov/food/enforcement.json?limit=100'
+try:
+    with urllib.request.urlopen(url, timeout=15) as response:
+        data = json.load(response)
+        print(f'Total recalls in API: {data.get("meta", {}).get("results", {}).get("total", "unknown")}')
+        
+        reasons = []
+        classifications = []
+        products = []
+        for r in data.get('results', []):
+            reasons.append(r.get('reason_for_recall', 'Unknown')[:100])
+            classifications.append(r.get('classification', 'Unknown'))
+            products.append(r.get('product_description', 'Unknown')[:80])
+        
+        print('\nTop recall reasons:')
+        for reason, count in Counter(reasons).most_common(10):
+            print(f'  {count}: {reason}')
+        
+        print('\nClassifications:')
+        for cls, count in Counter(classifications).most_common():
+            print(f'  {count}: {cls}')
+        
+        print('\nSample products:')
+        for p in products[:10]:
+            print(f'  {p}')
+except Exception as e:
+    print(f'FDA API error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Total recalls in API: 29471
+
+Top recall reasons:
+  3: Garden-Fresh Foods is recalling various ready-to-eat salads, slaw, and dip products sold under vario
+  2: Potential Listeria monocytogenes contamination.
+  2: Products may be contaminated with  Listeria monocytogenes.
+  2: Potential Salmonella Contamination
+  2: The recalled products are potentially contaminated with Listeria monocytogenes.
+  2: Product may contain undeclared milk.
+  1: Recall initiated as a precautionary measure due to potential risk of product contamination with Burk
+  1: Mooncake products, manufactured and distributed by Magic Gourmet Trading, Inc. of Milbrae, CA did no
+  1: Virginia State (VDACS) found Listeria monocytogenes in Lacteos Santa Martha Quesito Casero Fresh Cur
+  1: FreshPoint South Florida is recalling sliced fresh yellow onions and salsa products processed using 
+
+Classifications:
+  49: Class I
+  46: Class II
+  5: Class III
+
+Sample products:
+  CytoDetox, Hydrolyzed Clinoptilolite Fragments, 1 oz./30 mL, OTC Non-Sterile.  D
+  Koi Palace Mini Moon Cake: Single Box - Mini Oolong Tea Paste  Unit Size 1/2 lb.
+  Crema GuateLinda (Guatemalan Style Cream) in individually soft poly/plastic bags
+  Yellow Onion.  Product is labeled in part:  "***FC Salsa Mango"***Refrigerate at
+  Pure Planet Organic Parasite Cleanse;  Net Wt. 174g Glass Jar;  Finished Product
+  Coffee Toffee - 4 oz. packages. UPC 6 55974 89001 2.    The label is read in par
+  XinXing Dried Plum, Net Wt. 5.3 oz.(150g)
+  Honey Bourbon Pecans Net Wt. 20 lb. (9.088g) Mfg. By: Trophy Nut Co. Tipp City, 
+  Gourmet Mix Fruit Delight Net Wt. 64 oz. (1814g) Best If Enjoyed By: 12/03/14, D
+  Marketside 12oz Classic Salad  UPC:6-81131-32894-4  SKU: 3107
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2570  redactions: none
+==============================================================================
+[seq 7] 2026-10-09T17:35:44+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Test OSHA API
+url = 'https://data.osha.gov/resource/k4y7-ywf2.json?$limit=5'
+try:
+    with urllib.request.urlopen(url, timeout=15) as response:
+        data = json.load(response)
+        print('OSHA API accessible')
+        print(f'Records returned: {len(data)}')
+        if data:
+            r = data[0]
+            print(f'Sample fields: {list(r.keys())}')
+            for k, v in r.items():
+                print(f'  {k}: {str(v)[:80]}')
+except Exception as e:
+    print(f'OSHA API error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+OSHA API error: <urlopen error [Errno -2] Name or service not known>
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 324  redactions: none
+==============================================================================
+[seq 8] 2026-10-09T17:35:54+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Test EPA TRI API
+url = 'https://enviro.epa.gov/enviro/efservice/TRI_FACILITY_INFO/STATE/CA/JSON?rows=0:5'
+try:
+    with urllib.request.urlopen(url, timeout=15) as response:
+        data = json.load(response)
+        print('EPA TRI API accessible')
+        print(f'Records returned: {len(data)}')
+        if data:
+            r = data[0]
+            print(f'Sample fields: {list(r.keys())}')
+except Exception as e:
+    print(f'EPA TRI API error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+EPA TRI API error: HTTP Error 403: Forbidden
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2290  redactions: none
+==============================================================================
+[seq 9] 2026-10-09T17:36:10+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Test NOAA API - weather stations
+url = 'https://www.ncei.noaa.gov/cdo-web/api/v2/stations?locationid=FIPS:36&limit=5'
+# NOAA requires token, so this will likely fail
+try:
+    with urllib.request.urlopen(url, timeout=15) as response:
+        data = json.load(response)
+        print('NOAA API accessible')
+        print(json.dumps(data, indent=2)[:500])
+except Exception as e:
+    print(f'NOAA API error: {e}')
+
+# Test USDA NASS Quick Stats
+url2 = 'https://quickstats.nass.usda.gov/api/api_GET/?key=DEMO&source_desc=SURVEY&sector_desc=CROPS&group_desc=FIELD+CROPS&commodity_desc=CORN&statisticcat_desc=YIELD&year__GE=2020&format=JSON&limit=5'
+print('\nTrying USDA...')
+try:
+    with urllib.request.urlopen(url2, timeout=15) as response:
+        data = json.load(response)
+        print('USDA API accessible')
+        print(json.dumps(data, indent=2)[:500])
+except Exception as e:
+    print(f'USDA API error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+NOAA API error: HTTP Error 400: 
+
+Trying USDA...
+USDA API error: HTTP Error 401: Unauthorized
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4694  redactions: none
+==============================================================================
+[seq 10] 2026-10-09T17:37:16+00:00
+$ python3 -c 
+import urllib.request
+import json
+from collections import Counter
+
+# Fetch NYC violations by cuisine type
+url = 'https://data.cityofnewyork.us/resource/43nn-pn8j.json?$where=violation_description%20IS%20NOT%20NULL%20AND%20critical_flag=%27Critical%27&$limit=500'
+try:
+    with urllib.request.urlopen(url, timeout=30) as response:
+        data = json.load(response)
+        print(f'Critical violations: {len(data)}')
+        
+        # Need cuisine data - let me check if there's a cuisine field
+        # Actually, the inspection data might not have cuisine. Let me check another dataset.
+        # Try the restaurant dataset
+        print('Sample record fields:', list(data[0].keys()) if data else 'none')
+        
+        violations = [r.get('violation_description', 'Unknown') for r in data]
+        print('\nTop critical violations:')
+        for v, count in Counter(violations).most_common(15):
+            print(f'  {count}: {v[:100]}')
+except Exception as e:
+    print(f'NYC API error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Critical violations: 500
+Sample record fields: ['camis', 'dba', 'boro', 'building', 'street', 'phone', 'cuisine_description', 'inspection_date', 'action', 'violation_code', 'violation_description', 'critical_flag', 'score', 'record_date', 'inspection_type', 'latitude', 'longitude', 'bbl']
+
+Top critical violations:
+  90: Hot TCS food item not held at or above 140 °F.
+  54: Evidence of mice or live mice in establishment's food or non-food areas.
+  53: Food contact surface not properly washed, rinsed and sanitized after each use and following any acti
+  45: Cold TCS food item held above 41 °F; smoked or processed fish held above 38 °F; intact raw eggs held
+  37: Food, supplies, or equipment not protected from potential source of contamination during storage, pr
+  33: Live roaches in facility's food or non-food area.
+  27: Filth flies or food/refuse/sewage associated with (FRSA) flies or other nuisance pests in establishm
+  22: Food Protection Certificate (FPC) not held by manager or supervisor of food operations.
+  21: Wiping cloths not stored clean and dry, or in a sanitizing solution, between uses.
+  14: Raw, cooked or prepared food is adulterated, contaminated, cross-contaminated, or not discarded in a
+  14: No hand washing facility in or adjacent to toilet room or within 25 feet of a food preparation, food
+  12: Sanitized equipment or utensil, including in-use food dispensing utensil, improperly used or stored.
+  11: Personal cleanliness is inadequate. Outer garment soiled with possible contaminant. Effective hair r
+  9: Evidence of rats or live rats in establishment's food or non-food areas.
+  9: After cooking or removal from hot holding, TCS food not cooled by an approved method whereby the int
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2986  redactions: none
+==============================================================================
+[seq 11] 2026-10-09T17:37:37+00:00
+$ python3 -c 
+import urllib.request
+import json
+from collections import Counter, defaultdict
+
+# Fetch NYC violations by cuisine type
+url = 'https://data.cityofnewyork.us/resource/43nn-pn8j.json?$where=violation_description%20IS%20NOT%20NULL%20AND%20critical_flag=%27Critical%27&$limit=2000'
+try:
+    with urllib.request.urlopen(url, timeout=30) as response:
+        data = json.load(response)
+        print(f'Critical violations: {len(data)}')
+        
+        # Group by cuisine
+        cuisine_violations = defaultdict(Counter)
+        cuisine_counts = Counter()
+        
+        for r in data:
+            cuisine = r.get('cuisine_description', 'Unknown')
+            violation = r.get('violation_description', 'Unknown')
+            cuisine_violations[cuisine][violation] += 1
+            cuisine_counts[cuisine] += 1
+        
+        print('\nTop cuisines by critical violation count:')
+        for cuisine, count in cuisine_counts.most_common(15):
+            print(f'  {count}: {cuisine}')
+        
+        print('\nTop violations for top 5 cuisines:')
+        for cuisine, count in cuisine_counts.most_common(5):
+            print(f'\n  {cuisine} ({count} critical violations):')
+            for v, c in cuisine_violations[cuisine].most_common(5):
+                print(f'    {c}: {v[:80]}')
+except Exception as e:
+    print(f'NYC API error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Critical violations: 2000
+
+Top cuisines by critical violation count:
+  283: American
+  244: Chinese
+  128: Coffee/Tea
+  122: Latin American
+  116: Pizza
+  98: Bakery Products/Desserts
+  74: Mexican
+  71: Japanese
+  61: Italian
+  59: Caribbean
+  43: Chicken
+  38: Asian/Asian Fusion
+  37: Juice, Smoothies, Fruit Salads
+  34: Hamburgers
+  33: Korean
+
+Top violations for top 5 cuisines:
+
+  American (283 critical violations):
+    59: Food contact surface not properly washed, rinsed and sanitized after each use an
+    33: Cold TCS food item held above 41 °F; smoked or processed fish held above 38 °F; 
+    25: Hot TCS food item not held at or above 140 °F.
+    24: Evidence of mice or live mice in establishment's food or non-food areas.
+    24: Food, supplies, or equipment not protected from potential source of contaminatio
+
+  Chinese (244 critical violations):
+    36: Cold TCS food item held above 41 °F; smoked or processed fish held above 38 °F; 
+    32: Evidence of mice or live mice in establishment's food or non-food areas.
+    30: Food, supplies, or equipment not protected from potential source of contaminatio
+    26: Food contact surface not properly washed, rinsed and sanitized after each use an
+    25: Hot TCS food item not held at or above 140 °F.
+
+  Coffee/Tea (128 critical violations):
+    29: Food contact surface not properly washed, rinsed and sanitized after each use an
+    12: Food, supplies, or equipment not protected from potential source of contaminatio
+    11: Cold TCS food item held above 41 °F; smoked or processed fish held above 38 °F; 
+    10: Food Protection Certificate (FPC) not held by manager or supervisor of food oper
+    9: Filth flies or food/refuse/sewage associated with (FRSA) flies or other nuisance
+
+  Latin American (122 critical violations):
+    18: Cold TCS food item held above 41 °F; smoked or processed fish held above 38 °F; 
+    14: Hot TCS food item not held at or above 140 °F.
+    11: Evidence of mice or live mice in establishment's food or non-food areas.
+    11: Live roaches in facility's food or non-food area.
+    9: Food, supplies, or equipment not protected from potential source of contaminatio
+
+  Pizza (116 critical violations):
+    33: Hot TCS food item not held at or above 140 °F.
+    16: Cold TCS food item held above 41 °F; smoked or processed fish held above 38 °F; 
+    10: Food, supplies, or equipment not protected from potential source of contaminatio
+    9: Evidence of mice or live mice in establishment's food or non-food areas.
+    8: Food Protection Certificate (FPC) not held by manager or supervisor of food oper
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3572  redactions: none
+==============================================================================
+[seq 12] 2026-10-09T17:39:44+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Test NHTSA API
+url = 'https://api.nhtsa.gov/SafetyRatings/modelyear/2024/make/Tesla/model/Model%20Y?format=json'
+try:
+    with urllib.request.urlopen(url, timeout=15) as response:
+        data = json.load(response)
+        print('NHTSA API accessible')
+        print(json.dumps(data, indent=2)[:500])
+except Exception as e:
+    print(f'NHTSA API error: {e}')
+
+# Test Fuel Economy API
+url2 = 'https://www.fueleconomy.gov/ws/rest/vehicle/menu/year?format=json'
+print('\nTrying Fuel Economy...')
+try:
+    with urllib.request.urlopen(url2, timeout=15) as response:
+        data = json.load(response)
+        print('Fuel Economy API accessible')
+        print(json.dumps(data, indent=2)[:500])
+except Exception as e:
+    print(f'Fuel Economy API error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+NHTSA API accessible
+{
+  "Count": 0,
+  "Message": "Results returned successfully",
+  "Results": []
+}
+
+Trying Fuel Economy...
+Fuel Economy API error: Expecting value: line 1 column 1 (char 0)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2753  redactions: none
