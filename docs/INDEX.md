@@ -328,7 +328,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/090-hand-classification/` | `docs/INDEX.md` | active | 2026-10-10 | ## Experiment performed 2026-10-10 |
 | `EXPERIMENTS/090-instrument-discrimination/` | `docs/INDEX.md` | active | 2026-10-10 | 1 documents |
 | `EXPERIMENTS/090-reverse-index/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-10 | 2 documents |
-| `EXPERIMENTS/091-anova-answerability/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-10 | 2 documents |
+| `EXPERIMENTS/091-anova-answerability/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-11 | 6 documents |
 | `EXPERIMENTS/091-fresh-observation-aviation-fault-codes/` | `docs/INDEX.md` | active | 2026-10-10 | 4 documents |
 | `EXPERIMENTS/091-import-error-population/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-10 | ## Summary |
 | `EXPERIMENTS/091-vendor-unsure-recurrence/` | `docs/INDEX.md` | active | 2026-10-11 | 3 documents |

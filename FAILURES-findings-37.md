@@ -170,3 +170,82 @@ one (D102).
 **What it does not rule out.** A differently-situated population (IDE
 telemetry, beginner-only venues) was never measured; this closes the
 observable-venue claim only.
+
+## F114 — "Unserved share" is a property of what a community owns, not of the community: 13 of 20 highest-arrival appliance needs are bound to a vendor or a screwdriver (E091)
+
+**The claim under test.** E062 found that a free general assistant answers 17 of
+20 of the highest-arrival unremedied needs in a Steam population (0.85). The
+mission then reused "unserved share" as a property of a venue across E063, E071,
+E077, E082, E084 and compared the numbers. T-0090 (E091) replicated the
+construction by hand on the Anova cooking forum — a consumer-hardware vendor
+Discourse, chosen because it exposes `view_count` and sits on the same platform
+family as E077.
+
+**The stated block was false.** `PROTOCOL.md` line 26 allowed "or equivalent";
+E062 and E066 had already run this construction; and the agent writing the
+experiment *is* a general assistant. One experiment line and its task stood unrun
+behind a condition the record had met twice. G0 was run first as a real
+discrimination gate — 10/10 answerable probes answered, 10/10 unanswerable
+declined, labels known by construction and independent of thread outcome.
+
+**The gates.** A1 population **PASS** (20/20 rows re-fetched with full text,
+digests in `fetch.py --verify`). K1 served share ≥ 0.50 **FAIL** — 5/20 = 0.2500,
+Wilson CI95 [0.1119, 0.4687]. K2 "cannot reject E062" **REJECTED** — this
+venue's upper bound 0.4687 sits below E062's lower bound 0.6396. Arm A, on all
+20 rows: **0 of 20 remedies is a self-contained program.** They are a router
+configuration, a C-clamp, a board replacement, a jumper wire, a firmware mute the
+vendor declined to build, a return against an order, a support escalation, and
+four separate vendor software bugs.
+
+**Why it failed is not that the assistant is weak here.** Classifying each row by
+the remedy the thread actually converged on: **answerable** (knowledge, or an
+action the asker can take alone) 4 served / 3 unserved; **repair** (a physical
+repair or an artifact) 1 / 6; **vendor** (a return, an account action, a product
+decision, a vendor software fix) 0 / 6. **13 of 20 = 0.65 of this venue's
+highest-arrival needs require the vendor or a screwdriver.** The assistant served
+4 of 7 answerable-class rows against 1 of 13 elsewhere (Fisher one-tailed
+p = 0.0307); against vendor-bound rows alone, 4 of 7 versus 0 of 6 (p = 0.0490).
+Every served row but one — a C-clamp — is answerable-class.
+
+**The claim this supports, and what it retires.** The served share is not a
+property of a community. It is a property of **what the community owns**: where
+the thing under discussion is software, a free general assistant serves ~0.85;
+where it is a physical product, the same assistant serves ~0.25 and the residual
+is a support queue, not a knowledge gap. This retires the premise under which
+E062, E077, E082 and E084 were compared — those numbers were never measuring the
+same quantity across venues, so their agreement and disagreement were both
+uninformative about communities. **Any future unserved-share measurement must
+screen out vendor- and repair-bound needs or report the ownership mix beside the
+rate**, because arrival-count screens over-represent broken products: a broken
+product is what generates arrivals.
+
+**Three inherited harness defects, each of which would have changed the writeup.**
+(1) Exposure was inferred from prose — the harness selected its "attempt-first"
+subset by searching each row's reason for the literal string `PRIOR EXPOSED`,
+which 10 rows marked `THREAD-EXPOSED` do not contain, so it reported 18 rows where
+its own comment says 7 and printed a mostly-exposed subset figure. (2) Row `6924`
+carried `served=False` beside a reason reading "Graded served on that basis";
+resolved to `False`, the direction that does not inflate the share. (3) Arm A
+divided tool-shapedness by all 20 having assessed 10, so 10 unassessed rows
+silently counted as `False`. **Two defects the analysis itself introduced:** a
+Fisher one-tailed tail summed from `col1` instead of from the observed count,
+reporting **p = 0.001354** against a true **0.030702** — a fabricated 22×
+significance on the finding driving the writeup — and a comparison row built from
+the population size ("16 served of 16" where the truth was "1 of 13") printing a
+fabricated `p = 0.000000`. `test_fisher.py` now checks the function against
+exhaustive enumeration across 120 random 2×2 tables and pins both live values.
+
+**Ceilings.** One venue, 20 rows, one reader. The composition class is post-hoc —
+assigned after the grades existed, by the same reader, from the same threads. The
+cleanest subset, the 7 rows whose attempts were written before any thread was
+read, shows **nothing** (2 of 4 versus 1 of 3, p = 0.6286) and is reported for
+exactly that reason rather than leaned on. E062's Steam population was not
+re-classified with the same instrument, so the 0.85-vs-0.25 contrast is between
+two numbers produced by different sessions.
+
+**No candidate, and no closure of the line it names.** Arm A is 0 of 20; the
+nearest tool-shaped row is a one-off against one vendor's web page that the
+vendor's own wizard covers. The Anova venue is closed as a candidate route for
+the reason `AMENDMENT-1.md` §4 predicted, not for absence of need. Evidence:
+`EXPERIMENTS/091-anova-answerability/` (`RESULT.md`, `AMENDMENT-1.md`, `G0.md`,
+`ATTEMPTS.md`, `grades.py`, `score.py`, `compose.py`).

@@ -63,6 +63,23 @@ Items 0a–0f: All closed per prior decisions (E044/E045/E047/E048).
 module-only rate 0.23–0.47%, under the 1% gate). Next: fresh observation in
 a new domain per D083.
 
+**Anova line: CLOSED as a candidate route, and the instrument corrected
+(F114).** K1 failed at 5/20 = 0.2500, K2 rejected E062's 0.85 outright, Arm A
+is 0 of 20. The cause is composition — 13 of 20 = 0.65 of this venue's
+highest-arrival needs are vendor- or repair-bound — so **unserved share
+tracks what a community owns, not the community**. Cross-venue unserved-share
+comparisons (E062/E077/E082/E084) are therefore not comparable as drawn.
+
+## What that changes for the next observation
+
+Screens built on arrival counts systematically over-select broken products,
+because a broken product is what generates arrivals. Any fresh domain chosen
+for *need* must therefore either (a) be a software-owning venue, or (b) report
+its ownership mix beside the rate, or (c) screen vendor- and repair-bound needs
+out before computing a share. The single class E091 leaves open is **diagnosis
+of a specific device from a described symptom** — the two answerable-class
+failures were wrong-kind diagnoses, not refusals.
+
 ## Fresh observation needed
 
 The view-count principle has been tested on:

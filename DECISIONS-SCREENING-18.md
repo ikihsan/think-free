@@ -11,12 +11,12 @@ part holds decisions taken when a **measured** capability or reach number
 retires a build direction, or when a measurement's own instrument is found
 wanting. Nothing was shortened to make room.
 
-Decisions **D098, D099, D102**. Each entry records a choice that was
+Decisions **D098, D099, D102, D103**. Each entry records a choice that was
 genuinely open, the options considered, and what was decided.
 
 | id | decision |
 |---|---|
-| [`DECISIONS-SCREENING-18.md`](DECISIONS-SCREENING-18.md) | D098 — a prebuilt module→distribution index over a popular slice of PyPI is not a product; the conditional advantage over `pip install M` is 0.1877 and the reach is 0.3137 (E090, F111); D099 — the incumbent a gate is measured against must be the strongest one the protocol names, and E090 named three and ran one; D102 — the package-name line closes on demand: E091's 2.91% re-reads to 2–4 genuine of 858, under the 1% gate (F113) |
+| [`DECISIONS-SCREENING-18.md`](DECISIONS-SCREENING-18.md) | D098 — a prebuilt module→distribution index over a popular slice of PyPI is not a product; the conditional advantage over `pip install M` is 0.1877 and the reach is 0.3137 (E090, F111); D099 — the incumbent a gate is measured against must be the strongest one the protocol names, and E090 named three and ran one; D102 — the package-name line closes on demand: E091's 2.91% re-reads to 2–4 genuine of 858, under the 1% gate (F113); D103 — the Anova venue is closed as a route, and "unserved share" is redefined as a property of ownership composition: 13 of 20 highest-arrival appliance needs are vendor- or repair-bound, and the assistant's 5/20 is 4 of 7 answerable rows against 1 of 13 elsewhere (E091, F114) |
 
 ## D098 — The reverse index is retired; what E090 measured instead
 
@@ -107,3 +107,51 @@ a population any artifact can be built for; a differently-situated population
 **Reopening condition.** A new population measurement, on rows nobody has
 read, clearing 1% genuine "which distribution provides X?" with committed
 bodies — not a re-read of E091's rows and not a retrieval-failure G1.
+
+## D103 — The Anova venue is closed, and "unserved share" is a property of what a community owns (E091, F114)
+
+**Decision.** Close the Anova appliance forum as a candidate route.
+Retire the premise under which E062, E077, E082 and E084 were
+compared: an unserved-share number is a property of a population's
+ownership mix, not of its community. Any future unserved-share screen
+must screen vendor- and repair-bound needs out before computing a
+share, or report the mix beside the rate.
+
+**Why.** E091 ran E062's construction — the venue's highest-arrival
+unremedied needs, attempted by a free general assistant — on the Anova
+cooking forum, behind a block ("no GPT-4o or Claude API access") that
+the protocol's own "or equivalent" clause, two prior runs, and the
+writing agent had already met. G0 discrimination passed first (10/10
+answerable probes answered, 10/10 unanswerable declined, labels known
+by construction). The served share was **5 of 20 = 0.2500** (Wilson
+CI95 [0.1119, 0.4687]), so K1 (≥ 0.50) failed and E062's 0.85 is
+rejected for this venue. But the failure is compositional: classifying
+each row by the remedy its thread converged on, **13 of 20 = 0.65 are
+bound to a vendor or a screwdriver**, and the assistant served 4 of 7
+answerable-class rows against 1 of 13 elsewhere (Fisher one-tailed
+p = 0.0307). Arm A — remedies that are a self-contained program — is
+**0 of 20**.
+
+**Options considered.** (a) Keep the venue open — rejected: 0 of 20
+remedies is a program; the residual is a support queue, not a
+knowledge gap. (b) Record 0.25 as a property of the community —
+rejected: it conflates ownership classes, and every cross-venue number
+in the record inherits the conflation. (c) Close the venue and correct
+the instrument — adopted.
+
+**Consequences.** The four structured-fault-code domain experiments
+(E079, E082, E083, E084) and the Discourse baseline E077 are numbers
+about populations, not communities; they are not compared against each
+other or against E062 as drawn. Screens built on arrival counts
+systematically over-represent broken products, because a broken product
+is what generates arrivals.
+
+**Reopening condition.** A venue whose ownership mix is reported
+alongside its rate, whose answerable-class unserved share clears the
+gate after vendor- and repair-bound rows are screened out, and whose
+population contains a program-shaped remedy. The one class E091 leaves
+open is diagnosis of a specific device from a described symptom — its
+two answerable-class failures were wrong-kind diagnoses, not
+refusals — and a runnable test of that class outside one vendor's own
+forum is the named next action (`EXPERIMENTS/091-anova-answerability/
+RESULT.md` §6).

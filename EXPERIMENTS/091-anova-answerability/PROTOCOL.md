@@ -103,6 +103,12 @@ A topic is **unserved** if the assistant cannot produce a correct answer, or the
 - `population.jsonl` — 20 population topics with assistant answers and judgments
 - `results.json` — gate results, served share, Wilson CI, K2 comparison
 - `VERDICT.md` — final build decision
+- `AMENDMENT-1.md` — design correction made before any population row was graded
+- `G0.md` — instrument discrimination run before any population row was read
+- `ATTEMPTS.md` — Arm B attempts written from first post only
+- `grades.py` — per-row served / tool-shaped grades
+- `score.py`, `compose.py` — gate arithmetic and the composition table
+- `RESULT.md` — what the run actually found
 
 ## Pre-registration
 

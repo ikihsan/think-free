@@ -1,0 +1,193 @@
+{
+  "arm_a_assessed": 20,
+  "arm_a_tool_shaped": 0,
+  "arm_b_all": {
+    "ci95": [
+      0.11186005278940309,
+      0.4687050099580636
+    ],
+    "n": 20,
+    "served": 5,
+    "share": 0.25
+  },
+  "arm_b_attempt_first": {
+    "ci95": [
+      0.15821692226262685,
+      0.7495457695909742
+    ],
+    "n": 7,
+    "served": 3,
+    "share": 0.42857142857142855
+  },
+  "attempt_first_rows": 7,
+  "e062_comparator": {
+    "ci95": [
+      0.6395767041130426,
+      0.9476322080405041
+    ],
+    "n": 20,
+    "served": 17
+  },
+  "grades": [
+    {
+      "attempt_first": true,
+      "id": "86",
+      "reason": "MISS. Attempt guessed the PIN is 0000 and that pairing uses a printed label. The thread's answer is that there IS no PIN: the device pairs through the app, not through a system PIN prompt. The attempt's stated low confidence was correct; its content would have sent the user down a wrong path. NOTE: the need itself is answerable - this is an instrument error, not a servability limit.",
+      "served": false,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": true,
+      "id": "12241",
+      "reason": "HIT. Attempt's item 1 (join the 2.4 GHz SSID during setup) and item 3 (unplug 30s, delete from app, reboot phone and router, re-pair) are exactly the fixes the thread reports working, including reply [4] 'phone connected to a 2.4 network' and reply [14] 'restarted my phone after restarting the Anova and the router'. The thread also surfaces a cause the attempt missed - spaces in SSID or password - but the graded criterion is whether the attempt resolves the stated problem, and it does.",
+      "served": true,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": true,
+      "id": "1096",
+      "reason": "PARTIAL MISS. Attempt ranked water level first and said 'if it beeps with correct water level and an immersed probe, it is a unit fault'. The thread has a specific user repair at reply [18], confirmed by reply [16], and the attempt's own fallback - unit fault, return it - is the majority advice (replies [5]-[15] are support replies offering return/exchange). Graded unserved: the attempt does not contain the fix.",
+      "served": false,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": true,
+      "id": "5021",
+      "reason": "HIT on mechanism, MISS on outcome. Attempt correctly identified the sensor/ADC failure and said 'not user-fixable, expect service replacement'. The thread's convergent answer (reply [9], expanded over [11]-[19]) is a $3 TM7707 ADC replacement the user performed. Graded unserved because the attempt does not contain the remedy that resolved it, even though its diagnosis was right.",
+      "served": false,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": true,
+      "id": "722",
+      "reason": "HIT. Attempt's lead recommendation - a photography C-clamp - is precisely the fix in reply [13] ('I fixed mine twice! My solution is an aluminum C-clamp... for as little as about $10'), the most-endorsed user workaround in the thread. Reply [4] (cup hook) and [9] (3D-printed bracket) are alternatives the attempt gestured at.",
+      "served": true,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": true,
+      "id": "26273",
+      "reason": "MISS. Attempt asserted the thermostat/thermal fuse was at fault and that the gasket was not. The thread's convergent user fix is the opposite in the cases that resolved: reply [8] 'both times it was fixed by cleaning the seal and sealing surface', and reply [4] on bag handling / over-filling. Reply [7] does name a failed vacuum sensor, so the attempt's neighbourhood was not absurd, but it led with the wrong cause. The need itself is answerable - instrument error, not a servability limit.",
+      "served": false,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": true,
+      "id": "717",
+      "reason": "HIT. Attempt said there is no snooze, that the beep cannot be stopped from the app, and offered a dampening workaround plus 'unplugging ends the cook'. The thread confirms all three: replies [5] and [8] ('the ONLY way to stop the beeping is to physically unplug'), and reply [11] from Anova staff confirming the timer button stops it. The attempt's core claim is the thread's core claim.",
+      "served": true,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": false,
+      "id": "12736",
+      "reason": "THREAD-EXPOSED. No attempt was written. Reply [5] converges on a physical steam shield and a UPS; the remedy is an artifact, not an answer. Recorded as a missing observation, never as a zero.",
+      "served": false,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": false,
+      "id": "4261",
+      "reason": "THREAD-EXPOSED. No attempt was written. The thread's answer is a vendor product decision ('currently it cannot, but it is a feature we are planning on implementing'), which is not assistant-answerable in any case.",
+      "served": false,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": false,
+      "id": "9165",
+      "reason": "THREAD-EXPOSED. No attempt was written. Reply [1] from staff is a loose stainless skirt plus contact-support. An assistant would say the same, but the grade is not attempt-first and is reported apart.",
+      "served": false,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": false,
+      "id": "9020",
+      "reason": "THREAD-EXPOSED. No attempt was written. The stated problem is an alarm re-firing each time the bath rounds to setpoint. Reply [2] has support walking the user through pressing the triangle button twice; reply [11] finds a reseated coil housing. Not assistant-answerable: the fix arrived by phone call.",
+      "served": false,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": false,
+      "id": "6924",
+      "reason": "THREAD-EXPOSED. No attempt was written. The thread's answer to the literal question is that there is no PIN and pairing happens in the app (replies [1], [8]) - that part is answerable. The thread never resolved: the user hit an app-availability wall on a non-Play-Store tablet and gave up at reply [7]; the only path offered was an APK sideload (reply [9]). Graded unserved. CORRECTED: the inherited harness set served=False while its reason text read 'Graded served on that basis'. Resolved to False because the thread does not converge and the residual blocker is a software-availability fact no explanation reaches - the direction that does not inflate the served share.",
+      "served": false,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": false,
+      "id": "132",
+      "reason": "THREAD-EXPOSED. No attempt was written. Low-water alarm on a three-week-old unit. Reply [5] connects the two sensors with a jumper wire after staff reply [1] calls the unit defective and offers a return. A general assistant does not know this repair.",
+      "served": false,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": false,
+      "id": "4681",
+      "reason": "THREAD-EXPOSED. No attempt was written. The thread's resolution is the documented credential constraint - replies [9] and [11] give Anova's own rule that the Wi-Fi password must be 8-18 characters with no special characters, linking the support article - plus reply [1] on disabling 5 GHz. That is public vendor documentation an assistant could produce.",
+      "served": true,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": false,
+      "id": "3051",
+      "reason": "THREAD-EXPOSED. No attempt was written. Wrong SKU delivered; the remedy is a support return/exchange resolved by staff escalating the ticket (replies [14], [17], [19]). An order-record action.",
+      "served": false,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": false,
+      "id": "8811",
+      "reason": "THREAD-EXPOSED. No attempt was written. Broken password-reset deep link; reply [4] 'manual intervention by the support team'. An assistant cannot fix a vendor's broken reset token.",
+      "served": false,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": false,
+      "id": "10550",
+      "reason": "THREAD-EXPOSED. No attempt was written. App timer resetting to blank; replies [3] and [8] converge on 'a bug, the product team knows', and reply [17] confirms it still occurring in January 2019. An assistant can say 'this is an app bug' but cannot fix it, and the thread's remedy is waiting on the vendor.",
+      "served": false,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": false,
+      "id": "13044",
+      "reason": "THREAD-EXPOSED. No attempt was written. Timer/temperature unit confusion; reply [2] is the dev team aware and working on it. Not assistant-answerable.",
+      "served": false,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": false,
+      "id": "12987",
+      "reason": "THREAD-EXPOSED. No attempt was written. Missing iOS push notifications; reply [10] is a confirmed vendor bug and reply [17] reports the vendor had abandoned the forum. Not assistant-answerable.",
+      "served": false,
+      "tool_shaped": false
+    },
+    {
+      "attempt_first": false,
+      "id": "5115",
+      "reason": "THREAD-EXPOSED. No attempt was written. The user asks the technical reason the phone must be on 2.4 GHz during setup. Reply [1] gives exactly that: the unit's radio is 2.4 GHz 802.11b/g/n only and the app passes the credentials over that band. Public hardware documentation an assistant can produce.",
+      "served": true,
+      "tool_shaped": false
+    }
+  ],
+  "k1_pass_all": false,
+  "k1_pass_attempt_first": false,
+  "k2_reject_high": false,
+  "k2_reject_low": true,
+  "population_rows": 20,
+  "thread_exposed_rows": [
+    "132",
+    "3051",
+    "4261",
+    "4681",
+    "5115",
+    "6924",
+    "8811",
+    "9020",
+    "9165",
+    "10550",
+    "12736",
+    "12987",
+    "13044"
+  ]
+}
