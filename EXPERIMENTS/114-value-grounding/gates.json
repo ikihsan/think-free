@@ -1,0 +1,1159 @@
+{
+ "KG-A_arm_A": {
+  "by_kind": {
+   "code/ungrounded_claim": 35,
+   "code/ungrounded_value": 18,
+   "date/ungrounded_claim": 13,
+   "date/ungrounded_value": 6,
+   "money/ungrounded_claim": 30,
+   "num/ungrounded_claim": 36,
+   "qty/ungrounded_claim": 1
+  },
+  "counts": {
+   "grounded": 235,
+   "ungrounded_claim": 115,
+   "ungrounded_value": 24
+  },
+  "flagged": [
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.2,
+    "value": "$39.00",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.429,
+    "value": "$6,900",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.0,
+    "value": "49 CFR 1150.31-1150.35",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.0,
+    "value": "49 CFR 1150.41-1150.45",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.5,
+    "value": "49 U.S.C. 11102",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "num",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.3,
+    "value": "38",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.4,
+    "value": "$2,327,700",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.5,
+    "value": "$465,500",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.538,
+    "value": "$14,500",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.385,
+    "value": "$8,600",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "num",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.2,
+    "value": "39",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.286,
+    "value": "$2,237,700",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.5,
+    "value": "$465,500",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.538,
+    "value": "$1,800",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.538,
+    "value": "$14,500",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.385,
+    "value": "$8,600",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.4,
+    "value": "$2,327,700",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.5,
+    "value": "$465,500",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.5,
+    "value": "$1,700",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.538,
+    "value": "$14,500",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.385,
+    "value": "$8,600",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.4,
+    "value": "$2,327,700",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.5,
+    "value": "$465,500",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.462,
+    "value": "$2,000",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.385,
+    "value": "$8,600",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.5,
+    "value": "$1,400",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.5,
+    "value": "$25,000",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.5,
+    "value": "$25,000",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.5,
+    "value": "$25,000",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.5,
+    "value": "$25,000",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.5,
+    "value": "$1,700",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.5,
+    "value": "$25",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every dollar amount stated in this document, with what it applies",
+    "score": 0.545,
+    "value": "$153.00",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "num",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.571,
+    "value": "64787",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "num",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.571,
+    "value": "64790",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "date",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.444,
+    "value": "October 16, 2008",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.444,
+    "value": "$9,300",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "money",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.444,
+    "value": "$33,000",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "date",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.0,
+    "value": "October 9, 2026",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "num",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.571,
+    "value": "8",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "num",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.2,
+    "value": "45",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.4,
+    "value": "49",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.4,
+    "value": "1002",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "49 CFR 1002.1(b)",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "49 CFR 1002.1(f)(11)",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "49 CFR 1002.2",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.2,
+    "value": "1002.2",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "49 CFR 1002.3(a)",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "49 CFR 1150.31-1150.35",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "49 CFR 1150.36",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "49 CFR 1150.41-1150.45",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "49 CFR 1152.50",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "49 CFR 1013",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "49 CFR 1013.3(a)",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "49 CFR part 1108",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "49 CFR 1177.3(c)",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "49 CFR 1180.2(d)",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.333,
+    "value": "49 CFR 1180.2(d)(5)",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.333,
+    "value": "49 CFR 1180.4(b)(4)(iv)",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "5 U.S.C. 552(a)(6)(B)",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "5 U.S.C. 553",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "5 U.S.C. 5514",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "49 U.S.C. 11123",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "49 U.S.C. 14706",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "49 U.S.C. 11301",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "45 U.S.C. 562",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.2,
+    "value": "49 U.S.C. 13710(a)(2)",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.25,
+    "value": "34",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.231,
+    "value": "20889",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "97",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20889",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "01",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20748",
+    "kind": "date",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.0,
+    "value": "October 8, 2026",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20748",
+    "kind": "num",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.2,
+    "value": "45",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20748",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "1308",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20748",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "21 CFR 1308.11",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20748",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.286,
+    "value": "88",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20748",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.125,
+    "value": "21 U.S.C. 811",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20748",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "21 U.S.C. 812",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20748",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "21 U.S.C. 871(b)",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20748",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "21 U.S.C. 956(b)",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20748",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "91 FR 52013",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20748",
+    "kind": "date",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "Aug. 12, 2026",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20748",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.333,
+    "value": "9667",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20748",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "571",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20748",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "362",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20748",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "3249",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "code",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.333,
+    "value": "91 FR 16583",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "date",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.375,
+    "value": "August 28, 2026",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "code",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.25,
+    "value": "91 FR 55499",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "date",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.25,
+    "value": "October 8, 2026",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "date",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.0,
+    "value": "October 9, 2026",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "num",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.375,
+    "value": "8",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "num",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.2,
+    "value": "45",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "50 CFR 679.20(a)(7)(ii)(A)(9)",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "50 CFR 679.20(a)(7)(iii)(A)",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.4,
+    "value": "5 U.S.C. 553(b)(B)",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.091,
+    "value": "5 U.S.C. 553(d)(3)",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.429,
+    "value": "91 FR 11750",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "date",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.429,
+    "value": "March 10, 2026",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.429,
+    "value": "91 FR 16583",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "date",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.429,
+    "value": "April 2, 2026",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.429,
+    "value": "91 FR 55499",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20860",
+    "kind": "date",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.429,
+    "value": "August 28, 2026",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "date",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.429,
+    "value": "December 19, 2024",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "code",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.5,
+    "value": "Docket No. FAA-2024-2614",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "date",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.0,
+    "value": "October 9, 2026",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.571,
+    "value": "14 CFR part 71",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "1 CFR part 51",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.571,
+    "value": "2004",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.571,
+    "value": "7400.11",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.091,
+    "value": "49 U.S.C. 106(f)",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.083,
+    "value": "40113",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.091,
+    "value": "40120",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "10854",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "24 FR 9565",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "1959",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "1963",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "389",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.571,
+    "value": "7400",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "89 FR 103720",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "date",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "December 19, 2024",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.167,
+    "value": "91 FR 10979",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "date",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.167,
+    "value": "March 6, 2026",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "85",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.333,
+    "value": "149",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.333,
+    "value": "147",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20834",
+    "kind": "num",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.091,
+    "value": "13",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20861",
+    "kind": "qty",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.5,
+    "value": "0001 hour",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20861",
+    "kind": "date",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.5,
+    "value": "December 31, 2026",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20861",
+    "kind": "date",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.286,
+    "value": "January 1, 2027",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20861",
+    "kind": "date",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.25,
+    "value": "October 8, 2026",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20861",
+    "kind": "date",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.0,
+    "value": "October 9, 2026",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20861",
+    "kind": "num",
+    "question": "List every date in this document and what it applies to.",
+    "score": 0.2,
+    "value": "45",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20861",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.429,
+    "value": "50 CFR part 648",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20861",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.5,
+    "value": "50 CFR 648.100 through 648.111",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20861",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.0,
+    "value": "50 CFR 648.102",
+    "verdict": "ungrounded_value"
+   },
+   {
+    "document": "2026-20861",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.217,
+    "value": "50 CFR 648.103(b)",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20861",
+    "kind": "code",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.357,
+    "value": "91 FR 7896",
+    "verdict": "ungrounded_claim"
+   },
+   {
+    "document": "2026-20861",
+    "kind": "date",
+    "question": "List every CFR section citation, U.S.C. section, docket number, and FR",
+    "score": 0.357,
+    "value": "February 19, 2026",
+    "verdict": "ungrounded_claim"
+   }
+  ],
+  "ungrounded_rate": 0.3717,
+  "values_checked": 374
+ },
+ "KG-C1_recall_on_B": {
+  "misses": [],
+  "n": 22,
+  "per_flavour": {
+   "B1_from_document": 1.0,
+   "B2_absent": 1.0
+  },
+  "recall": 1.0
+ },
+ "KG-C2_false_alarms_on_C": {
+  "examples": [
+   {
+    "document": "2026-20748",
+    "kind": "date",
+    "score": 0.0,
+    "value": "Aug. 12, 2026",
+    "verdict": "ungrounded_value"
+   }
+  ],
+  "false_alarm_rate": 0.0069,
+  "flagged": 1,
+  "rows": 15,
+  "values": 145
+ },
+ "instruments_valid": true
+}
