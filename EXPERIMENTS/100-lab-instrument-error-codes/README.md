@@ -7,7 +7,9 @@ last-verified: 2026-10-11
 # E100 — Fresh observation in industrial automation/SCADA fault codes domain
 
 **Session:** `2026-10-11-007`, VM `instance-20260717-0947`, observed 2026-10-11.
-**Finding:** F116, Decision: D105 (pending allocation)
+**Finding:** none allocated — this experiment produced no finding record. Its
+"unserved 76.2%" figure is measured with the view-count screen that E110
+withdrew (F116), so it is `untested` rather than a finding.
 
 ## Summary
 

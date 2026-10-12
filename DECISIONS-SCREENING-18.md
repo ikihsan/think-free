@@ -11,8 +11,8 @@ part holds decisions taken when a **measured** capability or reach number
 retires a build direction, or when a measurement's own instrument is found
 wanting. Nothing was shortened to make room.
 
-Decisions **D098, D099, D102, D103, D104**. Each entry records a choice that was
-genuinely open, the options considered, and what was decided.
+Decisions **D098, D099, D102, D103, D104, D105**. Each entry records a choice
+that was genuinely open, the options considered, and what was decided.
 
 | id | decision |
 |---|---|
@@ -224,3 +224,68 @@ resolution. A second venue of the same shape (a
 knowledge forum with curation) would be measuring
 the same population twice; the record does not need
 it.
+
+## D105 — The view-count domain sweep is stopped; the instrument is withdrawn, not the idea (E110, F116)
+
+**Decision.** Stop the D083 "fresh observation in a new domain" sweep. Withdraw
+the view-count screen's published results, including E107's `ALL GATES PASS`.
+**Do not** conclude that need-related artifacts receive no arrivals — the
+experiment tested a screen, not the world — and **do not** run the next registry
+sweep.
+
+**The open choice.** E110's `PROTOCOL.md` named the decision in advance: the
+line either survives a matched harvest or it does not. Two outcomes were live —
+stop the line, or keep sweeping. A third was tempting and is rejected: keep
+sweeping while adding a control each time.
+
+**What was found.** E107's two arms were harvested from two *different* topics,
+both sorted by stars descending — 80/80 need rows carry `web-framework`, 80/80
+random rows carry `utils`, before any classifier runs. Its published
+`δ = 0.826010` reproduces exactly from its own committed data, and is therefore
+a comparison of the most-starred web frameworks against the most-starred utility
+libraries. Under a matched harvest on the same platform: within-stratum
+`δ = +0.0746`, stratified permutation **p = 0.183** over 20 000 iterations.
+The effect is carried by need-labelled rows sitting in higher star strata, not by
+need labels winning at equal fame (5 of 7 strata negative or zero).
+
+A second defect was found and is the larger obstacle: the shared classifier
+matches by unanchored substring (`ai` inside `email`, `base` inside `database`)
+and assigns a label to **196 of 700 rows — 28%**. 458 rows match neither
+vocabulary. Every experiment on this line reported coverage over the rows it
+labelled, so a 28% screen was recorded as a 100% measurement.
+
+**Options considered.**
+
+- (a) *Stop the line.* **Adopted.**
+- (b) *Keep sweeping, add a matched control per domain.* Rejected: it spends the
+  next several sessions producing the same class of number, one platform at a
+  time, and the defect is in shared scaffolding, so each run would carry it.
+- (c) *Declare the principle false.* Rejected as overreach — see below.
+
+**Why (c) is not adopted.** The claim actually tested is "this classifier, on
+this pool, on this platform, separates the arms." A null there is a null there.
+It says nothing about PyPI's population or about whether a classifier that
+covers its population would find an effect. Recording that distinction is the
+difference between closing a screen and closing an idea, and only the first is
+supported.
+
+**Consequences.**
+
+1. E107's `ALL GATES PASS` is withdrawn. `STATE.md` and
+   `STATE-next-actions.md` reported E107 incompatibly for one experiment id
+   (FAIL vs PASS); the passing half is the one that fails here. Both now carry
+   the withdrawal.
+2. E090, E095, E102, E103 and E108 are **`untested` on a matched harvest**, not
+   confirmed and not refuted. They share the classifier and the "sort the random
+   arm by the outcome metric" pattern.
+3. E109 (Pub.dev) is **superseded, not run** — another domain would have
+   inherited both defects.
+4. **No coverage gate existed on this line.** That is why a screen discarding
+   72% of its population reported as a measurement of it.
+
+**Reopening condition.** All three, in order: (i) a classifier that labels a
+declared fraction of its population, with a coverage floor declared *before*
+the run; (ii) the matched harvest as the default design rather than a control
+added after a positive; (iii) a stratified reading reported alongside the
+pooled one, since pooling across strata is what produced E110's own superseded
+`survives` verdict.

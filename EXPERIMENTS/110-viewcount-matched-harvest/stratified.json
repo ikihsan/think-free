@@ -1,0 +1,53 @@
+{
+ "interpretation": "The pooled effect is carried by the need label sitting in higher star strata, not by need labels winning within a stratum. Holding stratum fixed removes most of it.",
+ "per_stratum": {
+  "stars:100..200": {
+   "delta": 0.0,
+   "generic": 13,
+   "need": 15,
+   "pairs": 195
+  },
+  "stars:1000..2000": {
+   "delta": -0.0121,
+   "generic": 15,
+   "need": 11,
+   "pairs": 165
+  },
+  "stars:10000..20000": {
+   "delta": -0.0982,
+   "generic": 8,
+   "need": 28,
+   "pairs": 224
+  },
+  "stars:200..500": {
+   "delta": -0.2768,
+   "generic": 14,
+   "need": 8,
+   "pairs": 112
+  },
+  "stars:2000..5000": {
+   "delta": 0.2303,
+   "generic": 19,
+   "need": 16,
+   "pairs": 304
+  },
+  "stars:500..1000": {
+   "delta": 0.2444,
+   "generic": 9,
+   "need": 10,
+   "pairs": 90
+  },
+  "stars:5000..10000": {
+   "delta": 0.2723,
+   "generic": 14,
+   "need": 16,
+   "pairs": 224
+  }
+ },
+ "permutation_iters": 20000,
+ "pooled_delta": 0.2048,
+ "rows": 196,
+ "stratified_permutation_p": 0.18349082545872705,
+ "stratum_adjusted_delta": 0.1059,
+ "within_stratum_delta": 0.0746
+}

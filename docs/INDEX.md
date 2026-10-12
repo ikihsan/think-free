@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-11
+last-verified: 2026-10-12
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -369,6 +369,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/106-pypi-viewcount-prototype/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/107-github-repos-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
 | `EXPERIMENTS/108-dockerhub-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
+| `EXPERIMENTS/109-pubdev-viewcount/` | `docs/INDEX.md` | superseded | 2026-10-12 | 1 documents |
+| `EXPERIMENTS/110-viewcount-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-12 | owner: docs/INDEX.md |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |

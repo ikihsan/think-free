@@ -6,7 +6,15 @@ last-verified: 2026-10-11
 
 # Next actions
 
-E071 conclusive result: the view-count principle is supported on PyPI — need-related packages (82.93% active) are systematically more "active" (have significant activity metadata) than random packages (57.50% active). G1 retrieval met, G2 significant (t=3.4660, p=0.001), G3 PASSES (Wilson CI95 lower bound 0.6874 > 0.6). All gates met.
+> **READ FIRST (2026-10-12).** The view-count domain sweep is **STOPPED**
+> (E110, F116, D105). E110's matched-harvest control of E107 showed the
+> effect is a harvest artifact (δ 0.826 → 0.075, stratified p=0.183) and the
+> shared classifier labels only 28% of a representative pool. Every
+> "ALL GATES PASS" below that came from this line is **`untested` on a matched
+> harvest, not confirmed**. Do not run another registry sweep. See
+> [`EXPERIMENTS/110-viewcount-matched-harvest/`](EXPERIMENTS/110-viewcount-matched-harvest/README.md).
+
+E071 conclusive result: the view-count principle is supported on PyPI — need-related packages (82.93% active) are systematically more "active" (have significant activity metadata) than random packages (57.50% active). G1 retrieval met, G2 significant (t=3.4660, p=0.001), G3 PASSES (Wilson CI95 lower bound 0.6874 > 0.6). All gates met. **Superseded by E110/F116 as unconfirmed on a matched harvest.**
 
 E071 closes the view-count measurement prototype line. The principle generalizes to PyPI metadata after failing on web search (E065) and GitHub issues API (E063/E066). Previous findings: E062 (non-software Stack Exchange: 17/20 unremedied needs served), E063 (GitHub issues: 0/1391 needs mentioned a tool).
 
@@ -108,7 +116,10 @@ across domains beyond those already tested (E062-E092, E070-E088).
 | **E095 (2026-10-11)** | **crates.io (Rust package registry)** | **G1 FAIL (70 need-related), G2 FAIL (p=0.082/0.139), G4 PASS** — all crates have recent_downloads > 0 (100% active), no binary discrimination; threshold-dependent results inconsistent; random crates have higher total downloads. Principle does not robustly generalize to crates.io. |
 | **E103 (2026-10-11)** | **Hex.pm (Elixir/Erlang package registry)** | **ALL GATES PASS** — 200 packages (100 need-related, 100 random), G2 p≈0.000 (Cliff's δ=0.861), G3 Wilson LB=0.946 (99/100 need-related above random median). Need median 80,078 vs random 365 (220×). Principle generalizes strongly to Elixir/Erlang ecosystem. |
 | **E100 (2026-10-11)** | **Code Review Stack Exchange (Python tag)** | **ALL GATES PASS** — 50 questions classified (15 need-related, 35 random), G1 unserved need rate 73.3% (11/15 need-related unserved), G2 gate (n≥50) passed, G3 gate (multiple pages) passed, G4 gate (classified≥30) passed. View-count principle generalizes to Code Review Q&A tag; need-related unserved rate well above 20% threshold. |
-| **E107 (2026-10-11)** | **GitHub code repositories** | **ALL GATES PASS** — 150 repos classified (77 need-related, 73 random), G2 p≈0.000 (Cliff's δ=0.826), G3 Wilson LB=0.952 (77/77 need-related above random median). Need median 2,796 vs random 325 (8.6×). Principle generalizes strongly to GitHub code repositories via star counts. |
+| **E107 (2026-10-11)** | **GitHub code repositories** | **WITHDRAWN by E110 (F116).** The "ALL GATES PASS, δ=0.826, need median 8.6× random" result is a **harvest artifact**: 80/80 need rows carry `topic:web-framework` and 80/80 random rows carry `topic:utils`, both star-sorted, before any classifier runs. E110's matched harvest gives within-stratum δ=+0.075, stratified p=0.183. The classifier also labels only **28%** of a representative pool. |
+| **E110 (2026-10-12)** | **Matched-harvest control of E107** | **The view-count effect does not survive a matched harvest.** E107's δ=0.826010 reproduced exactly from its own data, then collapses to +0.0746 within stratum (permutation p=0.183, 20k iters). Two defects: asymmetric harvest (need vs utils topic), and unanchored substring matching (`ai` in `email`, `base` in `database`). Coverage: 196/700 rows labelled; 458 match neither vocabulary. **F116, D106.** |
+| **E108 (2026-10-11)** | **Docker Hub (container registry)** | **GATES FAIL** — 55 need-related, 55 random images; G2 Cliff's δ = -0.810 (large effect, OPPOSITE direction), G3 Wilson LB = 0.000. Random sample captured massive base images (alpine 12.3B, ubuntu 10.1B, node 7.1B, mysql 5.2B pulls); need-related captured specialized infra tools (<10M pulls). Principle does NOT generalize to Docker Hub — base image dependency pulling dominates over need-driven discovery. |
+| **E112 (2026-10-11, this branch)** | **Docker Hub, independent second run** | **GATES FAIL** - 55 need-related, 55 random images; G2 Cliff's delta = **-0.810** (large, OPPOSITE sign), G3 Wilson LB = 0.000. Random arm caught base images (alpine 12.3B, ubuntu 10.1B, node 7.1B, mysql 5.2B pulls); need arm caught specialised infra tools (<10M pulls). **Contradicts the landed E111 on the same platform** (delta = +0.386, 3,313/537). Opposite signs on one platform: neither is independent evidence, and E113's matched harvest is the shape of explanation for both. |
 
 ### Domain Coverage Summary
 
@@ -122,7 +133,7 @@ The view-count principle has been tested across 7+ report domains (A-F) and 15+ 
 - **Packagist (E108): all gates pass, p<0.001, Cliff's δ=0.994, need-related 100% active vs random 26%**
 - **RubyGems (E109): all gates pass, p=0.0045, Cliff's δ=0.214, need median 2.0× random**
 - **Code Review Stack Exchange (E100): ALL GATES PASS** — 50 questions classified (15 need-related, 35 random), G1 unserved need rate 73.3% (11/15 need-related unserved), principle generalizes to code-focused Q&A tags
-- **GitHub code repositories (E107): ALL GATES PASS** — 150 repos (77 need-related, 73 random), Cliff's δ=0.826, need median 8.6× random, principle generalizes via star counts
+- **GitHub code repositories (E107): WITHDRAWN by E110** — the δ=0.826 was a harvest artifact (need vs `utils` topic); not an independent confirmation (F116)
 - **Docker Hub (E111): ALL GATES PASS** — 3,850 images (3,313 need-related, 537 random), Cliff's δ=0.386, need median 9.4× random, principle generalizes via pull counts
 - Discourse forums (E077): all 4 gates pass, 11.7% unserved fraction
 - Stack Exchange non-software (E062): 17/20 unremedied needs served
@@ -155,9 +166,32 @@ Kubernetes Discourse, Maven Central, Hugging Face Hub ML model registry, Hex.pm 
 
 ### Next Action
 
-Per D083, the next session must start from fresh observation in a new domain. 
-Candidates for the next experiment should avoid re-entering domains already covered 
-above and should preferably target a platform/category not yet tested by the mission.
+**The D083 domain sweep is STOPPED (E110, F116, D106).** It named "fresh
+observation in a new domain" as the next action; that is withdrawn, because the
+sweep was measuring its own sampling design. E110 found E107's arms were drawn
+from two *different* topics, both sorted by the outcome metric, so "need 8.6×
+random" compared the most-starred web frameworks against the most-starred
+utility libraries. Under a matched harvest on E107's own platform the effect is
+**δ=+0.075, stratified p=0.183**.
+
+**Do not run another registry sweep.** Every remaining "ALL GATES PASS" on this
+line (PyPI, NPM, NuGet, Hex.pm, Code Review SE) used the same shared classifier
+and the same "sort the random arm by the outcome metric" pattern, so they are
+`untested` on a matched harvest, not confirmed.
+
+**What would justify reopening the line,** in order:
+
+1. **A classifier that covers its population.** E110 measured 196 of 700 rows
+   labelled (28%), with 458 matching *neither* vocabulary. This is the binding
+   constraint and it is a buildable engineering problem, not a research one.
+2. **A coverage gate declared before the run** — the fraction of the population
+   the labeler assigns at all, with a floor. No experiment on this line had
+   one, which is how a 28% screen came to be reported as a 100% measurement.
+3. **A matched harvest as the default design**, not a control added after a
+   positive.
+
+None of this is a candidate and none is a product. It is the minimum needed
+before the line's next result would mean anything.
 
 
 Screens built on arrival counts systematically over-select broken products,
@@ -197,8 +231,19 @@ The view-count principle has been tested on:
   - **crates.io Rust package registry (E095): G1 FAIL (70 need-related), G2 FAIL (p=0.082/0.139), G4 PASS** — all crates have recent_downloads > 0 (100% active), no binary discrimination; threshold-dependent results inconsistent; random crates have higher total downloads. Principle does not robustly generalize to crates.io.
   - **Docker Hub container registry (E108): G1 PASS, G2/G3 FAIL** — Cliff's δ = -0.810 (large effect in WRONG direction), Wilson LB = 0.000. Random sample captures base images (alpine 12.3B, ubuntu 10.1B, node 7.1B, mysql 5.2B pulls) which dominate pull counts; need-related images are specialized infra tools with orders of magnitude fewer pulls. Principle fails because container registries are dependency-heavy — base images accumulate pulls as `FROM` dependencies, not need-driven discovery.
   - **Code Review Stack Exchange (E100): ALL GATES PASS** — 50 questions, 73.3% unserved need rate, principle generalizes to code-focused Q&A tags
-  - **GitHub code repositories (E107): ALL GATES PASS** — 150 repos classified, need median 8.6× random, Cliff's δ=0.826, principle generalizes via star counts
+  - **GitHub code repositories (E107): WITHDRAWN by E110** — harvest artifact, not a generalization (F116)
 
+**Key finding (SUPERSEDED BY E110/F116 — read this first):** the results
+below were produced with two defects now measured — an **asymmetric harvest**
+(need arm and random arm drawn from different queries, sorted by the outcome
+metric) and an **unanchored substring classifier** that labels only ~28% of a
+representative population. E110 re-ran E107's platform with a matched harvest
+and the effect collapsed to δ=+0.075, p=0.183. **None of the "works reliably"
+rows below is an independent confirmation** until re-run on a matched harvest
+with a classifier that covers its population. What follows is preserved as the
+record of what was believed and on what evidence, not as a current claim.
+
+Originally claimed: the view-count principle works on platforms with exposable metadata about arrival/arrival rates: package repositories (PyPI, NPM, **NuGet, Hex.pm**) with download/view counts, non-software Q&A forums (Discourse, Stack Exchange) with view_counts, code-focused Q&A tags (**Code Review Stack Exchange**), and **code hosting platforms (GitHub repositories) with star counts**. The principle does NOT generalize to social media/issue-tracking platforms without such metadata (GitHub issues API, web search, HN corpus), nor to Maven Central (Java/JAR packages), where the activity-rate difference between need-related and random packages is not observed (need-related 60% vs random 52.2%, difference 7.8 pp, Wilson CI95 lower bound −0.41 < 10 pp) and the arrival-field rate is only 53.6% (below the 95% threshold). **It also does not generalize to ML model registries (Hugging Face Hub)**, where download dynamics differ from code package repositories — both need-related and random models have low active rates, and the signal is too weak. **It also does not robustly generalize to crates.io (Rust package registry)**, where all crates have recent_downloads > 0 (100% active), eliminating binary discrimination, and threshold-based analyses yield inconsistent results. **It also does not generalize to Docker Hub (container registry)**, where base image dependency pulling (alpine 12.3B, ubuntu 10.1B, node 7.1B pulls) dominates over need-driven discovery — the platform's layered filesystem architecture makes foundational images accumulate massive pull counts regardless of "need-relatedness," reversing the expected effect (Cliff's δ = -0.810). The need-classification framework (E078) generalizes the measurement methodology to estimate served fractions in new communities, with gates G1-G3 confirming framework validity and G4's sample-size condition controlling for insufficient data. **Kubernetes Discourse shows the view-count separation effect (G2) holds on a software-focused Discourse forum, but the unserved fraction is drastically higher than other Discourse forums — suggesting forum culture/community dynamics dominate the unserved metric.** **Hex.pm shows the strongest separation yet observed (need median 220× random median), reinforcing that mature, infrastructure-heavy package ecosystems exhibit the principle.** **GitHub code repositories show strong separation (need median 8.6× random) — WITHDRAWN by E110: that number came from comparing the most-starred `web-framework` repositories against the most-starred `utils` repositories.**
 
 Four structured-fault-code domains tested: Automotive OBD2 (E079) fails concentration (G2); Embedded/microcontroller (E082) passes all gates but unserved fraction 15.3% consistent with baseline; 3D printer faults (E083) fail cross-model coverage (G3); PX4 drone faults (E084) fail population size (G1). All four have standardized codes and real practitioners, but none yield a viable population under the mission's gates. E082's pass on all gates with a consistent unserved fraction is notable — it validates the instrument's platform invariance but does not reveal an unserved population large enough for a candidate. **Appliance-fault diagnosis (E092) is the fifth, and it closed differently:** the population gates pass decisively (44.0% diagnosis-shaped, 92.4% answerable-class), but the answerable class is served at 0.81 — the line closed on service, not population (F115, D104).
 

@@ -141,6 +141,29 @@ Full list, with the ceiling on each item and the reasoning behind it, is in
 whichever item is next are in
 [`STATE-constraints.md`](STATE-constraints.md).
 
+**E101 completed:** Fresh observation in network equipment fault codes domain (Discourse forums). ALL GATES PASS — 150 topics across 3 forums, G1 17 need (11.3%), G2 150 topics, G3 unserved 10.0% (CI95 [5.7%, 16.5%]), G4 view_count 100%. Unserved fraction consistent with Discourse baseline (E077: 11.7%, E082: 15.3%). **E100 completed:** Industrial automation/SCADA Discourse forum — G3 FAIL (76.2% unserved), revealing domain variation. **E086 follow-on completed:** pyprovides workflow evaluation shows 2.44x speedup for alias-case import fixes (psycopg2), 100% suggestion accuracy across 3 alias cases. Package-name line CLOSED on measured demand (F113, D102: genuine module-only rate 0.23–0.47%, under 1% gate). **E103 completed:** Fresh observation on Hex.pm (Elixir/Erlang package registry). ALL GATES PASS — 200 packages (100 need-related, 100 random), G2 p≈0.000 (Cliff's δ=0.861), G3 Wilson LB=0.946 (99/100 need-related above random median). Need median 80,078 vs random 365 (220×). **E107 and E108:** both `untested` — see E110 below. E107's recorded verdict was reported two incompatible ways (here FAIL, in `STATE-next-actions.md` ALL GATES PASS with δ=0.826); E110 established which is right and why. E108: Docker Hub, G2 Cliff's δ = -0.810, G3 Wilson LB = 0.000; base-image dependency pulling dominates.
+
+**E110 (2026-10-12) — the view-count sweep is STOPPED (F116, D105).** E110 re-ran
+E107's own platform with a **matched harvest** and found the effect is a
+**harvest artifact**. E107 drew its need arm from `topic:web-framework` and its
+random arm from `topic:utils`, both sorted by stars: 80/80 need rows carry
+`web-framework`, 80/80 random rows carry `utils`, before any classifier runs. Its
+published `Cliff's δ = 0.826010` reproduces exactly from its own committed data
+and is a comparison of the most-starred web frameworks against the most-starred
+utility libraries. Under a matched harvest (one pool, 7 star strata, 700 rows):
+within-stratum **δ = +0.0746**, stratified permutation **p = 0.183** (20k iters),
+5 of 7 strata negative or zero. **The larger obstacle: the shared classifier
+labels only 196 of 700 rows (28%)**, 458 matching neither vocabulary, because it
+matches unanchored substrings (`ai` inside `email`, `base` inside `database`).
+Every experiment on this line reported coverage over rows it had labelled, so a
+28% screen was recorded as a 100% measurement. **No coverage gate existed on the
+line** — that is the process fix. Consequences: E090/E095/E102/E103/E108 are
+`untested` on a matched harvest, not confirmed; E109 (Pub.dev) superseded, not
+run; the D083 sweep is withdrawn. **The screen is withdrawn, not the idea** — the
+null is about this classifier on this pool, not about whether need-related
+artifacts receive arrivals. Reopening requires (i) a classifier with a declared
+coverage floor, (ii) matched harvest as the default design, (iii) a stratified
+reading beside the pooled one.
 
 ## Capability evidence
 
@@ -155,3 +178,5 @@ unattended supervision, GPU.
 *Honest limitations moved to [`STATE-history.md`](STATE-history.md).*
 
 **ID collision + direct contradiction on Docker Hub, from two uncoordinated runs (2026-10-12).** Two VMs ran "E108" on Docker Hub independently and wrote the same identifier: this branch's commit `b4e0db34` reports **GATES FAIL, Cliff's delta = -0.810** on 55 need / 55 random images (its random arm caught base images: alpine 12.3B, ubuntu 10.1B, node 7.1B, mysql 5.2B pulls); the landed `EXPERIMENTS/111-dockerhub-viewcount` reports **ALL GATES PASS, delta = +0.386** on 3,313 need / 537 random images. Same platform, opposite sign, a 29x gap in need-arm size. The unpushed side is renumbered **E112** and the unpushed matched-harvest control **E113**; the landed `E110` / `EXPERIMENTS/110-rubygems-viewcount` is **RubyGems**, not a matched harvest. Neither Docker Hub row is independent evidence: both drew its arms with the asymmetric harvest E113 falsifies.
+
+**ID collision + direct contradiction on Docker Hub, from two uncoordinated runs (2026-10-12).** Two VMs ran an experiment numbered E108 on Docker Hub independently. This branch's `b4e0db34` reports **GATES FAIL, Cliff's delta = -0.810** on 55 need / 55 random images (random arm caught base images: alpine 12.3B, ubuntu 10.1B, node 7.1B, mysql 5.2B pulls). The landed `EXPERIMENTS/111-dockerhub-viewcount` reports **ALL GATES PASS, delta = +0.386** on 3,313 need / 537 random images. Same platform, opposite sign, a 29x gap in need-arm size. Renumbered here: the unpushed Docker Hub run is **E112**, the unpushed matched-harvest control is **E113**, and the landed **E110** (`EXPERIMENTS/110-rubygems-viewcount`) is **RubyGems**, not a matched harvest. Neither Docker Hub row is independent evidence - both drew its arms with the asymmetric harvest E113 falsifies, and E113's own need arm is 6:1 imbalanced in the same shape.
