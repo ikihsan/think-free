@@ -8,7 +8,7 @@ last-verified: 2026-10-11
 
 **Session:** `2026-10-11-XXX`, VM `instance-20260717-0944`, observed 2026-10-11.
 **Finding:** none allocated — this experiment produced no finding record. Its
-G1–G4 "ALL GATES PASS" verdict uses the view-count screen that E110 withdrew
+G1–G4 "ALL GATES PASS" verdict uses the view-count screen that E113 withdrew
 (F116), so it is `untested` rather than a finding.
 
 ## Summary

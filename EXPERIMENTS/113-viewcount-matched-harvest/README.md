@@ -1,4 +1,4 @@
-# E110 — matched-harvest control for the view-count principle
+# E113 — matched-harvest control for the view-count principle
 
 <!-- origin-meta
 owner: docs/INDEX.md
@@ -25,7 +25,7 @@ number:
    libraries. That is true, and it is a tautology.
 2. **String-label matching.** E107 matched vocabulary by unanchored substring,
    so `ai` fired inside `email`, `ml` inside `html`, `base` inside `database`,
-   `learning` inside `machine learning`, `cli` inside `client`. On E110's pool
+   `learning` inside `machine learning`, `cli` inside `client`. On E113's pool
    that rule assigns `unlabelled` to **504 of 700 rows (72%)**.
 
 ## What the numbers are
@@ -33,9 +33,9 @@ number:
 | quantity | value | source |
 |---|---|---|
 | E107 published δ, recomputed | **+0.826010** | exact match to `results.json` |
-| E110 pooled δ, matched harvest | +0.2048, p = 0.0146 | `analyze.py` |
-| **E110 within-stratum δ** | **+0.0746** | `stratified.py` |
-| **E110 stratified permutation** | **p = 0.1835**, 20 000 iters | `stratified.py` |
+| E113 pooled δ, matched harvest | +0.2048, p = 0.0146 | `analyze.py` |
+| **E113 within-stratum δ** | **+0.0746** | `stratified.py` |
+| **E113 stratified permutation** | **p = 0.1835**, 20 000 iters | `stratified.py` |
 | need-label coverage of the pool | **196 / 700 = 28.0%** | `analyze.py` |
 
 The pooled effect is carried by the need label **sitting in higher star
@@ -107,7 +107,7 @@ sweep inherits both defects.
 ## Reproducing
 
 ```sh
-cd EXPERIMENTS/110-viewcount-matched-harvest
+cd EXPERIMENTS/113-viewcount-matched-harvest
 python3 harvest.py     # refetches the pool (GitHub search API; rows shift over time)
 python3 analyze.py     # ~6 min: permutation test
 python3 stratified.py  # ~4 min: MERGES into results.json — run it last

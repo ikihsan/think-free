@@ -1,4 +1,4 @@
-# E108 — View-count principle on Docker Hub (container registry)
+# E112 — View-count principle on Docker Hub (container registry)
 
 <!-- origin-meta
 owner: docs/INDEX.md
@@ -92,7 +92,7 @@ Wilson lower bound of the proportion of need-related images with pull_count > me
 
 ## Reproduction
 ```bash
-cd EXPERIMENTS/108-dockerhub-viewcount
+cd EXPERIMENTS/112-dockerhub-viewcount-run2
 python3 run.py --gate
 ```
 

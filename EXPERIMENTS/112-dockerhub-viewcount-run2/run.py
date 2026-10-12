@@ -40,7 +40,7 @@ def main():
     
     # Prepare results
     results = {
-        "experiment": "108-dockerhub-viewcount",
+        "experiment": "112-dockerhub-viewcount-run2",
         "protocol": "PROTOCOL.md",
         "seed": args.seed,
         "need_images": [img.__dict__ for img in need_imgs],

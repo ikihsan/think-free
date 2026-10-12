@@ -1,4 +1,4 @@
-# E110 AMENDMENT-1 — the first pool was truncated on the outcome variable
+# E113 AMENDMENT-1 — the first pool was truncated on the outcome variable
 
 <!-- origin-meta
 owner: docs/INDEX.md

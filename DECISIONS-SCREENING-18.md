@@ -225,7 +225,7 @@ knowledge forum with curation) would be measuring
 the same population twice; the record does not need
 it.
 
-## D105 — The view-count domain sweep is stopped; the instrument is withdrawn, not the idea (E110, F116)
+## D105 — The view-count domain sweep is stopped; the instrument is withdrawn, not the idea (E113, F116)
 
 **Decision.** Stop the D083 "fresh observation in a new domain" sweep. Withdraw
 the view-count screen's published results, including E107's `ALL GATES PASS`.
@@ -233,7 +233,7 @@ the view-count screen's published results, including E107's `ALL GATES PASS`.
 experiment tested a screen, not the world — and **do not** run the next registry
 sweep.
 
-**The open choice.** E110's `PROTOCOL.md` named the decision in advance: the
+**The open choice.** E113's `PROTOCOL.md` named the decision in advance: the
 line either survives a matched harvest or it does not. Two outcomes were live —
 stop the line, or keep sweeping. A third was tempting and is rejected: keep
 sweeping while adding a control each time.
@@ -287,5 +287,5 @@ supported.
 declared fraction of its population, with a coverage floor declared *before*
 the run; (ii) the matched harvest as the default design rather than a control
 added after a positive; (iii) a stratified reading reported alongside the
-pooled one, since pooling across strata is what produced E110's own superseded
+pooled one, since pooling across strata is what produced E113's own superseded
 `survives` verdict.

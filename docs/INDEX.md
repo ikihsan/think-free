@@ -374,7 +374,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/108-packagist-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | owner: docs/INDEX.md |
 | `EXPERIMENTS/109-pubdev-viewcount/` | `docs/INDEX.md` | superseded | 2026-10-12 | 1 documents |
 | `EXPERIMENTS/110-rubygems-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
-| `EXPERIMENTS/110-viewcount-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-12 | owner: docs/INDEX.md |
+| `EXPERIMENTS/113-viewcount-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-12 | owner: docs/INDEX.md |
 | `EXPERIMENTS/111-dockerhub-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |

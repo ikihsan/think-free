@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""E110 — harvest ONE matched pool for the view-count control.
+"""E113 — harvest ONE matched pool for the view-count control.
 
 The whole point is that the query contains no need vocabulary and no topic
 filter, so the need/generic label cannot be a restatement of how the row was
@@ -34,7 +34,7 @@ STRATA = [
 ]
 PER_STRATUM = 100
 HEADERS = {
-    "User-Agent": "origin-mission-E110",
+    "User-Agent": "origin-mission-E113",
     "Accept": "application/vnd.github.v3+json",
 }
 

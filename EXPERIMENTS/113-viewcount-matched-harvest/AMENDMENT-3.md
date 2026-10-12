@@ -1,4 +1,4 @@
-# E110 AMENDMENT-3 — G0 fired twice: one probe was malformed, one defect was real
+# E113 AMENDMENT-3 — G0 fired twice: one probe was malformed, one defect was real
 
 <!-- origin-meta
 owner: docs/INDEX.md

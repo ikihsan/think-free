@@ -4,7 +4,7 @@ status: active
 last-verified: 2026-10-11
 -->
 
-# E108 — View-count principle on Docker Hub (container registry)
+# E112 — View-count principle on Docker Hub (container registry)
 
 ## Summary
 **Result: FAIL — View-count principle does NOT generalize to Docker Hub.**

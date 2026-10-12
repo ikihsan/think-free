@@ -6,14 +6,14 @@ status: superseded
 last-verified: 2026-10-12
 -->
 
-> **SUPERSEDED BEFORE ANY FETCH (2026-10-12, E110 / F116 / D105). Never run.**
-> This protocol was written under D083's domain sweep. E110 then measured that
+> **SUPERSEDED BEFORE ANY FETCH (2026-10-12, E113 / F116 / D105). Never run.**
+> This protocol was written under D083's domain sweep. E113 then measured that
 > the sweep's shared design produces its own result: the need arm and the random
 > arm are drawn by different queries and sorted by the outcome metric, and the
 > classifier labels 28% of a representative population. Running E109 would have
 > inherited both defects and added a sixteenth number that means nothing.
-> Retained as the record of what the next action was before E110 answered it.
-> See [`EXPERIMENTS/110-viewcount-matched-harvest/`](../110-viewcount-matched-harvest/).
+> Retained as the record of what the next action was before E113 answered it.
+> See [`EXPERIMENTS/113-viewcount-matched-harvest/`](../113-viewcount-matched-harvest/).
 
 ## Origin
 - Mission: Think Free

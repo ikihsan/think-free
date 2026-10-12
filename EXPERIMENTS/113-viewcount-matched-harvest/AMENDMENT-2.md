@@ -1,4 +1,4 @@
-# E110 AMENDMENT-2 — G0 fired; the labeler matched substrings, and the repair is anchored
+# E113 AMENDMENT-2 — G0 fired; the labeler matched substrings, and the repair is anchored
 
 <!-- origin-meta
 owner: docs/INDEX.md
@@ -69,7 +69,7 @@ claimed to classify at 100%.
 ## Consequence for comparing with E107
 
 E107 labeled with the *unanchored* rule, so its `77 of 80` and `73 of 80`
-yields were produced by a labeler with this defect. E110 now reports both: the
+yields were produced by a labeler with this defect. E113 now reports both: the
 anchored rule as the primary result, and E107's unanchored rule re-run on the
 same pool as a **sensitivity arm**, so the harvest-design comparison is not
 confounded with a labeler change. If the verdict differs between the two rules,

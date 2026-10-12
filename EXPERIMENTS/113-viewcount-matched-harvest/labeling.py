@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""E110 — the need/generic labeler, split out of analyze.py.
+"""E113 — the need/generic labeler, split out of analyze.py.
 
 Three rules live here, all after the row is already in the matched pool:
 

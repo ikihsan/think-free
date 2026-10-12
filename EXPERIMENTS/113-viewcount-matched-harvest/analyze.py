@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""E110 — statistics and gates over the matched pool.
+"""E113 — statistics and gates over the matched pool.
 
 G2 cumulative stars (the metric E107 used); G3 stars per year of life (the
 metric E107 never used); G4 age balance, reported not gated; plus coverage,
@@ -127,7 +127,7 @@ def compare(need_rows, gen_rows, tag):
 
 
 def e107_defect():
-    """Recompute, from E107's own committed bytes, the number E110 is testing.
+    """Recompute, from E107's own committed bytes, the number E113 is testing.
 
     Two things, both read from
     EXPERIMENTS/107-github-repos-viewcount/raw_data.json rather than quoted:
@@ -180,7 +180,7 @@ def main():
              "PASS" if g0["pass"] else "FAIL"))
 
     results = {
-        "experiment": "E110",
+        "experiment": "E113",
         "question": "does a need-label predict arrivals when both arms come from one matched pool?",
         "platform": "GitHub code repositories (E107's platform, as a direct control)",
         "pool": {"query": "language:python stars:<stratum>, 7 disjoint star strata",

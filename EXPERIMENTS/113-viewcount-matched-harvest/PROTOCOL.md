@@ -1,4 +1,4 @@
-# E110 — matched-harvest control for the view-count principle
+# E113 — matched-harvest control for the view-count principle
 
 <!-- origin-meta
 owner: docs/INDEX.md

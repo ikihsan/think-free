@@ -8,7 +8,7 @@ last-verified: 2026-10-11
 
 **Session:** `2026-10-11-007`, VM `instance-20260717-0947`, observed 2026-10-11.
 **Finding:** none allocated — this experiment produced no finding record. Its
-"unserved 76.2%" figure is measured with the view-count screen that E110
+"unserved 76.2%" figure is measured with the view-count screen that E113
 withdrew (F116), so it is `untested` rather than a finding.
 
 ## Summary

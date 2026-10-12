@@ -16,9 +16,9 @@ have to be true and what would end it; a result says what happened. They are rea
 at different moments — the first before an experiment, the second after — and
 merging them made this file exceed its line cap while adding an outcome.
 
-## E110 — matched-harvest control of E107: the view-count effect is a harvest artifact
+## E113 — matched-harvest control of E107: the view-count effect is a harvest artifact
 
-**Result:** `observed`, 2026-10-12, `EXPERIMENTS/110-viewcount-matched-harvest/`
+**Result:** `observed`, 2026-10-12, `EXPERIMENTS/113-viewcount-matched-harvest/`
 
 **Question:** with both arms drawn from **one identical pool** under **one
 identical selection**, does a need-label predict arrival count? The decision it
@@ -46,9 +46,9 @@ view-count screen is a usable instrument or a restatement of topic fame.
 | quantity | value |
 |---|---|
 | E107 published δ, recomputed exactly | **+0.826010** |
-| E110 pooled over star strata | +0.2048 |
-| **E110 within-stratum** | **+0.0746** |
-| **E110 stratified permutation** | **p = 0.1835** (20 000 iters) |
+| E113 pooled over star strata | +0.2048 |
+| **E113 within-stratum** | **+0.0746** |
+| **E113 stratified permutation** | **p = 0.1835** (20 000 iters) |
 
 5 of 7 strata are negative or zero. The pooled effect is carried by need-labelled
 rows *sitting in higher star strata*, not by need winning at equal fame.
@@ -100,16 +100,16 @@ effect; any claim about demand, usefulness or adoption.
 
 ## E107 — GitHub code repositories view-count principle test
 
-**Result: WITHDRAWN by E110 (F116, D105).** `observed` 2026-10-11,
+**Result: WITHDRAWN by E113 (F116, D105).** `observed` 2026-10-11,
 `EXPERIMENTS/107-github-repos-viewcount/`; withdrawn 2026-10-12 by
-`EXPERIMENTS/110-viewcount-matched-harvest/`.
+`EXPERIMENTS/113-viewcount-matched-harvest/`.
 
-> **Read this before the gate table below.** E110 re-ran this experiment's own
+> **Read this before the gate table below.** E113 re-ran this experiment's own
 > platform with a **matched harvest** and the effect does not survive. E107 drew
 > its need arm from `topic:web-framework` and its random arm from `topic:utils`,
 > both sorted by stars: 80 of 80 need rows carry `web-framework` and 80 of 80
 > random rows carry `utils`, **before any classifier runs**. The δ=0.826010 below
-> is reproduced exactly by E110 from this experiment's own `raw_data.json`, and
+> is reproduced exactly by E113 from this experiment's own `raw_data.json`, and
 > is a comparison of the most-starred web frameworks against the most-starred
 > utility libraries. Under a matched harvest: within-stratum **δ=+0.0746**,
 > stratified permutation **p=0.183** (20 000 iters). The classifier also labels
@@ -134,9 +134,9 @@ effect; any claim about demand, usefulness or adoption.
 **Conclusion (superseded 2026-10-12):** the four gates passed *as designed* and
 the design was wrong. "View-count principle generalizes strongly to GitHub code
 repositories" is withdrawn — see the withdrawal note above and
-[`EXPERIMENTS/110-viewcount-matched-harvest/`](EXPERIMENTS/110-viewcount-matched-harvest/README.md).
+[`EXPERIMENTS/113-viewcount-matched-harvest/`](EXPERIMENTS/113-viewcount-matched-harvest/README.md).
 
-**Comparison with other platforms** — every ✅ below predates E110 and shares
+**Comparison with other platforms** — every ✅ below predates E113 and shares
 its defects; treat the column as *untested on a matched harvest*, not confirmed:
 | Platform | Supported? | Metric | Notes |
 |----------|-----------|--------|-------|
@@ -146,7 +146,7 @@ its defects; treat the column as *untested on a matched harvest*, not confirmed:
 | Hex.pm (E103) | ✅ | downloads | Need median 220× random |
 | CPAN (E0xx) | ✅ | metadata activity | 94.5% vs 86.5% active |
 | Code Review SE (E100) | ✅ | view_count | 73.3% unserved need rate |
-| **GitHub repos (E107)** | ❌ **withdrawn** | stars | **δ=0.826 was a harvest artifact; matched δ=+0.075, p=0.183 (E110/F116)** |
+| **GitHub repos (E107)** | ❌ **withdrawn** | stars | **δ=0.826 was a harvest artifact; matched δ=+0.075, p=0.183 (E113/F116)** |
 | Maven Central (E090) | ❌ | downloads | 60% vs 52%, not significant |
 | crates.io (E095) | ❌ | downloads | All crates active (100%), no discrimination |
 | Hugging Face Hub (E101) | ❌ | downloads | 12.4% vs 8.6%, not significant |

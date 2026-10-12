@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""E110 — stratified check: is the matched-pool effect just a star-stratum artifact?
+"""E113 — stratified check: is the matched-pool effect just a star-stratum artifact?
 
 `analyze.py` reports a pooled Cliff's delta over a pool stratified by star
 count. If the need-label is unevenly distributed across strata (it is - the
