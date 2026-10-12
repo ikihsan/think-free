@@ -1,0 +1,17 @@
+{
+  "experiment": "E117",
+  "platform": "PyPI",
+  "pool_size": 10,
+  "coverage_rate": 1.0,
+  "classified": {
+    "need_related": 5,
+    "random": 5,
+    "uncertain": 0
+  },
+  "gate_results": {
+    "G1_sample_size": false,
+    "G2_coverage": true,
+    "G3_cliff_delta": false,
+    "G4_bothrepresented": true
+  }
+}

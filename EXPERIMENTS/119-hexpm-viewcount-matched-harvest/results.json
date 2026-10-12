@@ -1,0 +1,2022 @@
+{
+  "experiment": "E119",
+  "platform": "Hex.pm",
+  "pool_size": 200,
+  "coverage_floor": 0.8,
+  "coverage_rate": 1.0,
+  "classified": {
+    "need_related": 142,
+    "random": 58,
+    "uncertain": 0
+  },
+  "gate_results": {
+    "G1_sample_size": true,
+    "G2_coverage": true,
+    "G3_cliff_delta": false,
+    "G3_p_value": false,
+    "G4_bothrepresented": true,
+    "G3_wilson_lb": false
+  },
+  "packages": [
+    {
+      "name": "ecto",
+      "description": "",
+      "recent_downloads": 5346923,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_sql",
+      "description": "",
+      "recent_downloads": 4741656,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "phoenix_ecto",
+      "description": "",
+      "recent_downloads": 3698751,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "prometheus_ecto",
+      "description": "",
+      "recent_downloads": 72619,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "scrivener_ecto",
+      "description": "",
+      "recent_downloads": 430558,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_enum",
+      "description": "",
+      "recent_downloads": 399974,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_psql_extras",
+      "description": "",
+      "recent_downloads": 870862,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "opentelemetry_ecto",
+      "description": "",
+      "recent_downloads": 1193679,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "prometheus_process_collector",
+      "description": "",
+      "recent_downloads": 50420,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "cloak_ecto",
+      "description": "",
+      "recent_downloads": 761329,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "spandex_ecto",
+      "description": "",
+      "recent_downloads": 93662,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "paginator",
+      "description": "",
+      "recent_downloads": 248880,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "typed_ecto_schema",
+      "description": "",
+      "recent_downloads": 405947,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "polymorphic_embed",
+      "description": "",
+      "recent_downloads": 271999,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "flop",
+      "description": "",
+      "recent_downloads": 356199,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_network",
+      "description": "",
+      "recent_downloads": 116638,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "waffle_ecto",
+      "description": "",
+      "recent_downloads": 151454,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "scrivener_list",
+      "description": "",
+      "recent_downloads": 81923,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "arc_ecto",
+      "description": "",
+      "recent_downloads": 13620,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "absinthe_error_payload",
+      "description": "",
+      "recent_downloads": 102468,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_sqlite3",
+      "description": "",
+      "recent_downloads": 254170,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ua_inspector",
+      "description": "",
+      "recent_downloads": 86040,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "vector",
+      "description": "",
+      "recent_downloads": 84464,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "timex_ecto",
+      "description": "",
+      "recent_downloads": 10255,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "attrs",
+      "description": "",
+      "recent_downloads": 252729,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_enum_migration",
+      "description": "",
+      "recent_downloads": 71060,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "commanded_ecto_projections",
+      "description": "",
+      "recent_downloads": 85861,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "pgvector",
+      "description": "",
+      "recent_downloads": 325142,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "absinthe_ecto",
+      "description": "",
+      "recent_downloads": 10681,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "ash_sql",
+      "description": "",
+      "recent_downloads": 357534,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "enum_type",
+      "description": "",
+      "recent_downloads": 56834,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_dev_logger",
+      "description": "",
+      "recent_downloads": 81013,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.8,
+      "_reason": "1 need vs 1 generic (generic wins, name)"
+    },
+    {
+      "name": "ecto_autoslug_field",
+      "description": "",
+      "recent_downloads": 19814,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_erd",
+      "description": "",
+      "recent_downloads": 63565,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "query_builder",
+      "description": "",
+      "recent_downloads": 23214,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 1.0,
+      "_reason": "1 generic token(s) in name, no need signals"
+    },
+    {
+      "name": "antl_utils_ecto",
+      "description": "",
+      "recent_downloads": 2828,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.8,
+      "_reason": "1 need vs 1 generic (generic wins, name)"
+    },
+    {
+      "name": "ecto_soft_delete",
+      "description": "",
+      "recent_downloads": 33858,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "fsmx",
+      "description": "",
+      "recent_downloads": 124865,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ex_audit",
+      "description": "",
+      "recent_downloads": 51004,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_commons",
+      "description": "",
+      "recent_downloads": 34782,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_ulid",
+      "description": "",
+      "recent_downloads": 46138,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_state_machine",
+      "description": "",
+      "recent_downloads": 22556,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "exlasticsearch",
+      "description": "",
+      "recent_downloads": 17615,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_morph",
+      "description": "",
+      "recent_downloads": 78356,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "triplex",
+      "description": "",
+      "recent_downloads": 9938,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_changeset_tools",
+      "description": "",
+      "recent_downloads": 770,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_ch",
+      "description": "",
+      "recent_downloads": 79860,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_ltree",
+      "description": "",
+      "recent_downloads": 38271,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "arbor",
+      "description": "",
+      "recent_downloads": 17294,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_job",
+      "description": "",
+      "recent_downloads": 2270,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_cursor_based_stream",
+      "description": "",
+      "recent_downloads": 30325,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_shorts",
+      "description": "",
+      "recent_downloads": 10275,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_fields",
+      "description": "",
+      "recent_downloads": 15959,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_phone_number",
+      "description": "",
+      "recent_downloads": 16533,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_mysql_extras",
+      "description": "",
+      "recent_downloads": 15387,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "alchemetrics_web",
+      "description": "",
+      "recent_downloads": 569,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ex_json_logger",
+      "description": "",
+      "recent_downloads": 21312,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_interval",
+      "description": "",
+      "recent_downloads": 12103,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_ranked",
+      "description": "",
+      "recent_downloads": 10080,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "goal",
+      "description": "",
+      "recent_downloads": 14435,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "comeonin_ecto_password",
+      "description": "",
+      "recent_downloads": 12764,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "directories",
+      "description": "",
+      "recent_downloads": 60019,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "inquisitor",
+      "description": "",
+      "recent_downloads": 15791,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "amqp_director",
+      "description": "",
+      "recent_downloads": 501,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "condo",
+      "description": "",
+      "recent_downloads": 750,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "etso",
+      "description": "",
+      "recent_downloads": 3804,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ex_queb",
+      "description": "",
+      "recent_downloads": 2974,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "dumper",
+      "description": "",
+      "recent_downloads": 18173,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "kerosene",
+      "description": "",
+      "recent_downloads": 1531,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "abacus_sql",
+      "description": "",
+      "recent_downloads": 831,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_ulid_next",
+      "description": "",
+      "recent_downloads": 13020,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_shortuuid",
+      "description": "",
+      "recent_downloads": 8904,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "active_memory",
+      "description": "",
+      "recent_downloads": 1859,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_fragment_extras",
+      "description": "",
+      "recent_downloads": 8472,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "adminable",
+      "description": "",
+      "recent_downloads": 433,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "test_selector",
+      "description": "",
+      "recent_downloads": 1164,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.8,
+      "_reason": "1 need vs 1 generic (generic wins, name)"
+    },
+    {
+      "name": "rummage_ecto",
+      "description": "",
+      "recent_downloads": 7915,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "calecto",
+      "description": "",
+      "recent_downloads": 729,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "ecto_diff",
+      "description": "",
+      "recent_downloads": 8644,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "one_time_pass_ecto",
+      "description": "",
+      "recent_downloads": 3215,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "quarto",
+      "description": "",
+      "recent_downloads": 871,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "timescale",
+      "description": "",
+      "recent_downloads": 19140,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "timber_ecto",
+      "description": "",
+      "recent_downloads": 155,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_vista",
+      "description": "",
+      "recent_downloads": 4435,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_json",
+      "description": "",
+      "recent_downloads": 1947,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "bourne",
+      "description": "",
+      "recent_downloads": 7170,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_filter",
+      "description": "",
+      "recent_downloads": 4868,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_nested_changeset",
+      "description": "",
+      "recent_downloads": 6968,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_boot_migration",
+      "description": "",
+      "recent_downloads": 4898,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "exandra",
+      "description": "",
+      "recent_downloads": 15854,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "mongodb_ecto",
+      "description": "",
+      "recent_downloads": 4820,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "logflare_etso",
+      "description": "",
+      "recent_downloads": 22133,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "as_nested_set",
+      "description": "",
+      "recent_downloads": 609,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "pg_ranges",
+      "description": "",
+      "recent_downloads": 4173,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "sqlite_ecto2",
+      "description": "",
+      "recent_downloads": 2986,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "ref_inspector",
+      "description": "",
+      "recent_downloads": 20974,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "ecto_watch",
+      "description": "",
+      "recent_downloads": 13936,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "phoenix_mtm",
+      "description": "",
+      "recent_downloads": 442,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "jamdb_oracle",
+      "description": "",
+      "recent_downloads": 3353,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_sqlite3_extras",
+      "description": "",
+      "recent_downloads": 14476,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_middleware",
+      "description": "",
+      "recent_downloads": 12504,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_hooks",
+      "description": "",
+      "recent_downloads": 9390,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ancestry",
+      "description": "",
+      "recent_downloads": 1681,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_adapters_dynamodb",
+      "description": "",
+      "recent_downloads": 2873,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_sanitizer",
+      "description": "",
+      "recent_downloads": 242,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ectoplasm",
+      "description": "",
+      "recent_downloads": 1342,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "orion_collector",
+      "description": "",
+      "recent_downloads": 3604,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "ecto_atom",
+      "description": "",
+      "recent_downloads": 2524,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_facade",
+      "description": "",
+      "recent_downloads": 420,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "aeacus",
+      "description": "",
+      "recent_downloads": 254,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ex_typesense",
+      "description": "",
+      "recent_downloads": 12098,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "kronky",
+      "description": "",
+      "recent_downloads": 2108,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_anon",
+      "description": "",
+      "recent_downloads": 6952,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_explain",
+      "description": "",
+      "recent_downloads": 436,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_dbg",
+      "description": "",
+      "recent_downloads": 7339,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "decoratex",
+      "description": "",
+      "recent_downloads": 456,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "lti_1p3_ecto_provider",
+      "description": "",
+      "recent_downloads": 8633,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "bitcrowd_ecto",
+      "description": "",
+      "recent_downloads": 1657,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_connection_resetter",
+      "description": "",
+      "recent_downloads": 2953,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "rummage_phoenix",
+      "description": "",
+      "recent_downloads": 237,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "revisionair_ecto",
+      "description": "",
+      "recent_downloads": 735,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_rescope",
+      "description": "",
+      "recent_downloads": 352,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "uuid5",
+      "description": "",
+      "recent_downloads": 539,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "turbo_ecto",
+      "description": "",
+      "recent_downloads": 2714,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "query_elf",
+      "description": "",
+      "recent_downloads": 4633,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_immigrant",
+      "description": "",
+      "recent_downloads": 421,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "nebulex_adapters_ecto",
+      "description": "",
+      "recent_downloads": 7204,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "authable",
+      "description": "",
+      "recent_downloads": 627,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "prometheus_hackney_collector",
+      "description": "",
+      "recent_downloads": 2648,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "ecto_rut",
+      "description": "",
+      "recent_downloads": 495,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "tds_ecto",
+      "description": "",
+      "recent_downloads": 904,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "hierarch",
+      "description": "",
+      "recent_downloads": 3177,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_range",
+      "description": "",
+      "recent_downloads": 2377,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_cockroachdb",
+      "description": "",
+      "recent_downloads": 72,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "endo",
+      "description": "",
+      "recent_downloads": 3683,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_trail",
+      "description": "",
+      "recent_downloads": 490,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_lock",
+      "description": "",
+      "recent_downloads": 2332,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "buildkite_test_collector",
+      "description": "",
+      "recent_downloads": 13337,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.8,
+      "_reason": "1 need vs 1 generic (generic wins, name)"
+    },
+    {
+      "name": "phoenix_pagination",
+      "description": "",
+      "recent_downloads": 1905,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "schema_assertions",
+      "description": "",
+      "recent_downloads": 1601,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_interface",
+      "description": "",
+      "recent_downloads": 1545,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_tenancy_enforcer",
+      "description": "",
+      "recent_downloads": 1076,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_hashids",
+      "description": "",
+      "recent_downloads": 170,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "arangox_ecto",
+      "description": "",
+      "recent_downloads": 641,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "familiar",
+      "description": "",
+      "recent_downloads": 11848,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "factory_ex",
+      "description": "",
+      "recent_downloads": 1825,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "aws_ex_ray_ecto",
+      "description": "",
+      "recent_downloads": 583,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "apartmentex",
+      "description": "",
+      "recent_downloads": 215,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "typed_struct_ecto_changeset",
+      "description": "",
+      "recent_downloads": 296,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "formex",
+      "description": "",
+      "recent_downloads": 1193,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "permit_ecto",
+      "description": "",
+      "recent_downloads": 16689,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "short_uuid",
+      "description": "",
+      "recent_downloads": 1828,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "seedex",
+      "description": "",
+      "recent_downloads": 599,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "ecto_replay_sandbox",
+      "description": "",
+      "recent_downloads": 134,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.8,
+      "_reason": "1 need vs 1 generic (generic wins, name)"
+    },
+    {
+      "name": "chunkr",
+      "description": "",
+      "recent_downloads": 3837,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "capsule_ecto",
+      "description": "",
+      "recent_downloads": 4915,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_filters",
+      "description": "",
+      "recent_downloads": 347,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "uploadex",
+      "description": "",
+      "recent_downloads": 509,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_crux",
+      "description": "",
+      "recent_downloads": 1883,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "injector",
+      "description": "",
+      "recent_downloads": 1739,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "base_model",
+      "description": "",
+      "recent_downloads": 234,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 1.0,
+      "_reason": "1 generic token(s) in name, no need signals"
+    },
+    {
+      "name": "ecto_stream_factory",
+      "description": "",
+      "recent_downloads": 605,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "3 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_job_scheduler",
+      "description": "",
+      "recent_downloads": 841,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "mssql_ecto",
+      "description": "",
+      "recent_downloads": 453,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "shortcode",
+      "description": "",
+      "recent_downloads": 1744,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "changeset_merger",
+      "description": "",
+      "recent_downloads": 614,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "phil_columns",
+      "description": "",
+      "recent_downloads": 918,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_ordered",
+      "description": "",
+      "recent_downloads": 928,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "opencensus_ecto",
+      "description": "",
+      "recent_downloads": 93,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "state_mc",
+      "description": "",
+      "recent_downloads": 374,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_term",
+      "description": "",
+      "recent_downloads": 731,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_mnesia",
+      "description": "",
+      "recent_downloads": 644,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_function",
+      "description": "",
+      "recent_downloads": 1493,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_date_time_range",
+      "description": "",
+      "recent_downloads": 4123,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "paged_query",
+      "description": "",
+      "recent_downloads": 627,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "endon",
+      "description": "",
+      "recent_downloads": 3470,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "sqlite_ecto",
+      "description": "",
+      "recent_downloads": 557,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_as_state_machine",
+      "description": "",
+      "recent_downloads": 255,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "localize_sql",
+      "description": "",
+      "recent_downloads": 27929,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_poly",
+      "description": "",
+      "recent_downloads": 160,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "prometheus_diameter_collector",
+      "description": "",
+      "recent_downloads": 362,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "eventful",
+      "description": "",
+      "recent_downloads": 1260,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "elixir_health_check",
+      "description": "",
+      "recent_downloads": 9394,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_clone",
+      "description": "",
+      "recent_downloads": 1738,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_migrate",
+      "description": "",
+      "recent_downloads": 533,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_multitenant_paginator",
+      "description": "",
+      "recent_downloads": 638,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "pretty_print_formatter",
+      "description": "",
+      "recent_downloads": 227,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "database_url",
+      "description": "",
+      "recent_downloads": 299,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "not_loaded",
+      "description": "",
+      "recent_downloads": 10114,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "exto",
+      "description": "",
+      "recent_downloads": 2307,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_rollback_guard",
+      "description": "",
+      "recent_downloads": 9640,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "parameters",
+      "description": "",
+      "recent_downloads": 217,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ecto_logger_json",
+      "description": "",
+      "recent_downloads": 77,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "cinema",
+      "description": "",
+      "recent_downloads": 2997,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "torch_scrivener_ecto",
+      "description": "",
+      "recent_downloads": 137,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_profiler",
+      "description": "",
+      "recent_downloads": 159,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_sparkles",
+      "description": "",
+      "recent_downloads": 1513,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "formex_ecto",
+      "description": "",
+      "recent_downloads": 419,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_tablestore",
+      "description": "",
+      "recent_downloads": 1231,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ecto_materialized_path",
+      "description": "",
+      "recent_downloads": 96,
+      "_source": "need_query",
+      "_query": "ecto",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    }
+  ]
+}

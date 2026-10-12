@@ -1,0 +1,2022 @@
+{
+  "experiment": "E116",
+  "platform": "Hex.pm",
+  "pool_size": 200,
+  "coverage_floor": 0.8,
+  "coverage_rate": 1.0,
+  "classified": {
+    "need_related": 151,
+    "random": 49,
+    "uncertain": 0
+  },
+  "gate_results": {
+    "G1_sample_size": false,
+    "G2_coverage": true,
+    "G3_cliff_delta": 0.0265,
+    "G3_p_value": false,
+    "G4_bothrepresented": true,
+    "G3_wilson_lb": false
+  },
+  "packages": [
+    {
+      "name": "plug",
+      "description": "",
+      "recent_downloads": 6026905,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "plug_crypto",
+      "description": "",
+      "recent_downloads": 6235141,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "cowlib",
+      "description": "",
+      "recent_downloads": 4596993,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "joken",
+      "description": "",
+      "recent_downloads": 2095626,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "grpc_cowlib",
+      "description": "",
+      "recent_downloads": 1184,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "websock",
+      "description": "",
+      "recent_downloads": 4795227,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: websock"
+    },
+    {
+      "name": "websock_adapter",
+      "description": "",
+      "recent_downloads": 4718543,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: websock"
+    },
+    {
+      "name": "mochiweb",
+      "description": "",
+      "recent_downloads": 642618,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: mochiweb"
+    },
+    {
+      "name": "ueberauth",
+      "description": "",
+      "recent_downloads": 618016,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "websockex",
+      "description": "",
+      "recent_downloads": 730984,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: websockex"
+    },
+    {
+      "name": "fun_with_flags_ui",
+      "description": "",
+      "recent_downloads": 299218,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: flags"
+    },
+    {
+      "name": "joken_jwks",
+      "description": "",
+      "recent_downloads": 299427,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "oban_web",
+      "description": "",
+      "recent_downloads": 1087144,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "websocket_client",
+      "description": "",
+      "recent_downloads": 98221,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "phoenix_swagger",
+      "description": "",
+      "recent_downloads": 85853,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "web_driver_client",
+      "description": "",
+      "recent_downloads": 194501,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "mint_web_socket",
+      "description": "",
+      "recent_downloads": 455297,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "ace",
+      "description": "",
+      "recent_downloads": 5838,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "json_web_token",
+      "description": "",
+      "recent_downloads": 8986,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "3 need indicator(s) in package name"
+    },
+    {
+      "name": "webtransport",
+      "description": "",
+      "recent_downloads": 697248,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: webtransport"
+    },
+    {
+      "name": "wobserver",
+      "description": "",
+      "recent_downloads": 6281,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: wobserver"
+    },
+    {
+      "name": "elli",
+      "description": "",
+      "recent_downloads": 22640,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "better_params",
+      "description": "",
+      "recent_downloads": 10524,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "espec_phoenix",
+      "description": "",
+      "recent_downloads": 8035,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "mist",
+      "description": "",
+      "recent_downloads": 88973,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "a11y_audit",
+      "description": "",
+      "recent_downloads": 19600,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "wisp",
+      "description": "",
+      "recent_downloads": 62519,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "web_push_encryption",
+      "description": "",
+      "recent_downloads": 19030,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "lustre",
+      "description": "",
+      "recent_downloads": 53897,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "alchemetrics_web",
+      "description": "",
+      "recent_downloads": 569,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "webdavex",
+      "description": "",
+      "recent_downloads": 6959,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: webdavex"
+    },
+    {
+      "name": "health_checkup",
+      "description": "",
+      "recent_downloads": 30804,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "verk_web",
+      "description": "",
+      "recent_downloads": 896,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ex_heroicons",
+      "description": "",
+      "recent_downloads": 18159,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "turbolinks",
+      "description": "",
+      "recent_downloads": 892,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "phauxth",
+      "description": "",
+      "recent_downloads": 4617,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "plug_rest",
+      "description": "",
+      "recent_downloads": 12741,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "ex_nudge",
+      "description": "",
+      "recent_downloads": 41912,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ewebmachine",
+      "description": "",
+      "recent_downloads": 1804,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ewebmachine"
+    },
+    {
+      "name": "reverse_proxy_plug_websocket",
+      "description": "",
+      "recent_downloads": 35530,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "heartcheck",
+      "description": "",
+      "recent_downloads": 1939,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "main_proxy",
+      "description": "",
+      "recent_downloads": 3445,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 1.0,
+      "_reason": "1 generic token(s) in name, no need signals"
+    },
+    {
+      "name": "master_proxy",
+      "description": "",
+      "recent_downloads": 508,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 1.0,
+      "_reason": "1 generic token(s) in name, no need signals"
+    },
+    {
+      "name": "casex",
+      "description": "",
+      "recent_downloads": 9896,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "mochiweb_html",
+      "description": "",
+      "recent_downloads": 1287,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: mochiweb"
+    },
+    {
+      "name": "ex_webrtc",
+      "description": "",
+      "recent_downloads": 27494,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: webrtc"
+    },
+    {
+      "name": "absinthe_websocket",
+      "description": "",
+      "recent_downloads": 1827,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "membrane_webrtc_plugin",
+      "description": "",
+      "recent_downloads": 13901,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: webrtc"
+    },
+    {
+      "name": "server_sent_event",
+      "description": "",
+      "recent_downloads": 1933,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ory_client",
+      "description": "",
+      "recent_downloads": 14133,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "web_push_elixir",
+      "description": "",
+      "recent_downloads": 23743,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "nova",
+      "description": "",
+      "recent_downloads": 15073,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "testcontainers",
+      "description": "",
+      "recent_downloads": 13813,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: testcontainers"
+    },
+    {
+      "name": "slack_webhook",
+      "description": "",
+      "recent_downloads": 144,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: webhook"
+    },
+    {
+      "name": "resourceful",
+      "description": "",
+      "recent_downloads": 682,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "slack_elixir",
+      "description": "",
+      "recent_downloads": 13732,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "nimble_zta",
+      "description": "",
+      "recent_downloads": 37024,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "nitro",
+      "description": "",
+      "recent_downloads": 3759,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "webmachine",
+      "description": "",
+      "recent_downloads": 120,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: webmachine"
+    },
+    {
+      "name": "webdavfilez",
+      "description": "",
+      "recent_downloads": 3213,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: webdavfilez"
+    },
+    {
+      "name": "mix_apidoc",
+      "description": "",
+      "recent_downloads": 922,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: apidoc"
+    },
+    {
+      "name": "adept_svg",
+      "description": "",
+      "recent_downloads": 555,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "crawly",
+      "description": "",
+      "recent_downloads": 1287,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ex_web3_ec_recover",
+      "description": "",
+      "recent_downloads": 6508,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: web3"
+    },
+    {
+      "name": "ex_debug_toolbar",
+      "description": "",
+      "recent_downloads": 1471,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 1.0,
+      "_reason": "1 generic token(s) in name, no need signals"
+    },
+    {
+      "name": "phoenix_profiler",
+      "description": "",
+      "recent_downloads": 320,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "alexa_web",
+      "description": "",
+      "recent_downloads": 134,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "localize_web",
+      "description": "",
+      "recent_downloads": 29729,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "google_api_indexing",
+      "description": "",
+      "recent_downloads": 1868,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "sanity_webhook_plug",
+      "description": "",
+      "recent_downloads": 202,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "piazza_core",
+      "description": "",
+      "recent_downloads": 1568,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 1.0,
+      "_reason": "1 generic token(s) in name, no need signals"
+    },
+    {
+      "name": "arctic",
+      "description": "",
+      "recent_downloads": 1163,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "live_state",
+      "description": "",
+      "recent_downloads": 3469,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "plexy",
+      "description": "",
+      "recent_downloads": 818,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "komachi_heartbeat",
+      "description": "",
+      "recent_downloads": 274,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "web_push_ex",
+      "description": "",
+      "recent_downloads": 24276,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "shippex",
+      "description": "",
+      "recent_downloads": 1347,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "lotus_web",
+      "description": "",
+      "recent_downloads": 7727,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "pages",
+      "description": "",
+      "recent_downloads": 1763,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "foresight",
+      "description": "",
+      "recent_downloads": 3850,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "phoenix_components",
+      "description": "",
+      "recent_downloads": 170,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ex_http_link",
+      "description": "",
+      "recent_downloads": 786,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "web3x",
+      "description": "",
+      "recent_downloads": 6592,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: web3x"
+    },
+    {
+      "name": "image_optimizer_ex",
+      "description": "",
+      "recent_downloads": 763,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "quickbeam",
+      "description": "",
+      "recent_downloads": 15859,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "slack_web",
+      "description": "",
+      "recent_downloads": 279,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "argo",
+      "description": "",
+      "recent_downloads": 300,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "mochiweb_util",
+      "description": "",
+      "recent_downloads": 113,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 1.0,
+      "_reason": "1 generic token(s) in name, no need signals"
+    },
+    {
+      "name": "dictator",
+      "description": "",
+      "recent_downloads": 392,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "absinthe_websocket_hr",
+      "description": "",
+      "recent_downloads": 105,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "cauldron",
+      "description": "",
+      "recent_downloads": 449,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "web3_aptos_ex",
+      "description": "",
+      "recent_downloads": 7143,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: web3"
+    },
+    {
+      "name": "web3_move_ex",
+      "description": "",
+      "recent_downloads": 6850,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: web3"
+    },
+    {
+      "name": "crawler",
+      "description": "",
+      "recent_downloads": 429,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "webmentions",
+      "description": "",
+      "recent_downloads": 1217,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: webmentions"
+    },
+    {
+      "name": "websockex_wt",
+      "description": "",
+      "recent_downloads": 3352,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: websockex"
+    },
+    {
+      "name": "ex_ngrok",
+      "description": "",
+      "recent_downloads": 268,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "websms",
+      "description": "",
+      "recent_downloads": 325,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: websms"
+    },
+    {
+      "name": "mist_reload",
+      "description": "",
+      "recent_downloads": 2228,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "raxx_view",
+      "description": "",
+      "recent_downloads": 233,
+      "_source": "need_query",
+      "_query": "web",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "oauther",
+      "description": "",
+      "recent_downloads": 44373,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: oauther"
+    },
+    {
+      "name": "basic_auth",
+      "description": "",
+      "recent_downloads": 22359,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "oauth2",
+      "description": "",
+      "recent_downloads": 742077,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: oauth2"
+    },
+    {
+      "name": "ueberauth_google",
+      "description": "",
+      "recent_downloads": 362230,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "ueberauth_identity",
+      "description": "",
+      "recent_downloads": 31215,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "ueberauth_microsoft",
+      "description": "",
+      "recent_downloads": 127899,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "simple_token_authentication",
+      "description": "",
+      "recent_downloads": 129347,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ueberauth_auth0",
+      "description": "",
+      "recent_downloads": 71447,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "ueberauth_github",
+      "description": "",
+      "recent_downloads": 129398,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "ash_authentication",
+      "description": "",
+      "recent_downloads": 230699,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: authentication"
+    },
+    {
+      "name": "ueberauth_okta",
+      "description": "",
+      "recent_downloads": 62475,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "ash_authentication_phoenix",
+      "description": "",
+      "recent_downloads": 192430,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ueberauth_facebook",
+      "description": "",
+      "recent_downloads": 46570,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "sasl_auth",
+      "description": "",
+      "recent_downloads": 58673,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "aws_auth",
+      "description": "",
+      "recent_downloads": 2651,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ex_oauth2_provider",
+      "description": "",
+      "recent_downloads": 7932,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: oauth2"
+    },
+    {
+      "name": "ex_aws_auth",
+      "description": "",
+      "recent_downloads": 185846,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ueberauth_twitter",
+      "description": "",
+      "recent_downloads": 6183,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "elixir_auth_google",
+      "description": "",
+      "recent_downloads": 7289,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ueberauth_discord",
+      "description": "",
+      "recent_downloads": 14027,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "ueberauth_oidcc",
+      "description": "",
+      "recent_downloads": 42436,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "ueberauth_cognito",
+      "description": "",
+      "recent_downloads": 7612,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "phx_gen_auth",
+      "description": "",
+      "recent_downloads": 4495,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "brod_gssapi",
+      "description": "",
+      "recent_downloads": 48077,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: gssapi"
+    },
+    {
+      "name": "phoenix_oauth2_provider",
+      "description": "",
+      "recent_downloads": 1255,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ueberauth_apple",
+      "description": "",
+      "recent_downloads": 54075,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "auth0_ex",
+      "description": "",
+      "recent_downloads": 3509,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: auth0"
+    },
+    {
+      "name": "authzed",
+      "description": "",
+      "recent_downloads": 33373,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: authzed"
+    },
+    {
+      "name": "p1_oauth2",
+      "description": "",
+      "recent_downloads": 11585,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: oauth2"
+    },
+    {
+      "name": "prima_auth0_ex",
+      "description": "",
+      "recent_downloads": 16753,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: auth0"
+    },
+    {
+      "name": "absinthe_auth",
+      "description": "",
+      "recent_downloads": 624,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "brod_oauth",
+      "description": "",
+      "recent_downloads": 37071,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ueberauth_twitch",
+      "description": "",
+      "recent_downloads": 5968,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "ex_firebase_auth",
+      "description": "",
+      "recent_downloads": 7291,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ueberauth_oidc",
+      "description": "",
+      "recent_downloads": 4531,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ueberauth_adfs",
+      "description": "",
+      "recent_downloads": 114,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "ueberauth_slack_v2",
+      "description": "",
+      "recent_downloads": 10087,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "ueberauth_gitlab_strategy",
+      "description": "",
+      "recent_downloads": 5297,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "ueberauth_zoom",
+      "description": "",
+      "recent_downloads": 10503,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "oauth",
+      "description": "",
+      "recent_downloads": 3229,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ueberauth_vk",
+      "description": "",
+      "recent_downloads": 280,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "authable",
+      "description": "",
+      "recent_downloads": 627,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: authable"
+    },
+    {
+      "name": "ueberauth_keycloak_strategy",
+      "description": "",
+      "recent_downloads": 2812,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "elixir_auth_microsoft",
+      "description": "",
+      "recent_downloads": 3004,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ueberauth_cas",
+      "description": "",
+      "recent_downloads": 1252,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "google_api_o_auth2",
+      "description": "",
+      "recent_downloads": 1439,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "auth_plug",
+      "description": "",
+      "recent_downloads": 3374,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "fusion_jwt_authentication",
+      "description": "",
+      "recent_downloads": 2601,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ueberauth_slack",
+      "description": "",
+      "recent_downloads": 998,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "auth0_api",
+      "description": "",
+      "recent_downloads": 5565,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "absinthe_permission",
+      "description": "",
+      "recent_downloads": 210,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ueberauth_workos",
+      "description": "",
+      "recent_downloads": 1145,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "plug_basic_auth",
+      "description": "",
+      "recent_downloads": 500,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "arke_auth",
+      "description": "",
+      "recent_downloads": 4522,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "authex",
+      "description": "",
+      "recent_downloads": 615,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: authex"
+    },
+    {
+      "name": "authorize",
+      "description": "",
+      "recent_downloads": 687,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: authorize"
+    },
+    {
+      "name": "passwordless_auth",
+      "description": "",
+      "recent_downloads": 2872,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "aws4_request",
+      "description": "",
+      "recent_downloads": 3263,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "btrz_ex_auth_api",
+      "description": "",
+      "recent_downloads": 776,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "ash_authentication_oauth2_server",
+      "description": "",
+      "recent_downloads": 18625,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "auth0_jwks",
+      "description": "",
+      "recent_downloads": 893,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: auth0"
+    },
+    {
+      "name": "ash_policy_authorizer",
+      "description": "",
+      "recent_downloads": 997,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: authorizer"
+    },
+    {
+      "name": "cassette_plug",
+      "description": "",
+      "recent_downloads": 271,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "phoenix_client_ssl",
+      "description": "",
+      "recent_downloads": 220,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "authoritex",
+      "description": "",
+      "recent_downloads": 1882,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: authoritex"
+    },
+    {
+      "name": "ueberauth_linkedin",
+      "description": "",
+      "recent_downloads": 185,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "oauth2_metadata_updater",
+      "description": "",
+      "recent_downloads": 176,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: oauth2"
+    },
+    {
+      "name": "tesla_oauth2_client_auth",
+      "description": "",
+      "recent_downloads": 152,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "3 need indicator(s) in package name"
+    },
+    {
+      "name": "grisp_cryptoauth",
+      "description": "",
+      "recent_downloads": 6955,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: cryptoauth"
+    },
+    {
+      "name": "simple_auth",
+      "description": "",
+      "recent_downloads": 447,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "authsense",
+      "description": "",
+      "recent_downloads": 188,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: authsense"
+    },
+    {
+      "name": "oauth2_utils",
+      "description": "",
+      "recent_downloads": 156,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "random",
+      "_weight": 1.0,
+      "_reason": "1 generic token(s) in name, no need signals"
+    },
+    {
+      "name": "rest_auth",
+      "description": "",
+      "recent_downloads": 509,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "test_plug_auth",
+      "description": "",
+      "recent_downloads": 2169,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.8,
+      "_reason": "3 need vs 1 generic (name)"
+    },
+    {
+      "name": "ueberauth_linkedin_modern",
+      "description": "",
+      "recent_downloads": 4593,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "elixir_auth_github",
+      "description": "",
+      "recent_downloads": 1362,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "oauth_mock_server",
+      "description": "",
+      "recent_downloads": 813,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "3 need indicator(s) in package name"
+    },
+    {
+      "name": "web_authn_lite",
+      "description": "",
+      "recent_downloads": 1244,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "ueberauth_nusso",
+      "description": "",
+      "recent_downloads": 1191,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "plug_auth",
+      "description": "",
+      "recent_downloads": 287,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "nio_google_authenticator",
+      "description": "",
+      "recent_downloads": 159,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: authenticator"
+    },
+    {
+      "name": "plug_hmac",
+      "description": "",
+      "recent_downloads": 585,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "authtoken",
+      "description": "",
+      "recent_downloads": 332,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: authtoken"
+    },
+    {
+      "name": "ueberauth_ibmid",
+      "description": "",
+      "recent_downloads": 527,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "api_auth",
+      "description": "",
+      "recent_downloads": 147,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "wisp_basic_auth",
+      "description": "",
+      "recent_downloads": 532,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "plug_paradox_auth",
+      "description": "",
+      "recent_downloads": 1028,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need indicator(s) in package name"
+    },
+    {
+      "name": "kafka_msk_auth",
+      "description": "",
+      "recent_downloads": 320,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "keyfob",
+      "description": "",
+      "recent_downloads": 11821,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ueberauth_steam_strategy",
+      "description": "",
+      "recent_downloads": 6236,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: ueberauth"
+    },
+    {
+      "name": "auth0_plug",
+      "description": "",
+      "recent_downloads": 338,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "magic_auth",
+      "description": "",
+      "recent_downloads": 1573,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "auth_test_support",
+      "description": "",
+      "recent_downloads": 186,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.8,
+      "_reason": "2 need vs 1 generic (name)"
+    },
+    {
+      "name": "phoenix_token_auth",
+      "description": "",
+      "recent_downloads": 600,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "3 need indicator(s) in package name"
+    },
+    {
+      "name": "ueberauth_token",
+      "description": "",
+      "recent_downloads": 172,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "rapyd",
+      "description": "",
+      "recent_downloads": 6384,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "appwrite",
+      "description": "",
+      "recent_downloads": 430,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "elixir_authorizenet",
+      "description": "",
+      "recent_downloads": 322,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name: authorizenet"
+    },
+    {
+      "name": "ex_pet_oauth",
+      "description": "",
+      "recent_downloads": 525,
+      "_source": "need_query",
+      "_query": "auth",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need indicator(s) in package name"
+    },
+    {
+      "name": "db_connection",
+      "description": "",
+      "recent_downloads": 5055526,
+      "_source": "need_query",
+      "_query": "database",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    }
+  ]
+}

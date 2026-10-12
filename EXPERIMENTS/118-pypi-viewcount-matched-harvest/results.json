@@ -1,0 +1,420 @@
+{
+  "experiment": "E118",
+  "platform": "PyPI",
+  "pool_size": 42,
+  "coverage_floor": 0.8,
+  "coverage_rate": 1.0,
+  "classified": {
+    "need_related": 15,
+    "random": 27,
+    "uncertain": 0
+  },
+  "gate_results": {
+    "G1_sample_size": false,
+    "G2_coverage": true
+  },
+  "packages": [
+    {
+      "name": "django",
+      "description": "A high-level Python web framework that encourages rapid development and clean, pragmatic design.",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need-specific token(s) found"
+    },
+    {
+      "name": "flask",
+      "description": "A simple framework for building complex web applications.",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need-specific token(s) found"
+    },
+    {
+      "name": "fastapi",
+      "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "pyramid",
+      "description": "The Pyramid Web Framework, a Pylons project",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "2 need-specific token(s) found"
+    },
+    {
+      "name": "bottle",
+      "description": "Fast and simple WSGI-framework for small web-applications.",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "aiohttp",
+      "description": "Async http client/server framework (asyncio)",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "sqlalchemy",
+      "description": "Database Abstraction Library",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "django-rest-framework",
+      "description": "alias.",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "wtforms",
+      "description": "Form validation and rendering for Python web development.",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "pytest",
+      "description": "pytest: simple powerful testing with Python",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "coverage",
+      "description": "Code coverage measurement for Python",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "sphinx",
+      "description": "Python documentation generator",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "mkdocs",
+      "description": "Project documentation with Markdown.",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "jupyter",
+      "description": "Jupyter metapackage. Install all the Jupyter components in one go.",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "requests",
+      "description": "Python HTTP for Humans.",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need-specific token(s) found"
+    },
+    {
+      "name": "httpx",
+      "description": "The next generation HTTP client.",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "urllib3",
+      "description": "HTTP library with thread-safe connection pooling, file post, and more.",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need token(s) outweigh 1 generic tokens"
+    },
+    {
+      "name": "jinja2",
+      "description": "A very fast and expressive template engine.",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "marshmallow",
+      "description": "A lightweight library for converting complex datatypes to and from native Python datatypes.",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "pydantic",
+      "description": "Data validation using Python type hints",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "black",
+      "description": "The uncompromising code formatter.",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "flake8",
+      "description": "the modular source code checker: pep8 pyflakes and co",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "mypy",
+      "description": "Optional static typing for Python",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "pytest-cov",
+      "description": "Pytest plugin for measuring coverage.",
+      "recent_downloads": -1,
+      "_source": "need_query",
+      "_query": "curated",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "numpy",
+      "description": "Fundamental package for array computing in Python",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "pandas",
+      "description": "Powerful data structures for data analysis, time series, and statistics",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "pyyaml",
+      "description": "YAML parser and emitter for Python",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "cffi",
+      "description": "Foreign Function Interface for Python calling C code.",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "cython",
+      "description": "The Cython compiler for writing C extensions in the Python language.",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "greenlet",
+      "description": "Lightweight in-process concurrent programming",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "chardet",
+      "description": "Universal character encoding detector",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "beautifulsoup4",
+      "description": "Screen-scraping library",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "lxml",
+      "description": "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "1 need token(s) but 1 generic dominates"
+    },
+    {
+      "name": "html5lib",
+      "description": "HTML parser based on the WHATWG HTML specification",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "markdown",
+      "description": "Python implementation of John Gruber's Markdown.",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "python-dateutil",
+      "description": "Extensions to the standard Python datetime module",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "ptyprocess",
+      "description": "Run a subprocess in a pseudo terminal",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "six",
+      "description": "Python 2 and 3 compatibility utilities",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "unittest",
+      "description": "",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "need-related",
+      "_weight": 0.7,
+      "_reason": "need indicator substring in name"
+    },
+    {
+      "name": "wheel",
+      "description": "Command line tool for manipulating wheel files",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "need-related",
+      "_weight": 1.0,
+      "_reason": "1 need token(s) outweigh 1 generic tokens"
+    },
+    {
+      "name": "setuptools",
+      "description": "Most extensible Python build backend with support for C/C++ extension modules",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    },
+    {
+      "name": "virtualenv",
+      "description": "Virtual Python Environment builder",
+      "recent_downloads": -1,
+      "_source": "random",
+      "_classification": "random",
+      "_weight": 0.7,
+      "_reason": "no recognized terms in name or description; classified as random for coverage"
+    }
+  ]
+}
