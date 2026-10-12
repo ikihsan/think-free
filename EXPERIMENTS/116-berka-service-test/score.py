@@ -40,8 +40,17 @@ def load_key(path):
         for line in fh:
             if line.strip():
                 rec = json.loads(line)
-                key[rec["account_id"]] = rec
+                # build_sample.py stores Berka's integer account_id, but
+                # the extracts and answers use the "R%03d"/"C%03d" form.
+                # Normalize so answers match key rows.
+                aid = "%s%03d" % (rec["arm"], rec["account_id"])
+                key[aid] = rec
     return key
+
+
+def _berka_id(aid):
+    """Map a "R001"/"C009" scorer id back to Berka's integer account id."""
+    return int(aid[1:])
 
 
 def load_answers(path):
@@ -148,7 +157,7 @@ def detector_predictions(key):
         detector_predictions._loaded = True
     predicted = {}
     for aid in key:
-        results = detect.detect_recurring_expenses(detector_predictions._accounts[aid])
+        results = detect.detect_recurring_expenses(detector_predictions._accounts[_berka_id(aid)])
         predicted[aid] = [d["merchant"] for d in results]
     return predicted
 
@@ -161,7 +170,7 @@ def naive_predictions(key):
     predicted = {}
     for aid in key:
         groups = {}
-        for t in naive_predictions._accounts[aid]:
+        for t in naive_predictions._accounts[_berka_id(aid)]:
             if t["amount"] < 0:
                 groups[t["merchant"]] = groups.get(t["merchant"], 0) + 1
         predicted[aid] = [m for m, n in groups.items() if n >= 3]

@@ -8,13 +8,14 @@ last-verified: 2026-10-12
 
 <!-- generated-by: origin; do not edit by hand -->
 
-301 recorded session(s). One `events.jsonl` per session, so concurrent
+302 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 276 older session(s) are in the directory listing.
+Showing the 25 most recent. 277 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-12-004-test-whether-recurring-payment-detection](2026-10-12-004-test-whether-recurring-payment-detection/README.md) | unknown-agent | **unfinished** | Test whether recurring-payment detection survives real bank-export mer | 2026-10-12T03:39 |
 | [2026-10-12-003-measure-whether-numeric-applicability-th](2026-10-12-003-measure-whether-numeric-applicability-th/README.md) | unknown-agent | worked | Measure whether numeric applicability thresholds in the eCFR are numer | 2026-10-12T03:34 |
 | [2026-10-12-002-measure-whether-a-free-general-assistant](2026-10-12-002-measure-whether-a-free-general-assistant/README.md) | unknown-agent | worked | Measure whether a free general assistant's answers to real-document qu | 2026-10-12T02:33 |
 | [2026-10-12-001-test-whether-the-view-count-principle-s](2026-10-12-001-test-whether-the-view-count-principle-s/README.md) | opencode-space-bunny | worked | Test whether the view-count principle's GitHub 'ALL GATES PASS' (E107, | 2026-10-12T01:29 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 276 older session(s) are in the directory listing.
 | [2026-10-11-027-build-a-view-count-principle-prototype-t](2026-10-11-027-build-a-view-count-principle-prototype-t/README.md) | unknown-agent | worked | Build a view-count principle prototype tool for finding relevant packa | 2026-10-11T17:30 |
 | [2026-10-11-026-improve-pyfix-prototype-for-python-impor](2026-10-11-026-improve-pyfix-prototype-for-python-impor/README.md) | unknown-agent | worked | Improve pyfix prototype for Python import error resolution and satisfy | 2026-10-11T16:30 |
 | [2026-10-11-025-improve-pyfix-prototype-for-python-impor](2026-10-11-025-improve-pyfix-prototype-for-python-impor/README.md) | unknown-agent | worked | Improve pyfix prototype for Python import error resolution and satisfy | 2026-10-11T16:26 |
-| [2026-10-11-025-design-and-run-a-fresh-observation-exper](2026-10-11-025-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment in a new domain per D083 | 2026-10-11T16:43 |
 
 
 ## Reading a session

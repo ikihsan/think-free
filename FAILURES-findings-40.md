@@ -129,3 +129,64 @@ carries `[85 FR 8731, Feb. 18, 2020]` against `[66 FR 6122, Jan. 19, 2001]` —
 and telling a user their *current* exemption is a different question from
 applicability. See [`EXPERIMENTS/115-applicability-thresholds/M2.md`](EXPERIMENTS/115-applicability-thresholds/M2.md),
 D107.
+
+## F121 — E116's scorer could not match its own key to its answers: integer account_ids on one side, "R001" strings on the other, and every answer scored against nothing (E116)
+
+**What happened.** `build_sample.py` wrote the extract files as
+`R001.jsonl`/`C009.jsonl` (string labels) but stored `account_id: 1`
+(Berka's integer) in `key.jsonl`. The answers use `"R001"`. The scorer's
+`load_key` keyed rows by the integer and `load_answers` by the string, so
+`answers.get(aid)` returned `[]` for every account: the assistant scored
+**0 TP, 0 FP, precision 0.0, recall 0.0** — a reader that had in fact named
+all 75 positive groups. The detector and naive arms were unaffected because
+they key predictions off the same integer loop.
+
+**Why the tests did not catch it.** `test_score.py` builds its own synthetic
+keys with string ids (`"R100"`, `"C200"`), so every fixture matches its own
+answers. The defect is in the *real* key's id type, which no fixture
+exercised. This is F049's shape — establish the reference before measuring
+agreement against it — one level up: the scorer's reference (the key) and its
+measurement (the answers) were never checked to be in the same id space.
+
+**The fix.** `load_key` now normalises the integer id to the
+`"R%03d"/"C%03d"` form via the arm field; `_berka_id` maps back to the integer
+for the detector/naive Berka lookups. Two regression tests read the **committed**
+`key.jsonl` and assert (a) every normalised id matches `^[RC]\d{3}$` and
+(b) every answer id exists as a key row. After the fix the same answers score
+recall 1.0, precision 0.7009, F1 0.8242.
+
+**The general rule.** A scorer that joins two files on an id must assert
+the join is total in both directions, and the assertion must run against the
+**real** files, not a fixture that re-uses the scorer's own id scheme. A
+fixture that shares the scorer's assumption cannot catch a violation of it.
+
+## F122 — E116's G0_C_precision gate assumed the control accounts carry no standing orders; they carry them with non-positive k_symbols, so every reader scores 0 (E116)
+
+**What the gate was for.** G0_C_precision ≥ 0.80 was the hallucination arm:
+C accounts were the controls, so a counterparty named on one with no
+positive group behind it would be a invention.
+
+**What the data did.** Four C accounts (C011, C080, C086, C104) contain
+unambiguous standing orders — the same counterparty, the same amount, the
+same day of month, for years — whose `k_symbol` is **not** in the positive set
+{`POJISTNE`, `SIPO`, `LEASING`, `UVER`}. They are real recurring payments in
+the key's "negative" class. The assistant named them (correctly); the key
+scored them as false positives, and G0_C_precision went to **0.0**.
+
+**The detector and naive baseline fail the same gate.** On C accounts the
+detector names 24 non-positive groups and the naive rule 46; both also score
+0.0. The gate therefore does not separate a reader that hallucinates from a
+reader that detects — it fails every reader identically, because its
+premise (C accounts are standing-order-free) is false. The positive set is
+four k_symbols; "recurring payment" is a broader class the controls do not
+exclude.
+
+**Why the result still reads.** The gate was a proxy for reader validity,
+and the reader is valid: R-arm recall is 1.0 (75/75), the assistant's C-arm
+answers are all real standing orders (verifiable in the committed extracts),
+and it is the most precise reader on both arms (32 FP against the detector's
+110 and the naive rule's 205). The substantive question — *is the answer
+already decidable by the incumbent?* — is answered on the R arm and on the
+reader comparison, neither of which depends on the flawed control premise.
+The predeclared "served iff G0∧K1∧K2" condition is **not met**; the reason is
+a control-population mismatch, not a failure of the assistant.

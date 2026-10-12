@@ -1,0 +1,86 @@
+{
+ "n_accounts": 80,
+ "assistant": {
+  "tp": 75,
+  "fp": 32,
+  "fn": 0,
+  "precision": 0.7009345794392523,
+  "recall": 1.0,
+  "f1": 0.8241758241758241
+ },
+ "detector": {
+  "tp": 75,
+  "fp": 110,
+  "fn": 0,
+  "precision": 0.40540540540540543,
+  "recall": 1.0,
+  "f1": 0.5769230769230769
+ },
+ "naive": {
+  "tp": 75,
+  "fp": 205,
+  "fn": 0,
+  "precision": 0.26785714285714285,
+  "recall": 1.0,
+  "f1": 0.4225352112676056
+ },
+ "assistant_arm": {
+  "R": {
+   "tp": 75,
+   "fp": 26,
+   "fn": 0
+  },
+  "C": {
+   "tp": 0,
+   "fp": 6,
+   "fn": 0
+  }
+ },
+ "detector_arm": {
+  "R": {
+   "tp": 75,
+   "fp": 86,
+   "fn": 0
+  },
+  "C": {
+   "tp": 0,
+   "fp": 24,
+   "fn": 0
+  }
+ },
+ "naive_arm": {
+  "R": {
+   "tp": 75,
+   "fp": 159,
+   "fn": 0
+  },
+  "C": {
+   "tp": 0,
+   "fp": 46,
+   "fn": 0
+  }
+ },
+ "gates": {
+  "G0_R_recall": {
+   "actual": 1.0,
+   "threshold": 0.5,
+   "pass": true
+  },
+  "G0_C_precision": {
+   "actual": 0.0,
+   "threshold": 0.8,
+   "pass": false
+  },
+  "K1_assistant_recall": {
+   "actual": 1.0,
+   "threshold": 0.95,
+   "pass": true
+  },
+  "K2_f1_margin_over_detector": {
+   "actual": 0.2473,
+   "threshold": 0.05,
+   "pass": true
+  }
+ },
+ "served": false
+}

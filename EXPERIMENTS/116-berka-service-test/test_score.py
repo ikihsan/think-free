@@ -173,5 +173,27 @@ class TestGateLogic(unittest.TestCase):
         self.assertLess(precision, score.GATES["G0_C_precision"])
 
 
+class TestRealKeyIdFormat(unittest.TestCase):
+    """The committed key.jsonl stores Berka's integer account_id, while
+    the answers use the "R%03d"/"C%03d" form. load_key must normalize
+    the two, or every answer misses and the assistant scores 0 --
+    a scorer that cannot fail cannot ship."""
+
+    def test_load_key_normalizes_integer_ids(self):
+        key = score.load_key(os.path.join(HERE, "key.jsonl"))
+        self.assertTrue(key, "key.jsonl loaded no rows")
+        for aid in key:
+            self.assertIsInstance(aid, str)
+            self.assertRegex(aid, r"^[RC]\d{3}$")
+
+    def test_key_ids_match_answer_ids(self):
+        key = score.load_key(os.path.join(HERE, "key.jsonl"))
+        answers = score.load_answers(os.path.join(HERE, "answers.jsonl"))
+        # Every answer's account must exist as a key row, or the answer
+        # is scored against nothing.
+        for aid in answers:
+            self.assertIn(aid, key)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

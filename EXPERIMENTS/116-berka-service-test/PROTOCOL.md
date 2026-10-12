@@ -1,6 +1,6 @@
 <!-- origin-meta
 owner: docs/INDEX.md
-status: active
+status: complete
 last-verified: 2026-10-12
 -->
 

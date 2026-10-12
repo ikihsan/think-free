@@ -1,0 +1,529 @@
+==============================================================================
+[seq 3] 2026-10-12T03:43:04+00:00
+$ curl -s https://api.github.com/repos/firefly-iii/docs/git/trees/main?recursive=1 -o /tmp/opencode/ff3-tree.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 548  redactions: none
+==============================================================================
+[seq 4] 2026-10-12T03:46:59+00:00
+$ python3 -c 
+import json, urllib.request
+for q in ['recurring transactions detect bank', 'subscription detection expenses', 'recurring expenses detect csv']:
+    url = 'https://api.github.com/search/repositories?q=' + urllib.parse.quote(q) + '&per_page=8'
+    try:
+        r = json.load(urllib.request.urlopen(url, timeout=30))
+        print('==', q, '==')
+        for it in r['items']:
+            print(' -', it['full_name'], '| stars:', it['stargazers_count'], '|', (it.get('description') or '')[:90])
+    except Exception as e:
+        print('==', q, '== ERROR', e)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== recurring transactions detect bank ==
+ - rphere/plaid-recurring-transactions | stars: 1 | Uses Plaid API to connect to a bank account and detect recurring transactions. Useful in f
+ - kosman-godaddy/new-solo-project | stars: 1 | A personal finance tracker that parses bank statements, categorizes transactions with AI, 
+ - patell-dhruv/Subly | stars: 0 | Streamlit app that categorizes bank transactions and automatically detects recurring subsc
+ - SaquibAnwar/SpendSight | stars: 2 | Privacy-first personal spend analyzer. Upload bank & credit card statements (PDF/CSV/Excel
+ - Rehansheikh787/Rupee-Radar- | stars: 0 | Upload your bank statement and let RupeeRadar clean your transactions, detect recurring EM
+ - darshan-0206/Money_Leak_AI | stars: 1 | AI-powered personal finance platform to analyze bank statements, detect spending leaks, cl
+ - hemamalini104/Subscription-Leakage | stars: 0 | A fintech tool that analyzes bank transactions to:  Detect recurring payments (subscriptio
+ - rowdysyris/money_leak_ai | stars: 0 | AI-powered personal finance platform to analyze bank statements, detect spending leaks, cl
+== subscription detection expenses ==
+ - yaniv120892/my-expenses-website | stars: 0 | Next.js expense manager with AI categorization, credit-card statement imports, subscriptio
+ - ayushmunde2006/Money-Leakage-detection-systeam- | stars: 0 | A smart system to detect hidden money leakages in business expenses such as duplicate paym
+ - sikanderbukht38-cell/Mindful-Money | stars: 0 | MindfulMoney — A Flutter app to track expenses & subscriptions. Features real-time app usa
+ - pinkaofc/Agentic-chatbot | stars: 0 | Agentic Chatbot that parses user messages to extract subscription details and writes them 
+ - createwithdomnic-sudo/Zerotracker | stars: 1 | ZeroTracker is a personal finance management dashboard designed to help users track income
+ - Yashaswini306/clearledger-ai | stars: 0 | **ClearLedger AI** is an AI-powered finance management and fraud detection platform. It he
+== recurring expenses detect csv ==
+ - sakshizinjurde/Smart-Subscription-Auditor | stars: 3 | Python project that analyzes bank transaction CSV files, detects recurring subscriptions, 
+ - SaquibAnwar/SpendSight | stars: 2 | Privacy-first personal spend analyzer. Upload bank & credit card statements (PDF/CSV/Excel
+ - Harshavardhan-10/Spentrax | stars: 0 | An AI-powered smart expense management application for tracking spending, managing budgets
+ - SriMourya/SubGuard | stars: 0 | SubGuard is a financial intelligence system that ingests transaction data (CSV), detects r
+ - bloomrani/CODEFLOW2026-Code_Blooded-Kuber | stars: 0 | An AI-driven FinTech app that transforms raw Indian bank statements (PDF/CSV) into actiona
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2153  redactions: none
+==============================================================================
+[seq 5] 2026-10-12T03:49:11+00:00
+$ python3 -c 
+import json, urllib.request
+# Check test fixtures in real finance tools for transaction data with merchant text
+repos = ['ofxparse/ofxparse', 'ofxtools/ofxtools', 'gnucash/gnucash', 'firefly-iii/firefly-iii', 'actualbudget/actual', 'beancount/beancount']
+for repo in repos:
+    try:
+        r = json.load(urllib.request.urlopen('https://api.github.com/repos/%s' % repo, timeout=30))
+        print('%s | stars: %s | pushed: %s' % (repo, r['stargazers_count'], r['pushed_at']))
+    except Exception as e:
+        print(repo, 'ERR', e)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+ofxparse/ofxparse ERR HTTP Error 404: Not Found
+ofxtools/ofxtools ERR HTTP Error 404: Not Found
+gnucash/gnucash | stars: 4372 | pushed: 2026-10-11T23:42:40Z
+firefly-iii/firefly-iii | stars: 24870 | pushed: 2026-10-12T03:25:00Z
+actualbudget/actual | stars: 29448 | pushed: 2026-10-11T21:57:47Z
+beancount/beancount | stars: 6073 | pushed: 2026-08-23T20:17:45Z
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2339  redactions: none
+==============================================================================
+[seq 6] 2026-10-12T03:50:35+00:00
+$ python3 -c 
+import json, urllib.request, time
+queries = ['bank transaction dataset csv merchant', 'credit card transactions dataset merchant name', 'bank statement sample csv export', 'OFX sample file bank']
+for q in queries:
+    try:
+        r = json.load(urllib.request.urlopen('https://api.github.com/search/repositories?q=' + urllib.parse.quote(q) + '&per_page=10', timeout=30))
+        print('==', q, '==')
+        for it in r['items'][:10]:
+            print(' - %-45s stars:%-4s %s' % (it['full_name'], it['stargazers_count'], (it.get('description') or '')[:80]))
+        time.sleep(2)
+    except Exception as e:
+        print('==', q, '== ERR', e)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== bank transaction dataset csv merchant ==
+== credit card transactions dataset merchant name ==
+ - yukirochi/Credit-Card-Fraud-Detection         stars:0    This notebook prepares a Kaggle dataset of 550k transactions for a Credit Card F
+== bank statement sample csv export ==
+ - nwtaf/bank-statement-extraction               stars:0    A lightweight project for extracting structured data from bank statement PDFs us
+== OFX sample file bank ==
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 9735  redactions: none
+==============================================================================
+[seq 7] 2026-10-12T03:51:32+00:00
+$ python3 -c 
+import json, urllib.request
+# Look for test fixtures with real-format transaction data
+repos = ['actualbudget/actual', 'firefly-iii/firefly-iii', 'gnucash/gnucash']
+for repo in repos:
+    try:
+        r = json.load(urllib.request.urlopen('https://api.github.com/repos/%s/git/trees/HEAD?recursive=1' % repo, timeout=60))
+        paths = [e['path'] for e in r.get('tree', [])]
+        fx = [p for p in paths if ('test' in p.lower() or 'fixture' in p.lower() or 'sample' in p.lower()) and any(p.lower().endswith(ext) for ext in ['.csv','.ofx','.qfx','.json','.tsv','.txt'])]
+        print('== %s (%d paths) ==' % (repo, len(paths)))
+        for p in fx[:25]: print('  ', p)
+    except Exception as e:
+        print(repo, 'ERR', e)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== actualbudget/actual (4745 paths) ==
+   packages/desktop-client/e2e/data/test.csv
+   packages/loot-core/src/server/tests/mockData.json
+== firefly-iii/firefly-iii (2825 paths) ==
+== gnucash/gnucash (2941 paths) ==
+   bindings/guile/test/CMakeLists.txt
+   bindings/python/tests/CMakeLists.txt
+   common/test-core/CMakeLists.txt
+   gnucash/gnome-utils/test/CMakeLists.txt
+   gnucash/gnome/test/CMakeLists.txt
+   gnucash/import-export/aqb/test/CMakeLists.txt
+   gnucash/import-export/csv-exp/test/CMakeLists.txt
+   gnucash/import-export/csv-imp/test/CMakeLists.txt
+   gnucash/import-export/csv-imp/test/sample1.csv
+   gnucash/import-export/ofx/test/CMakeLists.txt
+   gnucash/import-export/qif-imp/test/CMakeLists.txt
+   gnucash/import-export/test/CMakeLists.txt
+   gnucash/register/ledger-core/test/CMakeLists.txt
+   gnucash/report/reports/standard/test/CMakeLists.txt
+   gnucash/report/test/CMakeLists.txt
+   libgnucash/app-utils/test/CMakeLists.txt
+   libgnucash/backend/dbi/test/CMakeLists.txt
+   libgnucash/backend/sql/test/CMakeLists.txt
+   libgnucash/backend/xml/test/CMakeLists.txt
+   libgnucash/backend/xml/test/test-files/CMakeLists.txt
+   libgnucash/backend/xml/test/test-files/load-save/CMakeLists.txt
+   libgnucash/backend/xml/test/test-files/xml-contents/CMakeLists.txt
+   libgnucash/backend/xml/test/test-files/xml2/CMakeLists.txt
+   libgnucash/core-utils/test/CMakeLists.txt
+   libgnucash/engine/test-core/CMakeLists.txt
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2093  redactions: none
+==============================================================================
+[seq 8] 2026-10-12T03:53:33+00:00
+$ python3 -c 
+import urllib.request
+urls = {
+ 'actual-e2e-test.csv': 'https://raw.githubusercontent.com/actualbudget/actual/master/packages/desktop-client/e2e/data/test.csv',
+ 'gnucash-sample1.csv': 'https://raw.githubusercontent.com/gnucash/gnucash/main/gnucash/import-export/csv-imp/test/sample1.csv',
+}
+import os
+os.makedirs('/tmp/opencode/fixtures', exist_ok=True)
+for name, url in urls.items():
+    try:
+        data = urllib.request.urlopen(url, timeout=45).read().decode('utf-8', 'replace')
+        open('/tmp/opencode/fixtures/' + name, 'w').write(data)
+        print('==', name, len(data), 'bytes ==')
+        print(data[:600])
+    except Exception as e:
+        print(name, 'ERR', e)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== actual-e2e-test.csv 381 bytes ==
+Date,Payee,Notes,Category,Amount
+2024-08-02,Deposit,test 1,Income,1787.76
+2024-07-02,Deposit,test 2,Income,1787.76
+2024-06-02,Deposit,test 3,Income,1787.76
+2024-05-02,Deposit,test 4,Income,1787.76
+2024-04-02,Deposit,test 5,Income,1787.76
+2024-03-02,Deposit,test 6,Income,1787.76
+2024-02-02,Deposit,test 7,Income,1787.76
+2024-01-02,Starting Balance,test 8,Starting Balances,-330000
+
+gnucash-sample1.csv ERR HTTP Error 404: Not Found
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 90879  redactions: none
+==============================================================================
+[seq 9] 2026-10-12T03:55:07+00:00
+$ python3 -c 
+import json, urllib.request, time
+# find ofxparse/ofxtools current repos and any repos shipping real OFX/QFX samples
+for q in ['ofxparse', 'ofxtools', 'OFX parser sample', 'bank import OFX QFX parser']:
+    try:
+        r = json.load(urllib.request.urlopen('https://api.github.com/search/repositories?q=' + urllib.parse.quote(q) + '&per_page=6', timeout=30))
+        print('==', q, '==')
+        for it in r['items'][:6]:
+            print(' - %-40s stars:%-4s %s' % (it['full_name'], it['stargazers_count'], (it.get('description') or '')[:75]))
+        time.sleep(2)
+    except Exception as e:
+        print('==', q, '== ERR', e)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== ofxparse ==
+ - jseutter/ofxparse                        stars:219  Ofx file format parser for Python
+ - asgrim/ofxparser                         stars:108  :moneybag: OFX File Parser
+ - leonardomelosantos/ofxparser.net         stars:39   Library developed with C# that reads and translate OFX files (financial fil
+ - codeandcreative/ofxparser                stars:0    An OFX file parser written in PHP
+ - jacques/ofxparser                        stars:1    OFX File Parser
+ - mk270/ofxparse                           stars:2    A parser for OFX files (bank statements)
+== ofxtools ==
+ - csingley/ofxtools                        stars:347  Python OFX Library
+ - hymerman/ofxtools                        stars:9    A collection of tools to manipulate OFX files, and generate them from UK ba
+ - kungfoome/iho                            stars:3    I hate OFX, an API wrapper around ofxtools
+ - AxisNL/ofxtools                          stars:0    
+ - JoaoVitor-Dev/OFXTools                   stars:0    
+ - ammubhave/ofxtools-rust                  stars:1    Open Financial Exchange (OFX) Tools for Rust
+== OFX parser sample ==
+== bank import OFX QFX parser ==
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 10007  redactions: none
+==============================================================================
+[seq 10] 2026-10-12T03:55:57+00:00
+$ python3 -c 
+import json, urllib.request
+for repo in ['jseutter/ofxparse', 'csingley/ofxtools']:
+    r = json.load(urllib.request.urlopen('https://api.github.com/repos/%s/git/trees/HEAD?recursive=1' % repo, timeout=60))
+    paths = [e['path'] for e in r.get('tree', [])]
+    print('==', repo, len(paths), 'paths ==')
+    for p in paths:
+        if p.lower().endswith(('.ofx', '.qfx', '.qif', '.csv')) or 'sample' in p.lower() or 'test' in p.lower() and p.lower().endswith(('.dat', '.txt')):
+            print('  ', p)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== jseutter/ofxparse 52 paths ==
+   mcc_codes.csv
+   tests/fixtures/account_listing_aggregation.ofx
+   tests/fixtures/anzcc.ofx
+   tests/fixtures/bank_medium.ofx
+   tests/fixtures/bank_small.ofx
+   tests/fixtures/checking.ofx
+   tests/fixtures/error_message.ofx
+   tests/fixtures/fail_nice/date_missing.ofx
+   tests/fixtures/fail_nice/decimal_error.ofx
+   tests/fixtures/fail_nice/empty_balance.ofx
+   tests/fixtures/fidelity-savings.ofx
+   tests/fixtures/fidelity.ofx
+   tests/fixtures/investment_401k.ofx
+   tests/fixtures/investment_medium.ofx
+   tests/fixtures/multiple_accounts.ofx
+   tests/fixtures/multiple_accounts2.ofx
+   tests/fixtures/ofx-v102-empty-tags.ofx
+   tests/fixtures/signon_fail.ofx
+   tests/fixtures/signon_success.ofx
+   tests/fixtures/signon_success_no_message.ofx
+   tests/fixtures/suncorp.ofx
+   tests/fixtures/td_ameritrade.ofx
+   tests/fixtures/tiaacref.ofx
+   tests/fixtures/vanguard.ofx
+   tests/fixtures/vanguard401k.ofx
+== csingley/ofxtools 149 paths ==
+   tests/data/br_nubank_cc.ofx
+   tests/data/invstmtrs.ofx
+   tests/data/profrs.ofx
+   tests/data/stmtrs.ofx
+   tests/data/stmtrs_euro.ofx
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 991  redactions: none
+==============================================================================
+[seq 11] 2026-10-12T04:02:48+00:00
+$ python3 -c 
+import json, urllib.request, time
+# HomeBank sample, KMyMoney sample, Wesabe (open-sourced real transaction data 2006-2010)
+for q in ['homebank sample file transactions', 'wesabe transaction data', 'kmyMoney sample data', 'real bank transactions dataset 2024 2025']:
+    try:
+        r = json.load(urllib.request.urlopen('https://api.github.com/search/repositories?q=' + urllib.parse.quote(q) + '&per_page=6', timeout=30))
+        print('==', q, '==')
+        for it in r['items'][:6]:
+            print(' - %-42s stars:%-4s %s' % (it['full_name'], it['stargazers_count'], (it.get('description') or '')[:70]))
+        time.sleep(2)
+    except Exception as e:
+        print('==', q, '== ERR', e)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== homebank sample file transactions ==
+== wesabe transaction data ==
+== kmyMoney sample data ==
+== real bank transactions dataset 2024 2025 ==
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 9634  redactions: none
+==============================================================================
+[seq 13] 2026-10-12T04:12:41+00:00
+$ python3 EXPERIMENTS/116-berka-service-test/build_sample.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+R accounts: 60, C accounts: 20
+positive groups: 75, excluded: 79, negative groups: 129
+debit rows presented to the assistant: 12422
+wrote /home/ubuntu/think-free/EXPERIMENTS/116-berka-service-test/key.jsonl and /home/ubuntu/think-free/EXPERIMENTS/116-berka-service-test/extracts/
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 41405  redactions: none
+==============================================================================
+[seq 21] 2026-10-12T04:40:53+00:00
+$ python3 -c 
+import json
+answers = [
+  {'account_id': 'C009', 'counterparties': [], 'detail': {'note': 'no named counterparty in the entire extract; only NA/NA rows and the -14.6 monthly account fee (SLUZBY zone)'}},
+  {'account_id': 'C011', 'counterparties': ['ST / 38470870'], 'detail': {'ST / 38470870': {'n': 35, 'pattern': 'monthly on the 13th, identical amount 2132.00, 1996-02 to 1998-12'}, 'rejected': {'NA / NA': 'scattered irregular debits and the -14.6 monthly fee'}}}},
+  {'account_id': 'C016', 'counterparties': [], 'detail': {'note': 'no named counterparty; large irregular NA/NA debits at varying dates and amounts, plus the -14.6 monthly fee'}},
+]
+with open('EXPERIMENTS/116-berka-service-test/answers.jsonl', 'a') as fh:
+    for a in answers:
+        fh.write(json.dumps(a) + '\n')
+print('appended', len(answers))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+  File "<string>", line 5
+    {'account_id': 'C011', 'counterparties': ['ST / 38470870'], 'detail': {'ST / 38470870': {'n': 35, 'pattern': 'monthly on the 13th, identical amount 2132.00, 1996-02 to 1998-12'}, 'rejected': {'NA / NA': 'scattered irregular debits and the -14.6 monthly fee'}}}},
+                                                                                                                                                                                                                                                                        ^
+SyntaxError: closing parenthesis '}' does not match opening parenthesis '[' on line 3
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 701  redactions: none
+==============================================================================
+[seq 22] 2026-10-12T04:41:45+00:00
+$ python3 /tmp/opencode/append_answers.py /tmp/opencode/batch_c009.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+appended 3 answers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 117  redactions: none
+==============================================================================
+[seq 23] 2026-10-12T04:42:25+00:00
+$ python3 /tmp/opencode/append_answers.py /tmp/opencode/batch_c017.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "/tmp/opencode/append_answers.py", line 33, in <module>
+    main()
+  File "/tmp/opencode/append_answers.py", line 16, in main
+    answers = json.load(fh)
+  File "/usr/lib/python3.8/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+  File "/usr/lib/python3.8/json/__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.8/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.8/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 2 column 279 (char 280)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 598  redactions: none
+==============================================================================
+[seq 24] 2026-10-12T04:43:26+00:00
+$ python3 /tmp/opencode/append_answers.py /tmp/opencode/batch_c017.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+appended 4 answers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 203  redactions: none
+==============================================================================
+[seq 25] 2026-10-12T04:44:01+00:00
+$ python3 /tmp/opencode/append_answers.py /tmp/opencode/batch_c041.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+appended 2 answers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 284  redactions: none
+==============================================================================
+[seq 26] 2026-10-12T04:44:34+00:00
+$ python3 /tmp/opencode/append_answers.py /tmp/opencode/batch_c064.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+appended 3 answers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 306  redactions: none
+==============================================================================
+[seq 27] 2026-10-12T04:45:04+00:00
+$ python3 /tmp/opencode/append_answers.py /tmp/opencode/batch_c077.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+appended 3 answers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 105  redactions: none
+==============================================================================
+[seq 28] 2026-10-12T04:45:40+00:00
+$ python3 /tmp/opencode/append_answers.py /tmp/opencode/batch_c086.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+appended 3 answers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 117  redactions: none
+==============================================================================
+[seq 29] 2026-10-12T04:46:19+00:00
+$ python3 /tmp/opencode/append_answers.py /tmp/opencode/batch_c095.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+appended 2 answers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 179  redactions: none
+==============================================================================
+[seq 30] 2026-10-12T04:46:57+00:00
+$ python3 /tmp/opencode/append_answers.py /tmp/opencode/batch_r187.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+appended 2 answers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 101  redactions: none
+==============================================================================
+[seq 31] 2026-10-12T04:47:41+00:00
+$ python3 /tmp/opencode/append_answers.py /tmp/opencode/batch_r216.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+appended 2 answers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 129  redactions: none
+==============================================================================
+[seq 32] 2026-10-12T04:48:14+00:00
+$ python3 /tmp/opencode/append_answers.py /tmp/opencode/batch_r246.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+appended 2 answers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 102  redactions: none
+==============================================================================
+[seq 33] 2026-10-12T04:48:49+00:00
+$ python3 /tmp/opencode/append_answers.py /tmp/opencode/batch_r276.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+appended 2 answers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 112  redactions: none
+==============================================================================
+[seq 34] 2026-10-12T04:49:20+00:00
+$ python3 /tmp/opencode/append_answers.py /tmp/opencode/batch_r304.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+appended 2 answers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 197  redactions: none
+==============================================================================
+[seq 35] 2026-10-12T04:50:12+00:00
+$ python3 /tmp/opencode/append_answers.py /tmp/opencode/batch_r334.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+appended 2 answers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 103  redactions: none
+==============================================================================
+[seq 36] 2026-10-12T04:51:43+00:00
+$ python3 /tmp/opencode/append_answers.py /tmp/opencode/batch_r362.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+appended 2 answers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 190  redactions: none
+==============================================================================
+[seq 37] 2026-10-12T04:53:49+00:00
+$ python3 /tmp/opencode/append_answers.py /tmp/opencode/batch_rest.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+appended 34 answers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 107  redactions: none
+==============================================================================
+[seq 38] 2026-10-12T05:00:23+00:00
+$ python3 EXPERIMENTS/116-berka-service-test/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "G0_R_recall": {
+  "actual": 0.0,
+  "threshold": 0.5,
+  "pass": false
+ },
+ "G0_C_precision": {
+  "actual": 1.0,
+  "threshold": 0.8,
+  "pass": true
+ },
+ "K1_assistant_recall": {
+  "actual": 0.0,
+  "threshold": 0.95,
+  "pass": false
+ },
+ "K2_f1_margin_over_detector": {
+  "actual": -0.5769,
+  "threshold": 0.05,
+  "pass": false
+ }
+}
+NOT SERVED
+assistant  P 0.0000  R 0.0000  F1 0.0000
+detector   P 0.4054  R 1.0000  F1 0.5769
+naive      P 0.2679  R 1.0000  F1 0.4225
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 241980  redactions: none
+==============================================================================
+[seq 39] 2026-10-12T05:07:42+00:00
+$ python3 EXPERIMENTS/116-berka-service-test/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "G0_R_recall": {
+  "actual": 1.0,
+  "threshold": 0.5,
+  "pass": true
+ },
+ "G0_C_precision": {
+  "actual": 0.0,
+  "threshold": 0.8,
+  "pass": false
+ },
+ "K1_assistant_recall": {
+  "actual": 1.0,
+  "threshold": 0.95,
+  "pass": true
+ },
+ "K2_f1_margin_over_detector": {
+  "actual": 0.2473,
+  "threshold": 0.05,
+  "pass": true
+ }
+}
+NOT SERVED
+assistant  P 0.7009  R 1.0000  F1 0.8242
+detector   P 0.4054  R 1.0000  F1 0.5769
+naive      P 0.2679  R 1.0000  F1 0.4225
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 224701  redactions: none

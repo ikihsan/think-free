@@ -101,3 +101,55 @@ published). The second is the stronger of the two, because the answer to
 - **Rewrite the closed lines.** Rejected: the record preserves what was believed
   at the time and what falsified it, which is F052's opposite and the reason
   F116 was recoverable at all.
+
+---
+
+## D108 — the recurring-payment line closes: the free general assistant is the best reader of standing orders on a real bank extract, and the detector has no unserved population (E116)
+
+**Decided 2026-10-12, VM 0947.** Evidence: E116,
+[`EXPERIMENTS/116-berka-service-test/`](EXPERIMENTS/116-berka-service-test/README.md),
+F121, F122.
+
+**The question.** E066 validated a deterministic recurring-payment detector
+(interval+amount core, F1 0.8194) on the Berka bank extract. E116 asked the
+complementary discriminating question: handed the same extract as rows of
+`date | amount | counterparty`, can a free general assistant find the recurring
+payments — the ones the bank itself codes as standing orders?
+
+**What was measured.** 80 accounts (60 R, 20 C), 75 positive groups, three
+readers on the same accounts and the same key. The assistant read each
+committed extract and named the counterparties it judged recurring; the
+answers were committed before any scoring; the detector was E066's
+`detect.py`, unmodified; the naive baseline was any group with ≥3 debits.
+
+**The result.** The assistant found **75 of 75 positive groups (recall 1.0)**
+and is the most precise reader — F1 **0.8242** against the detector's 0.5769
+and the naive rule's 0.4225. K1 (recall ≥ 0.95) and K2 (F1 within 0.05 of the
+detector) both pass. The assistant is not merely adequate; it is the best of
+the three readers by a wide margin.
+
+**Why the predeclared "served" condition is not met, and why that does not
+change the conclusion.** G0_C_precision failed at 0.0. F122 establishes why:
+the control accounts contain real standing orders whose `k_symbol` is outside
+the positive set, so the gate — which assumes controls are standing-order-free
+— fails *every* reader identically (detector 0.0, naive 0.0). The gate was a
+proxy for hallucination and the proxy's premise is false. The reader-validity
+question the gate was meant to answer is answered on the R arm (recall 1.0)
+and on the assistant's C-arm answers, all of which are real standing orders
+verifiable in the committed extracts. The substantive question D107's
+constraint asks — *is the answer already decidable by the incumbent?* — is
+answered **yes**.
+
+**The decision.** The recurring-payment line **closes on service**, the sixth
+line to do so after E062, E091, E092, E114 and E115. E066's detector has no
+unserved population: the strongest accessible reader is a free general
+assistant, and it is better than the detector. The detector stays in the
+repository as a correct tool, unreleased, `status: draft`, on the standing rule
+that a tool with no measured unserved population is work, not a candidate.
+
+**Relation to D107.** D107 recorded that five lines had closed on an
+incumbent-served population and that the record's own named next action was
+E066's merchant-name axis. This is that axis, and it closes the same way. The
+pattern is now six-for-six: on every population where the mission has run the
+strongest accessible alternative, the alternative has served it. The seat for
+a candidate remains empty, and the reason is not a lack of trying.
