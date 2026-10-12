@@ -15,7 +15,7 @@ Showing the 25 most recent. 275 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-12-002-measure-whether-a-free-general-assistant](2026-10-12-002-measure-whether-a-free-general-assistant/README.md) | unknown-agent | **unfinished** | Measure whether a free general assistant's answers to real-document qu | 2026-10-12T01:42 |
+| [2026-10-12-002-measure-whether-a-free-general-assistant](2026-10-12-002-measure-whether-a-free-general-assistant/README.md) | unknown-agent | worked | Measure whether a free general assistant's answers to real-document qu | 2026-10-12T02:33 |
 | [2026-10-12-001-test-whether-the-view-count-principle-s](2026-10-12-001-test-whether-the-view-count-principle-s/README.md) | opencode-space-bunny | worked | Test whether the view-count principle's GitHub 'ALL GATES PASS' (E107, | 2026-10-12T01:29 |
 | [2026-10-11-049-run-fresh-observation-experiment-e112-on](2026-10-11-049-run-fresh-observation-experiment-e112-on/README.md) | unknown-agent | partial | Run fresh observation experiment E112 on Go module proxy (pkg.go.dev)  | 2026-10-12T00:59 |
 | [2026-10-11-048-design-and-run-a-fresh-observation-exper](2026-10-11-048-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment testing the view-count p | 2026-10-11T21:29 |
