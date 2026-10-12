@@ -178,6 +178,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0089-e090-measure-whether-a-module-to-distribution-re.md`](../tasks/T-0089-e090-measure-whether-a-module-to-distribution-re.md) | `tasks/INDEX.md` | active | 2026-10-10 | ## Goal |
 | [`tasks/T-0090-e091-hand-replicate-e062-s-answerability-sub-tes.md`](../tasks/T-0090-e091-hand-replicate-e062-s-answerability-sub-tes.md) | `tasks/INDEX.md` | active | 2026-10-10 | ## Goal |
 | [`tasks/T-0091-run-a-fresh-observation-experiment-testing-the-v.md`](../tasks/T-0091-run-a-fresh-observation-experiment-testing-the-v.md) | `tasks/INDEX.md` | active | 2026-10-11 | ## Goal |
+| [`tasks/T-0093-test-whether-a-discriminating-observation-proced.md`](../tasks/T-0093-test-whether-a-discriminating-observation-proced.md) | `tasks/INDEX.md` | active | 2026-10-12 | ## Goal |
 
 ## RESEARCH
 
@@ -368,9 +369,13 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/105-viewcount-synthesis/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/106-pypi-viewcount-prototype/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/107-github-repos-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
+| `EXPERIMENTS/108-cross-platform-need-discovery/` | `docs/INDEX.md` | active | 2026-10-11 | ## Overview |
 | `EXPERIMENTS/108-dockerhub-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
+| `EXPERIMENTS/108-packagist-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | owner: docs/INDEX.md |
 | `EXPERIMENTS/109-pubdev-viewcount/` | `docs/INDEX.md` | superseded | 2026-10-12 | 1 documents |
+| `EXPERIMENTS/110-rubygems-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/110-viewcount-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-12 | owner: docs/INDEX.md |
+| `EXPERIMENTS/111-dockerhub-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
