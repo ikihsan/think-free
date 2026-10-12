@@ -11,6 +11,7 @@ disagreement cannot be argued away after the fact.
 place reports a clean rate over a population it did not measure (F116).
 """
 
+import argparse
 import json
 import os
 import re
@@ -80,6 +81,12 @@ def wilson(k, n, z=1.959963985):
 
 
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--answers", default="answers.jsonl")
+    ap.add_argument("--gate", type=float, default=KILL_GATE)
+    ap.add_argument("--arm", default="M2")
+    args = ap.parse_args()
+
     md = key_from_markdown()
     if md != KEY:
         print("KEY MISMATCH between M2-CASES.md and check_key.py")
@@ -87,7 +94,7 @@ def main():
         print("  py :", KEY)
         return 3
 
-    path = os.path.join(HERE, "answers.jsonl")
+    path = os.path.join(HERE, args.answers)
     answers = {}
     with open(path) as fh:
         for line in fh:
@@ -133,6 +140,8 @@ def main():
     dlo, dhi = wilson(div_agree, len(div))
 
     result = {
+        "arm": args.arm,
+        "answers_file": args.answers,
         "cases_keyed": len(KEY),
         "cases_answered": n,
         "unkeyed_answers": unkeyed,
@@ -140,18 +149,20 @@ def main():
         "correct": agree,
         "accuracy": round(acc, 6),
         "accuracy_ci95": [round(lo, 6), round(hi, 6)] if n else None,
-        "kill_gate": KILL_GATE,
-        "kill_gate_met": acc >= KILL_GATE,
-        "verdict": "served_closed" if acc >= KILL_GATE else "population_open",
+        "kill_gate": args.gate,
+        "kill_gate_met": acc >= args.gate,
+        "verdict": "served_closed" if acc >= args.gate else "population_open",
         "divergent_subset": {
             "n": len(div),
             "correct": div_agree,
             "accuracy": round(div_agree / float(len(div)), 6) if div else None,
             "accuracy_ci95": [round(dlo, 6), round(dhi, 6)] if div else None,
+            "kill_gate_met": (div_agree / float(len(div)) >= args.gate) if div else None,
         },
         "rows": rows,
     }
-    with open(os.path.join(HERE, "m2-result.json"), "w") as fh:
+    out_name = "m2-result.json" if args.arm == "M2" else "m2b-result.json"
+    with open(os.path.join(HERE, out_name), "w") as fh:
         json.dump(result, fh, indent=2, sort_keys=True)
         fh.write("\n")
 
@@ -167,7 +178,7 @@ def main():
     )
     print(
         "kill gate %.2f met: %s -> %s"
-        % (KILL_GATE, result["kill_gate_met"], result["verdict"])
+        % (args.gate, result["kill_gate_met"], result["verdict"])
     )
     if unkeyed:
         print("UNKEYED ANSWERS (excluded, not dropped):", unkeyed)
