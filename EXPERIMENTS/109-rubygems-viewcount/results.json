@@ -1,0 +1,42 @@
+{
+  "experiment": "109-rubygems-viewcount",
+  "domain": "RubyGems (Ruby package registry)",
+  "date": "2026-10-11",
+  "samples": {
+    "need_related": 100,
+    "random": 100
+  },
+  "download_stats": {
+    "need_median": 29330,
+    "need_mean": 2325220,
+    "random_median": 14404,
+    "random_mean": 206457,
+    "need_vs_random_median_ratio": 2.0362399333518466
+  },
+  "statistical_tests": {
+    "mann_whitney_u": 6070.0,
+    "p_value_one_sided": 0.0044848818,
+    "cliffs_delta": 0.214
+  },
+  "gates": {
+    "G1_min_100_need": {
+      "status": "PASS",
+      "value": 100
+    },
+    "G2_significant_separation": {
+      "status": "PASS",
+      "p_value": 0.0045,
+      "cliffs_delta": 0.214
+    },
+    "G3_wilson_lb_above_random_median": {
+      "status": "PASS",
+      "wilson_lb": 0.5525,
+      "need_above_random_median": 65
+    },
+    "G4_viewcount_coverage": {
+      "status": "PASS",
+      "coverage": 1.0
+    }
+  },
+  "conclusion": "View-count principle generalizes to RubyGems. Need-related gems have significantly higher download counts than random gems (p=0.0045, Cliff's delta=0.214). 65% of need-related gems exceed the random median (Wilson CI95 [0.553, 0.736])."
+}

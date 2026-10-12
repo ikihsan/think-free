@@ -3,18 +3,25 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-11
+last-verified: 2026-10-12
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
 
-289 recorded session(s). One `events.jsonl` per session, so concurrent
+296 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 264 older session(s) are in the directory listing.
+Showing the 25 most recent. 271 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-11-049-run-fresh-observation-experiment-e112-on](2026-10-11-049-run-fresh-observation-experiment-e112-on/README.md) | unknown-agent | partial | Run fresh observation experiment E112 on Go module proxy (pkg.go.dev)  | 2026-10-12T00:59 |
+| [2026-10-11-048-design-and-run-a-fresh-observation-exper](2026-10-11-048-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment testing the view-count p | 2026-10-11T21:29 |
+| [2026-10-11-047-design-and-run-a-fresh-observation-exper](2026-10-11-047-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment in a new domain per D083 | 2026-10-11T20:49 |
+| [2026-10-11-046-update-state-md-and-state-next-actions-m](2026-10-11-046-update-state-md-and-state-next-actions-m/README.md) | unknown-agent | worked | Update STATE.md and STATE-next-actions.md with E108 Packagist results | 2026-10-11T19:30 |
+| [2026-10-11-045-log-artifacts-from-e108-packagist-view-c](2026-10-11-045-log-artifacts-from-e108-packagist-view-c/README.md) | unknown-agent | worked | Log artifacts from E108 Packagist view-count experiment | 2026-10-11T19:25 |
+| [2026-10-11-044-fresh-observation-experiment-test-view-c](2026-10-11-044-fresh-observation-experiment-test-view-c/README.md) | unknown-agent | worked | Fresh observation experiment: test view-count principle on Packagist ( | 2026-10-11T19:24 |
+| [2026-10-11-043-build-a-cross-platform-need-discovery-pr](2026-10-11-043-build-a-cross-platform-need-discovery-pr/README.md) | unknown-agent | worked | Build a cross-platform need-discovery prototype leveraging the validat | 2026-10-11T19:05 |
 | [2026-10-11-041-declare-artifacts-from-e107-experiment-a](2026-10-11-041-declare-artifacts-from-e107-experiment-a/README.md) | opencode | worked | Declare artifacts from E107 experiment and finalize session | 2026-10-11T18:21 |
 | [2026-10-11-040-execute-t-0091-fresh-observation-experim](2026-10-11-040-execute-t-0091-fresh-observation-experim/README.md) | opencode | worked | Execute T-0091: Fresh observation experiment testing view-count princi | 2026-10-11T18:19 |
 | [2026-10-11-038-finalize-view-count-principle-research-a](2026-10-11-038-finalize-view-count-principle-research-a/README.md) | unknown-agent | worked | Finalize view-count principle research and record session outcome | 2026-10-11T17:49 |
@@ -33,13 +40,6 @@ Showing the 25 most recent. 264 older session(s) are in the directory listing.
 | [2026-10-11-022-recover-context-improve-pyprovides-proto](2026-10-11-022-recover-context-improve-pyprovides-proto/README.md) | unknown-agent | worked | Recover context, improve pyprovides prototype, and document next steps | 2026-10-11T14:48 |
 | [2026-10-11-021-design-and-run-rubygems-view-count-princ](2026-10-11-021-design-and-run-rubygems-view-count-princ/README.md) | unknown-agent | worked | Design and run RubyGems view-count principle test as fresh observation | 2026-10-11T14:06 |
 | [2026-10-11-020-continue-view-count-principle-fresh-obse](2026-10-11-020-continue-view-count-principle-fresh-obse/README.md) | unknown-agent | worked | Continue view-count principle fresh observation experiments per D083 | 2026-10-11T13:39 |
-| [2026-10-11-019-fix-session-018-integrity-errors-declare](2026-10-11-019-fix-session-018-integrity-errors-declare/README.md) | unknown-agent | worked | Fix session 018 integrity errors: declare root results.json, update FA | 2026-10-11T12:26 |
-| [2026-10-11-018-run-a-fresh-observation-experiment-in-a](2026-10-11-018-run-a-fresh-observation-experiment-in-a/README.md) | unknown-agent | worked | Run a fresh observation experiment in a new domain per D083, testing v | 2026-10-11T12:19 |
-| [2026-10-11-017-design-and-run-fresh-observation-experim](2026-10-11-017-design-and-run-fresh-observation-experim/README.md) | unknown-agent | worked | Design and run fresh observation experiment on crates.io (Rust package | 2026-10-11T11:55 |
-| [2026-10-11-014-fresh-observation-in-new-domain-per-d083](2026-10-11-014-fresh-observation-in-new-domain-per-d083/README.md) | unknown-agent | worked | Fresh observation in new domain per D083; E102 community.mycroft.ai vo | 2026-10-11T11:30 |
-| [2026-10-11-013-fresh-observation-in-new-domain-per-d083](2026-10-11-013-fresh-observation-in-new-domain-per-d083/README.md) | unknown-agent | worked | Fresh observation in new domain per D083; E102 community.mycroft.ai vo | 2026-10-11T11:29 |
-| [2026-10-11-012-log-experiment-094-artifacts-and-update](2026-10-11-012-log-experiment-094-artifacts-and-update/README.md) | unknown-agent | worked | Log Experiment 094 artifacts and update STATE documents with results | 2026-10-11T09:57 |
-| [2026-10-11-012-declare-session-events](2026-10-11-012-declare-session-events/README.md) | unknown-agent | worked | Declare session events | 2026-10-11T10:37 |
 
 
 ## Reading a session

@@ -1,0 +1,27 @@
+{
+  "experiment": "E108",
+  "platform": "Packagist",
+  "gates": {
+    "g1_pass": true,
+    "g2_pass": true,
+    "g3_pass": true,
+    "g4_pass": true,
+    "all_pass": true,
+    "statistics": {
+      "classified_total": 200,
+      "need_total": 100,
+      "random_total": 100,
+      "need_active": 100,
+      "random_active": 26,
+      "need_rate": 1.0,
+      "random_rate": 0.26,
+      "u_statistic": 0.0,
+      "p_value": 0.0,
+      "cliff_delta": 0.9936,
+      "random_median": 0,
+      "need_above_median": 100,
+      "wilson_lb": 0.963005192523998
+    }
+  },
+  "conclusion": "view-count principle supported on Packagist"
+}
