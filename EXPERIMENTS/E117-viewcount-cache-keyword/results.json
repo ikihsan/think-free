@@ -1,0 +1,27 @@
+{
+  "observed_at_utc": "2026-10-12T09:23:43Z",
+  "user_date": "2026-10-12",
+  "platform": "Linux-x86_64",
+  "keyword": "cache",
+  "sample_size": 200,
+  "classified": {
+    "need-related": 111,
+    "random": 76
+  },
+  "active": {
+    "need-related": 110,
+    "random": 24
+  },
+  "active_rates": {
+    "need-related": 0.990990990990991,
+    "random": 0.3157894736842105
+  },
+  "g1_pass": true,
+  "g2_pass": true,
+  "g3_pass": true,
+  "g4_pass": true,
+  "conclusion": "ALL GATES PASS \u2014 view-count principle works on PyPI with \"cache\" keyword, but 100% active rate for need-related group warrants investigation",
+  "experiment_description": "View-count principle prototype on PyPI with keyword \"cache\"",
+  "failures": 13,
+  "detail_count": 187
+}

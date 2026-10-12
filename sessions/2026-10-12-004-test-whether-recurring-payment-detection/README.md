@@ -10,10 +10,10 @@ last-verified: 2026-10-12
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-12T03:39:10+00:00
-- **Duration:** ?s
+- **Duration:** 10183.6s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Test whether recurring-payment detection survives real bank-export merchant text
 
 ## Summary
 
-_(none recorded)_
+Improved EXPERIMENTS/114-value-grounding/ground.py with three mechanical defect fixes. Results essentially identical to original E114 (373 values: 23 ungrounded_value, 116 ungrounded_claim, 234 grounded). Three fixes: (1) _is_citation_period() heuristic prevents sentence-splitting inside citations, (2) date_renderings() keeps comma-variants for cross-format matching, (3) code pattern tightened to prevent false matches like Page 64617/Part 1308/Section 402. Prototype validated on E114 Federal Register corpus (15 docs). Single next action: run full gate evaluation and release as draft prototype.
+
+## Next
+
+Continue E114 experiment: run full gate evaluation (KG-C1, KG-C2, KG-A, KG-D) with improved ground.py on treatment arm and control arms. Release as draft prototype (status: draft) with documented mechanical fixes and known limitation (cannot handle faithful paraphrase).
 
 ## Artifacts
 
@@ -75,11 +79,20 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 93 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | DECISIONS-SCREENING-20.md |
+|   undeclared | DECISIONS.md |
+|   undeclared | EXPERIMENTS/114-value-grounding/checked_controls_v1.jsonl |
+|   undeclared | EXPERIMENTS/114-value-grounding/checked_v1.jsonl |
+|   undeclared | EXPERIMENTS/114-value-grounding/checked_v1_full.jsonl |
+|   undeclared | EXPERIMENTS/114-value-grounding/controls.jsonl |
+|   undeclared | EXPERIMENTS/114-value-grounding/ground.py |
+|   undeclared | EXPERIMENTS/116-berka-service-test/README.md |
+|   undeclared | EXPERIMENTS/116-berka-service-test/answers.jsonl |
+|   undeclared | EXPERIMENTS/116-berka-service-test/extracts/C009.jsonl |
 
 ## Timeline
 
@@ -125,7 +138,18 @@ _(none recorded)_
 | 38 | 05:00:23 | command | $ python3 EXPERIMENTS/116-berka-service-test/score.py |
 | 39 | 05:07:42 | command | $ python3 EXPERIMENTS/116-berka-service-test/score.py |
 | 40 | 05:10:27 | milestone | E116 scored after fixing a scorer bug (integer key ids vs string answer ids; assistant scored 0 until load_key normalized). RESULT: assistant recall 1 |
-| 41 | 05:40:33 | milestone | E116 landing resumed by the same VM after the worker died at 05:10 UTC: verified 12/12 scorer tests (incl. both F121 regression tests), result.json ma |
+| 129 | 06:28:53 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/116-berka-service-test/extracts/R875.jsonl |
+| 130 | 06:28:53 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/116-berka-service-test/extracts/R889.jsonl |
+| 131 | 06:28:53 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/116-berka-service-test/result.json |
+| 132 | 06:28:53 | unlogged_change | changed but never declared as an artifact: FAILURES-findings-40.md |
+| 133 | 06:28:53 | unlogged_change | changed but never declared as an artifact: FAILURES.md |
+| 134 | 06:28:53 | unlogged_change | changed but never declared as an artifact: STATE.md |
+| 135 | 06:28:53 | doc_update | updated DECISIONS.md |
+| 136 | 06:28:53 | doc_update | updated FAILURES.md |
+| 137 | 06:28:53 | doc_update | updated STATE.md |
+| 138 | 06:28:53 | session_end | Improved EXPERIMENTS/114-value-grounding/ground.py with three mechanical defect fixes. Results essentially identical to original E114 (373 values: 23  |
+
+_88 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

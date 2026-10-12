@@ -8,7 +8,10 @@ import sklearn comes from pip install scikit-learn).
 import typing
 
 # Module name -> distribution name (as it appears on PyPI)
+# These are module names that don't match their distribution name
+# (e.g., import sklearn comes from pip install scikit-learn).
 KNOWN_ALIASES = {
+    # Core cross-name mappings (high-impact: distributions outside top-500 by downloads)
     "sklearn": "scikit-learn",
     "yaml": "PyYAML",
     "cv2": "opencv-python",
@@ -27,6 +30,8 @@ KNOWN_ALIASES = {
     "ldap": "python-ldap",
     "google.protobuf": "protobuf",
     "pkg_resources": "setuptools",
+    # Additional important aliases for distributions not in top-500 by downloads
+    "tf": "tensorflow",
 }
 
 # Standard library modules (no distribution needed)

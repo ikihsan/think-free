@@ -8,14 +8,18 @@ last-verified: 2026-10-12
 
 <!-- generated-by: origin; do not edit by hand -->
 
-302 recorded session(s). One `events.jsonl` per session, so concurrent
+306 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 277 older session(s) are in the directory listing.
+Showing the 25 most recent. 281 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-12-004-test-whether-recurring-payment-detection](2026-10-12-004-test-whether-recurring-payment-detection/README.md) | unknown-agent | **unfinished** | Test whether recurring-payment detection survives real bank-export mer | 2026-10-12T03:39 |
+| [2026-10-12-008-explore-and-improve-view-count-classifie](2026-10-12-008-explore-and-improve-view-count-classifie/README.md) | unknown-agent | **unfinished** | Explore and improve view-count classifier coverage (E113 binding const | 2026-10-12T08:41 |
+| [2026-10-12-007-run-e119-hex-pm-matched-harvest-experime](2026-10-12-007-run-e119-hex-pm-matched-harvest-experime/README.md) | unknown-agent | worked | Run E119 Hex.pm matched-harvest experiment and record results | 2026-10-12T08:37 |
+| [2026-10-12-006-finalize-pyprovides-prototype-validation](2026-10-12-006-finalize-pyprovides-prototype-validation/README.md) | unknown-agent | worked | Finalize pyprovides prototype validation and record decision/continuat | 2026-10-12T07:47 |
+| [2026-10-12-005-improve-view-count-classifier-and-docume](2026-10-12-005-improve-view-count-classifier-and-docume/README.md) | unknown-agent | worked | Improve view-count classifier and document results | 2026-10-12T06:46 |
+| [2026-10-12-004-test-whether-recurring-payment-detection](2026-10-12-004-test-whether-recurring-payment-detection/README.md) | unknown-agent | worked | Test whether recurring-payment detection survives real bank-export mer | 2026-10-12T06:28 |
 | [2026-10-12-003-measure-whether-numeric-applicability-th](2026-10-12-003-measure-whether-numeric-applicability-th/README.md) | unknown-agent | worked | Measure whether numeric applicability thresholds in the eCFR are numer | 2026-10-12T03:34 |
 | [2026-10-12-002-measure-whether-a-free-general-assistant](2026-10-12-002-measure-whether-a-free-general-assistant/README.md) | unknown-agent | worked | Measure whether a free general assistant's answers to real-document qu | 2026-10-12T02:33 |
 | [2026-10-12-001-test-whether-the-view-count-principle-s](2026-10-12-001-test-whether-the-view-count-principle-s/README.md) | opencode-space-bunny | worked | Test whether the view-count principle's GitHub 'ALL GATES PASS' (E107, | 2026-10-12T01:29 |
@@ -36,10 +40,6 @@ Showing the 25 most recent. 277 older session(s) are in the directory listing.
 | [2026-10-11-030-provide-user-summary](2026-10-11-030-provide-user-summary/README.md) | unknown-agent | worked | Provide user summary | 2026-10-11T16:33 |
 | [2026-10-11-029-pyfix-prototype-completion-verified](2026-10-11-029-pyfix-prototype-completion-verified/README.md) | unknown-agent | worked | pyfix prototype completion verified | 2026-10-11T16:33 |
 | [2026-10-11-028-finalize-and-record-pyfix-prototype-comp](2026-10-11-028-finalize-and-record-pyfix-prototype-comp/README.md) | unknown-agent | worked | Finalize and record pyfix prototype completion | 2026-10-11T16:32 |
-| [2026-10-11-027-improve-pyfix-prototype-for-python-impor](2026-10-11-027-improve-pyfix-prototype-for-python-impor/README.md) | unknown-agent | worked | Improve pyfix prototype for Python import error resolution and satisfy | 2026-10-11T16:31 |
-| [2026-10-11-027-build-a-view-count-principle-prototype-t](2026-10-11-027-build-a-view-count-principle-prototype-t/README.md) | unknown-agent | worked | Build a view-count principle prototype tool for finding relevant packa | 2026-10-11T17:30 |
-| [2026-10-11-026-improve-pyfix-prototype-for-python-impor](2026-10-11-026-improve-pyfix-prototype-for-python-impor/README.md) | unknown-agent | worked | Improve pyfix prototype for Python import error resolution and satisfy | 2026-10-11T16:30 |
-| [2026-10-11-025-improve-pyfix-prototype-for-python-impor](2026-10-11-025-improve-pyfix-prototype-for-python-impor/README.md) | unknown-agent | worked | Improve pyfix prototype for Python import error resolution and satisfy | 2026-10-11T16:26 |
 
 
 ## Reading a session

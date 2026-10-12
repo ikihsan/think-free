@@ -11,7 +11,7 @@ D106. This part holds the decisions taken when a candidate is closed by
 **measuring the incumbent on a task it already performs**, and the one about
 what to do when that happens five times running.
 
-Decisions **D107**. Each entry records a choice that was genuinely open, the
+Decisions **D107, D108**. Each entry records a choice that was genuinely open, the
 options considered, and what was decided.
 
 | id | decision |
