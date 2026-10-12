@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-11
+last-verified: 2026-10-12
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -78,8 +78,6 @@ Skill bodies under `.agents/skills/` are indexed by
 |---|---|---|---|---|
 | [`sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md`](../sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md) | `docs/INDEX.md` | stale | 2026-10-08 | Date: 2026-10-07 |
 | [`sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md`](../sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session 2026-10-08-013, VM instance-20260717-0944, 2026-10-08. Defect 24. |
-| [`sessions/2026-10-10-008-synthesize-5-domain-unserved-fraction-me/synthesis.md`](../sessions/2026-10-10-008-synthesize-5-domain-unserved-fraction-me/synthesis.md) | `—` | — | — | ## Observation |
-| [`sessions/2026-10-10-009-measure-6th-domain-hvac/synthesis.md`](../sessions/2026-10-10-009-measure-6th-domain-hvac/synthesis.md) | `—` | — | — | ## Observation |
 | [`sessions/README.md`](../sessions/README.md) | `docs/INDEX.md` | active | 2026-10-03 | The append-only record of every working session in this repository. |
 
 ## tasks
@@ -178,6 +176,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0089-e090-measure-whether-a-module-to-distribution-re.md`](../tasks/T-0089-e090-measure-whether-a-module-to-distribution-re.md) | `tasks/INDEX.md` | active | 2026-10-10 | ## Goal |
 | [`tasks/T-0090-e091-hand-replicate-e062-s-answerability-sub-tes.md`](../tasks/T-0090-e091-hand-replicate-e062-s-answerability-sub-tes.md) | `tasks/INDEX.md` | active | 2026-10-10 | ## Goal |
 | [`tasks/T-0091-run-a-fresh-observation-experiment-testing-the-v.md`](../tasks/T-0091-run-a-fresh-observation-experiment-testing-the-v.md) | `tasks/INDEX.md` | active | 2026-10-11 | ## Goal |
+| [`tasks/T-0093-test-whether-a-discriminating-observation-proced.md`](../tasks/T-0093-test-whether-a-discriminating-observation-proced.md) | `tasks/INDEX.md` | active | 2026-10-12 | ## Goal |
 
 ## RESEARCH
 
