@@ -10,10 +10,10 @@ last-verified: 2026-10-12
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-12T02:37:52+00:00
-- **Duration:** ?s
+- **Duration:** 3425.7s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Measure whether numeric applicability thresholds in the eCFR are numerous and co
 
 ## Summary
 
-_(none recorded)_
+E115 landed: CFR applicability-threshold line closed on a served population (M2 14/14, M2b 14/14 no-clause, 6/6 counting-rule subset, null control 0/6; F119, D107). Harvest split into classify.py + harvest.py at the cap; test_classify.py written to pin both artifact shapes M1.md records. Standing constraint: the next screen must target a task whose answer is not decidable from rule text plus facts.
+
+## Next
+
+Start fresh per D107's open region: a population whose answer needs evidence, not arithmetic. The record's own named next action (STATE-in-flight-9.md) is E066's merchant-name axis on real modern bank exports, gated first by D077's population rule (read Firefly III / Actual Budget / beancount import workflows).
 
 ## Artifacts
 
@@ -82,11 +86,12 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 2 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | EXPERIMENTS/115-applicability-thresholds/classify.py |
+|   undeclared | vendor/MANIFEST.md |
 
 ## Timeline
 
@@ -132,13 +137,18 @@ _(none recorded)_
 | 38 | 03:05:34 | artifact | wrote EXPERIMENTS/115-applicability-thresholds/nullnaive-result.json |
 | 39 | 03:05:36 | artifact | wrote EXPERIMENTS/115-applicability-thresholds/parts-title29.jsonl |
 | 40 | 03:07:42 | decision | E115 applicability-threshold line closes on a served population (6/6 counting-rule cases with no clause supplied, 0/6 for the naive reading); the CFR  |
-| 41 | 03:07:44 | artifact | wrote FAILURES-findings-40.md |
-| 42 | 03:07:45 | artifact | wrote DECISIONS-SCREENING-20.md |
 | 43 | 03:07:45 | artifact | wrote FAILURES.md |
 | 44 | 03:07:46 | artifact | wrote DECISIONS.md |
 | 45 | 03:07:55 | command | $ tools/origin doc index |
 | 46 | 03:33:04 | artifact | wrote EXPERIMENTS/115-applicability-thresholds/test_classify.py |
 | 47 | 03:33:07 | milestone | landing completed: test_classify.py written, both pinned defect shapes reproduce, 8+6 tests green |
+| 48 | 03:34:57 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/115-applicability-thresholds/classify.py |
+| 49 | 03:34:57 | unlogged_change | changed but never declared as an artifact: vendor/MANIFEST.md |
+| 50 | 03:34:57 | doc_update | updated DECISIONS.md |
+| 51 | 03:34:57 | doc_update | updated FAILURES.md |
+| 52 | 03:34:57 | session_end | E115 landed: CFR applicability-threshold line closed on a served population (M2 14/14, M2b 14/14 no-clause, 6/6 counting-rule subset, null control 0/6 |
+
+_2 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
