@@ -128,6 +128,15 @@ exempt: EXPERIMENTS/**/raw/*.html
 # to say: splitting the table would separate a row from its own verdict.
 exempt: EXPERIMENTS/**/raw/*.tsv
 
+# Raw CFR part XML, fetched by E115's `harvest.py` on 2026-10-12 and never
+# hand-edited. Same class as the `.html` and `.txt` raw captures above: bytes
+# an external endpoint returned, keyed by a slug of the request URL because the
+# versioner API serves one part per request and the filenames would otherwise be
+# meaningless. They are upstream content, not authored prose, so the cap has
+# nothing to say about them and splitting one would separate a section from the
+# part it belongs to. `parts-title29.jsonl` is the derived, committed record.
+exempt: EXPERIMENTS/**/cache/*
+
 exempt: .agents/skills/brainstorming/**
 exempt: .agents/skills/dispatching-parallel-agents/**
 exempt: .agents/skills/executing-plans/**

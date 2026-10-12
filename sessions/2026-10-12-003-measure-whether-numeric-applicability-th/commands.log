@@ -1,0 +1,334 @@
+==============================================================================
+[seq 2] 2026-10-12T02:38:09+00:00
+$ curl -s -o /dev/null -w ecfr-titles:%{http_code}\n https://www.ecfr.gov/api/versioner/v1/titles.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+ecfr-titles:200
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 767  redactions: none
+==============================================================================
+[seq 3] 2026-10-12T02:38:12+00:00
+$ curl -s https://www.ecfr.gov/api/versioner/v1/structure/2026-01-01/title-29.json -o /tmp/opencode/t29.json -w t29:%{http_code} size:%{size_download}\n
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+t29:200 size:2473607
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2288  redactions: none
+==============================================================================
+[seq 4] 2026-10-12T02:38:37+00:00
+$ curl -s -o /dev/null -w dol-flsa:%{http_code}\n https://www.dol.gov/agencies/whd/flsa/misclassification
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+dol-flsa:200
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 540  redactions: none
+==============================================================================
+[seq 5] 2026-10-12T02:38:40+00:00
+$ curl -s -o /dev/null -w irs-aca:%{http_code}\n https://www.irs.gov/affordable-care-act/employers
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+irs-aca:200
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1742  redactions: none
+==============================================================================
+[seq 6] 2026-10-12T02:38:41+00:00
+$ curl -s -o /dev/null -w dol-fmla:%{http_code}\n https://www.dol.gov/agencies/whd/fmla
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+dol-fmla:200
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 271  redactions: none
+==============================================================================
+[seq 7] 2026-10-12T02:38:58+00:00
+$ tools/origin id next E
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+origin: unknown identifier kind E; this repository numbers T, F, D
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 331  redactions: none
+==============================================================================
+[seq 8] 2026-10-12T02:39:01+00:00
+$ tools/origin id next F
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+F119
+  from: origin/research/origin@5da6d09 and this working tree (highest F118)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1595  redactions: none
+==============================================================================
+[seq 15] 2026-10-12T03:02:09+00:00
+$ python3 EXPERIMENTS/115-applicability-thresholds/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+  File "EXPERIMENTS/115-applicability-thresholds/score.py", line 168
+    print("kill gate %.2f met: %s -> %s" % (KILL_GATE, result["kill_gate_met"], result["verdict"]))
+    ^
+SyntaxError: invalid syntax
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 502  redactions: none
+==============================================================================
+[seq 16] 2026-10-12T03:02:22+00:00
+$ python3 EXPERIMENTS/115-applicability-thresholds/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+  File "EXPERIMENTS/115-applicability-thresholds/score.py", line 168
+    print(
+    ^
+SyntaxError: invalid syntax
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 492  redactions: none
+==============================================================================
+[seq 17] 2026-10-12T03:02:40+00:00
+$ python3 EXPERIMENTS/115-applicability-thresholds/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+OK  P1    key=YES   got=YES  
+OK  P10   key=YES   got=YES    <- counting-rule case
+OK  P11   key=NO    got=NO   
+OK  P12   key=YES   got=YES  
+OK  P13   key=NO    got=NO   
+OK  P2    key=NO    got=NO     <- counting-rule case
+OK  P3    key=NO    got=NO   
+OK  P4    key=48    got=48     <- counting-rule case
+OK  P5    key=YES   got=YES  
+OK  P6    key=NO    got=NO     <- counting-rule case
+OK  P7    key=YES   got=YES  
+OK  P7b   key=SAME  got=SAME   <- counting-rule case
+OK  P8    key=NO    got=NO     <- counting-rule case
+OK  P9    key=YES   got=YES  
+
+accuracy 14/14 = 1.0000  CI95 [0.7847, 1.0000]
+counting-rule subset 6/6 = 1.0000
+kill gate 0.95 met: True -> served_closed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 96  redactions: none
+==============================================================================
+[seq 19] 2026-10-12T03:03:45+00:00
+$ python3 EXPERIMENTS/115-applicability-thresholds/score.py --answers answers-m2b.jsonl --arm M2b
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+OK  P1    key=YES   got=YES  
+OK  P10   key=YES   got=YES    <- counting-rule case
+OK  P11   key=NO    got=NO   
+OK  P12   key=YES   got=YES  
+OK  P13   key=NO    got=NO   
+OK  P2    key=NO    got=NO     <- counting-rule case
+OK  P3    key=NO    got=NO   
+OK  P4    key=48    got=48     <- counting-rule case
+OK  P5    key=YES   got=YES  
+OK  P6    key=NO    got=NO     <- counting-rule case
+OK  P7    key=YES   got=YES  
+OK  P7b   key=SAME  got=SAME   <- counting-rule case
+OK  P8    key=NO    got=NO     <- counting-rule case
+OK  P9    key=YES   got=YES  
+
+accuracy 14/14 = 1.0000  CI95 [0.7847, 1.0000]
+counting-rule subset 6/6 = 1.0000
+kill gate 0.95 met: True -> served_closed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 112  redactions: none
+==============================================================================
+[seq 20] 2026-10-12T03:03:54+00:00
+$ python3 EXPERIMENTS/115-applicability-thresholds/score.py --answers answers-null-naive.jsonl --arm NULL-naive
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+OK  P1    key=YES   got=YES  
+X   P10   key=YES   got=NO     <- counting-rule case
+OK  P11   key=NO    got=NO   
+OK  P12   key=YES   got=YES  
+OK  P13   key=NO    got=NO   
+X   P2    key=NO    got=YES    <- counting-rule case
+OK  P3    key=NO    got=NO   
+X   P4    key=48    got=60     <- counting-rule case
+X   P5    key=YES   got=NO   
+X   P6    key=NO    got=YES    <- counting-rule case
+X   P7    key=YES   got=NO   
+X   P7b   key=SAME  got=None   <- counting-rule case
+X   P8    key=NO    got=YES    <- counting-rule case
+OK  P9    key=YES   got=YES  
+
+accuracy 6/14 = 0.4286  CI95 [0.2138, 0.6741]
+counting-rule subset 0/6 = 0.0000
+kill gate 0.95 met: False -> population_open
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 299  redactions: none
+==============================================================================
+[seq 21] 2026-10-12T03:04:37+00:00
+$ python3 EXPERIMENTS/115-applicability-thresholds/score.py --answers answers.jsonl --arm M2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+OK  P1    key=YES   got=YES  
+OK  P10   key=YES   got=YES    <- counting-rule case
+OK  P11   key=NO    got=NO   
+OK  P12   key=YES   got=YES  
+OK  P13   key=NO    got=NO   
+OK  P2    key=NO    got=NO     <- counting-rule case
+OK  P3    key=NO    got=NO   
+OK  P4    key=48    got=48     <- counting-rule case
+OK  P5    key=YES   got=YES  
+OK  P6    key=NO    got=NO     <- counting-rule case
+OK  P7    key=YES   got=YES  
+OK  P7b   key=SAME  got=SAME   <- counting-rule case
+OK  P8    key=NO    got=NO     <- counting-rule case
+OK  P9    key=YES   got=YES  
+
+accuracy 14/14 = 1.0000  CI95 [0.7847, 1.0000]
+counting-rule subset 6/6 = 1.0000
+kill gate 0.95 met: True -> served_closed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 90  redactions: none
+==============================================================================
+[seq 22] 2026-10-12T03:04:38+00:00
+$ python3 EXPERIMENTS/115-applicability-thresholds/score.py --answers answers-m2b.jsonl --arm M2b
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+OK  P1    key=YES   got=YES  
+OK  P10   key=YES   got=YES    <- counting-rule case
+OK  P11   key=NO    got=NO   
+OK  P12   key=YES   got=YES  
+OK  P13   key=NO    got=NO   
+OK  P2    key=NO    got=NO     <- counting-rule case
+OK  P3    key=NO    got=NO   
+OK  P4    key=48    got=48     <- counting-rule case
+OK  P5    key=YES   got=YES  
+OK  P6    key=NO    got=NO     <- counting-rule case
+OK  P7    key=YES   got=YES  
+OK  P7b   key=SAME  got=SAME   <- counting-rule case
+OK  P8    key=NO    got=NO     <- counting-rule case
+OK  P9    key=YES   got=YES  
+
+accuracy 14/14 = 1.0000  CI95 [0.7847, 1.0000]
+counting-rule subset 6/6 = 1.0000
+kill gate 0.95 met: True -> served_closed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 118  redactions: none
+==============================================================================
+[seq 23] 2026-10-12T03:04:39+00:00
+$ python3 EXPERIMENTS/115-applicability-thresholds/score.py --answers answers-null-naive.jsonl --arm NULL-naive
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+OK  P1    key=YES   got=YES  
+X   P10   key=YES   got=NO     <- counting-rule case
+OK  P11   key=NO    got=NO   
+OK  P12   key=YES   got=YES  
+OK  P13   key=NO    got=NO   
+X   P2    key=NO    got=YES    <- counting-rule case
+OK  P3    key=NO    got=NO   
+X   P4    key=48    got=60     <- counting-rule case
+X   P5    key=YES   got=NO   
+X   P6    key=NO    got=YES    <- counting-rule case
+X   P7    key=YES   got=NO   
+X   P7b   key=SAME  got=None   <- counting-rule case
+X   P8    key=NO    got=YES    <- counting-rule case
+OK  P9    key=YES   got=YES  
+
+accuracy 6/14 = 0.4286  CI95 [0.2138, 0.6741]
+counting-rule subset 0/6 = 0.0000
+kill gate 0.95 met: False -> population_open
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 106  redactions: none
+==============================================================================
+[seq 24] 2026-10-12T03:04:51+00:00
+$ python3 EXPERIMENTS/115-applicability-thresholds/score.py --answers answers.jsonl --arm M2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+OK  P1    key=YES   got=YES  
+OK  P10   key=YES   got=YES    <- counting-rule case
+OK  P11   key=NO    got=NO   
+OK  P12   key=YES   got=YES  
+OK  P13   key=NO    got=NO   
+OK  P2    key=NO    got=NO     <- counting-rule case
+OK  P3    key=NO    got=NO   
+OK  P4    key=48    got=48     <- counting-rule case
+OK  P5    key=YES   got=YES  
+OK  P6    key=NO    got=NO     <- counting-rule case
+OK  P7    key=YES   got=YES  
+OK  P7b   key=SAME  got=SAME   <- counting-rule case
+OK  P8    key=NO    got=NO     <- counting-rule case
+OK  P9    key=YES   got=YES  
+
+accuracy 14/14 = 1.0000  CI95 [0.7847, 1.0000]
+counting-rule subset 6/6 = 1.0000
+kill gate 0.95 met: True -> served_closed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 124  redactions: none
+==============================================================================
+[seq 25] 2026-10-12T03:04:52+00:00
+$ python3 EXPERIMENTS/115-applicability-thresholds/score.py --answers answers-m2b.jsonl --arm M2b
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+OK  P1    key=YES   got=YES  
+OK  P10   key=YES   got=YES    <- counting-rule case
+OK  P11   key=NO    got=NO   
+OK  P12   key=YES   got=YES  
+OK  P13   key=NO    got=NO   
+OK  P2    key=NO    got=NO     <- counting-rule case
+OK  P3    key=NO    got=NO   
+OK  P4    key=48    got=48     <- counting-rule case
+OK  P5    key=YES   got=YES  
+OK  P6    key=NO    got=NO     <- counting-rule case
+OK  P7    key=YES   got=YES  
+OK  P7b   key=SAME  got=SAME   <- counting-rule case
+OK  P8    key=NO    got=NO     <- counting-rule case
+OK  P9    key=YES   got=YES  
+
+accuracy 14/14 = 1.0000  CI95 [0.7847, 1.0000]
+counting-rule subset 6/6 = 1.0000
+kill gate 0.95 met: True -> served_closed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 109  redactions: none
+==============================================================================
+[seq 26] 2026-10-12T03:04:53+00:00
+$ python3 EXPERIMENTS/115-applicability-thresholds/score.py --answers answers-null-naive.jsonl --arm NULL-naive
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+OK  P1    key=YES   got=YES  
+X   P10   key=YES   got=NO     <- counting-rule case
+OK  P11   key=NO    got=NO   
+OK  P12   key=YES   got=YES  
+OK  P13   key=NO    got=NO   
+X   P2    key=NO    got=YES    <- counting-rule case
+OK  P3    key=NO    got=NO   
+X   P4    key=48    got=60     <- counting-rule case
+X   P5    key=YES   got=NO   
+X   P6    key=NO    got=YES    <- counting-rule case
+X   P7    key=YES   got=NO   
+X   P7b   key=SAME  got=None   <- counting-rule case
+X   P8    key=NO    got=YES    <- counting-rule case
+OK  P9    key=YES   got=YES  
+
+accuracy 6/14 = 0.4286  CI95 [0.2138, 0.6741]
+counting-rule subset 0/6 = 0.0000
+kill gate 0.95 met: False -> population_open
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 106  redactions: none
+==============================================================================
+[seq 27] 2026-10-12T03:05:14+00:00
+$ python3 EXPERIMENTS/115-applicability-thresholds/test_score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_every_naive_wrong_case_is_keyed (__main__.TestKeyIntegrity) ... ok
+test_key_has_the_declared_composition (__main__.TestKeyIntegrity) ... ok
+test_key_matches_committed_markdown (__main__.TestKeyIntegrity) ... ok
+test_both_treatment_arms_beat_the_control (__main__.TestScorerFires) ... ok
+test_normalize_reads_the_answers_actually_written (__main__.TestScorerFires) ... ok
+test_null_control_scores_zero_on_counting_rule_subset (__main__.TestScorerFires) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.002s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 314  redactions: none
+==============================================================================
+[seq 45] 2026-10-12T03:07:55+00:00
+$ tools/origin doc index
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+updated docs/INDEX.md
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7386  redactions: none

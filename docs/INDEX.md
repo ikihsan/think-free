@@ -377,6 +377,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/112-dockerhub-viewcount-run2/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
 | `EXPERIMENTS/113-viewcount-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-12 | owner: docs/INDEX.md |
 | `EXPERIMENTS/114-value-grounding/` | `docs/INDEX.md` | active | 2026-10-12 | 4 documents |
+| `EXPERIMENTS/115-applicability-thresholds/` | `docs/INDEX.md` | active | 2026-10-12 | 5 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |

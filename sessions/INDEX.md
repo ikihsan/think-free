@@ -8,13 +8,14 @@ last-verified: 2026-10-12
 
 <!-- generated-by: origin; do not edit by hand -->
 
-300 recorded session(s). One `events.jsonl` per session, so concurrent
+301 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 275 older session(s) are in the directory listing.
+Showing the 25 most recent. 276 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-12-003-measure-whether-numeric-applicability-th](2026-10-12-003-measure-whether-numeric-applicability-th/README.md) | unknown-agent | **unfinished** | Measure whether numeric applicability thresholds in the eCFR are numer | 2026-10-12T02:37 |
 | [2026-10-12-002-measure-whether-a-free-general-assistant](2026-10-12-002-measure-whether-a-free-general-assistant/README.md) | unknown-agent | worked | Measure whether a free general assistant's answers to real-document qu | 2026-10-12T02:33 |
 | [2026-10-12-001-test-whether-the-view-count-principle-s](2026-10-12-001-test-whether-the-view-count-principle-s/README.md) | opencode-space-bunny | worked | Test whether the view-count principle's GitHub 'ALL GATES PASS' (E107, | 2026-10-12T01:29 |
 | [2026-10-11-049-run-fresh-observation-experiment-e112-on](2026-10-11-049-run-fresh-observation-experiment-e112-on/README.md) | unknown-agent | partial | Run fresh observation experiment E112 on Go module proxy (pkg.go.dev)  | 2026-10-12T00:59 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 275 older session(s) are in the directory listing.
 | [2026-10-11-026-improve-pyfix-prototype-for-python-impor](2026-10-11-026-improve-pyfix-prototype-for-python-impor/README.md) | unknown-agent | worked | Improve pyfix prototype for Python import error resolution and satisfy | 2026-10-11T16:30 |
 | [2026-10-11-025-improve-pyfix-prototype-for-python-impor](2026-10-11-025-improve-pyfix-prototype-for-python-impor/README.md) | unknown-agent | worked | Improve pyfix prototype for Python import error resolution and satisfy | 2026-10-11T16:26 |
 | [2026-10-11-025-design-and-run-a-fresh-observation-exper](2026-10-11-025-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment in a new domain per D083 | 2026-10-11T16:43 |
-| [2026-10-11-024-record-artifacts-from-e104-experiment](2026-10-11-024-record-artifacts-from-e104-experiment/README.md) | unknown-agent | worked | Record artifacts from E104 experiment | 2026-10-11T15:12 |
 
 
 ## Reading a session
