@@ -161,7 +161,7 @@ def main():
         },
         "rows": rows,
     }
-    out_name = "m2-result.json" if args.arm == "M2" else "m2b-result.json"
+    out_name = "%s-result.json" % args.arm.lower().replace("-", "")
     with open(os.path.join(HERE, out_name), "w") as fh:
         json.dump(result, fh, indent=2, sort_keys=True)
         fh.write("\n")

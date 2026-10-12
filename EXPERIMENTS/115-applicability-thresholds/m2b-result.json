@@ -1,26 +1,26 @@
 {
-  "accuracy": 0.428571,
+  "accuracy": 1.0,
   "accuracy_ci95": [
-    0.213808,
-    0.674094
+    0.784689,
+    1.0
   ],
-  "answers_file": "answers-null-naive.jsonl",
-  "arm": "NULL-naive",
+  "answers_file": "answers-m2b.jsonl",
+  "arm": "M2b",
   "cases_answered": 14,
   "cases_keyed": 14,
-  "correct": 6,
+  "correct": 14,
   "divergent_subset": {
-    "accuracy": 0.0,
+    "accuracy": 1.0,
     "accuracy_ci95": [
-      0.0,
-      0.390334
+      0.609666,
+      1.0
     ],
-    "correct": 0,
-    "kill_gate_met": false,
+    "correct": 6,
+    "kill_gate_met": true,
     "n": 6
   },
   "kill_gate": 0.95,
-  "kill_gate_met": false,
+  "kill_gate_met": true,
   "rows": [
     {
       "assistant": "YES",
@@ -30,9 +30,9 @@
       "key": "YES"
     },
     {
-      "assistant": "NO",
+      "assistant": "YES",
       "case_id": "P10",
-      "correct": false,
+      "correct": true,
       "in_naive_wrong_set": true,
       "key": "YES"
     },
@@ -58,9 +58,9 @@
       "key": "NO"
     },
     {
-      "assistant": "YES",
+      "assistant": "NO",
       "case_id": "P2",
-      "correct": false,
+      "correct": true,
       "in_naive_wrong_set": true,
       "key": "NO"
     },
@@ -72,44 +72,44 @@
       "key": "NO"
     },
     {
-      "assistant": "60",
+      "assistant": "48",
       "case_id": "P4",
-      "correct": false,
+      "correct": true,
       "in_naive_wrong_set": true,
       "key": "48"
     },
     {
-      "assistant": "NO",
+      "assistant": "YES",
       "case_id": "P5",
-      "correct": false,
+      "correct": true,
       "in_naive_wrong_set": false,
       "key": "YES"
     },
     {
-      "assistant": "YES",
+      "assistant": "NO",
       "case_id": "P6",
-      "correct": false,
+      "correct": true,
       "in_naive_wrong_set": true,
       "key": "NO"
     },
     {
-      "assistant": "NO",
+      "assistant": "YES",
       "case_id": "P7",
-      "correct": false,
+      "correct": true,
       "in_naive_wrong_set": false,
       "key": "YES"
     },
     {
-      "assistant": null,
+      "assistant": "SAME",
       "case_id": "P7b",
-      "correct": false,
+      "correct": true,
       "in_naive_wrong_set": true,
       "key": "SAME"
     },
     {
-      "assistant": "YES",
+      "assistant": "NO",
       "case_id": "P8",
-      "correct": false,
+      "correct": true,
       "in_naive_wrong_set": true,
       "key": "NO"
     },
@@ -123,5 +123,5 @@
   ],
   "unanswered_cases": [],
   "unkeyed_answers": [],
-  "verdict": "population_open"
+  "verdict": "served_closed"
 }
