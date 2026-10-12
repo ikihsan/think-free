@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-12
+-->
+
 # E111 — View-count principle on Docker Hub container images
 
 ## Summary

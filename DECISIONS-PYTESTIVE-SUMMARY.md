@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-12
+-->
+
 # pyprovides — Decision Summary
 
 ## What was produced

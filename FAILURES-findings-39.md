@@ -133,3 +133,54 @@ random ones.
 **Rule that follows.** D083-style mandatory sweeps need a claimed platform list
 in the task ledger, not just a claimed task. A domain is the scarce resource in
 a sweep, not a task id.
+
+## F118 — a verifier that passes every control it was given still had a false-positive rate of 1.00 on real answers
+
+**E114, 2026-10-12, `observed`.** A value-grounding checker was built to
+attest that every number, date, money amount and citation in an answer about a
+document came from that document. It passed both declared gates:
+
+| gate | declared | measured |
+|---|---|---|
+| recall on corrupted answers | >= 0.90 | **1.0000** (22 of 22; 11/11 corrupted with a value that really occurs elsewhere in the same document, 11/11 with a same-shape value occurring nowhere) |
+| false alarms on verbatim document spans | <= 0.02 | **0.0069** (1 of 145 values) |
+
+It then flagged **139 of 374 values (0.3717)** in the answers a free general
+assistant wrote after reading five real Federal Register rules in full. **Every
+flag was wrong.**
+
+- All **24** `ungrounded_value` verdicts — values the checker says are absent —
+  have every digit group and every alphabetic token present in the document.
+  The reasons are normalization gaps the checker could have closed: the rule
+  writes `49 CFR $2,600. 1150.31-1150.35`, `49 $64. per document. U.S.C.
+  11301`, `5 U.S.C. 552(a)(4)(A), (a)(6)(B), and 553`, and `Filed 10-9-26`.
+- A seeded random **50** of the 115 `ungrounded_claim` verdicts were read by
+  hand against the document text with its surrounding context printed beside
+  them. **50 of 50 are correct.** Wilson 95% lower bound on the false-positive
+  rate: **0.9286**.
+
+**The subject of the experiment is not what failed.** Across the same 374
+values the assistant fabricated **none**: Wilson 95% upper bound **0.0098**,
+against a kill gate of 0.02. "LLMs invent the numbers when they read a document
+for you" is a widely repeated claim, it is testable without a judge, and it did
+not survive 374 values from five real rules.
+
+**Why it matters beyond this experiment.** The two controls were too easy and
+they failed in opposite directions. A *verbatim* negative control validates the
+case where the answer **is** the document. A *corrupted* positive control
+validates the case where the value is wrong. **Real answers are faithful
+paraphrase with nothing invented, and that arm is the one a tool is actually
+pointed at.** Verifying a paraphrase is a semantic judgement — the exact cost
+the tool was built to avoid — and no control built from the other two cases
+detects that the instrument is being asked a third question.
+
+A verifier's negative control has to include the case where the subject is
+right and the form is different, or its false-positive rate on real input is
+unknown and can be 1.00 while every reported gate is green.
+
+**What this does not say.** Anything about verifiers that use a language model
+for the paraphrase step; those are a different instrument at a different cost.
+Anything about document genres that put a different distance between a label and
+its value. And nothing about the flag rate itself: `ground.py` was repaired
+twice after its controls passed, while looking at the treatment arm's output, so
+0.782 -> 0.684 -> 0.372 is a record of the repair and not a measurement.

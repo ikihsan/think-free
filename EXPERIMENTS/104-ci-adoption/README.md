@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-12
+-->
+
 # E104 — CI/CD adoption on PyPI
 
 **Status:** Experiment in progress.

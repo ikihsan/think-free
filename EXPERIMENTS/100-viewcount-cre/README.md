@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-12
+-->
+
 # E100 — View-count principle on Code Review Stack Exchange
 
 **Status:** Experiment in progress.

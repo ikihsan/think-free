@@ -204,6 +204,31 @@ assistant serves the answerable class at 0.81, so diagnosis-shaped need is
 not an unserved population either. Both limbs of D103's reopening condition
 answered no.
 
+## E114 closed the value-grounding line (2026-10-12)
+
+The prototype-first route the brief asks for was taken once, in full: build the
+thing, validate it against adversarial controls, then point it at real answers.
+The build succeeded and the population turned out to be served.
+
+- **0 of 374 values fabricated** (Wilson 95% upper bound 0.0098; kill gate 0.02).
+  Five real Federal Register final rules, read in full, asked for every dollar
+  amount, date and citation. **The widely repeated claim that models invent
+  numbers when reading a document is withdrawn for this population.**
+- **The verifier is dead, not the subject.** Recall 1.0000 on corrupted answers,
+  0.0069 false alarms on verbatim spans, then 0.3717 of real values flagged with
+  a false-positive rate of 1.00. Both controls were too easy; faithful paraphrase
+  with nothing invented is the arm that was never built (F118, D106).
+- **Kept, unreleased, `status: draft`:** `EXPERIMENTS/114-value-grounding/` —
+  `ground.py` is a working, deterministic, stdlib-only checker and is worth
+  reusing as a *ranker* (a flagged value is worth a human glance) even though it
+  is worthless as a *gate*.
+
+**What would reopen this, and it is not cheap:** a verifier whose paraphrase
+step uses a language model. Its false-positive rate on faithful paraphrase is the
+one number E114 never measured, because building it means paying the cost the
+tool was meant to avoid.
+
+
 ## Fresh observation needed
 
 The view-count principle has been tested on:

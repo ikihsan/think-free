@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-12
+-->
+
 # E097 — View-count principle on GitHub pyproject.toml presence
 
 **Status:** Experiment in progress.

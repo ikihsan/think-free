@@ -1,0 +1,108 @@
+==============================================================================
+[seq 2] 2026-10-12T01:44:19+00:00
+$ git add -A
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 192  redactions: none
+==============================================================================
+[seq 3] 2026-10-12T01:44:20+00:00
+$ git commit -q -m Renumber the unpushed D083 experiments to E112/E113 after landing a three-way identifier collision with E108/E110
+
+sync land surfaced a content conflict in STATE.md, not a merge error: two VMs
+independently ran an experiment numbered E108 on Docker Hub and got opposite
+signs (-0.810 on 55/55 arms, +0.386 on 3313/537), and the unpushed matched-
+harvest control collided with a landed E110 that is RubyGems.
+
+- renumber on the unpushed side, per the standing rule: E112 Docker Hub run 2,
+  E113 matched-harvest control; landed E110/E111 keep their ids
+- F117 records the collision, the unused coordinate, and the rule that follows
+  (a sweep's scarce resource is a platform, not a task id)
+- STATE.md and STATE-next-actions.md carry one note stating neither Docker Hub
+  row is independent evidence
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 103  redactions: none
+==============================================================================
+[seq 5] 2026-10-12T01:46:35+00:00
+$ python3 EXPERIMENTS/114-value-grounding/fetch.py 30
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+candidates offered: 100 total matching: 3821
+  ok 2026-20902     4338 bytes  Safety Zone; Brandon Road Lock and Dam to Lake Michigan Incl
+  ok 2026-20901     4344 bytes  Safety Zone; Brandon Road Lock and Dam to Lake Michigan Incl
+  ok 2026-20900     4135 bytes  Safety Zone; Brandon Road Lock and Dam to Lake Michigan Incl
+  ok 2026-20890    98077 bytes  Project-Level Predecisional Administrative Review Process
+  ok 2026-20889    21601 bytes  Fees for Services Performed in Connection With Licensing and
+  ok 2026-20873   121130 bytes  Magnuson-Stevens Act Provisions; Fisheries off West Coast St
+  ok 2026-20870     6096 bytes  Fisheries of the Exclusive Economic Zone off Alaska; Realloc
+  ok 2026-20869    16389 bytes  Airworthiness Directives; Rolls-Royce Deutschland Ltd & Co K
+  ok 2026-20861     5881 bytes  Fisheries of the Northeastern United States; Summer Flounder
+  ok 2026-20860     5274 bytes  Fisheries of the Exclusive Economic Zone Off Alaska; Realloc
+  ok 2026-20849    46914 bytes  Clean Water Act Hazardous Substance Facility Response Plans:
+  ok 2026-20848   224753 bytes  Use of Salt Substitutes To Reduce the Sodium Content in Stan
+  ok 2026-20847    10392 bytes  Amendment of United States Area Navigation (RNAV) Route T-43
+  ok 2026-20846    45235 bytes  Colorado Underground Injection Control (UIC) Program; Class 
+  ok 2026-20839     4273 bytes  Publication of an Iran-Related Determination
+  ok 2026-20834    10893 bytes  Amendment of Jet Routes J-83 and J-85, and Very High Frequen
+  ok 2026-20831     3763 bytes  Publication of Venezuela Sanctions Regulations Web General L
+  ok 2026-20818    15244 bytes  Airworthiness Directives; Elixir Aircraft
+  refuse C1-2026-20019 body too short (1168 bytes)
+  ok 2026-20792    39547 bytes  Raisins Produced From Grapes Grown in California; Order Amen
+  ok 2026-20757    49490 bytes  Schedules of Controlled Substances; Removal of Exemption Sta
+  ok 2026-20748     4785 bytes  Schedules of Controlled Substances: Placement of O-Desmethyl
+  ok 2026-20736    41151 bytes  Air Plan Approval; Michigan; Clean Data Determination for th
+  ok 2026-20727    26238 bytes  Medical Devices; Immunology and Microbiology Devices; Classi
+  ok 2026-20726    16492 bytes  Medical Devices; Cardiovascular Devices; Classification of t
+  ok 2026-20725    18311 bytes  Medical Devices; Immunology and Microbiology Devices; Classi
+  ok 2026-20722    17434 bytes  Airworthiness Directives; Airbus Helicopters Deutschland Gmb
+  ok 2026-20687    45160 bytes  Impact Aid Programs
+  ok 2026-20685     6737 bytes  Removal of Obsolete Portion of Regulation Relating to Care a
+  ok 2026-20684     6157 bytes  Removal of Obsolete/Suspended Regulations
+  ok 2026-20680    23600 bytes  Airworthiness Directives; The Boeing Company Airplanes
+captured: 30 refused: 70
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 22090  redactions: none
+==============================================================================
+[seq 7] 2026-10-12T01:51:29+00:00
+$ python3 EXPERIMENTS/114-value-grounding/ground.py EXPERIMENTS/114-value-grounding/raw EXPERIMENTS/114-value-grounding/answers.jsonl 0.6 checked.jsonl
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"counts": {"grounded": 81, "ungrounded_claim": 268, "ungrounded_value": 23}, "rows": 15, "threshold": 0.6, "values_checked": 372}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 224  redactions: none
+==============================================================================
+[seq 8] 2026-10-12T01:52:18+00:00
+$ python3 EXPERIMENTS/114-value-grounding/ground.py EXPERIMENTS/114-value-grounding/raw EXPERIMENTS/114-value-grounding/answers.jsonl 0.6 checked.jsonl
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"counts": {"grounded": 111, "ungrounded_claim": 222, "ungrounded_value": 18}, "rows": 15, "threshold": 0.6, "values_checked": 351}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 380  redactions: none
+==============================================================================
+[seq 9] 2026-10-12T01:52:45+00:00
+$ python3 EXPERIMENTS/114-value-grounding/ground.py EXPERIMENTS/114-value-grounding/raw EXPERIMENTS/114-value-grounding/answers.jsonl 0.6 checked.jsonl
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"counts": {"grounded": 36, "ungrounded_claim": 313, "ungrounded_value": 23}, "rows": 15, "threshold": 0.6, "values_checked": 372}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 386  redactions: none
+==============================================================================
+[seq 10] 2026-10-12T01:53:07+00:00
+$ python3 EXPERIMENTS/114-value-grounding/ground.py EXPERIMENTS/114-value-grounding/raw EXPERIMENTS/114-value-grounding/answers.jsonl 0.6 checked.jsonl
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"counts": {"grounded": 235, "ungrounded_claim": 115, "ungrounded_value": 24}, "rows": 15, "threshold": 0.6, "values_checked": 374}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 686  redactions: none
+==============================================================================
+[seq 11] 2026-10-12T01:54:10+00:00
+$ python3 EXPERIMENTS/114-value-grounding/verify_flags.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"genuinely_absent": 0, "ungrounded_value_verdicts": 24, "with_every_part_present_in_document": 24}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 122  redactions: none

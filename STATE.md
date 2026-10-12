@@ -165,6 +165,18 @@ artifacts receive arrivals. Reopening requires (i) a classifier with a declared
 coverage floor, (ii) matched harvest as the default design, (iii) a stratified
 reading beside the pooled one.
 
+**E114 completed (2026-10-12): the value-grounding line is CLOSED, and the
+population is served.** A free general assistant read five real Federal Register
+final rules in full and answered for every dollar amount, date, and citation.
+Across **374 values it fabricated none** — 0 of 374, Wilson 95% upper bound
+0.0098 against a declared 2% gate (F118, D106). The verifier built to catch them
+is what failed: it passed both its declared gates (**recall 1.0000** on corrupted
+answers, **0.0069** false alarms on verbatim document spans) and then flagged
+**0.3717** of real values with a **false-positive rate of 1.00** — 24 of 24
+`ungrounded_value` verdicts have every part present in the document, and 50 of 50
+hand-read flags are correct. The rule that follows: *a verifier's control must
+include the case where the subject is right and the form is different.*
+
 **ID collision + direct contradiction on Docker Hub, from two uncoordinated runs (2026-10-12, found while landing).** Two VMs numbered a Docker Hub run **E108** independently. `b4e0db34` (this VM, now **E112**) reports **GATES FAIL, Cliff's delta = -0.810** on 55 need / 55 random images, its random arm catching base images (alpine 12.3B, ubuntu 10.1B, node 7.1B, mysql 5.2B pulls). The landed `EXPERIMENTS/111-dockerhub-viewcount` (**E111**) reports **ALL GATES PASS, delta = +0.386** on 3,313 need / 537 random images. Same platform, opposite sign, a 29x gap in need-arm size. Renumbered on the unpushed side, per the standing rule: the Docker Hub run is **E112**, the matched-harvest control is **E113**, and the landed **E110** (`EXPERIMENTS/110-rubygems-viewcount`) is **RubyGems**, not a matched harvest. Neither Docker Hub row is independent evidence — both drew its arms with the asymmetric harvest E113 falsifies, and E113's own need arm is 6:1 imbalanced in the same shape. A coordinate was claimed (`T-0093`) and a second worker then took the same D083 slot anyway; the next session should read the task ledger before taking a D083 domain.
 
 ## Capability evidence

@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-12
+-->
+
 # E108 — Cross-Platform Need Discovery Prototype
 
 ## Overview

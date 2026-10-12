@@ -370,12 +370,13 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/106-pypi-viewcount-prototype/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/107-github-repos-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
 | `EXPERIMENTS/108-cross-platform-need-discovery/` | `docs/INDEX.md` | active | 2026-10-11 | ## Overview |
-| `EXPERIMENTS/108-dockerhub-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
 | `EXPERIMENTS/108-packagist-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | owner: docs/INDEX.md |
 | `EXPERIMENTS/109-pubdev-viewcount/` | `docs/INDEX.md` | superseded | 2026-10-12 | 1 documents |
 | `EXPERIMENTS/110-rubygems-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
-| `EXPERIMENTS/113-viewcount-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-12 | owner: docs/INDEX.md |
 | `EXPERIMENTS/111-dockerhub-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
+| `EXPERIMENTS/112-dockerhub-viewcount-run2/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
+| `EXPERIMENTS/113-viewcount-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-12 | owner: docs/INDEX.md |
+| `EXPERIMENTS/114-value-grounding/` | `docs/INDEX.md` | active | 2026-10-12 | 4 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |

@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-12
+-->
+
 # E103 — View-count principle on Stack Overflow emacs tag
 
 **Status:** Experiment in progress.
