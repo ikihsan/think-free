@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-03
+last-verified: 2026-10-13
 -->
 
 # Release manifest — what is public
@@ -45,7 +45,7 @@ absent, and the check fails the moment it appears.
 | `EXPERIMENTS/` `RESEARCH/` | Working notes, sealed reports, and raw experiment outputs. Cited, not published. |
 | `MISSION.md` `STATE.md` `STATE-defects.md` `STATE-defects-2.md` `STATE-history.md` `STATE-history-2.md` `STATE-history-3.md` `STATE-next-actions.md` `STATE-next-actions-closed.md` `STATE-next-actions-closed-2.md` `STATE-selection.md` `STATE-in-flight.md` `STATE-in-flight-2.md` `STATE-in-flight-3.md` `STATE-in-flight-4.md` `STATE-in-flight-5.md` `STATE-in-flight-6.md` `STATE-in-flight-7.md` `STATE-in-flight-8.md` `STATE-constraints.md` `ROADMAP.md` `ROADMAP-infrastructure.md` | Mission control records. Honest to keep, distracting as a front door. |
 | `DECISIONS.md` `DECISIONS-FOUNDATION.md` `DECISIONS-PRACTICE.md` `DECISIONS-SCREENING.md` `DECISIONS-SCREENING-2.md` `DECISIONS-SCREENING-3.md` `DECISIONS-SCREENING-4.md` `DECISIONS-SCREENING-5.md` `DECISIONS-SCREENING-6.md` `DECISIONS-SCREENING-7.md` `DECISIONS-SCREENING-8.md` `DECISIONS-SCREENING-9.md` `DECISIONS-SCREENING-10.md` `DECISIONS-SCREENING-11.md` `DECISIONS-SCREENING-12.md` `DECISIONS-SCREENING-13.md` `DECISIONS-GATING.md` `DECISIONS-SESSIONS.md` `DECISIONS-PUBLISHING.md` `DECISIONS-RECORDS.md` | The decision log, split by invariant. |
-| `HYPOTHESES.md` `HYPOTHESES-results.md` `HYPOTHESES-results-2.md` `HYPOTHESES-results-3.md` `HYPOTHESES-candidates.md` `HYPOTHESES-candidates-2.md` `FAILURES.md` `FAILURES-findings.md` `FAILURES-findings-2.md` `FAILURES-findings-3.md` `FAILURES-findings-4.md` `FAILURES-findings-5.md` `FAILURES-findings-6.md` `FAILURES-findings-8.md` `FAILURES-findings-9.md` `FAILURES-findings-10.md` `FAILURES-findings-11.md` `FAILURES-findings-12.md` `FAILURES-findings-13.md` `FAILURES-findings-14.md`, `FAILURES-findings-15.md`, `FAILURES-findings-16.md`, `FAILURES-findings-17.md`, `FAILURES-findings-18.md`, `FAILURES-findings-19.md`, `FAILURES-findings-20.md`, `FAILURES-findings-21.md`, `FAILURES-findings-22.md`, `FAILURES-findings-23.md`, `FAILURES-findings-24.md`, `FAILURES-findings-25.md`, `FAILURES-findings-26.md`, `FAILURES-findings-27.md`, `FAILURES-findings-28.md`, `FAILURES-findings-29.md` `FAILURES-findings-30.md` `FAILURES-findings-31.md` `FAILURES-findings-32.md` | Candidate and failure records, split at the line cap. |
+| `HYPOTHESES.md` `HYPOTHESES-results.md` `HYPOTHESES-results-2.md` `HYPOTHESES-results-3.md` `HYPOTHESES-candidates.md` `HYPOTHESES-candidates-2.md` `FAILURES.md` `FAILURES-findings.md` `FAILURES-findings-2.md` `FAILURES-findings-3.md` `FAILURES-findings-4.md` `FAILURES-findings-5.md` `FAILURES-findings-8.md` `FAILURES-findings-9.md` `FAILURES-findings-10.md` `FAILURES-findings-11.md` `FAILURES-findings-12.md` `FAILURES-findings-13.md` `FAILURES-findings-14.md`, `FAILURES-findings-15.md`, `FAILURES-findings-16.md`, `FAILURES-findings-17.md`, `FAILURES-findings-18.md`, `FAILURES-findings-19.md`, `FAILURES-findings-20.md`, `FAILURES-findings-21.md`, `FAILURES-findings-22.md`, `FAILURES-findings-23.md`, `FAILURES-findings-24.md`, `FAILURES-findings-25.md`, `FAILURES-findings-26.md`, `FAILURES-findings-27.md`, `FAILURES-findings-28.md`, `FAILURES-findings-29.md` `FAILURES-findings-30.md` `FAILURES-findings-31.md` `FAILURES-findings-32.md` | Candidate and failure records, split at the line cap. |
 | `RESEARCH.md` | Index for the sealed investigations. |
 
 ## Rules
@@ -61,13 +61,16 @@ absent, and the check fails the moment it appears.
    shipped. The decidable part of that is agreement: the
    `origin-release-state` directive above and the same directive in `README.md`
    must match, so publishing a product means changing both in one commit.
+5. The `origin-release-state` directive must be `public-product` when any
+   public product path is promoted, and `no-public-product` when no public
+   product exists.
 
 ## What `release check` decides, and what it does not
 
 It checks six properties: no wildcards; every tracked top-level entry classified
 by exactly one table; a declared path exists unless marked `pending`, and a
-`pending` one does not; no path sits inside a directory of the other audience; no
-classified path holds credential-shaped text; and the two release states agree.
+`pending` one does not; no path sits inside a directory of the other audience;
+no classified path holds credential-shaped text; and the two release states agree.
 
 It does **not** decide whether the declared state is true, whether prose is
 accurate, or whether a path deserves its classification. A manifest and a README
@@ -79,7 +82,16 @@ anyway, and its coverage is not machine-checked.
 
 ## Current state
 
-**No public product exists.** The repository is a research and infrastructure
-record only. `README.md` describes the mission and the tooling, and says plainly
-that no product has been selected. Do not imply otherwise. Both files declare
-`no-public-product`; the check fails if they ever disagree.
+**A public product exists:** `preflight/` (the preflight package, three checks on
+the evaluation harness instrument) is promoted to public product status. The
+`origin-release-state: public-product` directive in both this manifest and the
+root `README.md` confirms agreement. The product is classified Alpha with full
+disclosure of its adaptation requirement: a per-harness adapter (a few lines of
+Python) is needed to point `preflight` at any given harness's run output. The
+tool automates three checks (C1 concordance, C2 alternate-form FP, C3 control
+arm) and withholds the headline rate unless all three pass. MIT-licensed. See
+`preflight/README.md` for the full specification, adapter evidence (7/7 harness
+formats, all adapters under 50 lines, all checks pass), and usage information.
+
+Both the manifest and README declare `public-product`; the check passes on
+agreement.

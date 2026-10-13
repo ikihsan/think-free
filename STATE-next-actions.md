@@ -227,6 +227,18 @@ any harness's run output with a small per-harness adapter. Next: prototype
 the adapter and measure its size on a third harness, or release the tool
 with a per-harness adapter interface.
 
+## E137 completed (2026-10-13): preflight demand validation GATE_CLOSED
+
+**E137 demand validation for preflight completed.** Harvested GitHub issues, Stack Overflow, Reddit, arXiv across 9 LLM evaluation frameworks (evalscope, evals, promptfoo, deepeval, inspect_ai, inspect-evals-lint, eval-harness, scale-eval-preflight, JudgeBench).
+
+| Gate | Declared | Observed | Verdict |
+|---|---|---|---|
+| G1 (demand) | ≥10 credible across ≥3 frameworks | 63 credible across 2 frameworks (evalscope: 40, evals: 23) | **FAIL** |
+
+**Classification breakdown:** C1_credible: 63, C2_credible: 0, C3_credible: 0, related: 32. The keyword-based classifier produced false positives for C1 (many issues match "join/match/silent/zero/accuracy" keywords but don't describe the actual C1 defect — silent join failure between separate key/output files). Only 2 frameworks yielded any credible reports; need ≥3. **GATE_CLOSED: demand too weak, preflight candidate withdrawn on demand grounds.** See `EXPERIMENTS/137-preflight-demand-validation/RESULT.md` and `CLASSIFICATIONS.md`.
+
+The preflight line remains an exploratory prototype (E134) with 8 validated adapters (E128–E136) but no external demand signal.
+
 ## E114 closed the value-grounding line (2026-10-12)
 
 The prototype-first route the brief asks for was taken once, in full: build the

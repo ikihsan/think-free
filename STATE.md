@@ -187,6 +187,8 @@ include the case where the subject is right and the form is different.*
 
 **E129 completed (2026-10-13): the openai/evals adapter is also a few lines.** `openai/evals` has a fundamentally different output structure (single append-only event stream, not two files), but the adapter is also a few lines: parse the event stream, filter for "match" events, extract `sample_id` and `data`. **Both harnesses have the shape preflight needs, and the adapter is a few lines for both.** The preflight line reopens — the tool can be pointed at any harness's run output with a small per-harness adapter.
 
+**E137 completed (2026-10-13): preflight demand validation GATE_CLOSED.** Harvested practitioner reports across 9 LLM evaluation frameworks (evalscope, evals, promptfoo, deepeval, inspect_ai, inspect-evals-lint, eval-harness, scale-eval-preflight, JudgeBench) from GitHub issues, Stack Overflow, Reddit, arXiv. G1 required ≥10 credible reports across ≥3 frameworks. Observed: 63 C1_credible (evalscope 40, evals 23), 0 C2_credible, 0 C3_credible — only 2 frameworks with any credible reports. Keyword-based classifier produced false positives for C1 (matching keywords but not the actual C1 defect definition). **GATE_CLOSED: demand too weak, preflight candidate withdrawn on demand grounds.** The preflight line stays an exploratory prototype with 8 validated adapters but no external demand signal.
+
 **E124 completed (2026-10-13): the mission's own harness defects are now a tool, and one declared gate failed.**
 Nine consecutive sessions (2026-10-12-007 … 014) ran the D083 view-count sweep
 that E113/F116 had already stopped; that sweep is **closed as a route**, and

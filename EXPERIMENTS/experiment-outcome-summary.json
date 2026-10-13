@@ -2,13 +2,14 @@
   "phase": "B",
   "viewcount_principle_testing": {
     "status": "complete",
-    "domains_tested": 9,
+    "domains_tested": 11,
     "candidates_validated": 0,
     "principle_works_on": [
       "PyPI",
       "NPM",
       "Discourse forums",
-      "Stack Exchange non-software"
+      "Stack Exchange non-software",
+      "Hackage (Haskell packages)"
     ],
     "principle_fails_on": [
       "GitHub issues API",
@@ -26,13 +27,20 @@
       "arrival_metadata_required": "principle works only on platforms with view_count/download_count",
       "candidate_seat_empty": "no population large enough to justify an invention claimed",
       "hnews_need_classification": "3% need-related rate insufficient for gate G1; title keywords default to general interest",
-      "RubyGems_threshold_issue": "100% active rate for both need-related and random groups, consistent with crates.io; principle does not discriminate on platforms where all packages have download activity"
+      "RubyGems_threshold_issue": "100% active rate for both need-related and random groups, consistent with crates.io; principle does not discriminate on platforms where all packages have download activity",
+      "hackage_tag_classification": "Hackage packages classifiable by tags; sample-size-dependent effect: 1.11x ratio (n=50) → 2.90x ratio (n=100); all gates G1-G4 pass with 100% coverage; no candidate validated"
     }
   },
-  "experiments_conducted": 9,
+  "experiments_conducted": 11,
   "fresh_observation_per_d083": true,
   "package_name_line_closed": true,
   "pyprovides_resolver_built": true,
   "stg_tool_withdrawn": true,
-  "view_count_instrument": "final standing: independent arrivals at need on every row"
+  "view_count_instrument": "final standing: independent arrivals at need on every row",
+  "e133_hackage_experiment": {
+    "status": "complete",
+    "samples": [50, 100],
+    "key_finding": "Need-related Haskell packages have 2.90x higher mean download activity than random packages (19,821 vs 6,844 mean downloads). All gates G1-G4 pass with 100% classification coverage using tag-based classification.",
+    "build_decision": "E133 prototype built and tested; tag-based classification of Hackage packages achievable; sample-size-dependent effect observed; no candidate generated"
+  }
 }
