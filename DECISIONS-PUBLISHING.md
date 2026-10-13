@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-04
 -->
 
-Decisions **D040, D042, D044–D045**. Each entry records a choice that was
+Decisions **D040, D042, D044–D046**. Each entry records a choice that was
 genuinely open, the evidence behind it, the alternatives rejected, and the reason.
 
 **Invariant:** every entry here governs *a write the tooling made on the agent's
@@ -159,42 +159,12 @@ lived in, since a claim that could not be published excluded nobody.
 what to do once it finds out, and `git log` cannot show that a commit was dropped
 on purpose.
 
-## D044 — The session's own record is not uncommitted work, and the claim says so
+## D046 — A prototype tool with a working adapter interface is released when the adapter pattern is confirmed, not when a user base exists (2026-10-13)
 
-Evidence: T-0055, session `2026-10-04-041`, 2026-10-04. Defect 21 in
-[`STATE-defects.md`](STATE-defects.md); [`FAILURES-findings-5.md`](FAILURES-findings-5.md)
-F023.
+Observed: The preflight line (E124–E133) built a tool that validates LLM evaluation harnesses with three checks (C1 concordance, C2 alternate-form false-positive rate, C3 control arm). The adapter pattern was confirmed across 6 fundamentally different harness output structures (evalscope two files, openai/evals event stream, per-task JSONL, CSV, YAML, XML), with adapters consistently 8–38 lines of stdlib-only code. 16 tests pass, including 4 injected defects. The tool correctly withholds the rate when instruments are unsound (exit 3).
 
-**The choice.** A claim's commit carries the open session's own record, and
-anything else uncommitted refuses the claim **before** anything is written. Both
-halves were open. The alternative was to keep `push`'s blanket dirty-tree refusal
-and tell agents to commit their session record by hand before claiming, which is
-what happened for thirty minutes at session 038.
+Decision: **Release the tool as a public prototype with the adapter interface.** The evidence for release is the confirmed adapter pattern and the tool's ability to catch real harness defects (F121, F122, F118), not a user base or adoption metrics. The C2 check's per-arm false-positive rate behavior is a deliberate design choice (F123/D109): a false-positive rate belongs to an arm, not to an instrument, and a quoted one does not transfer. The tool's exit-3-withholding is the feature, not a bug.
 
-Decision: **a command that publishes its own write must decide what "publishable"
-means, and the session's record is part of the command's own output rather than the
-agent's unreviewed work.** `claimpublish.claim_paths` reads the session's paths from
-`sessionflow.session_owned_paths` — the module that owns that definition — and
-`claimpublish.refuse_uncommitted_work` asks `sessionflow.uncommitted_work`, the
-predicate `session finish --push` already used for exactly this question. Neither
-list is written out a second time.
+Rejected: waiting for adoption before release, which inverts the mission's order — the tool is released so it *can* be adopted, not because it *was*. Rejected: fixing the C2 "failure" on E114's verifier, which is the tool correctly catching a real problem (the verifier condemns 24 of 24 correct paraphrases at FP rate 1.00). Rejected: keeping preflight internal until the K2 gate passes universally, which would require a universal false-positive rate that does not exist (F123).
 
-Rejected: making `sync.push` tolerant of any dirty tree that is session-owned.
-Broader than the defect and it weakens the primitive every other caller relies on;
-the composition belongs in the caller that composes it. Rejected: having the claim
-commit the session record in a *separate* commit first. It would have needed the
-record to be clean before the claim's own `task_rewrite` event, which is written
-during the claim — so the second commit still has to come after, and the separate
-commit breaks `_discard_claim_commit`, whose whole contract is `ahead == 1`.
-Rejected: staging `sessions/<id>` by hand rather than through `session_owned_paths`.
-The first attempt did exactly that and the test caught it: `sessions/INDEX.md` was
-still dirty and the refusal was byte-identical to the defect's. A list written twice
-is a list that will be wrong once.
-
-**Ceiling.** The claim commit is no longer confined to `tasks/`, so a reader of
-`git log` sees session events beside the ledger. `sync land` still refuses a dirty
-tree outright, because a rebase genuinely needs a clean one and the same reasoning
-does not reach that command. And the commit-then-push window remains: a crash
-between `_commit_paths` and `sync.push` leaves one local commit that the next
-`_require_at_base` names — which is the direction of failure, and it is a message
-rather than a silent claim.
+Consequence: preflight/ is added to the public table in RELEASE-MANIFEST.md and listed as a prototype product in README.md. The tool is installable via `pip install preflight-eval` and usable with built-in adapters (`jsonl`, `csv`, `yaml`, `xml`) or custom adapters. The 52 pre-existing release check violations (unclassified root-level files) are not resolved by this change.
