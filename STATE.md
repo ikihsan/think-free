@@ -200,6 +200,13 @@ document still scores near zero. **F123: one verifier, five arms, 0.0069 /
 0.1970 / 0.6667 / 0.9346 / 1.0000.** A false-positive rate belongs to an arm,
 not to an instrument, and a quoted one does not transfer (F123, D109).
 
+**One reconciliation artefact, named so it is not chased:** every session
+reports its *predecessor's* `events.jsonl` as an undeclared file change, because
+a session's own stream is written after its artifacts are recorded. Sessions
+002–004 of 2026-10-13 each logged the pair behind it and each produced the same
+report again. It is a structural one-session lag, not a missing entry, and
+chasing it further is the audit chain this record keeps paying for.
+
 **ID collision + direct contradiction on Docker Hub, from two uncoordinated runs (2026-10-12, found while landing).** Two VMs numbered a Docker Hub run **E108** independently. `b4e0db34` (this VM, now **E112**) reports **GATES FAIL, Cliff's delta = -0.810** on 55 need / 55 random images, its random arm catching base images (alpine 12.3B, ubuntu 10.1B, node 7.1B, mysql 5.2B pulls). The landed `EXPERIMENTS/111-dockerhub-viewcount` (**E111**) reports **ALL GATES PASS, delta = +0.386** on 3,313 need / 537 random images. Same platform, opposite sign, a 29x gap in need-arm size. Renumbered on the unpushed side, per the standing rule: the Docker Hub run is **E112**, the matched-harvest control is **E113**, and the landed **E110** (`EXPERIMENTS/110-rubygems-viewcount`) is **RubyGems**, not a matched harvest. Neither Docker Hub row is independent evidence — both drew its arms with the asymmetric harvest E113 falsifies, and E113's own need arm is 6:1 imbalanced in the same shape. A coordinate was claimed (`T-0093`) and a second worker then took the same D083 slot anyway; the next session should read the task ledger before taking a D083 domain.
 
 ## Capability evidence

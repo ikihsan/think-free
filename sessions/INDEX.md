@@ -8,14 +8,17 @@ last-verified: 2026-10-13
 
 <!-- generated-by: origin; do not edit by hand -->
 
-313 recorded session(s). One `events.jsonl` per session, so concurrent
+316 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 288 older session(s) are in the directory listing.
+Showing the 25 most recent. 291 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-13-001-build-and-falsify-a-reusable-instrument](2026-10-13-001-build-and-falsify-a-reusable-instrument/README.md) | unknown-agent | **unfinished** | Build and falsify a reusable instrument-validity checker for LLM-outpu | 2026-10-13T00:23 |
+| [2026-10-13-004-record-the-two-session-event-streams-the](2026-10-13-004-record-the-two-session-event-streams-the/README.md) | unknown-agent | worked | record the two session event streams the correction session reported a | 2026-10-13T01:59 |
+| [2026-10-13-003-correct-a-mistyped-path-in-the-session-e](2026-10-13-003-correct-a-mistyped-path-in-the-session-e/README.md) | unknown-agent | worked | correct a mistyped path in the session event stream by appending a cor | 2026-10-13T01:59 |
+| [2026-10-13-002-log-the-artifact-entries-the-e124-sessio](2026-10-13-002-log-the-artifact-entries-the-e124-sessio/README.md) | unknown-agent | worked | log the artifact entries the E124 session reconciliation reported as u | 2026-10-13T01:58 |
+| [2026-10-13-001-build-and-falsify-a-reusable-instrument](2026-10-13-001-build-and-falsify-a-reusable-instrument/README.md) | unknown-agent | worked | Build and falsify a reusable instrument-validity checker for LLM-outpu | 2026-10-13T01:57 |
 | [2026-10-12-014-conduct-fresh-observation-experiment-in](2026-10-12-014-conduct-fresh-observation-experiment-in/README.md) | unknown-agent | failed | Conduct fresh observation experiment in a new domain per D083, followi | 2026-10-13T00:15 |
 | [2026-10-12-013-design-and-run-a-fresh-observation-exper](2026-10-12-013-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment on CI/CD pipeline failur | 2026-10-12T22:24 |
 | [2026-10-12-012-identify-and-design-a-fresh-observation](2026-10-12-012-identify-and-design-a-fresh-observation/README.md) | unknown-agent | worked | Identify and design a fresh observation experiment in a new domain aft | 2026-10-12T20:30 |
@@ -37,9 +40,6 @@ Showing the 25 most recent. 288 older session(s) are in the directory listing.
 | [2026-10-11-045-log-artifacts-from-e108-packagist-view-c](2026-10-11-045-log-artifacts-from-e108-packagist-view-c/README.md) | unknown-agent | worked | Log artifacts from E108 Packagist view-count experiment | 2026-10-11T19:25 |
 | [2026-10-11-044-fresh-observation-test-view-count-princi](2026-10-11-044-fresh-observation-test-view-count-princi/README.md) | unknown-agent | partial | Fresh observation: test view-count principle on Pub.dev (Dart/Flutter  | 2026-10-12T00:04 |
 | [2026-10-11-044-fresh-observation-experiment-test-view-c](2026-10-11-044-fresh-observation-experiment-test-view-c/README.md) | unknown-agent | worked | Fresh observation experiment: test view-count principle on Packagist ( | 2026-10-11T19:24 |
-| [2026-10-11-043-build-a-cross-platform-need-discovery-pr](2026-10-11-043-build-a-cross-platform-need-discovery-pr/README.md) | unknown-agent | worked | Build a cross-platform need-discovery prototype leveraging the validat | 2026-10-11T19:05 |
-| [2026-10-11-042-run-fresh-observation-experiment-in-a-ne](2026-10-11-042-run-fresh-observation-experiment-in-a-ne/README.md) | unknown-agent | worked | Run fresh observation experiment in a new domain per D083 - test view- | 2026-10-11T19:05 |
-| [2026-10-11-041-declare-artifacts-from-e107-experiment-a](2026-10-11-041-declare-artifacts-from-e107-experiment-a/README.md) | opencode | worked | Declare artifacts from E107 experiment and finalize session | 2026-10-11T18:21 |
 
 
 ## Reading a session
