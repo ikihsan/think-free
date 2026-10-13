@@ -8,13 +8,15 @@ last-verified: 2026-10-13
 
 <!-- generated-by: origin; do not edit by hand -->
 
-321 recorded session(s). One `events.jsonl` per session, so concurrent
+323 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 296 older session(s) are in the directory listing.
+Showing the 25 most recent. 298 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-13-011-read-key-project-documents-to-understand](2026-10-13-011-read-key-project-documents-to-understand/README.md) | unknown-agent | worked | Read key project documents to understand current state and choose next | 2026-10-13T06:06 |
+| [2026-10-13-010-continue-preflight-adapter-pattern-docum](2026-10-13-010-continue-preflight-adapter-pattern-docum/README.md) | unknown-agent | worked | Continue preflight adapter pattern documentation and decision | 2026-10-13T05:09 |
 | [2026-10-13-009-measure-the-preflight-adapter-on-openai](2026-10-13-009-measure-the-preflight-adapter-on-openai/README.md) | unknown-agent | worked | Measure the preflight adapter on openai/evals — a harness with a diffe | 2026-10-13T04:48 |
 | [2026-10-13-008-answer-e125-s-open-question-does-a-harne](2026-10-13-008-answer-e125-s-open-question-does-a-harne/README.md) | unknown-agent | worked | Answer E125's open question: does a harness run output directory have  | 2026-10-13T04:45 |
 | [2026-10-13-007-test-whether-the-6-program-shaped-rows-f](2026-10-13-007-test-whether-the-6-program-shaped-rows-f/README.md) | unknown-agent | worked | Test whether the 6 program-shaped rows from E126 can be served by a se | 2026-10-13T04:40 |
@@ -38,8 +40,6 @@ Showing the 25 most recent. 296 older session(s) are in the directory listing.
 | [2026-10-12-003-measure-whether-numeric-applicability-th](2026-10-12-003-measure-whether-numeric-applicability-th/README.md) | unknown-agent | worked | Measure whether numeric applicability thresholds in the eCFR are numer | 2026-10-12T03:34 |
 | [2026-10-12-002-measure-whether-a-free-general-assistant](2026-10-12-002-measure-whether-a-free-general-assistant/README.md) | unknown-agent | worked | Measure whether a free general assistant's answers to real-document qu | 2026-10-12T02:33 |
 | [2026-10-12-001-test-whether-the-view-count-principle-s](2026-10-12-001-test-whether-the-view-count-principle-s/README.md) | opencode-space-bunny | worked | Test whether the view-count principle's GitHub 'ALL GATES PASS' (E107, | 2026-10-12T01:29 |
-| [2026-10-11-049-run-fresh-observation-experiment-e112-on](2026-10-11-049-run-fresh-observation-experiment-e112-on/README.md) | unknown-agent | partial | Run fresh observation experiment E112 on Go module proxy (pkg.go.dev)  | 2026-10-12T00:59 |
-| [2026-10-11-048-design-and-run-a-fresh-observation-exper](2026-10-11-048-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment testing the view-count p | 2026-10-11T21:29 |
 
 
 ## Reading a session
