@@ -185,6 +185,8 @@ include the case where the subject is right and the form is different.*
 
 **E128 completed (2026-10-13): the preflight line reopens, conditionally.** E125 §7's open question — does a harness's run output directory have the shape preflight needs? — answered by reading `modelscope/evalscope`'s output writer end to end. **Yes.** The run output has predictions and reviews joined by `index` within one task directory. The tax is a per-harness adapter (a few lines specifying directories and join key), not a loader library. This corrects E125's conclusion: preflight can be pointed at run output with an adapter. The next step is to measure the adapter on a second harness.
 
+**E129 completed (2026-10-13): the openai/evals adapter is also a few lines.** `openai/evals` has a fundamentally different output structure (single append-only event stream, not two files), but the adapter is also a few lines: parse the event stream, filter for "match" events, extract `sample_id` and `data`. **Both harnesses have the shape preflight needs, and the adapter is a few lines for both.** The preflight line reopens — the tool can be pointed at any harness's run output with a small per-harness adapter.
+
 **E124 completed (2026-10-13): the mission's own harness defects are now a tool, and one declared gate failed.**
 Nine consecutive sessions (2026-10-12-007 … 014) ran the D083 view-count sweep
 that E113/F116 had already stopped; that sweep is **closed as a route**, and

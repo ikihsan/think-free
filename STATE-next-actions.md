@@ -217,6 +217,16 @@ shape preflight needs? — answered: **yes.** The run output has predictions
 and reviews joined by `index`. The tax is a per-harness adapter (a few
 lines), not a loader library. Next: measure the adapter on a second harness.
 
+**E129 completed (2026-10-13): the openai/evals adapter is also a few lines.**
+`openai/evals` has a fundamentally different output structure (single
+append-only event stream), but the adapter is also a few lines: parse the
+event stream, filter for "match" events, extract `sample_id` and `data`.
+**Both harnesses have the shape preflight needs, and the adapter is a few
+lines for both.** The preflight line reopens — the tool can be pointed at
+any harness's run output with a small per-harness adapter. Next: prototype
+the adapter and measure its size on a third harness, or release the tool
+with a per-harness adapter interface.
+
 ## E114 closed the value-grounding line (2026-10-12)
 
 The prototype-first route the brief asks for was taken once, in full: build the
