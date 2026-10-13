@@ -1,0 +1,387 @@
+{
+ "counts": {
+  "above_floor": 30,
+  "inspection_set": 22,
+  "passed": 22,
+  "screen_coverage": 1.0,
+  "screen_decidable": 30
+ },
+ "experiment": "E125",
+ "inspection_set": [
+  "openai/evals",
+  "raga-ai-hub/RagaAI-Catalyst",
+  "tensortrade-org/tensortrade",
+  "modelscope/evalscope",
+  "IBM/AssetOpsBench",
+  "1517005260/graph-rag-agent",
+  "trpc-group/trpc-agent-go",
+  "ZJU-REAL/ClawGUI",
+  "plurai-ai/intellagent",
+  "microsoft/AIOpsLab",
+  "agentscope-ai/OpenJudge",
+  "suyoumo/ClawProBench",
+  "claw-eval/claw-eval",
+  "calmrocks/ai-engineer-notebooks",
+  "AgentSafeLabs/safelabs-eval",
+  "NVIDIA/SkillEvaluator",
+  "CodeSoul-co/Hypha",
+  "verifywise-ai/verifywise",
+  "Ayanami0730/arag",
+  "responsibleai/ASSERT",
+  "OpenBMB/UltraEval-Audio",
+  "Noietch/EVA-CLIENT"
+ ],
+ "rejected": [
+  {
+   "full_name": "harbor-framework/harbor",
+   "reason": "screen failed",
+   "stars": 6048
+  },
+  {
+   "full_name": "deer-flow/llm-space",
+   "reason": "screen failed",
+   "stars": 2012
+  },
+  {
+   "full_name": "mozilla-ai/any-agent",
+   "reason": "screen failed",
+   "stars": 1243
+  },
+  {
+   "full_name": "lmgame-org/GamingAgent",
+   "reason": "screen failed",
+   "stars": 990
+  },
+  {
+   "full_name": "sunblaze-ucb/cybergym",
+   "reason": "screen failed",
+   "stars": 950
+  },
+  {
+   "full_name": "awslabs/agent-evaluation",
+   "reason": "screen failed",
+   "stars": 376
+  },
+  {
+   "full_name": "reworkd/bananalyzer",
+   "reason": "screen failed",
+   "stars": 332
+  },
+  {
+   "full_name": "aielte-research/HackSynth",
+   "reason": "screen failed",
+   "stars": 322
+  }
+ ],
+ "rows": [
+  {
+   "default_branch": "main",
+   "description": "Evals is a framework for evaluating LLMs and LLM systems, and an open-source registry of benchmarks.",
+   "full_name": "openai/evals",
+   "pushed_at": "2026-04-14T15:29:57Z",
+   "queries": [
+    "llm eval framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 6461,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 19593
+  },
+  {
+   "default_branch": "main",
+   "description": "Python SDK for Agent AI Observability, Monitoring and Evaluation Framework. Includes features like agent, llm and tools tracing, debugging multi-agentic system, self-hosted dashboard and advanced analytics with timeline and execution graph view ",
+   "full_name": "raga-ai-hub/RagaAI-Catalyst",
+   "pushed_at": "2026-02-11T14:43:33Z",
+   "queries": [
+    "agent evaluation framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 15360,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 16173
+  },
+  {
+   "default_branch": "master",
+   "description": "An open source reinforcement learning framework for training, evaluating, and deploying robust trading agents.",
+   "full_name": "tensortrade-org/tensortrade",
+   "pushed_at": "2026-02-19T16:21:00Z",
+   "queries": [
+    "agent evaluation framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 7693,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 7196
+  },
+  {
+   "default_branch": "main",
+   "description": "A streamlined and customizable framework for efficient large model (LLM, VLM, AIGC) evaluation and performance benchmarking.",
+   "full_name": "modelscope/evalscope",
+   "pushed_at": "2026-10-13T02:01:20Z",
+   "queries": [
+    "llm eval framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 27508,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 3530
+  },
+  {
+   "default_branch": "main",
+   "description": "AssetOpsBench - Industry 4.0: A unified benchmark and framework for building, orchestrating, and evaluating domain-specific AI agents for Industry 4.0 asset operations and maintenance, with 460+ scenarios, 5 specialist agents (IoT, FMSR, TSFM, Work Order,...), and multi-agent orchestration blueprints (MetaAgent, AgentHive) over MCP.",
+   "full_name": "IBM/AssetOpsBench",
+   "pushed_at": "2026-10-11T21:31:04Z",
+   "queries": [
+    "agent evaluation framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 38099,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 2349
+  },
+  {
+   "default_branch": "master",
+   "description": "\u62fc\u597dRAG\uff1a\u624b\u6413\u5e76\u878d\u5408\u4e86GraphRAG\u3001LightRAG\u3001Neo4j-llm-graph-builder\u8fdb\u884c\u77e5\u8bc6\u56fe\u8c31\u6784\u5efa\u4ee5\u53ca\u641c\u7d22\uff1b\u6574\u5408DeepSearch\u6280\u672f\u5b9e\u73b0\u79c1\u57dfRAG\u7684\u63a8\u7406\uff1b\u81ea\u5236\u9488\u5bf9GraphRAG\u7684\u8bc4\u4f30\u6846\u67b6| Integrate GraphRAG, LightRAG, and Neo4j-llm-graph-builder for knowledge graph construction and search. Combine DeepSearch for private RAG reasoning. Create a custom evaluation framework for GraphRAG.",
+   "full_name": "1517005260/graph-rag-agent",
+   "pushed_at": "2025-11-05T08:15:51Z",
+   "queries": [
+    "agent evaluation framework"
+   ],
+   "readme": "readme.md",
+   "readme_chars": 24778,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 2346
+  },
+  {
+   "default_branch": "main",
+   "description": "A Go framework for building production agent systems with graph workflows, tools, memory, A2A, AG-UI, MCP, evaluation, and observability.",
+   "full_name": "trpc-group/trpc-agent-go",
+   "pushed_at": "2026-10-12T07:22:24Z",
+   "queries": [
+    "agent evaluation framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 29904,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 1860
+  },
+  {
+   "default_branch": "master",
+   "description": "Build, Evaluate, and Deploy GUI Agents \u2014 online RL training, standardized benchmarks, and real-device deployment in one framework.",
+   "full_name": "ZJU-REAL/ClawGUI",
+   "pushed_at": "2026-06-03T07:10:58Z",
+   "queries": [
+    "agent evaluation framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 13539,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 1361
+  },
+  {
+   "default_branch": "main",
+   "description": "A framework for comprehensive diagnosis and optimization of agents using simulated, realistic synthetic interactions",
+   "full_name": "plurai-ai/intellagent",
+   "pushed_at": "2026-09-14T10:00:14Z",
+   "queries": [
+    "agent evaluation framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 7815,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 1261
+  },
+  {
+   "default_branch": "main",
+   "description": "A holistic framework to enable the design, development, and evaluation of autonomous AIOps agents.",
+   "full_name": "microsoft/AIOpsLab",
+   "pushed_at": "2026-10-01T02:34:52Z",
+   "queries": [
+    "agent evaluation framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 22246,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 1006
+  },
+  {
+   "default_branch": "main",
+   "description": "OpenJudge: A Unified Framework for Holistic Evaluation and Quality Rewards",
+   "full_name": "agentscope-ai/OpenJudge",
+   "pushed_at": "2026-09-11T07:11:09Z",
+   "queries": [
+    "agent evaluation framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 22221,
+   "screen_description": true,
+   "screen_readme": true,
+   "stars": 872
+  },
+  {
+   "default_branch": "main",
+   "description": "ClawProBench is a live-first benchmark harness for evaluating LLM agents   in the OpenClaw runtime with deterministic grading and repeated-trial   reliability.",
+   "full_name": "suyoumo/ClawProBench",
+   "pushed_at": "2026-08-25T11:47:44Z",
+   "queries": [
+    "llm evaluation harness"
+   ],
+   "readme": "README.md",
+   "readme_chars": 14363,
+   "screen_description": true,
+   "screen_readme": true,
+   "stars": 824
+  },
+  {
+   "default_branch": "main",
+   "description": "Claw-Eval is an evaluation harness for evaluating LLM as agents. All tasks verified by humans.",
+   "full_name": "claw-eval/claw-eval",
+   "pushed_at": "2026-10-12T10:45:52Z",
+   "queries": [
+    "llm evaluation harness"
+   ],
+   "readme": "README.md",
+   "readme_chars": 8641,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 778
+  },
+  {
+   "default_branch": "main",
+   "description": "Hands-on, framework-free Colab notebooks for the AI Engineer / Forward Deployed Engineer (FDE) skill set \u2014 model APIs, structured output, tool calling, RAG, evals-as-the-spine, agents (loop from scratch, tool design, guardrails, MCP, Skills), fine-tuning vs LoRA, prompt-injection/security, LLMOps, and customer craft. Runs on the free Groq API.",
+   "full_name": "calmrocks/ai-engineer-notebooks",
+   "pushed_at": "2026-10-08T14:22:32Z",
+   "queries": [
+    "llm eval framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 19661,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 697
+  },
+  {
+   "default_branch": "main",
+   "description": "Red-teaming and evaluation framework for AI agents, built around an OWASP-inspired ASI01\u2013ASI10 taxonomy",
+   "full_name": "AgentSafeLabs/safelabs-eval",
+   "pushed_at": "2026-10-09T20:06:42Z",
+   "queries": [
+    "agent evaluation framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 22861,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 570
+  },
+  {
+   "default_branch": "main",
+   "description": "Multi-tier framework for evaluating AI agent skills with quality gates, semantic overlap detection, synthetic evaluation dataset generation, and live agent evaluation that measures how skills affect agent behavior.",
+   "full_name": "NVIDIA/SkillEvaluator",
+   "pushed_at": "2026-10-12T21:55:02Z",
+   "queries": [
+    "agent evaluation framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 9950,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 562
+  },
+  {
+   "default_branch": "main",
+   "description": "Harness-oriented agent system framework for production-grade LLM agent applications",
+   "full_name": "CodeSoul-co/Hypha",
+   "pushed_at": "2026-09-04T06:52:51Z",
+   "queries": [
+    "agent evaluation framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 38843,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 447
+  },
+  {
+   "default_branch": "develop",
+   "description": "Complete AI governance and LLM Evals platform with support for EU AI Act, ISO 42001, NIST AI RMF and 20+ more AI frameworks and regulations. Join our Discord channel: https://discord.com/invite/d3k3E4uEpR",
+   "full_name": "verifywise-ai/verifywise",
+   "pushed_at": "2026-10-13T01:38:11Z",
+   "queries": [
+    "llm eval framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 17861,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 361
+  },
+  {
+   "default_branch": "main",
+   "description": "A-RAG: Agentic Retrieval-Augmented Generation via Hierarchical Retrieval Interfaces. State-of-the-art RAG framework with keyword, semantic, and chunk read tools for multi-hop QA.",
+   "full_name": "Ayanami0730/arag",
+   "pushed_at": "2026-02-06T15:30:09Z",
+   "queries": [
+    "agent evaluation framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 13534,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 356
+  },
+  {
+   "default_branch": "main",
+   "description": "Requirement-driven evaluation harness for AI agents and LLM applications. Generate behavior-specific test cases, run them against any target (hosted models, callable wrappers, OTel-traced agents), and inspect local-first artifacts.",
+   "full_name": "responsibleai/ASSERT",
+   "pushed_at": "2026-10-08T17:12:59Z",
+   "queries": [
+    "llm evaluation harness"
+   ],
+   "readme": "README.md",
+   "readme_chars": 19841,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 334
+  },
+  {
+   "default_branch": "main",
+   "description": "Your faithful, impartial partner for audio evaluation \u2014 know yourself, know your rivals. \u771f\u5b9e\u8bc4\u6d4b\uff0c\u77e5\u5df1\u77e5\u5f7c\u3002A unified benchmark framework for ASR/TTS/Audio Codec/audio LLM evaluation",
+   "full_name": "OpenBMB/UltraEval-Audio",
+   "pushed_at": "2026-09-16T03:43:33Z",
+   "queries": [
+    "llm eval framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 24911,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 326
+  },
+  {
+   "default_branch": "main",
+   "description": "EVA-Client: A Unified Framework for Deployment, Evaluation, and Data Collection on Real Robots",
+   "full_name": "Noietch/EVA-CLIENT",
+   "pushed_at": "2026-10-13T02:07:50Z",
+   "queries": [
+    "agent evaluation framework"
+   ],
+   "readme": "README.md",
+   "readme_chars": 10839,
+   "screen_description": false,
+   "screen_readme": true,
+   "stars": 317
+  }
+ ],
+ "rule": "top 30 by stars of (union of the 3 declared queries, stars>=300) passing the declared screen on description OR README"
+}
