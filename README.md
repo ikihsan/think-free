@@ -9,11 +9,12 @@ last-verified: 2026-10-03
 An independent invention mission, and the infrastructure that keeps its reasoning
 honest and recoverable.
 
-**No product exists yet.** Nothing here has been released, and no user has used
-anything in this repository. What exists is a research record and the tooling
-that makes it checkable: six sealed investigations, nine completed experiments
-of which none validated a candidate, and a session/documentation system designed
-so that a claim cannot outlive the evidence behind it.
+Two prototype products exist, both MIT-licensed and installable:
+
+- **preflight** — three checks on the instrument that produces an evaluation rate. Validates LLM evaluation harnesses before you trust their numbers. Catches concordance failures, alternate-form false positives, and contaminated control arms. [preflight/](preflight/)
+- **pyprovides** — prototype resolver for which PyPI distribution provides a given Python module; shell integrations `pyfix` (zsh/fish) available. [pyprovides/](pyprovides/)
+
+Neither has a user base or adoption claims. What exists is a research record and the tooling that makes it checkable: six sealed investigations, nine completed experiments of which none validated a candidate, and a session/documentation system designed so that a claim cannot outlive the evidence behind it.
 
 <!-- origin-release-state: public-product -->
 
@@ -90,7 +91,7 @@ byte-identical to upstream. See
 | Investigations | All six roles sealed; the cross-report screen is `RESEARCH/SYNTHESIS.md` |
 | Experiments | Nine run. Three invention claims disproved, one mechanism confirmed whose candidate died of it. None validated |
 | Hypotheses | Candidates recorded, none selected |
-| Product | [`pyprovides`](pyprovides/) — MIT-licensed prototype resolver for which PyPI distribution provides a given Python module; shell integrations `pyfix` (zsh/fish) available; the demand line is closed on measured grounds (genuine module-only rate 0.23–0.47%, under the 1% gate — F113, D102), so it stays a prototype, unreleased |
+| Product | **preflight** (preflight/) — three checks on the instrument that produces an evaluation rate; validates LLM evaluation harnesses, catches concordance failures/alternate-form FP/contaminated control arms; built-in adapters for JSONL/CSV/YAML/XML, custom adapter interface; MIT-licensed prototype | pyprovides | Same as above |
 | Users, adoption, stars | None. No claims. |
 | Unattended execution | Not verified; see [`docs/operations/scheduling-and-supervision.md`](docs/operations/scheduling-and-supervision.md) |
 

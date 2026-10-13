@@ -24,12 +24,13 @@ absent, and the check fails the moment it appears.
 |---|---|
 | `README.md` | The front door. What it is, why it exists, how to run it. |
 | `AGENTS.md` `CLAUDE.md` `GEMINI.md` | Agent entry points; part of the contribution story. |
-| `LICENSE` (pending) | Required for a credible open-source release. Absent until a product is chosen. |
+| `LICENSE` | Required for a credible open-source release. |
 | `CONTRIBUTING.md` (pending) | Same; `AGENTS.md` is its foundation for now. |
 | `CODE_OF_CONDUCT.md` (pending) | Same. |
 | `docs/` | Policy, process, operations, reference. Shows the method is real. |
 | `tools/` `tests/` | The infrastructure that makes claims reproducible. |
 | `pyprovides/` | The pyprovides package, a prototype resolver for which PyPI distribution provides a given Python module; published on PyPI with MIT licence; source+docs tutorial in `README.md` |
+| `preflight/` | The preflight package, three checks on evaluation harness instruments; MIT-licensed prototype; built-in adapters for JSONL/CSV/YAML/XML; source+docs in `README.md` |
 | `.agents/` `.claude/` `vendor/` | Canonical skills, their mirrors, and the licences they keep. |
 | `.github/` | The CI gates that enforce those tests, and the agent entry point. |
 | `.gitignore` | A credible repository ships its ignore rules. |
