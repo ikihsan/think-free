@@ -1,0 +1,114 @@
+{
+  "timestamp": "2026-10-12T11:52:00.016877",
+  "experiments": [
+    {
+      "domain": "Stack Overflow, Python (100 q, default tags)",
+      "sample": 100,
+      "coverage": 0.63,
+      "g2": "PASS",
+      "g1": "PASS",
+      "g3": "PASS",
+      "g4": "PASS",
+      "all_gates": "PASS"
+    },
+    {
+      "domain": "Stack Overflow, Rust",
+      "sample": 100,
+      "coverage": 0.72,
+      "g2": "PASS",
+      "g1": "PASS",
+      "g3": "PASS",
+      "g4": "PASS",
+      "all_gates": "PASS"
+    },
+    {
+      "domain": "Stack Overflow, Python (200 q, Python-only)",
+      "sample": 200,
+      "coverage": 0.58,
+      "g2": "FAIL",
+      "g1": "PASS",
+      "g3": "FAIL",
+      "g4": "FAIL",
+      "all_gates": "FAIL"
+    },
+    {
+      "domain": "Stack Overflow, JavaScript",
+      "sample": 100,
+      "coverage": 0.57,
+      "g2": "FAIL",
+      "g1": "PASS",
+      "g3": "FAIL",
+      "g4": "FAIL",
+      "all_gates": "FAIL"
+    },
+    {
+      "domain": "Stack Overflow, Math",
+      "sample": 100,
+      "coverage": 0.44,
+      "g2": "FAIL",
+      "g1": "PASS",
+      "g3": "FAIL",
+      "g4": "FAIL",
+      "all_gates": "FAIL"
+    },
+    {
+      "domain": "Stack Overflow, Go",
+      "sample": 100,
+      "coverage": 0.54,
+      "g2": "FAIL",
+      "g1": "PASS",
+      "g3": "FAIL",
+      "g4": "FAIL",
+      "all_gates": "FAIL"
+    },
+    {
+      "domain": "Stack Overflow, TypeScript",
+      "sample": 100,
+      "coverage": 0.47,
+      "g2": "FAIL",
+      "g1": "PASS",
+      "g3": "FAIL",
+      "g4": "FAIL",
+      "all_gates": "FAIL"
+    },
+    {
+      "domain": "Stack Overflow, C++",
+      "sample": 100,
+      "coverage": 0.54,
+      "g2": "FAIL",
+      "g1": "PASS",
+      "g3": "FAIL",
+      "g4": "FAIL",
+      "all_gates": "FAIL"
+    },
+    {
+      "domain": "Physics (from data file)",
+      "sample": 200,
+      "coverage": 0.28,
+      "g2": "FAIL",
+      "g1": "PASS",
+      "g3": "FAIL",
+      "g4": "FAIL",
+      "all_gates": "FAIL"
+    }
+  ],
+  "key_finding": "The 60% coverage floor is a domain-dependent boundary condition. Surmountable on Python-focused (~63%+) and Rust-focused (72%) Q&A, but not on JavaScript (57%), TypeScript (47%), Math (44%), C++/Go (54%), or Physics (28%) Q&A. Coverage correlates with question format: domains where practitioners ask 'how do I/to/what is' questions about languages/tools score higher.",
+  "reopening_conditions": {
+    "classifier_with_coverage_floor": "E119 declares anchored word-boundary patterns before measurement; G2 halts if coverage < 60%",
+    "coverage_gate_declared_before_run": "G2 only scored if coverage >= floor, preventing the E113 defect of 28% screen reported as 100%",
+    "matched_harvest_as_default": "Need and random arms drawn from same pool, sorted by view_count descending, addressing E113's delta 0.826->0.075 collapse"
+  },
+  "domains_where_floor_surmounted": [
+    "Python (default tags, ~63%)",
+    "Rust (72%)"
+  ],
+  "domains_below_floor": [
+    "JavaScript (57%)",
+    "TypeScript (47%)",
+    "Math (44%)",
+    "C++ (54%)",
+    "Go (54%)",
+    "Physics (28%)"
+  ],
+  "next_action_per_D083": "Experiment with revised classifier tag subsets or pattern revisions on a new domain, then report results. If coverage reaches 60%, view-count line reopens for candidate generation; if not, coverage-floor limitation confirmed as boundary condition."
+}

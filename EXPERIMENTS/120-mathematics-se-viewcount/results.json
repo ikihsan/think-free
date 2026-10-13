@@ -1,0 +1,53 @@
+{
+  "experiment": "E120",
+  "domain": "Mathematics Stack Exchange",
+  "site": "math.stackexchange.com",
+  "protocol": "E119 matched-harvest + coverage-floor",
+  "classifier": "classifier_v3 (anchored word-boundary patterns)",
+  "tags_sampled": ["calculus", "linear-algebra", "probability", "statistics", "differential-equations", "number-theory", "combinatorics", "topology"],
+  "items_fetched": 793,
+  "items_analyzed": 500,
+  "gates": {
+    "G1": {
+      "threshold": "view_count > 0 rate >= 95%",
+      "observed": 1.0,
+      "pass": true,
+      "details": "500/500 questions have view_count > 0"
+    },
+    "G2": {
+      "coverage_threshold": ">= 60%",
+      "need_fraction_threshold": ">= 5%",
+      "coverage_observed": 0.714,
+      "need_fraction_observed": 0.706,
+      "pass": true,
+      "details": "357/500 classified (71.4%), 353 need-related (70.6%)"
+    },
+    "G3": {
+      "threshold": "Wilson CI95 upper bound < 60% unserved fraction",
+      "unserved_fraction": 0.0196078431372549,
+      "ci95": [0.009529672825197904, 0.03991473713196889],
+      "pass": true,
+      "details": "7/357 need-related items unserved"
+    },
+    "G4": {
+      "threshold": "classified_total >= 30",
+      "classified_total": 357,
+      "pass": true
+    },
+    "G0": {
+      "threshold": ">= 9/10 planted need and >= 9/10 planted random recovered",
+      "need_recovered": 10,
+      "random_recovered": 9,
+      "pass": true
+    }
+  },
+  "conclusion": "ALL GATES PASS — view-count principle supported on this domain with matched harvest and coverage floor",
+  "coverage": 0.714,
+  "need_related_count": 353,
+  "random_count": 4,
+  "unclassified_count": 143,
+  "unserved_fraction": 0.0196078431372549,
+  "unserved_ci95": [0.009529672825197904, 0.03991473713196889],
+  "status": "complete",
+  "verdict": "GATE_OPEN"
+}

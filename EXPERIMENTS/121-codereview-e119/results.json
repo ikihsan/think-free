@@ -1,0 +1,52 @@
+{
+  "experiment": "E121",
+  "domain": "Kubernetes Discourse (discuss.kubernetes.io)",
+  "category": "General Discussions",
+  "protocol": "E119 matched-harvest + coverage-floor (Discourse classifier)",
+  "classifier": "classifier_discourse (anchored word-boundary + technical patterns)",
+  "items_fetched": 500,
+  "items_analyzed": 497,
+  "gates": {
+    "G1": {
+      "threshold": "view_count > 0 rate >= 95%",
+      "observed": 1.0,
+      "pass": true,
+      "details": "497/497 topics have view_count > 0"
+    },
+    "G2": {
+      "coverage_threshold": ">= 60%",
+      "need_fraction_threshold": ">= 5%",
+      "coverage_observed": 0.658,
+      "need_fraction_observed": 0.588,
+      "pass": true,
+      "details": "327/497 classified (65.8%), 292 need-related (58.8%)"
+    },
+    "G3": {
+      "threshold": "Wilson CI95 upper bound < 60% unserved fraction",
+      "unserved_fraction": 0.7637,
+      "ci95": [0.7117, 0.8088],
+      "pass": false,
+      "details": "223/292 need-related topics unserved (reply_count=0 AND has_accepted_answer=false)"
+    },
+    "G4": {
+      "threshold": "classified_total >= 30",
+      "classified_total": 327,
+      "pass": true
+    },
+    "G0": {
+      "threshold": ">= 9/10 planted need and >= 9/10 planted random recovered",
+      "need_recovered": 10,
+      "random_recovered": 9,
+      "pass": true
+    }
+  },
+  "conclusion": "G3 FAIL — unserved fraction 76.4% (CI95 [71.2%, 80.9%]) exceeds 60% threshold; domain not viable as candidate source",
+  "coverage": 0.658,
+  "need_related_count": 292,
+  "random_count": 35,
+  "unclassified_count": 170,
+  "unserved_fraction": 0.7637,
+  "unserved_ci95": [0.7117, 0.8088],
+  "status": "complete",
+  "verdict": "GATE_CLOSED"
+}

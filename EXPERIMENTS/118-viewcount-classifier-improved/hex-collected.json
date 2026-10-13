@@ -1,0 +1,2009 @@
+{
+  "experiment": "E103",
+  "platform": "Hex.pm",
+  "collected_at": "2026-10-11T16:28:53Z",
+  "need_related_count": 100,
+  "random_count": 100,
+  "packages": [
+    {
+      "name": "plug",
+      "description": "Compose web applications with functions",
+      "downloads_all": 166710990,
+      "downloads_day": 50416,
+      "downloads_recent": 6035529,
+      "downloads_week": 604073,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "plug_crypto",
+      "description": "Crypto-related functionality for the web",
+      "downloads_all": 158406875,
+      "downloads_day": 50764,
+      "downloads_recent": 6240917,
+      "downloads_week": 642848,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "mochiweb",
+      "description": "MochiMedia Web Server",
+      "downloads_all": 33789867,
+      "downloads_day": 4399,
+      "downloads_recent": 646508,
+      "downloads_week": 64499,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "joken_jwks",
+      "description": "JWKS (JSON Web Keys Set) support for Joken2",
+      "downloads_all": 4353183,
+      "downloads_day": 1385,
+      "downloads_recent": 302235,
+      "downloads_week": 25007,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "ace",
+      "description": "HTTP web server and client, supports http1 and http2",
+      "downloads_all": 2142591,
+      "downloads_day": 7,
+      "downloads_recent": 5858,
+      "downloads_week": 528,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "json_web_token",
+      "description": "Elixir implementation of the JSON Web Token (JWT), RFC 7519",
+      "downloads_all": 1603770,
+      "downloads_day": 13,
+      "downloads_recent": 9087,
+      "downloads_week": 494,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "elli",
+      "description": "Erlang web server for HTTP APIs",
+      "downloads_all": 448165,
+      "downloads_day": 57,
+      "downloads_recent": 22789,
+      "downloads_week": 2037,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "better_params",
+      "description": "Cleaner Plug params for Elixir web applications \ud83d\ude4c",
+      "downloads_all": 442259,
+      "downloads_day": 12,
+      "downloads_recent": 10637,
+      "downloads_week": 763,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "mist",
+      "description": "a misty Gleam web server",
+      "downloads_all": 394421,
+      "downloads_day": 1220,
+      "downloads_recent": 88623,
+      "downloads_week": 7083,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "lustre",
+      "description": "Create HTML templates, single page applications, Web Components, and real-time server components in Gleam!",
+      "downloads_all": 317724,
+      "downloads_day": 1285,
+      "downloads_recent": 52574,
+      "downloads_week": 6901,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "alchemetrics_web",
+      "description": "Alchemetrics Web is a boilerplate to report basic metrics for a typical web application, such as request count, response time, ecto and erlang metrics.",
+      "downloads_all": 312685,
+      "downloads_day": 2,
+      "downloads_recent": 575,
+      "downloads_week": 39,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "health_checkup",
+      "description": "Generic health check endpoint for Phoenix/Plug web apps.",
+      "downloads_all": 298772,
+      "downloads_day": 81,
+      "downloads_recent": 30877,
+      "downloads_week": 2841,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "plug_rest",
+      "description": "REST behaviour and Plug router for hypermedia web applications",
+      "downloads_all": 180832,
+      "downloads_day": 2,
+      "downloads_recent": 12786,
+      "downloads_week": 553,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "casex",
+      "description": "Simple case conversion for web applications",
+      "downloads_all": 109046,
+      "downloads_day": 53,
+      "downloads_recent": 10081,
+      "downloads_week": 838,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "hackney",
+      "description": "Simple HTTP client with HTTP/1.1, HTTP/2, and HTTP/3 support",
+      "downloads_all": 173432818,
+      "downloads_day": 18650,
+      "downloads_recent": 3806932,
+      "downloads_week": 305594,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "cowboy",
+      "description": "Small, fast, modern HTTP server.",
+      "downloads_all": 149996997,
+      "downloads_day": 20103,
+      "downloads_recent": 4238956,
+      "downloads_week": 372650,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "httpoison",
+      "description": "Yet Another HTTP client for Elixir powered by hackney",
+      "downloads_all": 133132711,
+      "downloads_day": 9255,
+      "downloads_recent": 2043718,
+      "downloads_week": 162019,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "prometheus",
+      "description": "Prometheus.io client in Erlang",
+      "downloads_all": 87499799,
+      "downloads_day": 2974,
+      "downloads_recent": 460839,
+      "downloads_week": 43142,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "sentry",
+      "description": "The Official Elixir client for Sentry",
+      "downloads_all": 76475892,
+      "downloads_day": 10334,
+      "downloads_recent": 1661860,
+      "downloads_week": 161366,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "statix",
+      "description": "Fast and reliable Elixir client for StatsD-compatible servers.",
+      "downloads_all": 72812012,
+      "downloads_day": 206,
+      "downloads_recent": 44056,
+      "downloads_week": 3122,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "ex_aws",
+      "description": "AWS client for Elixir. Currently supports Dynamo, DynamoStreams, EC2,\nFirehose, Kinesis, KMS, Lambda, RRDS, Route53, S3, SES, SNS, SQS, STS and others.",
+      "downloads_all": 71789372,
+      "downloads_day": 12163,
+      "downloads_recent": 1976308,
+      "downloads_week": 201767,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "mint",
+      "description": "Small and composable HTTP client.",
+      "downloads_all": 67492729,
+      "downloads_day": 44966,
+      "downloads_recent": 5845216,
+      "downloads_week": 570170,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "prometheus_ex",
+      "description": "Elixir-friendly Prometheus monitoring system client.",
+      "downloads_all": 67084391,
+      "downloads_day": 2065,
+      "downloads_recent": 220883,
+      "downloads_week": 23074,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "finch",
+      "description": "An HTTP client focused on performance.",
+      "downloads_all": 62395245,
+      "downloads_day": 41238,
+      "downloads_recent": 4775886,
+      "downloads_week": 497049,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "prometheus_phoenix",
+      "description": "Prometheus monitoring system client Phoenix instrumenter.",
+      "downloads_all": 57942691,
+      "downloads_day": 241,
+      "downloads_recent": 57505,
+      "downloads_week": 4284,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "ibrowse",
+      "description": "Erlang HTTP client application",
+      "downloads_all": 56213666,
+      "downloads_day": 374,
+      "downloads_recent": 57329,
+      "downloads_week": 3712,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "grpc_gun",
+      "description": "HTTP/1.1, HTTP/2 and Websocket client for Erlang/OTP.",
+      "downloads_all": 55764634,
+      "downloads_day": 594,
+      "downloads_recent": 91044,
+      "downloads_week": 7146,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "prometheus_plugs",
+      "description": "Prometheus monitoring system client Plugs. Http metrics collector and exporter.",
+      "downloads_all": 55333039,
+      "downloads_day": 991,
+      "downloads_recent": 128053,
+      "downloads_week": 11018,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "prometheus_ecto",
+      "description": "Prometheus monitoring system client Ecto integration. Observes queries duration.",
+      "downloads_all": 52871986,
+      "downloads_day": 513,
+      "downloads_recent": 73007,
+      "downloads_week": 5817,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "kafka_ex",
+      "description": "Elixir client for Apache Kafka with automatic API version negotiation, SASL authentication (PLAIN, SCRAM, OAuth, MSK IAM), consumer groups, compression, and telemetry support.",
+      "downloads_all": 32436127,
+      "downloads_day": 154,
+      "downloads_recent": 80078,
+      "downloads_week": 4236,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "kadabra",
+      "description": "HTTP2 client for Elixir",
+      "downloads_all": 26960870,
+      "downloads_day": 245,
+      "downloads_recent": 115778,
+      "downloads_week": 8550,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "ssh_client_key_api",
+      "description": "An Elixir implementation of the Erlang `ssh_client_key_api` behavior.",
+      "downloads_all": 23157443,
+      "downloads_day": 8,
+      "downloads_recent": 842,
+      "downloads_week": 35,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "amqp_client",
+      "description": "RabbitMQ AMQP Client",
+      "downloads_all": 21922468,
+      "downloads_day": 2824,
+      "downloads_recent": 788735,
+      "downloads_week": 63422,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "rabbit_common",
+      "description": "Modules shared by rabbitmq-server and rabbitmq-erlang-client",
+      "downloads_all": 18539311,
+      "downloads_day": 2855,
+      "downloads_recent": 797866,
+      "downloads_week": 63546,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "req",
+      "description": "Req is a batteries-included HTTP client for Elixir.",
+      "downloads_all": 17908345,
+      "downloads_day": 36813,
+      "downloads_recent": 3846917,
+      "downloads_week": 403803,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "amqp",
+      "description": "Idiomatic Elixir client for RabbitMQ.",
+      "downloads_all": 17436296,
+      "downloads_day": 2354,
+      "downloads_recent": 625746,
+      "downloads_week": 51871,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "bandit",
+      "description": "A pure-Elixir HTTP server built for Plug & WebSock apps",
+      "downloads_all": 15729746,
+      "downloads_day": 37222,
+      "downloads_recent": 3515047,
+      "downloads_week": 405491,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "eredis",
+      "description": "Non-blocking Redis client with focus on performance and robustness.",
+      "downloads_all": 15722904,
+      "downloads_day": 1038,
+      "downloads_recent": 528110,
+      "downloads_week": 50087,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "gun",
+      "description": "HTTP/1.1, HTTP/2 and Websocket client for Erlang/OTP.",
+      "downloads_all": 15413108,
+      "downloads_day": 6406,
+      "downloads_recent": 1714873,
+      "downloads_week": 162685,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "bypass",
+      "description": "Bypass provides a quick way to create a custom plug that can be put in place instead of an\nactual HTTP server to return prebaked responses to client requests. This is helpful when you\nwant to create a mock HTTP server and test how your HTTP client handles different types of\nserver responses.",
+      "downloads_all": 13202126,
+      "downloads_day": 2573,
+      "downloads_recent": 527173,
+      "downloads_week": 45366,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "grpc",
+      "description": "gRPC client implementation for Elixir",
+      "downloads_all": 7221042,
+      "downloads_day": 3292,
+      "downloads_recent": 887097,
+      "downloads_week": 91526,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "stripity_stripe",
+      "description": "A Stripe client for Elixir.",
+      "downloads_all": 6353774,
+      "downloads_day": 2311,
+      "downloads_recent": 381575,
+      "downloads_week": 35292,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "websockex",
+      "description": "An Elixir WebSocket client",
+      "downloads_all": 4996582,
+      "downloads_day": 6378,
+      "downloads_recent": 731603,
+      "downloads_week": 80990,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "opentelemetry_tesla",
+      "description": "Tesla middleware that creates OpenTelemetry spans and injects tracing headers into HTTP requests for Tesla clients.",
+      "downloads_all": 4609460,
+      "downloads_day": 824,
+      "downloads_recent": 391907,
+      "downloads_week": 39125,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "websocket_client",
+      "description": "Erlang websocket client",
+      "downloads_all": 3379563,
+      "downloads_day": 640,
+      "downloads_recent": 99134,
+      "downloads_week": 8788,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "lhttpc",
+      "description": "Lightweight HTTP Client",
+      "downloads_all": 3283555,
+      "downloads_day": 359,
+      "downloads_recent": 75303,
+      "downloads_week": 5113,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "epgsql",
+      "description": "PostgreSQL Client",
+      "downloads_all": 2739777,
+      "downloads_day": 360,
+      "downloads_recent": 89582,
+      "downloads_week": 8610,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "web_driver_client",
+      "description": "Low-level WebDriver client for Elixir.",
+      "downloads_all": 2536567,
+      "downloads_day": 1749,
+      "downloads_recent": 194255,
+      "downloads_week": 19412,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "mint_web_socket",
+      "description": "HTTP/1 and HTTP/2 WebSocket support for Mint",
+      "downloads_all": 2383665,
+      "downloads_day": 5231,
+      "downloads_recent": 453438,
+      "downloads_week": 59098,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "amqp10_common",
+      "description": "Modules shared by rabbitmq-amqp1.0 and rabbitmq-amqp1.0-client",
+      "downloads_all": 2375500,
+      "downloads_day": 31,
+      "downloads_recent": 27851,
+      "downloads_week": 3104,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "sftp_client",
+      "description": "An Elixir SFTP Client that wraps Erlang's ssh and ssh_sftp.",
+      "downloads_all": 2336399,
+      "downloads_day": 168,
+      "downloads_recent": 110874,
+      "downloads_week": 9212,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "honeybadger",
+      "description": "Elixir client, Plug and error_logger for integrating with the\nHoneybadger.io exception tracker\"",
+      "downloads_all": 2313355,
+      "downloads_day": 408,
+      "downloads_recent": 124703,
+      "downloads_week": 7486,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "neuron",
+      "description": "A GraphQL client for elixir.",
+      "downloads_all": 2243832,
+      "downloads_day": 167,
+      "downloads_recent": 57877,
+      "downloads_week": 3982,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "k8s",
+      "description": "Kubernetes API Client for Elixir",
+      "downloads_all": 2159994,
+      "downloads_day": 764,
+      "downloads_recent": 72931,
+      "downloads_week": 7593,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "elastix",
+      "description": "A DSL-free Elastic / Elasticsearch client for Elixir.",
+      "downloads_all": 2157102,
+      "downloads_day": 180,
+      "downloads_recent": 39872,
+      "downloads_week": 3839,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "amqp10_client",
+      "description": "AMQP 1.0 client",
+      "downloads_all": 2087392,
+      "downloads_day": 31,
+      "downloads_recent": 24869,
+      "downloads_week": 2616,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "aws",
+      "description": "AWS clients for Elixir",
+      "downloads_all": 2071150,
+      "downloads_day": 804,
+      "downloads_recent": 158951,
+      "downloads_week": 15120,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "rebar3_eetcd_plugin",
+      "description": "Rebar3 plugin to generate client for eetcd",
+      "downloads_all": 1935366,
+      "downloads_day": 453,
+      "downloads_recent": 73242,
+      "downloads_week": 4945,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "memcachex",
+      "description": "Memcached client for Elixir",
+      "downloads_all": 1611212,
+      "downloads_day": 44,
+      "downloads_recent": 12181,
+      "downloads_week": 880,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "prometheus_cowboy",
+      "description": "Cowboy exporter for the prometheus.erl client",
+      "downloads_all": 1431536,
+      "downloads_day": 175,
+      "downloads_recent": 83562,
+      "downloads_week": 5309,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "slack",
+      "description": "A Slack Real Time Messaging API client.",
+      "downloads_all": 1420282,
+      "downloads_day": 192,
+      "downloads_recent": 55164,
+      "downloads_week": 4611,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "reverse_proxy_plug",
+      "description": "An Elixir reverse proxy Plug with HTTP/2, chunked transfer and path proxying support.",
+      "downloads_all": 1328978,
+      "downloads_day": 248,
+      "downloads_recent": 91201,
+      "downloads_week": 4335,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "exredis",
+      "description": "Redis client for Elixir",
+      "downloads_all": 1322928,
+      "downloads_day": 21,
+      "downloads_recent": 14858,
+      "downloads_week": 1089,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "slipstream",
+      "description": "A slick websocket client for Phoenix channels",
+      "downloads_all": 1203684,
+      "downloads_day": 677,
+      "downloads_recent": 160508,
+      "downloads_week": 20397,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "kaffe",
+      "description": "An opinionated Elixir wrapper around brod, the Erlang Kafka client, that supports encrypted connections to Heroku Kafka out of the box.",
+      "downloads_all": 1183031,
+      "downloads_day": 91,
+      "downloads_recent": 40599,
+      "downloads_week": 2869,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "gnat",
+      "description": "A nats client in pure elixir. Resilience, Performance, Ease-of-Use.",
+      "downloads_all": 1162314,
+      "downloads_day": 1062,
+      "downloads_recent": 142859,
+      "downloads_week": 13920,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "discord_statix",
+      "description": "Fast and reliable Elixir client for StatsD-compatible servers.",
+      "downloads_all": 989100,
+      "downloads_day": 1044,
+      "downloads_recent": 437170,
+      "downloads_week": 53489,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "ankh",
+      "description": "Pure Elixir HTTP/2 implementation",
+      "downloads_all": 928663,
+      "downloads_day": 2,
+      "downloads_recent": 1739,
+      "downloads_week": 130,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "soap",
+      "description": "SOAP client for Elixir programming language",
+      "downloads_all": 873118,
+      "downloads_day": 34,
+      "downloads_recent": 22208,
+      "downloads_week": 1384,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "tds",
+      "description": "Microsoft SQL Server client (Elixir implementation of the MS TDS protocol)",
+      "downloads_all": 814575,
+      "downloads_day": 286,
+      "downloads_recent": 51710,
+      "downloads_week": 4363,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "elasticachex",
+      "description": "An implementation of the Node Auto Discovery for Memcached in the\nElastiCache service of AWS.\nSee http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/AutoDiscovery.html",
+      "downloads_all": 796348,
+      "downloads_day": 6,
+      "downloads_recent": 1409,
+      "downloads_week": 126,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "webtransport",
+      "description": "WebTransport protocol for Erlang (HTTP/2 and HTTP/3)",
+      "downloads_all": 765595,
+      "downloads_day": 4946,
+      "downloads_recent": 698165,
+      "downloads_week": 79039,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "memcachir",
+      "description": "Memcached client, with connection pooling and cluster support.",
+      "downloads_all": 740828,
+      "downloads_day": 3,
+      "downloads_recent": 763,
+      "downloads_week": 55,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "emqtt",
+      "description": "Erlang MQTT v5.0 Client",
+      "downloads_all": 733339,
+      "downloads_day": 72,
+      "downloads_recent": 52285,
+      "downloads_week": 3392,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "plug_signature",
+      "description": "Server side implementation of IETF HTTP signature draft as a reusable Plug",
+      "downloads_all": 699575,
+      "downloads_day": 18,
+      "downloads_recent": 58316,
+      "downloads_week": 2379,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "gleam_http",
+      "description": "Types and functions for Gleam HTTP clients and servers",
+      "downloads_all": 642238,
+      "downloads_day": 1863,
+      "downloads_recent": 157129,
+      "downloads_week": 20706,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "riakc",
+      "description": "The Riak client for Erlang",
+      "downloads_all": 614393,
+      "downloads_day": 56,
+      "downloads_recent": 3734,
+      "downloads_week": 463,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "mysql",
+      "description": "MySQL/OTP - Erlang MySQL client driver",
+      "downloads_all": 613953,
+      "downloads_day": 156,
+      "downloads_recent": 28903,
+      "downloads_week": 2295,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "snap",
+      "description": "A modern Elasticsearch/OpenSearch client",
+      "downloads_all": 587291,
+      "downloads_day": 157,
+      "downloads_recent": 49439,
+      "downloads_week": 3935,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "snowflex",
+      "description": "The client interface for connecting to the Snowflake data warehouse.",
+      "downloads_all": 579932,
+      "downloads_day": 151,
+      "downloads_recent": 70862,
+      "downloads_week": 7978,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "ch",
+      "description": "HTTP ClickHouse driver for Elixir",
+      "downloads_all": 576588,
+      "downloads_day": 468,
+      "downloads_recent": 103460,
+      "downloads_week": 8561,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "dogstatsd",
+      "description": "A client for DogStatsd, an extension of the StatsD metric server for Datadog.",
+      "downloads_all": 553573,
+      "downloads_day": 11,
+      "downloads_recent": 12849,
+      "downloads_week": 857,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "set_locale",
+      "description": "A Phoenix Plug to help with supporting I18n routes (http://www.example.org/de-at/foo/bar/az). Will also set Gettext to the requested locale used in the url when supported by your Gettext.",
+      "downloads_all": 551020,
+      "downloads_day": 50,
+      "downloads_recent": 2114,
+      "downloads_week": 133,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "trailing_format_plug",
+      "description": "An elixir plug to support legacy APIs that use a rails-like trailing\nformat: http://api.dev/resources.format",
+      "downloads_all": 537474,
+      "downloads_day": 19,
+      "downloads_recent": 8364,
+      "downloads_week": 411,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "tortoise",
+      "description": "A MQTT client for Elixir.",
+      "downloads_all": 493593,
+      "downloads_day": 32,
+      "downloads_recent": 22986,
+      "downloads_week": 1202,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "plug_logger_json",
+      "description": "Elixir Plug that formats http request logs as json",
+      "downloads_all": 484040,
+      "downloads_day": 38,
+      "downloads_recent": 16587,
+      "downloads_week": 1147,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "ethereumex",
+      "description": "Elixir JSON-RPC client for the Ethereum blockchain",
+      "downloads_all": 459891,
+      "downloads_day": 69,
+      "downloads_recent": 25852,
+      "downloads_week": 1443,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "egithub",
+      "description": "GitHub API client",
+      "downloads_all": 448593,
+      "downloads_day": 611,
+      "downloads_recent": 73201,
+      "downloads_week": 5307,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "postgrex",
+      "description": "PostgreSQL driver for Elixir",
+      "downloads_all": 141619597,
+      "downloads_day": 35353,
+      "downloads_recent": 4657943,
+      "downloads_week": 474036,
+      "classification": "need-related",
+      "source_query": "database driver"
+    },
+    {
+      "name": "redix",
+      "description": "Fast, pipelined, resilient Redis driver for Elixir.",
+      "downloads_all": 45792053,
+      "downloads_day": 5750,
+      "downloads_recent": 1307493,
+      "downloads_week": 125973,
+      "classification": "need-related",
+      "source_query": "database driver"
+    },
+    {
+      "name": "myxql",
+      "description": "MySQL 5.5+ driver for Elixir",
+      "downloads_all": 6108441,
+      "downloads_day": 1037,
+      "downloads_recent": 241988,
+      "downloads_week": 20670,
+      "classification": "need-related",
+      "source_query": "database driver"
+    },
+    {
+      "name": "mongodb_driver",
+      "description": "The MongoDB driver for Elixir",
+      "downloads_all": 1229920,
+      "downloads_day": 348,
+      "downloads_recent": 87090,
+      "downloads_week": 7858,
+      "classification": "need-related",
+      "source_query": "database driver"
+    },
+    {
+      "name": "mongodb",
+      "description": "MongoDB driver for Elixir",
+      "downloads_all": 880937,
+      "downloads_day": 13,
+      "downloads_recent": 2148,
+      "downloads_week": 125,
+      "classification": "need-related",
+      "source_query": "database driver"
+    },
+    {
+      "name": "keccakf1600_orig",
+      "description": "Keccak-f[1600] asynchronous port driver",
+      "downloads_all": 307787,
+      "downloads_day": 9,
+      "downloads_recent": 9168,
+      "downloads_week": 207,
+      "classification": "need-related",
+      "source_query": "database driver"
+    },
+    {
+      "name": "playwright_ex",
+      "description": "Elixir client for the Playwright node.js driver.",
+      "downloads_all": 208179,
+      "downloads_day": 860,
+      "downloads_recent": 127904,
+      "downloads_week": 17922,
+      "classification": "need-related",
+      "source_query": "database driver"
+    },
+    {
+      "name": "p1_pgsql",
+      "description": "PostgreSQL driver",
+      "downloads_all": 201901,
+      "downloads_day": 170,
+      "downloads_recent": 9343,
+      "downloads_week": 1040,
+      "classification": "need-related",
+      "source_query": "database driver"
+    },
+    {
+      "name": "p1_mysql",
+      "description": "Pure Erlang MySQL driver",
+      "downloads_all": 177407,
+      "downloads_day": 144,
+      "downloads_recent": 7592,
+      "downloads_week": 905,
+      "classification": "need-related",
+      "source_query": "database driver"
+    },
+    {
+      "name": "jamdb_oracle",
+      "description": "Erlang driver and Ecto adapter for Oracle",
+      "downloads_all": 112887,
+      "downloads_day": 41,
+      "downloads_recent": 3363,
+      "downloads_week": 167,
+      "classification": "need-related",
+      "source_query": "database driver"
+    },
+    {
+      "name": "brook",
+      "description": "Brook provides an event stream client interface for distributed applications.\n    Brook sends and receives messages with the event stream via a driver\n    module and persists an application-specific view of the event stream via a\n    storage module.",
+      "downloads_all": 75251,
+      "downloads_day": 61,
+      "downloads_recent": 2744,
+      "downloads_week": 96,
+      "classification": "need-related",
+      "source_query": "database driver"
+    },
+    {
+      "name": "mongodb_erlang",
+      "description": "Client interface to MongoDB, also known as the driver. See www.mongodb.org",
+      "downloads_all": 58023,
+      "downloads_day": 2,
+      "downloads_recent": 246,
+      "downloads_week": 7,
+      "classification": "need-related",
+      "source_query": "database driver"
+    },
+    {
+      "name": "a11y_audit",
+      "description": "Automated accessibility testing for Elixir web applications using axe-core",
+      "downloads_all": 360380,
+      "downloads_day": 83,
+      "downloads_recent": 19711,
+      "downloads_week": 1648,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "a2a",
+      "description": "Elixir implementation of the Agent-to-Agent (A2A) protocol",
+      "downloads_all": 99693,
+      "downloads_day": 6,
+      "downloads_recent": 3363,
+      "downloads_week": 428,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "a2a_ex",
+      "description": "Elixir client and server library for the Agent2Agent protocol.",
+      "downloads_all": 77749,
+      "downloads_day": 2,
+      "downloads_recent": 273,
+      "downloads_week": 34,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "aadya",
+      "description": "CoAP framework",
+      "downloads_all": 44483,
+      "downloads_day": 2,
+      "downloads_recent": 142,
+      "downloads_week": 7,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "aasm",
+      "description": "The finite state machine implementations for Elixir.",
+      "downloads_all": 88044,
+      "downloads_day": 2,
+      "downloads_recent": 191,
+      "downloads_week": 11,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "aatree",
+      "description": "AA Tree in Pure Elixir",
+      "downloads_all": 44232,
+      "downloads_day": 2,
+      "downloads_recent": 121,
+      "downloads_week": 7,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "ab",
+      "description": "Automatically compare two implementations of the same problem with\nproperty-based testing and performance benchmarks. Perfect for refactoring,\nalgorithm comparison, and validating that different implementations produce\nidentical results.",
+      "downloads_all": 232066,
+      "downloads_day": 4,
+      "downloads_recent": 442,
+      "downloads_week": 21,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "aba",
+      "description": "ABA is an Elixir library for performing validation and lookups on ABA routing numbers.",
+      "downloads_all": 190247,
+      "downloads_day": 4,
+      "downloads_recent": 723,
+      "downloads_week": 45,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "abac",
+      "description": "ERP/1 ABAC Attribute Based Access Control",
+      "downloads_all": 468161,
+      "downloads_day": 2,
+      "downloads_recent": 996,
+      "downloads_week": 35,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "aba_cli",
+      "description": "AbaCLI is a tool to update data in an AbaModel database.",
+      "downloads_all": 44015,
+      "downloads_day": 2,
+      "downloads_recent": 138,
+      "downloads_week": 11,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "aba_model",
+      "description": "AbaModel is a database model based on the HOTS API (https://hotsapi.net/).",
+      "downloads_all": 44358,
+      "downloads_day": 2,
+      "downloads_recent": 129,
+      "downloads_week": 9,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "abatap",
+      "description": "Generate letter avatar from username.",
+      "downloads_all": 78696,
+      "downloads_day": 2,
+      "downloads_recent": 232,
+      "downloads_week": 11,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "aba_validator",
+      "description": "an Elixir library to validate an Australian Banking Association (ABA) file",
+      "downloads_all": 235135,
+      "downloads_day": 3,
+      "downloads_recent": 432,
+      "downloads_week": 20,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "abbrev",
+      "description": "Calculates the set of unambiguous abbreviations for a given set of strings.",
+      "downloads_all": 43651,
+      "downloads_day": 2,
+      "downloads_recent": 125,
+      "downloads_week": 7,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "abex",
+      "description": "Elixir wrapper for Libplctag, for communication with Allen-Bradley PLC's.",
+      "downloads_all": 124323,
+      "downloads_day": 2,
+      "downloads_recent": 266,
+      "downloads_week": 13,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "abi",
+      "description": "Ethereum's ABI Interface",
+      "downloads_all": 1720669,
+      "downloads_day": 4,
+      "downloads_recent": 10438,
+      "downloads_week": 464,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "abit",
+      "description": "Use Erlang atomics as a bit array or as an array of N-bit counters.",
+      "downloads_all": 699552,
+      "downloads_day": 68,
+      "downloads_recent": 5320,
+      "downloads_week": 379,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "about",
+      "description": "Adds about documentation to `iex`.\n\nFor example:\n\niex> h About.regex",
+      "downloads_all": 458199,
+      "downloads_day": 2,
+      "downloads_recent": 697,
+      "downloads_week": 29,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_auth",
+      "description": "Authorisation framework for Absinthe GraphQL",
+      "downloads_all": 215622,
+      "downloads_day": 2,
+      "downloads_recent": 640,
+      "downloads_week": 75,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_conn_test",
+      "description": "Utilities for testing GraphQL APIs",
+      "downloads_all": 125552,
+      "downloads_day": 2,
+      "downloads_recent": 383,
+      "downloads_week": 29,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_ecto",
+      "description": "GraphQL helpers for Absinthe",
+      "downloads_all": 1296641,
+      "downloads_day": 38,
+      "downloads_recent": 10738,
+      "downloads_week": 965,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_error_payload",
+      "description": "Utilities to return Ecto validation error messages in an absinthe graphql response.",
+      "downloads_all": 2378167,
+      "downloads_day": 247,
+      "downloads_recent": 103942,
+      "downloads_week": 7315,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_extra",
+      "description": "AbsintheExtra is a extra tool for absinthe",
+      "downloads_all": 601859,
+      "downloads_day": 2,
+      "downloads_recent": 939,
+      "downloads_week": 37,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_field_telemetry",
+      "description": "A library for analysing absinthe GraphQL runtime usage.",
+      "downloads_all": 393611,
+      "downloads_day": 2,
+      "downloads_recent": 1591,
+      "downloads_week": 206,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_json_scalar",
+      "description": "This library provides an easily pluggable JSON scalar type for use with\n[Absinthe](https://github.com/absinthe-graphql/absinthe), a GraphQL implementation for Elixir.\nThis package wraps the JSON scalar recipe from Absinthe docs.",
+      "downloads_all": 44105,
+      "downloads_day": 3,
+      "downloads_recent": 365,
+      "downloads_week": 27,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_plug",
+      "description": "Plug support for Absinthe, the GraphQL toolkit for Elixir",
+      "downloads_all": 43326578,
+      "downloads_day": 3432,
+      "downloads_recent": 783209,
+      "downloads_week": 62871,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_plug_cache",
+      "description": "Plug support for AbsinthePlugCache, the GraphQL toolkit for Elixir",
+      "downloads_all": 128235,
+      "downloads_day": 2,
+      "downloads_recent": 284,
+      "downloads_week": 18,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_plug_cn",
+      "description": "Plug support for Absinthe, the GraphQL toolkit for Elixir",
+      "downloads_all": 83333,
+      "downloads_day": 2,
+      "downloads_recent": 175,
+      "downloads_week": 9,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_query_all",
+      "description": "A package for automatic, comprehensive querying of Absinthe GraphQL schemas (for purposes of easily creating automatic testing setups).",
+      "downloads_all": 304490,
+      "downloads_day": 2,
+      "downloads_recent": 490,
+      "downloads_week": 23,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_rate_limiting",
+      "description": "Middleware-based rate limiting for Absinthe",
+      "downloads_all": 51005,
+      "downloads_day": 1,
+      "downloads_recent": 452,
+      "downloads_week": 18,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_relay",
+      "description": "Relay framework support for Absinthe",
+      "downloads_all": 7992512,
+      "downloads_day": 911,
+      "downloads_recent": 345042,
+      "downloads_week": 27395,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_relay_keyset_connection",
+      "description": "Support for paginated result sets using keyset pagination, for use in an\nAbsinthe resolver module.\n\nRequires defining a connection with\nAbsinthe.Relay.Connection from the absinthe_relay package.",
+      "downloads_all": 378617,
+      "downloads_day": 6,
+      "downloads_recent": 9704,
+      "downloads_week": 500,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_relay_oxo",
+      "description": "Relay framework support for Absinthe",
+      "downloads_all": 82142,
+      "downloads_day": 1,
+      "downloads_recent": 170,
+      "downloads_week": 12,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_remote",
+      "description": "A library for helping you run GraphQL queries against remote GraphQL servers, with the client protections of Absinthe.",
+      "downloads_all": 231392,
+      "downloads_day": 2,
+      "downloads_recent": 423,
+      "downloads_week": 19,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_security",
+      "description": "This library provides security utilities to validate a GraphQL query before executing it.",
+      "downloads_all": 126487,
+      "downloads_day": 85,
+      "downloads_recent": 21355,
+      "downloads_week": 2003,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_upload_standard",
+      "description": "Standard graphql-multipart-request-spec support for Absinthe uploads.\nBuilt by the Shiko team. Transitional package while absinthe_plug#309\ngets merged upstream.",
+      "downloads_all": 8464,
+      "downloads_day": 2,
+      "downloads_recent": 270,
+      "downloads_week": 10,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "absinthe_utils",
+      "description": "Collection of utils for absinthe",
+      "downloads_all": 545542,
+      "downloads_day": 5,
+      "downloads_recent": 5304,
+      "downloads_week": 459,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "ab_test",
+      "description": "ABtest is an Elixir library to run A/B test for product optimization.",
+      "downloads_all": 116018,
+      "downloads_day": 2,
+      "downloads_recent": 251,
+      "downloads_week": 13,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "academy",
+      "description": "Automated feedback for the academy",
+      "downloads_all": 59336,
+      "downloads_day": 2,
+      "downloads_recent": 218,
+      "downloads_week": 13,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "accept",
+      "description": "Accept header(s) for Erlang/Elixir",
+      "downloads_all": 63405306,
+      "downloads_day": 1536,
+      "downloads_recent": 258048,
+      "downloads_week": 22247,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "acceptor_pool",
+      "description": "A tcp acceptor pool library",
+      "downloads_all": 30044297,
+      "downloads_day": 10088,
+      "downloads_recent": 2036546,
+      "downloads_week": 220350,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "access_decision_manager",
+      "description": "Voter based authorization for Elixir.",
+      "downloads_all": 71344,
+      "downloads_day": 2,
+      "downloads_recent": 268,
+      "downloads_week": 20,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "accessible",
+      "description": "Dead-simple Access behaviour for custom structs",
+      "downloads_all": 1034509,
+      "downloads_day": 148,
+      "downloads_recent": 56045,
+      "downloads_week": 3920,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "accessor",
+      "description": "Accessor is an Elixir data structure manipulator wrapper",
+      "downloads_all": 20870,
+      "downloads_day": 2,
+      "downloads_recent": 113,
+      "downloads_week": 7,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "access_token",
+      "description": "Access Token utility library.",
+      "downloads_all": 148904,
+      "downloads_day": 2,
+      "downloads_recent": 963,
+      "downloads_week": 31,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "access_token_extractor",
+      "description": "Simple Plug to extract access_token from request and add it to private map in Plug.Conn struct.",
+      "downloads_all": 42646,
+      "downloads_day": 3,
+      "downloads_recent": 171,
+      "downloads_week": 12,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "accomplice",
+      "description": "Accomplice is a library for grouping members of a list with a respect to a\nnumber of constraints.",
+      "downloads_all": 61906,
+      "downloads_day": 2,
+      "downloads_recent": 214,
+      "downloads_week": 15,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "accountable",
+      "description": "User accounts boilerplate.",
+      "downloads_all": 140543,
+      "downloads_day": 2,
+      "downloads_recent": 431,
+      "downloads_week": 21,
+      "classification": "random",
+      "source_query": "random_page_1"
+    },
+    {
+      "name": "accounting",
+      "description": "Accounting.",
+      "downloads_all": 531030,
+      "downloads_day": 4,
+      "downloads_recent": 1378,
+      "downloads_week": 61,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "accrue",
+      "description": "Billing state, modeled clearly.",
+      "downloads_all": 18089,
+      "downloads_day": 13,
+      "downloads_recent": 3534,
+      "downloads_week": 120,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "accrue_portal",
+      "description": "Customer portal UI for Accrue billing.",
+      "downloads_all": 954,
+      "downloads_day": 2,
+      "downloads_recent": 682,
+      "downloads_week": 21,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "acessor",
+      "description": "acessor for service mesh with processes",
+      "downloads_all": 53175,
+      "downloads_day": 2,
+      "downloads_recent": 213,
+      "downloads_week": 13,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "achlys",
+      "description": "A framework for applications using Lasp\n    on GRiSP embedded systems at the edge",
+      "downloads_all": 196763,
+      "downloads_day": 3,
+      "downloads_recent": 619,
+      "downloads_week": 30,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "ack",
+      "description": "Tiny drop-in for painless acknowledgements across different applications.",
+      "downloads_all": 193825,
+      "downloads_day": 2,
+      "downloads_recent": 583,
+      "downloads_week": 27,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "acl",
+      "description": "Acl implementation.",
+      "downloads_all": 447250,
+      "downloads_day": 2,
+      "downloads_recent": 1242,
+      "downloads_week": 53,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "acorn128",
+      "description": "ACORN-128 (v3) AEAD Cipher NIF for Erlang and Elixir",
+      "downloads_all": 19051,
+      "downloads_day": 2,
+      "downloads_recent": 108,
+      "downloads_week": 9,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "acpex",
+      "description": "An Elixir implementation of the Agent Client Protocol (ACP) for editor-agent communication.\nThis library implements the JSON-RPC based protocol from agentclientprotocol.com.",
+      "downloads_all": 18610,
+      "downloads_day": 5,
+      "downloads_recent": 1373,
+      "downloads_week": 208,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "acquisitionuniverse",
+      "description": "Toolkit for acquisition target screening: thesis briefs, a weighted composite that zeroes out group-owned targets, ranking and signal coverage.",
+      "downloads_all": 75,
+      "downloads_day": 3,
+      "downloads_recent": 75,
+      "downloads_week": 75,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "acrostic",
+      "description": "A pure Gleam implementation of Google Protobuf.",
+      "downloads_all": 68475,
+      "downloads_day": 2,
+      "downloads_recent": 294,
+      "downloads_week": 15,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "acs_ex",
+      "description": "An ACS server based on the cwmp_ex module",
+      "downloads_all": 354388,
+      "downloads_day": 2,
+      "downloads_recent": 1033,
+      "downloads_week": 43,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "act",
+      "description": "Compose stateful actions to simulate mutable state",
+      "downloads_all": 86737,
+      "downloads_day": 2,
+      "downloads_recent": 365,
+      "downloads_week": 17,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "action",
+      "description": "Github Action Toolkit in Elixir",
+      "downloads_all": 140084,
+      "downloads_day": 2,
+      "downloads_recent": 468,
+      "downloads_week": 23,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "actioncable",
+      "description": "PLEASE USE axtioncable instead of actioncable. actioncable is moving into this new deps.\nlink https://hex.pm/packages/axioncable",
+      "downloads_all": 227069,
+      "downloads_day": 4,
+      "downloads_recent": 733,
+      "downloads_week": 35,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "active",
+      "description": "ACTIVE Continuous Compilation",
+      "downloads_all": 169380,
+      "downloads_day": 4,
+      "downloads_recent": 491,
+      "downloads_week": 25,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "active_ex",
+      "description": "ActiveEx is a sync replacement that uses native file-system OS async listeners to automatic compile and to reload after saving all *.ex and *.erl files of a project. It acts as a FS subscriber under supervision.\r\n    NOTE: On Linux you need to install inotify-tools.",
+      "downloads_all": 19060,
+      "downloads_day": 5,
+      "downloads_recent": 111,
+      "downloads_week": 10,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "active_jorb",
+      "description": "A library to enqueue jobs with your Active Job job processor. You may want\nthis when strangling your Rails project.",
+      "downloads_all": 58886,
+      "downloads_day": 2,
+      "downloads_recent": 215,
+      "downloads_week": 13,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "activemq_client",
+      "description": "ActiveMQ client library for Artemis ActiveMQ using STOMP protocol connection. Provides high-level interface for message publishing, consuming, and job scheduling.",
+      "downloads_all": 50808,
+      "downloads_day": 2,
+      "downloads_recent": 220,
+      "downloads_week": 13,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "active_storage",
+      "description": "A library which allows for file storage compatible with Ruby's activestorage gem",
+      "downloads_all": 17596,
+      "downloads_day": 3,
+      "downloads_recent": 122,
+      "downloads_week": 12,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "activity_log",
+      "description": "Logging activities with [Activitiy Streams](https://www.w3.org/TR/activitystreams-core/) like format.",
+      "downloads_all": 25636,
+      "downloads_day": 2,
+      "downloads_recent": 107,
+      "downloads_week": 7,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "activity_pub_client",
+      "description": "An ActivityPub client library",
+      "downloads_all": 52243,
+      "downloads_day": 2,
+      "downloads_recent": 224,
+      "downloads_week": 15,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "actorx",
+      "description": "ActorX - Reactive Extensions for Gleam using BEAM actors",
+      "downloads_all": 33796,
+      "downloads_day": 2,
+      "downloads_recent": 178,
+      "downloads_week": 11,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "acumen",
+      "description": "Gleam library for interacting with Automatic Certificate Management Environment (ACME) servers like Let's Encrypt",
+      "downloads_all": 13778,
+      "downloads_day": 2,
+      "downloads_recent": 247,
+      "downloads_week": 18,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adam7",
+      "description": "Adam7 interlacing library for Elixir.\nPrimarily used for interlacing and de-interlacing image data for PNGs.",
+      "downloads_all": 98853,
+      "downloads_day": 2,
+      "downloads_recent": 360,
+      "downloads_week": 17,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adapt",
+      "description": "A wrapper of the Adapt Python Project. It allows the processing of user input to extract intentions in a machine readable way.",
+      "downloads_all": 19929,
+      "downloads_day": 2,
+      "downloads_recent": 109,
+      "downloads_week": 7,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adapter",
+      "description": "Fast adapters with clear syntax and build-in safety.",
+      "downloads_all": 19567,
+      "downloads_day": 2,
+      "downloads_recent": 110,
+      "downloads_week": 7,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adaptive_backfill",
+      "description": "Adaptive backfill library with health checks for Elixir.\nSupports both single operations and batch processing with sync/async health monitoring.",
+      "downloads_all": 50725,
+      "downloads_day": 2,
+      "downloads_recent": 216,
+      "downloads_week": 13,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adbc",
+      "description": "Apache Arrow ADBC bindings for Elixir",
+      "downloads_all": 651814,
+      "downloads_day": 59,
+      "downloads_recent": 28916,
+      "downloads_week": 1404,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "addressBook",
+      "description": "Simple package for managing address book.",
+      "downloads_all": 39334,
+      "downloads_day": 2,
+      "downloads_recent": 152,
+      "downloads_week": 11,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "address_converter",
+      "description": "A library for converting addresses between different formats.",
+      "downloads_all": 16999,
+      "downloads_day": 4,
+      "downloads_recent": 121,
+      "downloads_week": 9,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "address_input",
+      "description": "Loads and queries address metadata derived from the libaddressinput dataset.",
+      "downloads_all": 50862,
+      "downloads_day": 2,
+      "downloads_recent": 437,
+      "downloads_week": 34,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "address_us",
+      "description": "Library for parsing US Addresses into their individual parts.",
+      "downloads_all": 312070,
+      "downloads_day": 39,
+      "downloads_recent": 12011,
+      "downloads_week": 977,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adept",
+      "description": "A collection of light and simple utility functions for Elixir",
+      "downloads_all": 17297,
+      "downloads_day": 2,
+      "downloads_recent": 110,
+      "downloads_week": 7,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adept_svg",
+      "description": "A simple and fast in-line SVG library and renderer for web applications",
+      "downloads_all": 52421,
+      "downloads_day": 2,
+      "downloads_recent": 568,
+      "downloads_week": 15,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adf_sender_connector",
+      "description": "This package provides an elixir connector to the API exposed by ChannelSender",
+      "downloads_all": 17361,
+      "downloads_day": 2,
+      "downloads_recent": 216,
+      "downloads_week": 7,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adglent",
+      "description": "Advent of code helper - automating setup of tests, solution template and problem input",
+      "downloads_all": 170995,
+      "downloads_day": 2,
+      "downloads_recent": 543,
+      "downloads_week": 27,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adh",
+      "description": "A tiny library to make assertions against a HTML string",
+      "downloads_all": 17231,
+      "downloads_day": 2,
+      "downloads_recent": 102,
+      "downloads_week": 7,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adify",
+      "description": "A configurable, extendable DevOps environment app. This app installs tools\nbased on the given operating systems.",
+      "downloads_all": 19719,
+      "downloads_day": 2,
+      "downloads_recent": 111,
+      "downloads_week": 7,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adk",
+      "description": "Agent Development Kit for Elixir \u2014 OTP-native AI agent framework inspired by Google ADK",
+      "downloads_all": 24089,
+      "downloads_day": 2,
+      "downloads_recent": 222,
+      "downloads_week": 21,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adk_ex",
+      "description": "Elixir port of Google's Agent Development Kit (ADK) \u2014 agent orchestration, sessions, tools, LLM abstraction, plugins, and telemetry. Transport-agnostic.",
+      "downloads_all": 12387,
+      "downloads_day": 2,
+      "downloads_recent": 547,
+      "downloads_week": 32,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adk_ex_ecto",
+      "description": "Ecto-backed session persistence for the Elixir ADK (adk_ex). Database-backed ADK.Session.Service implementation with support for SQLite3 and PostgreSQL.",
+      "downloads_all": 5817,
+      "downloads_day": 2,
+      "downloads_recent": 156,
+      "downloads_week": 11,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "admin_elf",
+      "description": "A handy tool for all your administrative needs.",
+      "downloads_all": 559122,
+      "downloads_day": 2,
+      "downloads_recent": 3475,
+      "downloads_week": 81,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "ads1115",
+      "description": "Interact with ADS1115 or ADS1015 Analog-to-Digital Chips",
+      "downloads_all": 54187,
+      "downloads_day": 2,
+      "downloads_recent": 205,
+      "downloads_week": 13,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "ads_client",
+      "description": "a simple ams/ads implementation",
+      "downloads_all": 116514,
+      "downloads_day": 2,
+      "downloads_recent": 315,
+      "downloads_week": 19,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adt",
+      "description": "A light ADT module for Elixir.",
+      "downloads_all": 56125,
+      "downloads_day": 2,
+      "downloads_recent": 184,
+      "downloads_week": 13,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "ad_utils",
+      "description": "Simple helper functions to assist with working with Active Directory.",
+      "downloads_all": 19327,
+      "downloads_day": 2,
+      "downloads_recent": 110,
+      "downloads_week": 9,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "advent_of_code_helper",
+      "description": "Package to allow you to get input for all advent of code puzzles, rather than\npasting them in manually.",
+      "downloads_all": 126942,
+      "downloads_day": 2,
+      "downloads_recent": 384,
+      "downloads_week": 21,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "advent_of_code_utils",
+      "description": "Input fetching and boilerplate generation for Advent of Code challenges.",
+      "downloads_all": 357383,
+      "downloads_day": 2,
+      "downloads_recent": 994,
+      "downloads_week": 49,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adventurous",
+      "description": "Basic utilities for typical leet code exercises (such as Advent of Code)",
+      "downloads_all": 219975,
+      "downloads_day": 2,
+      "downloads_recent": 591,
+      "downloads_week": 33,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adyen_cse",
+      "description": "An Adyen Client Side Encryption Library Supports Only standard Adyen Api.",
+      "downloads_all": 19492,
+      "downloads_day": 2,
+      "downloads_recent": 101,
+      "downloads_week": 7,
+      "classification": "random",
+      "source_query": "random_page_2"
+    },
+    {
+      "name": "adze",
+      "description": "Structural Elixir refactoring and outline-first code exploration. Built on Sourceror and Igniter.",
+      "downloads_all": 200,
+      "downloads_day": 2,
+      "downloads_recent": 131,
+      "downloads_week": 9,
+      "classification": "random",
+      "source_query": "random_page_2"
+    }
+  ]
+}

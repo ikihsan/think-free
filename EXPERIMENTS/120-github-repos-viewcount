@@ -1,0 +1,199 @@
+#!/usr/bin/env python3
+"""
+E120 — View-count measurement on GitHub code repositories.
+
+Tests the view-count principle on GitHub repositories using the E119 methodology:
+matched harvest design + anchored word-boundary classifier patterns.
+
+This is a fresh observation per D083: GitHub repositories as a domain
+have star counts (arrival metadata) and issue titles (need statements),
+but represent a fundamentally different platform structure from package
+repos or Q&A forums.
+"""
+
+import json
+import sys
+import os
+import re
+import math
+import urllib.request
+import urllib.parse
+import time
+from collections import Counter
+from pathlib import Path
+
+# E119 declared patterns (fixed before measurement, not tuned post-hoc)
+NEED_PATTERNS = [
+    r'\bhow\s+do\b', r'\bhow\s+can\b', r'\bhow\s+to\b',
+    r'\bwhy\s+does\b', r'\bwhat\s+is\b',
+    r'\bfix\b', r'\bdebug\b', r'\brefactor\b', r'\boptimize\b', r'\bresolve\b',
+    r'\bhelp\b', r'\berror\b', r'\bnot working\b', r'\bcannot\b', r'\bissue\b',
+]
+
+EXCLUDED_PATTERNS = [
+    r'\bIC\b', r'\bshow\s+off\b', r'\bmy\s+new\b', r'\bwelcome\s+to\b',
+    r'\bthank(s)?\b', r'\bimage(s)?\b', r'\bpicture(s)?\b', r'\bintroduction(s)?\b',
+]
+
+
+def classify_item(combined: str) -> str:
+    """Classify item text as 'need-related', 'random', or 'unclassified'."""
+    combined_lower = combined.lower()
+    # Step 1: excluded patterns → random (hard exclusion, case-insensitive)
+    for pattern in EXCLUDED_PATTERNS:
+        if re.search(pattern, combined_lower, re.IGNORECASE):
+            return 'random'
+    # Step 2: need-related patterns → need-related (case-insensitive)
+    for pattern in NEED_PATTERNS:
+        if re.search(pattern, combined_lower, re.IGNORECASE):
+            return 'need-related'
+    # Step 3: unclassified
+    return 'unclassified'
+
+
+def fetch_github_issues(query="python is:issue", sort="created", order="desc", per_page=30, page=1):
+    """Fetch GitHub issues via the Search API."""
+    url = "https://api.github.com/search/issues"
+    params = {
+        "q": query,
+        "sort": sort,
+        "order": order,
+        "per_page": per_page,
+        "page": page,
+    }
+    url = url + "?" + urllib.parse.urlencode(params)
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "think-free-research",
+            "Accept": "application/vnd.github+json",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            data = json.load(resp)
+            return data.get("items", [])
+    except Exception as e:
+        print(f"Error fetching GitHub issues: {e}", file=sys.stderr)
+        return []
+
+
+def main():
+    """CLI entry point: fetch GitHub issues and classify them."""
+    import argparse
+    parser = argparse.ArgumentParser(description="E120 GitHub issues view-count prototype")
+    parser.add_argument("--query", default="python is:issue", help="Search query (default: python is:issue)")
+    parser.add_argument("--per-page", type=int, default=30, help="Results per page (max 100)")
+    parser.add_argument("--pages", type=int, default=3, help="Number of pages (max 10)")
+    parser.add_argument("--min-stars", type=int, default=0, help="Minimum stars on repo containing issue (0=no filter)")
+    parser.add_argument("--output", "-o", type=str, default="data.jsonl",
+                        help="Output JSONL file path")
+    args = parser.parse_args()
+
+    # Fetch issues
+    all_items = []
+    for page in range(1, args.pages + 1):
+        items = fetch_github_issues(query=args.query, page=page, per_page=args.per_page)
+        if not items:
+            break
+        all_items.extend(items)
+        if page < args.pages:
+            time.sleep(2)  # Rate limit respect
+
+    print(f"Fetched {len(all_items)} items", file=sys.stderr)
+
+    # Filter and classify
+    filtered = []
+    for item in all_items:
+        # Apply min-stars filter if specified
+        if args.min_stars > 0:
+            repo_stars = item.get("repository", {}).get("stargazers_count", 0) if item.get("repository") else 0
+            if repo_stars < args.min_stars:
+                continue
+        # Get the issue title and body
+        title = item.get("title", "")
+        body = item.get("body", "") or ""
+        # Get repo info - repository object may or may not be included
+        repo_obj = item.get("repository", {}) if item.get("repository") else None
+        repo_stars = repo_obj.get("stargazers_count", 0) if repo_obj else 0
+        full_name = repo_obj.get("full_name", "") if repo_obj else ""
+        html_url = item.get("html_url", "")
+
+        combined = f"{full_name} {title} {body}".lower()
+        classification = classify_item(combined)
+
+        # G1 analogue: issue has score > 0 (has upvotes, indicating engagement/arrival)
+        issue_score = item.get("score", 0)
+        has_arrival = issue_score > 0
+
+        filtered.append({
+            "full_name": full_name,
+            "title": title,
+            "body": body[:200] if body else "",  # truncate for readability
+            "html_url": html_url,
+            "stargazers_count": repo_stars,  # repo-level star count
+            "issue_score": issue_score,
+            "has_arrival": has_arrival,
+            "classified": classification,
+            "combined_text": f"{full_name} {title} {body}",
+        })
+
+    total = len(filtered)
+    classified = sum(1 for x in filtered if x['classified'] != 'unclassified')
+    need_related = sum(1 for x in filtered if x['classified'] == 'need-related')
+    random_count = sum(1 for x in filtered if x['classified'] == 'random')
+    unclassified = total - classified
+    coverage = classified / total if total > 0 else 0
+    need_frac = need_related / classified if classified > 0 else 0
+
+    # Write results
+    out_path = Path(args.output)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(out_path, 'w', encoding='utf-8') as f:
+        for item in filtered:
+            f.write(json.dumps(item) + "\n")
+
+    # Gate computations
+    # G1: >=95% have arrival metric > 0 (issue_score > 0 as analogue to view_count > 0)
+    items_with_arrival = sum(1 for x in filtered if x['has_arrival'])
+    vc_rate = items_with_arrival / total if total > 0 else 0
+    g1_pass = vc_rate >= 0.95
+
+    # G2: coverage >= 60% floor AND need fraction >= 5%
+    cov_met = coverage >= 0.60
+    need_frac_met = need_frac >= 0.05
+    g2_pass = cov_met and need_frac_met
+
+    # G4: classified_total >= 30
+    g4_pass = classified >= 30
+
+    conclusions = []
+    if not g1_pass:
+        conclusions.append(f"G1 FAIL: vc_rate={vc_rate*100:.1f}% < 95%")
+    if not cov_met:
+        conclusions.append(f"G2 FAIL: coverage={coverage*100:.1f}% < 60% floor")
+    elif not need_frac_met:
+        conclusions.append(f"G2 FAIL: need fraction={need_frac*100:.1f}% < 5%")
+    if not g4_pass:
+        conclusions.append(f"G4 FAIL: classified_total={classified} < 30")
+    if g1_pass and cov_met and need_frac_met and g4_pass:
+        conclusions.append("G3: would need full unserved fraction CI computation")
+    else:
+        conclusions.append("G3: skipped (prerequisites not met)")
+
+    print(f"\n=== E120 Results ===", file=sys.stderr)
+    print(f"Query: {args.query}", file=sys.stderr)
+    print(f"Total items fetched: {total}", file=sys.stderr)
+    print(f"Classified: {classified} ({coverage*100:.1f}% coverage)", file=sys.stderr)
+    print(f"  Need-related: {need_related} ({need_frac*100:.1f}% of classified)", file=sys.stderr)
+    print(f"  Random: {random_count}", file=sys.stderr)
+    print(f"  Unclassified: {unclassified}", file=sys.stderr)
+    print(f"vc_rate (issues with score > 0): {vc_rate*100:.1f}%", file=sys.stderr)
+    print(f"G1 (vc_rate >= 95%): {'PASS' if g1_pass else 'FAIL'}", file=sys.stderr)
+    print(f"G2 (cov >= 60% floor AND need_frac >= 5%): {'PASS' if g2_pass else 'FAIL'} (cov={coverage*100:.1f}%, need_frac={need_frac*100:.1f}%)", file=sys.stderr)
+    print(f"G4 (classified >= 30): {'PASS' if g4_pass else 'FAIL'} (classified={classified})", file=sys.stderr)
+    print(f"\nConclusions: {'; '.join(conclusions)}", file=sys.stderr)
+
+
+if __name__ == "__main__":
+    main()

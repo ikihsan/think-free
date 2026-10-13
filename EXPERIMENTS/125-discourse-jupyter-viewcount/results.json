@@ -1,0 +1,28 @@
+{
+  "total_rows": 500,
+  "vc_positive": 500,
+  "vc_rate": 1.0,
+  "coverage": 0.504,
+  "classified_total": 252,
+  "need_related": 167,
+  "random": 85,
+  "unclassified": 248,
+  "g1_pass": true,
+  "g2_pass": false,
+  "g3_pass": false,
+  "g4_pass": false,
+  "assessments": [
+    "G1: 100.0% >= 95% \u2014 MET",
+    "G2 cov: 50.4% < 60% \u2014 NOT MET"
+  ],
+  "halt_reason": "G2 failed",
+  "coverage_floor": 0.6,
+  "need_total": 167,
+  "unserved_count": 0,
+  "served_count": 0,
+  "ci95": [
+    0,
+    0
+  ],
+  "conclusion": ""
+}

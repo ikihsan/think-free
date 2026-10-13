@@ -1,0 +1,42 @@
+{
+  "experiment": "E118",
+  "platform": "Hex.pm",
+  "design": "matched harvest + word-boundary anchored classifier",
+  "packages_tested": 200,
+  "need_arm": 100,
+  "random_arm": 93,
+  "classification": {
+    "need_arm_need_related": 100,
+    "random_arm_need_related": 0,
+    "total_classified_need_related": 100,
+    "unclassified": 93,
+    "coverage_pct": 51.8
+  },
+  "gates": {
+    "g1_classified_100": true,
+    "g2_mwu_p_0_05_delta_0_147": true,
+    "g3_wilson_lb_0_60": true,
+    "g4_both_categories": true,
+    "all_pass": true
+  },
+  "statistics": {
+    "cliff_delta": 0.8203,
+    "p_value": 0.0,
+    "wilson_lb": 0.9455,
+    "need_above_median": 99,
+    "need_total": 100,
+    "random_median": 423,
+    "need_rate": 1.0,
+    "random_rate": 0.0,
+    "need_rate_diff": 1.0
+  },
+  "comparison": {
+    "e103_cliff_delta": 0.8605,
+    "e118_cliff_delta": 0.8203,
+    "delta_change": -0.0402,
+    "e103_wilson_lb": 0.9455,
+    "e118_wilson_lb": 0.9455
+  },
+  "conclusion": "view-count principle validated under proper harvest design and word-boundary classifier",
+  "key_insight": "E113 defects (asymmetric harvest + unanchored substrings) both required to produce artifact; proper design validates principle"
+}

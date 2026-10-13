@@ -1,0 +1,31 @@
+{
+  "total_rows": 2000,
+  "vc_positive": 2000,
+  "vc_rate": 1.0,
+  "coverage": 0.7125,
+  "classified_total": 1425,
+  "need_related": 665,
+  "random": 760,
+  "unclassified": 575,
+  "g1_pass": true,
+  "g2_pass": true,
+  "g3_pass": false,
+  "g4_pass": true,
+  "need_arm_size": 665,
+  "random_arm_size": 760,
+  "need_median_installs": 626540,
+  "random_median_installs": 379359,
+  "need_active_rate": 1.0,
+  "cliffs_delta": 0.1578808864265928,
+  "p_value": 2.631199527147743e-07,
+  "coverage_floor": 0.6,
+  "assessments": [
+    "G1: 100.0% >= 95% \u2014 MET",
+    "G2 cov: 71.2% >= 60% \u2014 MET",
+    "G2 need_frac: 665/2000 = 33.2% >= 5% \u2014 MET",
+    "G3: Cliff's delta = 0.1579 (> 0.2? NO), p = 0.000000 (< 0.05? YES) \u2014 FAIL",
+    "G4: Need-related active rate = 100.0% (>100 installs) \u2014 MET"
+  ],
+  "halt_reason": null,
+  "conclusion": "G3/G4 FAIL \u2014 principle does not generalize to this domain"
+}

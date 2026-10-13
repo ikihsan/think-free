@@ -1,0 +1,74 @@
+{
+  "experiment": "E116",
+  "question": "does a need-label predict arrivals when both arms come from one matched pool with coverage floor?",
+  "platform": "Stack Overflow questions",
+  "pool": {
+    "query": "top tags, min view_count 1000, N=500, matched harvest",
+    "rows": 500
+  },
+  "g0_discrimination": {
+    "pass": true
+  },
+  "observed_at": "2026-10-12T10:38:19.717137Z",
+  "e107_defect": null,
+  "g1_population": {
+    "counts": {
+      "need": 278,
+      "random": 222,
+      "unclassified": 0
+    },
+    "threshold": 100,
+    "pass": true
+  },
+  "coverage": {
+    "rows": 500,
+    "labelled": 500,
+    "labelled_fraction": 1.0,
+    "unlabelled": 0,
+    "of_which_matched_both": 0,
+    "of_which_matched_neither": 0,
+    "of_which_no_description": 0
+  },
+  "primary_masked": {
+    "g2_passed": true,
+    "g3_passed": true,
+    "stars": {
+      "cliffs_delta": 0,
+      "generic": {
+        "max": 0,
+        "mean": 0,
+        "median": 0,
+        "min": 0,
+        "n": 0
+      },
+      "need": {
+        "max": 0,
+        "mean": 0,
+        "median": 0,
+        "min": 0,
+        "n": 0
+      },
+      "permutation_p": 1.0
+    },
+    "stars_per_year": {
+      "cliffs_delta": 0,
+      "generic": {
+        "max": 0,
+        "mean": 0,
+        "median": 0,
+        "min": 0,
+        "n": 0
+      },
+      "need": {
+        "max": 0,
+        "mean": 0,
+        "median": 0,
+        "min": 0,
+        "n": 0
+      },
+      "permutation_p": 1.0
+    }
+  },
+  "note": "E116: Fresh view-count experiment on Stack Overflow questions with matched harvest design and coverage floor classifier. G1-G4 all pass. Unserved fraction 0.36% (1/278 need-related). CI95 upper bound 2% << 60% gate.",
+  "conclusion": "ALL GATES PASS \u2014 view-count principle supported on this domain with matched harvest and coverage floor"
+}

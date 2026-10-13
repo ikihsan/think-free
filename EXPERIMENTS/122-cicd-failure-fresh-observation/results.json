@@ -1,0 +1,163 @@
+{
+  "experiment": "E122",
+  "timestamp": "2026-10-12T18:40:11Z",
+  "kg1": {
+    "gate": "KG1",
+    "pass": false,
+    "accuracy": 0.5214285714285715,
+    "details": {
+      "accuracy": 0.5214285714285715,
+      "correct": 73,
+      "total": 140,
+      "per_category_accuracy": {
+        "test_failure": 0.55,
+        "dependency_error": 0.65,
+        "flaky_test": 0.15,
+        "environment_error": 0.65,
+        "compile_error": 0.4,
+        "timeout": 0.5,
+        "permission_error": 0.75,
+        "unknown": null
+      },
+      "confusion_matrix": {
+        "test_failure": {
+          "test_failure": 11,
+          "dependency_error": 0,
+          "flaky_test": 0,
+          "environment_error": 0,
+          "compile_error": 0,
+          "timeout": 0,
+          "permission_error": 0,
+          "unknown": 9
+        },
+        "dependency_error": {
+          "test_failure": 0,
+          "dependency_error": 13,
+          "flaky_test": 0,
+          "environment_error": 0,
+          "compile_error": 1,
+          "timeout": 0,
+          "permission_error": 0,
+          "unknown": 6
+        },
+        "flaky_test": {
+          "test_failure": 17,
+          "dependency_error": 0,
+          "flaky_test": 3,
+          "environment_error": 0,
+          "compile_error": 0,
+          "timeout": 0,
+          "permission_error": 0,
+          "unknown": 0
+        },
+        "environment_error": {
+          "test_failure": 0,
+          "dependency_error": 0,
+          "flaky_test": 0,
+          "environment_error": 13,
+          "compile_error": 0,
+          "timeout": 0,
+          "permission_error": 1,
+          "unknown": 6
+        },
+        "compile_error": {
+          "test_failure": 0,
+          "dependency_error": 1,
+          "flaky_test": 0,
+          "environment_error": 0,
+          "compile_error": 8,
+          "timeout": 0,
+          "permission_error": 0,
+          "unknown": 11
+        },
+        "timeout": {
+          "test_failure": 0,
+          "dependency_error": 0,
+          "flaky_test": 0,
+          "environment_error": 0,
+          "compile_error": 0,
+          "timeout": 10,
+          "permission_error": 0,
+          "unknown": 10
+        },
+        "permission_error": {
+          "test_failure": 0,
+          "dependency_error": 0,
+          "flaky_test": 0,
+          "environment_error": 4,
+          "compile_error": 0,
+          "timeout": 0,
+          "permission_error": 15,
+          "unknown": 1
+        },
+        "unknown": {
+          "test_failure": 0,
+          "dependency_error": 0,
+          "flaky_test": 0,
+          "environment_error": 0,
+          "compile_error": 0,
+          "timeout": 0,
+          "permission_error": 0,
+          "unknown": 0
+        }
+      },
+      "per_category_counts": {
+        "test_failure": {
+          "correct": 11,
+          "total": 20
+        },
+        "dependency_error": {
+          "correct": 13,
+          "total": 20
+        },
+        "flaky_test": {
+          "correct": 3,
+          "total": 20
+        },
+        "environment_error": {
+          "correct": 13,
+          "total": 20
+        },
+        "compile_error": {
+          "correct": 8,
+          "total": 20
+        },
+        "timeout": {
+          "correct": 10,
+          "total": 20
+        },
+        "permission_error": {
+          "correct": 15,
+          "total": 20
+        },
+        "unknown": {
+          "correct": 0,
+          "total": 0
+        }
+      }
+    }
+  },
+  "overall": "KG1_FAIL_NO_REAL_DATA",
+  "cases_examined": 140,
+  "cases_correct": 73,
+  "fixtures_per_category": {
+    "test_failure": 20,
+    "dependency_error": 20,
+    "flaky_test": 20,
+    "environment_error": 20,
+    "compile_error": 20,
+    "timeout": 20,
+    "permission_error": 20,
+    "unknown": 0
+  },
+  "accuracy_percent": 52.14,
+  "note_declared_counts": "cases_examined / cases_correct / fixtures_<category> are declared here at the top level so `doc lint`'s resultnumbers rule \u2014 which reads top-level integer fields whose name says case|fixture|instance \u2014 can check a record restating 73/140 or 17/20. They duplicate kg1.details verbatim; no measurement changed.",
+  "fixtures_test_failure": 20,
+  "fixtures_dependency_error": 20,
+  "fixtures_flaky_test": 20,
+  "fixtures_environment_error": 20,
+  "fixtures_compile_error": 20,
+  "fixtures_timeout": 20,
+  "fixtures_permission_error": 20,
+  "fixtures_unknown": 0
+}
