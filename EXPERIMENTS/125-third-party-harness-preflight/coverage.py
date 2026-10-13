@@ -53,12 +53,14 @@ def main():
     per_repo = []
     field_freq = Counter()
     outputish_paths = []
+    sample_records = []
 
     for repo in trees["repositories"]:
         slug = repo["full_name"].replace("/", "__")
         entry = {"full_name": repo["full_name"], "commit": repo.get("commit"),
                  "data_files": 0, "sampled": 0, "readable": 0, "sides": Counter(),
                  "reasons": Counter()}
+        rec_rows = []
         if not repo.get("commit"):
             per_repo.append(entry)
             continue
@@ -78,6 +80,8 @@ def main():
                 r = reason_of(how)
                 reasons[r] += 1
                 entry["reasons"][r] += 1
+                rec_rows.append({"full_name": repo["full_name"], "path": path,
+                                 "readable": False, "reason": r})
                 continue
             readable += 1
             entry["readable"] += 1
@@ -86,15 +90,26 @@ def main():
             entry["sides"][rec["side"]] += 1
             for f in list(rec["id_fields"]) + list(rec["key_fields"]) + list(rec["output_fields"]):
                 field_freq[f] += 1
+            rec_rows.append({"full_name": repo["full_name"], "path": path,
+                             "readable": True, "how": how, "n": rec["n"],
+                             "side": rec["side"], "id_fields": rec["id_fields"],
+                             "key_fields": rec["key_fields"],
+                             "output_fields": rec["output_fields"]})
             if rec["output_fields"]:
                 outputish_paths.append({"full_name": repo["full_name"], "path": path,
                                          "n": rec["n"], "output_fields": rec["output_fields"],
                                          "key_fields": rec["key_fields"]})
+        sample_records.extend(rec_rows)
         per_repo.append({kk: (dict(vv) if isinstance(vv, Counter) else vv)
                          for kk, vv in entry.items()})
         print("%-38s data %4d step %3d sampled %3d readable %3d  %s"
               % (repo["full_name"], entry["data_files"], k, entry["sampled"],
                  entry["readable"], dict(entry["sides"])))
+
+    with open(os.path.join(HERE, "sample.json"), "w") as fh:
+        json.dump({"experiment": "E125",
+                   "rule": "every k-th of the sorted data-file listing, k=ceil(n/%d)" % PER_REPO,
+                   "records": sample_records}, fh, indent=1, sort_keys=True)
 
     out = {"experiment": "E125", "rule": "every k-th of the sorted data-file listing, k=ceil(n/%d)" % PER_REPO,
            "totals": {"data_files_in_population": total_files, "sampled": sampled,

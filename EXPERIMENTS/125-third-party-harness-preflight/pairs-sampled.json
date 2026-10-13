@@ -1,0 +1,575 @@
+{
+ "experiment": "E125",
+ "population": "the 857-file deterministic sample in sample.json",
+ "qualified_pairs": [
+  {
+   "adapter_lines": 0,
+   "best_rate": 1.0,
+   "full_name": "claw-eval/claw-eval",
+   "key": {
+    "how": "json",
+    "id_fields": [
+     "customer_id",
+     "name",
+     "notes"
+    ],
+    "key_fields": [
+     "expected_monthly"
+    ],
+    "n": 6,
+    "path": "tasks/T157zh_month_end_reconciliation/fixtures/crm/customers.json"
+   },
+   "m4": "shared id field(s) customer_id, name, notes; counts 6 vs 4",
+   "n_pairings": 66,
+   "output": {
+    "how": "json",
+    "id_fields": [
+     "customer_id",
+     "name",
+     "notes"
+    ],
+    "n": 4,
+    "output_fields": [
+     "sla_response"
+    ],
+    "path": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json"
+   },
+   "reason": "",
+   "swapped_best_rate": 0.6667,
+   "swapped_verdict": "PARTIAL_MATCH",
+   "type_conflicts": [],
+   "verdict": "OK"
+  },
+  {
+   "adapter_lines": 0,
+   "best_rate": 1.0,
+   "full_name": "modelscope/evalscope",
+   "key": {
+    "how": "jsonl",
+    "id_fields": [
+     "index"
+    ],
+    "key_fields": [
+     "target"
+    ],
+    "n": 10,
+    "path": "examples/viz/qwen-plus/reviews/qwen-plus/ifeval_default.jsonl"
+   },
+   "m4": "shared id field(s) index; counts 10 vs 10",
+   "n_pairings": 3,
+   "output": {
+    "how": "jsonl",
+    "id_fields": [
+     "index"
+    ],
+    "n": 10,
+    "output_fields": [
+     "model_output"
+    ],
+    "path": "examples/viz/qwen-plus/predictions/qwen-plus/ifeval_default.jsonl"
+   },
+   "reason": "",
+   "swapped_best_rate": 1.0,
+   "swapped_verdict": "OK",
+   "type_conflicts": [],
+   "verdict": "OK"
+  },
+  {
+   "adapter_lines": 0,
+   "best_rate": 1.0,
+   "full_name": "modelscope/evalscope",
+   "key": {
+    "how": "jsonl",
+    "id_fields": [
+     "index"
+    ],
+    "key_fields": [
+     "target"
+    ],
+    "n": 10,
+    "path": "examples/viz/qwen-plus/reviews/qwen-plus/ifeval_default.jsonl"
+   },
+   "m4": "shared id field(s) index; counts 10 vs 10",
+   "n_pairings": 3,
+   "output": {
+    "how": "jsonl",
+    "id_fields": [
+     "index"
+    ],
+    "n": 10,
+    "output_fields": [
+     "model_output"
+    ],
+    "path": "examples/viz/qwen3-max/predictions/qwen3-max/iquiz_EQ.jsonl"
+   },
+   "reason": "",
+   "swapped_best_rate": 1.0,
+   "swapped_verdict": "OK",
+   "type_conflicts": [],
+   "verdict": "OK"
+  },
+  {
+   "adapter_lines": 0,
+   "best_rate": 1.0,
+   "full_name": "modelscope/evalscope",
+   "key": {
+    "how": "jsonl",
+    "id_fields": [
+     "index"
+    ],
+    "key_fields": [
+     "target"
+    ],
+    "n": 10,
+    "path": "examples/viz/qwen3-max/reviews/qwen3-max/iquiz_EQ.jsonl"
+   },
+   "m4": "shared id field(s) index; counts 10 vs 10",
+   "n_pairings": 3,
+   "output": {
+    "how": "jsonl",
+    "id_fields": [
+     "index"
+    ],
+    "n": 10,
+    "output_fields": [
+     "model_output"
+    ],
+    "path": "examples/viz/qwen-plus/predictions/qwen-plus/ifeval_default.jsonl"
+   },
+   "reason": "",
+   "swapped_best_rate": 1.0,
+   "swapped_verdict": "OK",
+   "type_conflicts": [],
+   "verdict": "OK"
+  },
+  {
+   "adapter_lines": 0,
+   "best_rate": 1.0,
+   "full_name": "modelscope/evalscope",
+   "key": {
+    "how": "jsonl",
+    "id_fields": [
+     "index"
+    ],
+    "key_fields": [
+     "target"
+    ],
+    "n": 10,
+    "path": "examples/viz/qwen3-max/reviews/qwen3-max/iquiz_EQ.jsonl"
+   },
+   "m4": "shared id field(s) index; counts 10 vs 10",
+   "n_pairings": 3,
+   "output": {
+    "how": "jsonl",
+    "id_fields": [
+     "index"
+    ],
+    "n": 10,
+    "output_fields": [
+     "model_output"
+    ],
+    "path": "examples/viz/qwen3-max/predictions/qwen3-max/iquiz_EQ.jsonl"
+   },
+   "reason": "",
+   "swapped_best_rate": 1.0,
+   "swapped_verdict": "OK",
+   "type_conflicts": [],
+   "verdict": "OK"
+  }
+ ],
+ "refused_pairs": [
+  {
+   "full_name": "claw-eval/claw-eval",
+   "key": "tasks/T002_email_triage/fixtures/gmail/inbox.json",
+   "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+   "reason": "no shared identifier-shaped field name (key message_id / output customer_id,name,notes)"
+  },
+  {
+   "full_name": "claw-eval/claw-eval",
+   "key": "tasks/T005zh_email_reply_draft/fixtures/gmail/inbox.json",
+   "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+   "reason": "no shared identifier-shaped field name (key message_id / output customer_id,name,notes)"
+  },
+  {
+   "full_name": "claw-eval/claw-eval",
+   "key": "tasks/T025zh_ambiguous_contact_email/fixtures/gmail/inbox.json",
+   "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+   "reason": "no shared identifier-shaped field name (key message_id / output customer_id,name,notes)"
+  },
+  {
+   "full_name": "claw-eval/claw-eval",
+   "key": "tasks/T039zh_onboarding_coordinator/fixtures/gmail/inbox.json",
+   "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+   "reason": "no shared identifier-shaped field name (key message_id / output customer_id,name,notes)"
+  },
+  {
+   "full_name": "claw-eval/claw-eval",
+   "key": "tasks/T040_onboarding_coordinator/fixtures/gmail/inbox.json",
+   "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+   "reason": "no shared identifier-shaped field name (key message_id / output customer_id,name,notes)"
+  },
+  {
+   "full_name": "claw-eval/claw-eval",
+   "key": "tasks/T094_pinbench_project_alpha_summary/fixtures/gmail/inbox.json",
+   "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+   "reason": "no shared identifier-shaped field name (key message_id / output customer_id,name,notes)"
+  },
+  {
+   "full_name": "claw-eval/claw-eval",
+   "key": "tasks/T112_expense_email_check/fixtures/gmail/inbox.json",
+   "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+   "reason": "no shared identifier-shaped field name (key message_id / output customer_id,name,notes)"
+  },
+  {
+   "full_name": "claw-eval/claw-eval",
+   "key": "tasks/T118_customer_followup/fixtures/gmail/inbox.json",
+   "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+   "reason": "no shared identifier-shaped field name (key message_id / output customer_id,name,notes)"
+  },
+  {
+   "full_name": "claw-eval/claw-eval",
+   "key": "tasks/T120_inventory_cost_analysis/fixtures/finance/transactions.json",
+   "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+   "reason": "no shared identifier-shaped field name (key transaction_id / output customer_id,name,notes)"
+  },
+  {
+   "full_name": "claw-eval/claw-eval",
+   "key": "tasks/T133zh_competitive_intelligence/fixtures/gmail/inbox.json",
+   "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+   "reason": "no shared identifier-shaped field name (key message_id / output customer_id,name,notes)"
+  },
+  {
+   "full_name": "claw-eval/claw-eval",
+   "key": "tasks/T134_competitive_intelligence/fixtures/gmail/inbox.json",
+   "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+   "reason": "no shared identifier-shaped field name (key message_id / output customer_id,name,notes)"
+  },
+  {
+   "full_name": "claw-eval/claw-eval",
+   "key": "tasks/T145zh_task_backtracking/fixtures/gmail/inbox.json",
+   "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+   "reason": "no shared identifier-shaped field name (key message_id / output customer_id,name,notes)"
+  },
+  {
+   "full_name": "claw-eval/claw-eval",
+   "key": "tasks/T146_task_backtracking/fixtures/gmail/inbox.json",
+   "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+   "reason": "no shared identifier-shaped field name (key message_id / output customer_id,name,notes)"
+  },
+  {
+   "full_name": "claw-eval/claw-eval",
+   "key": "tasks/T152_supply_chain_investigation/fixtures/finance/transactions.json",
+   "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+   "reason": "no shared identifier-shaped field name (key transaction_id / output customer_id,name,notes)"
+  },
+  {
+   "full_name": "claw-eval/claw-eval",
+   "key": "tasks/T156_onsite_support_dispatch/fixtures/gmail/inbox.json",
+   "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+   "reason": "no shared identifier-shaped field name (key message_id / output customer_id,name,notes)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "custom_eval/multimodal/mcq/example.jsonl",
+   "output": "custom_eval/text/qa/test.jsonl",
+   "reason": "no shared identifier-shaped field name (key - / output -)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "custom_eval/multimodal/mcq/example.jsonl",
+   "output": "examples/viz/qwen-plus/predictions/qwen-plus/ifeval_default.jsonl",
+   "reason": "no shared identifier-shaped field name (key - / output index)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "custom_eval/multimodal/mcq/example.jsonl",
+   "output": "examples/viz/qwen3-max/predictions/qwen3-max/iquiz_EQ.jsonl",
+   "reason": "no shared identifier-shaped field name (key - / output index)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "custom_eval/multimodal/vqa/example_openai.tsv",
+   "output": "custom_eval/text/qa/test.jsonl",
+   "reason": "no shared identifier-shaped field name (key - / output -)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "custom_eval/multimodal/vqa/example_openai.tsv",
+   "output": "examples/viz/qwen-plus/predictions/qwen-plus/ifeval_default.jsonl",
+   "reason": "no shared identifier-shaped field name (key - / output index)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "custom_eval/multimodal/vqa/example_openai.tsv",
+   "output": "examples/viz/qwen3-max/predictions/qwen3-max/iquiz_EQ.jsonl",
+   "reason": "no shared identifier-shaped field name (key - / output index)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "custom_eval/text/mcq/example_multi_dev.jsonl",
+   "output": "custom_eval/text/qa/test.jsonl",
+   "reason": "no shared identifier-shaped field name (key id / output -)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "custom_eval/text/mcq/example_multi_dev.jsonl",
+   "output": "examples/viz/qwen-plus/predictions/qwen-plus/ifeval_default.jsonl",
+   "reason": "no shared identifier-shaped field name (key id / output index)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "custom_eval/text/mcq/example_multi_dev.jsonl",
+   "output": "examples/viz/qwen3-max/predictions/qwen3-max/iquiz_EQ.jsonl",
+   "reason": "no shared identifier-shaped field name (key id / output index)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "custom_eval/text/mcq/example_val.jsonl",
+   "output": "custom_eval/text/qa/test.jsonl",
+   "reason": "no shared identifier-shaped field name (key id / output -)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "custom_eval/text/mcq/example_val.jsonl",
+   "output": "examples/viz/qwen-plus/predictions/qwen-plus/ifeval_default.jsonl",
+   "reason": "no shared identifier-shaped field name (key id / output index)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "custom_eval/text/mcq/example_val.jsonl",
+   "output": "examples/viz/qwen3-max/predictions/qwen3-max/iquiz_EQ.jsonl",
+   "reason": "no shared identifier-shaped field name (key id / output index)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "evalscope/benchmarks/trivia_qa/samples.jsonl",
+   "output": "custom_eval/text/qa/test.jsonl",
+   "reason": "no shared identifier-shaped field name (key ideal / output -)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "evalscope/benchmarks/trivia_qa/samples.jsonl",
+   "output": "examples/viz/qwen-plus/predictions/qwen-plus/ifeval_default.jsonl",
+   "reason": "no shared identifier-shaped field name (key ideal / output index)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "evalscope/benchmarks/trivia_qa/samples.jsonl",
+   "output": "examples/viz/qwen3-max/predictions/qwen3-max/iquiz_EQ.jsonl",
+   "reason": "no shared identifier-shaped field name (key ideal / output index)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "examples/viz/qwen-plus/reviews/qwen-plus/ifeval_default.jsonl",
+   "output": "custom_eval/text/qa/test.jsonl",
+   "reason": "no shared identifier-shaped field name (key index / output -)"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key": "examples/viz/qwen3-max/reviews/qwen3-max/iquiz_EQ.jsonl",
+   "output": "custom_eval/text/qa/test.jsonl",
+   "reason": "no shared identifier-shaped field name (key index / output -)"
+  }
+ ],
+ "single_file_both_sides": [
+  {
+   "full_name": "IBM/AssetOpsBench",
+   "key_fields": [
+    "target_model",
+    "target_task"
+   ],
+   "n": 2,
+   "output_fields": [
+    "output_type"
+   ],
+   "path": "src/couchdb/scenarios_data/shared/tsfm/feature_catalog.json"
+  },
+  {
+   "full_name": "raga-ai-hub/RagaAI-Catalyst",
+   "key_fields": [
+    "ExpectedResponse"
+   ],
+   "n": 10,
+   "output_fields": [
+    "ExpectedResponse",
+    "Response"
+   ],
+   "path": "tests/test_catalyst/test_data/util_test_dataset.csv"
+  },
+  {
+   "full_name": "suyoumo/ClawProBench",
+   "key_fields": [
+    "label"
+   ],
+   "n": 4,
+   "output_fields": [
+    "tool_output_bytes"
+   ],
+   "path": "ironclaw/tools/ironclaw_stress/results/2026-06-30-turn-state-inmemory/chatturn-filesystem.jsonl"
+  },
+  {
+   "full_name": "suyoumo/ClawProBench",
+   "key_fields": [
+    "label"
+   ],
+   "n": 4,
+   "output_fields": [
+    "tool_output_bytes"
+   ],
+   "path": "ironclaw/tools/ironclaw_stress/results/2026-06-30-usable-boundary/mixed-user-concurrency-sweep-completed.jsonl"
+  },
+  {
+   "full_name": "suyoumo/ClawProBench",
+   "key_fields": [
+    "label"
+   ],
+   "n": 2,
+   "output_fields": [
+    "tool_output_bytes"
+   ],
+   "path": "ironclaw/tools/ironclaw_stress/results/2026-06-30-wal-and-storage-rework/wal-plus-rework-chatturn.jsonl"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "expected_output"
+   ],
+   "n": 5,
+   "output_fields": [
+    "actual_output",
+    "expected_output",
+    "response_length"
+   ],
+   "path": "EvaluationModule/artifacts/deepeval_results/deepeval_results_20251129_184952.csv"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "expected_output"
+   ],
+   "n": 5,
+   "output_fields": [
+    "actual_output",
+    "expected_output",
+    "response_length"
+   ],
+   "path": "EvaluationModule/artifacts/deepeval_results/deepeval_results_20251129_184952.json"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "expected_keywords",
+    "expected_output"
+   ],
+   "n": 12,
+   "output_fields": [
+    "expected_output"
+   ],
+   "path": "EvaluationModule/data/datasets/chatbot/chatbot_basic.json"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "expected_keywords",
+    "expected_output"
+   ],
+   "n": 11,
+   "output_fields": [
+    "expected_output"
+   ],
+   "path": "EvaluationModule/data/datasets/chatbot/chatbot_coding_helper.json"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "expected_keywords",
+    "expected_output"
+   ],
+   "n": 11,
+   "output_fields": [
+    "expected_output"
+   ],
+   "path": "EvaluationModule/data/datasets/chatbot/chatbot_customer_support.json"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "expected_keywords",
+    "expected_output"
+   ],
+   "n": 2,
+   "output_fields": [
+    "expected_output"
+   ],
+   "path": "EvaluationModule/data/datasets/rag/rag_product_docs.json"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "expected_keywords",
+    "expected_output"
+   ],
+   "n": 2,
+   "output_fields": [
+    "expected_output"
+   ],
+   "path": "EvaluationModule/data/datasets/rag/rag_research_papers.json"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "expected_keywords",
+    "expected_output"
+   ],
+   "n": 2,
+   "output_fields": [
+    "expected_output"
+   ],
+   "path": "EvaluationModule/data/datasets/rag/rag_wikipedia_small.json"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "label"
+   ],
+   "n": 12000,
+   "output_fields": [
+    "prediction"
+   ],
+   "path": "tools/mrm-simulator/datasets/churn.csv"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "label"
+   ],
+   "n": 12000,
+   "output_fields": [
+    "prediction"
+   ],
+   "path": "tools/mrm-simulator/datasets/credit-scoring.csv"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "label"
+   ],
+   "n": 12000,
+   "output_fields": [
+    "prediction"
+   ],
+   "path": "tools/mrm-simulator/datasets/fraud-detection.csv"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "label"
+   ],
+   "n": 12000,
+   "output_fields": [
+    "prediction"
+   ],
+   "path": "tools/mrm-simulator/datasets/loan-approval.csv"
+  }
+ ]
+}

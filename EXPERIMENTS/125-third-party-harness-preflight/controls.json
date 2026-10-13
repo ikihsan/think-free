@@ -1,0 +1,58 @@
+{
+ "control_1_sound_pair": {
+  "answer_rows": 80,
+  "case_a_committed_key": {
+   "best_rate": 0.0,
+   "expected": "SILENT_NO_MATCH",
+   "verdict": "SILENT_NO_MATCH"
+  },
+  "case_b_repaired_key": {
+   "best_rate": 1.0,
+   "expected": "OK",
+   "verdict": "OK"
+  },
+  "control": "sound pair (both readings of the same committed file)",
+  "how": [
+   "jsonl",
+   "jsonl"
+  ],
+  "key_rows": 80,
+  "pass": true,
+  "source": "EXPERIMENTS/116-berka-service-test"
+ },
+ "control_2_positional": {
+  "control": "positional control / information-sufficiency witness",
+  "expected": {
+   "c1_fires_on_identical_bytes": true,
+   "pipeline_qualified": false,
+   "positional_join_works": true
+  },
+  "key_rows": [
+   {
+    "expected_monthly": "1200",
+    "order_ref": "A-0001"
+   },
+   {
+    "expected_monthly": "800",
+    "order_ref": "A-0002"
+   }
+  ],
+  "output_rows": [
+   {
+    "agent_reply": "confirmed",
+    "line_ref": "L-77"
+   },
+   {
+    "agent_reply": "confirmed",
+    "line_ref": "L-78"
+   }
+  ],
+  "pass": true,
+  "pipeline_qualified": false,
+  "pipeline_reason": "no shared identifier-shaped field name (key - / output -)",
+  "reading_1_positional_join_works": true,
+  "reading_2_best_rate": 0.0,
+  "reading_2_c1_verdict": "SILENT_NO_MATCH"
+ },
+ "experiment": "E125"
+}

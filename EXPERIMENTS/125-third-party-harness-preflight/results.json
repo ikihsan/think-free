@@ -1,0 +1,150 @@
+{
+ "build_decision": "internal -- G1 not met, so the incidence gates are unevaluated and G2's denominator is too thin to carry a release decision",
+ "controls": {
+  "control_1_sound_pair": true,
+  "control_2_positional": true,
+  "witness_c1_on_a_working_positional_join": "SILENT_NO_MATCH",
+  "witness_note": "C1 reports SILENT_NO_MATCH on bytes whose positional join works; the pipeline's M4 rule is what prevents that false alarm"
+ },
+ "experiment": "E125",
+ "gates": {
+  "G1_coverage": {
+   "declared": ">=20 repositories inspected; >=10 with a qualified committed key/output pair; screen coverage >=0.90",
+   "fail": [
+    "qualified_pairs_M4"
+   ],
+   "qualified_pairs_M4": {
+    "got": 5,
+    "need": 10,
+    "pass": false
+   },
+   "qualified_pairs_genuine_hand_read": {
+    "got": 2,
+    "need": null,
+    "pass": null
+   },
+   "repositories_inspected": 22,
+   "screen_coverage": {
+    "got": 1.0,
+    "need": 0.9,
+    "pass": true
+   },
+   "term_1_repositories": {
+    "got": 22,
+    "need": 20,
+    "pass": true
+   },
+   "verdict": "FAIL"
+  },
+  "G2_tax": {
+   "declared": "zero-adapter fraction >=0.30 over the qualified set",
+   "fail": false,
+   "fraction": 1.0,
+   "qualified_pairs": 5,
+   "verdict": "PASS",
+   "zero_adapter_pairs": 5
+  },
+  "G3_existence": {
+   "declared": ">=1 qualified pair with SILENT_NO_MATCH and join_kind: field",
+   "fail": true,
+   "flagged_genuine_pairs": 0,
+   "flagged_pairs": 0,
+   "verdict": "FAIL (not observed)"
+  },
+  "G4_precision": {
+   "declared": "of the rows C1 flags, the fraction whose join kind is field >=0.50",
+   "fail": null,
+   "flagged": 0,
+   "note": "no row was flagged, so the declared fraction has no denominator",
+   "verdict": "not_evaluated"
+  },
+  "G5_baseline": {
+   "declared": ">=1 row in M6 (C1 fires and the harness's own tests do not protect the join)",
+   "fail": true,
+   "rows": 0,
+   "verdict": "FAIL (0 rows)"
+  }
+ },
+ "pairs": {
+  "genuine_by_hand_read": 2,
+  "qualified_by_M4": 5,
+  "refused_by_M4": 32,
+  "single_file_both_sided": 17,
+  "spurious": [
+   {
+    "key": "tasks/T157zh_month_end_reconciliation/fixtures/crm/customers.json",
+    "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+    "why": "two different tasks' CRM fixtures share the customer_id field"
+   },
+   {
+    "key": "examples/viz/qwen-plus/reviews/qwen-plus/ifeval_default.jsonl",
+    "output": "examples/viz/qwen3-max/predictions/qwen3-max/iquiz_EQ.jsonl",
+    "why": "review of one task against the predictions of another task by another model"
+   },
+   {
+    "key": "examples/viz/qwen3-max/reviews/qwen3-max/iquiz_EQ.jsonl",
+    "output": "examples/viz/qwen-plus/predictions/qwen-plus/ifeval_default.jsonl",
+    "why": "review of one task against the predictions of another task by another model"
+   }
+  ],
+  "verdicts": [
+   {
+    "best_rate": 1.0,
+    "key": "tasks/T157zh_month_end_reconciliation/fixtures/crm/customers.json",
+    "output": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json",
+    "verdict": "OK"
+   },
+   {
+    "best_rate": 1.0,
+    "key": "examples/viz/qwen-plus/reviews/qwen-plus/ifeval_default.jsonl",
+    "output": "examples/viz/qwen-plus/predictions/qwen-plus/ifeval_default.jsonl",
+    "verdict": "OK"
+   },
+   {
+    "best_rate": 1.0,
+    "key": "examples/viz/qwen-plus/reviews/qwen-plus/ifeval_default.jsonl",
+    "output": "examples/viz/qwen3-max/predictions/qwen3-max/iquiz_EQ.jsonl",
+    "verdict": "OK"
+   },
+   {
+    "best_rate": 1.0,
+    "key": "examples/viz/qwen3-max/reviews/qwen3-max/iquiz_EQ.jsonl",
+    "output": "examples/viz/qwen-plus/predictions/qwen-plus/ifeval_default.jsonl",
+    "verdict": "OK"
+   },
+   {
+    "best_rate": 1.0,
+    "key": "examples/viz/qwen3-max/reviews/qwen3-max/iquiz_EQ.jsonl",
+    "output": "examples/viz/qwen3-max/predictions/qwen3-max/iquiz_EQ.jsonl",
+    "verdict": "OK"
+   }
+  ]
+ },
+ "population": {
+  "data_files_in_population": 2427,
+  "files_with_output_shaped_fields": 21,
+  "pool": 30,
+  "readable_by_generic_loader": 210,
+  "readable_fraction": 0.245,
+  "repositories_inspected": 22,
+  "sampled": 857,
+  "sides": {
+   "both": 17,
+   "key-ish": 47,
+   "output-ish": 4,
+   "unknown": 142
+  },
+  "unreadable_reasons": {
+   "fewer than two rows": 9,
+   "git-lfs pointer": 112,
+   "json": 28,
+   "jsonl line does not parse": 12,
+   "not a list of flat records": 2,
+   "not utf-8": 1,
+   "top-level object": 483
+  }
+ },
+ "question": "can a third party point preflight at their own harness, and does the silent-join defect occur outside this repository",
+ "sample_records": 857,
+ "verdict": "not_evaluated"
+}
