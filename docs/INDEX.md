@@ -78,8 +78,6 @@ Skill bodies under `.agents/skills/` are indexed by
 |---|---|---|---|---|
 | [`sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md`](../sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md) | `docs/INDEX.md` | stale | 2026-10-08 | Date: 2026-10-07 |
 | [`sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md`](../sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session 2026-10-08-013, VM instance-20260717-0944, 2026-10-08. Defect 24. |
-| [`sessions/2026-10-10-008-synthesize-5-domain-unserved-fraction-me/synthesis.md`](../sessions/2026-10-10-008-synthesize-5-domain-unserved-fraction-me/synthesis.md) | `—` | — | — | ## Observation |
-| [`sessions/2026-10-10-009-measure-6th-domain-hvac/synthesis.md`](../sessions/2026-10-10-009-measure-6th-domain-hvac/synthesis.md) | `—` | — | — | ## Observation |
 | [`sessions/README.md`](../sessions/README.md) | `docs/INDEX.md` | active | 2026-10-03 | The append-only record of every working session in this repository. |
 
 ## tasks
@@ -294,7 +292,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/071-pip-name-guard-prototype/` | `docs/INDEX.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/071-viewcount-denominator/` | `docs/INDEX.md` | complete | 2026-10-09 | Date: 2026-10-09 · Session: 2026-10-09-002 · Status: complete — |
 | `EXPERIMENTS/072-fresh-observation-protocol/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 met, G3 measured, G4 not applicable to prototype |
-| `EXPERIMENTS/072-git-file-presence/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | 1 documents |
+| `EXPERIMENTS/072-git-file-presence/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 |  |
 | `EXPERIMENTS/072-merchant-noise-raw/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 did not fire. No |
 | `EXPERIMENTS/072-npm-view-count-prototype/` | `docs/INDEX.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/073-piecewise-price/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 fail. The pwc repair |
@@ -375,16 +373,37 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/110-rubygems-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/111-dockerhub-viewcount/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
 | `EXPERIMENTS/112-dockerhub-viewcount-run2/` | `docs/INDEX.md` | active | 2026-10-11 | ## Summary |
+| `EXPERIMENTS/112-vscode-marketplace-viewcount/` | `docs/INDEX.md` | active | 2026-10-12 | 2 documents |
 | `EXPERIMENTS/113-viewcount-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-12 | owner: docs/INDEX.md |
 | `EXPERIMENTS/114-value-grounding/` | `docs/INDEX.md` | active | 2026-10-12 | 4 documents |
 | `EXPERIMENTS/115-applicability-thresholds/` | `docs/INDEX.md` | active | 2026-10-12 | 5 documents |
+| `EXPERIMENTS/115-viewcount-prototype-v3/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
 | `EXPERIMENTS/116-berka-service-test/` | `docs/INDEX.md` | complete | 2026-10-12 | Status: complete — the line closes on service. A free general assistant |
 | `EXPERIMENTS/116-viewcount-classifier-prototype/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
+| `EXPERIMENTS/116-viewcount-import-resolvability/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-12 | 1 documents |
+| `EXPERIMENTS/116-viewcount-nonsoftware/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
+| `EXPERIMENTS/117-hackage-viewcount/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
 | `EXPERIMENTS/118-pypi-viewcount-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
 | `EXPERIMENTS/119-hexpm-viewcount-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
+| `EXPERIMENTS/119-viewcount-prototype/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-12 | 1 documents |
+| `EXPERIMENTS/120-mathematics-se-viewcount/` | `docs/INDEX.md` | active | 2026-10-12 | owner: docs/INDEX.md |
+| `EXPERIMENTS/121-codereview-e119/` | `docs/INDEX.md` | active | 2026-10-12 | owner: docs/INDEX.md |
+| `EXPERIMENTS/122-cicd-failure-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
+| `EXPERIMENTS/123-discourse-meta-viewcount/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
+| `EXPERIMENTS/124-discourse-gnome-viewcount/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
 | `EXPERIMENTS/124-eval-harness-preflight/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10, instance-20260717-0947. |
+| `EXPERIMENTS/125-discourse-jupyter-viewcount/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
 | `EXPERIMENTS/125-third-party-harness-preflight/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10, instance-20260717-0947. |
 | `EXPERIMENTS/126-stackoverflow-service-test/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-13 | 3 documents |
+| `EXPERIMENTS/127-program-shaped-rows/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-13 | 2 documents |
+| `EXPERIMENTS/128-github-discussions-viewcount/` | `docs/INDEX.md` | active | 2026-10-12 | 2 documents |
+| `EXPERIMENTS/128-preflight-run-output/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-13 | 1 documents |
+| `EXPERIMENTS/129-preflight-adapter-openai-evals/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-13 | 1 documents |
+| `EXPERIMENTS/130-preflight-adapter-third-harness/` | `EXPERIMENTS/README.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10, instance-20260717-0947. |
+| `EXPERIMENTS/130-preflight-third-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
+| `EXPERIMENTS/131-preflight-fourth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
+| `EXPERIMENTS/132-preflight-fifth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
+| `EXPERIMENTS/133-preflight-sixth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
