@@ -1,0 +1,291 @@
+{
+ "cases": [
+  {
+   "baseline": "the scorer printed TP=0, FP=0, FN=0 for every account; no gate fired",
+   "check": {
+    "best_rate": 0.0,
+    "check": "C1_concordance",
+    "degenerate_pairings": [],
+    "key_rows": 80,
+    "output_rows": 80,
+    "pairings": [
+     {
+      "matched": 0,
+      "outputs": 80,
+      "pairing": "account_id",
+      "rate": 0.0
+     }
+    ],
+    "reason": "80 key rows and 80 output rows, and no pairing shared by the two files matches a single output row. The shared field(s) account_id hold different types on each side (account_id key=['int'] output=['str']), so the join compares key [1, 14, 29] against output ['R001', 'R014', 'R029'] and matches nothing: the scorer never reads the answers.",
+    "summary": "0/80 = 0.0000 CI95 [0.0000, 0.0458]",
+    "type_conflicts": [
+     {
+      "field": "account_id",
+      "key_types": [
+       "int"
+      ],
+      "output_types": [
+       "str"
+      ]
+     }
+    ],
+    "verdict": "SILENT_NO_MATCH"
+   },
+   "exit": 3,
+   "name": "A: E116 scorer, committed integer key ids",
+   "report": "C1_concordance             SILENT_NO_MATCH            0/80 = 0.0000 CI95 [0.0000, 0.0458]\n    80 key rows and 80 output rows, and no pairing shared by the two files matches a single output row. The shared field(s) account_id hold different types on each side (account_id key=['int'] output=['str']), so the join compares key [1, 14, 29] against output ['R001', 'R014', 'R029'] and matches nothing: the scorer never reads the answers.\n\nWITHHELD: rate not reported. 1 of 1 instrument checks failed.\n  - C1_concordance: SILENT_NO_MATCH -- 80 key rows and 80 output rows, and no pairing shared by the two files matches a single output row. The shared field(s) account_id hold different types on each side (account_id key=['int'] output=['str']), so the join compares key [1, 14, 29] against output ['R001', 'R014', 'R029'] and matches nothing: the scorer never reads the answers.\nRun the checks against your own instrument, or pass --anyway to print a number this tool does not stand behind.",
+   "verdict": "SILENT_NO_MATCH"
+  },
+  {
+   "baseline": "recall 1.0000 on the R arm, F1 0.8242, printed normally",
+   "check": {
+    "best_rate": 1.0,
+    "check": "C1_concordance",
+    "degenerate_pairings": [],
+    "key_rows": 80,
+    "output_rows": 80,
+    "pairings": [
+     {
+      "matched": 80,
+      "outputs": 80,
+      "pairing": "account_id",
+      "rate": 1.0
+     }
+    ],
+    "reason": "",
+    "summary": "80/80 = 1.0000 CI95 [0.9542, 1.0000]",
+    "type_conflicts": [],
+    "verdict": "OK"
+   },
+   "exit": 0,
+   "name": "B: E116 scorer, composed key ids (repaired)",
+   "report": "C1_concordance             OK                         80/80 = 1.0000 CI95 [0.9542, 1.0000]\n\nrate: (not computed) (all 1 instrument checks OK)",
+   "verdict": "OK"
+  },
+  {
+   "baseline": "E114's own KG-C2 gate: false-alarm rate 0.0069, instruments_valid true",
+   "check": {
+    "arms": {
+     "verbatim": {
+      "correct_items": {
+       "examples": [
+        {
+         "value": "$56.00",
+         "verdict": "ungrounded_claim"
+        },
+        {
+         "value": "$39.00",
+         "verdict": "ungrounded_claim"
+        },
+        {
+         "value": "$6,900",
+         "verdict": "ungrounded_claim"
+        },
+        {
+         "value": "$3,000",
+         "verdict": "ungrounded_claim"
+        },
+        {
+         "value": "$4,800",
+         "verdict": "ungrounded_claim"
+        }
+       ],
+       "flagged": 100,
+       "n": 107,
+       "rate": 0.9346
+      },
+      "fp_wilson_lower": 0.8711,
+      "incorrect_items": {
+       "examples": [],
+       "flagged": 0,
+       "n": 0,
+       "rate": 0.0
+      },
+      "recall_on_incorrect": null
+     }
+    },
+    "check": "C2_alternate_form_fp",
+    "fp_ceiling": 0.02,
+    "reason": "the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): verbatim",
+    "verdict": "ALTERNATE_FORM_FP",
+    "worst_fp_wilson_lower": 0.8711
+   },
+   "exit": 3,
+   "n_items": 107,
+   "name": "C: E114 verifier, values in the document's own form (bare probe sentence)",
+   "report": "C2_alternate_form_fp       ALTERNATE_FORM_FP          \n    the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): verbatim\n\nWITHHELD: rate not reported. 1 of 1 instrument checks failed.\n  - C2_alternate_form_fp: ALTERNATE_FORM_FP -- the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): verbatim\nRun the checks against your own instrument, or pass --anyway to print a number this tool does not stand behind.",
+   "verdict": "ALTERNATE_FORM_FP"
+  },
+  {
+   "baseline": "every one of these 24 was flagged by the verifier; F118 read them back as present",
+   "check": {
+    "arms": {
+     "assistant_form": {
+      "correct_items": {
+       "examples": [
+        {
+         "value": "October 9, 2026",
+         "verdict": "ungrounded_value"
+        },
+        {
+         "value": "49 CFR 1002.1(b)",
+         "verdict": "ungrounded_value"
+        },
+        {
+         "value": "49 CFR 1002.1(f)(11)",
+         "verdict": "ungrounded_value"
+        },
+        {
+         "value": "5 U.S.C. 552(a)(6)(B)",
+         "verdict": "ungrounded_value"
+        },
+        {
+         "value": "5 U.S.C. 553",
+         "verdict": "ungrounded_value"
+        }
+       ],
+       "flagged": 16,
+       "n": 24,
+       "rate": 0.6667
+      },
+      "fp_wilson_lower": 0.4671,
+      "incorrect_items": {
+       "examples": [],
+       "flagged": 0,
+       "n": 0,
+       "rate": 0.0
+      },
+      "recall_on_incorrect": null
+     }
+    },
+    "check": "C2_alternate_form_fp",
+    "fp_ceiling": 0.02,
+    "reason": "the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): assistant_form",
+    "verdict": "ALTERNATE_FORM_FP",
+    "worst_fp_wilson_lower": 0.4671
+   },
+   "exit": 3,
+   "n_items": 24,
+   "name": "D: E114 verifier, values written by the reader being judged",
+   "report": "C2_alternate_form_fp       ALTERNATE_FORM_FP          \n    the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): assistant_form\n\nWITHHELD: rate not reported. 1 of 1 instrument checks failed.\n  - C2_alternate_form_fp: ALTERNATE_FORM_FP -- the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): assistant_form\nRun the checks against your own instrument, or pass --anyway to print a number this tool does not stand behind.",
+   "verdict": "ALTERNATE_FORM_FP"
+  },
+  {
+   "baseline": "E114 reported 0 of 374 values fabricated, by hand and by checker",
+   "check": {
+    "arms": {
+     "in_situ": {
+      "correct_items": {
+       "examples": [
+        {
+         "value": "$6,900",
+         "verdict": "ungrounded_claim"
+        },
+        {
+         "value": "38",
+         "verdict": "ungrounded_claim"
+        },
+        {
+         "value": "$2,327,700",
+         "verdict": "ungrounded_claim"
+        },
+        {
+         "value": "$465,500",
+         "verdict": "ungrounded_claim"
+        },
+        {
+         "value": "$8,600",
+         "verdict": "ungrounded_claim"
+        }
+       ],
+       "flagged": 65,
+       "n": 330,
+       "rate": 0.197
+      },
+      "fp_wilson_lower": 0.1577,
+      "incorrect_items": {
+       "examples": [
+        {
+         "value": "October 9, 2026",
+         "verdict": "ungrounded_value"
+        },
+        {
+         "value": "49 CFR part 1108",
+         "verdict": "ungrounded_value"
+        },
+        {
+         "value": "October 8, 2026",
+         "verdict": "ungrounded_value"
+        },
+        {
+         "value": "October 9, 2026",
+         "verdict": "ungrounded_value"
+        },
+        {
+         "value": "October 9, 2026",
+         "verdict": "ungrounded_value"
+        }
+       ],
+       "flagged": 6,
+       "n": 44,
+       "rate": 0.1364
+      },
+      "recall_on_incorrect": 0.8636
+     }
+    },
+    "check": "C2_alternate_form_fp",
+    "fp_ceiling": 0.02,
+    "reason": "the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): in_situ",
+    "verdict": "ALTERNATE_FORM_FP",
+    "worst_fp_wilson_lower": 0.1577
+   },
+   "exit": 3,
+   "independently_present": "330/374 values found in the document by string search",
+   "n_items": 374,
+   "name": "C': E114 verifier, the reader's own values in the reader's own prose",
+   "report": "C2_alternate_form_fp       ALTERNATE_FORM_FP          \n    the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): in_situ\n\nWITHHELD: rate not reported. 1 of 1 instrument checks failed.\n  - C2_alternate_form_fp: ALTERNATE_FORM_FP -- the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): in_situ\nRun the checks against your own instrument, or pass --anyway to print a number this tool does not stand behind.",
+   "verdict": "ALTERNATE_FORM_FP"
+  },
+  {
+   "baseline": "G0_C_precision = 0.0 for the assistant, the detector and the naive rule alike",
+   "check": {
+    "arm": "C accounts",
+    "check": "C3_control_arm",
+    "examples": [
+     {
+      "evidence": "monthly on the 13th, identical amount 2132.00, 1996-02 to 1998-12",
+      "id": "C011"
+     },
+     {
+      "evidence": "monthly on the 12th, identical amount 2252.00, 1996-03 to 1998-12",
+      "id": "C080"
+     },
+     {
+      "evidence": "monthly on the 10th, identical amount 1002.00, 1993-08 to 1998-12",
+      "id": "C086"
+     },
+     {
+      "evidence": "monthly on the 9th, identical amount 1464.00, 1993-09 to 1998-12",
+      "id": "C104"
+     }
+    ],
+    "positives": 4,
+    "premise": 0.0,
+    "rate": 0.2,
+    "reason": "4 of 20 rows in the declared negative arm carry a true positive (Wilson lower bound 0.0807 > premise 0.0000): every subject scores identically here, so this arm cannot separate them",
+    "rows": 20,
+    "summary": "4/20 = 0.2000 CI95 [0.0807, 0.4160]",
+    "verdict": "CONTROL_NOT_EMPTY",
+    "wilson": [
+     0.0807,
+     0.416
+    ]
+   },
+   "exit": 3,
+   "name": "E: E116 G0_C_precision control arm",
+   "report": "C3_control_arm             CONTROL_NOT_EMPTY          4/20 = 0.2000 CI95 [0.0807, 0.4160]\n    4 of 20 rows in the declared negative arm carry a true positive (Wilson lower bound 0.0807 > premise 0.0000): every subject scores identically here, so this arm cannot separate them\n\nWITHHELD: rate not reported. 1 of 1 instrument checks failed.\n  - C3_control_arm: CONTROL_NOT_EMPTY -- 4 of 20 rows in the declared negative arm carry a true positive (Wilson lower bound 0.0807 > premise 0.0000): every subject scores identically here, so this arm cannot separate them\nRun the checks against your own instrument, or pass --anyway to print a number this tool does not stand behind.",
+   "verdict": "CONTROL_NOT_EMPTY"
+  }
+ ],
+ "experiment": "E124"
+}

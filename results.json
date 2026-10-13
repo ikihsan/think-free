@@ -1,122 +1,47 @@
-[
-  {
-    "name": "requests",
-    "description": "Python HTTP for Humans.",
-    "needs_classification": "need-related",
-    "active": true,
-    "api_url": "https://pypi.org/pypi/requests/json",
-    "group": "need-related"
+{
+  "gates": {
+    "G0_discrimination": {
+      "passed": true,
+      "details": {
+        "planted_need_recovered": 10,
+        "planted_need_total": 10,
+        "planted_generic_recovered": 10,
+        "planted_generic_total": 10,
+        "threshold": 9,
+        "pass": true
+      }
+    },
+    "G1_coverage": {
+      "passed": false,
+      "details": {
+        "labelled": 550,
+        "total": 700,
+        "coverage": 0.7857142857142857,
+        "threshold": 0.8
+      }
+    },
+    "G2_calibration": {
+      "passed": false,
+      "details": {
+        "sample_size": 48,
+        "human_labeled": 12,
+        "agreements": 8,
+        "agreement_rate": 0.6666666666666666,
+        "threshold": 0.75,
+        "note": "Human proxy = original masked labeler; real deployment needs actual human labels"
+      }
+    },
+    "G3_effect": {
+      "passed": false,
+      "details": {
+        "need_count": 365,
+        "generic_count": 185,
+        "pooled_cliffs_delta": 0.045938541281007036,
+        "permutation_p_value": 0.19976004799040192,
+        "threshold": 0.05,
+        "note": "Pooled test (not stratified) - tests whether need-labeled repos have more stars overall"
+      }
+    }
   },
-  {
-    "name": "numpy",
-    "description": "Fundamental package for array computing in Python",
-    "needs_classification": "random",
-    "active": true,
-    "api_url": "https://pypi.org/pypi/numpy/json",
-    "group": "random"
-  },
-  {
-    "name": "flask",
-    "description": "A simple framework for building complex web applications.",
-    "needs_classification": "need-related",
-    "active": true,
-    "api_url": "https://pypi.org/pypi/flask/json",
-    "group": "need-related"
-  },
-  {
-    "name": "django",
-    "description": "A high-level Python web framework that encourages rapid development and clean, pragmatic design.",
-    "needs_classification": "need-related",
-    "active": true,
-    "api_url": "https://pypi.org/pypi/django/json",
-    "group": "need-related"
-  },
-  {
-    "name": "pandas",
-    "description": "Powerful data structures for data analysis, time series, and statistics",
-    "needs_classification": "ambiguous",
-    "active": true,
-    "api_url": "https://pypi.org/pypi/pandas/json",
-    "group": "ambiguous"
-  },
-  {
-    "name": "scipy",
-    "description": "Fundamental algorithms for scientific computing in Python",
-    "needs_classification": "ambiguous",
-    "active": true,
-    "api_url": "https://pypi.org/pypi/scipy/json",
-    "group": "ambiguous"
-  },
-  {
-    "name": "matplotlib",
-    "description": "Python plotting package",
-    "needs_classification": "random",
-    "active": true,
-    "api_url": "https://pypi.org/pypi/matplotlib/json",
-    "group": "random"
-  },
-  {
-    "name": "selenium",
-    "description": "Official Python bindings for Selenium WebDriver",
-    "needs_classification": "need-related",
-    "active": true,
-    "api_url": "https://pypi.org/pypi/selenium/json",
-    "group": "need-related"
-  },
-  {
-    "name": "pillow",
-    "description": "Python Imaging Library (fork)",
-    "needs_classification": "random",
-    "active": true,
-    "api_url": "https://pypi.org/pypi/pillow/json",
-    "group": "random"
-  },
-  {
-    "name": "jupyter",
-    "description": "Jupyter metapackage. Install all the Jupyter components in one go.",
-    "needs_classification": "random",
-    "active": true,
-    "api_url": "https://pypi.org/pypi/jupyter/json",
-    "group": "random"
-  },
-  {
-    "name": "twine",
-    "description": "Collection of utilities for publishing packages on PyPI",
-    "needs_classification": "random",
-    "active": true,
-    "api_url": "https://pypi.org/pypi/twine/json",
-    "group": "random"
-  },
-  {
-    "name": "virtualenv",
-    "description": "Virtual Python Environment builder",
-    "needs_classification": "need-related",
-    "active": true,
-    "api_url": "https://pypi.org/pypi/virtualenv/json",
-    "group": "need-related"
-  },
-  {
-    "name": "setuptools",
-    "description": "Most extensible Python build backend with support for C/C++ extension modules",
-    "needs_classification": "ambiguous",
-    "active": true,
-    "api_url": "https://pypi.org/pypi/setuptools/json",
-    "group": "ambiguous"
-  },
-  {
-    "name": "wheel",
-    "description": "Command line tool for manipulating wheel files",
-    "needs_classification": "need-related",
-    "active": true,
-    "api_url": "https://pypi.org/pypi/wheel/json",
-    "group": "need-related"
-  },
-  {
-    "name": "babel",
-    "description": "Internationalization utilities",
-    "needs_classification": "random",
-    "active": true,
-    "api_url": "https://pypi.org/pypi/babel/json",
-    "group": "random"
-  }
-]
+  "overall_pass": false
+}

@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-11
+last-verified: 2026-10-13
 -->
 
 # Verified state
@@ -178,6 +178,27 @@ hand-read flags are correct. The rule that follows: *a verifier's control must
 include the case where the subject is right and the form is different.*
 
 **E116 completed (2026-10-12): the recurring-payment line is CLOSED, and the population is served.** A free general assistant read 80 real Berka bank extracts (60 R, 20 C) and found **all 75 positive standing-order groups (recall 1.0)**, with the best precision of any reader — F1 **0.8242** against E066's detector 0.5769 and a naive ≥3-debits rule 0.4225 (K1 recall ≥0.95 PASS, K2 F1-within-0.05-of-detector PASS at 0.2473). The assistant is the strongest accessible reader of recurring payments on a real bank extract, so **E066's detector has no unserved population** — the sixth line to close on service after E062, E091, E092, E114, E115 (D108). The predeclared "served iff G0∧K1∧K2" condition is **not met** because G0_C_precision failed at 0.0 — but F122 establishes that this is a gate design flaw, not a reader failure: the control accounts carry real standing orders whose `k_symbol` is outside the positive set {POJISTNE,SIPO,LEASING,UVER}, so the gate (which assumes controls are standing-order-free) fails every reader identically (detector 0.0, naive 0.0). The reader-validity question is answered on the R arm (recall 1.0) and by the assistant's C-arm answers, all real standing orders. **F121** records a scorer defect found during the run: the key stored Berka's integer `account_id` while answers used `"R001"` strings, so the scorer matched every answer against nothing (assistant scored 0); fixed in `score.py` with two regression tests against the committed key. The detector stays in the repository, unreleased, `status: draft`.
+
+**E124 completed (2026-10-13): the mission's own harness defects are now a tool, and one declared gate failed.**
+Nine consecutive sessions (2026-10-12-007 … 014) ran the D083 view-count sweep
+that E113/F116 had already stopped; that sweep is **closed as a route**, and
+the reason it kept running is recorded rather than repeated. E124 instead
+attacked the one population this repository has measured and found *silently
+wrong three times in three days* — its own instruments. `preflight` (4
+stdlib-only modules) measures three properties of an evaluation harness and
+**withholds the rate** (exit 3) unless all three hold: key/output identifier
+concordance (F121), the false-positive rate on correct output **on the arm the
+instrument will be pointed at** (F118, F123), and whether a declared negative
+arm is negative by evidence the key does not use (F122). Run against the
+committed harnesses it fires on four of six cases; on every one of those the
+harness's own declared gates were green. **16 tests, all passing**, four of
+them injected defects on a sound fixture. **K1 4/5, K2 FAILED as declared, K3
+pass, K4 pass** — K2's premise was wrong: the declared easy arm measured
+**100/107 = 0.9346** false positives, not ≤0.02, because `ground.judge()`
+scores context-word overlap and a bare sentence naming a value present in the
+document still scores near zero. **F123: one verifier, five arms, 0.0069 /
+0.1970 / 0.6667 / 0.9346 / 1.0000.** A false-positive rate belongs to an arm,
+not to an instrument, and a quoted one does not transfer (F123, D109).
 
 **ID collision + direct contradiction on Docker Hub, from two uncoordinated runs (2026-10-12, found while landing).** Two VMs numbered a Docker Hub run **E108** independently. `b4e0db34` (this VM, now **E112**) reports **GATES FAIL, Cliff's delta = -0.810** on 55 need / 55 random images, its random arm catching base images (alpine 12.3B, ubuntu 10.1B, node 7.1B, mysql 5.2B pulls). The landed `EXPERIMENTS/111-dockerhub-viewcount` (**E111**) reports **ALL GATES PASS, delta = +0.386** on 3,313 need / 537 random images. Same platform, opposite sign, a 29x gap in need-arm size. Renumbered on the unpushed side, per the standing rule: the Docker Hub run is **E112**, the matched-harvest control is **E113**, and the landed **E110** (`EXPERIMENTS/110-rubygems-viewcount`) is **RubyGems**, not a matched harvest. Neither Docker Hub row is independent evidence — both drew its arms with the asymmetric harvest E113 falsifies, and E113's own need arm is 6:1 imbalanced in the same shape. A coordinate was claimed (`T-0093`) and a second worker then took the same D083 slot anyway; the next session should read the task ledger before taking a D083 domain.
 

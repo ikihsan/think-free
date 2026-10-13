@@ -11,8 +11,10 @@ D106. This part holds the decisions taken when a candidate is closed by
 **measuring the incumbent on a task it already performs**, and the one about
 what to do when that happens five times running.
 
-Decisions **D107, D108**. Each entry records a choice that was genuinely open, the
-options considered, and what was decided.
+Decisions **D107, D108, D109**. Each entry records a choice that was genuinely
+open, the options considered, and what was decided. D109 is the first one here
+that is not about closing a candidate: it is about what this repository owes a
+number before it reports it.
 
 | id | decision |
 |---|---|
@@ -153,3 +155,46 @@ E066's merchant-name axis. This is that axis, and it closes the same way. The
 pattern is now six-for-six: on every population where the mission has run the
 strongest accessible alternative, the alternative has served it. The seat for
 a candidate remains empty, and the reason is not a lack of trying.
+## D109 — a rate over generated output is withheld until the harness answers three questions (2026-10-13)
+
+**What cost the three days this replaces.** F118, F121 and F122 each lost a
+result to a defect in the harness that produced the number. None raised, none
+turned a declared gate red, and all three were found by a person reading output
+after the fact. E114's verifier passed every control it was given and had a
+false-positive rate of 1.00 on real answers; E116's scorer matched an integer
+key against string answers and printed `recall 1.0000` for a reader that
+answered every item.
+
+**The rule.** Before this repository reports a rate over model- or
+script-generated output, the harness must answer three questions, and the
+result is recorded as `withheld` when any of them is not answered:
+
+1. **Concordance** — do the key's identifiers and the output's identifiers refer
+   to the same entities, in the same type, joined totally? (F121)
+2. **False-positive rate on correct output, on the arm the instrument will
+   actually be pointed at**, with the arm named beside the number. A rate
+   measured on a different arm is not a qualification (F123).
+3. **Control-arm validity** — is the declared negative arm actually negative, by
+   evidence the key does not use? An arm that holds positives scores every
+   subject identically (F122).
+
+`EXPERIMENTS/124-eval-harness-preflight/` implements the three checks in 4
+stdlib-only modules and withholds the rate (exit 3, reason printed) unless all
+three hold; 16 tests, including four injected defects on a sound fixture, all
+passing. E124 measured the verifier at 0.0069, 0.1970, 0.6667, 0.9346 and
+1.0000 depending on arm alone.
+
+**Chosen over writing more gates.** A fourth gate declared by the same person
+who wrote the scorer is what failed three times; F118's verifier passed two
+declared gates and had a false-positive rate of 1.00. The declaration of *how*
+the rate was produced is what is being required, not another threshold on the
+rate.
+
+**Chosen over not doing it.** These are the mission's only instruments that
+have been measured and found silently wrong, on three separate days, with the
+same failure mode. The expected value of the check is not "catching a rare
+bug": it is that every future result over generated output carries the
+conditions under which it was measured. What this does **not** claim: that the
+checks generalise past two harnesses in this repository. E124's K1–K4 say they
+work on five committed cases and on fixtures built to break them, and nothing
+more.

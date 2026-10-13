@@ -3,18 +3,25 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-12
+last-verified: 2026-10-13
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
 
-306 recorded session(s). One `events.jsonl` per session, so concurrent
+313 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 281 older session(s) are in the directory listing.
+Showing the 25 most recent. 288 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-13-001-build-and-falsify-a-reusable-instrument](2026-10-13-001-build-and-falsify-a-reusable-instrument/README.md) | unknown-agent | **unfinished** | Build and falsify a reusable instrument-validity checker for LLM-outpu | 2026-10-13T00:23 |
+| [2026-10-12-014-conduct-fresh-observation-experiment-in](2026-10-12-014-conduct-fresh-observation-experiment-in/README.md) | unknown-agent | failed | Conduct fresh observation experiment in a new domain per D083, followi | 2026-10-13T00:15 |
+| [2026-10-12-013-design-and-run-a-fresh-observation-exper](2026-10-12-013-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment on CI/CD pipeline failur | 2026-10-12T22:24 |
+| [2026-10-12-012-identify-and-design-a-fresh-observation](2026-10-12-012-identify-and-design-a-fresh-observation/README.md) | unknown-agent | worked | Identify and design a fresh observation experiment in a new domain aft | 2026-10-12T20:30 |
+| [2026-10-12-011-implement-and-run-e123-ci-cd-build-log-f](2026-10-12-011-implement-and-run-e123-ci-cd-build-log-f/README.md) | unknown-agent | worked | Implement and run E123 CI/CD build log failure diagnosis fresh observa | 2026-10-12T18:26 |
+| [2026-10-12-010-design-and-implement-a-fresh-observation](2026-10-12-010-design-and-implement-a-fresh-observation/README.md) | unknown-agent | partial | Design and implement a fresh observation experiment for CI/CD build lo | 2026-10-12T17:52 |
+| [2026-10-12-009-run-install-test-falsification-for-e068](2026-10-12-009-run-install-test-falsification-for-e068/README.md) | unknown-agent | worked | Run install-test falsification for E068 ArXiv spec generator: test whe | 2026-10-12T17:13 |
 | [2026-10-12-008-explore-and-improve-view-count-classifie](2026-10-12-008-explore-and-improve-view-count-classifie/README.md) | unknown-agent | worked | Explore and improve view-count classifier coverage (E113 binding const | 2026-10-12T09:26 |
 | [2026-10-12-007-run-e119-hex-pm-matched-harvest-experime](2026-10-12-007-run-e119-hex-pm-matched-harvest-experime/README.md) | unknown-agent | worked | Run E119 Hex.pm matched-harvest experiment and record results | 2026-10-12T08:37 |
 | [2026-10-12-006-finalize-pyprovides-prototype-validation](2026-10-12-006-finalize-pyprovides-prototype-validation/README.md) | unknown-agent | worked | Finalize pyprovides prototype validation and record decision/continuat | 2026-10-12T07:47 |
@@ -33,13 +40,6 @@ Showing the 25 most recent. 281 older session(s) are in the directory listing.
 | [2026-10-11-043-build-a-cross-platform-need-discovery-pr](2026-10-11-043-build-a-cross-platform-need-discovery-pr/README.md) | unknown-agent | worked | Build a cross-platform need-discovery prototype leveraging the validat | 2026-10-11T19:05 |
 | [2026-10-11-042-run-fresh-observation-experiment-in-a-ne](2026-10-11-042-run-fresh-observation-experiment-in-a-ne/README.md) | unknown-agent | worked | Run fresh observation experiment in a new domain per D083 - test view- | 2026-10-11T19:05 |
 | [2026-10-11-041-declare-artifacts-from-e107-experiment-a](2026-10-11-041-declare-artifacts-from-e107-experiment-a/README.md) | opencode | worked | Declare artifacts from E107 experiment and finalize session | 2026-10-11T18:21 |
-| [2026-10-11-040-execute-t-0091-fresh-observation-experim](2026-10-11-040-execute-t-0091-fresh-observation-experim/README.md) | opencode | worked | Execute T-0091: Fresh observation experiment testing view-count princi | 2026-10-11T18:19 |
-| [2026-10-11-038-finalize-view-count-principle-research-a](2026-10-11-038-finalize-view-count-principle-research-a/README.md) | unknown-agent | worked | Finalize view-count principle research and record session outcome | 2026-10-11T17:49 |
-| [2026-10-11-038-design-and-run-fresh-observation-experim](2026-10-11-038-design-and-run-fresh-observation-experim/README.md) | unknown-agent | worked | Design and run fresh observation experiment testing view-count princip | 2026-10-11T18:32 |
-| [2026-10-11-037-synthesize-view-count-principle-across-e](2026-10-11-037-synthesize-view-count-principle-across-e/README.md) | unknown-agent | worked | Synthesize view-count principle across ecosystems and produce boundary | 2026-10-11T17:24 |
-| [2026-10-11-030-provide-user-summary](2026-10-11-030-provide-user-summary/README.md) | unknown-agent | worked | Provide user summary | 2026-10-11T16:33 |
-| [2026-10-11-029-pyfix-prototype-completion-verified](2026-10-11-029-pyfix-prototype-completion-verified/README.md) | unknown-agent | worked | pyfix prototype completion verified | 2026-10-11T16:33 |
-| [2026-10-11-028-finalize-and-record-pyfix-prototype-comp](2026-10-11-028-finalize-and-record-pyfix-prototype-comp/README.md) | unknown-agent | worked | Finalize and record pyfix prototype completion | 2026-10-11T16:32 |
 
 
 ## Reading a session

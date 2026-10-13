@@ -1,4 +1,16 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-12
+-->
+
 # Think Free — Session Summary and Decision Record
+
+> A scratch summary written by the view-count sweep sessions and kept for
+> continuity only. `STATE.md` is the authoritative record; where this file and
+> `STATE.md` disagree, `STATE.md` wins. The sweep these sessions ran is stopped
+> (E113, F116, D105).
+
 
 *Last updated: 2026-10-12*
 

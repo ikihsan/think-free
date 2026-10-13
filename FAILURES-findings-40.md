@@ -190,3 +190,45 @@ already decidable by the incumbent?* — is answered on the R arm and on the
 reader comparison, neither of which depends on the flawed control premise.
 The predeclared "served iff G0∧K1∧K2" condition is **not met**; the reason is
 a control-population mismatch, not a failure of the assistant.
+## F123 — a false-positive rate belongs to an arm, not to an instrument
+
+**E124, 2026-10-13, `observed`.** F118 recorded that E114's value-grounding
+verifier condemned 0.3717 of 374 values a free assistant wrote, every flag
+wrong. E124 measured the same verifier over the same values on four different
+arms and got four different rates:
+
+| arm | host text | FP rate |
+|---|---|---|
+| E114's own `KG-C2` control | reader's prose, value in situ | 0.0069 (1/145) |
+| E124 C' | reader's prose, value in situ, label by string search | 0.1970 (65/330), Wilson LB 0.1577 |
+| E124 D | bare sentence naming the value | 0.6667 (16/24), Wilson LB 0.4671 |
+| E124 D, in situ (committed verdicts) | reader's own prose | 1.0000 (24/24) |
+| E124 C | bare sentence naming a value copied from the document | 0.9346 (100/107), Wilson LB 0.8711 |
+
+**The mechanism, read off the verdicts.** `ground.judge()` scores a value by
+the overlap of *content words* between the answer's neighbourhood and the
+document's neighbourhood, and condemns below `threshold=0.6` with
+`ungrounded_claim`. In arm C all 100 condemned values carry `ungrounded_claim`
+and **none** carries `ungrounded_value`: the verifier found every one of them in
+the document and still condemned it, because the probe sentence
+`"The document states $56.00."` shares no content words with it. The rate is a
+property of the pair (instrument, arm), so it is not a constant of the
+instrument at all.
+
+**What this does to the record.** E114's `KG-C2 = 0.0069` and
+`instruments_valid: true` are true measurements and do not qualify this
+verifier for any arm but its own. F118's rule — a control must include the case
+where the subject is right and the form is different — is necessary and not
+sufficient: context is a second axis of the same failure, and it moves the rate
+by more than an order of magnitude (0.0069 → 0.9346 on values that are
+*present in the document* in both arms).
+
+**Rule.** Quote a false-positive rate with the arm it was measured on, or quote
+nothing. The same shape as F114 (a share that describes what the population
+owns) and F116 (an effect that is a property of the harvest).
+
+**Not established.** That any arm exists on which this verifier is sound — no
+arm in this run measured below 0.1970 except E114's own, whose construction
+differs. And not that the 44 values C' failed to find by string search are
+fabrications: they are normalisation gaps in the search, and the verifier
+condemned only 6 of them (E124 `RESULT.md`).

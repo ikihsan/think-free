@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-12
+last-verified: 2026-10-13
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -379,6 +379,10 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/114-value-grounding/` | `docs/INDEX.md` | active | 2026-10-12 | 4 documents |
 | `EXPERIMENTS/115-applicability-thresholds/` | `docs/INDEX.md` | active | 2026-10-12 | 5 documents |
 | `EXPERIMENTS/116-berka-service-test/` | `docs/INDEX.md` | complete | 2026-10-12 | Status: complete — the line closes on service. A free general assistant |
+| `EXPERIMENTS/116-viewcount-classifier-prototype/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
+| `EXPERIMENTS/118-pypi-viewcount-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
+| `EXPERIMENTS/119-hexpm-viewcount-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
+| `EXPERIMENTS/124-eval-harness-preflight/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10, instance-20260717-0947. |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
