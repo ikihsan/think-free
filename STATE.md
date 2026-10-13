@@ -183,6 +183,8 @@ include the case where the subject is right and the form is different.*
 
 **E127 completed (2026-10-13): the program-shaped residue is served by prior art.** All 6 program-shaped rows from E126 are well-defined programming tasks that a self-contained program can solve, and all 6 are already served by existing tools (Python stdlib, BeautifulSoup, Postman test scripts). The asker needs to learn existing tools, not a new tool. **The venue sweep closes completely — every venue class is served, and the program-shaped residue is served by prior art.** No candidate.
 
+**E128 completed (2026-10-13): the preflight line reopens, conditionally.** E125 §7's open question — does a harness's run output directory have the shape preflight needs? — answered by reading `modelscope/evalscope`'s output writer end to end. **Yes.** The run output has predictions and reviews joined by `index` within one task directory. The tax is a per-harness adapter (a few lines specifying directories and join key), not a loader library. This corrects E125's conclusion: preflight can be pointed at run output with an adapter. The next step is to measure the adapter on a second harness.
+
 **E124 completed (2026-10-13): the mission's own harness defects are now a tool, and one declared gate failed.**
 Nine consecutive sessions (2026-10-12-007 … 014) ran the D083 view-count sweep
 that E113/F116 had already stopped; that sweep is **closed as a route**, and

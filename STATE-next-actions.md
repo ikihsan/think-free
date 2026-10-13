@@ -211,6 +211,12 @@ asker needs to learn existing tools, not a new tool. **The venue sweep
 closes completely — every venue class is served, and the program-shaped
 residue is served by prior art.** No candidate.
 
+**E128 completed (2026-10-13): the preflight line reopens, conditionally.**
+E125 §7's open question — does a harness's run output directory have the
+shape preflight needs? — answered: **yes.** The run output has predictions
+and reviews joined by `index`. The tax is a per-harness adapter (a few
+lines), not a loader library. Next: measure the adapter on a second harness.
+
 ## E114 closed the value-grounding line (2026-10-12)
 
 The prototype-first route the brief asks for was taken once, in full: build the
