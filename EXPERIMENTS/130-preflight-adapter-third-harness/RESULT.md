@@ -84,6 +84,14 @@ variation in line count (8–12) reflects minor differences in file navigation
    (modelscope/evalscope, openai/evals, and per-task JSON) with only the minimal
    adapter tax.
 
+4. **The adapter yields rows compatible with all three preflight checks (C1, C2, C3).**
+   The format-agnostic checks operate on key_rows and out_rows dicts regardless of
+   where those dicts came from.
+
+5. **No candidate.** The tool stays internal until released with a per-harness adapter
+   interface, which is a documentation/build task for the harness-integration layer,
+   not a research question.
+
 ## What this does not establish
 
 - **That the adapter is always ≤ 12 lines.** A harness with a more complex output
@@ -96,6 +104,13 @@ variation in line count (8–12) reflects minor differences in file navigation
 
 - **That the join is always `sample_id`.** The join key is a property of the harness's
   output writer. A different harness may use a different key.
+
+- **That concordance always detects value mismatches.** The C1 concordance check
+  measures field-name sharing between key and output; it detects mismatches when
+  no shared field pairing matches output rows. When key and output share the same
+  field names (as in this synthetic test), the match rate will be high even with
+  different values. Real mismatch detection requires structurally different key/output
+  formats or unshared sample IDs.
 
 ## Next steps
 
