@@ -232,3 +232,50 @@ arm in this run measured below 0.1970 except E114's own, whose construction
 differs. And not that the 44 values C' failed to find by string search are
 fabrications: they are normalisation gaps in the search, and the verifier
 condemned only 6 of them (E124 `RESULT.md`).
+
+## F124 — a shared field name was declared sufficient to establish that two files are one run, and three of five pairs were not
+
+**E125, 2026-10-13, `observed`.** `EXPERIMENTS/125-third-party-harness-preflight/`.
+
+E125 applied `preflight`'s concordance check to third-party evaluation harnesses
+and had to qualify, mechanically, which pair of committed files is a scoring key
+and its outputs. The declared rule (M4) was: *the two files share an
+identifier-shaped field **name**, and their row counts are within an order of
+magnitude.* Five pairs satisfied it. All five were handed to the check at zero
+adapter cost and all five returned `OK`.
+
+A hand read of the five paths finds **two** genuine pairs. The other three are:
+
+| pair | why it is not one run |
+|---|---|
+| `claw-eval/claw-eval` `T157zh_…/crm/customers.json` → `T155zh_…/crm/customers.json` | two **different tasks'** CRM fixtures that happen to share `customer_id` |
+| evalscope `reviews/qwen-plus/ifeval_default` → `predictions/qwen3-max/iquiz_EQ` | one task's review against **another task's** predictions from **another model** |
+| evalscope `reviews/qwen3-max/iquiz_EQ` → `predictions/qwen-plus/ifeval_default` | the same, reversed |
+
+**The rule was declared sufficient and it is not.** A field name is a *shape*,
+not provenance: two unrelated record sets that both key on `customer_id`, or that
+both carry an `index`, satisfy any field-name conjunction. What distinguishes the
+genuine pair is a fact the rule never consulted — the two paths share a parent
+directory naming the same task and the same model.
+
+**Corollary from the same run, separately load-bearing.** Control 1 was written
+against `116-berka-service-test/key.jsonl` and returned `SILENT_NO_MATCH`, which
+reads as a defect in the tool. It is not: that file holds the *defective* integer
+ids (E124's case A), and `score.py` composes `"%s%03d" % (arm, account_id)` at
+load time, so the sound pair exists only after the repair and does not exist as a
+committed artefact. **A control written against the repository's file, where the
+program reads something else, tests the wrong pair** — and it fails for a reason
+that is true about the program and false about the check.
+
+**Rule.** A mechanical qualification rule needs a term that can only be
+provenance — a shared parent directory, a shared run id, a declared foreign key —
+before its output may be reported as a pairing. And an instrument's control must
+be built from the bytes the instrument is pointed at, not from the bytes the
+repository happens to have committed.
+
+**Not established.** That field-name conjunction is useless — it admitted 2
+genuine pairs, and the rule's own false-positive rate (3 of 5) is a fact about
+this population's directory conventions, not a bound. And nothing here measures
+whether the check finds a real defect anywhere outside this repository: E125's
+G1 failed on its pair term (5 against a declared 10) and G3's zero is therefore
+`not_evaluated`, not a refutation.

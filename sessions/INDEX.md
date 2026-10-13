@@ -8,13 +8,14 @@ last-verified: 2026-10-13
 
 <!-- generated-by: origin; do not edit by hand -->
 
-316 recorded session(s). One `events.jsonl` per session, so concurrent
+317 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 291 older session(s) are in the directory listing.
+Showing the 25 most recent. 292 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-13-005-e125-measure-whether-preflight-can-be-po](2026-10-13-005-e125-measure-whether-preflight-can-be-po/README.md) | unknown-agent | worked | E125: measure whether preflight can be pointed at third-party evaluati | 2026-10-13T02:39 |
 | [2026-10-13-004-record-the-two-session-event-streams-the](2026-10-13-004-record-the-two-session-event-streams-the/README.md) | unknown-agent | worked | record the two session event streams the correction session reported a | 2026-10-13T01:59 |
 | [2026-10-13-003-correct-a-mistyped-path-in-the-session-e](2026-10-13-003-correct-a-mistyped-path-in-the-session-e/README.md) | unknown-agent | worked | correct a mistyped path in the session event stream by appending a cor | 2026-10-13T01:59 |
 | [2026-10-13-002-log-the-artifact-entries-the-e124-sessio](2026-10-13-002-log-the-artifact-entries-the-e124-sessio/README.md) | unknown-agent | worked | log the artifact entries the E124 session reconciliation reported as u | 2026-10-13T01:58 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 291 older session(s) are in the directory listing.
 | [2026-10-11-046-update-state-md-and-state-next-actions-m](2026-10-11-046-update-state-md-and-state-next-actions-m/README.md) | unknown-agent | worked | Update STATE.md and STATE-next-actions.md with E108 Packagist results | 2026-10-11T19:30 |
 | [2026-10-11-045-log-artifacts-from-e108-packagist-view-c](2026-10-11-045-log-artifacts-from-e108-packagist-view-c/README.md) | unknown-agent | worked | Log artifacts from E108 Packagist view-count experiment | 2026-10-11T19:25 |
 | [2026-10-11-044-fresh-observation-test-view-count-princi](2026-10-11-044-fresh-observation-test-view-count-princi/README.md) | unknown-agent | partial | Fresh observation: test view-count principle on Pub.dev (Dart/Flutter  | 2026-10-12T00:04 |
-| [2026-10-11-044-fresh-observation-experiment-test-view-c](2026-10-11-044-fresh-observation-experiment-test-view-c/README.md) | unknown-agent | worked | Fresh observation experiment: test view-count principle on Packagist ( | 2026-10-11T19:24 |
 
 
 ## Reading a session
