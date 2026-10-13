@@ -35,31 +35,8 @@ all. But it occurs in **~0.6% of imported modules** (3 of 500, after the
 precision gate removed three instrument artifacts), which is not worth a CI
 gate. **Do not rebuild the linter.**
 
-What E085 did establish, and did not test, is that the *instrument* is cheap
-and correct: two HTTP `Range` requests read a wheel's central directory and
-return every module a distribution ships, with **nothing installed**. deptry
-cannot do this before an install, and names a module without ever naming its
-provider.
-
-**E086 (2026-10-10, small sample, no committed corpus in this checkout):**
-6 of 31 reports module-only (19.35%, CI95 [9.19%, 36.28%]) — superseded by
-the large-sample re-read below.
-
-**E091 re-read CLOSED the line (2026-10-11, F113, D102):** E091's classifier
-counted 25 of 858 (2.91%, gate ≥1% passed), but a hand-read of all 25 rows
-against committed bodies finds **2 genuine + 2 borderline (0.23–0.47%)** —
-19 of 23 are installed-but-broken env issues, own-project files, or
-maintainer bug reports (`EXPERIMENTS/091-import-error-population/REREAD.md`).
-The strict reading's CI excludes the gate. Session 009's "NONE genuine"
-closure reached the same verdict with no artifact; the evidence now exists.
-**Decision: CLOSE** — the resolver has no observed population. `pyprovides`
-stays a prototype, unreleased, `status: draft`. E087 usage measurement is
-superseded.
-
-**Resolver integration built (this session):** `pyprovides fix-import` command
-runs a user command, detects ModuleNotFoundError/ImportError from stderr,
-extracts module names, and suggests correct PyPI distributions. Tested against
-19 discrimination probes: 15/19 (78.9%) resolved. All 27 tests pass.
+**E091 re-read CLOSED the line (2026-10-11, F113, D102):** genuine module-only
+rate 0.23–0.47%, under the 1% gate. **Decision: CLOSE.**
 
 ## Remaining items
 
@@ -178,6 +155,14 @@ line (PyPI, NPM, NuGet, Hex.pm, Code Review SE) used the same shared classifier
 and the same "sort the random arm by the outcome metric" pattern, so they are
 `untested` on a matched harvest, not confirmed.
 
+**The venue sweep is complete (E126/E127, 2026-10-13).** Every venue class
+has been measured and all are served. The program-shaped residue — 6 rows
+from E126 — is served by prior art (E127): all 6 are standard programming
+tasks that existing tools (Python stdlib, BeautifulSoup, Postman) already
+serve. No candidate population exists in any venue class. The mission needs
+a new direction: a completely new domain, or a meta-question about the
+mission's own method.
+
 **What would justify reopening the line,** in order:
 
 1. **A classifier that covers its population.** E113 measured 196 of 700 rows
@@ -204,6 +189,28 @@ assistant serves the answerable class at 0.81, so diagnosis-shaped need is
 not an unserved population either. Both limbs of D103's reopening condition
 answered no.
 
+**E126 completed (2026-10-13): the venue sweep is complete, and every venue
+class is served.** Stack Overflow — the flagship software-owning venue —
+was screened (299 rows: 292 question-shaped, 6 execution-shaped, 1 other)
+and the answerable class was attempted by a free general assistant at
+**27/40 = 0.6750, Wilson CI95 [0.5202, 0.7992]** — the lower bound clears
+the declared 0.50 gate. G0 discrimination passed (10/10, 10/10). The
+composition finding extends to the last untested venue class: the
+execution-shaped share is 6/299 = 0.0201, and the two draw strata differ
+by 10x (Arm A votes 0.0050 vs Arm B creation 0.0500). The one residue is
+**6 program-shaped rows** — the class where a self-contained program (not
+an answer) could serve. Whether a tool could serve them is `untested`;
+they were not attempted (the protocol's sample was the answerable class).
+No candidate. The venue sweep is **closed**.
+
+**E127 completed (2026-10-13): the program-shaped residue is served by prior
+art.** All 6 program-shaped rows from E126 are well-defined programming
+tasks that a self-contained program can solve, and all 6 are already served
+by existing tools (Python stdlib, BeautifulSoup, Postman test scripts). The
+asker needs to learn existing tools, not a new tool. **The venue sweep
+closes completely — every venue class is served, and the program-shaped
+residue is served by prior art.** No candidate.
+
 ## E114 closed the value-grounding line (2026-10-12)
 
 The prototype-first route the brief asks for was taken once, in full: build the
@@ -229,33 +236,11 @@ one number E114 never measured, because building it means paying the cost the
 tool was meant to avoid.
 
 
-## Fresh observation needed
+## Domain record (superseded by E126/E127 — venue sweep complete)
 
-The view-count principle has been tested on:
-  - Non-software Stack Exchange (E062): works, 17/20 unremedied needs served
-  - GitHub issues API (E063/E066): no arrival field, every software-arm cell missing observation
-  - Web search (E065): 0 results with meaningful content
-  - PyPI metadata (E071): supported (82.93% vs 57.50%, all gates met)
-  - NPM metadata (E072): supported (82.93% vs 57.50% analog, all gates met; 100% need-related active vs 0% random)
-  - **NuGet (E102): supported (all gates pass, p=1.7e-14, Cliff's δ=0.996)**
-  - **Hex.pm (E103): supported (all gates pass, p≈0.000, Cliff's δ=0.861, need median 220× random)**
-  - **Packagist (E108): supported (all gates pass, p<0.001, Cliff's δ=0.994, need-related 100% active vs random 26%)**
-  - **RubyGems (E109): supported (all gates pass, p=0.0045, Cliff's δ=0.214, need median 2.0× random)**
-  - **Docker Hub (E111): supported (all gates pass, p≈6.8×10⁻⁴⁷, Cliff's δ=0.386, need median 9.4× random)** — container image registry via pull counts
-  - **Discourse forums (E077): all 4 gates pass** — view_count principle works on non-software Q&A forums, 11.7% unserved-open-like fraction, CI95 [8.8%, 15.5%]
-  - **Need-classification prototype (E078): framework validated** — G1-G3 pass demonstrates the three-clause unserved-open-like rubric and classification rules are operational; G4's sample-size requirement is by design (needs ≥2 unserved threads to detect served fraction < 100%)
-  - **Automotive OBD2 codes (E079): G2 FAIL** — 29% code concentration vs 30% threshold, high dispersion (159 codes/262 mentions), G1/G4 blocked by API throttle
-  - **Embedded/microcontroller fault codes (E082): ALL GATES PASS** — 150 topics across 3 Discourse forums, unserved 15.3% (CI95 [10.5%, 21.3%]), view_count 100% — consistent with Discourse baseline 11.7%, confirming platform invariance
-  - **3D printer fault codes (E083): G2 PASS (73.4%), G3 FAIL (1.8 models/fault vs 10)** — brand silos prevent cross-model coverage, view_count 100%
-  - **PX4 drone fault codes (E084): G1 FAIL (~39 cases vs 100), G3 PASS (17 combos), G4 PASS (88.9%)** — population too small
-  - **Appliance-fault diagnosis (E092): population real and large (44.0% diagnosis-shaped, 92.4% answerable-class, p = 4.7e-07 vs Anova), but served at 30/37 = 0.8108 — line closed on service, not population (F115, D104)**
-  - **Maven Central view-count (E090): G1 passed (28 classified), G3 FAIL** — need-related activity rate 60% vs random 52.2%, difference 7.8 pp (CI95 lower bound −0.41 < 10 pp), G4 FAIL — arrival-field rate 53.6% (below 95% threshold). Principle does not generalize to Maven Central POM metadata.
-  - **Kubernetes Discourse (E094): G2 PASS, G1/G3 FAIL** — view-count separation significant (p=0.044) but unserved fraction 75% (CI95 [64%, 83%]) far above baseline; classification rules need expansion (328 unclassified of 500).
-  - **Hugging Face Hub ML model registry (E101): G1 PASS, G2 FAIL (p=0.089), G3 FAIL (LB=0.089)** — view-count principle does not generalize to ML model registry; need-related active rate 12.4% vs random 8.6%, difference not significant
-  - **crates.io Rust package registry (E095): G1 FAIL (70 need-related), G2 FAIL (p=0.082/0.139), G4 PASS** — all crates have recent_downloads > 0 (100% active), no binary discrimination; threshold-dependent results inconsistent; random crates have higher total downloads. Principle does not robustly generalize to crates.io.
-  - **Docker Hub container registry (E108): G1 PASS, G2/G3 FAIL** — Cliff's δ = -0.810 (large effect in WRONG direction), Wilson LB = 0.000. Random sample captures base images (alpine 12.3B, ubuntu 10.1B, node 7.1B, mysql 5.2B pulls) which dominate pull counts; need-related images are specialized infra tools with orders of magnitude fewer pulls. Principle fails because container registries are dependency-heavy — base images accumulate pulls as `FROM` dependencies, not need-driven discovery.
-  - **Code Review Stack Exchange (E100): ALL GATES PASS** — 50 questions, 73.3% unserved need rate, principle generalizes to code-focused Q&A tags
-  - **GitHub code repositories (E107): WITHDRAWN by E113** — harvest artifact, not a generalization (F116)
+The view-count principle has been tested on 15+ domains. All "works
+reliably" rows are **`untested` on a matched harvest** (E113/F116).
+The full per-domain record is in the experiment directories.
 
 **Key finding (SUPERSEDED BY E113/F116 — read this first):** the results
 below were produced with two defects now measured — an **asymmetric harvest**

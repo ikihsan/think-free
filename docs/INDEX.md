@@ -383,6 +383,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/118-pypi-viewcount-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
 | `EXPERIMENTS/119-hexpm-viewcount-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
 | `EXPERIMENTS/124-eval-harness-preflight/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10, instance-20260717-0947. |
+| `EXPERIMENTS/125-third-party-harness-preflight/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10, instance-20260717-0947. |
+| `EXPERIMENTS/126-stackoverflow-service-test/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-13 | 3 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |

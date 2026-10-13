@@ -8,13 +8,15 @@ last-verified: 2026-10-13
 
 <!-- generated-by: origin; do not edit by hand -->
 
-317 recorded session(s). One `events.jsonl` per session, so concurrent
+319 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 292 older session(s) are in the directory listing.
+Showing the 25 most recent. 294 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-13-007-test-whether-the-6-program-shaped-rows-f](2026-10-13-007-test-whether-the-6-program-shaped-rows-f/README.md) | unknown-agent | worked | Test whether the 6 program-shaped rows from E126 can be served by a se | 2026-10-13T04:40 |
+| [2026-10-13-006-audit-how-the-free-general-assistant-was](2026-10-13-006-audit-how-the-free-general-assistant-was/README.md) | unknown-agent | worked | Audit how the 'free general assistant' was run in the service-closure  | 2026-10-13T04:32 |
 | [2026-10-13-005-e125-measure-whether-preflight-can-be-po](2026-10-13-005-e125-measure-whether-preflight-can-be-po/README.md) | unknown-agent | worked | E125: measure whether preflight can be pointed at third-party evaluati | 2026-10-13T02:39 |
 | [2026-10-13-004-record-the-two-session-event-streams-the](2026-10-13-004-record-the-two-session-event-streams-the/README.md) | unknown-agent | worked | record the two session event streams the correction session reported a | 2026-10-13T01:59 |
 | [2026-10-13-003-correct-a-mistyped-path-in-the-session-e](2026-10-13-003-correct-a-mistyped-path-in-the-session-e/README.md) | unknown-agent | worked | correct a mistyped path in the session event stream by appending a cor | 2026-10-13T01:59 |
@@ -38,8 +40,6 @@ Showing the 25 most recent. 292 older session(s) are in the directory listing.
 | [2026-10-11-048-design-and-run-a-fresh-observation-exper](2026-10-11-048-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment testing the view-count p | 2026-10-11T21:29 |
 | [2026-10-11-047-design-and-run-a-fresh-observation-exper](2026-10-11-047-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment in a new domain per D083 | 2026-10-11T20:49 |
 | [2026-10-11-046-update-state-md-and-state-next-actions-m](2026-10-11-046-update-state-md-and-state-next-actions-m/README.md) | unknown-agent | worked | Update STATE.md and STATE-next-actions.md with E108 Packagist results | 2026-10-11T19:30 |
-| [2026-10-11-045-log-artifacts-from-e108-packagist-view-c](2026-10-11-045-log-artifacts-from-e108-packagist-view-c/README.md) | unknown-agent | worked | Log artifacts from E108 Packagist view-count experiment | 2026-10-11T19:25 |
-| [2026-10-11-044-fresh-observation-test-view-count-princi](2026-10-11-044-fresh-observation-test-view-count-princi/README.md) | unknown-agent | partial | Fresh observation: test view-count principle on Pub.dev (Dart/Flutter  | 2026-10-12T00:04 |
 
 
 ## Reading a session

@@ -1,0 +1,423 @@
+### id=79339258 views=64744 answers=5 accepted=None
+TITLE: NVM installation error on Windows. Cannot find the npm file
+
+ATTEMPT (505 chars): This is a known nvm-windows limitation with old Node versions: nvm-windows downloads the npm distribution for the Node version it installs, and for EOL versions like 14.17.3 the npm archive path has moved, so the npm zip 404s and the install aborts with 'npm file not found'. Workarounds: install a newer Node version, or manually place npm into the version's directory (AppData\Roaming\nvm\v14.17.3\node_modules\npm) from npm's own distribution, or use a Node version manager that fetches npm separately.
+
+ANSWER (score 85): I was having the same problem. I even tried to change the node and npm mirror, but same error. I just rolled back to nvm version 1.1.12 and it worked just fine.
+
+ANSWER (score 49): https://github.com/coreybutler/nvm-windows/issues/1209 Bug in NVM-Windows - planned to be fixed in next version Potentially useful workaround is to go back to a previous NVM version like v1.1.12
+
+ANSWER (score 7): Solution for those who use NVM via Chocolatey: Open CMD or PowerShell as Administrator. Copy and execute this command: choco install --force --version 1.1.12 nvm.install Enter A when asked. If you get a dialogue box by NVM asking to take control of your already installed different versions of Node then just click on Yes button. Keep clicking on Yes button if the dialogue box keeps appearing again and again.
+
+
+### id=79753701 views=52181 answers=10 accepted=None
+TITLE: iOS 26 Safari - Web layouts are breaking due to fixed/sticky position elements getting shifted vertically
+
+ATTEMPT (420 chars): iOS Safari's collapsing address bar changes the visual viewport height as you scroll, and fixed/sticky elements anchored to the layout viewport shift when it does. The remedy is to anchor against the visual viewport: listen to visualViewport resize/scroll and reposition, or use CSS that tolerates the changing height (avoid anchoring to 100vh/100% of a viewport that changes; use dvh/svh units where the layout allows).
+
+ANSWER (score 17): There are multiple issues and bugs as far as I can tell: Position: fixed top and bottom toolbar start to drift as you scroll. editing in text boxes (inputs are better, and textareas much worse) causes conflicts, as it turns off fixed positions, and sometimes they are there, although not visible. side menus often get cut. A fixed position scrollable side navbar typically gets cut off right above the URL line, but the background continues to be translucent all the way down to the bottom of the screen. This really looks awful. top and bottom backgrounds randomly become solid (instead of translucent) to try and compensate for the position:fixed items. Overall, I have to say this is the buggiest 
+
+ANSWER (score 11): It was a Safari/ WebKit issue. The latest 26.1 beta from 2025-09-22 has fixed the issue. Now we just need to wait for it to be released or a patch to go before that.
+
+ANSWER (score 6): I ran into the same issue while expanding a burger menu on iOS. I tried using 100svh/dvh/lvh and even env(safe-area-inset-bottom) , but nothing worked. Handling the body styles differently finally helped: On iOS, set document.body.style.position = 'fixed' . On other browsers, set document.body.style.overflow = 'hidden' . This prevents the bottom widget from expanding unexpectedly and makes the element properly use the available viewport.
+
+
+### id=79779187 views=45772 answers=5 accepted=None
+TITLE: Google Generative AI: 404 &quot;models/gemini-1.5-flash is not found&quot; error when calling generateContent
+
+ATTEMPT (331 chars): The 404 'models/gemini-1.5-flash is not found for API version v1beta' means the model id is no longer served on that API version: Google deprecated gemini-1.5-flash. Remedy: call ListModels to see the ids your key still serves, switch to a current model name, or pin the API version that still serves 1.5-flash if you must keep it.
+
+ANSWER (score 42): Just use gemini-flash-latest All models: https://ai.google.dev/gemini-api/docs/models
+
+ANSWER (score 7): It is not only the model version, it is also related to how you import the SDK: Old SDK: @google/generative-ai → deprecated New SDK: @google/genai → supported and actively maintained import { GoogleGenAI } from '@google/genai'; const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY }); Update the model name: Old: gemini-1.5-flash-latest → deprecated New: gemini-2.0-flash or gemini-2.5-flash → available const modelName = 'gemini-2.5-flash';
+
+ANSWER (score 5): I had this same issue in my node server. The code was working fine last month, but unexpectedly it started throwing this error. Then I found out that Google has moved some of its AI models recently. Just hit the below API using e.g., Postman and that will eventually give you the list of AI model names that you can you with your API key. https://generativelanguage.googleapis.com/v1beta/models?key=><Your Gemini API Key> (Hit this if the error says it could not find the given model in the API version v1Beta) https://generativelanguage.googleapis.com/v1beta/models?key=<Your Gemini API Key> (Hit this if the error says it could not find the given model in the API version v1)
+
+
+### id=79380514 views=44608 answers=8 accepted=None
+TITLE: Tailwind CSS: &quot;npm error could not determine executable to run&quot;
+
+ATTEMPT (402 chars): Tailwind CSS v4 removed the standalone `tailwindcss` CLI executable that v3 had, so `npx tailwindcss init -p` cannot resolve an executable. In v4 there is no tailwind.config.js by default: configuration lives in CSS (@import "tailwindcss") and the build plugins. Remedy: use @tailwindcss/vite (or @tailwindcss/postcss) and configure via CSS; if you need the v3-style CLI, install tailwindcss@3 instead.
+
+ANSWER (score 56): TL;DR (for init process) : Since v4, there is no need for a tailwind.config.js file , so the init process is also unnecessary , making both outdated. Review the v4 installation guides , where the init step is not included. Or install v3 with specifically changed guide . TL;DR (for Tailwind CLI) : Previous content + In v4, Tailwind CLI was separated from the core package, so an additional package needs to be installed see below and in How to use Tailwind CLI . TailwindCSS v4 TailwindCSS has just released its new v4 version, so all the older v3 documentation has become somewhat outdated. Upgrade guide - TailwindCSS v3 to v4 Changed npx tailwindcss to npx @tailwindcss/cli The command to run is 
+
+ANSWER (score 8): The tailwind version has upgraded to v4 , npx tailwindcss init -p this command will no longer work in the new update for continuing with the old steps for installing tailwindcss run npm install -D tailwindcss@3 npx tailwindcss init To continue with the new veriosn of v4 tailwindcss see the below steps npm install tailwindcss @tailwindcss/vite import the plugin in vite config import { defineConfig } from 'vite' import tailwindcss from '@tailwindcss/vite' export default defineConfig({ plugins: [ tailwindcss(), ], }) in global css import tailwind classes @import "tailwindcss"; References for the above answer : tailwind docs Github Discussions
+
+ANSWER (score 2): It seems to me that you need to be on tailwindcss v.3.x.x to run npx tailwindcss init to get the tailwindcss.config.js file in your project. Afterwards only then run npm install -D tailwindcss@latest to upgrade to v.4 . This is not super clear in the documentation or the discussions within the TailwindCSS repository on GitHub; the maintainers just say to use the tailwindcss cli tool, but that tooling doesn't generate the tailwindcss.config.js file, so I'm wondering if you have to manually create it if you're on v4 and not going through the gymnastics of downgrading first and then upgrading. That part hasn't been made super clear to me in the docs, but I've had a lot of success with installin
+
+
+### id=79489946 views=41629 answers=4 accepted=None
+TITLE: While installing tailwind CSS I am having this error &#39;npm error could not determine executable to run&#39;
+
+ATTEMPT (320 chars): Same cause as the identical error in other v4 projects: Tailwind v4 has no `tailwindcss` CLI executable, so `npx tailwindcss init -p` fails with 'could not determine executable to run'. With v4, install @tailwindcss/vite and write the config in CSS (@import "tailwindcss"); drop the `npx tailwindcss init` step entirely.
+
+ANSWER (score 38): Maybe you are using v4 of Tailwind, which does not use init, but this instead: npm install tailwindcss @tailwindcss/vite https://tailwindcss.com/docs/installation/using-vite Version 3.4 uses this: npm install -D tailwindcss@3 npx tailwindcss init https://v3.tailwindcss.com/docs/installation
+
+ANSWER (score 14): Tailwind released version 4 in January of 2025 and the installation has changed quite a bit from the older version 3.x. This error is caused by the conflict in how version 3.x and version 4.x are installed. C:\Users\Olusola\Documents\Portfolios\inperson\frontend>npx tailwindcss init -p npm error could not determine executable to run npm error A complete log of this run can be found in: C:\Users\Olusola\AppData\Local\npm-cache\_logs\2025-04-02T03_40_54_327Z- debug-0.log The command npx tailwindcss init -p works correctly for version 3.x. If you check the log file, you'll find leads as to what the issue might be. The most important lines are the following: line 7 verbose title npm exec tailwin
+
+ANSWER (score 0): even i got the same issue than found out the command ur using will only work for tailwind v3 not v4. so instead use v3 of taikwind and everything runs good. and the offical tailwind document for vite+react for tailwind is not there. So using tailwind v3 is better option i guess.
+
+
+### id=79383758 views=35272 answers=1 accepted=None
+TITLE: How to set Tailwind CSS v4 global class?
+
+ATTEMPT (472 chars): In Tailwind v4 there is no tailwind.config.js by default; configuration is CSS. The container and its breakpoints are theme variables (--container-* under @theme), and custom responsive/hover utilities are declared with @utility. So: set the container max-width after the xl breakpoint via the container theme variables in your CSS, and add custom classes with @utility (e.g. @utility card { ... }) which respond to hover: and responsive: variants like built-in utilities.
+
+ANSWER (score 31): New "CSS-first" configuration from v4 (instead of tailwind.config.js ) CSS-First Configuration : Customize and extend the framework directly in CSS instead of JavaScript. Which TailwindCSS v4 namespace matches a given TailwindCSS v3's theme keys? With TailwindCSS v4, you have the option to omit the tailwind.config.js file. You can find many new directives, such as @theme , which allows you to declare your custom settings directly in your CSS file, or @plugin , which lets you import TailwindCSS v4-compatible plugins directly in your CSS file. I won't list all the new directives, but you can check them out here: Functions and directives - TailwindCSS v4 Docs Customizing your theme If you want 
+
+
+### id=79335513 views=34267 answers=5 accepted=None
+TITLE: Error fix : Dbeaver driver error : Maven artifact:org.postgresql:postgresql:RELEASE&#39; can&#39;t be resolved in External Repositories
+
+ATTEMPT (382 chars): DBeaver is asking Maven for the literal version string 'RELEASE', which no repository serves, so the driver artifact cannot resolve. Remedy: in DBeaver's Driver Manager, open the PostgreSQL driver's settings and set the artifact version to a concrete released version (or clear the 'RELEASE' placeholder), or add the PostgreSQL JDBC driver jar manually under the driver's Libraries.
+
+ANSWER (score 10): Just re open your debeaver as an administrator.That worked for me
+
+ANSWER (score 5): I was facing the same issue with an Azure VM using Windows. Here was the fix: Uncheck "Use Windows trust store": On DBeaver, when using Windows, navigating to Window > Preferences > Connections and unchecking "Use Windows trust store". https://stackoverflow.com/a/48593318 I hope that helps.
+
+ANSWER (score 3): This happened because DBeaver can't download driver via the Internet for some reason. However you can install Postgres driver manually by: Downloading Postgres driver file postgresql-42.X.X.jar using the link: https://jdbc.postgresql.org/download/ Put .JAR file into this path (if there's no directory, create one) %APPDATA%\DBeaverData\drivers\maven\unknown\org.postgresql Try to establish the Connection again.
+
+
+### id=79686551 views=32140 answers=8 accepted=None
+TITLE: App must target Android 15 (API level 35) or higher
+
+ATTEMPT (359 chars): The warning is Google Play's target-API requirement: new apps and updates must target Android 15 (API 35). In Buildozer set android.api = 35 — that is the targetSdkVersion. android.sdk = 34 can stay (it is the SDK platform/build tooling), though raising it to 35 also works; android.minapi = 21 can stay. Only android.api needs to change to clear the warning.
+
+ANSWER (score 18): For anyone who comes across this and is looking for a solution for an expo React Native App you need to either Update your expo SDK to v53 (see here: https://expo.dev/changelog/sdk-53 ) or (in case you are looking for a quick fix without updating expo AGAIN): set expo-build-properties in app.json or app.config.js (thanks to @Drazar and @HabiburRaman for pointing this out in the comments) Use expo-build-properties in app.json: // app.json { "expo": { ... "plugins": [ [ "expo-build-properties", { "android": { "compileSdkVersion": 35, "targetSdkVersion": 35, "buildToolsVersion": "35.0.0" }, } ] ] } } Original Answer: Creating a custom config plugin: Create a file named withTargetSdk35.js (or si
+
+ANSWER (score 3): To resolve this issue, I updated my app's build.gradle file to target the required API level: android { compileSdkVersion 35 defaultConfig { targetSdkVersion 35 } } But you still got the warning then please remove the older bundles from the open close testing.
+
+ANSWER (score 2): I received a warning from Google Play Console that my app must target Android 15 (API Level 35) or higher. Until now, my app has been targeting SDK 34. Here is my current build.gradel setup: My build.gradle is buildToolsVersion = "34.0.0" minSdkVersion = 23 compileSdkVersion = 34 targetSdkVersion = 34 we want to update it to : buildToolsVersion = "35.0.0" minSdkVersion = 24 compileSdkVersion = 35 targetSdkVersion = 35 To support the latest requirements and improve compatibility, we need to add a package and added the following code in my APP.tsx "react-native-safe-area-context" import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'; function App() { return ( <SafeAre
+
+
+### id=79775796 views=27313 answers=5 accepted=None
+TITLE: Next.js: &quot;Cannot find module or type declarations for side-effect import of &#39;./globals.css&#39;&quot; ts(2882)
+
+ATTEMPT (379 chars): This is a known TypeScript-server false positive on side-effect CSS imports in fresh Next.js projects (ts(2882) on `import './globals.css'`). Remedy: restart the TS server (Ctrl/Cmd+Shift+P, 'TypeScript: Restart TS Server'); if it persists, align Next.js and TypeScript versions or set "moduleResolution": "bundler" in tsconfig.json. The CSS import itself is correct for Next.js.
+
+ANSWER (score 166): Open any .tsx file. Press Ctrl + Shift + p and type: TypeScript: Select TypeScript version After that, select workspace version. It will search your node_modules for your lib and select it. The error will disappear. - Guilherme on Sep 29 at 23:47
+
+ANSWER (score 27): Create a css.d.ts or global.d.ts and add this as it's content. This tells typescript that any import ending with .css is a valid module. declare module "*.css"
+
+ANSWER (score 5): Sometimes the problem occurs due to the noUncheckedSideEffectImports configuration after TypeScript 5.6. When such a configuration is on, TypeScript raises a TS2307 error which is really confusing. Change the configuration to "noUncheckedSideEffectImports": false or simply remove it may solve the problem.
+
+
+### id=79513015 views=24403 answers=4 accepted=None
+TITLE: Tailwind CSS v4 - Unknown at rule @plugin, @custom-variant, @theme, @utility, @variant, @apply, @source, @reference in global.css
+
+ATTEMPT (445 chars): Those at-rules (@theme, @utility, @apply, @source, @reference, @variant, @custom-variant, @plugin) are Tailwind CSS v4 syntax: valid to the Tailwind processor at build time, but unknown to the plain CSS language service, which flags every one as 'unknown at rule'. Remedy: install the Tailwind CSS v4 editor extension for VS Code so the language service knows the at-rules; the build itself is fine via @tailwindcss/vite or @tailwindcss/postcss.
+
+ANSWER (score 55): These are custom TailwindCSS directives that CSS IDEs don't understand by default. For VSCode, use the official TailwindCSS IntelliSense extension. TailwindCSS IntelliSense - VSCode Marketplace After that, tell VSCode that you want to treat your .css files as TailwindCSS. You can do this in the settings under files.associations like this: { "files.associations": { "*.css": "tailwindcss", "*.scss": "tailwindcss", }, } Recommended VSCode settings for TailwindCSS IntelliSense - GitHub Since these are just IDE error messages, the code will work as expected if you have properly installed TailwindCSS. However, they can be frustrating, so it is definitely recommended to use the extension. Known Iss
+
+ANSWER (score 3): The approch when you use files.associations is the best way,Just a little observation,to know when configure css to tailwind, press ctrl + shift + p and search 'Open Workspace Settings (JSON)' and paste the code and the error disapper
+
+ANSWER (score 0): Ignoring the warnings in VS Code work for me VScode settings -> extension -> CSS language feature -> CSS Find Lint: Unknown at rules and set it to ignore. This solved my problem. property to igonre
+
+
+### id=79533324 views=20190 answers=1 accepted=None
+TITLE: How can I install a local package with UV?
+
+ATTEMPT (477 chars): An editable install only exposes what the build backend declares as the project's packages. In a layout where config/ and packages/src/ are not the project's own package root, a bare `uv pip install -e .` installs only the project itself. Remedy: declare the local packages as editable path dependencies in [tool.uv.sources] (e.g. my-pkg = { path = "packages/src/my-pkg", editable = true }), or configure the build backend's package discovery so those directories are included.
+
+ANSWER (score 5): The correct pyproject.toml file for your case will be: [project] name = "dashboard" version = "0.1.0" description = "Dashboard with modular packages" readme = "README.md" requires-python = ">=3.9" dependencies = [] [project.scripts] dashboard-ingest = "services.data_ingestion.ingest_data:main" [build-system] requires = ["setuptools>=61.0"] build-backend = "setuptools.build_meta" [tool.setuptools.packages.find] where = ["config", "packages/src", "services"] include = ["*"] exclude = ["tests*"] [tool.pytest.ini_options] pythonpath = ["config", "packages/src", "services"] You need [tool.pytest.ini_options] so that pytest can find your packages. The where = ["config", "packages/src", "services"]
+
+
+### id=79831004 views=20010 answers=1 accepted=None
+TITLE: Missed @AutoConfigureMockMvc in spring-boot-test-autoconfigure-4 (Spring Boot 4)
+
+ATTEMPT (406 chars): Spring Boot 4 restructured the spring-boot-test-autoconfigure module, and @AutoConfigureMockMvc moved out of the Boot 3 package (org.springframework.boot.test.autoconfigure.web.servlet). I do not know the exact new package from general knowledge; the resolution is the Spring Boot 4.0 migration guide, which names the new location of the test autoconfiguration classes, plus the correct starter dependency.
+
+ANSWER (score 61): Due to the modularisation in Spring Boot 4, many classes have changed module and package . @AutoConfigureMockMvc is now in the org.springframework.boot.webmvc.test.autoconfigure package of the spring-boot-webmvc-test module. If you review your test dependencies, as recommended in the migration guide , you will learn that you can add spring-boot-starter-webmvc-test as a companion to spring-boot-starter-webmvc . @AutoConfigureMockMvc will then be available once you've updated your code's imports. pom.xml after migration: https://github.com/JavaOPs/bootjava/blob/boot4/pom.xml
+
+
+### id=79665976 views=19966 answers=2 accepted=None
+TITLE: Create project with specific (downgraded) Python version
+
+ATTEMPT (298 chars): uv resolves the pinned `python==3.9.21` only against interpreters it can find; 3.9.21 is not installed, so it falls back to 3.13.2 and sync refuses. Remedy: `uv python install 3.9.21`, then `uv init --package --python 3.9.21` (or point --python at the installed interpreter's path), then `uv sync`.
+
+ANSWER (score 8): I tried your steps in my macbook and they worked fine without any error. Your error sounds as if uv was installed via pip install uv under Python 3.13.2. Could that be? This is why Astral (who programmed uv ) warns not to install uv simply with pip install uv . Because then, the uv gets dependent on the particular Python version. But the point of uv is that it should be in the level on top of the Python versions and manage them. Your uv seems to be installed under Python 3.13.2, thus fixed to it - which is suboptimal. And it has performance penalties - you are not using uv (Rust's) actual speed - but uv inside pip . The solution in this case would be: uninstall pip uninstall uv globally inst
+
+ANSWER (score 4): Ok so you are using uva and still uv is getting confused and trying to use your system's Python 3.13.2, even when you ask for 3.9.21. This happens because uv needs a clear path to the specific Python version you want for your project. This is usually the simplest and best way to tell uv exactly what to use for a project. 1. Go into your project folder: >>> mkdir sandbox >>> cd sandbox 2. Tell uv to use Python 3.9.21 for this folder: >>> uv python pin 3.9.21 If you don't have 3.9.21 installed yet via uv, it might ask you to install it. 3. Now, create and sync your project: >>> uv init --package >>> uv sync uv will now automatically use the pinned 3.9.21.
+
+
+### id=79363302 views=17828 answers=5 accepted=None
+TITLE: How to disable svg preview in VS Code 1.97+
+
+ATTEMPT (342 chars): VS Code 1.97+ opens .svg with the built-in image preview. To view/edit the SVG as text: right-click the file, 'Open With…' → Text Editor (or 'Reopen in Text Editor'). To make it permanent, change the default editor association for svg in Settings (workbench.editorAssociations: remove the svg → image preview entry, or set it to Text Editor).
+
+ANSWER (score 120): It's a new feature for last version . Go to settings, search for workbench.editorAssociations and add item with key *.svg and value default I found this solution on Reddit .
+
+ANSWER (score 42): VS Code was recently updated to render SVG files as previews by default. Paste this in your settings.json to disable the feature: "workbench.editorAssociations": { "*.svg": "default" }
+
+ANSWER (score 23): You can do one of two things. Right-click on the file in the Explorer, or right-click on the tab after opening the file, and choose Open With... and then select the Text Editor option and you should get the svg code. You can set the default to be to open svg files in a text editor instead of an image preview from that same context menu. Choose the Configure default editor for *.svg files and it will always open in a text editor thereafter.
+
+
+### id=79368095 views=15020 answers=5 accepted=None
+TITLE: How can I toggle the GitHub Copilot Chat panel in VS Code using a keyboard shortcut?
+
+ATTEMPT (362 chars): Bind a key to the Copilot Chat view command: open Keyboard Shortcuts (Ctrl+K Ctrl+S), search 'Copilot Chat', and assign a shortcut to 'GitHub Copilot: Focus on Copilot Chat View' (or 'Open Copilot Chat'). To hide the panel again, bind the auxiliary-bar toggle (View → Appearance → Auxiliary Bar) or the command that closes the chat view, so one shortcut toggles.
+
+ANSWER (score 24): You can use the shortcut to "Toggle Secondary Side Bar" Ctrl + Alt + B or click this (Windows/English)
+
+ANSWER (score 8): For OSX tou can toggle using CMD + Option + B
+
+ANSWER (score 6): In my German version this works with Ctrl-Alt-i
+
+
+### id=79662318 views=14902 answers=2 accepted=None
+TITLE: How to revert UITabBarController to the pre-iOS 18 appearance (Xcode 26)?
+
+ATTEMPT (357 chars): iOS 26 applies the Liquid Glass design system-wide, and there is no public API to revert UITabBarController to the pre-iOS-18 appearance. The only supported way to keep the classic look is a custom tab bar: replace the UITabBarController's tab bar (or build a custom container) with a UIView styled to the classic appearance. No per-view opt-out API exists.
+
+ANSWER (score 51): Add UIDesignRequiresCompatibility to your Info.plist and set it to YES, your app will run using the old OS design instead of the new Liquid Glass design. Apple allows developers to temporarily opt out of Liquid Glass in Xcode 26, but this option will be removed in Xcode 27, making Liquid Glass mandatory.
+
+ANSWER (score 0): Using code Open the Info.plist file as source code and Add the following code: <key>UIDesignRequiresCompatibility</key> <true/>
+
+
+### id=79600161 views=14852 answers=7 accepted=None
+TITLE: Could not find com.arthenica:ffmpeg-kit-full:6.0-2
+
+ATTEMPT (403 chars): com.arthenica:ffmpeg-kit-full:6.0-2 is not on Maven Central, Maven's main repo, jcenter, or jitpack because the ffmpeg-kit artifacts were removed from those repositories. Remedy: add a repository that still hosts the artifact (the ffmpeg-kit project's own Maven repository, if still available) or vendor the AAR into your project; alternatively switch to a maintained fork or a different FFmpeg binding.
+
+ANSWER (score 14): Maybe this information comes to late but if its can help anyone i found the solution, this solution is maybe temporal because is a compiled binary of a last version of FfmpegKit in his full version, this works in video and audio with full caracteristics. First download the .aar file in this link: https://artifactory.appodeal.com/appodeal-public/com/arthenica/ffmpeg-kit-full-gpl/6.0-2.LTS/ later go to your project structure yourProject/app/libs if you dont have a folder named libs in your app folder only create this folder and place the .aar file into this. next you need delete your dependece of this: implementation 'com.arthenica:ffmpeg-kit-full-gpl:6.0-2' and change to this: implementation(
+
+ANSWER (score 6): I also ran into this problem. The solution is to download files from the website: https://github.com/DucLQ92/ffmpeg-kit-audio/tree/main/com/arthenica/ffmpeg-kit-audio/6.0-2 Next, place the aar file in the app/libs folder Add it to build.gradle: dependencies { implementation(files("libs/ffmpeg-kit-audio-6.0-2.aar")) implementation 'com.arthenica:smart-exception-java:0.2.1' } Assemble the project
+
+ANSWER (score 3): Their post suggests building FFmpegKit locally and using the binaries created for our applications. So, first of all, if you're developing an Android app, you'll need to clone their project, go to that directory, and run the following commands export ANDROID_SDK_ROOT=<Android SDK Path> export ANDROID_NDK_ROOT=<Android NDK Path> ./android.sh Note that ndk should be the same as latest versions FFmpegKit was compiled - you've got all information here . Also, if you're using a LTS version make sure you add --lts flag to ./android.sh command - ( ./android-sh --lts ). Then, go to …./ffmpeg-kit/prebuilt/bundle-android-aar/ (or …./ffmpeg-kit/prebuilt/bundle-android-aar-lts in case you're using LTS v
+
+
+### id=79818917 views=14388 answers=1 accepted=None
+TITLE: Error importing langchain modules: No module named &#39;langchain.chains&#39;
+
+ATTEMPT (508 chars): LangChain 1.0 restructured the package: the old langchain.chains module was removed/renamed, so `from langchain.chains import create_retrieval_chain` fails against langchain 1.0.5. The retrieval-chain builders moved to a different import path in the 1.0 package layout (the langchain package's new chain/retriever modules, or langchain-community). I do not know the exact 1.0 import path from general knowledge; the resolution is the LangChain 1.0 migration guide, which maps the old imports to the new ones.
+
+ANSWER (score 24): langchain==1.0.5 langchain v1.0 was released recently (October 22, 2025), and according to the release notes , .chains and .retrievers have been moved to the langchain-classic package : # Chains from langchain_classic.chains import ... # Retrievers from langchain_classic.retrievers import ... You're getting a ModuleNotFoundError because those imports do not exist in the langchain package in v1.0. That's why I asked for your version numbers in Staging Ground . Some usage can be migrated to the new API; for RAG, you can look at the current RAG docs . The specific migration path depends on exactly what you were trying to do, which may be the subject of a separate question. You can also temporar
+
+
+### id=79394239 views=14055 answers=14 accepted=None
+TITLE: VSCode Tailwind CSS Intellisense autocompletion and suggestions not working after installing Tailwind v4
+
+ATTEMPT (393 chars): The Tailwind CSS Intellisense extension predating v4 only understands the v3 setup (a tailwind.config.js) and does not activate on a v4 project, which has no config file by default. Remedy: update the extension to a release with Tailwind v4 support (v4 support landed in a 2025 update of the extension), which detects the @tailwindcss/vite setup and provides completions without a config file.
+
+ANSWER (score 15): Support and improvements for TailwindCSS v4 are in progress. As of the fix in TailwindCSS Intellisense VSCode extension since February 2025 (v0.14.3) , it is possible to specify the new CSS-first configuration as a configuration file. Due to the proper v4 configuration detection, Intellisense will work the same way as in v3 without any additional settings. It remains compatible with both v3 and v4 versions simultaneously. tailwindlabs/tailwindcss-intellisense PR #1167: Clarify how the configFile option works with v4 Tailwind CSS v4.x (CSS entrypoints) For v4 projects, specify the CSS file(s) that serve as your Tailwind entrypoints. If your project contains a single CSS entrypoint, set this o
+
+ANSWER (score 7): Tailwind css has released new version (4.0.0) and after installing it - ( npm install tailwindcss @tailwindcss/vite ) intellisense extension on VS Code stops working! This occurs because in V4.0.0 there is no 'tailwind.config' file present in the root dir To solve this problem follow these steps : 1 - after installing tailwind v4 , go to tailwind website and go to the old version that is v3.4.17 2 - then.. -> Get Started -> Framework Guides -> vite 3 - After that you can see the old steps. in the step 3 : " Configure your template paths " - copy the code of 'tailwind.config.js' : / @type {import('tailwindcss').Config} */ export default { content: [ "./index.html", "./src//*.{js,ts,jsx,tsx}",
+
+ANSWER (score 5): I came across the same problem, what i did was - simply uninstall the extension from vscode and install it again.
+
+
+### id=79538511 views=13827 answers=4 accepted=None
+TITLE: .github/copilot-instructions.md support for IntelliJ
+
+ATTEMPT (339 chars): .github/copilot-instructions.md is read by Copilot in VS Code and on github.com. The JetBrains plugin does not read that file: in IntelliJ, Copilot custom instructions are configured per project in Settings → Tools → GitHub Copilot (the instructions field), not via the .github directory. So the file does not carry over to IntelliJ as-is.
+
+ANSWER (score 6): This feature is now supported by the gitHub intelliJ plugin: https://plugins.jetbrains.com/plugin/17718-github-copilot/versions/stable/722431
+
+ANSWER (score 6): From GitHub Copilot version 1.5.42-243, it's possible to add instruction files. Just add .github/copilot-instructions.md or .github/git-commit-instructions.md files to your solution. One important thing to note is that the .github directory needs to be located next to a solution file ; otherwise, it won't work. So, if, for example, you nest your solution and the solution path is, e.g., /src/MySolution.sln , the instructions path should be /src/.github/copilot-instructions.md . Edit: In the most recent versions of the plugin, you can use a settings UI to do this. Just go to the "Settings" (CTRL + ALT + S) and look for "GitHub Copilot" under the "Language & Frameworks":
+
+ANSWER (score 1): I got it to work in IntelliJ 2024.2 (Community Edition) on a MAC by asking for: " Create a commit message for the current project changes " in CoPilot Chat , not the CoPilot icon in the commit windows. My .github/copilot_instructions.md file contains just these lines: # Copilot instructions for this project Be extremely detailed with the file changes and reason for the change. Add lots of emojis. The response was: `Add detailed Copilot instructions to project documentation` - 📝 Updated `.github/copilot_instructions.md` with specific guidelines for file changes. - 🔍 Emphasized the need for detailed explanations and reasoning behind changes. - 🎨 Included a note to use emojis for better readabi
+
+
+### id=79602687 views=13727 answers=3 accepted=None
+TITLE: React Native Expo + Firebase Auth: “Component auth has not been registered yet” on app launch
+
+ATTEMPT (396 chars): The error means the Firebase Auth native module isn't registered with the Expo dev client. In Expo SDK 53 with the dev client, native modules must be autolinked — ensure firebase is in app.json plugins, that you're using expo-dev-client (not Expo Go), and that npx expo prebuild has been run so the native build includes the Auth module. Clear node_modules, ios/Pods (if applicable), and rebuild.
+
+ANSWER (score 23): Instead of using expo-dev client, I continued to use expo go. I simply added the following line in my metro.config.js file: const defaultConfig = getDefaultConfig(__dirname); defaultConfig.resolver.sourceExts.push('cjs'); // This is the new line you should add in, after the previous lines defaultConfig.resolver.unstable_enablePackageExports = false; After that, I didn't seem to get the error "Component auth has not been registered yet".
+
+ANSWER (score 14): Steps that worked for me 1. Clean up node_modules and lockfile: rm -rf node_modules package-lock.json npm install 2. Setup firebase.ts : import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage'; import { initializeApp } from "firebase/app"; //@ts-ignore import { getReactNativePersistence, initializeAuth } from 'firebase/auth'; import { getFirestore } from "firebase/firestore"; import { getStorage } from 'firebase/storage'; const firebaseConfig = { // your config here }; const app = initializeApp(firebaseConfig); export const auth = initializeAuth(app, { persistence: getReactNativePersistence(ReactNativeAsyncStorage), }); export const db = getFirestore(app); export cons
+
+ANSWER (score 0): For me, the error came from the fact that I was using both react-native-firebase and the Firebase SDK in my application. I had previously decided to use react-native-firebase, but ended up using the Firebase SDK (so I imported auth from "firebase/auth"). To resolve the issue, I had to remove all "react-native-firebase" dependencies and then delete google-services.json
+
+
+### id=79404124 views=13430 answers=1 accepted=None
+TITLE: Is there a way to check console on Bruno?
+
+ATTEMPT (335 chars): Bruno does not have a built-in console panel like Postman. Script output from pre-request and post-response scripts is not displayed in the UI. The workaround is to use the Collection Runner's results (which show pass/fail per request) or export results to a file. There is no dedicated console view in Bruno as of the current version.
+
+ANSWER (score 24): The console is a part of the developer tools panel. It is hidden by default, but you can open it from the view menu. View -> Toggle Developer Tools
+
+
+### id=79845075 views=13210 answers=4 accepted=None
+TITLE: PrismaClientInitializationError: `PrismaClient` needs to be constructed with a non-empty, valid `PrismaClientOptions`:
+
+ATTEMPT (459 chars): The error means the PrismaClient constructor is being called without the required options object. With the prisma-client generator (engineType = 'client'), you must pass the datasource and other options explicitly: new PrismaClient({ datasourceUrl: process.env.DATABASE_URL }) or ensure the generated client is imported from the correct output path. The multi-schema setup (schema.prisma + schemaSA.prisma) requires separate generated clients for each output.
+
+ANSWER (score 56): In Prisma 7 and later, you must construct the client with an adapter or accelerate URL. For example, with PostgreSQL: import { PrismaClient } from '@prisma/client'; import { PrismaPg } from '@prisma/adapter-pg'; const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL!, }); const prisma = new PrismaClient({ adapter }); Or, if you want Rust‑free direct connection via accelerate: const prisma = new PrismaClient({ accelerateUrl: process.env.DATABASE_URL!, });
+
+ANSWER (score 7): I encountered a similar situation and resolved it successfully. In file prisma.service.ts add constructor. It working. constructor() { const pool = new PrismaPg({ connectionString: process.env.DATABASE_URL! }); super({ adapter: pool }); }
+
+ANSWER (score 2): I see you have a couple of conflicts that might be affecting you and that you can try to correct in your schema.prisma and/or schemaSA.prisma: // Corrected Schema for Bundled (Edge/Serverless) Environments generator client { // 1. Use the standard provider. provider = "prisma-client-js" // 2. Use 'library' to avoid the binary engine, which is the cause of the error. engineType = "library" output = "./generated/main" // Or "./generated/superadmin" depending on the file }
+
+
+### id=79465960 views=13099 answers=2 accepted=None
+TITLE: React: &quot;A param property was accessed directly with params&quot;
+
+ATTEMPT (257 chars): In Next.js 15, params is a Promise. You must unwrap it with React.use() before accessing properties: const { id } = React.use(params). Direct access to params.id throws the error you're seeing. This applies to both page.tsx and layout.tsx in dynamic routes.
+
+ANSWER (score 22): The solution sent by Jasperan may solve the problem, but I hate having to create a "use server" component just to load another "use client" component, when you could just have a single component. I really hate this kind of approach. The solution for this is actually quite simple: https://github.com/vercel/next.js/issues/71690#issuecomment-2439644682 You can use the react API called "use": https://react.dev/reference/react/use 'use client'; import { use } from 'react'; export default function Page({ params }: { params: Promise<{ id: string }> }) { const { id } = use(params); return <div>Product ID: {id}</div>; }
+
+ANSWER (score 5): You're correct that you need to use await in Next.js 15 to extract params now (see Next.js docs for an example ). This needs to be done in a server component since client components cannot be async. If you need the params in your client component , you can extract it in a server component first and then pass it down, like so: /product/[id]/page.tsx (server component) import ProductPage from "./productPage"; export default async function Page({ params }: { params: Promise<{ id: string }> }) { const { id } = await params; return <ProductPage id={id} />; } Then in your client component: /product/[id]/productPage.tsx (client component) "use client"; export default function ProductPage({ id }: { 
+
+
+### id=79817405 views=12068 answers=5 accepted=None
+TITLE: installing dotnet-ef dotnet tool throws error
+
+ATTEMPT (344 chars): This is a known issue with certain dotnet-ef package versions where the NuGet package is missing the DotnetToolSettings.xml file. Remedy: try a specific version (dotnet tool install --global dotnet-ef --version 8.0.0 or 9.0.0), or install locally with dotnet tool install dotnet-ef --local, or use dotnet ef as a local tool via a tool manifest.
+
+ANSWER (score 50): This is due to a mismatch between the version of the .NET SDK (probably v9.0) and the latest version of the dotnet-ef tool (v10.0). This command tells you which versions you have installed: dotnet --list-sdks You can solve it by explicitely specifying a version of the tool that matches your installed .NET SDK. For example, when running on .NET SDK v9.0: install --global dotnet-ef --version 9.0.11 or dotnet.exe tool install --global dotnet-ef --version 9.0.11
+
+ANSWER (score 3): The latest major version of the EF tools is 10 which seems to require .NET 10 SDK: So you need either to install earlier version (as you discovered): dotnet tool install --global dotnet-ef --version 9.0.11 Or use newer SDK (note you can use .NET 10 SDK to build .NET 9 projects, though there can be some nuances):
+
+ANSWER (score 2): This happens if you have installed .NET SDK 10 so the tool also tries to install dotnet-ef in version 10. You can install globally a different version (latest version for NET 9.0): dotnet tool install --global dotnet-ef --version 9.0.11 However if you created a project with .NET 10 SDK then you would not see this error.
+
+
+### id=79660070 views=11352 answers=7 accepted=None
+TITLE: Xcode 26 Metal compiler error MetalToolChain
+
+ATTEMPT (266 chars): Xcode 26 requires the Metal Toolchain component to be downloaded separately. Run: xcodebuild -downloadComponent MetalToolchain from the terminal, or open Xcode → Settings → Components and download it from there. After downloading, the metal compiler should be found.
+
+ANSWER (score 13): It's a known issue of Xcode 26, which is listed on the release note: Metal/Known Issues workaround is download the toolchain, change the version and then register manually: xcodebuild -downloadComponent metalToolchain -exportPath /tmp/MyMetalExport/ sed -i '' -e 's/17A5241c/17A5241e/g' /tmp/MyMetalExport/MetalToolchain-17A5241c.exportedBundle/ExportMetadata.plist xcodebuild -importComponent metalToolchain -importPath /tmp/MyMetalExport/MetalToolchain-17A5241c.exportedBundle
+
+ANSWER (score 7): You may need to mount the metal toolchain manually Navigate to this file: /System/Library/AssetsV2/com_apple_MobileAsset_MetalToolchain/*.asset/AssetData/Restore/*.dmg and mount it. source Bit frustrating that the issue is still here on Xcode Beta 7, and it seems we have to do this after each reboot.
+
+ANSWER (score 6): Just installed 26.0.1 (not beta) and had this same issue still. Go to Xcode -> Settings -> Components and you'll see metal toolchain 26.0.1 Just need to install and you're all good
+
+
+### id=79468329 views=10030 answers=3 accepted=None
+TITLE: Adding tailwindcss to an upgraded Vite v6 codebase causes ERROR Failed to resolve &quot;@tailwindcss/vite&quot;
+
+ATTEMPT (359 chars): The error means the @tailwindcss/vite plugin isn't being resolved. After upgrading Vite 5→6, ensure you've installed both tailwindcss and @tailwindcss/vite (npm install tailwindcss @tailwindcss/vite), added the plugin to vite.config.ts, and imported tailwind in your CSS (@import 'tailwindcss'). Also clear node_modules/.vite cache and restart the dev server.
+
+ANSWER (score 23): Ok! After writing this issue and trying a few things, my eyes missed that the error provided a link with some Vite documentation on the matter at: https://vite.dev/guide/troubleshooting.html#this-package-is-esm-only The Fix The quick fix to the above error was as simple as doing the following in the case of my project: Rename vite.config.js to vite.config.mjs Note the ending suffix changes from js to mjs . Now running npm run dev is a SUCCESS! Additional notes (the why) The main issue here was not the Vite upgrade. It's that the coding ecosystem is moving away from CommonJS style towards ESM Modules (and that I'm behind on the latest and greatest). My vite.config.js is a CJS config file. Ren
+
+ANSWER (score 7): Most packages support both CJS and ECMAScript Modules (ESM) by having both mjs and js defined in the exports of the package.json. @tailwindcss/vite only supports ES Modules, so you may find that adding { "private": true, "type": "module", // add this line "scripts": { ... to the top of your package file and forcing ESM might be a good way to solve it.
+
+ANSWER (score 0): When I was installing postCSS on my react project I was getting the same error also, and I found this error because the postCSS is a edm only module and I figure out that I need to update the file extension vite config file . I rename at it to vite.config.mjs from vite.config.js file and That is How My problem resolved. and I restarted my react app and it work successfully
+
+
+### id=79408101 views=9794 answers=4 accepted=None
+TITLE: What is the correct way of specifying the license in pyproject.toml file for a new package?
+
+ATTEMPT (280 chars): The license field in pyproject.toml must use the SPDX license expression format (e.g., license = 'MIT') not the older table format. The 'license-file' field is deprecated in newer setuptools. Use: [project] license = 'MIT' or license = {text = 'MIT'}. Remove any license-file key.
+
+ANSWER (score 9): There's been a recent change with setuptools , see https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license-and-license-files . As per PEP 639 licenses should be declared with two fields: license is an SPDX license expression consisting of one or more license identifiers . license-files is a list of license file glob patterns. A previous PEP had specified license to be a table with a file or a text key, this format is now deprecated. So in your case you should change your pyproject.toml to be [project] name = "name" version = "0.0.1" authors = [ { name="Your Name", email="your.email@example.com" }, ] description = "A python package" readme = "README.md" requires-python =
+
+ANSWER (score 8): It seems to be a version issue as shown in this post: version issue with twine . Two main points of takeaway is to check your twine and pkginfo version. You can do this by python -m pip show <package name> . Make sure that twine version is <= 6.0.1 ad pkginfo is the latest version 1.12.0.
+
+ANSWER (score -2): Paddy's answer explains the background. In short, this pyproject.toml works: [project] license = "MIT" license-files = [ "LICENSE", ] Where "MIT" must be a valid SPDX license expression , i.e. one or more from this list containing the usual suspects: MIT , GPL-3.0-or-later , BSD-3-Clause , AGPL-3.0-or-later , etc. If your license isn't on the list, or it's an internal feed and you don't care, there's also LicenseRef-... (no spaces allowed): [project] license = "LicenseRef-My-Custom-License"
+
+
+### id=79428308 views=9114 answers=2 accepted=None
+TITLE: Error downloading node 14.21.3/14.20.0 with NVM. The system cannot find the file specified
+
+ATTEMPT (391 chars): This is the same nvm-windows EOL npm issue as other Node 14 versions. nvm-windows downloads the npm distribution for the Node version it installs, and for EOL versions like 14.21.3 the npm archive path has moved. Workarounds: install a newer Node version, manually place npm into the version's directory from npm's own distribution, or use a Node version manager that fetches npm separately.
+
+ANSWER (score 18): The issue is because in the NVM version 1.2.2 the temporary directory is refered as "tmp" while the old one was "temp", so this issue will be fixed in NVM v1.2.3. Till the new version is available, you can use the older version of NVM (v1.1.12) Link to download , from this version you can install node 14.21.3. Thank you
+
+ANSWER (score 5): You should remove your NVM v1.2.X and reinstall v1.1.12. After that, you could install node 14.19.0 normally.
+
+
+### id=79572913 views=8811 answers=1 accepted=None
+TITLE: Flutter Android NDK Version Conflict: Plugins Require 27.0.12077973 but Project Uses 26.3.11579264
+
+ATTEMPT (325 chars): The NDK version conflict means your plugins require a different NDK than your project specifies. In android/build.gradle, set android.ndkVersion = '27.0.12077973' to match the plugins' requirement, or downgrade the plugins to versions compatible with NDK 26.3.11579264. The project-level NDK version must satisfy all plugins.
+
+ANSWER (score 7): add the latest NDK version in app level build.gradle at ...\android\app\build.gradle.kts inside android tag. You can find the latest version of NDK here android{ /// ndkVersion "27.0.12077973" /// } Sync and Rebuild: flutter clean flutter pub get flutter run
+
+
+### id=79556333 views=7913 answers=8 accepted=None
+TITLE: How to style Google Maps PlaceAutocompleteElement to match existing form inputs?
+
+ATTEMPT (400 chars): PlaceAutocompleteElement renders its own input with Google's default styling. To match your form inputs, you need to style the shadow DOM parts the element exposes, or hide the built-in input and use the element's programmatic API to get place predictions, then render your own styled input that calls the element's methods. The element does not directly expose CSS custom properties for all styling.
+
+ANSWER (score 18): Currently the answer is you can't, well not easily. The Google PlaceAutocompleteElement element has a closed Shadow Root, so by design the component has been created with the intention of its internals and styles not being changeable. Its a fairly new component from Google so no doubt they will allow styles to be passed into PlaceAutocompleteElement or expose parts that can be styled in a conventional way. But, if you want to style the element today you'll need to be creative (and a bit hacky). Until Google allow us to style the element, no other choice. The below works well. const attachShadow = Element.prototype.attachShadow; Element.prototype.attachShadow = function (init: ShadowRootInit)
+
+ANSWER (score 8): It looks like it's possible to add css a limited amount of rules to the gmp-place-autocomplete selector. Below is an example: gmp-place-autocomplete { background-color: rgb(249 250 251); color-scheme: light; border: 1px solid rgb(209, 213, 219); border-radius: 9px; } See the documentation here https://developers.google.com/maps/documentation/javascript/reference/places-widget#PlaceAutocompleteElement-CSS-Properties
+
+ANSWER (score 4): For now, the only options for complete styling would be to use the Place Autocomplete Data API , which you could attach to your custom input. But the drawback is, that you will have to create an accessible suggestion list by yourself. Including all keyboard-shortcuts, ARIA and so on. --- EDIT: In a project, we decided not to put ourselves under pressure and to wait a while to see how this API evolves. The 'legacy' API should work well for a long time.
+
+
+### id=79667827 views=7887 answers=5 accepted=None
+TITLE: tomcat multipart upload for many attachments (&gt;10) not working after update to 9.0.106
+
+ATTEMPT (397 chars): Tomcat 9.0.106 introduced a change in multipart handling that limits the number of parts. The exception is likely related to maxParameterCount or a new multipart part limit. Check your server.xml's Connector configuration for maxPostSize and maxParameterCount, and check if there's a new maxParts or multipart config limit in 9.0.106. You may need to increase the limit or explicitly configure it.
+
+ANSWER (score 11): After looking through the Apache Tomcat 9.0.106 Change Log I found that a new configuration was introduced and needed to be set correctly. Also after helping OP (in the comments) test the configurations I found. Essentially the new attribute which is on their code docs: <attribute name="maxPartCount" required="false"> <p>The maximum total number of parts permitted in a request where the content type is <code>multipart/form-data</code>. This limit is in addition to <code>maxParameterCount</code>. Requests that exceed this limit will be rejected. A value of less than 0 means no limit. If not specified, a default of 10 is used.</p> </attribute> So it needs to be added to the Connector configura
+
+ANSWER (score 6): I would like to give more informations about this new parameter, because for many dev has been a pain to debug: there are some related issue tickets and pull requests for PrimeFaces on github and some Tomcat tickets. The good news is that on Tomcat 9.0.107, 10.1.43 and 11.0.9 the default value of maxPartCount will be 50 . This will be enough for the majority of webapps. JSF (Faces) - Mojarra, MyFaces also with PrimeFaces For those who use JSF (Faces) there are even more problems, to recap, the situation is the following: maxPartCount is not the number of uploaded files but the number of all the request parameters submitted with a form with enctype multipart/form-data JSF and PrimeFaces (if y
+
+ANSWER (score 4): I've got that problem after updating spring to version 3.5.3. There is tomcat version 10.1.42 and the simplest thing to fix it was to add a property into application.properties: server.tomcat.max-part-count=30
+
+
+### id=79580751 views=7749 answers=1 accepted=None
+TITLE: std::hive container in the upcoming c++ standard
+
+ATTEMPT (372 chars): std::hive is a proposed C++26 container that provides a stable-iterator container with O(1) insertion and deletion (no iterator invalidation on insert/erase). It's designed for scenarios where you need frequent insertions/deletations while maintaining iterator stability. The proposal is P3074. It is not yet in the standard — documentation will appear when it's ratified.
+
+ANSWER (score 18): Congratulations! You are talking about the paper with the most revisions in the history of C++, which is the 28th version. It seems C++26 will introduce a new container called std::hive , but there is no documentation of it yet. The paper has been integrated into the latest C++ working draft, but cppreference has not been updated yet. You can just refer to [hive] . Can somebody explain what kind of data collection is this new container? From the original paper : Hive is a formalisation, extension and optimization of what is typically known as a 'bucket array' or 'object pool' container in game programming circles. [...] The concept of a bucket array is: you have multiple memory blocks of ele
+
+
+### id=79723342 views=6312 answers=1 accepted=None
+TITLE: Did Android Gradle Plugin 8.12.0 deprecated compileSdk?
+
+ATTEMPT (328 chars): AGP 8.12.0 deprecated compileSdk in favor of a new DSL syntax. The replacement is compileSdk = 35 inside the android block, but the old syntax still works (deprecated, not removed). The strikethrough is a deprecation warning. You can suppress it by using the new syntax or ignore it — it will be removed in a future AGP version.
+
+ANSWER (score 46): Here, Gradle Plugin update to version 8.13.0 dosn't help (java, build.gradle or build.gradke.kts, Narwhal 3 Feature Drop 2025 1.3). But the warning disappears if an = is added: old, with warning: compileSdk 36 new, warning disappears: compileSdk = 36 Edit: As AndroWeed notes below (thanks AndroWeed !), it works in build.gradle again with compileSdkVersion, see also buildToolsVersion and compileSdkVersion had been deprecated In build.gradle.kts with libs.versions.toml, we can use: compileSdkVersion(36) or compileSdk = 36 There seem to be several solutions...
+
+
+### id=79635270 views=6170 answers=2 accepted=None
+TITLE: How to disable Copilot code completion in Visual Studio?
+
+ATTEMPT (381 chars): To disable Copilot code completion in Visual Studio: go to Tools → Options → GitHub Copilot → uncheck 'Enable Copilot' or set Completion to 'Disabled'. To turn off Copilot completely, uninstall the GitHub Copilot extension from Extensions → Manage Extensions. The behavior you're seeing (whole document replaced) is a known Copilot bug — disabling it restores regular IntelliSense.
+
+ANSWER (score 18): I'm not sure about the autocomplete options as sometimes they all seem to fight (especially when other linting tools like Resharper are involved). However, to get rid of it completely you can uninstall CoPilot for VS2022 if you go to : Tools > Get Tools and Features > Individual components Untick GitHub Copilot: It should remove it. Hope this helps
+
+ANSWER (score 1): To temporarily disable Github Compilot you can also use the "Github Copilot" menu in the top right-hand corner of the VS window. There's a context menu there that allows enabling/disabling of certain features when you're logged in. Logging out should also disable it, but I haven't found out how to do that last time, so I'm not going to try. (as yes, most of the time, the suggestions are annoying, at least for me as a seasoned programmer)
+
+
+### id=79775348 views=5982 answers=2 accepted=None
+TITLE: I am Using react-native-safe-area-context, But Expo gives Me Error
+
+ATTEMPT (318 chars): The error means you're importing SafeAreaView from react-native (deprecated) instead of react-native-safe-area-context. Change the import from 'react-native' to 'react-native-safe-area-context': import { SafeAreaView } from 'react-native-safe-area-context'. The react-native built-in SafeAreaView is deprecated on iOS.
+
+ANSWER (score 13): Try this, see if it helps. node_modules/react-native-css-interop/src/runtime/component.ts Delete SafeAreaView from import, also delete cssInterop(SafeAreaView, { className: "style" }); node_modules/react-native-css-interop/dist/runtime/component.ts Delete (0, api_1.cssInterop)(react_native_1.SafeAreaView, { className: "style" });
+
+ANSWER (score -7): So what i did is: rm -rf ~/.npm rm -rf ~/.expo rm -rf node_modules rm -rf .expo and then reinstall everything npm install expo npx expo install npx expo start That worked for me 👌
+
+
+### id=79567126 views=5979 answers=3 accepted=None
+TITLE: Git debugging - &quot;error: could not delete references: cannot lock ref&quot; &quot;File exists&quot;
+
+ATTEMPT (353 chars): The error means a stale .lock file exists from a crashed git process. Delete the lock file manually: rm .git/refs/remotes/origin/branchname.lock (or the full path from the error). Then run git gc --prune=now to clean up. If the lock file is in packed-refs, run git pack-refs --all first. This is safe — the lock file is only held during a git operation.
+
+ANSWER (score 18): Looking in the folder, C:/develop/repo/.git/refs/remotes/origin/ there are no lock files. There are no other git processes or anti-virus programs running (a typical culprit). What I ended up doing was search (insensitive, -i) for the branch: git pull --prune | grep -i branchname - [deleted] (none) -> origin/BRANCHNAME - [deleted] (none) -> origin/branchname What I discovered, there was two branches on the server with the same name attempting to be deleted. NEITHER was on my machine. "List Remote" command helps here. git ls-remote | grep -i xyz What this means for Windows systems which have CaSe in-Sensitive file-systems, you cannot have two files with the same name in the directory. Git is t
+
+ANSWER (score 3): I had the same problem when doing git fetch -apt , and my issue is the one tracked in: https://github.com/git-for-windows/git/issues/5378 Considered that re-cloning is safer than manipulating .git folder internals, you can still proceed with the following solution that worked for me on windows; it's an hard reset the pack-refs : Make sure everything is committed or stashed. Remove all the packed-refs folder: Remove-Item .git\packed-refs -Force Re-fetch and rebuild the references: git fetch --all --prune git pack-refs --all Move into the correct branch where you want to be: git switch main Verify everything is correct: git fsck --full --strict If you want to clean up everything and clean dang
+
+ANSWER (score 1): If you have Windows and case insensetive branch names issue (2 branches with same name but in different case): refs/remotes/origin/SomeoneMessedBranchName refs/remotes/origin/someonemessedbranchname And you try to git remote prune origin => error: could not delete references: cannot lock ref 'refs/remotes/origin/someonemessedbranchname': Unable to create 'C:/src/myrepo/.git/refs/remotes/origin/someonemessedbranchname.lock': File exists. Then I've found a simple solution to remove one of the remotes, then run prune: git branch -r -d origin/SomeoneMessedBranchName git remote prune origin Working fine now)
+
+
+### id=79457023 views=5971 answers=1 accepted=None
+TITLE: How to solve edge-to-edge uses of deprecated APIs or parameters?
+
+ATTEMPT (362 chars): The error means your Flutter code uses deprecated edge-to-edge APIs. In recent Flutter versions, SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge) is deprecated. Use the new SystemUiOverlayStyle API or the SystemChrome.setSystemUIOverlayStyle method instead. Check the Flutter migration guide for the replacement API for your specific Flutter version.
+
+ANSWER (score 1): What is your flutter version and android target SDK ? I think you use a version of flutter above 3.27 and target android sdk 15 (directly or indirectly by the flutter version), the issue come from the overlay you add. SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge); can be removed because edge to edge is default mode on 3.27 and above. SystemUiOverlayStyle(...) can be removed because it's android implementation is deprected and had no effect. I think removing your customOverlayStyle() will have no effect and will remove the store recommendation.
+
+
+### id=79606837 views=5728 answers=2 accepted=None
+TITLE: Where is the documentation for the &#39;.slnx&#39; solution format?
+
+ATTEMPT (315 chars): The .slnx format documentation is in the .NET CLI docs: learn.microsoft.com/en-us/dotnet/core/tools/dotnet-sln. The format is fully supported as of .NET 9 SDK. The blog posts are the primary documentation — Microsoft hasn't moved it to learn.microsoft.com yet. You can convert with dotnet sln convert --format slnx.
+
+ANSWER (score 36): "New, Simpler Solution File Format" links to the repository microsoft / vs-solutionpersistence of a package providing " Shared serializers and models for Visual Studio solution files. Handles traditional .sln file and new .slnx file. " Digging into that, I found Slnx.xsd , which I assume is the schema of those files. <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"> <xs:element name="Solution"> <xs:complexType> <xs:choice minOccurs="0" maxOccurs="unbounded"> <xs:element name="Configurations" type="Configurations" minOccurs="0"/> <xs:element name="Project" type="Project" minOccurs="0" maxOccurs="unbounded" /> <xs:element name="Folder" type="Folder" minOccurs="0" maxOccurs="unbounded" />
+
+ANSWER (score 4): There is no public official complete specification and documentation for SLNX files. The same is true for the older SLN files. There are details in other documentation, in blog posts, in open source code, and in other sources. That may not be enough but it is what is available. I can speculate about why the documentation doesn’t exist (at this time). The file format could still be considered to be evolving and not finalized. Or publishing a public specification could be an extremely low priority. Regardless, “the documentation” currently doesn’t exist and may never exist. Update SLNX files are a released feature as of the May 13, 2025 release of Visual Studio 2022 version 17.14. (See " Clean
+
+
+### id=79758083 views=4480 answers=0 accepted=None
+TITLE: iOS 26 Safari visualViewport change after dismissing keyboard
+
+ATTEMPT (352 chars): This is the same iOS 26 Safari visualViewport bug as the other high-view thread. After dismissing the keyboard, the visualViewport's top is offset by 24px (the keyboard's inset). The workaround is to listen to visualViewport resize/scroll events and adjust, or use CSS that tolerates the changing viewport. This is a WebKit bug that Apple needs to fix.
+

@@ -1,0 +1,179 @@
+==============================================================================
+[seq 3] 2026-10-13T03:03:43+00:00
+$ python3 EXPERIMENTS/126-stackoverflow-service-test/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+A_votes page 1: 100 items, quota 103
+Traceback (most recent call last):
+  File "EXPERIMENTS/126-stackoverflow-service-test/fetch.py", line 53, in <module>
+    main()
+  File "EXPERIMENTS/126-stackoverflow-service-test/fetch.py", line 42, in main
+    data = fetch(arm, sort, page)
+  File "EXPERIMENTS/126-stackoverflow-service-test/fetch.py", line 33, in fetch
+    with urllib.request.urlopen(req, timeout=60) as resp:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 4530  redactions: none
+==============================================================================
+[seq 4] 2026-10-13T03:06:17+00:00
+$ python3 EXPERIMENTS/126-stackoverflow-service-test/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+A_votes page 1: 100 items, quota 99
+A_votes page 2: 100 items, quota 99
+B_creation page 1: 100 items, quota 97
+wrote pool-raw.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1910  redactions: none
+==============================================================================
+[seq 5] 2026-10-13T03:10:31+00:00
+$ python3 EXPERIMENTS/126-stackoverflow-service-test/make-sheet.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/126-stackoverflow-service-test/make-sheet.py", line 51, in <module>
+    main()
+  File "EXPERIMENTS/126-stackoverflow-service-test/make-sheet.py", line 23, in main
+    d = json.load(open("pool-raw.json"))
+FileNotFoundError: [Errno 2] No such file or directory: 'pool-raw.json'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 590  redactions: none
+==============================================================================
+[seq 6] 2026-10-13T03:12:23+00:00
+$ python3 EXPERIMENTS/126-stackoverflow-service-test/make-sheet.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+wrote 300 rows
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 231  redactions: none
+==============================================================================
+[seq 7] 2026-10-13T03:22:18+00:00
+$ python3 EXPERIMENTS/126-stackoverflow-service-test/screen.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "tally": {
+  "A_votes": {
+   "n": 199,
+   "question": 198,
+   "execution": 1,
+   "other": 0,
+   "answerable": 157,
+   "specific": 41,
+   "program": 1,
+   "manual": 0
+  },
+  "B_creation": {
+   "n": 100,
+   "question": 94,
+   "execution": 5,
+   "other": 1,
+   "answerable": 47,
+   "specific": 47,
+   "program": 5,
+   "manual": 0
+  }
+ },
+ "pooled": {
+  "n": 299,
+  "question": 292,
+  "execution": 6,
+  "other": 1,
+  "answerable": 204,
+  "specific": 88,
+  "program": 6,
+  "manual": 0
+ },
+ "duplicate_question_ids": [
+  79660070
+ ]
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 110  redactions: none
+==============================================================================
+[seq 8] 2026-10-13T03:26:21+00:00
+$ python3 EXPERIMENTS/126-stackoverflow-service-test/g0.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "answerable": {
+  "answered": 10,
+  "n": 10
+ },
+ "specific": {
+  "declined": 10,
+  "n": 10
+ },
+ "pass_rule": ">=9/10 answered AND >=9/10 declined",
+ "g0_pass": true
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 199  redactions: none
+==============================================================================
+[seq 9] 2026-10-13T03:30:07+00:00
+$ python3 EXPERIMENTS/126-stackoverflow-service-test/threads.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/126-stackoverflow-service-test/threads.py", line 100, in <module>
+    main()
+  File "EXPERIMENTS/126-stackoverflow-service-test/threads.py", line 60, in main
+    assert attempt_ids == declared_ids, (
+AssertionError: sample mismatch: missing {79533324, 79686551, 79489946, 79368095, 79600161, 79380514, 79818917, 79775796, 79513015, 79665976, 79394239, 79383758, 79538511, 79335513, 79831004, 79753701, 79363302, 79662318, 79779187, 79339258}, extra {'79662318', '79335513', '79753701', '79363302', '79775796', '79665976', '79513015', '79457023', '79831004', '79383758', '79394239', '79489946', '79368095', '79686551', '79779187', '79600161', '79818917', '79533324', '79339258', '79380514'}
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 515  redactions: none
+==============================================================================
+[seq 10] 2026-10-13T03:34:24+00:00
+$ python3 EXPERIMENTS/126-stackoverflow-service-test/threads.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/126-stackoverflow-service-test/threads.py", line 100, in <module>
+    main()
+  File "EXPERIMENTS/126-stackoverflow-service-test/threads.py", line 60, in main
+    assert attempt_ids == declared_ids, (
+AssertionError: sample mismatch: missing {79533324, 79686551, 79489946, 79368095, 79600161, 79380514, 79818917, 79775796, 79513015, 79665976, 79394239, 79383758, 79538511, 79335513, 79831004, 79753701, 79363302, 79662318, 79779187, 79339258}, extra {'79383758', '79380514', '79394239', '79489946', '79513015', '79363302', '79779187', '79753701', '79538511', '79335513', '79600161', '79686551', '79533324', '79831004', '79368095', '79665976', '79339258', '79662318', '79818917', '79775796'}
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 596  redactions: none
+==============================================================================
+[seq 11] 2026-10-13T03:35:31+00:00
+$ python3 EXPERIMENTS/126-stackoverflow-service-test/threads.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sample validated: 20 answerable rows, view_count 13827..64744
+fetched threads for 20 questions; 0 carry an accepted answer
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1666  redactions: none
+==============================================================================
+[seq 12] 2026-10-13T03:37:23+00:00
+$ python3 EXPERIMENTS/126-stackoverflow-service-test/grading-sheet.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+wrote grading-sheet.txt
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 104  redactions: none
+==============================================================================
+[seq 13] 2026-10-13T03:39:28+00:00
+$ python3 EXPERIMENTS/126-stackoverflow-service-test/grading-sheet.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+wrote grading-sheet.txt
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 116  redactions: none
