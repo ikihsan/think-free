@@ -1,0 +1,636 @@
+{
+ "experiment": "E125",
+ "field_frequencies": {
+  "ExpectedResponse": 2,
+  "Id": 2,
+  "Response": 1,
+  "acceptance_criteria": 3,
+  "actual_output": 2,
+  "answer": 5,
+  "api_key": 4,
+  "article_id": 12,
+  "asset_id": 4,
+  "assetnum": 2,
+  "auto_label": 2,
+  "confidence": 2,
+  "contact_id": 7,
+  "corpus-id": 1,
+  "customer_id": 21,
+  "customer_name": 3,
+  "display_name": 2,
+  "evaluatorName": 4,
+  "event_id": 9,
+  "expected_behavior": 8,
+  "expected_keywords": 12,
+  "expected_outcome": 8,
+  "expected_output": 16,
+  "expected_script": 5,
+  "expected_skill": 5,
+  "final_label": 2,
+  "ground_truth": 7,
+  "id": 27,
+  "ideal": 2,
+  "index": 7,
+  "integration_id": 9,
+  "job_id": 7,
+  "label": 8,
+  "labels": 13,
+  "message_id": 13,
+  "metricName": 11,
+  "model_output": 2,
+  "name": 45,
+  "note": 2,
+  "note_id": 2,
+  "notes": 27,
+  "orgid": 1,
+  "prediction": 4,
+  "product_id": 4,
+  "query-id": 1,
+  "question_id": 2,
+  "reference": 4,
+  "response": 1,
+  "response_length": 2,
+  "run_id": 3,
+  "sample_id": 2,
+  "serialnum": 1,
+  "siteid": 2,
+  "suite_run_id": 3,
+  "target": 2,
+  "task_id": 5,
+  "test_case_id": 5,
+  "ticket_id": 8,
+  "tool_output_bytes": 3,
+  "transaction_id": 9
+ },
+ "files_with_output_shaped_fields": [
+  {
+   "full_name": "raga-ai-hub/RagaAI-Catalyst",
+   "key_fields": [
+    "ExpectedResponse"
+   ],
+   "n": 10,
+   "output_fields": [
+    "ExpectedResponse",
+    "Response"
+   ],
+   "path": "tests/test_catalyst/test_data/util_test_dataset.csv"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key_fields": [],
+   "n": 6,
+   "output_fields": [
+    "response"
+   ],
+   "path": "custom_eval/text/qa/test.jsonl"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key_fields": [],
+   "n": 10,
+   "output_fields": [
+    "model_output"
+   ],
+   "path": "examples/viz/qwen-plus/predictions/qwen-plus/ifeval_default.jsonl"
+  },
+  {
+   "full_name": "modelscope/evalscope",
+   "key_fields": [],
+   "n": 10,
+   "output_fields": [
+    "model_output"
+   ],
+   "path": "examples/viz/qwen3-max/predictions/qwen3-max/iquiz_EQ.jsonl"
+  },
+  {
+   "full_name": "IBM/AssetOpsBench",
+   "key_fields": [
+    "target_model",
+    "target_task"
+   ],
+   "n": 2,
+   "output_fields": [
+    "output_type"
+   ],
+   "path": "src/couchdb/scenarios_data/shared/tsfm/feature_catalog.json"
+  },
+  {
+   "full_name": "suyoumo/ClawProBench",
+   "key_fields": [
+    "label"
+   ],
+   "n": 4,
+   "output_fields": [
+    "tool_output_bytes"
+   ],
+   "path": "ironclaw/tools/ironclaw_stress/results/2026-06-30-turn-state-inmemory/chatturn-filesystem.jsonl"
+  },
+  {
+   "full_name": "suyoumo/ClawProBench",
+   "key_fields": [
+    "label"
+   ],
+   "n": 4,
+   "output_fields": [
+    "tool_output_bytes"
+   ],
+   "path": "ironclaw/tools/ironclaw_stress/results/2026-06-30-usable-boundary/mixed-user-concurrency-sweep-completed.jsonl"
+  },
+  {
+   "full_name": "suyoumo/ClawProBench",
+   "key_fields": [
+    "label"
+   ],
+   "n": 2,
+   "output_fields": [
+    "tool_output_bytes"
+   ],
+   "path": "ironclaw/tools/ironclaw_stress/results/2026-06-30-wal-and-storage-rework/wal-plus-rework-chatturn.jsonl"
+  },
+  {
+   "full_name": "claw-eval/claw-eval",
+   "key_fields": [],
+   "n": 4,
+   "output_fields": [
+    "sla_response"
+   ],
+   "path": "tasks/T155zh_onsite_support_dispatch/fixtures/crm/customers.json"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "expected_output"
+   ],
+   "n": 5,
+   "output_fields": [
+    "actual_output",
+    "expected_output",
+    "response_length"
+   ],
+   "path": "EvaluationModule/artifacts/deepeval_results/deepeval_results_20251129_184952.csv"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "expected_output"
+   ],
+   "n": 5,
+   "output_fields": [
+    "actual_output",
+    "expected_output",
+    "response_length"
+   ],
+   "path": "EvaluationModule/artifacts/deepeval_results/deepeval_results_20251129_184952.json"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "expected_keywords",
+    "expected_output"
+   ],
+   "n": 12,
+   "output_fields": [
+    "expected_output"
+   ],
+   "path": "EvaluationModule/data/datasets/chatbot/chatbot_basic.json"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "expected_keywords",
+    "expected_output"
+   ],
+   "n": 11,
+   "output_fields": [
+    "expected_output"
+   ],
+   "path": "EvaluationModule/data/datasets/chatbot/chatbot_coding_helper.json"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "expected_keywords",
+    "expected_output"
+   ],
+   "n": 11,
+   "output_fields": [
+    "expected_output"
+   ],
+   "path": "EvaluationModule/data/datasets/chatbot/chatbot_customer_support.json"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "expected_keywords",
+    "expected_output"
+   ],
+   "n": 2,
+   "output_fields": [
+    "expected_output"
+   ],
+   "path": "EvaluationModule/data/datasets/rag/rag_product_docs.json"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "expected_keywords",
+    "expected_output"
+   ],
+   "n": 2,
+   "output_fields": [
+    "expected_output"
+   ],
+   "path": "EvaluationModule/data/datasets/rag/rag_research_papers.json"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "expected_keywords",
+    "expected_output"
+   ],
+   "n": 2,
+   "output_fields": [
+    "expected_output"
+   ],
+   "path": "EvaluationModule/data/datasets/rag/rag_wikipedia_small.json"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "label"
+   ],
+   "n": 12000,
+   "output_fields": [
+    "prediction"
+   ],
+   "path": "tools/mrm-simulator/datasets/churn.csv"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "label"
+   ],
+   "n": 12000,
+   "output_fields": [
+    "prediction"
+   ],
+   "path": "tools/mrm-simulator/datasets/credit-scoring.csv"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "label"
+   ],
+   "n": 12000,
+   "output_fields": [
+    "prediction"
+   ],
+   "path": "tools/mrm-simulator/datasets/fraud-detection.csv"
+  },
+  {
+   "full_name": "verifywise-ai/verifywise",
+   "key_fields": [
+    "label"
+   ],
+   "n": 12000,
+   "output_fields": [
+    "prediction"
+   ],
+   "path": "tools/mrm-simulator/datasets/loan-approval.csv"
+  }
+ ],
+ "per_repository": [
+  {
+   "commit": "8eac7a7de5215c907fbddc30efdaf316913eccdd",
+   "data_files": 680,
+   "full_name": "openai/evals",
+   "readable": 0,
+   "reasons": {
+    "git-lfs pointer": 112,
+    "jsonl line does not parse": 1,
+    "top-level object": 1
+   },
+   "sampled": 114,
+   "sides": {},
+   "step": 6
+  },
+  {
+   "commit": "ab67893310891140211280a496402003e52cdab5",
+   "data_files": 9,
+   "full_name": "raga-ai-hub/RagaAI-Catalyst",
+   "readable": 6,
+   "reasons": {
+    "not utf-8": 1,
+    "top-level object": 2
+   },
+   "sampled": 9,
+   "sides": {
+    "both": 1,
+    "unknown": 5
+   },
+   "step": 1
+  },
+  {
+   "commit": "d58afba23deb1fded39793203b7997c3990bb032",
+   "data_files": 9,
+   "full_name": "tensortrade-org/tensortrade",
+   "readable": 6,
+   "reasons": {
+    "top-level object": 3
+   },
+   "sampled": 9,
+   "sides": {
+    "unknown": 6
+   },
+   "step": 1
+  },
+  {
+   "commit": "d4fd71d21cb66b5d1740a7a70a1221425521e113",
+   "data_files": 343,
+   "full_name": "modelscope/evalscope",
+   "readable": 14,
+   "reasons": {
+    "jsonl line does not parse": 4,
+    "top-level object": 97
+   },
+   "sampled": 115,
+   "sides": {
+    "key-ish": 7,
+    "output-ish": 3,
+    "unknown": 4
+   },
+   "step": 3
+  },
+  {
+   "commit": "e844f6468c6c68b328022e7ca8e31da140842cc7",
+   "data_files": 23,
+   "full_name": "IBM/AssetOpsBench",
+   "readable": 11,
+   "reasons": {
+    "fewer than two rows": 3,
+    "json": 2,
+    "top-level object": 7
+   },
+   "sampled": 23,
+   "sides": {
+    "both": 1,
+    "unknown": 10
+   },
+   "step": 1
+  },
+  {
+   "commit": "4296b7c66307a856d0467c6ca635534c447c976b",
+   "data_files": 2,
+   "full_name": "1517005260/graph-rag-agent",
+   "readable": 2,
+   "reasons": {},
+   "sampled": 2,
+   "sides": {
+    "key-ish": 1,
+    "unknown": 1
+   },
+   "step": 1
+  },
+  {
+   "commit": "cbd89b07842e68f4e50279e7fb009e1d66cb9044",
+   "data_files": 116,
+   "full_name": "trpc-group/trpc-agent-go",
+   "readable": 12,
+   "reasons": {
+    "json": 24,
+    "top-level object": 80
+   },
+   "sampled": 116,
+   "sides": {
+    "key-ish": 1,
+    "unknown": 11
+   },
+   "step": 1
+  },
+  {
+   "commit": "d990d3e3f2390ced708771d9681d3c4f9a6cbef5",
+   "data_files": 4,
+   "full_name": "ZJU-REAL/ClawGUI",
+   "readable": 2,
+   "reasons": {
+    "top-level object": 2
+   },
+   "sampled": 4,
+   "sides": {
+    "unknown": 2
+   },
+   "step": 1
+  },
+  {
+   "commit": "5f971e4a3f3e2690ace783d56d20f471c45420c4",
+   "data_files": 6,
+   "full_name": "plurai-ai/intellagent",
+   "readable": 0,
+   "reasons": {
+    "fewer than two rows": 6
+   },
+   "sampled": 6,
+   "sides": {},
+   "step": 1
+  },
+  {
+   "commit": "ccf08d0d1d5fa5b30f120e2e8549662d44411b35",
+   "data_files": 10,
+   "full_name": "microsoft/AIOpsLab",
+   "readable": 0,
+   "reasons": {
+    "top-level object": 10
+   },
+   "sampled": 10,
+   "sides": {},
+   "step": 1
+  },
+  {
+   "commit": "d1e06420bac4b9b755480e2a763a259b4e9b017e",
+   "data_files": 10,
+   "full_name": "agentscope-ai/OpenJudge",
+   "readable": 10,
+   "reasons": {},
+   "sampled": 10,
+   "sides": {
+    "key-ish": 5,
+    "unknown": 5
+   },
+   "step": 1
+  },
+  {
+   "commit": "c4b8395854fe0752eef435b44f140366efd44d8e",
+   "data_files": 682,
+   "full_name": "suyoumo/ClawProBench",
+   "readable": 6,
+   "reasons": {
+    "top-level object": 108
+   },
+   "sampled": 114,
+   "sides": {
+    "both": 3,
+    "unknown": 3
+   },
+   "step": 6
+  },
+  {
+   "commit": "5680b8b11ff2ee5dd2b07b89086a29a5c5c984d7",
+   "data_files": 312,
+   "full_name": "claw-eval/claw-eval",
+   "readable": 100,
+   "reasons": {
+    "not a list of flat records": 1,
+    "top-level object": 3
+   },
+   "sampled": 104,
+   "sides": {
+    "key-ish": 16,
+    "output-ish": 1,
+    "unknown": 83
+   },
+   "step": 3
+  },
+  {
+   "commit": "7317de6cc178dc9d27d4d2757d3d77716be658fd",
+   "data_files": 0,
+   "full_name": "calmrocks/ai-engineer-notebooks",
+   "readable": 0,
+   "reasons": {},
+   "sampled": 0,
+   "sides": {},
+   "step": 1
+  },
+  {
+   "commit": "0247f08d45506162fcf0074422ea584a72f11484",
+   "data_files": 0,
+   "full_name": "AgentSafeLabs/safelabs-eval",
+   "readable": 0,
+   "reasons": {},
+   "sampled": 0,
+   "sides": {},
+   "step": 1
+  },
+  {
+   "commit": "49b2b430592afbac88c77f0c4813ff94a304e25c",
+   "data_files": 15,
+   "full_name": "NVIDIA/SkillEvaluator",
+   "readable": 5,
+   "reasons": {
+    "json": 1,
+    "top-level object": 9
+   },
+   "sampled": 15,
+   "sides": {
+    "key-ish": 5
+   },
+   "step": 1
+  },
+  {
+   "commit": "ac77fa9b4a1b1da2815adf7d5582dbc27cd9373f",
+   "data_files": 51,
+   "full_name": "CodeSoul-co/Hypha",
+   "readable": 0,
+   "reasons": {
+    "top-level object": 51
+   },
+   "sampled": 51,
+   "sides": {},
+   "step": 1
+  },
+  {
+   "commit": "c5d8f439b211e2d94642ced86e8d3b7cb46b6881",
+   "data_files": 107,
+   "full_name": "verifywise-ai/verifywise",
+   "readable": 26,
+   "reasons": {
+    "json": 1,
+    "jsonl line does not parse": 6,
+    "top-level object": 74
+   },
+   "sampled": 107,
+   "sides": {
+    "both": 12,
+    "key-ish": 8,
+    "unknown": 6
+   },
+   "step": 1
+  },
+  {
+   "commit": "a44de6b2216bf6791979c4b6ac4ae106212fa1a6",
+   "data_files": 0,
+   "full_name": "Ayanami0730/arag",
+   "readable": 0,
+   "reasons": {},
+   "sampled": 0,
+   "sides": {},
+   "step": 1
+  },
+  {
+   "commit": "49848007ee2d4e208a5cf53a046f4ef164860720",
+   "data_files": 29,
+   "full_name": "responsibleai/ASSERT",
+   "readable": 7,
+   "reasons": {
+    "jsonl line does not parse": 1,
+    "top-level object": 21
+   },
+   "sampled": 29,
+   "sides": {
+    "key-ish": 4,
+    "unknown": 3
+   },
+   "step": 1
+  },
+  {
+   "commit": "bead726925d43f526bed48a4a6a827595169429d",
+   "data_files": 13,
+   "full_name": "OpenBMB/UltraEval-Audio",
+   "readable": 2,
+   "reasons": {
+    "top-level object": 11
+   },
+   "sampled": 13,
+   "sides": {
+    "unknown": 2
+   },
+   "step": 1
+  },
+  {
+   "commit": "168b1f710a912691ca48cdc34347a7bd5d5c9be2",
+   "data_files": 6,
+   "full_name": "Noietch/EVA-CLIENT",
+   "readable": 1,
+   "reasons": {
+    "not a list of flat records": 1,
+    "top-level object": 4
+   },
+   "sampled": 6,
+   "sides": {
+    "unknown": 1
+   },
+   "step": 1
+  }
+ ],
+ "rule": "every k-th of the sorted data-file listing, k=ceil(n/120)",
+ "sides": {
+  "both": 17,
+  "key-ish": 47,
+  "output-ish": 4,
+  "unknown": 142
+ },
+ "totals": {
+  "data_files_in_population": 2427,
+  "readable_by_generic_loader": 210,
+  "readable_fraction": 0.245,
+  "sampled": 857
+ },
+ "unreadable_reasons": {
+  "fewer than two rows": 9,
+  "git-lfs pointer": 112,
+  "json": 28,
+  "jsonl line does not parse": 12,
+  "not a list of flat records": 2,
+  "not utf-8": 1,
+  "top-level object": 483
+ }
+}

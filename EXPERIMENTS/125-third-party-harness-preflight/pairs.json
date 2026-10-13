@@ -1,0 +1,1010 @@
+{
+ "cap_per_group": 60,
+ "experiment": "E125",
+ "loader": "extension-dispatched: json | jsonl | csv | tsv of flat records",
+ "repositories": [
+  {
+   "both_sided": [],
+   "commit": "8eac7a7de5215c907fbddc30efdaf316913eccdd",
+   "full_name": "openai/evals",
+   "n_key-path_candidates": 5,
+   "n_key-path_in_tree": 5,
+   "n_output-path_candidates": 10,
+   "n_output-path_in_tree": 10,
+   "pairs": [],
+   "readable": [],
+   "rejected_pairs": [],
+   "stars": 19593,
+   "unreadable": [
+    {
+     "path": "evals/registry/data/counterfactual-reasoning/counterfactual_reasoning_samples.jsonl",
+     "reason": "git-lfs pointer; content not in this clone"
+    },
+    {
+     "path": "evals/registry/data/formal_logic/formal_logic_expressions.jsonl",
+     "reason": "git-lfs pointer; content not in this clone"
+    },
+    {
+     "path": "evals/registry/data/logic-grid/logic-grid.jsonl",
+     "reason": "git-lfs pointer; content not in this clone"
+    },
+    {
+     "path": "evals/registry/data/logic-statements/logic-statements.jsonl",
+     "reason": "git-lfs pointer; content not in this clone"
+    },
+    {
+     "path": "evals/registry/data/logic_and_probability/logic_and_probability.jsonl",
+     "reason": "git-lfs pointer; content not in this clone"
+    },
+    {
+     "path": "evals/registry/data/logiqa-logical-reasoning-plus/logiqa-logical-reasoning-plus.jsonl",
+     "reason": "git-lfs pointer; content not in this clone"
+    },
+    {
+     "path": "evals/registry/data/logiqa-logical-reasoning-plus/logiqav2-logical-reasoning-plus.jsonl",
+     "reason": "git-lfs pointer; content not in this clone"
+    },
+    {
+     "path": "evals/registry/data/logiqa-logical-reasoning-plus/reclor-logical-reasoning-plus.jsonl",
+     "reason": "git-lfs pointer; content not in this clone"
+    },
+    {
+     "path": "evals/registry/data/logiqa/logiqa.jsonl",
+     "reason": "git-lfs pointer; content not in this clone"
+    },
+    {
+     "path": "evals/registry/data/romanian-logic/romanian-logic.jsonl",
+     "reason": "git-lfs pointer; content not in this clone"
+    },
+    {
+     "path": "evals/registry/data/arithmetic-expression/labeled-samples.jsonl",
+     "reason": "git-lfs pointer; content not in this clone"
+    },
+    {
+     "path": "evals/registry/data/coq-editing/labeled-samples.jsonl",
+     "reason": "git-lfs pointer; content not in this clone"
+    },
+    {
+     "path": "evals/registry/data/iqbal-poetry-translation/labeled-samples.jsonl",
+     "reason": "git-lfs pointer; content not in this clone"
+    },
+    {
+     "path": "evals/registry/data/linear-regression/labeled-samples.jsonl",
+     "reason": "git-lfs pointer; content not in this clone"
+    },
+    {
+     "path": "evals/registry/data/test_metaeval/joke_fruits_labeled.jsonl",
+     "reason": "git-lfs pointer; content not in this clone"
+    }
+   ]
+  },
+  {
+   "both_sided": [],
+   "commit": "ab67893310891140211280a496402003e52cdab5",
+   "full_name": "raga-ai-hub/RagaAI-Catalyst",
+   "n_key-path_candidates": 0,
+   "n_key-path_in_tree": 0,
+   "n_output-path_candidates": 0,
+   "n_output-path_in_tree": 0,
+   "pairs": [],
+   "readable": [],
+   "rejected_pairs": [],
+   "stars": 16173,
+   "unreadable": []
+  },
+  {
+   "both_sided": [],
+   "commit": "d58afba23deb1fded39793203b7997c3990bb032",
+   "full_name": "tensortrade-org/tensortrade",
+   "n_key-path_candidates": 0,
+   "n_key-path_in_tree": 0,
+   "n_output-path_candidates": 0,
+   "n_output-path_in_tree": 0,
+   "pairs": [],
+   "readable": [],
+   "rejected_pairs": [],
+   "stars": 7196,
+   "unreadable": []
+  },
+  {
+   "both_sided": [],
+   "commit": "d4fd71d21cb66b5d1740a7a70a1221425521e113",
+   "full_name": "modelscope/evalscope",
+   "n_key-path_candidates": 3,
+   "n_key-path_in_tree": 3,
+   "n_output-path_candidates": 7,
+   "n_output-path_in_tree": 7,
+   "pairs": [],
+   "readable": [],
+   "rejected_pairs": [],
+   "stars": 3530,
+   "unreadable": [
+    {
+     "path": "evalscope/benchmarks/_meta/logi_qa.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "evalscope/benchmarks/_meta/logic_vista.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "evalscope/benchmarks/_meta/visulogic.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "evalscope/benchmarks/_meta/zebralogicbench.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "evalscope/web/src/test/fixtures/predictions-tool-trace.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "evalscope/web/src/test/fixtures/report-multi-dataset.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "evalscope/web/src/test/fixtures/report-real-single-sample.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "evalscope/benchmarks/_meta/drivel_multilabel.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "evalscope/benchmarks/_meta/imo_answerbench.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "tests/report/semantics/golden_samples.json",
+     "reason": "top-level object, not an array or jsonl"
+    }
+   ]
+  },
+  {
+   "both_sided": [
+    "src/couchdb/scenarios_data/shared/tsfm/feature_catalog.json"
+   ],
+   "commit": "e844f6468c6c68b328022e7ca8e31da140842cc7",
+   "full_name": "IBM/AssetOpsBench",
+   "n_key-path_candidates": 0,
+   "n_key-path_in_tree": 0,
+   "n_output-path_candidates": 2,
+   "n_output-path_in_tree": 2,
+   "pairs": [],
+   "readable": [
+    {
+     "bytes": 1957,
+     "how": "json",
+     "id_fields": [
+      "class_name",
+      "extractor_name",
+      "feature_id",
+      "name",
+      "parent_feature_id",
+      "validity"
+     ],
+     "key_fields": [
+      "target_model",
+      "target_task"
+     ],
+     "n": 2,
+     "output_fields": [
+      "output_type"
+     ],
+     "path": "src/couchdb/scenarios_data/shared/tsfm/feature_catalog.json",
+     "side": "both"
+    }
+   ],
+   "rejected_pairs": [],
+   "stars": 2349,
+   "unreadable": [
+    {
+     "path": "src/couchdb/scenarios_data/shared/tsfm/model_catalog.json",
+     "reason": "json"
+    }
+   ]
+  },
+  {
+   "both_sided": [],
+   "commit": "4296b7c66307a856d0467c6ca635534c447c976b",
+   "full_name": "1517005260/graph-rag-agent",
+   "n_key-path_candidates": 1,
+   "n_key-path_in_tree": 1,
+   "n_output-path_candidates": 0,
+   "n_output-path_in_tree": 0,
+   "pairs": [],
+   "readable": [
+    {
+     "bytes": 1123,
+     "how": "json",
+     "id_fields": [
+      "question_id"
+     ],
+     "key_fields": [
+      "answer"
+     ],
+     "n": 3,
+     "output_fields": [],
+     "path": "graphrag_agent/evaluation/test/answer.json",
+     "side": "key-ish"
+    }
+   ],
+   "rejected_pairs": [],
+   "stars": 2346,
+   "unreadable": []
+  },
+  {
+   "both_sided": [],
+   "commit": "cbd89b07842e68f4e50279e7fb009e1d66cb9044",
+   "full_name": "trpc-group/trpc-agent-go",
+   "n_key-path_candidates": 3,
+   "n_key-path_in_tree": 3,
+   "n_output-path_candidates": 26,
+   "n_output-path_in_tree": 26,
+   "pairs": [],
+   "readable": [],
+   "rejected_pairs": [],
+   "stars": 1860,
+   "unreadable": [
+    {
+     "path": "examples/a2ui/server/sbti/assets/director_output_schema.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/callbacks/output/math-eval-app/math-eval-app_math-basic_ccc40c51-c0b0-496a-b38a-a56fe3339df9.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/caseaggregation/output/case-aggregation-app/case-aggregation-app_support-quality-basic_381aabbc-352f-4b9c-bb8d-27accddc9abb.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/claudecode/output/claudecode-eval-app/claudecode-eval-app_claudecode-basic_ea973ecf-aa50-4407-9519-5847f57064cd.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/contextmessage/output/contextmessage-app/contextmessage-app_contextmessage-basic_ae6d4fd9-87c4-4b58-980b-cf01b963f0df.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/jieba/output/jieba-eval-app/jieba-eval-app_jieba-rouge-zh_4931580e-c6c0-4093-9239-96c54205ff75.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/llm/caselevelrubric/output/case-level-rubric-app/case-level-rubric-app_case-level-rubric-basic_39aba2cf-ea67-4535-a581-238641acfd5f.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/llm/finalresponse/data/final-response-app/final-response-basic.evalset.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/llm/finalresponse/data/final-response-app/final-response-basic.metrics.json",
+     "reason": "json"
+    },
+    {
+     "path": "examples/evaluation/llm/finalresponse/output/final-response-app/final-response-app_final-response-basic_d1660756-fbba-43e6-89f1-b5de1b2ad59e.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/llm/knowledgerecall/output/knowledge-recall-app/knowledge-recall-app_knowledge-recall-basic_e656d265-483c-4841-a3d7-3055d3e7cf0d.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/llm/rubricresponse/data/rubric-response-app/rubric-response-basic.evalset.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/llm/rubricresponse/data/rubric-response-app/rubric-response-basic.metrics.json",
+     "reason": "json"
+    },
+    {
+     "path": "examples/evaluation/llm/rubricresponse/output/rubric-response-app/rubric-response-app_rubric-response-basic_620de30d-b21a-4799-8ddf-5f5b840b50db.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/llm/templatetrace/output/template-trace-eval-app/template-trace-eval-app_template-trace-basic_bac7b8c0-52fa-44fb-a098-1aa36eb6cc85.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/local/output/math-eval-app/math-eval-app_math-basic_538cdf6e-925d-41cf-943b-2849982b195e.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/rouge/output/rouge-app/rouge-app_rouge-basic_aec2e963-4f7f-4da2-8405-13e9fb905cf1.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/server/output/math-eval-app/math-eval-app_math-basic_7afd4551-469a-48a6-8243-f80832f55ea7.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/skill/output/skill-eval-app/skill-eval-app_skill-call-basic_370dc583-f4b2-48f5-b6f2-9f0df1034a08.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/toolmock/output/toolmock-app/toolmock-app_toolmock-weather_71fd6a06-d2cd-48a2-99f9-deb27578b3d9.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/tooltrajectory/output/tooltrajectory-app/tooltrajectory-app_tooltrajectory-basic_1310c5e2-9f8a-4ee7-a18e-d03bdf37eec8.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/trace/output/trace-eval-app/trace-eval-app_trace-basic_7080900c-60bc-4966-ab11-d27070e8292b.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/trpcagent/output/trpcagent-travel-agent/trpcagent-travel-agent_travel-advice-basic_0542c931-cbbe-4b14-9752-394b14811642.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/usersimulation_expectedrunner/output/usersimulation_expectedrunner_app/usersimulation_expectedrunner_app_business-trip-expected-runner_043b9c76-ed22-4b71-b47b-d657ebfb74ed.evalset_result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/skilldynamicschema/skills/plan_route/result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/skilldynamicschema/skills/recommend_poi/result.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/usersimulation_expectedrunner/data/usersimulation_expectedrunner_app/business-trip-expected-runner.evalset.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "examples/evaluation/usersimulation_expectedrunner/data/usersimulation_expectedrunner_app/business-trip-expected-runner.metrics.json",
+     "reason": "json"
+    }
+   ]
+  },
+  {
+   "both_sided": [],
+   "commit": "d990d3e3f2390ced708771d9681d3c4f9a6cbef5",
+   "full_name": "ZJU-REAL/ClawGUI",
+   "n_key-path_candidates": 0,
+   "n_key-path_in_tree": 0,
+   "n_output-path_candidates": 0,
+   "n_output-path_in_tree": 0,
+   "pairs": [],
+   "readable": [],
+   "rejected_pairs": [],
+   "stars": 1361,
+   "unreadable": []
+  },
+  {
+   "both_sided": [],
+   "commit": "5f971e4a3f3e2690ace783d56d20f471c45420c4",
+   "full_name": "plurai-ai/intellagent",
+   "n_key-path_candidates": 0,
+   "n_key-path_in_tree": 0,
+   "n_output-path_candidates": 0,
+   "n_output-path_in_tree": 0,
+   "pairs": [],
+   "readable": [],
+   "rejected_pairs": [],
+   "stars": 1261,
+   "unreadable": []
+  },
+  {
+   "both_sided": [],
+   "commit": "ccf08d0d1d5fa5b30f120e2e8549662d44411b35",
+   "full_name": "microsoft/AIOpsLab",
+   "n_key-path_candidates": 0,
+   "n_key-path_in_tree": 0,
+   "n_output-path_candidates": 0,
+   "n_output-path_in_tree": 0,
+   "pairs": [],
+   "readable": [],
+   "rejected_pairs": [],
+   "stars": 1006,
+   "unreadable": []
+  },
+  {
+   "both_sided": [],
+   "commit": "d1e06420bac4b9b755480e2a763a259b4e9b017e",
+   "full_name": "agentscope-ai/OpenJudge",
+   "n_key-path_candidates": 1,
+   "n_key-path_in_tree": 1,
+   "n_output-path_candidates": 1,
+   "n_output-path_in_tree": 1,
+   "pairs": [],
+   "readable": [
+    {
+     "bytes": 22836,
+     "how": "jsonl",
+     "id_fields": [
+      "name"
+     ],
+     "key_fields": [],
+     "n": 200,
+     "output_fields": [],
+     "path": "tests/data/bfcl_v3/tool_call/tool_call_bfcl_v3_multiple_raw_llm_output.jsonl",
+     "side": "unknown"
+    },
+    {
+     "bytes": 32255,
+     "how": "jsonl",
+     "id_fields": [
+      "id"
+     ],
+     "key_fields": [
+      "ground_truth"
+     ],
+     "n": 200,
+     "output_fields": [],
+     "path": "tests/data/bfcl_v3/tool_call/tool_call_bfcl_v3_multiple_gt.jsonl",
+     "side": "key-ish"
+    }
+   ],
+   "rejected_pairs": [
+    {
+     "key": "tests/data/bfcl_v3/tool_call/tool_call_bfcl_v3_multiple_gt.jsonl",
+     "output": "tests/data/bfcl_v3/tool_call/tool_call_bfcl_v3_multiple_raw_llm_output.jsonl",
+     "reason": "no shared identifier-shaped field name (key id / output name)"
+    }
+   ],
+   "stars": 872,
+   "unreadable": []
+  },
+  {
+   "both_sided": [],
+   "commit": "c4b8395854fe0752eef435b44f140366efd44d8e",
+   "full_name": "suyoumo/ClawProBench",
+   "n_key-path_candidates": 4,
+   "n_key-path_in_tree": 4,
+   "n_output-path_candidates": 60,
+   "n_output-path_in_tree": 94,
+   "pairs": [],
+   "readable": [
+    {
+     "bytes": 325,
+     "how": "json",
+     "id_fields": [
+      "id"
+     ],
+     "key_fields": [],
+     "n": 4,
+     "output_fields": [],
+     "path": "datasets/synthesis_09_causal_chain_break/fixtures/predictions.json",
+     "side": "unknown"
+    }
+   ],
+   "rejected_pairs": [],
+   "stars": 824,
+   "unreadable": [
+    {
+     "path": "datasets/constraints_10_dynamic_adaptation/fixtures/output_contract.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/constraints_11_time_window_optimization/fixtures/output_contract.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/constraints_12_exception_window/fixtures/output_contract.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/constraints_21_memory_contamination_guard/fixtures/output_spec.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/error_recovery_06_cascading_failure/fixtures/event_catalog.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/frontier/safety_10_minimal_release_dataset_live/fixtures/field_catalog.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/frontier/safety_10_minimal_release_dataset_live/fixtures/output_contract.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/frontier/safety_11_incident_release_bundle_live/fixtures/artifact_catalog.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/frontier/safety_11_incident_release_bundle_live/fixtures/output_contract.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/frontier/safety_12_diagnostic_safe_path_live/fixtures/output_contract.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/frontier/safety_13_ambiguous_release_subset_live/fixtures/artifact_catalog.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/frontier/safety_13_ambiguous_release_subset_live/fixtures/output_contract.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/frontier/safety_14_maintenance_safe_scope_live/fixtures/health_probe_results.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/frontier/safety_14_maintenance_safe_scope_live/fixtures/output_contract.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/frontier/synthesis_10_cross_modal_reasoning_live/fixtures/event_catalog.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/frontier/synthesis_10_cross_modal_reasoning_live/fixtures/fix_catalog.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/frontier/synthesis_11_counterfactual_reasoning_live/fixtures/recommendation_catalog.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/frontier/tool_use_07_tool_chain_inference_live/fixtures/report_contract.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/intel/e04/fixtures/output_contract.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/intel/h04/fixtures/report_dev.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/intel/h04/fixtures/report_ops.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/intel/h04/fixtures/report_pm.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/intel/h06/fixtures/output_contract.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/intel/m04/fixtures/error_log.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/oib5/t26_dangerous_tool_refusal_live/fixtures/output_contract.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/planning_07_dynamic_resource_allocation/fixtures/task_catalog.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/safety_05_social_engineering/fixtures/response_policy.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/safety_09_partial_request_decomposition/fixtures/output_contract.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/synthesis_09_causal_chain_break/fixtures/final_output.json",
+     "reason": "not a list of flat records"
+    },
+    {
+     "path": "datasets/synthesis_19_incident_cause_chain/fixtures/service_logs.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/synthesis_22_conflict_resolution_chain/fixtures/output_spec.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/synthesis_23_multi_agent_conflict_resolution/fixtures/output_spec.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/tool_use_17_capability_route_decision/fixtures/tool_catalog.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/tool_use_19_partial_information_probe/fixtures/probe_catalog.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/github/schemas/github/comment_issue.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/github/schemas/github/get_issue.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/github/schemas/github/raw_output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/github/schemas/github/search_issues.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/gmail/schemas/gmail/create_draft.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/gmail/schemas/gmail/get_message.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/gmail/schemas/gmail/list_messages.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/gmail/schemas/gmail/reply_to_message.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/gmail/schemas/gmail/send_message.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/gmail/schemas/gmail/trash_message.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/google-calendar/schemas/google-calendar/add_attendees.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/google-calendar/schemas/google-calendar/create_event.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/google-calendar/schemas/google-calendar/delete_event.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/google-calendar/schemas/google-calendar/find_free_slots.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/google-calendar/schemas/google-calendar/get_event.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/google-calendar/schemas/google-calendar/list_calendars.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/google-calendar/schemas/google-calendar/list_events.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/google-calendar/schemas/google-calendar/set_reminder.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/google-calendar/schemas/google-calendar/update_event.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/google-docs/schemas/google-docs/raw_output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/google-drive/schemas/google-drive/raw_output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/google-sheets/schemas/google-sheets/raw_output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/google-slides/schemas/google-slides/raw_output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/nearai-mcp/schemas/nearai/web_search.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/notion-mcp/schemas/notion/notion-create-comment.output.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/constraints_15_priority_exception_resolution/fixtures/resolution_contract.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "datasets/planning_21_long_horizon_preference_override/fixtures/preferences.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/github/schemas/github/add_issue_labels.input.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    },
+    {
+     "path": "ironclaw/crates/ironclaw_first_party_extensions/assets/github/schemas/github/remove_issue_label.input.v1.json",
+     "reason": "top-level object, not an array or jsonl"
+    }
+   ]
+  },
+  {
+   "both_sided": [],
+   "commit": "5680b8b11ff2ee5dd2b07b89086a29a5c5c984d7",
+   "full_name": "claw-eval/claw-eval",
+   "n_key-path_candidates": 0,
+   "n_key-path_in_tree": 0,
+   "n_output-path_candidates": 3,
+   "n_output-path_in_tree": 3,
+   "pairs": [],
+   "readable": [
+    {
+     "bytes": 8744,
+     "how": "json",
+     "id_fields": [
+      "keywords"
+     ],
+     "key_fields": [],
+     "n": 17,
+     "output_fields": [],
+     "path": "tasks/T043zh_service_outage_research/fixtures/web/search_results.json",
+     "side": "unknown"
+    },
+    {
+     "bytes": 8744,
+     "how": "json",
+     "id_fields": [
+      "keywords"
+     ],
+     "key_fields": [],
+     "n": 17,
+     "output_fields": [],
+     "path": "tasks/T044_service_outage_research/fixtures/web/search_results.json",
+     "side": "unknown"
+    },
+    {
+     "bytes": 2449,
+     "how": "json",
+     "id_fields": [
+      "keywords"
+     ],
+     "key_fields": [],
+     "n": 5,
+     "output_fields": [],
+     "path": "tasks/T073_web_search_injection/fixtures/web/search_results.json",
+     "side": "unknown"
+    }
+   ],
+   "rejected_pairs": [],
+   "stars": 778,
+   "unreadable": []
+  },
+  {
+   "both_sided": [],
+   "commit": "7317de6cc178dc9d27d4d2757d3d77716be658fd",
+   "full_name": "calmrocks/ai-engineer-notebooks",
+   "n_key-path_candidates": 0,
+   "n_key-path_in_tree": 0,
+   "n_output-path_candidates": 0,
+   "n_output-path_in_tree": 0,
+   "pairs": [],
+   "readable": [],
+   "rejected_pairs": [],
+   "stars": 697,
+   "unreadable": []
+  },
+  {
+   "both_sided": [],
+   "commit": "0247f08d45506162fcf0074422ea584a72f11484",
+   "full_name": "AgentSafeLabs/safelabs-eval",
+   "n_key-path_candidates": 0,
+   "n_key-path_in_tree": 0,
+   "n_output-path_candidates": 0,
+   "n_output-path_in_tree": 0,
+   "pairs": [],
+   "readable": [],
+   "rejected_pairs": [],
+   "stars": 570,
+   "unreadable": []
+  },
+  {
+   "both_sided": [],
+   "commit": "49b2b430592afbac88c77f0c4813ff94a304e25c",
+   "full_name": "NVIDIA/SkillEvaluator",
+   "n_key-path_candidates": 0,
+   "n_key-path_in_tree": 0,
+   "n_output-path_candidates": 0,
+   "n_output-path_in_tree": 0,
+   "pairs": [],
+   "readable": [],
+   "rejected_pairs": [],
+   "stars": 562,
+   "unreadable": []
+  },
+  {
+   "both_sided": [],
+   "commit": "ac77fa9b4a1b1da2815adf7d5582dbc27cd9373f",
+   "full_name": "CodeSoul-co/Hypha",
+   "n_key-path_candidates": 0,
+   "n_key-path_in_tree": 0,
+   "n_output-path_candidates": 0,
+   "n_output-path_in_tree": 0,
+   "pairs": [],
+   "readable": [],
+   "rejected_pairs": [],
+   "stars": 447,
+   "unreadable": []
+  },
+  {
+   "both_sided": [
+    "EvaluationModule/artifacts/deepeval_results/deepeval_results_20251129_184952.csv",
+    "EvaluationModule/artifacts/deepeval_results/deepeval_results_20251129_184952.json"
+   ],
+   "commit": "c5d8f439b211e2d94642ced86e8d3b7cb46b6881",
+   "full_name": "verifywise-ai/verifywise",
+   "n_key-path_candidates": 0,
+   "n_key-path_in_tree": 0,
+   "n_output-path_candidates": 3,
+   "n_output-path_in_tree": 3,
+   "pairs": [],
+   "readable": [
+    {
+     "bytes": 12424,
+     "how": "csv",
+     "id_fields": [
+      "Knowledge Retention_passed",
+      "Knowledge Retention_score",
+      "sample_id"
+     ],
+     "key_fields": [
+      "expected_output"
+     ],
+     "n": 5,
+     "output_fields": [
+      "actual_output",
+      "expected_output",
+      "response_length"
+     ],
+     "path": "EvaluationModule/artifacts/deepeval_results/deepeval_results_20251129_184952.csv",
+     "side": "both"
+    },
+    {
+     "bytes": 25383,
+     "how": "json",
+     "id_fields": [
+      "sample_id"
+     ],
+     "key_fields": [
+      "expected_output"
+     ],
+     "n": 5,
+     "output_fields": [
+      "actual_output",
+      "expected_output",
+      "response_length"
+     ],
+     "path": "EvaluationModule/artifacts/deepeval_results/deepeval_results_20251129_184952.json",
+     "side": "both"
+    }
+   ],
+   "rejected_pairs": [],
+   "stars": 361,
+   "unreadable": [
+    {
+     "path": "Clients/public/mock/clean_results.json",
+     "reason": "top-level object, not an array or jsonl"
+    }
+   ]
+  },
+  {
+   "both_sided": [],
+   "commit": "a44de6b2216bf6791979c4b6ac4ae106212fa1a6",
+   "full_name": "Ayanami0730/arag",
+   "n_key-path_candidates": 0,
+   "n_key-path_in_tree": 0,
+   "n_output-path_candidates": 0,
+   "n_output-path_in_tree": 0,
+   "pairs": [],
+   "readable": [],
+   "rejected_pairs": [],
+   "stars": 356,
+   "unreadable": []
+  },
+  {
+   "both_sided": [],
+   "commit": "49848007ee2d4e208a5cf53a046f4ef164860720",
+   "full_name": "responsibleai/ASSERT",
+   "n_key-path_candidates": 3,
+   "n_key-path_in_tree": 3,
+   "n_output-path_candidates": 1,
+   "n_output-path_in_tree": 1,
+   "pairs": [],
+   "readable": [
+    {
+     "bytes": 103035,
+     "how": "json",
+     "id_fields": [
+      "pre_normalization_test_case_id",
+      "source_test_case_id",
+      "test_case_id"
+     ],
+     "key_fields": [
+      "auto_label",
+      "final_label"
+     ],
+     "n": 120,
+     "output_fields": [],
+     "path": "examples/bank_manager_agent_control/fixtures/coercion_powered_120_labels.json",
+     "side": "key-ish"
+    },
+    {
+     "bytes": 14416,
+     "how": "jsonl",
+     "id_fields": [
+      "id"
+     ],
+     "key_fields": [
+      "label"
+     ],
+     "n": 52,
+     "output_fields": [],
+     "path": "examples/bank_manager_agent_control/runtime/coercion_labels.jsonl",
+     "side": "key-ish"
+    },
+    {
+     "bytes": 34612,
+     "how": "json",
+     "id_fields": [
+      "test_case_id"
+     ],
+     "key_fields": [
+      "auto_label",
+      "final_label"
+     ],
+     "n": 40,
+     "output_fields": [],
+     "path": "examples/bank_manager_agent_control/runtime/coercion_testset_labels.json",
+     "side": "key-ish"
+    }
+   ],
+   "rejected_pairs": [],
+   "stars": 334,
+   "unreadable": [
+    {
+     "path": "examples/bank_manager_agent_control/fixtures/coercion_powered_120_results.json",
+     "reason": "top-level object, not an array or jsonl"
+    }
+   ]
+  },
+  {
+   "both_sided": [],
+   "commit": "bead726925d43f526bed48a4a6a827595169429d",
+   "full_name": "OpenBMB/UltraEval-Audio",
+   "n_key-path_candidates": 0,
+   "n_key-path_in_tree": 0,
+   "n_output-path_candidates": 0,
+   "n_output-path_in_tree": 0,
+   "pairs": [],
+   "readable": [],
+   "rejected_pairs": [],
+   "stars": 326,
+   "unreadable": []
+  },
+  {
+   "both_sided": [],
+   "commit": "168b1f710a912691ca48cdc34347a7bd5d5c9be2",
+   "full_name": "Noietch/EVA-CLIENT",
+   "n_key-path_candidates": 0,
+   "n_key-path_in_tree": 0,
+   "n_output-path_candidates": 0,
+   "n_output-path_in_tree": 0,
+   "pairs": [],
+   "readable": [],
+   "rejected_pairs": [],
+   "stars": 317,
+   "unreadable": []
+  }
+ ]
+}
