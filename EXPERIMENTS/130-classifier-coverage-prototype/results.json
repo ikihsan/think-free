@@ -1,0 +1,27 @@
+{
+  "experiment": "E130",
+  "pool_size": 300,
+  "sample_size": 300,
+  "classified": {
+    "need": 12,
+    "non-need": 7,
+    "undetermined": 5
+  },
+  "coverage_rate": 0.06333333333333334,
+  "coverage_floor": 0.6,
+  "meets_coverage_floor": false,
+  "gate_g2_need_prevalence": {
+    "pass": true,
+    "detail": "need fraction adequate"
+  },
+  "gate_g3_coverage_floor": {
+    "pass": false,
+    "detail": "coverage=6.3% vs floor=60.0%"
+  },
+  "gate_g4_cross_signal": {
+    "pass": true,
+    "detail": "need_classified=12"
+  },
+  "all_gates_pass": false,
+  "meets_reopening_condition_1": false
+}
