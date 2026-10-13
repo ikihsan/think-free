@@ -1,0 +1,867 @@
+{
+  "gates": {
+    "G1_need_prevalence": {
+      "pass": true,
+      "vc_positive": 46,
+      "threshold": 15
+    },
+    "G2_control_validity": {
+      "pass": true,
+      "accuracy": 1.0,
+      "threshold": 0.85,
+      "controls_found": 4
+    },
+    "G3_unserved_fraction": {
+      "pass": true,
+      "unserved_count": 11,
+      "vc_positive": 46,
+      "fraction": 0.2391304347826087,
+      "wilson_ci95": [
+        0.13912036561131397,
+        0.37935416169118025
+      ]
+    },
+    "G4_view_count": {
+      "pass": true,
+      "view_positive": 60,
+      "view_total": 60,
+      "rate": 1.0
+    }
+  },
+  "category_breakdown": {
+    "environment": {
+      "total": 14,
+      "need": 13,
+      "served": 12,
+      "unserved": 1,
+      "views": 14
+    },
+    "deployment": {
+      "total": 22,
+      "need": 15,
+      "served": 13,
+      "unserved": 2,
+      "views": 22
+    },
+    "integrations": {
+      "total": 8,
+      "need": 5,
+      "served": 4,
+      "unserved": 1,
+      "views": 8
+    },
+    "bug-reports": {
+      "total": 2,
+      "need": 1,
+      "served": 0,
+      "unserved": 1,
+      "views": 2
+    },
+    "api": {
+      "total": 14,
+      "need": 8,
+      "served": 4,
+      "unserved": 4,
+      "views": 14
+    }
+  },
+  "control_results": {
+    "s1": {
+      "expected": "served",
+      "got": "served",
+      "match": true
+    },
+    "s2": {
+      "expected": "served",
+      "got": "served",
+      "match": true
+    },
+    "u1": {
+      "expected": "unserved-open-like",
+      "got": "unserved-open-like",
+      "match": true
+    },
+    "u2": {
+      "expected": "unserved-open-like",
+      "got": "unserved-open-like",
+      "match": true
+    }
+  },
+  "items": [
+    {
+      "topic_id": "seed-s1",
+      "title": "Is there a tool to diagnose why my CircleCI job times out after 30 min?",
+      "views": 100,
+      "category": "seeded-control",
+      "classification": "served",
+      "signals": [
+        "seeded-control"
+      ],
+      "raw_label": "served",
+      "_seeded": true,
+      "_seed_id": "s1",
+      "_expected_label": "served"
+    },
+    {
+      "topic_id": "seed-s2",
+      "title": "Need a script to parse CircleCI flaky test reports",
+      "views": 100,
+      "category": "seeded-control",
+      "classification": "served",
+      "signals": [
+        "seeded-control"
+      ],
+      "raw_label": "served",
+      "_seeded": true,
+      "_seed_id": "s2",
+      "_expected_label": "served"
+    },
+    {
+      "topic_id": "seed-u1",
+      "title": "Need a tool to interpret error 'executor failed running' on CircleCI",
+      "views": 100,
+      "category": "seeded-control",
+      "classification": "unserved-open-like",
+      "signals": [
+        "seeded-control"
+      ],
+      "raw_label": "unserved-open-like",
+      "_seeded": true,
+      "_seed_id": "u1",
+      "_expected_label": "unserved-open-like"
+    },
+    {
+      "topic_id": "seed-u2",
+      "title": "Need a database to decode iOS simulator hang codes on CircleCI macOS",
+      "views": 100,
+      "category": "seeded-control",
+      "classification": "unserved-open-like",
+      "signals": [
+        "seeded-control"
+      ],
+      "raw_label": "unserved-open-like",
+      "_seeded": true,
+      "_seed_id": "u2",
+      "_expected_label": "unserved-open-like"
+    },
+    {
+      "topic_id": 47775,
+      "title": "[Product Launch] Rerun Failed Tests (circleci tests run)",
+      "views": 12967,
+      "category": "environment",
+      "classification": "served",
+      "signals": [
+        "timeout",
+        "artifact",
+        "config",
+        "flaky"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 48094,
+      "title": "Connection issues with apt-get from archive.ubuntu.com",
+      "views": 11568,
+      "category": "environment",
+      "classification": "served",
+      "signals": [
+        "timeout",
+        "network",
+        "permission"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 29075,
+      "title": "Running a Different Job if the Previous Succeeds or Fails",
+      "views": 9400,
+      "category": "deployment",
+      "classification": "unserved-open-like",
+      "signals": [
+        "timeout"
+      ],
+      "raw_label": "unserved-open-like",
+      "_seeded": false
+    },
+    {
+      "topic_id": 45906,
+      "title": "How to install private git repository as a dependency in the package.json",
+      "views": 8512,
+      "category": "integrations",
+      "classification": "served",
+      "signals": [
+        "permission",
+        "config"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 34366,
+      "title": "Serverless deploy fails on 'Not logged in'",
+      "views": 8159,
+      "category": "deployment",
+      "classification": "served",
+      "signals": [
+        "timeout"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 39095,
+      "title": "How to add an automated rollback to a CircleCI workflow?",
+      "views": 6717,
+      "category": "deployment",
+      "classification": "not_a_need",
+      "signals": [],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 36560,
+      "title": "CircleCI new UI/UX Review",
+      "views": 6166,
+      "category": "bug-reports",
+      "classification": "unserved-open-like",
+      "signals": [
+        "timeout"
+      ],
+      "raw_label": "unserved-open-like",
+      "_seeded": false
+    },
+    {
+      "topic_id": 47807,
+      "title": "[Product Launch] Override Only Build PRs Setting",
+      "views": 6036,
+      "category": "environment",
+      "classification": "served",
+      "signals": [
+        "timeout",
+        "config"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 31292,
+      "title": "Workflows with optional \"approval\" jobs don't appear as successful in github or circleci",
+      "views": 5808,
+      "category": "environment",
+      "classification": "served",
+      "signals": [
+        "timeout"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 54719,
+      "title": "Breaking Changes: Config Compilation Updates \u2014 September 21, 2026",
+      "views": 5718,
+      "category": "environment",
+      "classification": "served",
+      "signals": [
+        "timeout"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 50317,
+      "title": "[Product Update] Speeding up code checkout",
+      "views": 5480,
+      "category": "environment",
+      "classification": "served",
+      "signals": [
+        "timeout",
+        "dependency",
+        "config"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 45119,
+      "title": "Error `The config profile (default) could not be found` when configuring AWS CLI",
+      "views": 5452,
+      "category": "deployment",
+      "classification": "served",
+      "signals": [
+        "timeout",
+        "dependency",
+        "permission"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 28283,
+      "title": "Latest Artifacts API returns empty list",
+      "views": 5139,
+      "category": "deployment",
+      "classification": "served",
+      "signals": [
+        "artifact"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 36,
+      "title": "About the Build Environment category",
+      "views": 4996,
+      "category": "environment",
+      "classification": "not_a_need",
+      "signals": [
+        "config"
+      ],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 46296,
+      "title": "Npm commands not work in SSH",
+      "views": 4929,
+      "category": "deployment",
+      "classification": "served",
+      "signals": [
+        "dependency"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 42650,
+      "title": "Dynamic Paramters in the circleci config.yml",
+      "views": 4749,
+      "category": "environment",
+      "classification": "served",
+      "signals": [
+        "timeout",
+        "config"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 43313,
+      "title": "What is the best way to deploy to a remote server",
+      "views": 4619,
+      "category": "deployment",
+      "classification": "served",
+      "signals": [
+        "permission",
+        "dependency",
+        "resource",
+        "timeout",
+        "artifact"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 31549,
+      "title": "Get all variables from a context using the API",
+      "views": 4423,
+      "category": "deployment",
+      "classification": "not_a_need",
+      "signals": [],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 34,
+      "title": "About the Bug Reports category",
+      "views": 4372,
+      "category": "bug-reports",
+      "classification": "not_a_need",
+      "signals": [],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 34128,
+      "title": "API v2: Is it possible to retrieve the parameters that were passed in?",
+      "views": 4265,
+      "category": "api",
+      "classification": "served",
+      "signals": [
+        "config"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 41,
+      "title": "About the Deployments category",
+      "views": 4224,
+      "category": "deployment",
+      "classification": "not_a_need",
+      "signals": [],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 54497,
+      "title": "[Product Launch] Smarter Testing is now in Beta",
+      "views": 4119,
+      "category": "environment",
+      "classification": "served",
+      "signals": [
+        "timeout",
+        "network",
+        "config"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 34654,
+      "title": "Artifact URL - How can we retrieve the project ID programatically",
+      "views": 3700,
+      "category": "api",
+      "classification": "unserved-open-like",
+      "signals": [
+        "artifact"
+      ],
+      "raw_label": "unserved-open-like",
+      "_seeded": false
+    },
+    {
+      "topic_id": 43052,
+      "title": "Your compiled config is too large to be processed. Please contact support",
+      "views": 3604,
+      "category": "api",
+      "classification": "served",
+      "signals": [
+        "artifact",
+        "config"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 33733,
+      "title": "Allow sending title (commit message) when triggering pipeline in API v2",
+      "views": 3520,
+      "category": "api",
+      "classification": "not_a_need",
+      "signals": [],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 22986,
+      "title": "About the Integrations and Accounts category",
+      "views": 3410,
+      "category": "integrations",
+      "classification": "not_a_need",
+      "signals": [],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 45382,
+      "title": "How can I set config.yml environment variables with ones setted from UI",
+      "views": 3242,
+      "category": "deployment",
+      "classification": "served",
+      "signals": [
+        "permission",
+        "config"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 45103,
+      "title": "Using the abbreviated version of the Github commit sha in current version of CircleCI",
+      "views": 3159,
+      "category": "environment",
+      "classification": "unserved-open-like",
+      "signals": [
+        "timeout"
+      ],
+      "raw_label": "unserved-open-like",
+      "_seeded": false
+    },
+    {
+      "topic_id": 33825,
+      "title": "Unable to trigger pipeline to build forked Pull Request via V2 API, error message: *Branch not found*",
+      "views": 3124,
+      "category": "api",
+      "classification": "unserved-open-like",
+      "signals": [
+        "timeout"
+      ],
+      "raw_label": "unserved-open-like",
+      "_seeded": false
+    },
+    {
+      "topic_id": 45056,
+      "title": "Execute curl on environment variable variable",
+      "views": 3016,
+      "category": "deployment",
+      "classification": "unserved-open-like",
+      "signals": [
+        "config"
+      ],
+      "raw_label": "unserved-open-like",
+      "_seeded": false
+    },
+    {
+      "topic_id": 36345,
+      "title": "Can get latest artifacts from all branches in pipeline in v1.1 but not sure how to v2 api?",
+      "views": 2978,
+      "category": "api",
+      "classification": "unserved-open-like",
+      "signals": [
+        "artifact"
+      ],
+      "raw_label": "unserved-open-like",
+      "_seeded": false
+    },
+    {
+      "topic_id": 46856,
+      "title": "When to use a \"Deploy Key\" vs. a \"User Key\"?",
+      "views": 2902,
+      "category": "integrations",
+      "classification": "unserved-open-like",
+      "signals": [
+        "permission"
+      ],
+      "raw_label": "unserved-open-like",
+      "_seeded": false
+    },
+    {
+      "topic_id": 46148,
+      "title": "Avoid concurrent workflows on main branch",
+      "views": 2682,
+      "category": "deployment",
+      "classification": "served",
+      "signals": [
+        "timeout"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 33215,
+      "title": "About the API category",
+      "views": 2667,
+      "category": "api",
+      "classification": "not_a_need",
+      "signals": [],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 37512,
+      "title": "POST requests via XMLHttpRequest fails",
+      "views": 2619,
+      "category": "api",
+      "classification": "not_a_need",
+      "signals": [],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 46410,
+      "title": "CircleCI API follow a new project",
+      "views": 2494,
+      "category": "api",
+      "classification": "served",
+      "signals": [
+        "timeout"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 44178,
+      "title": "Circle CI api url to trigger a pipeline on a webhook",
+      "views": 2370,
+      "category": "api",
+      "classification": "unserved-open-like",
+      "signals": [
+        "timeout"
+      ],
+      "raw_label": "unserved-open-like",
+      "_seeded": false
+    },
+    {
+      "topic_id": 46575,
+      "title": "How can we get Project ID programmatically for GitLab projects associated with the circleci account",
+      "views": 2296,
+      "category": "api",
+      "classification": "not_a_need",
+      "signals": [],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 37699,
+      "title": "AWS EKS Orb: AWS IAM Authenticator install fails (missing or malformed URL)",
+      "views": 2139,
+      "category": "deployment",
+      "classification": "not_a_need",
+      "signals": [],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 44751,
+      "title": "Please help - Cannot login to ECR repository",
+      "views": 2085,
+      "category": "deployment",
+      "classification": "served",
+      "signals": [
+        "config"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 44061,
+      "title": "AWS ECR job never completes after adding context parameter",
+      "views": 2043,
+      "category": "deployment",
+      "classification": "served",
+      "signals": [
+        "timeout",
+        "config"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 46254,
+      "title": "How to use variables with an orb?",
+      "views": 2031,
+      "category": "deployment",
+      "classification": "served",
+      "signals": [
+        "timeout"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 34121,
+      "title": "Are GitHub r-w deploy keys secure for open source projects?",
+      "views": 2005,
+      "category": "integrations",
+      "classification": "served",
+      "signals": [
+        "timeout",
+        "resource",
+        "permission"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 43984,
+      "title": "Job naming consistency, Conditional workflow or jobs",
+      "views": 1950,
+      "category": "deployment",
+      "classification": "served",
+      "signals": [
+        "timeout",
+        "dependency",
+        "config"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 48086,
+      "title": "Bitbucket host key incident",
+      "views": 1904,
+      "category": "integrations",
+      "classification": "served",
+      "signals": [
+        "timeout"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 54066,
+      "title": "Xcode 26 RC",
+      "views": 1845,
+      "category": "environment",
+      "classification": "served",
+      "signals": [
+        "timeout",
+        "simulator"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 44490,
+      "title": "Cannot access localhost:8080 page when i try to run vuejs app using docker-compose",
+      "views": 1813,
+      "category": "deployment",
+      "classification": "not_a_need",
+      "signals": [],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 54605,
+      "title": "(Breaking change) Sunsetting Configuration Version 2.0",
+      "views": 1800,
+      "category": "environment",
+      "classification": "served",
+      "signals": [
+        "timeout",
+        "config"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 51428,
+      "title": "Configuring Docker Daemon for using containerd image store instead of docker",
+      "views": 1782,
+      "category": "environment",
+      "classification": "served",
+      "signals": [
+        "timeout",
+        "resource"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 46004,
+      "title": "Circle CI rate limit",
+      "views": 1771,
+      "category": "integrations",
+      "classification": "not_a_need",
+      "signals": [
+        "permission",
+        "network"
+      ],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 40370,
+      "title": "Get a pipeline's workflow API does not return anything [api/v2/pipeline/%pipeline-id%/workflow]",
+      "views": 1737,
+      "category": "api",
+      "classification": "not_a_need",
+      "signals": [],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 46121,
+      "title": "Retrieving logs (or raw output) for workflows/jobs",
+      "views": 1720,
+      "category": "api",
+      "classification": "not_a_need",
+      "signals": [],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 44780,
+      "title": "Downloading build logs with v2 API",
+      "views": 1683,
+      "category": "api",
+      "classification": "served",
+      "signals": [
+        "timeout"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 40890,
+      "title": "Aws-ecs@2.2.1 throws an error during \" Retrieve previous task definition and prepare new task definition values\"",
+      "views": 1654,
+      "category": "deployment",
+      "classification": "served",
+      "signals": [
+        "config"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 41574,
+      "title": "Networking from remote-docker to primary container",
+      "views": 1532,
+      "category": "deployment",
+      "classification": "not_a_need",
+      "signals": [],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 46586,
+      "title": "Bitbucket organization not showing on my circle ci",
+      "views": 1532,
+      "category": "integrations",
+      "classification": "served",
+      "signals": [
+        "permission"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 45592,
+      "title": "Personal API Token could not be used",
+      "views": 1517,
+      "category": "deployment",
+      "classification": "not_a_need",
+      "signals": [],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 54156,
+      "title": "Tests Hanging on Xcode 26",
+      "views": 1515,
+      "category": "environment",
+      "classification": "served",
+      "signals": [
+        "timeout",
+        "simulator"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    },
+    {
+      "topic_id": 46588,
+      "title": "Cannot reconnect BitBucket account",
+      "views": 1484,
+      "category": "integrations",
+      "classification": "not_a_need",
+      "signals": [],
+      "raw_label": "not_a_need",
+      "_seeded": false
+    },
+    {
+      "topic_id": 44426,
+      "title": "Docker container build works locally, but not on Ubuntu runner. Fails on building uwsgi",
+      "views": 1466,
+      "category": "deployment",
+      "classification": "served",
+      "signals": [
+        "network",
+        "dependency"
+      ],
+      "raw_label": "served",
+      "_seeded": false
+    }
+  ]
+}

@@ -234,12 +234,129 @@ def adapt_xml(harness_dir: str) -> Tuple[List[Dict], List[Dict], List[Dict], Lis
     return key_rows, out_rows, items, rows_for_c3
 
 
+# --------------------------------------------------------------------------- Single JSON Dict (E135)
+def adapt_json(harness_dir: str) -> Tuple[List[Dict], List[Dict], List[Dict], List[Dict]]:
+    """Adapter for single JSON harness format (E135).
+
+    Expected structure:
+        harness_dir/
+          harness.json  # dict mapping sample_id -> {model_output, expected, correct}
+          key/
+            ground_truth.json  # dict mapping sample_id -> {expected}
+    """
+    harness_path = os.path.join(harness_dir, "harness.json")
+    key_path = os.path.join(harness_dir, "key", "ground_truth.json")
+
+    if not os.path.exists(harness_path):
+        raise FileNotFoundError(f"harness.json not found in {harness_dir}")
+    if not os.path.exists(key_path):
+        raise FileNotFoundError(f"key/ground_truth.json not found in {harness_dir}")
+
+    with open(harness_path) as fh:
+        harness = json.load(fh)
+    with open(key_path) as fh:
+        key_data = json.load(fh)
+
+    key_rows = []
+    out_rows = []
+    items = []
+    rows_for_c3 = []
+
+    for sid, entry in harness.items():
+        model_output = entry.get("model_output", "")
+        expected = entry.get("expected", "")
+        correct = entry.get("correct", False)
+
+        out_rows.append({
+            "sample_id": sid,
+            "model_output": model_output,
+            "expected": expected,
+            "correct": correct,
+        })
+        key_rows.append({"sample_id": sid, "expected": key_data[sid]["expected"]})
+        items.append({"arm": "default", "value": model_output, "correct": correct})
+        rows_for_c3.append({
+            "id": sid,
+            "evidence": model_output,
+            "is_positive": expected.lower() in model_output.lower() if expected else False,
+        })
+
+    return key_rows, out_rows, items, rows_for_c3
+
+
+# --------------------------------------------------------------------------- UltraEval-Audio (E136)
+def adapt_ultraeval(harness_dir: str) -> Tuple[List[Dict], List[Dict], List[Dict], List[Dict]]:
+    """Adapter for UltraEval-Audio format (E136).
+
+    Expected structure:
+        harness_dir/
+          res/
+            {model}/
+              {dataset}/
+                {timestamp}.jsonl           # per-sample results
+                {timestamp}-overview.jsonl  # summary (excluded)
+
+    Each JSONL line: {sample_id, model_output, expected, correct, ...}
+    """
+    key_rows = []
+    out_rows = []
+    items = []
+    rows_for_c3 = []
+
+    # Look for res/ directory; if not present, maybe harness_dir IS the res dir
+    res_dir = os.path.join(harness_dir, "res")
+    if not os.path.isdir(res_dir):
+        res_dir = harness_dir
+
+    if not os.path.isdir(res_dir):
+        raise FileNotFoundError(f"res directory not found in {harness_dir}")
+
+    for root, dirs, files in os.walk(res_dir):
+        for filename in files:
+            if filename.endswith(".jsonl") and not filename.endswith("-overview.jsonl"):
+                jsonl_path = os.path.join(root, filename)
+                with open(jsonl_path, "r") as f:
+                    for line in f:
+                        line = line.strip()
+                        if not line:
+                            continue
+                        data = json.loads(line)
+                        sid = data.get("sample_id")
+                        if not sid:
+                            continue
+                        model_output = data.get("model_output", "")
+                        expected = data.get("expected", "")
+                        correct = data.get("correct", False)
+                        if isinstance(correct, str):
+                            correct = correct.lower() == "true"
+                        else:
+                            correct = bool(correct)
+
+                        key_rows.append({"sample_id": sid, "expected": expected})
+                        out_rows.append({
+                            "sample_id": sid,
+                            "model_output": model_output,
+                            "expected": expected,
+                            "correct": correct,
+                        })
+                        items.append({"arm": "default", "value": model_output, "correct": correct})
+                        rows_for_c3.append({
+                            "id": sid,
+                            "evidence": model_output,
+                            "is_positive": expected.lower() in model_output.lower() if expected else False,
+                        })
+
+    return key_rows, out_rows, items, rows_for_c3
+
+
 # --------------------------------------------------------------------------- Registry of built-in adapters
 BUILTIN_ADAPTERS = {
     "jsonl": adapt_jsonl,
     "csv": adapt_csv,
     "yaml": adapt_yaml,
     "xml": adapt_xml,
+    "json": adapt_json,
+    "ultraeval": adapt_ultraeval,
 }
 
 

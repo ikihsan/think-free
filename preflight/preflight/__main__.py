@@ -2,10 +2,12 @@
 """preflight — three checks on the instrument that produces an evaluation rate.
 
 Usage:
-    preflight <adapter> <harness_dir> [--fp-ceiling FLOAT] [--anyway]
+    preflight <adapter> <harness_dir> [--fp-ceiling FLOAT] [--anyway] [--skip-c3]
+    preflight --list-adapters
+    preflight --version
 
 The adapter can be:
-  - A built-in adapter name: jsonl, csv, yaml, xml
+  - A built-in adapter name: jsonl, csv, yaml, xml, json, ultraeval
   - A path to a Python file exporting `adapt(harness_dir)`
   - An importable module name exporting `adapt(harness_dir)`
 
@@ -20,7 +22,9 @@ Exit codes:
 The tool measures:
   C1: concordance — do key and output identifiers actually join?
   C2: alternate-form false-positive rate — does the verifier condemn correct output written differently?
-  C3: control arm — is the declared negative arm actually negative?
+  C3: control arm — is the declared negative arm actually negative? (use --skip-c3 to disable)
+
+Built-in adapters: csv, json, jsonl, ultraeval, xml, yaml
 """
 
 import importlib.util
@@ -63,9 +67,31 @@ def resolve_adapter(adapter_spec: str):
 
 
 def main():
-    if len(sys.argv) < 3:
+    if len(sys.argv) < 2:
         print(__doc__)
         print(f"\nBuilt-in adapters: {', '.join(sorted(BUILTIN_ADAPTERS.keys()))}")
+        return 1
+
+    # Handle global options
+    if sys.argv[1] == "--list-adapters":
+        print("Built-in adapters:")
+        for name in sorted(BUILTIN_ADAPTERS.keys()):
+            print(f"  {name}")
+        return 0
+
+    if sys.argv[1] == "--version":
+        from . import VERSION
+        print(f"preflight {VERSION}")
+        return 0
+
+    if sys.argv[1] in ("-h", "--help"):
+        print(__doc__)
+        print(f"\nBuilt-in adapters: {', '.join(sorted(BUILTIN_ADAPTERS.keys()))}")
+        return 0
+
+    if len(sys.argv) < 3:
+        print("error: missing adapter and harness_dir arguments", file=sys.stderr)
+        print(__doc__)
         return 1
 
     adapter_spec = sys.argv[1]
@@ -74,11 +100,15 @@ def main():
     # Parse optional arguments
     fp_ceiling = 0.02
     anyway = False
+    skip_c3 = False
     i = 3
     while i < len(sys.argv):
         arg = sys.argv[i]
         if arg == "--anyway":
             anyway = True
+            i += 1
+        elif arg == "--skip-c3":
+            skip_c3 = True
             i += 1
         elif arg.startswith("--fp-ceiling="):
             try:
@@ -124,16 +154,26 @@ def main():
 
     c2 = alternate_form_fp(items, flagger, fp_ceiling=fp_ceiling)
 
-    # C3: control arm
-    def is_positive(row):
-        return row.get("is_positive", False)
+    # C3: control arm (optional)
+    checks = [c1, c2]
+    if not skip_c3:
+        def is_positive(row):
+            return row.get("is_positive", False)
 
-    c3 = control_arm(rows_for_c3, is_positive, premise=0.0, name="control")
+        c3 = control_arm(rows_for_c3, is_positive, premise=0.0, name="control")
+        checks.append(c3)
+    else:
+        c3 = None
 
-    checks = [c1, c2, c3]
+    # Compute headline rate from items (fraction correct)
+    if items:
+        correct_count = sum(1 for i in items if i.get("correct"))
+        rate = f"{correct_count/len(items):.4f}"
+    else:
+        rate = "0.0000"
 
     # Print report
-    text, code = render(checks, rate="(rate requires a recall computation)", label="preflight", anyway=anyway)
+    text, code = render(checks, rate=rate, label="preflight", anyway=anyway)
     print(text)
     return code
 

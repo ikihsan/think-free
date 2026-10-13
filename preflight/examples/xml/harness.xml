@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<harness>
+  <entry>
+    <sample_id>sample_001</sample_id>
+    <model_output>The cat sat on the mat.</model_output>
+    <expected>The cat sat on the mat.</expected>
+    <correct>true</correct>
+  </entry>
+  <entry>
+    <sample_id>sample_002</sample_id>
+    <model_output>The dog chased the ball.</model_output>
+    <expected>The dog chased the ball.</expected>
+    <correct>true</correct>
+  </entry>
+  <entry>
+    <sample_id>sample_003</sample_id>
+    <model_output>The bird flew south for winter.</model_output>
+    <expected>The bird flew south for winter.</expected>
+    <correct>true</correct>
+  </entry>
+  <entry>
+    <sample_id>sample_004</sample_id>
+    <model_output>The fish swam in the ocean.</model_output>
+    <expected>The fish swam in the ocean.</expected>
+    <correct>true</correct>
+  </entry>
+  <entry>
+    <sample_id>sample_005</sample_id>
+    <model_output>The sun rises in the east.</model_output>
+    <expected>The sun rises in the east.</expected>
+    <correct>true</correct>
+  </entry>
+</harness>

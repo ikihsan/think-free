@@ -1,0 +1,255 @@
+<!-- origin-meta
+owner: EXPERIMENTS/README.md
+status: active
+last-verified: 2026-10-13
+-->
+
+# 134 — preflight prototype release
+
+`observed` 2026-10-13, Python 3.8.10.
+
+## Prototype decision
+
+The `preflight` tool (E124) is released as an **exploratory prototype** with per-harness adapter interfaces. The three checks (C1 concordance, C2 alternate-form FP rate, C3 control arm validity) are now available as a single stdlib-only command that withholds the headline rate unless all three pass.
+
+This is **not a validated candidate** — it is an evidence-gathering prototype. The candidate case ("prior art does not already do this in one command, and someone other than this repository could point it at their own harness") is **partially met by internal evidence but untested externally**. The release documents this state and provides the mechanism for external validation.
+
+## What the tool does
+
+`preflight` measures three properties of an evaluation harness and withholds the headline rate when any check fails (exit 3, reason printed). A rate is obtainable only via `--anyway`, which prints it *and says the instrument checks failed*.
+
+| check | measures | verdict that withholds |
+|---|---|---|
+| **C1 concordance** | whether the key's ids and the output's ids are the same entities | `SILENT_NO_MATCH`, `NO_DISCRIMINATING_PAIRING` |
+| **C2 alternate-form FP** | the rate at which a flagger condemns items known to be right, per arm | `ALTERNATE_FORM_FP` |
+| **C3 control arm** | whether a declared negative arm is negative, by evidence the key does not use | `CONTROL_NOT_EMPTY` |
+
+## Built-in adapters (stdlib, no extra dependencies)
+
+The tool includes four built-in adapters for common harness output formats. Each adapter's `adapt(harness_dir)` function returns `(key_rows, out_rows, items, rows_for_c3)` compatible with preflight's checks.
+
+### Built-in adapters
+
+| Adapter | Format | File | Lines | Join key |
+|---|---|---|---|---|
+| **jsonl** | Per-task JSON files (E130) | `task_XXX.json` in root dir | ~15 stdlib lines | `sample_id` (from `sample_id`, `model_output`, `target` fields) |
+| **csv** | CSV format (E131) | `harness.csv` in root dir | ~30 stdlib lines | `sample_id` |
+| **yaml** | YAML format (E132) | `harness.yaml` in root dir | ~35 stdlib + PyYAML lines | `sample_id` |
+| **xml** | XML format (E133) | `harness.xml` in root dir | ~40 stdlib lines | `sample_id` |
+
+### Using a built-in adapter
+
+```bash
+# JSONL format: per-task JSON files with sample_id, model_output, target fields
+python3 -m preflight jsonl /path/to/harness_dir
+
+# CSV format: harness.csv with columns sample_id, model_output, expected, correct
+python3 -m preflight csv /path/to/harness_dir
+
+# YAML format: harness.yaml with entries containing sample_id, model_output, expected, correct
+# Requires: pip install pyyaml
+python3 -m preflight yaml /path/to/harness_dir
+
+# XML format: harness.xml with <harness><entry><sample_id>...</sample_id>...</entry></harness>
+python3 -m preflight xml /path/to/harness_dir
+```
+
+### Expected directory structure for built-in adapters
+
+**jsonl** (`task_XXX.json` in root directory):
+```json
+{"sample_id": "sample_001", "model_output": "The cat sat on the mat.", "target": "The cat sat on the mat."}
+```
+
+**csv** (`harness.csv` in root directory):
+```csv
+sample_id,model_output,expected,correct
+sample_001,"The cat sat on the mat.",The cat sat on the mat.,True
+```
+
+**yaml** (`harness.yaml` in root directory):
+```yaml
+- sample_id: sample_001
+  model_output: "The cat sat on the mat."
+  expected: The cat sat on the mat.
+  correct: True
+```
+
+**xml** (`harness.xml` in root directory):
+```xml
+<harness>
+  <entry>
+    <sample_id>sample_001</sample_id>
+    <model_output>The cat sat on the mat.</model_output>
+    <expected>The cat sat on the mat.</expected>
+    <correct>true</correct>
+  </entry>
+</harness>
+```
+
+## Per-harness adapters (for evaluation frameworks)
+
+For specific evaluation frameworks (LLM evals, etc.), a per-harness adapter (~8-38 lines of stdlib Python) is needed to translate the harness's output format into the dict format preflight expects.
+
+### Confirmed adapter patterns (8 harness structures, 8-38 lines)
+
+| Harness | Output structure | Adapter lines | Join key |
+|---|---|---|---|
+| **E128** | `modelscope/evalscope`: two files (predictions + reviews) joined by `index` within task dir | ~8 lines | `index` |
+| **E129** | `openai/evals`: single append-only event stream, filtered for `"match"` events, joined by `sample_id` | ~10 lines | `sample_id` |
+| **E130** | Per-task JSON files: `task_XXX.json` with `sample_id`, `model_output`, `target`; joined by `sample_id` across flat dir | **34 lines** | `sample_id` |
+| **E131** | CSV: `harness.csv` with columns `sample_id`, `model_output`, `expected`, `correct` | **37 lines** | `sample_id` |
+| **E132** | YAML: `harness.yaml` with entries containing `sample_id`, `model_output`, `expected`, `correct` | **35 lines** | `sample_id` |
+| **E133** | XML: `harness.xml` with `<entry>` elements under `<harness>` root | **38 lines** | `sample_id` |
+| **E135** | Single JSON: `harness.json` (dict mapping `sample_id` → `{model_output, expected, correct}`) | **33 lines** | `sample_id` |
+| **E136** | **UltraEval-Audio**: `res/{model}/{dataset}/{timestamp}.jsonl` (directory tree with per-run JSONL files) | **38 lines** | `sample_id` |
+
+All 8 adapters are **stdlib-only, no model calls, no domain knowledge**, and produce results compatible with all three preflight checks (C1, C2, C3).
+
+### Adapter interface (for harness authors)
+
+Write a function that takes a directory path and yields dicts with at minimum `sample_id`, `model_output`, `target`:
+
+```python
+def make_my_harness_adapter(directory: str):
+    # Read the harness output format and yield dicts:
+    for fn in sorted(os.listdir(directory)):
+        if not fn.endswith(".json"): continue  # or your format's filter
+        with open(os.path.join(directory, fn)) as f:
+            data = json.load(f)
+        yield {"sample_id": data["sample_id"],
+               "model_output": data["model_output"],
+               "target": data["target"]}
+    # Carry any extra fields through so the row is rich enough for pairing
+    for k, v in data.items():
+        if k not in ("sample_id", "model_output", "target"):
+            row[k] = v
+```
+
+Then use the adapter with preflight:
+
+```python
+from preflight import concordance, alternate_form_fp, control_arm, render
+
+checks = [
+    concordance(key_rows, out_rows),                      # C1
+    alternate_form_fp(control_items, flagger, fp_ceiling=0.02),  # C2
+    control_arm(control_rows, is_positive, premise=0.0),     # C3
+]
+text, code = render(checks, rate=recall)   # code 3 and the rate withheld
+```
+
+Or from the command line:
+
+```bash
+# If the adapter is a module named adapter.py in the harness dir:
+python3 -m preflight /path/to/adapter.py /path/to/harness_dir
+
+# Or if it's an importable module:
+python3 -m preflight my_adapter_module /path/to/harness_dir
+```
+
+### Running the prototype
+
+```bash
+# From the preflight experiment directory
+cd EXPERIMENTS/124-eval-harness-preflight
+
+# Measure the three checks on committed harnesses
+python3 run.py
+
+# Run the 16 tests
+python3 -m unittest test_preflight
+```
+
+## What this establishes
+
+1. **The three checks are now automatable in one command.** Prior art exists for each leg individually (Anthropic for C2 design advice, dblect for C1 static type check, JudgeBench partial C2) but never combined with Wilson intervals and a refusal composition in one command.
+
+2. **The adapter pattern generalises across eight diverse harness structures with different output formats.** The pattern is not format-specific: two-file, event-stream, JSONL, CSV, YAML, XML, single JSON, and directory-tree JSONL all work with 8-38 line adapters.
+
+3. **A concrete instrument for the three failure modes** that caused F118, F121, F122 in this repository is now available. Other harness authors can point preflight at their own output and learn whether their declared gates are silent about these defects.
+
+4. **The tool is stdlib-only, no model calls, no domain knowledge.** This lowers the adoption barrier significantly — no pip install, no API keys.
+
+## What this does not establish
+
+- **That the tool is useful to anyone outside this repository.** The candidate case requires external validation. The internal measurements (7 committed harnesses, 32+ passing tests including injected defects) are necessary but not sufficient.
+
+- **That the adapter is always ≤ 38 lines.** A harness with a more complex output structure may require a larger adapter. Seven formats is a lower bound, not an upper bound.
+
+- **That the checks always fire on broken harnesses.** K2 was recorded as "failed as declared" — the alternate-form arm measurement alone does not discriminate between instruments. The three checks combined provide more information than any single one.
+
+- **That the refusal transfers as a rate gate.** A harness may call `report()` and get a headline rate only on exit 0. This is a process obligation, not a general-purpose gate.
+
+## How to use it
+
+### Quick start with built-in adapters
+
+```bash
+# If you have a CSV-formatted harness
+python3 -m preflight csv /path/to/harness_dir
+
+# If you have per-task JSON files
+python3 -m preflight jsonl /path/to/harness_dir
+
+# If you have YAML (install pyyaml first)
+pip install pyyaml
+python3 -m preflight yaml /path/to/harness_dir
+
+# If you have XML
+python3 -m preflight xml /path/to/harness_dir
+
+# If you have UltraEval-Audio output
+python3 -m preflight ultraeval /path/to/ultraeval_output
+```
+
+### With `--anyway` to print the rate despite failed checks
+
+```bash
+python3 -m preflight csv /path/to/harness_dir --anyway
+```
+
+### With a custom per-harness adapter
+
+```python
+from preflight import concordance, alternate_form_fp, control_arm, render
+
+# Import the adapter's adapt function
+from my_harness_adapter import adapt_my_harness
+key_rows, out_rows, items, rows_for_c3 = adapt_my_harness("/path/to/harness")
+
+checks = [
+    concordance(key_rows, out_rows),                      # C1
+    alternate_form_fp(control_items, flagger, fp_ceiling=0.02),  # C2
+    control_arm(control_rows, is_positive, premise=0.0),     # C3
+]
+text, code = render(checks, rate=recall)   # code 3 and the rate withheld
+```
+
+Or from the command line:
+
+```bash
+python3 -m preflight my_adapter_module /path/to/harness_dir
+```
+
+## Adapter catalog
+
+The full adapter catalog documenting all 7 harness structures and their adapter sizes is available at `EXPERIMENTS/adapters_catalog.json`.
+
+## Build decision
+
+**Release as exploratory prototype.** The practical difference is: evaluators running CI suites can now catch three classes of silent defects that their own declared gates miss, before reporting a headline rate. This is evidence-gathering, not product validation. The next step is external validation: someone outside this repository pointing the tool at their own harness and reporting whether the checks caught defects their gates missed.
+
+If a ninth harness requires a significantly larger adapter, the line should be re-evaluated. If external use shows the checks are redundant with the harness's own gates, the prototype has served its purpose of mapping the boundary.
+
+## Next steps for external validation
+
+Anyone who runs their own evaluation harness is encouraged to:
+
+1. Write a per-harness adapter (8-38 lines typical, depending on format)
+2. Run `preflight` on their key/output directories
+3. Report whether any of the three checks caught defects their declared gates missed
+4. Share the results so the community can map the boundary of this instrument
+
+This record becomes the prior art for C1/C2/C3 combined in one command, so future evaluators don't have to re-discover the same gaps.
