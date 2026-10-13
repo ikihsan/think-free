@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-04
 -->
 
-Decisions **D029, D032, D035, D041, D043, D046, D047**. Each entry records a choice that
+Decisions **D029, D032, D035, D041, D043, D048, D047**. Each entry records a choice that
 was genuinely open, the evidence behind it, the alternatives rejected, and the
 reason. Decisions that constrain later work belong here; ordinary edits do not.
 
@@ -264,7 +264,7 @@ stated here rather than left to be discovered. The loose rule's blindness is
 asserted in `tests/test_result_numbers_falsified.py`, so the restriction cannot be
 dropped quietly.
 
-## D046 — A list split across files is read by a reader that reads all of them
+## D048 — A list split across files is read by a reader that reads all of them
 
 Evidence: T-0056, session `2026-10-04-042`. Defect 22 in
 [`STATE-defects.md`](STATE-defects.md).
