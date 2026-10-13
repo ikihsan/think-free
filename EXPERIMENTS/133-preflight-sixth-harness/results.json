@@ -1,0 +1,49 @@
+{
+  "experiment": "E133",
+  "adapter_lines": 38,
+  "harness_structure": "XML: harness.xml with <harness><entry> elements {sample_id, model_output, expected, correct}",
+  "checks": {
+    "C1_concordance": {
+      "verdict": "OK",
+      "best_rate": 1.0,
+      "summary": "20/20 = 1.0000 CI95 [0.9714, 1.0000]",
+      "reason": ""
+    },
+    "C2_alternate_form_fp": {
+      "verdict": "OK",
+      "worst_fp_wilson_lower": 0.0,
+      "arms": {
+        "default": {
+          "correct_items": {
+            "n": 15,
+            "flagged": 0,
+            "rate": 0.0,
+            "summary": "0/15 = 0.0000 CI95 [0.0000, 0.1913]"
+          },
+          "incorrect_items": {
+            "n": 5,
+            "flagged": 0,
+            "rate": 0.0,
+            "summary": "0/5 = 0.0000 CI95 [0.0000, 0.5661]"
+          }
+        }
+      }
+    },
+    "C3_control_arm": {
+      "verdict": "OK",
+      "rate": 1.0,
+      "positives": 5,
+      "summary": "5/5 = 1.0000 CI95 [0.5655, 1.0000]",
+      "wilson": [0.5655, 1.0],
+      "reason": ""
+    }
+  },
+  "headline": "rate: None (all 3 instrument checks OK)",
+  "exit_code": 0,
+  "adapter_code_lines": 38,
+  "adapter_under_ceiling": true,
+  "generalization_data_point": true,
+  "harness_files": [
+    {"path": "harness.xml", "format": "XML with <harness><entry> elements"}
+  ]
+}
