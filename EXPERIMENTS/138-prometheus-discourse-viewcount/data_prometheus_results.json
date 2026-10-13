@@ -1,0 +1,35 @@
+{
+  "experiment": "E138",
+  "timestamp": "2026-10-13T18:54:22Z",
+  "total_topics": 300,
+  "classified": 290,
+  "need_related": 110,
+  "random": 180,
+  "excluded": 10,
+  "coverage": 0.9666666666666667,
+  "need_fraction": 0.3793103448275862,
+  "g1": {
+    "rate": 1.0,
+    "pass": true
+  },
+  "g2": {
+    "coverage": 0.9666666666666667,
+    "need_fraction": 0.3793103448275862,
+    "pass": true
+  },
+  "g3": {
+    "unserved_rate": 0.8909090909090909,
+    "ci_low": 0.8189496042188501,
+    "ci_high": 0.9364860186114684,
+    "pass": false
+  },
+  "g4": {
+    "classified": 290,
+    "pass": true
+  },
+  "matched_harvest": {
+    "cliffs_delta": 0.14424242424242426,
+    "mannwhitney_p": 0.03938816325444161
+  },
+  "overall": "FAIL"
+}

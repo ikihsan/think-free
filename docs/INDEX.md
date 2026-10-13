@@ -177,6 +177,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0090-e091-hand-replicate-e062-s-answerability-sub-tes.md`](../tasks/T-0090-e091-hand-replicate-e062-s-answerability-sub-tes.md) | `tasks/INDEX.md` | active | 2026-10-10 | ## Goal |
 | [`tasks/T-0091-run-a-fresh-observation-experiment-testing-the-v.md`](../tasks/T-0091-run-a-fresh-observation-experiment-testing-the-v.md) | `tasks/INDEX.md` | active | 2026-10-11 | ## Goal |
 | [`tasks/T-0093-test-whether-a-discriminating-observation-proced.md`](../tasks/T-0093-test-whether-a-discriminating-observation-proced.md) | `tasks/INDEX.md` | active | 2026-10-12 | ## Goal |
+| [`tasks/T-0094-harvest-public-issue-trackers-and-practitioner-d.md`](../tasks/T-0094-harvest-public-issue-trackers-and-practitioner-d.md) | `tasks/INDEX.md` | active | 2026-10-13 | ## Goal |
+| [`tasks/T-0095-improve-preflight-usability-and-documentation.md`](../tasks/T-0095-improve-preflight-usability-and-documentation.md) | `tasks/INDEX.md` | active | 2026-10-13 | id: T-0095 |
 
 ## RESEARCH
 
@@ -399,11 +401,21 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/128-github-discussions-viewcount/` | `docs/INDEX.md` | active | 2026-10-12 | 2 documents |
 | `EXPERIMENTS/128-preflight-run-output/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-13 | 1 documents |
 | `EXPERIMENTS/129-preflight-adapter-openai-evals/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-13 | 1 documents |
+| `EXPERIMENTS/130-hex-viewcount-prototype/` | `docs/INDEX.md` | active | 2026-10-13 | ## What This Prototype Does |
 | `EXPERIMENTS/130-preflight-adapter-third-harness/` | `EXPERIMENTS/README.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10, instance-20260717-0947. |
 | `EXPERIMENTS/130-preflight-third-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
 | `EXPERIMENTS/131-preflight-fourth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
+| `EXPERIMENTS/131-viewcount-java-repos-matched-harvest/` | `—` | — | — | 1 documents |
 | `EXPERIMENTS/132-preflight-fifth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
+| `EXPERIMENTS/132-viewcount-rust-repos-matched-harvest/` | `—` | — | — | 1 documents |
 | `EXPERIMENTS/133-preflight-sixth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
+| `EXPERIMENTS/135-preflight-seventh-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
+| `EXPERIMENTS/136-ultraeval-adapter/` | `—` | — | — | Measures the adapter size for UltraEval-Audio harness output format. |
+| `EXPERIMENTS/137-preflight-demand-validation/` | `EXPERIMENTS/README.md` | active | 2026-10-13 | 3 documents |
+| `EXPERIMENTS/137-preflight-prototype-release/` | `docs/INDEX.md` | active | 2026-10-13 | Status: Prototype — tool + per-harness adapters confirmed operational across two harness formats |
+| `EXPERIMENTS/137-viewcount-classifier-prototype/` | `docs/INDEX.md` | active | 2026-10-13 | 1 documents |
+| `EXPERIMENTS/138-cicd-debugging-fresh/` | `docs/INDEX.md` | active | 2026-10-13 | Date: 2026-10-13 · Status: Complete — all gates measured |
+| `EXPERIMENTS/138-prometheus-discourse-viewcount/` | `docs/INDEX.md` | active | 2026-10-13 | 2 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |

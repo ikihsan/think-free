@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-11
+last-verified: 2026-10-13
 -->
 
 # Next actions
@@ -238,6 +238,29 @@ with a per-harness adapter interface.
 **Classification breakdown:** C1_credible: 63, C2_credible: 0, C3_credible: 0, related: 32. The keyword-based classifier produced false positives for C1 (many issues match "join/match/silent/zero/accuracy" keywords but don't describe the actual C1 defect — silent join failure between separate key/output files). Only 2 frameworks yielded any credible reports; need ≥3. **GATE_CLOSED: demand too weak, preflight candidate withdrawn on demand grounds.** See `EXPERIMENTS/137-preflight-demand-validation/RESULT.md` and `CLASSIFICATIONS.md`.
 
 The preflight line remains an exploratory prototype (E134) with 8 validated adapters (E128–E136) but no external demand signal.
+
+## E138 completed (2026-10-13): Prometheus Discourse — coverage boundary broken, view-count holds, zero-reply metric fails
+
+**E138 fresh observation on Prometheus Discourse (discuss.prometheus.io) completed with developer-forum-specific classifier.**
+
+| Gate | Threshold | Result |
+|------|-----------|--------|
+| G1 | ≥95% view_count > 0 | **PASS** (100%) |
+| G2 | Coverage ≥60%, need fraction ≥5% | **PASS** (96.7%, 37.9%) |
+| G3 | Unserved CI95 upper < 60% | **FAIL** (89.1%, CI95 [81.9%, 93.6%]) |
+| G4 | ≥30 classified | **PASS** (290) |
+
+**Key findings:**
+
+1. **Coverage boundary broken**: Developer-forum classifier achieves **96.7% coverage**, decisively breaking the 60% floor that closed E124 (GNOME 37.2%) and E125 (Jupyter 50.4%). Pattern additions for error-message titles, noun-phrase questions, colloquial problem statements, and domain-specific terms closed the gap.
+
+2. **View-count principle holds**: Matched harvest shows **Cliff's δ = +0.144, p = 0.039** — need-related topics get more views than random. Consistent with support forum baseline.
+
+3. **Zero-reply metric fails**: 89.1% zero-reply rate fails G3 (dysfunctional threshold 60%). But served topics (12/110) show genuine engagement. The metric conflates "no community reply" with "need unserved" — many topics may be self-resolved, answered via edits, or the forum has naturally low response rates.
+
+4. **No candidate**: G3 fails, and the zero-reply metric is likely inappropriate for this forum.
+
+See `EXPERIMENTS/138-prometheus-discourse-viewcount/RESULT.md`.
 
 ## E114 closed the value-grounding line (2026-10-12)
 
