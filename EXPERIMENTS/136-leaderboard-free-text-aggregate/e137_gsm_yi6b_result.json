@@ -1,0 +1,18 @@
+{
+ "experiment": "E137",
+ "name": "Cross-model agreement on gsm cell",
+ "model": "01-ai_yi-6b",
+ "cell": "gsm",
+ "parser": "last number in completion (#### parser fallback)",
+ "published_value": 0.375,
+ "recomputed_mean": 0.359,
+ "diff": -0.016000000000000014,
+ "rows": 1000,
+ "hits": 359,
+ "agreement_ratio": 0.359,
+ "harness_final_number_exact_match": 0.375,
+ "kill_gate_fired": false,
+ "reach_demonstrated": true,
+ "external_value_unobserved": true,
+ "details": "R1 recomputation from scenario_state.json using last-number-in-completion parser. n=1000, hits=359, mean=0.359 vs published 0.375, diff=-0.016. Harness final_number_exact_match mean=0.375. Instrument works across models but slight discrepancy between harness metric and simple last-number extraction."
+}

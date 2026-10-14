@@ -1,0 +1,18 @@
+{
+ "experiment": "E137",
+ "name": "Cross-model agreement on gsm cell",
+ "model": "01-ai_yi-6b",
+ "cell": "gsm",
+ "parser": "#### number-extraction (last number from text, normalized)",
+ "published_value": 0.375,
+ "recomputed_mean": 0,
+ "diff": null,
+ "rows": 0,
+ "hits": 0,
+ "agreement_ratio": null,
+ "harness_agreement": false,
+ "kill_gate_fired": false,
+ "reach_demonstrated": false,
+ "external_value_unobserved": true,
+ "details": "R1 recomputation from scenario_state.json alone using #### parser. Recomputed mean 0 vs published 0.375, diff N/A. 0/0 rows agree with harness verdicts."
+}

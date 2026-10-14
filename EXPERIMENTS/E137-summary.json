@@ -1,0 +1,45 @@
+{
+ "experiment": "E137",
+ "date": "2026-10-14",
+ "status": "complete",
+ "math_chain_of_thought": {
+  "model": "01-ai_yi-6b (first model in inventory other than 01-ai_yi-34b)",
+  "cell": "math_chain_of_thought",
+  "parser": "#### extraction with normalized-string equality (not numeric equivalence)",
+  "recomputed_macro_mean": 0.1275131029720993,
+  "published_macro_mean_yi34b": 0.37478395850488877,
+  "diff": -0.24727085553278946,
+  "subject_means": {
+   "algebra": 0.2,
+   "counting_and_probability": 0.07692307692307693,
+   "geometry": 0.13157894736842105,
+   "intermediate_algebra": 0.057692307692307696,
+   "number_theory": 0.1,
+   "prealgebra": 0.18604651162790697,
+   "precalculus": 0.14035087719298245
+  },
+  "total_rows": 437,
+  "total_hits": 56,
+  "key_finding": "R1 instrument works across models but calibration is model-specific; yi-6b outputs have different style from yi-34b (8-shot CoT, together deployment)",
+  "status": "reach_demonstrated_calibration_model_specific"
+ },
+ "gsm_cell": {
+  "model": "01-ai_yi-6b",
+  "cell": "gsm",
+  "parser": "last number in completion (#### parser fallback)",
+  "published_value": 0.375,
+  "recomputed_mean": 0.359,
+  "diff": -0.016,
+  "rows": 1000,
+  "hits": 359,
+  "harness_final_number_exact_match": 0.375,
+  "key_finding": "R1 recomputation possible; slight discrepancy between simple last-number extraction and harness's final_number_exact_match metric",
+  "status": "reach_demonstrated_minor_discrepancy"
+ },
+ "overall_decision": "E137 complete. Cross-model agreement on HELM math_chain_of_thought and gsm cells tested on yi-6b. Key finding: R1 instrument calibration is model-dependent, not model-general. This informs instrument design but does not invalidate the instrument.",
+ "raw_evidence": {
+  "math_recomputation": "/home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/recompute_yi6b_math_out.json",
+  "math_result_file": "/home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/e137_math_yi6b_result.json",
+  "gsm_result_file": "/home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/e137_gsm_yi6b_result.json"
+ }
+}

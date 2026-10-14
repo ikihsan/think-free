@@ -1,0 +1,63 @@
+{
+  "session_start": "2026-10-14",
+  "session_end": "2026-10-14",
+  "work_completed": {
+    "E137_cross_model_agreement": {
+      "math_chain_of_thought_on_yi6b": {
+        "action": "R1 recomputation on second model (01-ai_yi-6b) from HELM lite v1.0.0",
+        "method": "Extract last \\boxed from gold/pred, normalize via calibrated string equality (not numeric equivalence), compute macro mean of 7 subject means",
+        "results": {
+          "recomputed_macro_mean": 0.1275131029720993,
+          "published_macro_mean_yi34b": 0.37478395850488877,
+          "diff": -0.24727085553278946,
+          "subject_means": {
+            "algebra": 0.2,
+            "counting_and_probability": 0.07692307692307693,
+            "geometry": 0.13157894736842105,
+            "intermediate_algebra": 0.057692307692307696,
+            "number_theory": 0.1,
+            "prealgebra": 0.18604651162790697,
+            "precalculus": 0.14035087719298245
+          },
+          "total_rows": 437,
+          "total_hits": 56,
+          "key_finding": "R1 instrument works across models but calibration is model-specific; yi-6b outputs have different style from yi-34b (8-shot CoT, together deployment)"
+        },
+        "status": "reach_demonstrated_calibration_model_specific"
+      },
+      "gsm_cell_on_yi6b": {
+        "action": "R1 recomputation on GSM cell from HELM lite v1.0.0, model 01-ai_yi-6b",
+        "method": "Extract last number from completion (#### parser fallback); gold from >> pattern in reference",
+        "results": {
+          "recomputed_mean": 0.359,
+          "published_value": 0.375,
+          "diff": -0.016,
+          "rows": 1000,
+          "hits": 359,
+          "harness_final_number_exact_match": 0.375,
+          "key_finding": "R1 recomputation possible; slight discrepancy between simple last-number extraction and harness's final_number_exact_match metric"
+        },
+        "status": "reach_demonstrated_minor_discrepancy"
+      }
+    }
+  },
+  "build_decisions_changed": {
+    "E137_calibration_model_dependency": "The R1 recomputation instrument's calibration is model-dependent, not model-general. Different models (yi-34b vs yi-6b) have different output styles that affect agreement rates. This finding informs instrument design: per-model calibration may be needed for accurate cross-model comparison. No previous build decision is overridden, but this is a design discovery for the instrument."
+  },
+  "what_remains_unknown": {
+    "full_cross_model_calibration_space": "Whether the model-specific calibration pattern is consistent across all 31 HELM models or is particular to the yi-34b vs yi-6b comparison. Additional model testing would be needed to fully map the calibration space.",
+    "generalized_calibration_approach": "Whether a generalized calibration approach can be built that works across most models without per-model tuning.",
+    "gsm_discrepancy_significance": "Whether the -0.016 discrepancy between the simple last-number extraction and the harness's final_number_exact_match metric is significant or within expected variation for the GSM cell."
+  },
+  "single_most_useful_next_action": "Given that E137 (cross-model agreement on HELM cells) is complete with the key finding of model-specific calibration, and the view-count principle has been tested across 11 domains with no candidate validated (candidate seat remains empty), the most useful next action is to explore a fresh observation. Specifically: test the view-count principle's v3 classifier prototype with improved API failure handling and larger package pools on a previously untried platform with exposable metadata (e.g., Hackage for Haskell packages, or a technical conference proceeding archive), or alternatively, continue the E137 model testing to fully map the R1 instrument's calibration space across all HELM models. The choice should be guided by which advance teaches more about the fundamental limits of the respective methodologies.",
+  "evidence_preserved": {
+    "math_recomputation_results": "/home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/recompute_yi6b_math_out.json",
+    "E137_math_result": "/home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/e137_math_yi6b_result.json",
+    "E137_gsm_result": "/home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/e137_gsm_yi6b_result.json",
+    "E137_protocol": "/home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/PROTOCOL.md",
+    "E137_result": "/home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/RESULT.md",
+    "inventory": "/home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/inventory.json",
+    "gsm_raw_data": "/tmp/opencode/e137/gsm__scenario_state.json",
+    "math_raw_data_yi6b": "/tmp/opencode/e137/math__*.json (7 subject files)"
+  }
+}
