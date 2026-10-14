@@ -417,6 +417,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/138-cicd-debugging-fresh/` | `docs/INDEX.md` | active | 2026-10-13 | Date: 2026-10-13 · Status: Complete — all gates measured |
 | `EXPERIMENTS/138-prometheus-discourse-viewcount/` | `docs/INDEX.md` | active | 2026-10-13 | 2 documents |
 | `EXPERIMENTS/140-judge-form-invariance/` | `docs/INDEX.md` | active | 2026-10-14 | 14 documents |
+| `EXPERIMENTS/141-valueset-second-genre/` | `docs/INDEX.md` | active | 2026-10-14 | 5 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |

@@ -134,3 +134,4 @@ table stayed correct: `DECISIONS-GATING.md` named D013 — which lives in
 moved out. The line under the title is the first thing a reader sees, and it is
 now held by `tools/originlib/decisionheader.py` in both directions, so the three
 sources of a decision number — heading, index row, header — must all agree.
+| [`DECISIONS-SCREENING-22.md`](DECISIONS-SCREENING-22.md) | D111, D112 | A build trigger fires on a population and is withdrawn by a second population rather than by a better one — the artifact stays, and the scope statement is replaced by the one the second population supports (E141, F126); and a measurement carries its own controls, so a control written by the session that wrote the instrument is a restatement, a control that fails is reported by name and left standing as an `expectedFailure` rather than tuned until it passes (E141, D112) |

@@ -1,0 +1,570 @@
+{
+  "K1_detection_B_digit": {
+    "ci95": [
+      0.2523,
+      0.315
+    ],
+    "declared": "extra non-empty on >= 0.95 of B AND D",
+    "k": 223,
+    "n": 789,
+    "passed": false,
+    "rate": 0.2826
+  },
+  "K2_false_positive_A": {
+    "ci95": [
+      0.9857,
+      0.9911
+    ],
+    "declared": "extra empty on >= 0.98 of A, i.e. FP <= 0.02",
+    "k": 5861,
+    "n": 5928,
+    "passed": true,
+    "rate": 0.9887
+  },
+  "K3_coverage_A": {
+    "ci95": [
+      0.2043,
+      0.2252
+    ],
+    "declared": "at least one value extracted on >= 0.30 of A",
+    "k": 1272,
+    "n": 5928,
+    "passed": false,
+    "rate": 0.2146
+  },
+  "K4_coverage_digit_arms": {
+    "A_digit": {
+      "ci95": [
+        0.8656,
+        0.9195
+      ],
+      "k": 446,
+      "n": 498,
+      "rate": 0.8956
+    },
+    "B_digit": {
+      "ci95": [
+        0.8401,
+        0.8877
+      ],
+      "k": 683,
+      "n": 789,
+      "rate": 0.8657
+    },
+    "declared": "at least one value on >= 0.30 of A AND D and of B AND D",
+    "passed": true
+  },
+  "K5_coverage_A_value_answer": {
+    "ci95": [
+      0.9196,
+      0.9522
+    ],
+    "declared": "AMENDMENT-1: at least one value on >= 0.30 of A AND N",
+    "k": 800,
+    "n": 853,
+    "passed": true,
+    "rate": 0.9379
+  },
+  "M1_ground_py": {
+    "flagged_items_on_A": {
+      "ci95": [
+        0.0868,
+        0.1017
+      ],
+      "k": 557,
+      "n": 5928,
+      "note": "false-positive rate on correct items",
+      "rate": 0.094
+    },
+    "flagged_items_on_B_digit": {
+      "ci95": [
+        0.685,
+        0.7477
+      ],
+      "k": 566,
+      "n": 789,
+      "note": "detection on real human value errors",
+      "rate": 0.7174
+    },
+    "values_extracted_on_A": {
+      "ci95": [
+        0.9977,
+        1.0
+      ],
+      "k": 1661,
+      "n": 1661,
+      "rate": 1.0
+    }
+  },
+  "arm_C_plausible_answer": {
+    "clear": {
+      "ci95": [
+        0.2009,
+        0.2217
+      ],
+      "k": 1252,
+      "n": 5930,
+      "rate": 0.2111
+    },
+    "condemn": {
+      "ci95": [
+        0.0343,
+        0.0442
+      ],
+      "k": 231,
+      "n": 5930,
+      "rate": 0.039
+    },
+    "defer": {
+      "ci95": [
+        0.7387,
+        0.7608
+      ],
+      "k": 4447,
+      "n": 5930,
+      "rate": 0.7499
+    },
+    "exposure_clear": {
+      "ci95": [
+        0.2009,
+        0.2217
+      ],
+      "k": 1252,
+      "n": 5930,
+      "rate": 0.2111
+    },
+    "n": 5930,
+    "note": "submission is the question plus a human-written plausible answer drawn from another passage. `clear` here is a value present in this paragraph attached to the wrong subject: the pre-pass cannot see it and a judge must.",
+    "values_per_item": {
+      "ci95": [
+        0.31,
+        0.3338
+      ],
+      "k": 1908,
+      "n": 5930,
+      "rate": 0.3218
+    }
+  },
+  "corpus_rows": 11873,
+  "coverage_by_arm": {
+    "A": {
+      "ci95": [
+        0.2043,
+        0.2252
+      ],
+      "k": 1272,
+      "n": 5928,
+      "rate": 0.2146
+    },
+    "A_non_value_answer": {
+      "ci95": [
+        0.0853,
+        0.1013
+      ],
+      "k": 472,
+      "n": 5075,
+      "rate": 0.093
+    },
+    "A_value_answer (N)": {
+      "ci95": [
+        0.9196,
+        0.9522
+      ],
+      "k": 800,
+      "n": 853,
+      "rate": 0.9379
+    },
+    "B": {
+      "ci95": [
+        0.107,
+        0.1232
+      ],
+      "k": 683,
+      "n": 5945,
+      "rate": 0.1149
+    },
+    "B_digit": {
+      "ci95": [
+        0.8401,
+        0.8877
+      ],
+      "k": 683,
+      "n": 789,
+      "rate": 0.8657
+    }
+  },
+  "exposure_unsupported_inside_clear": {
+    "ci95": [
+      0.0709,
+      0.0844
+    ],
+    "k": 460,
+    "n": 5945,
+    "note": "share of genuinely unsupported items the pre-pass does not condemn, because it finds no absent value in them",
+    "rate": 0.0774
+  },
+  "false_positive_taxonomy_on_A": {
+    "absent_magnitude": 67,
+    "examples": [
+      {
+        "extra": [
+          [
+            "num",
+            "75.0"
+          ]
+        ],
+        "id": "5705f09e75f01819005e77a7",
+        "kind_mismatch": false,
+        "question": "What was the percentage of people that voted in favor of the Pico Act of 1859?",
+        "submission": "What was the percentage of people that voted in favor of the Pico Act of 1859? 75"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "2012.0"
+          ]
+        ],
+        "id": "5709686c200fba1400367f7b",
+        "kind_mismatch": false,
+        "question": "What was the total number of homes Sky announced that had Sky+HD in March of 2012?",
+        "submission": "What was the total number of homes Sky announced that had Sky+HD in March of 2012? 4,222,000"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "2006.0"
+          ],
+          [
+            "num",
+            "2009.0"
+          ]
+        ],
+        "id": "57097141200fba1400367ffc",
+        "kind_mismatch": false,
+        "question": "What was the one linear HD channel Virgin Media carried from November 2006 to July 2009?",
+        "submission": "What was the one linear HD channel Virgin Media carried from November 2006 to July 2009? BBC HD"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "270000.0"
+          ]
+        ],
+        "id": "570d2d68fed7b91900d45cbf",
+        "kind_mismatch": false,
+        "question": "How many tonnes of tomatoes does Victoria produce?",
+        "submission": "How many tonnes of tomatoes does Victoria produce? 270,000"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "90.0"
+          ]
+        ],
+        "id": "571142b3a58dae1900cd6d5d",
+        "kind_mismatch": false,
+        "question": "What percentage of electrical power in the United States is made by steam turbines?",
+        "submission": "What percentage of electrical power in the United States is made by steam turbines? 90"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "90.0"
+          ]
+        ],
+        "id": "571154c72419e31400955587",
+        "kind_mismatch": false,
+        "question": "What percentage of electricity was made by steam turbine in the 1990s?",
+        "submission": "What percentage of electricity was made by steam turbine in the 1990s? 90"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "94.0"
+          ]
+        ],
+        "id": "571156152419e3140095559d",
+        "kind_mismatch": false,
+        "question": "What is the weight of a bushel of coal in pounds?",
+        "submission": "What is the weight of a bushel of coal in pounds? 94"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "8.8"
+          ]
+        ],
+        "id": "57115bf350c2381900b54a96",
+        "kind_mismatch": false,
+        "question": "How many pounds of steam per kilowatt hour does the Energiprojekt AB engine use?",
+        "submission": "How many pounds of steam per kilowatt hour does the Energiprojekt AB engine use? 8.8"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "30.0"
+          ]
+        ],
+        "id": "57115bf350c2381900b54a97",
+        "kind_mismatch": false,
+        "question": "What percentage of a high pressure engine's efficiency has the Energiprojekt AB engine achieved?",
+        "submission": "What percentage of a high pressure engine's efficiency has the Energiprojekt AB engine achieved? 27-30"
+      },
+      {
+        "extra": [
+          [
+            "qty",
+            "0.0"
+          ],
+          [
+            "qty",
+            "20.0"
+          ]
+        ],
+        "id": "571c96095efbb31900334dc0",
+        "kind_mismatch": false,
+        "question": "How much more oxygen dissolves at 0 degrees C than at 20 degrees C?",
+        "submission": "How much more oxygen dissolves at 0 degrees C than at 20 degrees C? twice"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "2.0"
+          ]
+        ],
+        "id": "57261f9f271a42140099d4ab",
+        "kind_mismatch": false,
+        "question": "Scholars stated that there was already an existing settlement between 2 parties prior to which date?",
+        "submission": "Scholars stated that there was already an existing settlement between 2 parties prior to which date? 1973"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "3.0"
+          ]
+        ],
+        "id": "5726249538643c19005ad081",
+        "kind_mismatch": false,
+        "question": "What 3 things does the Air Force work key on ",
+        "submission": "What 3 things does the Air Force work key on  use of a decentralized network with multiple paths between any two points, dividing user messages into message blocks"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "1950.0"
+          ]
+        ],
+        "id": "572632ceec44d21400f3dc2f",
+        "kind_mismatch": false,
+        "question": "What did Paul Baran develop in the late 1950's",
+        "submission": "What did Paul Baran develop in the late 1950's the concept Distributed Adaptive Message Block Switching"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "2.0"
+          ]
+        ],
+        "id": "57263c78ec44d21400f3dc7c",
+        "kind_mismatch": false,
+        "question": "2 differences betwen X.25 and ARPNET CITA technologies ",
+        "submission": "2 differences betwen X.25 and ARPNET CITA technologies  Two fundamental differences involved the division of functions and tasks between the hosts at the edge of the network and the network core"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "3.0"
+          ]
+        ],
+        "id": "57263ea0271a42140099d7c5",
+        "kind_mismatch": false,
+        "question": "DEC originally had 3 layers but evolved into how many layers ",
+        "submission": "DEC originally had 3 layers but evolved into how many layers  Initially built with three layers, it later (1982) evolved into a seven-layer OSI-compliant networking protocol"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "2.0"
+          ]
+        ],
+        "id": "57263ea0271a42140099d7c6",
+        "kind_mismatch": false,
+        "question": "What did DECnet phase 2 become ",
+        "submission": "What did DECnet phase 2 become  were open standards with published specifications, and several implementations were developed outside DEC, including one for Linux"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "4.0"
+          ]
+        ],
+        "id": "57263fd138643c19005ad37c",
+        "kind_mismatch": false,
+        "question": "The 4 sales and service centers are viewed as ",
+        "submission": "The 4 sales and service centers are viewed as  the world's first commercial online service"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "199.0"
+          ]
+        ],
+        "id": "572648d1708984140094c160",
+        "kind_mismatch": false,
+        "question": "By 199 how many universities were connected ",
+        "submission": "By 199 how many universities were connected  By 1998, the vBNS had grown to connect more than 100 universities and research and engineering institutions via 12 national points of presence with DS-3"
+      },
+      {
+        "extra": [
+          [
+            "qty",
+            "8.0"
+          ]
+        ],
+        "id": "57264d58f1498d1400e8db7c",
+        "kind_mismatch": false,
+        "question": "What percent of untreated victims of the plague die within 8 days?",
+        "submission": "What percent of untreated victims of the plague die within 8 days? 80 percent"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "5.0"
+          ]
+        ],
+        "id": "57265526708984140094c2bf",
+        "kind_mismatch": false,
+        "question": "Which country's arms purchase from the US became 5 times more than Israel?",
+        "submission": "Which country's arms purchase from the US became 5 times more than Israel? Saudi Arabia"
+      },
+      {
+        "extra": [
+          [
+            "qty",
+            "100.0"
+          ]
+        ],
+        "id": "572669a9dd62a815002e841a",
+        "kind_mismatch": false,
+        "question": "The principle of faunal succession was developed 100 years before whose theory of evolution?",
+        "submission": "The principle of faunal succession was developed 100 years before whose theory of evolution? Charles Darwin"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "90790.0"
+          ]
+        ],
+        "id": "5726722bdd62a815002e852a",
+        "kind_mismatch": false,
+        "question": "How many tons of living plants are in the rainforest?",
+        "submission": "How many tons of living plants are in the rainforest? 90,790"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "7.8"
+          ]
+        ],
+        "id": "57274a1edd62a815002e9a9c",
+        "kind_mismatch": false,
+        "question": "What percentage of German students attended private schools in 2008?",
+        "submission": "What percentage of German students attended private schools in 2008? 7.8"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "11.1"
+          ]
+        ],
+        "id": "57274a1edd62a815002e9a9d",
+        "kind_mismatch": false,
+        "question": "What was the percentage of Germans attending private high schools in 2008?",
+        "submission": "What was the percentage of Germans attending private high schools in 2008? 11.1"
+      },
+      {
+        "extra": [
+          [
+            "num",
+            "0.5"
+          ]
+        ],
+        "id": "57274a1edd62a815002e9a9e",
+        "kind_mismatch": false,
+        "question": "In 1992, what percentage of East German students attended private schools?",
+        "submission": "In 1992, what percentage of East German students attended private schools? 0.5"
+      }
+    ],
+    "extra_value_kinds": {
+      "num": 64,
+      "qty": 8
+    },
+    "kind_mismatch": 0,
+    "n": 67,
+    "note": "every arm-A item the pre-pass condemned, classified by whether the same numeric magnitude is in the reference under a different kind. `kind_mismatch` is the AMENDMENT-2 defect seen on real text; `absent_magnitude` is a magnitude the paragraph genuinely does not carry, which is a disagreement about the answer, not a defect.",
+    "rate": 0.0113
+  },
+  "triage": {
+    "all_items": 11873,
+    "clear": {
+      "ci95": [
+        0.1341,
+        0.1466
+      ],
+      "k": 1665,
+      "n": 11873,
+      "rate": 0.1402,
+      "truth": "value question settled; binding still open"
+    },
+    "condemn": {
+      "ci95": [
+        0.0218,
+        0.0274
+      ],
+      "k": 290,
+      "n": 11873,
+      "rate": 0.0244,
+      "truth": "wrong on the value question"
+    },
+    "defer": {
+      "ci95": [
+        0.8286,
+        0.8419
+      ],
+      "k": 9918,
+      "n": 11873,
+      "rate": 0.8353,
+      "truth": "no value asserted"
+    },
+    "resolved_without_an_expensive_check": {
+      "ci95": [
+        0.1581,
+        0.1714
+      ],
+      "k": 1955,
+      "n": 11873,
+      "note": "condemn + clear. This is the judge budget the pre-pass removes, and a large clear share is the blind spot, not a win.",
+      "rate": 0.1647
+    }
+  }
+}

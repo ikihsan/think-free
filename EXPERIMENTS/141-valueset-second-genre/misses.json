@@ -1,0 +1,194 @@
+{
+  "condemned": 223,
+  "examples": {
+    "not_extracted": [
+      {
+        "cause": "not_extracted",
+        "id": "5a0c7b88f5590b0018dab420",
+        "question": "In the 1540s what region lacked a complex civilization?",
+        "values": [],
+        "verdict": "defer"
+      },
+      {
+        "cause": "not_extracted",
+        "id": "5a1c60f0b4fb5d001871460e",
+        "question": "What has made Jacksonville a major military and civilian court since the 1900s?",
+        "values": [],
+        "verdict": "defer"
+      },
+      {
+        "cause": "not_extracted",
+        "id": "5a1c850fb4fb5d001871464c",
+        "question": "What caused Jacksonville tourism to be less desirable during the 1900s?",
+        "values": [],
+        "verdict": "defer"
+      },
+      {
+        "cause": "not_extracted",
+        "id": "5a1c8971b4fb5d0018714682",
+        "question": "How are most city officials elected after the 1960s",
+        "values": [],
+        "verdict": "defer"
+      },
+      {
+        "cause": "not_extracted",
+        "id": "5a2eb95ca83784001a7d242b",
+        "question": "How many people lived in China in the 1300s?",
+        "values": [],
+        "verdict": "defer"
+      },
+      {
+        "cause": "not_extracted",
+        "id": "5a2ed42fa83784001a7d24f9",
+        "question": "What percentage of the population of Spain died of the plague in the 17th century?",
+        "values": [],
+        "verdict": "defer"
+      },
+      {
+        "cause": "not_extracted",
+        "id": "5a2ed525a83784001a7d2503",
+        "question": "How many people died of the plague in Ottoman society in the 19th century?",
+        "values": [],
+        "verdict": "defer"
+      },
+      {
+        "cause": "not_extracted",
+        "id": "5a2ed525a83784001a7d2505",
+        "question": "How many times did the plague visit Ottoman society before the second quarter of the 19th century?",
+        "values": [],
+        "verdict": "defer"
+      }
+    ],
+    "value_present": [
+      {
+        "cause": "value_present",
+        "id": "5a0c677bf5590b0018dab3f0",
+        "question": "What extended as far north as 45\u00b0?",
+        "values": [
+          [
+            "num",
+            "45.0"
+          ]
+        ],
+        "verdict": "clear"
+      },
+      {
+        "cause": "value_present",
+        "id": "5a0c77e3f5590b0018dab418",
+        "question": "More than 200,000 people lived in a rain forest during what decade?",
+        "values": [
+          [
+            "num",
+            "200000.0"
+          ]
+        ],
+        "verdict": "clear"
+      },
+      {
+        "cause": "value_present",
+        "id": "5a0c7d74f5590b0018dab434",
+        "question": "Between 96,660 and 128,843 vertebrate species live where?",
+        "values": [
+          [
+            "num",
+            "96660.0"
+          ],
+          [
+            "num",
+            "128843.0"
+          ]
+        ],
+        "verdict": "clear"
+      },
+      {
+        "cause": "value_present",
+        "id": "5a0c817df5590b0018dab45a",
+        "question": "91% of what is used for farming?",
+        "values": [
+          [
+            "pct",
+            "91.0"
+          ]
+        ],
+        "verdict": "clear"
+      },
+      {
+        "cause": "value_present",
+        "id": "5a0c8ba8f5590b0018dab462",
+        "question": "The deforestation decreased by 18% during what years?",
+        "values": [
+          [
+            "pct",
+            "18.0"
+          ]
+        ],
+        "verdict": "clear"
+      },
+      {
+        "cause": "value_present",
+        "id": "5a0c99fcf5590b0018dab4a6",
+        "question": "The 2010 drought had three what were vegetation increased?",
+        "values": [
+          [
+            "num",
+            "2010.0"
+          ]
+        ],
+        "verdict": "clear"
+      },
+      {
+        "cause": "value_present",
+        "id": "5a0c99fcf5590b0018dab4a7",
+        "question": "In 2005 the force absorbed how much carbon dioxide?",
+        "values": [
+          [
+            "num",
+            "2005.0"
+          ]
+        ],
+        "verdict": "clear"
+      },
+      {
+        "cause": "value_present",
+        "id": "5a0c99fcf5590b0018dab4a8",
+        "question": "In 2010 the force absorbed 8 Gt of what",
+        "values": [
+          [
+            "num",
+            "2010.0"
+          ],
+          [
+            "num",
+            "8.0"
+          ]
+        ],
+        "verdict": "clear"
+      }
+    ]
+  },
+  "mechanisms": {
+    "not_extracted": 106,
+    "value_present": 460
+  },
+  "missed": 566,
+  "n": 789,
+  "n_detected_rate": 0.2826,
+  "population": "B AND D (impossible question containing a digit)",
+  "unseen_expressions": {
+    "1": 5,
+    "10th": 6,
+    "1100s": 4,
+    "11th": 5,
+    "17th": 2,
+    "18th": 4,
+    "1900s": 2,
+    "1950s": 4,
+    "1960s": 2,
+    "1980s": 6,
+    "1990s": 3,
+    "19th": 12,
+    "2": 13,
+    "20th": 8,
+    "21st": 3
+  }
+}

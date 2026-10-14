@@ -1,14 +1,37 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-13
+last-verified: 2026-10-14
 -->
 
 # Verified state
 
-Date: 2026-10-11, Asia/Kolkata. Phase: B — **the one candidate this mission has
-produced is withdrawn, and the mission has found the instrument its whole record
-was missing.** E082 validated the view_count instrument's generalization to a
+Date: 2026-10-14, Asia/Kolkata. Phase: B — **the mission's first positive build
+trigger fired on one population and was withdrawn by a second, and the two
+defects that measurement exposed are now named.** E140 measured a deterministic
+value canonicalizer (`valueset.py`) at 0 false positives in 929 values against
+model-written expert answers, blind only to binding. **E141 ran it unchanged
+on SQuAD v2.0 dev — 11,873 questions, 1,204 paragraphs, every question and
+answer span written by a person, no item corrupted by the experiment — and
+detection on real human value errors is 0.2826, not 0.95; the pre-pass resolves
+0.1647 of the corpus and 0.2763 of what it clears is genuinely wrong (F126,
+D111).** The false-positive rate survived (0.0113, gate 0.02) and so did the
+finding that matters most: **460 of the 566 misses are the declared binding
+blind spot, on text nobody built for the instrument** — E140's 0-of-6 at two
+orders of magnitude more scale. The other 106 are a defect nobody had named:
+`\b\d…\b` cannot match `19th`, `1980s` or `1100s`, so **century and decade forms
+are invisible to an extractor written for regulatory prose.** A hand-built
+positive control — four of six pass, two fail, both because `canonical()` keys
+a value by `(kind, number)` and so cannot tell `$12,500,000` from
+`12500000 dollars` — found in one run what 929 Federal Register values could
+not (D112). The baseline reverses E140's reading: `ground.py` detects 0.7174
+against M2's 0.2826 at 0.0940 false positives against 0.0113. **Both artifacts
+stay in the repository, unreleased, `status: draft`, with a measured scope
+instead of a hoped one.** The open question is narrow and named: the pre-pass
+may be exactly right for *regulatory* answers, which is the one genre it was
+built for and the one genre E141 did not test.
+
+Phase B predates this: `stage-lines` / `stg` (E037, E038, F060, F062–F064, D068,
 sixth platform type (embedded Discourse forums), with unserved-open-like
 fraction 15.3% consistent with Discourse baseline 11.7%. **E101 validated generalization to a seventh platform type (network equipment Discourse forums)**, with unserved-open-like fraction 10.0% (CI95 [5.7%, 16.5%]) consistent with baseline. **E100 measured industrial automation/SCADA Discourse forum** with 76.2% unserved fraction (domain variation). `stage-lines` / `stg` (E037, E038, F060, F062–F064, D068,
 D069) was the first candidate with a working artifact, and three experiments closed it.
