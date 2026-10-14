@@ -108,6 +108,10 @@ Each was a *silent* failure: no exception, a number printed, no gate red.
 
 [`PRIOR-ART.md`](../EXPERIMENTS/124-eval-harness-preflight/PRIOR-ART.md) searched for all three checks. Verdict: **`partially-covered`**. No tool performs all three, none automates C3, and the closest practitioner document (Anthropic's "Demystifying evals for AI agents") already tells practitioners to author a reference solution that passes every grader (C2) and to build balanced problem sets (C3), in prose, by hand, with no measurement and no gate.
 
+## Adoption interest evidence
+
+[`EXPERIMENTS/preflight-adoption-interest.md`](../EXPERIMENTS/preflight-adoption-interest.md) documents observed adoption signals: open issues in `lm-evaluation-harness` and `stanford-crfm/helm` mapping to C1/C2/C3, real audits finding broken scoring (MLS-Bench #103), and a standardization effort (`evaleval/every_eval_ever`). The user population is niche (evaluation engineers, benchmark maintainers).
+
 ## License
 
 MIT. See [`LICENSE`](LICENSE).
