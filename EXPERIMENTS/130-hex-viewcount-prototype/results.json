@@ -1,0 +1,30 @@
+{
+  "experiment": "E130",
+  "platform": "Hex.pm",
+  "mode": "random",
+  "query": null,
+  "max_packages": 100,
+  "gates": {
+    "g1_pass": true,
+    "g2_pass": false,
+    "g3_pass": false,
+    "g4_pass": true,
+    "all_pass": false,
+    "statistics": {
+      "classified_total": 100,
+      "need_total": 52,
+      "random_total": 48,
+      "need_active": 52,
+      "random_active": 48,
+      "need_rate": 1.0,
+      "random_rate": 1.0,
+      "u_statistic": 0.0,
+      "p_value": 0.0,
+      "cliff_delta": -0.030448717948717948,
+      "random_median": 424,
+      "need_above_median": 26,
+      "wilson_lb": 0.3688563855796992
+    }
+  },
+  "conclusion": "view-count principle not supported on Hex.pm"
+}

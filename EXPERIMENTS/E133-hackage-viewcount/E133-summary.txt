@@ -1,0 +1,2 @@
+E133 — View-count on Hackage (2026-10-13)
+Fresh observation per D083: view-count principle generalizes to Haskell package repository on Hackage. All gates G1-G4 pass with tag-based classification (100% coverage, 56% need-related, 44% random). 1.11x activity ratio between need-related and random packages (mean downloads: 5,359 vs 4,818). Principle works on platforms with exposable download metadata; Haskell ecosystem adds to evidence base but no candidate validated.

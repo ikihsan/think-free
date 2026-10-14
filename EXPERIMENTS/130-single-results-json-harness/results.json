@@ -1,0 +1,54 @@
+{
+  "results": [
+    {
+      "sample_id": "task_001",
+      "model_output": "The answer is Paris.",
+      "expected": "Paris"
+    },
+    {
+      "sample_id": "task_002",
+      "model_output": "The capital of France is Paris.",
+      "expected": "Paris"
+    },
+    {
+      "sample_id": "task_003",
+      "model_output": "I think the answer might be Berlin.",
+      "expected": "Paris"
+    },
+    {
+      "sample_id": "task_004",
+      "model_output": "London is the capital of UK.",
+      "expected": "Paris"
+    },
+    {
+      "sample_id": "task_005",
+      "model_output": "Paris, France.",
+      "expected": "Paris"
+    },
+    {
+      "sample_id": "task_006",
+      "model_output": "The city is Berlin.",
+      "expected": "Paris"
+    },
+    {
+      "sample_id": "task_007",
+      "model_output": "Paris, definitely.",
+      "expected": "Paris"
+    },
+    {
+      "sample_id": "task_008",
+      "model_output": "Berlin is great.",
+      "expected": "Paris"
+    },
+    {
+      "sample_id": "task_009",
+      "model_output": "Is it Paris?",
+      "expected": "Paris"
+    },
+    {
+      "sample_id": "task_010",
+      "model_output": "Maybe Marseille?",
+      "expected": "Paris"
+    }
+  ]
+}

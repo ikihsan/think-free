@@ -1,0 +1,115 @@
+# Session 2026-10-13-023-finish-session-with-experiment-artifacts
+
+<!-- origin-meta
+owner: sessions/INDEX.md
+status: active
+last-verified: 2026-10-13
+-->
+
+<!-- generated-by: origin; do not edit by hand -->
+
+## Outcome
+
+- **Result:** `worked`
+- **Agent:** `unknown-agent`
+- **Started:** 2026-10-13T09:09:10+00:00
+- **Duration:** 32.6s
+- **Host:** `instance-20260717-0944`
+- **Branch:** `HEAD`
+
+## Goal
+
+Finish session with experiment artifacts logged
+
+## Summary
+
+Continued preflight adapter pattern from 3/3 to 7/7 harness structures, confirming 'adapter is a few lines' pattern across 7 diverse formats. All 3 checks pass on adapter-transformed data. Preflight prototype (E134) released as exploratory instrument. External validation for candidate status remains unestablished. Decision: pattern confirmed internally, prototype released, mission moves to different opportunity.
+
+## Next
+
+Fresh observation in new domain per D083, or meta-question about mission method
+
+## Artifacts
+
+| path | sha256 (first 12) | bytes |
+|---|---|---|
+| EXPERIMENTS/134-preflight-prototype | d160eed3c831 | 7244 |
+| EXPERIMENTS/135-preflight-seventh-harness/PROTOCOL.md | 6b4e5f3c7c4b | 6938 |
+| EXPERIMENTS/135-preflight-seventh-harness/README.md | d5d7dbcd75f9 | 3106 |
+| EXPERIMENTS/135-preflight-seventh-harness/RESULT.md | 9d3585205cc5 | 7310 |
+| EXPERIMENTS/135-preflight-seventh-harness/adapter.py | 2225272a02f8 | 5928 |
+| EXPERIMENTS/135-preflight-seventh-harness/harness.json | 556b0a6d5b90 | 2438 |
+| EXPERIMENTS/135-preflight-seventh-harness/key/ground_truth.json | 9c9d24b4e7b6 | 1032 |
+| EXPERIMENTS/135-preflight-seventh-harness/output/model_results.json | 766628a5fe32 | 2094 |
+| SESSION_OUTCOME.md | 2bdcc1ebe080 | 2202 |
+| docs/INDEX.md | 379cca241658 | 52670 |
+| sessions/INDEX.md | d6870ce14871 | 6543 |
+| tasks/CLAIMS.jsonl | cd2ea39fec87 | 93911 |
+| tasks/INDEX.md | 0acdbeb9f3c7 | 15202 |
+
+## Commands
+
+0 captured, 0 non-zero exit.
+
+_none_
+
+## Integrity
+
+| check | result |
+|---|---|
+| undeclared file changes | 15 |
+| declared artifacts now missing | 0 |
+| integrity errors | 0 |
+| redactions applied to command output | 0 |
+|   undeclared | SESSION_SUMMARY.md |
+|   undeclared | STATE-in-flight-10.md |
+|   undeclared | sessions/2026-10-13-012-finish-e130-experiment-and-validate-reco/commands.log |
+|   undeclared | sessions/2026-10-13-012-finish-e130-experiment-and-validate-reco/events.jsonl |
+|   undeclared | sessions/2026-10-13-013-record-decisions-records-md-artifact-and/events.jsonl |
+|   undeclared | sessions/2026-10-13-014-identify-next-invention-direction-after/events.jsonl |
+|   undeclared | sessions/2026-10-13-015-declare-session-artifacts-from-previous/events.jsonl |
+|   undeclared | sessions/2026-10-13-016-preflight-adapter-prototyping-and-releas/events.jsonl |
+|   undeclared | sessions/2026-10-13-017-record-preflight-session-artifacts/events.jsonl |
+|   undeclared | sessions/2026-10-13-018-continue-preflight-adapter-pattern-to-7/events.jsonl |
+
+## Timeline
+
+| seq | time | kind | summary |
+|---|---|---|---|
+| 1 | 09:09:10 | session_start | Finish session with experiment artifacts logged |
+| 2 | 09:09:21 | artifact | wrote EXPERIMENTS/134-preflight-prototype |
+| 3 | 09:09:22 | artifact | wrote EXPERIMENTS/135-preflight-seventh-harness/PROTOCOL.md |
+| 4 | 09:09:23 | artifact | wrote EXPERIMENTS/135-preflight-seventh-harness/README.md |
+| 5 | 09:09:24 | artifact | wrote EXPERIMENTS/135-preflight-seventh-harness/RESULT.md |
+| 6 | 09:09:24 | artifact | wrote EXPERIMENTS/135-preflight-seventh-harness/adapter.py |
+| 7 | 09:09:25 | artifact | wrote EXPERIMENTS/135-preflight-seventh-harness/harness.json |
+| 8 | 09:09:26 | artifact | wrote EXPERIMENTS/135-preflight-seventh-harness/key/ground_truth.json |
+| 9 | 09:09:27 | artifact | wrote EXPERIMENTS/135-preflight-seventh-harness/output/model_results.json |
+| 10 | 09:09:33 | artifact | wrote SESSION_OUTCOME.md |
+| 11 | 09:09:33 | artifact | wrote docs/INDEX.md |
+| 12 | 09:09:34 | artifact | wrote sessions/INDEX.md |
+| 13 | 09:09:35 | artifact | wrote tasks/CLAIMS.jsonl |
+| 14 | 09:09:36 | artifact | wrote tasks/INDEX.md |
+| 15 | 09:09:42 | unlogged_change | changed but never declared as an artifact: SESSION_SUMMARY.md |
+| 16 | 09:09:42 | unlogged_change | changed but never declared as an artifact: STATE-in-flight-10.md |
+| 17 | 09:09:42 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-13-012-finish-e130-experiment-and-validate-reco/commands.log |
+| 18 | 09:09:42 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-13-012-finish-e130-experiment-and-validate-reco/events.jsonl |
+| 19 | 09:09:42 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-13-013-record-decisions-records-md-artifact-and/events.jsonl |
+| 20 | 09:09:42 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-13-014-identify-next-invention-direction-after/events.jsonl |
+| 21 | 09:09:42 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-13-015-declare-session-artifacts-from-previous/events.jsonl |
+| 22 | 09:09:42 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-13-016-preflight-adapter-prototyping-and-releas/events.jsonl |
+| 23 | 09:09:42 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-13-017-record-preflight-session-artifacts/events.jsonl |
+| 24 | 09:09:42 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-13-018-continue-preflight-adapter-pattern-to-7/events.jsonl |
+| 25 | 09:09:42 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-13-019-declare-artifacts-from-preflight-line-co/events.jsonl |
+| 26 | 09:09:42 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-13-020-finish-logging-remaining-artifacts/events.jsonl |
+| 27 | 09:09:42 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-13-021-declare-all-remaining-experiment-artifac/events.jsonl |
+| 28 | 09:09:42 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-13-022-declare-last-2-unlogged-artifacts/events.jsonl |
+| 29 | 09:09:42 | unlogged_change | changed but never declared as an artifact: tasks/T-0094-harvest-public-issue-trackers-and-practitioner-d.md |
+| 30 | 09:09:42 | session_end | Continued preflight adapter pattern from 3/3 to 7/7 harness structures, confirming 'adapter is a few lines' pattern across 7 diverse formats. All 3 ch |
+
+## Reproduce this record
+
+```bash
+tools/origin session verify
+cat sessions/2026-10-13-023-finish-session-with-experiment-artifacts/events.jsonl
+```

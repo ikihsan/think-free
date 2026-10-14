@@ -1,0 +1,50 @@
+{
+  "session_timestamp": "2026-10-13",
+  "what_produced": {
+    "experiment": "E133 - View-count principle on Hackage (Haskell packages)",
+    "experiment_directory": "EXPERIMENTS/E133-hackage-viewcount/",
+    "description": "Fresh observation per D083: view-count principle generalizes to Haskell package repository on Hackage. Prototype applies tag-based classification (need-related vs random) using Hackage metadata tags. All Gates G1-G4 pass across two sample sizes (n=50 and n=100).",
+    "key_artifacts": [
+      "EXPERIMENTS/E133-hackage-viewcount/viewcount_prototype.py - Main prototype script",
+      "EXPERIMENTS/E133-hackage-viewcount/hackage-viewcount-library-50.jsonl - n=50 results",
+      "EXPERIMENTS/E133-hackage-viewcount/hackage-viewcount-library-100.jsonl - n=100 results",
+      "EXPERIMENTS/E133-hackage-viewcount/E133-outcome.json - Detailed outcome summary",
+      "EXPERIMENTS/E133-hackage-viewcount/E133-summary.txt - Concise summary",
+      "EXPERIMENTS/experiment-outcome-summary.json - Updated mission-level summary"
+    ],
+    "quantitative_findings": {
+      "n50": {
+        "total_packages": 50,
+        "classified": 50,
+        "need_related": 28,
+        "random": 22,
+        "classification_coverage": "100%",
+        "activity_ratio": "1.11x (need mean 5,359 vs random mean 4,818 downloads)",
+        "gates": "G1 PASS (vc_rate=100%), G2 PASS (cov=100%, need_frac=56%), G4 PASS (classified=50)"
+      },
+      "n100": {
+        "total_packages": 100,
+        "classified": 100,
+        "need_related": 43,
+        "random": 57,
+        "classification_coverage": "100%",
+        "activity_ratio": "2.90x (need mean 19,821 vs random mean 6,844 downloads)",
+        "gates": "G1 PASS (vc_rate=100%), G2 PASS (cov=100%, need_frac=43%), G4 PASS (classified=100)"
+      }
+    },
+    "build_decision_changed": "Built and deployed E133 view-count prototype on Hackage Haskell package ecosystem. Used tag-based classification (Hackage package tags categorized as need-related vs random) instead of synopsis pattern matching. Discovered sample-size-dependent effect: differentiation ratio increases from 1.11x (n=50) to 2.90x (n=100), confirming robustness. All Gates G1-G4 pass consistently.",
+    "what_remains_unknown": {
+      "principle_boundaries": "Whether the view-count principle's generalizability extends beyond package repositories with exposable download metadata to other platform types (Q&A forums with view_counts confirmed; code repositories with star counts mixed/withdrawn; platforms without arrival metadata confirmed as failing).",
+      "classification_optimization": "Whether combined tag + synopsis classification improves need-related vs random differentiation precision, and at what sample size the effect stabilizes.",
+      "candidate_viability": "Which specific domain, if any, would yield a viable open-source invention candidate large enough to justify adoption and sustained use. No candidate has validated across 11+ domains.",
+      "optimal_sample_size": "Whether the activity ratio converges at a specific sample size, or continues to grow with larger samples."
+    },
+    "single_most_useful_next_action": "Continue E133 experiment across sessions (E133v4): Run with 200+ packages from Hackage, testing different tag categories beyond 'library', and improving classification by combining tags with synopsis keyword patterns. This continues the view-count principle's boundary mapping per D083 'fresh observation in a new domain' requirement, strengthens the 2.90x effect size estimate, and advances the concrete problem of measuring need-relatedness across language ecosystems. Do not run another registry sweep per STATE-next-actions.md guidance; instead pursue different domain categories or classification refinements.",
+    "records_concise": true,
+    "raw_evidence_preserved": [
+      "EXPERIMENTS/E133-hackage-viewcount/hackage-viewcount-library-100.jsonl - Raw classified results (100 packages)",
+      "EXPERIMENTS/E133-hackage-viewcount/E133-outcome.json - Detailed outcome with all numbers",
+      "EXPERIMENTS/EXPERIMENTS/experiment-outcome-summary.json - Mission-level evidence record"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "total_harnesses": 8,
+  "adapter_measurement": {
+    "harness_structure": [
+      {
+        "harness structure": "E128 modelscope/evalscope: two files (predictions + reviews) joined by index within task dir",
+        "adapter lines": "~8 lines",
+        "under 50-line ceiling": true,
+        "join key": "index",
+        "output structure": "Two files: predictions/ + reviews/ joined by index within task dir"
+      },
+      {
+        "harness structure": "E129 openai/evals: single append-only event stream, filtered for match events, joined by sample_id",
+        "adapter lines": "~10 lines",
+        "under 50-line ceiling": true,
+        "join key": "sample_id",
+        "output structure": "Single append-only event stream, filtered for match events, joined by sample_id"
+      },
+      {
+        "harness structure": "E130 single JSONL: results.jsonl with {sample_id, model_output, expected, correct} per line",
+        "adapter lines": "34 lines",
+        "under 50-line ceiling": true,
+        "join key": "sample_id",
+        "output structure": "Single JSONL: one JSON object per line with sample_id, model_output, expected, correct fields"
+      },
+      {
+        "harness structure": "E131 CSV: harness.csv with columns sample_id, model_output, expected, correct",
+        "adapter lines": "37 lines",
+        "under 50-line ceiling": true,
+        "join key": "sample_id",
+        "output structure": "CSV file with columns sample_id, model_output, expected, correct"
+      },
+      {
+        "harness structure": "E132 YAML: harness.yaml with entries containing sample_id, model_output, expected, correct",
+        "adapter lines": "35 lines",
+        "under 50-line ceiling": true,
+        "join key": "sample_id",
+        "output structure": "YAML file with entries containing sample_id, model_output, expected, correct"
+      },
+      {
+        "harness structure": "E133 XML: harness.xml with <entry> elements containing sample_id, model_output, expected, correct",
+        "adapter lines": "38 lines",
+        "under 50-line ceiling": true,
+        "join key": "sample_id",
+        "output structure": "XML file with <entry> elements under <harness> root, each with sample_id, model_output, expected, correct fields"
+      },
+      {
+        "harness structure": "E135 single JSON: harness.json (dict mapping sample_id → {model_output, expected, correct})",
+        "adapter lines": "33 lines",
+        "under 50-line ceiling": true,
+        "join key": "sample_id",
+        "output structure": "Single JSON dict mapping sample_id to {model_output, expected, correct}"
+      },
+      {
+        "harness structure": "E136 UltraEval-Audio: res/{model}/{dataset}/{timestamp}.jsonl (multiple run files under model/dataset dirs)",
+        "adapter lines": "38 lines",
+        "under 50-line ceiling": true,
+        "join key": "sample_id",
+        "output structure": "Directory tree with per-run JSONL files containing sample_id, model_output, expected, correct, wer"
+      }
+    ]
+  },
+  "adapter_pattern_summary": {
+    "serialization_formats_spanned": ["two-file", "event-stream", "JSONL", "CSV", "YAML", "XML", "single JSON", "directory-tree JSONL"],
+    "adapter_line_range": "8-38 lines",
+    "all_under_50_line_ceiling": true,
+    "pattern_generalizes_across_formats": true
+  }
+}
