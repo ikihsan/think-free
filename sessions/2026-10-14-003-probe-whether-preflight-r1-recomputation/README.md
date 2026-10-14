@@ -10,10 +10,10 @@ last-verified: 2026-10-14
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-14T04:28:15+00:00
-- **Duration:** ?s
+- **Duration:** 2716.0s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Probe whether preflight R1 recomputation reaches leaderboard-published LLM bench
 
 ## Summary
 
-_(none recorded)_
+E135 probe completed (resumed an unfinished session on this VM). Question: does preflight's R1 recomputation reach the number a leaderboard publishes? Cell C2 (Stanford HELM lite v1.0.0, MMLU abstract_algebra, multiple_choice_joint, 01-ai/yi-34b): G1 PASS, G2 PASS — the run ships per-instance golds (references tagged correct), raw completions, letter-to-choice mapping, run spec, per-instance verdicts and aggregates, all unauthenticated on public GCS, and the HELM site renders its numbers from the same bytes (helm.js fetches the crfm-helm-public bucket). G3 AGREE: recompute.py, a 71-line stdlib-only script that never reads a verdict column, recomputed valid 3/11 = 0.272727... and test 40/100 = 0.4000, equal to the published stats.json means to full printed precision, and agreed with the harness's own per-instance verdicts on 111/111 rows. C1 (Open LLM Leaderboard v2) and C3 (Chatbot Arena) fail G2 as probed: C1's detail dataset is auth-restricted and raw runs live in submitters' repos; C3's votes are gated:auto and its Elo is fit on the full vote population, not the published sample. Kill gate did not fire (requires G2 failure on all three cells), so the leaderboard direction stays open; per the protocol this is the weaker stated outcome — reach demonstrated, external value still unobserved, D111 stands, preflight stays unreleased. Two instrument facts recorded: the published valid/test split is 11/100 rows, so a pooled 111-row recomputation (0.3874) would falsely report disagreement — the split key is part of the instrument; and the parse rule was never stressed because all 111 completions are single letters (max_tokens=1), so the agreement validates plumbing, not a parser. Third-party bytes recorded by sha256 in fetched-manifest.json, never committed (D091/D092 rule). doc lint green.
+
+## Next
+
+Named next action (from RESULT.md): point R1 at a leaderboard cell whose completions are free text and whose published number is an aggregate over multiple runs (e.g. a HELM scenario aggregate or a suite mean), where a parser and a weighting rule are both exercised — that is the first cell where recomputation could disagree with the published number for a reason other than plumbing. Declare the protocol before any fetch, as E135 did.
 
 ## Artifacts
 
@@ -81,11 +85,11 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 1 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | EXPERIMENTS/135-preflight-leaderboard-reach/PROTOCOL.md |
 
 ## Timeline
 
@@ -132,6 +136,9 @@ _(none recorded)_
 | 39 | 05:07:41 | command | $ python3 EXPERIMENTS/135-preflight-leaderboard-reach/manifest_fetched.py |
 | 40 | 05:08:16 | artifact | wrote EXPERIMENTS/135-preflight-leaderboard-reach/manifest_fetched.py |
 | 41 | 05:08:21 | artifact | wrote EXPERIMENTS/135-preflight-leaderboard-reach/fetched-manifest.json |
+| 42 | 05:13:31 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/135-preflight-leaderboard-reach/PROTOCOL.md |
+| 43 | 05:13:31 | doc_update | updated STATE.md |
+| 44 | 05:13:31 | session_end | E135 probe completed (resumed an unfinished session on this VM). Question: does preflight's R1 recomputation reach the number a leaderboard publishes? |
 
 ## Reproduce this record
 
