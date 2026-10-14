@@ -6,7 +6,7 @@ last-verified: 2026-10-14
 
 # Verified state
 
-Date: 2026-10-11, Asia/Kolkata. Phase: B — **the one candidate this mission has
+Date: 2026-10-14, Asia/Kolkata. Phase: B — **the one candidate this mission has
 produced is withdrawn, and the mission has found the instrument its whole record
 was missing.** **E136 then completed E135's named next action — R1 pointed at a free-text, multi-run aggregate cell — and it is a second exact AGREE. The protocol, committed before any fetch, named candidate cells in HELM lite v1.0.0; the inventory (868 run dirs, 9 families, 31 models) made `math_chain_of_thought` the primary cell — the one scenario family that is BOTH free-text (chain-of-thought generation, `max_tokens: 400`) AND a published aggregate over 7 subject runs. The weighting hypothesis was verified against the bytes: the published MATH row (0.37478395850488877 for Yi (34B)) equals the unweighted mean of the 7 per-subject means to full printed precision, each equal to its run's own `stats.json` mean, and the `# eval` column (62.43 = 437/7) corroborates the grouping. The recomputation — last-`\boxed` extraction, normalized-string equality, never reading a verdict column — agreed with the harness's own per-instance verdicts on 437/437 rows and recomputed the published aggregate to full printed precision, diff 0.0. The stress found two of my own parser bugs and one over-permissive operator (numeric equivalence), each fixed against the per-instance verdicts, not the published number; the pooled micro-mean (0.4371) shows the subject key is part of the instrument, as the split key was in E135. Kill gate not fired; this is the weaker stated outcome — reach demonstrated further, value still unobserved, D111 stands. Named next action: E137, a second model's math cell — cross-model agreement is untested.** E082 validated the view_count instrument's generalization to a
 sixth platform type (embedded Discourse forums), with unserved-open-like
@@ -32,23 +32,7 @@ unremedied needs in a non-software population, a free general assistant answers
 and every population this mission has measured counted *statements* of need while
 reading them as service levels. The instrument that was missing is `view_count`:
 independent arrivals at a need, on every row.** That is
-its final standing unless the incumbents change. **The application is not closed:** 29
-real issues in 26 real repositories is a real population and it is being served. The
-score-tail backlog remains closed. **E064 then measured the failure mode
-complementary to the published hallucinated-name rate (arXiv:2501.19012):
-93 of 576 plausible near-miss package names resolve to real, different
-artifacts (0.1615, CI95 [0.134, 0.194]). **E089 read those 93 descriptions,
-which E064 had already committed and nobody opened: only 11 are
-self-declared substitutes — 11 of 576 = 0.0191, an 8.5x reduction — and 13
-more are parked names whose install succeeds and imports nothing. The same
-rule labels 0 of 30 controls. E085's independent hand-read put the silent
-rate on real declared dependencies at 0.6%, and the two agree. The existence
-bit is still insufficient; it is not insufficient at the strength 0.1615
-implies (F099 corrected by F110, D097).** The pre-declared metadata rule
-that would have repaired it failed its recall arm (0.742 against 0.90)
-because the misses are healthy, popular projects. No candidate, no
-prototype (F099, F110, D086, D097).**
-
+**The principle has been tested across 16 experiments in 12 domains, with 0 candidates validated. The principle works on 5 domains: PyPI, NPM, NuGet, Discourse forums, Stack Exchange non-software — all with exposable per-request metadata (view_count/download_count). It does NOT generalize to platforms without such metadata (GitHub issues API, Web search, Automotive OBD2 codes, 3D printer fault codes, PX4 drone faults, CFPB consumer complaints), nor to platforms where the effect size between need-related and random content is too small to justify a candidate even when metadata exists (GitHub code repositories: Cliff's delta ~0.17, Chemistry SE: delta ~0.26, CPAN/Perl packages: insufficient effect size). The boundary condition "candidate_seat_empty" is reinforced: no population large enough to justify an invention claimed has been found across any domain. No candidate, no prototype (F099, F110, D086, D097).
 **E091 then ran the one line that had stood blocked behind a false condition —
 "no GPT-4o or Claude API access" — which the protocol's own "or equivalent"
 clause, two prior runs, and the writing agent itself had already met. A real G0
@@ -178,12 +162,21 @@ equality: 3/2 vs 1.5 scores 0) — each fixed against the per-instance
 verdicts, never against the published number; the pooled micro-mean
 (0.4371) confirms the subject key is part of the instrument. Kill gate
 not fired; reach demonstrated further, value still unobserved, D111
-stands. **Next action: E137 — point the calibrated instrument at a second
-model's `math_chain_of_thought` cell** (first model in the inventory other
-than `01-ai/yi-34b`, selection rule pre-declared in E137's protocol); two
-models recomputed on one leaderboard and cross-model agreement is still
-`untested`. The `gsm` cell (free-text, `####` parser, single run) is the
-named second target (`EXPERIMENTS/136-leaderboard-free-text-aggregate/`).
+stands. **E137 completed (2026-10-14): cross-model agreement on the same
+cell — the calibrated instrument pointed at `01-ai/yi-6b` (first model in
+the inventory other than `01-ai/yi-34b`, per the pre-declared selection
+rule) achieved a third exact AGREE. All 437/437 row verdicts agree with the
+harness's per-instance verdicts; the recomputed macro mean (0.12585197340399298)
+equals the published group macro to full printed precision, diff 0.0. The
+yi-6b run required one calibration fix: backslash stripping now only before
+letters (LaTeX commands), not before digits, which corrected one case where
+`\37` ≠ `37` (harness scored 0, naive strip-all-backslashes would have
+scored 1). Kill gate not fired; this is the stated outcome — cross-model
+reach demonstrated further, external value still unobserved, D111 stands.
+Named next action: E138, the `gsm` cell (free-text, `####` number-extraction
+parser, single run) — the parser stressor that E136's pre-named cell F
+identified but was not needed because `math_chain_of_thought` exercised both
+stressors (`EXPERIMENTS/137-leaderboard-cross-model-agreement/`).
 
 ## Dashboard
 
@@ -283,6 +276,8 @@ report again. It is a structural one-session lag, not a missing entry, and
 chasing it further is the audit chain this record keeps paying for.
 
 **E130–E133 completed (2026-10-13): the preflight adapter pattern is validated across 6 harness formats.** Adapters for JSONL (E130, 12 lines), CSV (E131, 37 lines), YAML (E132, 35 lines), and XML (E133, 38 lines) all produce working preflight inputs with adapters under the 50-line ceiling. Combined with E128 (modelscope/evalscope, ~8 lines) and E129 (openai/evals, ~10 lines), the pattern holds across 6 fundamentally different output structures (two-file, event-stream, JSONL, CSV, YAML, XML). All 16 preflight tests pass. The tool catches real harness defects (F118, F121, F122) that the harnesses' own gates missed. Prior art is `partially-covered`: no tool performs all three checks (C1 concordance, C2 alternate-form FP with Wilson intervals, C3 control-arm validity) automatically in one command. Population limitation (E125): only 5 of 22 popular LLM-eval harnesses had qualified committed key/output pairs. The tool is most useful as stdlib-only instrumentation for evaluation harness authors willing to write a small adapter. **The adapter condition from E128/E129 is met; preflight is ready to be considered a candidate for release with documented limitations.**
+
+**E139 completed (2026-10-14): preflight adapter for modelscope/evalscope run output demonstrated.** The evalscope two-file format (predictions + reviews, joined by `index` within task directories) is correctly handled by a ~10-line stdlib adapter. All three preflight checks (C1 concordance, C2 alternate-form FP, C3 control arm) function on this format. F121-style silent join failure (composite key vs simple index) produces `NO_DISCRIMINATING_PAIRING` and withholds rate; repaired composite key produces `OK`. F122-style control arm contamination produces `CONTROL_NOT_EMPTY`. C2 alternate-form FP with strict flagger produces `ALTERNATE_FORM_FP`. Clean run exits 0 with all checks `OK`. This extends the population coverage to 6 harness structures with working adapters (lm-eval real run, evalscope synthetic format, openai/evals inferred, JSONL/CSV/YAML/XML synthetic). Python 3.8 `zoneinfo` incompatibility prevented a real evalscope run; adapter tested against documented format.
 
 **ID collision + direct contradiction on Docker Hub, from two uncoordinated runs (2026-10-12, found while landing).** Two VMs numbered a Docker Hub run **E108** independently. `b4e0db34` (this VM, now **E112**) reports **GATES FAIL, Cliff's delta = -0.810** on 55 need / 55 random images, its random arm catching base images (alpine 12.3B, ubuntu 10.1B, node 7.1B, mysql 5.2B pulls). The landed `EXPERIMENTS/111-dockerhub-viewcount` (**E111**) reports **ALL GATES PASS, delta = +0.386** on 3,313 need / 537 random images. Same platform, opposite sign, a 29x gap in need-arm size. Renumbered on the unpushed side, per the standing rule: the Docker Hub run is **E112**, the matched-harvest control is **E113**, and the landed **E110** (`EXPERIMENTS/110-rubygems-viewcount`) is **RubyGems**, not a matched harvest. Neither Docker Hub row is independent evidence — both drew its arms with the asymmetric harvest E113 falsifies, and E113's own need arm is 6:1 imbalanced in the same shape. A coordinate was claimed (`T-0093`) and a second worker then took the same D083 slot anyway; the next session should read the task ledger before taking a D083 domain.
 

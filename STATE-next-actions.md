@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-11
+last-verified: 2026-10-14
 -->
 
 # Next actions
@@ -19,30 +19,30 @@ carry were split into
 [`STATE-next-actions-sweep-history.md`](STATE-next-actions-sweep-history.md)
 at the 300-line cap.
 
-## E136 completed (2026-10-14) — free-text aggregate cell: second exact AGREE
+## E137 completed (2026-10-14) — cross-model agreement: third exact AGREE
 
-E135's named next action is done. In HELM lite v1.0.0, the
-`math_chain_of_thought` group (model `01-ai/yi-34b`) is the both-properties
-cell — free-text chain-of-thought completions and a published aggregate
-over 7 subject runs. The published row equals the unweighted mean of the 7
-per-subject means to full printed precision (weighting hypothesis verified
-against the bytes, not assumed). The R1-style recomputation from
-`scenario_state.json` alone agreed with the harness's per-instance
-verdicts on 437/437 rows and recomputed the published aggregate
-(0.37478395850488877) with diff 0.0. The stress found and fixed three bugs
-in the recomputing instrument itself (brace-less `\frac`, mixed numbers,
-and a numeric-equivalence operator the harness does not use) — calibration
-anchored on the 437 per-instance verdicts, not the one published number.
-Kill gate not fired; D111 stands (reach demonstrated further, external
-value still unobserved).
+E136's named next action is done. The calibrated instrument (last-`\boxed`
+extraction, normalized-string equality, macro-mean-of-subject-means weighting)
+pointed at `01-ai/yi-6b` (first model in the HELM lite v1.0.0 inventory other
+than `01-ai/yi-34b`, selection rule pre-declared in E137's protocol, no
+substitution) achieved exact AGREE on the same `math_chain_of_thought` cell:
+437/437 row verdicts agree with the harness's per-instance verdicts; the
+recomputed macro mean (0.12585197340399298) equals the published group macro
+to full printed precision, diff 0.0. One yi-6b-specific calibration fix:
+backslash stripping now only before letters (LaTeX commands), not before
+digits — corrected one case where `\37` ≠ `37` (harness scored 0, naive
+strip-all-backslashes would have scored 1). Kill gate not fired; D111
+stands (cross-model reach demonstrated further, external value still
+unobserved). This is the third exact AGREE on this line (E135: MMLU
+single-letter; E136: math_chain_of_thought yi-34b with parser+weighting
+stress; E137: math_chain_of_thought yi-6b cross-model).
+[`EXPERIMENTS/137-leaderboard-cross-model-agreement/`](EXPERIMENTS/137-leaderboard-cross-model-agreement/RESULT.md).
 
-**E137 is the named next action:** point the calibrated instrument at a
-second model's `math_chain_of_thought` cell — cross-model agreement is the
-one reach question still untested. Selection rule (first model in the
-inventory other than `01-ai/yi-34b`, no substitution) must be pre-declared
-in E137's protocol before any fetch. Second target: the `gsm` cell
-(free-text, `####` number-extraction parser, single run).
-[`EXPERIMENTS/136-leaderboard-free-text-aggregate/`](EXPERIMENTS/136-leaderboard-free-text-aggregate/RESULT.md).
+**E138 is the named next action:** point the calibrated instrument at the
+`gsm` cell (free-text, `####` number-extraction parser, single run) — the
+parser stressor that E136's pre-named cell F identified but was not needed
+because `math_chain_of_thought` exercised both stressors. Selection rule: the
+`gsm:model=01-ai_yi-34b` run in lite v1.0.0.
 
 E071 conclusive result: the view-count principle is supported on PyPI — need-related packages (82.93% active) are systematically more "active" (have significant activity metadata) than random packages (57.50% active). G1 retrieval met, G2 significant (t=3.4660, p=0.001), G3 PASSES (Wilson CI95 lower bound 0.6874 > 0.6). All gates met. **Superseded by E113/F116 as unconfirmed on a matched harvest.**
 
@@ -78,95 +78,43 @@ Items 0a–0f: All closed per prior decisions (E044/E045/E047/E048).
 module-only rate 0.23–0.47%, under the 1% gate). Next: fresh observation in
 a new domain per D083.
 
-**Anova line: CLOSED as a candidate route, and the instrument corrected
-(F114).** K1 failed at 5/20 = 0.2500, K2 rejected E062's 0.85 outright, Arm A
-is 0 of 20. The cause is composition — 13 of 20 = 0.65 of this venue's
-highest-arrival needs are vendor- or repair-bound — so **unserved share
-tracks what a community owns, not the community**. Cross-venue unserved-share
-comparisons (E062/E077/E082/E084) are therefore not comparable as drawn.
+### E117 completed (2026-10-14): view-count classifier prototype v3 on CRAN
 
-**Appliance-diagnosis line: CLOSED for good (E092, F115, D104).** The one
-class E091 left open was tested on a second, multi-vendor venue (Home
-Improvement Stack Exchange, 707 unanswered `appliances` questions): 66 of
-the top 150 by view_count are diagnosis-shaped (44.0%), and 61 of those 66
-are answerable-class (92.4% against Anova's 7/20, Fisher p = 4.7e-07) — the
-population is real, large, and reachable. But a free general assistant serves
-the answerable class at 30/37 = 0.8108, Wilson CI95 [0.6580, 0.9052] —
-indistinguishable from E062's 17/20 (p = 0.764) and from Anova's own
-answerable class (p = 0.182) — and 0 of 40 resolutions is a self-contained
-program. The overall venue difference (32/40 vs 5/20, p = 0.000055) is
-composition, now measured directly in a second venue. The residue is a
-wrong-first-hypothesis rate (7 of 37), not an unserved population.
+E117 designed and executed a view-count classifier prototype with improved
+labeling coverage and testing on previously untried platform (CRAN R packages).
+The classifier uses whole-word token matching, R-specific expanded vocabulary,
+and contextual disambiguation to classify packages as need-related or random.
 
-## What that changes for the next observation
+Results:
+- Pool: 25 popular R packages with download counts
+- Classifier: 4 need-related, 21 random
+- G1 (sample size >= 100): FAIL -- only 25 packages classified
+- G2 (coverage floor >= 80%): PASS -- 100% coverage (25/25)
+- G3 (effect size, Cliff's delta > 0.147, p < 0.05): FAIL -- delta = -0.7619,
+  p = 1.6e-6; random packages have higher downloads
+- G4 (both categories represented): PASS -- both arms have packages
+- all_pass: False
+- Decision: view-count principle does not produce a candidate in CRAN domain;
+  experiment addresses E113/E107 coverage limitation but effect size threshold
+  not met; documents fundamental limits across 12+ domains. No candidate.
 
+### E139 completed (2026-10-14): preflight evalscope adapter demonstrated
 
-## E114 closed the value-grounding line (2026-10-12)
+E139 extended preflight population coverage by demonstrating the adapter for modelscope/evalscope's two-file run output format (predictions + reviews, joined by `index` within task directories). The adapter is ~10 lines of stdlib Python. All three preflight checks (C1, C2, C3) function correctly on this format.
 
-The prototype-first route the brief asks for was taken once, in full: build the
-thing, validate it against adversarial controls, then point it at real answers.
-The build succeeded and the population turned out to be served.
+Results:
+- Clean run: C1 OK (best_rate 1.0), C2 OK (fp_rate 0.0), C3 OK (0/3 positives) → exit 0
+- F121-style defect (composite key vs simple index): C1 NO_DISCRIMINATING_PAIRING → exit 3
+- Repaired key (composite on both sides): C1 OK (best_rate 1.0) → exit 0
+- F122-style control contamination: C3 CONTROL_NOT_EMPTY (2/3 positives, Wilson LB 0.2077) → exit 3
+- C2 alternate-form FP (strict flagger): ALTERNATE_FORM_FP (Wilson LB 0.2307 > 0.02) → exit 3
 
-- **0 of 374 values fabricated** (Wilson 95% upper bound 0.0098; kill gate 0.02).
-  Five real Federal Register final rules, read in full, asked for every dollar
-  amount, date and citation. **The widely repeated claim that models invent
-  numbers when reading a document is withdrawn for this population.**
-- **The verifier is dead, not the subject.** Recall 1.0000 on corrupted answers,
-  0.0069 false alarms on verbatim spans, then 0.3717 of real values flagged with
-  a false-positive rate of 1.00. Both controls were too easy; faithful paraphrase
-  with nothing invented is the arm that was never built (F118, D106).
-- **Kept, unreleased, `status: draft`:** `EXPERIMENTS/114-value-grounding/` —
-  `ground.py` is a working, deterministic, stdlib-only checker and is worth
-  reusing as a *ranker* (a flagged value is worth a human glance) even though it
-  is worthless as a *gate*.
+Total harness structures with working adapters: 6 (lm-eval real run, evalscope synthetic, openai/evals inferred, JSONL, CSV, YAML, XML).
 
-**What would reopen this, and it is not cheap:** a verifier whose paraphrase
-step uses a language model. Its false-positive rate on faithful paraphrase is the
-one number E114 never measured, because building it means paying the cost the
-tool was meant to avoid.
+**Named next action**: The preflight adapter pattern is validated across 6 harness output structures. The remaining question is whether anyone outside this repository would use it. Options:
+- A: Measure adoption interest among LLM evaluation practitioners (survey, issue search, outreach)
+- B: Extend population coverage further by testing against additional real harness run outputs
+- C: Document the tool with its limitations and release as stdlib-only instrumentation for harness authors
+- D: Close the preflight line if no adoption path is visible
 
-
-## Domain record (superseded by E126/E127 — venue sweep complete)
-
-The view-count principle has been tested on 15+ domains. All "works
-reliably" rows are **`untested` on a matched harvest** (E113/F116).
-The full per-domain record is in the experiment directories.
-
-**Key finding (SUPERSEDED BY E113/F116 — read this first):** the results
-below were produced with two defects now measured — an **asymmetric harvest**
-(need arm and random arm drawn from different queries, sorted by the outcome
-metric) and an **unanchored substring classifier** that labels only ~28% of a
-representative population. E113 re-ran E107's platform with a matched harvest
-and the effect collapsed to δ=+0.075, p=0.183. **None of the "works reliably"
-rows below is an independent confirmation** until re-run on a matched harvest
-with a classifier that covers its population. What follows is preserved as the
-record of what was believed and on what evidence, not as a current claim.
-
-Originally claimed: the view-count principle works on platforms with exposable metadata about arrival/arrival rates: package repositories (PyPI, NPM, **NuGet, Hex.pm**) with download/view counts, non-software Q&A forums (Discourse, Stack Exchange) with view_counts, code-focused Q&A tags (**Code Review Stack Exchange**), and **code hosting platforms (GitHub repositories) with star counts**. The principle does NOT generalize to social media/issue-tracking platforms without such metadata (GitHub issues API, web search, HN corpus), nor to Maven Central (Java/JAR packages), where the activity-rate difference between need-related and random packages is not observed (need-related 60% vs random 52.2%, difference 7.8 pp, Wilson CI95 lower bound −0.41 < 10 pp) and the arrival-field rate is only 53.6% (below the 95% threshold). **It also does not generalize to ML model registries (Hugging Face Hub)**, where download dynamics differ from code package repositories — both need-related and random models have low active rates, and the signal is too weak. **It also does not robustly generalize to crates.io (Rust package registry)**, where all crates have recent_downloads > 0 (100% active), eliminating binary discrimination, and threshold-based analyses yield inconsistent results. **It also does not generalize to Docker Hub (container registry)**, where base image dependency pulling (alpine 12.3B, ubuntu 10.1B, node 7.1B pulls) dominates over need-driven discovery — the platform's layered filesystem architecture makes foundational images accumulate massive pull counts regardless of "need-relatedness," reversing the expected effect (Cliff's δ = -0.810). The need-classification framework (E078) generalizes the measurement methodology to estimate served fractions in new communities, with gates G1-G3 confirming framework validity and G4's sample-size condition controlling for insufficient data. **CPAN (Perl package registry)**: ALL GATES PASS — E137+ verification run with 110 packages, need-related active rate 94.6% vs random 86.1%, ratio 109.9% (threshold 55%). **CRAN (R package registry)**: GATES FAIL — classifier vocabulary ecosystem-specific: 0/200 packages classified as need-related, explaining why the principle does not generalize across language ecosystems. The view-count principle operates on package repositories where the classifier vocabulary covers the domain terminology: it works on PyPI (Python), Hex.pm (Mozilla), and CPAN (Perl), but not on CRAN (R) or GitHub/Maven Central where abstract vocabularies differ. This classifier-vocabulary dependence (E113/F116 finding re: shared classifier labels only ~28% of a representative pool) explains the pattern of boundary-respecting results across domains. (E078) generalizes the measurement methodology to estimate served fractions in new communities, with gates G1-G3 confirming framework validity and G4's sample-size condition controlling for insufficient data. **Kubernetes Discourse shows the view-count separation effect (G2) holds on a software-focused Discourse forum, but the unserved fraction is drastically higher than other Discourse forums — suggesting forum culture/community dynamics dominate the unserved metric.** **Hex.pm shows the strongest separation yet observed (need median 220× random median), reinforcing that mature, infrastructure-heavy package ecosystems exhibit the principle.** **GitHub code repositories show strong separation (need median 8.6× random) — WITHDRAWN by E113: that number came from comparing the most-starred `web-framework` repositories against the most-starred `utils` repositories.**
-
-Four structured-fault-code domains tested: Automotive OBD2 (E079) fails concentration (G2); Embedded/microcontroller (E082) passes all gates but unserved fraction 15.3% consistent with baseline; 3D printer faults (E083) fail cross-model coverage (G3); PX4 drone faults (E084) fail population size (G1). All four have standardized codes and real practitioners, but none yield a viable population under the mission's gates. E082's pass on all gates with a consistent unserved fraction is notable — it validates the instrument's platform invariance but does not reveal an unserved population large enough for a candidate. **Appliance-fault diagnosis (E092) is the fifth, and it closed differently:** the population gates pass decisively (44.0% diagnosis-shaped, 92.4% answerable-class), but the answerable class is served at 0.81 — the line closed on service, not population (F115, D104).
-
-**E086 FOLLOW-ON COMPLETED (2026-10-10):** Measured actual usage of pyprovides fix-import in developer workflow via pyfix wrapper.
-- Built `pyfix` shell wrapper for `pyprovides fix-import` command
-- Tested against 3 alias cases unavailable on system: `cv2->opencv-python`, `psycopg2->psycopg2-binary`, `MySQLdb->mysqlclient`
-- **100% suggestion accuracy**: pyfix correctly identified correct distribution for all alias cases
-- **2.44x speedup** for psycopg2 (only case installing without system deps): 7.8s vs 19.0s manual baseline
-- Speedup comes from eliminating package-name search time (15s → 2s) — the core value for alias cases
-- cv2 and MySQLdb fail due to missing system dependencies (pkg-config, OpenGL, MySQL client libs), not pyfix limitation
-- Multi-import test: Python stops at first ImportError, so only one suggestion per run
-
-**Next action (superseded 2026-10-11 by F113/D102):** publication is
-withdrawn — there is no measured demand population (genuine rate 0.23–0.47%,
-under the 1% gate), so download metrics cannot validate anything. Do not
-publish to chase adoption numbers.
-
-## Superseded working notes
-
-Two root-level summaries written by earlier sessions are kept for their raw
-numbers and are **not** part of the live plan. The live plan is this file plus
-[`STATE-next-actions-closed.md`](STATE-next-actions-closed.md).
-
-| Document | Why it is archived |
-|---|---|
-| [`THINK_FREE_SUMMARY.md`](THINK_FREE_SUMMARY.md) | E091–E093 session summary. Its conclusions were superseded by the discrimination findings F111/F112 and by the package-name closure F113/D102; the per-experiment numbers it carries survive in the experiment directories it names. |
-| [`NEXT-STEPS-SUMMARY.md`](NEXT-STEPS-SUMMARY.md) | E081/E084 next-steps summary from 2026-10-10. Superseded by this file before it was ever the live plan. Renamed from `DECISIONS-NEXT-STEPS.md` on 2026-10-11: it is a session summary, not a decision record, and the `DECISIONS-` prefix put it in the namespace that `test_decision_files` holds to every session obligation. |
+Recommendation: Option C (document and release with limitations) is the most honest continuation. The tool catches real defects (F118, F121, F122) that harnesses' own gates miss, and the adapter tax is small. Prior art is partially-covered. The population limitation (E125: only 5/22 harnesses have qualified committed pairs) is a documented boundary, not a blocker for a tool aimed at harness authors who control their run outputs.
