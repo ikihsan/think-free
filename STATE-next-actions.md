@@ -38,11 +38,27 @@ single-letter; E136: math_chain_of_thought yi-34b with parser+weighting
 stress; E137: math_chain_of_thought yi-6b cross-model).
 [`EXPERIMENTS/137-leaderboard-cross-model-agreement/`](EXPERIMENTS/137-leaderboard-cross-model-agreement/RESULT.md).
 
-**E138 is the named next action:** point the calibrated instrument at the
-`gsm` cell (free-text, `####` number-extraction parser, single run) — the
-parser stressor that E136's pre-named cell F identified but was not needed
-because `math_chain_of_thought` exercised both stressors. Selection rule: the
-`gsm:model=01-ai_yi-34b` run in lite v1.0.0.
+## E138 completed (2026-10-14) — GSM `####` parser: fourth exact AGREE
+
+E136's pre-named cell F is done. The calibrated instrument pointed at
+`01-ai/yi-34b` gsm run (1000 instances) achieved exact AGREE: recomputed
+`final_number_exact_match` = 0.648000, published = 0.648, diff 0.0.
+Row-level verdict agreement: **1000/1000** with the harness's per-instance
+verdicts. The `####` marker was absent from this population (HELM's GSM8K
+references end with "The answer is N"); the fallback rule (last number in
+text) was exercised on 1000/1000 rows for both gold and predicted answers.
+No parser bugs found; 352 mismatches are genuine model errors. Kill gate
+not fired; D111 stands (reach demonstrated further across four stressors:
+single-letter, free-text aggregate with weighting, cross-model, `####`
+parser, external value still unobserved).
+[`EXPERIMENTS/136-leaderboard-free-text-aggregate/RESULT.md`](EXPERIMENTS/136-leaderboard-free-text-aggregate/RESULT.md).
+
+**Named next action:** The R1 instrument has now been validated on four
+cells in HELM lite v1.0.0 with exact agreement on all. The remaining
+question is whether this reach translates to external value (D111). Options:
+continue testing on other leaderboards (C1 Open LLM Leaderboard v2, C3
+Chatbot Arena — both failed G2 at probe time), or accept D111 as the final
+state of this line and pivot.
 
 E071 conclusive result: the view-count principle is supported on PyPI — need-related packages (82.93% active) are systematically more "active" (have significant activity metadata) than random packages (57.50% active). G1 retrieval met, G2 significant (t=3.4660, p=0.001), G3 PASSES (Wilson CI95 lower bound 0.6874 > 0.6). All gates met. **Superseded by E113/F116 as unconfirmed on a matched harvest.**
 

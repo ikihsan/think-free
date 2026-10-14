@@ -173,10 +173,28 @@ letters (LaTeX commands), not before digits, which corrected one case where
 `\37` ≠ `37` (harness scored 0, naive strip-all-backslashes would have
 scored 1). Kill gate not fired; this is the stated outcome — cross-model
 reach demonstrated further, external value still unobserved, D111 stands.
-Named next action: E138, the `gsm` cell (free-text, `####` number-extraction
-parser, single run) — the parser stressor that E136's pre-named cell F
-identified but was not needed because `math_chain_of_thought` exercised both
-stressors (`EXPERIMENTS/137-leaderboard-cross-model-agreement/`).
+
+**E138 completed (2026-10-14): the `gsm` cell (free-text, `####` number-extraction
+parser, single run) is a fourth exact AGREE.** The calibrated instrument
+pointed at `01-ai/yi-34b` gsm run (1000 instances) achieved exact AGREE:
+recomputed `final_number_exact_match` = 0.648000, published = 0.648, diff
+0.0. Row-level verdict agreement: **1000/1000** with the harness's
+per-instance verdicts. The `####` marker was absent from this population
+(HELM's GSM8K references end with "The answer is N"); the fallback rule
+(last number in text) was exercised on 1000/1000 rows for both gold and
+predicted answers. No parser bugs found; 352 mismatches are genuine model
+errors. Kill gate not fired; this is the stated outcome — reach demonstrated
+further across four stressors (single-letter, free-text aggregate with
+weighting, cross-model, `####` parser), external value still unobserved,
+D111 stands.
+[`EXPERIMENTS/136-leaderboard-free-text-aggregate/RESULT.md`](EXPERIMENTS/136-leaderboard-free-text-aggregate/RESULT.md).
+
+Named next action: The R1 instrument has now been validated on four
+cells in HELM lite v1.0.0 with exact agreement on all. The remaining
+question is whether this reach translates to external value (D111). Options:
+continue testing on other leaderboards (C1 Open LLM Leaderboard v2, C3
+Chatbot Arena — both failed G2 at probe time), or accept D111 as the final
+state of this line and pivot.
 
 ## Dashboard
 
