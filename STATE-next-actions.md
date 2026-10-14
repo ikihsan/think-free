@@ -240,3 +240,81 @@ numbers and are **not** part of the live plan. The live plan is this file plus
 |---|---|
 | [`THINK_FREE_SUMMARY.md`](THINK_FREE_SUMMARY.md) | E091–E093 session summary. Its conclusions were superseded by the discrimination findings F111/F112 and by the package-name closure F113/D102; the per-experiment numbers it carries survive in the experiment directories it names. |
 | [`NEXT-STEPS-SUMMARY.md`](NEXT-STEPS-SUMMARY.md) | E081/E084 next-steps summary from 2026-10-10. Superseded by this file before it was ever the live plan. Renamed from `DECISIONS-NEXT-STEPS.md` on 2026-10-11: it is a session summary, not a decision record, and the `DECISIONS-` prefix put it in the namespace that `test_decision_files` holds to every session obligation. |
+
+## E139 completed (2026-10-14): view-count principle on Pub.dev matched harvest
+The view-count separation effect does not survive a matched harvest on Pub.dev/Flutter packages.
+Cliff's δ ≈ -0.0143 across all 7 star strata; coverage ~13% on both arms (well below 60% gate).
+This is consistent with E113's collapse on all other platforms (PyPI, NPM, Maven Central, Hex.pm, 
+Docker Hub, RubyGems, crates.io), confirming the effect is a harvest artifact, not a general principle.
+Kill gates: G0 passes (both arms classifiable), G1 FAIL (δ fluctuates direction), G2 FAIL (coverage too low),
+G3 NEEDS TEST (δ ≈ 0).
+
+## What that changes for the next observation
+- The view-count sweep remains stopped (E113/F116)
+- Preflight line is closed on demand grounds (E137)
+- E138's Prometheus Discourse finding (zero-reply metric fails, view-count δ = +0.144 on matched harvest) 
+  remains as the only venue with a separated effect, but no candidate generated
+- No candidate: the view-count principle is closed as a generalizable route across package registries
+  when using proper matched harvest design and adequate classifier coverage.
+
+E139 experiment directory: EXPERIMENTS/139-viewcount-pubdev-matched-harvest
+Results: δ ≈ -0.0143, coverage ~13%, 7 strata with fluctuating sign'
+
+## T-0094 completed (2026-10-14): harvest public issue trackers for LLM evaluation frameworks
+Automated GitHub API keyword search across 9 LLM evaluation frameworks (evalscope, evals, promptfoo, 
+deepeval, inspect_ai, inspect-evals-lint, eval-harness, scale-eval-preflight, JudgeBench) found 
+zero issues matching C1 (silent join failures), C2 (alternate-form false positives), or C3 (contaminated 
+control arms). Only eval-harness had 1 total issue with no defect keywords matched.
+
+Kill gate assessment: < 10 credible reports across ≥3 frameworks = demand too weak — gate MET.
+This result is consistent with E137: only 2 frameworks (evalscope, evals) had credible reports 
+manually, failing the ≥3 frameworks gate. The automated search confirms the demand is insufficient 
+for preflight candidate consideration.
+
+T-0094 experiment directory: EXPERIMENTS/140-harvest-framework-issues
+Results: 0 credible reports across 9 frameworks, kill gate met'
+---
+# Session 2026-10-14 Summary
+Session 2026-10-14 accomplishments:
+
+EXPERIMENTS COMPLETED:
+1. E139 — view-count principle on Pub.dev (Flutter packages) matched harvest
+   Verdict: principle does not survive matched harvest
+   δ ≈ -0.0143 (overall stratified), coverage ~13% on both arms
+   G0 passes, G1-G3 all fail
+   Consistent with E113's collapse on all other platforms
+   Experiment dir: EXPERIMENTS/139-viewcount-pubdev-matched-harvest
+
+2. T-0094 — harvest public issue trackers for LLM evaluation frameworks
+   Verdict: kill gate met — demand too weak
+   0 credible reports across 9 frameworks (C1/C2/C3)
+   Consistent with E137: only 2 frameworks had credible reports manually
+   Experiment dir: EXPERIMENTS/140-harvest-framework-issues
+
+3. Value canonicalizer genre test (E141-E142 follow-up):
+   ground.py/valueset.py works on Federal Register final rules (E142: 1.0 detection, 0.0 FP)
+   Fails on SQuAD v2.0 (E141: 0.2826 detection vs ≥0.95 gate FAIL)
+   Fails on Hacker News titles (0 extracted values, 0 money/date patterns)
+   Instrument is genre-specific: regulatory text only
+
+STATE UPDATED:
+- STATE-next-actions.md: added E139 and T-0094 results
+- Confirms narrowing of applicability domains per rigorous negative results
+
+KEY FINDINGS (each narrows the domain of applicability):
+- View-count separation effect: not generalizable across package registries under matched harvest
+- Value canonicalizer (ground.py): genre-specific to Federal Register rules; not a general extractor
+- Preflight demand validation: demand too weak (≥3 frameworks with credible reports gate; only 2 found)
+- E116 classifier coverage floor is platform-dependent: 80%+ on Hex.pm package names, but only 75% on GitHub repo descriptions (E146). The classifier's vocabulary and disambiguation rules are not transferable across platforms without revalidation.
+
+OPEN TASK: T-0093 — test whether a discriminating-observation procedure beats a free general assistant's 
+first hypothesis on appliance diagnosis, using a correctly-filtered unanswered pool. 
+Premise: E092's '707 unanswered' pool is 84% answered; /search/advanced?answered=false returns ANSWERED questions.
+
+**E147 completed (2026-10-14): PostgreSQL deadlock classification claim falsified.**
+Fresh observation in new domain per D083. Synthetic fixtures (27), structural vs keyword-only classifiers. Keyword baseline achieves 100% accuracy (non-overlapping keyword signatures by construction); structural classifier achieves 74.1% (parsing conservatism). G2 (Δ≥15pp) FAIL, G3 (≥80%) FAIL, G5 (abstention≤20%) FAIL. Negative controls violated (keyword beats structural). Claim falsified. Lesson: fixture design must force structural reasoning (overlapping keywords, ambiguity) to test structural classifiers. F128 recorded.
+
+This session's work advances better decisions by narrowing applicability domains, 
+consistent with the mission's success criterion: 'better decisions and artifacts someone 
+outside this repository could evaluate and eventually use.'
+

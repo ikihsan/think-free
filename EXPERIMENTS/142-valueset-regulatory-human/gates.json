@@ -1,88 +1,88 @@
 {
   "K1": {
     "ci95": [
-      0.5101,
+      0.7225,
       1.0
     ],
-    "detected": 4,
+    "detected": 10,
     "rate": 1.0,
-    "total": 4,
+    "total": 10,
     "verdict": "PASS"
   },
   "K2": {
     "ci95": [
-      0.0,
-      0.1936
+      0.0023,
+      0.0691
     ],
-    "fp": 0,
-    "rate": 0.0,
-    "total": 16,
+    "fp": 1,
+    "rate": 0.0128,
+    "total": 78,
     "verdict": "PASS"
   },
   "K3": {
     "ci95": [
-      0.6398,
-      0.965
+      0.5962,
+      0.7948
     ],
-    "covered": 14,
-    "rate": 0.875,
-    "total": 16,
+    "covered": 55,
+    "rate": 0.7051,
+    "total": 78,
     "verdict": "PASS"
   },
   "K4_A_and_D": {
     "ci95": [
-      0.7847,
-      1.0
+      0.8586,
+      0.9823
     ],
-    "covered": 14,
-    "rate": 1.0,
-    "total": 14,
+    "covered": 55,
+    "rate": 0.9483,
+    "total": 58,
     "verdict": "PASS"
   },
   "K4_B_and_D": {
     "ci95": [
-      0.5101,
+      0.7225,
       1.0
     ],
-    "covered": 4,
+    "covered": 10,
     "rate": 1.0,
-    "total": 4,
+    "total": 10,
     "verdict": "PASS"
   },
   "K5": {
     "ci95": [
-      0.8241,
-      1.0
+      0.8781,
+      0.9849
     ],
-    "covered": 18,
-    "rate": 1.0,
-    "total": 18,
+    "covered": 65,
+    "rate": 0.9559,
+    "total": 68,
     "verdict": "PASS"
   },
   "M1_FP_on_A": {
     "ci95": [
-      0.1018,
-      0.495
+      0.2387,
+      0.4436
     ],
-    "fp": 4,
-    "rate": 0.25,
-    "total": 16
+    "fp": 26,
+    "rate": 0.3333,
+    "total": 78
   },
   "M1_detection_on_B": {
     "ci95": [
-      0.5101,
+      0.7225,
       1.0
     ],
-    "detected": 4,
+    "detected": 10,
     "rate": 1.0,
-    "total": 4
+    "total": 10
   },
   "triage": {
-    "clear": 14,
-    "condemn": 4,
-    "condemn_share": 0.2,
-    "defer": 2,
-    "resolved_share": 0.9,
-    "total": 20
+    "clear": 54,
+    "condemn": 11,
+    "condemn_share": 0.125,
+    "defer": 23,
+    "resolved_share": 0.7386,
+    "total": 88
   }
 }

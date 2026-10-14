@@ -151,3 +151,38 @@ its defects; treat the column as *untested on a matched harvest*, not confirmed:
 | crates.io (E095) | ❌ | downloads | All crates active (100%), no discrimination |
 | Hugging Face Hub (E101) | ❌ | downloads | 12.4% vs 8.6%, not significant |
 | GitHub Issues (E063) | ❌ | — | No arrival field |
+
+---
+
+## E147 — PostgreSQL deadlock report root cause classification
+
+**Result:** `observed`, 2026-10-14, `EXPERIMENTS/147-postgres-deadlock-classification/`
+
+**Protocol:** Fresh observation per D083. Synthetic fixtures (27 total: 5 per category × 5 categories + 2 G4 info-sufficiency pair). Categories: `fk_lock_contention`, `index_lock_contention`, `tuple_lock_contention`, `advisory_lock_contention`, `explicit_lock_contention`. Two classifiers: structural (parses lock modes, relation pairs, query patterns) vs keyword-only baseline (canonical keyword patterns per category).
+
+**Kill gates (predeclared):**
+
+| Gate | Threshold | Observed | Verdict |
+|------|-----------|----------|---------|
+| G1 (fixture validity) | 100% labelled by construction | 27/27 | **PASS** |
+| G2 (structural beats keyword by ≥15pp) | Δ ≥ 0.15 | Δ = -0.259 | **FAIL** |
+| G3 (min absolute accuracy) | ≥ 0.80 | 0.741 | **FAIL** |
+| G4 (info-sufficiency witness) | G4 pair distinguishable | Both correct | **PASS** |
+| G5 (abstention honesty) | ≤ 0.20 | 0.222 | **FAIL** |
+
+**Results:**
+
+| Classifier | Accuracy | Per-category |
+|------------|----------|--------------|
+| Keyword-only baseline | **100.0%** (27/27) | All 5 categories: 100% |
+| Structural classifier | **74.1%** (20/27) | tuple/advisory/explicit: 100%; index: 60%; fk: 16.7% |
+| Random | 14.8% | — |
+| Majority (fk) | 22.2% | — |
+
+**Negative controls violated:** Keyword-only (100%) beats structural (74.1%), so the experiment cannot distinguish signal from noise.
+
+**Conclusion:** Claim falsified. The synthetic fixtures have non-overlapping keyword signatures by construction — each category has unique canonical keywords (`ShareLock` for FK, `duplicate key` for index, `tuple`/`ctid` for tuple, `advisory`/`pg_advisory` for advisory, `LOCK TABLE` for explicit). Keyword matching is therefore sufficient and optimal on these fixtures. The structural classifier's parser is too conservative, failing on 5/6 FK fixtures and 2/5 index fixtures.
+
+**Lessons:** Synthetic fixture design critically determines whether keyword or structural classification wins. Fixtures must force structural reasoning (overlapping keywords, ambiguity) to test structural classifiers meaningfully. The G4 info-sufficiency pair shared some keywords but not all — distinguishing keywords (`ShareLock` vs `tuple`) remained, so it did not truly test information sufficiency.
+
+**Recorded in:** `FAILURES-findings-43.md` (F128)

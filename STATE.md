@@ -161,6 +161,8 @@ See [`STATE-in-flight.md`](STATE-in-flight.md) through [`STATE-in-flight-9.md`](
 
 ## What changed recently
 
+**E147 completed (2026-10-14):** Fresh observation in PostgreSQL deadlock report classification domain per D083. Claim falsified: keyword-only baseline 100% accuracy on synthetic fixtures (non-overlapping keyword signatures); structural classifier 74.1% (parsing conservatism). G2 (Δ≥15pp) FAIL, G3 (≥80%) FAIL, G5 (abstention≤20%) FAIL. F128 recorded. Lesson: synthetic fixture design must force structural reasoning (overlapping keywords, ambiguity) to test structural classifiers.
+
 See [`STATE-history.md`](STATE-history.md).
 
 ## Next actions

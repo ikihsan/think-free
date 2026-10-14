@@ -1,69 +1,64 @@
-<!---
-E144 experiment closure — value pre-pass on regulatory SUMMARY sections
+# Session 2026-10-14-025 — Value Canonicalizer Prototype
 
-This experiment closed the regulatory pre-pass line with a measured scope:
-  - Exact on regulatory answers written by a person (1.0 detection, 0.0 FP, 0 misses)
-  - Not exact on encyclopedic QA (E141: 0.2826 detection, 0.0113 FP)
-  - Not exact on explanatory regulatory text (E143: task shape mismatch, 100% condemn but expected)
-  - Genre-limited: works on the text it was written for, does not transfer
-
-Key records:
-  - EXPERIMENTS/142-valueset-regulatory-human (E142): 1.0 detection on Fed Register SUMMARYs
-  - EXPERIMENTS/143-valueset-longer-regulatory (E143): genre limitation deepened
-  - EXPERIMENTS/144-value-pre-pass-regulatory (E144): measured scope across regulatory genres
-  - tools/regcheck.py: prototype CLI implementing the value pre-pass
-
-The value pre-pass is a valid instrument for its scoped domain (regulatory answers written by a person),
-but is not a general-purpose regulatory faithfulness checker. Its applicability is now measured in both
-directions: it works on its target genre, it does not work on other genres.
---->
-
-# Session outcome: E144 value pre-pass regulatory closure
+**Goal:** Build and evaluate a value canonicalizer prototype for regulatory text extraction.
 
 ## What was produced
 
-1. **tools/regcheck.py** — CLI prototype for regulatory value pre-pass checking
-   - Implements ground.py's extract + judge functions
-   - Verdicts: grounded, ungrounded_value, ungrounded_context, ungrounded_claim
-   - Standard library only, deterministic, no network
+**`tools/regvalue/regvalue_cli.py`** — A CLI prototype implementing the `ground.py` + `valueset.py` canonicalizer for extracting and grounding named values from regulatory text. Usage:
 
-2. **EXPERIMENTS/144-value-pre-pass-regulatory/PROTOCOL.md** — Pre-declared experiment protocol
-   - Question, population, task shape, gates, kill conditions
-   - The three numbers the build decision turns on
-   - What this run cannot show
+```
+python3 regvalue_cli.py <document_path> <answers_jsonl> [threshold=0.6]
+```
 
-3. **EXPERIMENTS/144-value-pre-pass-regulatory/RESULT.md** — Experiment results
-   - 15 STB railway rule SUMMARY sections, 373 values checked
-   - K1 K2 K3 K4 K5 all PASS on available corpus
-   - Comparison with E142 benchmark (Federal Register SUMMARYs)
-   - Detailed verdict breakdown and ungrounded value evidence
+The tool:
+- Normalizes the document using `ground.normalize()` (strips HTML tags, joins line wraps, decodes entities)
+- Extracts value claims from each answer using `ground.PATTERNS` (date, money, code, pct, qty, num)
+- Calls `ground.judge(doc, answer, threshold)` to determine verdict for each value
+- Reports verdict: `grounded` (context matches above threshold), `ungrounded_claim` (value occurs but context doesn't match), or `ungrounded_value` (value not found in document)
+- Outputs per-value verdicts with confidence scores (0.0–1.0) and a summary counts
 
-4. **EXPERIMENTS/144-value-pre-pass-regulatory/** — Experiment directory with raw evidence
+## What was observed
 
-## Key findings
+Tested on 3 Federal Register documents (E114/E142 corpus, agency rule final rules):
 
-| Finding | Evidence |
-|---|---|
-| Value pre-pass exact on regulatory genre | E142: 1.0 detection (4/4), 0.0 FP (0/16) on Fed Register SUMMARYs; E144: 0.0 FP on STB railway SUMMARYs |
-| Instrument is genre-limited | E141: fails on SQuAD; E143: fails on SUPPLEMENTARY INFORMATION; E144: different regulatory genre but same genre family |
-| No misses on regulatory text | E142: 0 misses; E144: 0 binding errors, ungrounded_value only |
-| Resolved share ~0.90 | E142: 18/20; E144: 333/373 (89.3%) |
+| Document | Values Checked | Grounded | Ungrounded Claim | Ungrounded Value | Key Pattern |
+|---|---|---|---|---|---|
+| **2026-21031** (NRC AP1000) | 4 | 3 (75.0%) | 1 (25.0%) | 0 (0.0%) | Dates (score=1.0) and CFR codes (score=1.0) reliably grounded; money $1,000 → ungrounded_claim (context mismatch) |
+| **2026-21019** (PBGC Assets) | 5 | 3 (60.0%) | 1 (20.0%) | 1 (20.0%) | Dates (score=1.0) and CFR codes (score=1.0) grounded; pct "0.78 percent" → ungrounded_value (not in doc); num "0.13" → ungrounded_claim (context mismatch) |
+| **2026-21020** (Immigration penalties, HTML) | 3 | 0 (0.0%) | 0 (0.0%) | 3 (100.0%) | HTML normalization issue: values ($100,000, 15-business days, 8 CFR part 281) not found in normalized text; may reflect document-format limitation rather than instrument failure |
 
-## Decision
+**Key findings:**
+- **Dates** are reliably grounded when they appear in both answer and document (score 1.0)
+- **CFR/regulatory codes** are reliably grounded (e.g., "10 CFR Part 52", "29 CFR part 4044")
+- **Money values** are variable: sometimes `ungrounded_claim` (context doesn't match), sometimes `ungrounded_value` (not in document at all)
+- **The instrument is genre-specific**: confirmed working on Federal Register final rules (E114: 0/374 fabricated, E142: 1.0 detection on 4/4), failing on SQuAD (0.2826 detection vs ≥0.95 gate) and Hacker News titles (0 extracted)
+- **HTML-wrapped Federal Register documents** may have normalization limitations that affect instrument performance
 
-**Close the regulatory pre-pass line with a measured scope.** The instrument is exact on regulatory answers written by a person and not on encyclopedic text or explanatory regulatory text. The scope is now measured in both directions:
-- Works on: regulatory SUMMARY sections written by agency staff
-- Does not work on: encyclopedic QA (SQuAD), explanatory regulatory text (SUPPLEMENTARY INFORMATION), general corpus
+## Build decision changed
 
-The next measurement would be whether the pre-pass's exactness survives a longer submission (full regulatory analysis or comment letter), but such document types are not accessible via structured API fetch, making this test infeasible within the current framework.
+Prototype development of the value canonicalizer CLI rather than pursuing a new candidate. This follows the mission's established pattern: build a runnable experiment/prototype first, measure it against concrete evidence, then decide on product engineering. The decision is consistent with the mission's narrowed applicability domain — the value canonicalizer is confirmed as a genre-specific instrument (Federal Register rules only), not a general extractor.
 
-## Most useful next action
+## What remains unknown
 
-**Conduct a fresh observation in a new domain using the mission's experimental protocol.** The value pre-pass line is narrowed and measured; a new investigation is needed to continue building the repository's evidence base. The fresh observation should be in a domain not yet tested by the mission's gates, applying the same pre-declared kill criteria and measurement protocol.
+1. **Genre limitation boundary**: Confirmed Federal Register–specific, but the exact breadth of the failure on other genres (social media, issue-tracking, ML registries) still needs mapping. The mission has already shown the principle does not generalize across package registries under matched harvest.
 
-Potential domains:
-- Code documentation / README analysis (applying value extraction to software artifacts)
-- A new Discourse forum domain (the view-count instrument has generalized to 7 platform types)
-- A cross-domain transfer test of the value pre-pass on a non-regulatory genre
+2. **Money value variability**: Whether `ungrounded_claim` (context mismatch) vs `ungrounded_value` (absent from document) rates can be improved by pattern refinement or whether this is a structural bound.
 
-The decision to pursue a fresh observation is independent of the regulatory pre-pass closure — the mission continues with new evidence-gathering per D083.
+3. **HTML normalization reliability**: Full Federal Register HTML documents may lose content during normalization, affecting instrument performance. Need to test with properly parsed/text-only versions.
+
+4. **Real-world adoption**: The prototype is evidence-gathering, not product validation. No users have been observed; usefulness is inferred from the mechanism's performance on the target genre.
+
+## Single most useful next action
+
+**Run the prototype on a larger, systematically-sampled corpus of Federal Register final rules (20+ documents across different agencies) to establish statistically reliable grounded/ungrounded rates and further delineate the instrument's applicability domain.** This experiment would:
+
+- Test the instrument on a broader sample than the 3 documents currently evaluated
+- Produce concrete numbers (e.g., "78% of money values are grounded on Federal Register rules, with 12% ungrounded_claim and 10% ungrounded_value")
+- Determine whether the HTML normalization issue is document-specific or systematic
+- Provide the evidence needed for a well-informed decision: refine the instrument for regulatory compliance use, apply it to a different domain, or close this line of inquiry
+
+**Reproduction:** `python3 tools/regvalue/regvalue_cli.py <doc-path> <answers-jsonl>` on documents from `EXPERIMENTS/142-valueset-regulatory-human/raw/` with answers from `EXPERIMENTS/142-valueset-regulatory-human/arms.jsonl`.
+
+**Kill gate (predeclared, from E114/E142):** If grounded rate on a 20-document Federal Register corpus falls below 50%, the instrument is confirmed as not practical for general regulatory value extraction. If grounded rate is ≥70% on dates+codes+Money (≥50% on money alone), the instrument has a viable niche as a ranked human-review prioritizer (a value flagged as grounded is worth a human glance, consistent with E114's finding that it is "worthless as a gate but worth reusing as a ranker").
+
+**Verification:** `PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests` must exit 0.

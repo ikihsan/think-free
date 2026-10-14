@@ -109,3 +109,35 @@ against), F003/F004 (this repository's own record-keeping). **Consumes** the
 failures. **Ceiling:** the repair restored the gates, it did not explain why
 `f65940c4` overwrote a section rather than appending one, and that cause is
 `untested`.
+
+---
+
+## F128 — PostgreSQL deadlock classification: keyword baseline perfect on synthetic fixtures, structural classifier adds no value
+
+**Observed 2026-10-14**, session `2026-10-14-031-run-t-0093-test-discriminating-observati`, experiment `E147` (`EXPERIMENTS/147-postgres-deadlock-classification/`).
+
+**The claim:** A structural classifier using parsed lock modes, relation pairs, and query patterns beats a keyword-only baseline by ≥15pp on PostgreSQL deadlock report root cause classification (accuracy ≥80%).
+
+**The result:** Claim falsified. On 27 synthetic fixtures (5 per category: fk_lock_contention, index_lock_contention, tuple_lock_contention, advisory_lock_contention, explicit_lock_contention + 2 G4 info-sufficiency pair):
+
+| Classifier | Accuracy |
+|------------|----------|
+| Keyword-only baseline | **100.0%** (27/27) |
+| Structural classifier | **74.1%** (20/27) |
+| Random | 14.8% |
+| Majority | 22.2% |
+
+**Kill gates:**
+- G1 (fixture validity): PASS — all fixtures labelled by construction
+- G2 (Δ≥15pp vs keyword): **FAIL** — structural 74.1% vs keyword 100.0%, Δ = -25.9pp
+- G3 (accuracy ≥80%): **FAIL** — 74.1% < 80%
+- G4 (info-sufficiency witness): PASS — G4 pair correctly distinguished
+- G5 (abstention ≤20%): **FAIL** — 22.2% (6/27) abstained
+
+**Root cause:** Synthetic fixtures have non-overlapping keyword signatures by construction (each category has unique canonical keywords: `ShareLock` for FK, `duplicate key` for index, `tuple`/`ctid` for tuple, `advisory`/`pg_advisory` for advisory, `LOCK TABLE` for explicit). Keyword matching is therefore sufficient and optimal on these fixtures. The structural classifier's parser is too conservative, failing on 5/6 FK fixtures and 2/5 index fixtures.
+
+**Negative controls violated:** Keyword-only baseline beats structural classifier, so the experiment cannot distinguish signal from noise.
+
+**Classification:** The approach does not work on this fixture design. Do not rebuild this classifier. The finding is that synthetic fixture design critically determines whether keyword or structural classification wins — fixtures must force structural reasoning (overlapping keywords, ambiguity) to test structural classifiers meaningfully.
+
+**Artifacts:** `EXPERIMENTS/147-postgres-deadlock-classification/{PROTOCOL.md,fixtures.jsonl,classifier.py,run.py,results.json,RESULT.md}`
