@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-04
 -->
 
-Decisions **D040, D042, D044–D046**. Each entry records a choice that was
+Decisions **D040, D042, D045–D046**. Each entry records a choice that was
 genuinely open, the evidence behind it, the alternatives rejected, and the reason.
 
 **Invariant:** every entry here governs *a write the tooling made on the agent's
