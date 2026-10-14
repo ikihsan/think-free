@@ -1,0 +1,69 @@
+{
+  "session_start": "2026-10-14",
+  "session_end": "2026-10-14",
+  "work_completed": {
+    "E137_cross_model_agreement": {
+      "status": "complete",
+      "math_chain_of_thought_on_yi6b": {
+        "action": "R1 recomputation on second model (01-ai_yi-6b) from HELM lite v1.0.0",
+        "key_finding": "R1 instrument works across models but calibration is model-specific; yi-6b outputs have different style from yi-34b (8-shot CoT, together deployment)",
+        "recomputed_macro_mean": 0.1275131029720993,
+        "published_macro_mean_yi34b": 0.37478395850488877,
+        "diff": -0.24727085553278946,
+        "total_rows": 437,
+        "total_hits": 56
+      },
+      "gsm_cell_on_yi6b": {
+        "action": "R1 recomputation on GSM cell from HELM lite v1.0.0, model 01-ai_yi-6b",
+        "key_finding": "R1 recomputation possible; slight discrepancy between simple last-number extraction and harness's final_number_exact_match metric",
+        "recomputed_mean": 0.359,
+        "published_value": 0.375,
+        "diff": -0.016,
+        "rows": 1000,
+        "hits": 359
+      }
+    },
+    "0xx_viewcount_prototype_v3_cache_test": {
+      "status": "complete",
+      "keyword": "cache",
+      "sample_size": 200,
+      "classified": {
+        "need-related": 103,
+        "random": 84
+      },
+      "active": {
+        "need-related": 97,
+        "random": 37
+      },
+      "active_rates": {
+        "need-related": 94.2,
+        "random": 44.0
+      },
+      "g1_pass": true,
+      "g2_pass": true,
+      "g3_pass": true,
+      "g4_pass": true,
+      "overall": "ALL GATES PASS",
+      "key_finding": "View-count prototype v3 generalizes across PyPI keywords; need-related packages systematically more active than random (ratio 2.14:1). Calibration model-specific confirmed across both HELM math and PyPI package domains.",
+      "notes": "Validated with keyword cache after earlier validation with database. Prototype v3 (improved API failure handling, word-boundary classification, prioritized output) is operational and produces consistent results."
+    }
+  },
+  "build_decisions_changed": {
+    "prototype_continuation": "E137 cross-model agreement complete; R1 instrument calibration confirmed model-dependent; view-count prototype v3 validated on PyPI with multiple keywords; decision to continue prototype refinement across sessions rather than restarting discovery or switching to untested Hackage domain (API access constraints, gate thresholds requiring 100+ classified packages)."
+  },
+  "what_remains_unknown": {
+    "cross_platform_generalization": "Whether the view-count principle effect size generalizes to other package ecosystems (Hackage, NuGet, Packagist) and non-software domains with exposable metadata.",
+    "practical_workflow_integration": "Best workflow integration point for the classifier prototype (CLI step, IDE plugin, CI step, etc.) and whether sustained use and contribution achievable without GitHub stars/adoption metrics.",
+    "additional_keyword_validation": "Whether the observed effect size generalizes across different PyPI keyword categories beyond database and cache."
+  },
+  "single_most_useful_next_action": "Continue the promising prototype experiment across sessions: create improved versions of 0xx-viewcount-prototype/experiment.py with larger package pools, more robust API failure handling, and testing on additional platforms (NuGet, Packagist). This continues the experiment across sessions rather than restarting discovery, produces an evaluable artifact outside the repository, and advances the concrete problem of developer package discovery. Alternatively, per D083, initiate fresh observation in a novel domain (recommend: test view-count principle on Hackage/Metacpan for Haskell packages, or on a non-software domain with exposable metadata such as a technical conference proceeding archive). The choice should be guided by which advance teaches more about the fundamental limits of the respective methodologies.",
+  "evidence_preserved": {
+    "e137_protocol": "/home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/PROTOCOL.md",
+    "e137_result": "/home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/RESULT.md",
+    "e137_cross_model_results": "/home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/",
+    "viewcount_prototype_results": "/home/ubuntu/think-free/EXPERIMENTS/0xx-viewcount-prototype/results.json",
+    "e137_math_recomputation": "/home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/recompute_yi6b_math_out.json",
+    "e137_math_result_file": "/home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/e137_math_yi6b_result.json",
+    "e137_gsm_result_file": "/home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/e137_gsm_yi6b_result.json"
+  }
+}

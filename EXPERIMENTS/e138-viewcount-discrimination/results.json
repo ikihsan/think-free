@@ -1,0 +1,16 @@
+{
+  "experiment": "E138",
+  "date": "2026-10-14",
+  "status": "kill_gate_fired",
+  "kill_gate": "G1 coverage",
+  "kill_gate_reason": "13 served + 10 control = 23 topics, below required >=20 per arm",
+  "treatment_n": 13,
+  "control_n": 10,
+  "total_n": 23,
+  "g1_pass": false,
+  "g4_arrival_field": true,
+  "views_available": true,
+  "cliff_delta": null,
+  "all_gates_pass": false,
+  "notes": "Corpus too small for view-count measurement suite G1 gate; principle requires >=20 per arm"
+}

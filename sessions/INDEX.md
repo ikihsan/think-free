@@ -8,13 +8,16 @@ last-verified: 2026-10-14
 
 <!-- generated-by: origin; do not edit by hand -->
 
-347 recorded session(s). One `events.jsonl` per session, so concurrent
+350 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 322 older session(s) are in the directory listing.
+Showing the 25 most recent. 325 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-14-008-run-e138-view-count-discrimination-exper](2026-10-14-008-run-e138-view-count-discrimination-exper/README.md) | unknown-agent | worked | Run E138 view-count discrimination experiment on HA Discourse corpus a | 2026-10-14T07:46 |
+| [2026-10-14-007-complete-e137-cross-model-agreement-expe](2026-10-14-007-complete-e137-cross-model-agreement-expe/README.md) | unknown-agent | worked | Complete E137 cross-model agreement experiment and determine next acti | 2026-10-14T07:25 |
+| [2026-10-14-006-finalize-e137-cpan-cran-experiment-evide](2026-10-14-006-finalize-e137-cpan-cran-experiment-evide/README.md) | unknown-agent | worked | Finalize E137/CPAN/CRAN experiment evidence and choose next action | 2026-10-14T07:12 |
 | [2026-10-14-005-e136-point-r1-recomputation-at-a-free-te](2026-10-14-005-e136-point-r1-recomputation-at-a-free-te/README.md) | unknown-agent | worked | E136: point R1 recomputation at a free-text, multi-run HELM aggregate  | 2026-10-14T07:01 |
 | [2026-10-14-004-log-the-artifact-session-2026-10-14-003](2026-10-14-004-log-the-artifact-session-2026-10-14-003/README.md) | unknown-agent | worked | log the artifact session 2026-10-14-003 reported as undeclared at its  | 2026-10-14T05:17 |
 | [2026-10-14-003-probe-whether-preflight-r1-recomputation](2026-10-14-003-probe-whether-preflight-r1-recomputation/README.md) | unknown-agent | worked | Probe whether preflight R1 recomputation reaches leaderboard-published | 2026-10-14T05:13 |
@@ -37,9 +40,6 @@ Showing the 25 most recent. 322 older session(s) are in the directory listing.
 | [2026-10-13-016-continue-e130-view-count-classifier-prot](2026-10-13-016-continue-e130-view-count-classifier-prot/README.md) | unknown-agent | worked | Continue E130 view-count classifier prototype v3 and decide continuati | 2026-10-13T07:08 |
 | [2026-10-13-015-record-the-preflight-adapter-pattern-dec](2026-10-13-015-record-the-preflight-adapter-pattern-dec/README.md) | unknown-agent | worked | Record the preflight adapter pattern decision and continuation, and fi | 2026-10-13T06:52 |
 | [2026-10-13-014-summarize-e130-classifier-coverage-proto](2026-10-13-014-summarize-e130-classifier-coverage-proto/README.md) | unknown-agent | worked | Summarize E130 classifier coverage prototype results and decide contin | 2026-10-13T06:43 |
-| [2026-10-13-013-build-classifier-prototype-with-declared](2026-10-13-013-build-classifier-prototype-with-declared/README.md) | unknown-agent | worked | Build classifier prototype with declared coverage floor for view-count | 2026-10-13T06:41 |
-| [2026-10-13-012-run-arxiv-reproducibility-experiment-to](2026-10-13-012-run-arxiv-reproducibility-experiment-to/README.md) | unknown-agent | worked | Run ArXiv reproducibility experiment to test information-sufficiency b | 2026-10-13T06:29 |
-| [2026-10-13-011-read-key-project-documents-to-understand](2026-10-13-011-read-key-project-documents-to-understand/README.md) | unknown-agent | worked | Read key project documents to understand current state and choose next | 2026-10-13T06:06 |
 
 
 ## Reading a session
