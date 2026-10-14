@@ -168,3 +168,43 @@ Decision: **Release the tool as a public prototype with the adapter interface.**
 Rejected: waiting for adoption before release, which inverts the mission's order — the tool is released so it *can* be adopted, not because it *was*. Rejected: fixing the C2 "failure" on E114's verifier, which is the tool correctly catching a real problem (the verifier condemns 24 of 24 correct paraphrases at FP rate 1.00). Rejected: keeping preflight internal until the K2 gate passes universally, which would require a universal false-positive rate that does not exist (F123).
 
 Consequence: preflight/ is added to the public table in RELEASE-MANIFEST.md and listed as a prototype product in README.md. The tool is installable via `pip install preflight-eval` and usable with built-in adapters (`jsonl`, `csv`, `yaml`, `xml`) or custom adapters. The 52 pre-existing release check violations (unclassified root-level files) are not resolved by this change.
+
+## D044 — The session's own record is not uncommitted work, and the claim says so
+
+Evidence: T-0055, session `2026-10-04-041`, 2026-10-04. Defect 21 in
+[`STATE-defects.md`](STATE-defects.md); [`FAILURES-findings-5.md`](FAILURES-findings-5.md)
+F023.
+
+**The choice.** A claim's commit carries the open session's own record, and
+anything else uncommitted refuses the claim **before** anything is written. Both
+halves were open. The alternative was to keep `push`'s blanket dirty-tree refusal
+and tell agents to commit their session record by hand before claiming, which is
+what happened for thirty minutes at session 038.
+
+Decision: **a command that publishes its own write must decide what "publishable"
+means, and the session's record is part of the command's own output rather than the
+agent's unreviewed work.** `claimpublish.claim_paths` reads the session's paths from
+`sessionflow.session_owned_paths` — the module that owns that definition — and
+`claimpublish.refuse_uncommitted_work` asks `sessionflow.uncommitted_work`, the
+predicate `session finish --push` already used for exactly this question. Neither
+list is written out a second time.
+
+Rejected: making `sync.push` tolerant of any dirty tree that is session-owned.
+Broader than the defect and it weakens the primitive every other caller relies on;
+the composition belongs in the caller that composes it. Rejected: having the claim
+commit the session record in a *separate* commit first. It would have needed the
+record to be clean before the claim's own `task_rewrite` event, which is written
+during the claim — so the second commit still has to come after, and the separate
+commit breaks `_discard_claim_commit`, whose whole contract is `ahead == 1`.
+Rejected: staging `sessions/<id>` by hand rather than through `session_owned_paths`.
+The first attempt did exactly that and the test caught it: `sessions/INDEX.md` was
+still dirty and the refusal was byte-identical to the defect's. A list written twice
+is a list that will be wrong once.
+
+**Ceiling.** The claim commit is no longer confined to `tasks/`, so a reader of
+`git log` sees session events beside the ledger. `sync land` still refuses a dirty
+tree outright, because a rebase genuinely needs a clean one and the same reasoning
+does not reach that command. And the commit-then-push window remains: a crash
+between `_commit_paths` and `sync.push` leaves one local commit that the next
+`_require_at_base` names — which is the direction of failure, and it is a message
+rather than a silent claim.

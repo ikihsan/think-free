@@ -43,7 +43,7 @@ ordinary edits do not.
 | [`DECISIONS-PYTESTIVE-SUMMARY.md`](DECISIONS-PYTESTIVE-SUMMARY.md) | — | A session's packaging record for the `pyprovides` prototype: what was built, where each function now lives, and what was measured. Indexed here because it is a record of a decision about this repository's own artifact, not a live plan |
 
 | [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D024–D026, D030, D036–D039 | How a gate, a diagnostic, or its control must be written before it is trusted |
-| [`DECISIONS-RECORDS.md`](DECISIONS-RECORDS.md) | D029, D032, D035, D041, D043, D046, D047 | What this repository's own records must be: a function of the tree, no number with two meanings, and two artefacts held to each other |
+| [`DECISIONS-RECORDS.md`](DECISIONS-RECORDS.md) | D029, D032, D035, D041, D043, D047, D113 | What this repository's own records must be: a function of the tree, no number with two meanings, and two artefacts held to each other |
 
 **Split a sixth time at 2026-10-05 (T-0063), when D051 took
 `DECISIONS-SCREENING.md` to 324 of its 300 permitted lines.** D048–D050 moved
