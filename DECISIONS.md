@@ -15,7 +15,7 @@ ordinary edits do not.
 | [`DECISIONS-FOUNDATION.md`](DECISIONS-FOUNDATION.md) | D001–D010 | The mission, the workspace, and what counts as evidence |
 | [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md) | D011–D012, D014–D018, D031, D033–D034 | Recording and moving work |
 | [`DECISIONS-SESSIONS.md`](DECISIONS-SESSIONS.md) | D013, D027–D028 | Whether a session is finished, and whose change a recorded path is |
-| [`DECISIONS-PUBLISHING.md`](DECISIONS-PUBLISHING.md) | D040, D042, D045–D046 | What a command's own write is, and what must travel with it when published |
+| [`DECISIONS-PUBLISHING.md`](DECISIONS-PUBLISHING.md) | D040, D042, D045–D046, D111 | What a command's own write is, and what must travel with it when published |
 | [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) | D019–D023, D055, D056 | What passes: candidate screens, kill-gate conditions, verdict metrics, the rule that the next-action list must carry an invention item, the two inputs a candidate may not borrow from each other, that a hand-labelled rate is a finding only once a control arm shares the population it controls, and that a majority gate with a one-row margin is reported as a plurality |
 | [`DECISIONS-SCREENING-2.md`](DECISIONS-SCREENING-2.md) | D048–D052 | What passes, continued: the two inputs a candidate may not borrow from each other, what a prior-art verdict must read before it may kill, and that a harvested corpus's population is measured before its yield |
 | [`DECISIONS-SCREENING-3.md`](DECISIONS-SCREENING-3.md) | D053–D054, D057–D058 | What passes, continued: a channel's absence from an instrument is not evidence the world uses it, a corpus's outcomes are measured before it is called unmet, a load-bearing statement justified by an instrument's absence is measured before it is repeated, and a firing gate is a pre-registered event whose sensitivity is still owed. Split from `-2`, which the other VM's D052 put at 293 of 300 lines |
@@ -42,7 +42,8 @@ ordinary edits do not.
 | [`DECISIONS-PYTESTIVE-SUMMARY.md`](DECISIONS-PYTESTIVE-SUMMARY.md) | — | A session's packaging record for the `pyprovides` prototype: what was built, where each function now lives, and what was measured. Indexed here because it is a record of a decision about this repository's own artifact, not a live plan |
 
 | [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D024–D026, D030, D036–D039 | How a gate, a diagnostic, or its control must be written before it is trusted |
-| [`DECISIONS-RECORDS.md`](DECISIONS-RECORDS.md) | D029, D032, D035, D041, D043, D046, D047 | What this repository's own records must be: a function of the tree, no number with two meanings, and two artefacts held to each other |
+| [`DECISIONS-RECORDS.md`](DECISIONS-RECORDS.md) | D029, D032, D035, D041, D043, D047 | What this repository's own records must be: a function of the tree, no number with two meanings, and two artefacts held to each other |
+| [`DECISIONS-RECORDS-2.md`](DECISIONS-RECORDS-2.md) | D110, D112 | The same, continued: a reader reads every file of a split list, and two allocations of one identifier are a merge's problem, not a reader's |
 
 **Split a sixth time at 2026-10-05 (T-0063), when D051 took
 `DECISIONS-SCREENING.md` to 324 of its 300 permitted lines.** D048–D050 moved

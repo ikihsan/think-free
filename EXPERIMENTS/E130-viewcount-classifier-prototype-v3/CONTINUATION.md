@@ -1,4 +1,11 @@
-E130 — View-count classifier prototype v3: Continuation Decision
+<!-- origin-meta
+owner: EXPERIMENTS/README.md
+status: active
+last-verified: 2026-10-14
+-->
+
+# E130 — View-count classifier prototype v3: Continuation Decision
+
 
 Date: 2026-10-13
 Experiment: E130-viewcount-classifier-prototype-v3

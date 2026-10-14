@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-13
+last-verified: 2026-10-14
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -396,7 +396,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/131-preflight-fourth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
 | `EXPERIMENTS/132-preflight-fifth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
 | `EXPERIMENTS/133-preflight-sixth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
-| `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `—` | — | — | 2 documents |
+| `EXPERIMENTS/134-preflight-real-run/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 6 documents |
+| `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |

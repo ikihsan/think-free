@@ -62,7 +62,12 @@ def alternate_form_fp(items, flagger, fp_ceiling=0.02, arms=True):
         out[arm] = {
             "correct_items": correct,
             "incorrect_items": incorrect,
-            "recall_on_incorrect": (round(1.0 - incorrect["rate"], 4) if incorrect["n"] else None),
+            # Recall is the share of *wrong* items the flagger condemns. E134
+            # found this field computing its complement, so a flagger that caught
+            # every wrong item reported ``recall 0.0``; the miss rate is now
+            # reported under its own name rather than inside the recall field.
+            "recall_on_incorrect": (round(incorrect["rate"], 4) if incorrect["n"] else None),
+            "miss_rate_on_incorrect": (round(1.0 - incorrect["rate"], 4) if incorrect["n"] else None),
             "fp_wilson_lower": round(lo, 4),
         }
         worst_lower = max(worst_lower, lo)
@@ -75,6 +80,17 @@ def alternate_form_fp(items, flagger, fp_ceiling=0.02, arms=True):
     elif not any(out[a]["correct_items"]["n"] for a in out):
         verdict = "NO_LABELLED_CORRECT_ITEMS"
         reason = "the control set holds no items labelled correct: this check measured nothing"
+    elif not any(out[a]["incorrect_items"]["n"] for a in out):
+        # E134 ran this check on 200 rows of a published lm-eval run, recomputed
+        # the correct arm from the run's own shipped inputs, found every one of
+        # them correct and not one incorrect, and the flagger scored a perfect
+        # pass. A verifier with no wrong answers cannot fail: there is nothing in
+        # the data for a false negative to be a false negative *of*.
+        verdict = "NO_LABELLED_INCORRECT_ITEMS"
+        reason = ("the control set holds no items labelled incorrect, so this check "
+                  "measured only false positives. A flagger that condemns nothing "
+                  "scores a perfect pass here, and a false-positive rate on correct "
+                  "items is not evidence that the flagger finds wrong ones")
     else:
         verdict = "OK"
         reason = ""

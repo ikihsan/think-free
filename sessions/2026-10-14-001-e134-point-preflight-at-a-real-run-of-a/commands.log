@@ -1,0 +1,1081 @@
+==============================================================================
+[seq 2] 2026-10-14T00:53:06+00:00
+$ bash /tmp/opencode/g/armA.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+dummy (), gen_kwargs: (None), limit: 5.0, num_fewshot: 0, batch_size: 1
+|  Tasks   |Version|Filter|n-shot|    Metric     |   |Value |   |Stderr|
+|----------|------:|------|-----:|---------------|---|-----:|---|------|
+|openbookqa|      1|none  |     0|acc            |↑  |0.2000|±  |0.2000|
+|          |       |none  |     0|acc_norm       |↑  |0.2000|±  |0.2000|
+|piqa      |      1|none  |     0|acc            |↑  |0.6000|±  |0.2449|
+|          |       |none  |     0|acc_norm       |↑  |0.8000|±  |0.2000|
+|wikitext  |      2|none  |     0|bits_per_byte  |↓  |0.0001|±  |   N/A|
+|          |       |none  |     0|byte_perplexity|↓  |1.0000|±  |   N/A|
+|          |       |none  |     0|word_perplexity|↓  |1.0002|±  |   N/A|
+
+LMEVAL_RUN_EXIT=0
+
+
+[stderr]
++ OUT=/tmp/opencode/armA
++ rm -rf /tmp/opencode/armA
++ export PYTHONPATH=/tmp/opencode/site
++ PYTHONPATH=/tmp/opencode/site
++ export HF_DATASETS_CACHE=/tmp/opencode/hfcache
++ HF_DATASETS_CACHE=/tmp/opencode/hfcache
++ export HF_HOME=/tmp/opencode/hfhome
++ HF_HOME=/tmp/opencode/hfhome
++ cd /home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run
++ python3 -m lm_eval --model dummy --tasks piqa,openbookqa,wikitext --device cpu --batch_size 1 --limit 5 --num_fewshot 0 --seed 1234 --log_samples --output_path /tmp/opencode/armA
+2026-10-14:00:51:13,941 INFO     [__main__.py:279] Verbosity set to INFO
+2026-10-14:00:51:15,959 INFO     [__init__.py:491] `group` and `group_alias` keys in TaskConfigs are deprecated and will be removed in v0.4.5 of lm_eval. The new `tag` field will be used to allow for a shortcut to a group of tasks one does not wish to aggregate metrics across. `group`s which aggregate across subtasks must be only defined in a separate group config file, which will be the official way to create groups that support cross-task aggregation as in `mmlu`. Please see the v0.4.4 patch notes and our documentation: https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/new_task_guide.md#advanced-group-configs for more information.
+2026-10-14:00:52:06,539 WARNING  [__main__.py:312]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2026-10-14:00:52:06,543 INFO     [__main__.py:376] Selected Tasks: ['openbookqa', 'piqa', 'wikitext']
+2026-10-14:00:52:06,635 INFO     [evaluator.py:161] Setting random seed to 1234 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2026-10-14:00:52:06,635 INFO     [evaluator.py:198] Initializing dummy model, with arguments: {}
+
+Generating train split:   0%|          | 0/4957 [00:00<?, ? examples/s]
+Generating train split:  20%|██        | 1000/4957 [00:00<00:01, 3330.39 examples/s]
+Generating train split: 100%|██████████| 4957/4957 [00:00<00:00, 16005.57 examples/s]
+
+Generating validation split:   0%|          | 0/500 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 500/500 [00:00<00:00, 127937.53 examples/s]
+
+Generating test split:   0%|          | 0/500 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 500/500 [00:00<00:00, 138252.49 examples/s]
+
+Downloading data:   0%|          | 0.00/1.82M [00:00<?, ?B/s]
+Downloading data:   1%|          | 16.5k/1.82M [00:00<00:18, 97.3kB/s]
+Downloading data:   3%|▎         | 49.3k/1.82M [00:00<00:13, 127kB/s] 
+Downloading data:   4%|▍         | 82.0k/1.82M [00:00<00:12, 136kB/s]
+Downloading data:   7%|▋         | 131k/1.82M [00:00<00:07, 212kB/s] 
+Downloading data:  10%|▉         | 180k/1.82M [00:00<00:06, 261kB/s]
+Downloading data:  13%|█▎        | 246k/1.82M [00:00<00:04, 349kB/s]
+Downloading data:  20%|█▉        | 362k/1.82M [00:01<00:02, 546kB/s]
+Downloading data:  26%|██▌       | 477k/1.82M [00:01<00:01, 699kB/s]
+Downloading data:  37%|███▋      | 679k/1.82M [00:01<00:01, 1.06MB/s]
+Downloading data:  52%|█████▏    | 945k/1.82M [00:01<00:00, 1.50MB/s]
+Downloading data:  73%|███████▎  | 1.33M/1.82M [00:01<00:00, 2.14MB/s]
+Downloading data: 100%|██████████| 1.82M/1.82M [00:01<00:00, 1.15MB/s]
+
+Downloading data:   0%|          | 0.00/220k [00:00<?, ?B/s]
+Downloading data: 815kB [00:00, 89.9MB/s]                   
+
+Generating train split:   0%|          | 0/16113 [00:00<?, ? examples/s]
+Generating train split:   4%|▎         | 565/16113 [00:00<00:05, 3016.20 examples/s]
+Generating train split:   6%|▌         | 1000/16113 [00:00<00:04, 3304.78 examples/s]
+Generating train split:  15%|█▍        | 2379/16113 [00:00<00:02, 6501.04 examples/s]
+Generating train split:  20%|█▉        | 3199/16113 [00:00<00:02, 6073.47 examples/s]
+Generating train split:  25%|██▌       | 4103/16113 [00:00<00:01, 6913.23 examples/s]
+Generating train split:  31%|███       | 5009/16113 [00:00<00:01, 7528.42 examples/s]
+Generating train split:  37%|███▋      | 5994/16113 [00:00<00:01, 8201.92 examples/s]
+Generating train split:  43%|████▎     | 6890/16113 [00:00<00:01, 8423.67 examples/s]
+Generating train split:  53%|█████▎    | 8571/16113 [00:01<00:00, 9506.13 examples/s]
+Generating train split:  60%|█████▉    | 9588/16113 [00:01<00:00, 8538.11 examples/s]
+Generating train split:  65%|██████▌   | 10475/16113 [00:01<00:00, 8620.95 examples/s]
+Generating train split:  75%|███████▍  | 12052/16113 [00:01<00:00, 9286.66 examples/s]
+Generating train split:  81%|████████  | 13000/16113 [00:01<00:00, 9281.45 examples/s]
+Generating train split:  87%|████████▋ | 14000/16113 [00:01<00:00, 8347.76 examples/s]
+Generating train split:  95%|█████████▌| 15372/16113 [00:01<00:00, 7776.95 examples/s]
+Generating train split: 100%|██████████| 16113/16113 [00:02<00:00, 7342.95 examples/s]
+
+Generating test split:   0%|          | 0/3084 [00:00<?, ? examples/s]
+Generating test split:  18%|█▊        | 541/3084 [00:00<00:00, 2876.37 examples/s]
+Generating test split:  31%|███       | 961/3084 [00:00<00:00, 3424.05 examples/s]
+Generating test split:  47%|████▋     | 1460/3084 [00:00<00:00, 2291.19 examples/s]
+Generating test split:  57%|█████▋    | 1769/3084 [00:00<00:00, 2474.77 examples/s]
+Generating test split:  68%|██████▊   | 2096/3084 [00:00<00:00, 2657.75 examples/s]
+Generating test split:  92%|█████████▏| 2827/3084 [00:00<00:00, 3097.69 examples/s]
+Generating test split: 100%|██████████| 3084/3084 [00:01<00:00, 2787.73 examples/s]
+
+Generating validation split:   0%|          | 0/1838 [00:00<?, ? examples/s]
+Generating validation split:  13%|█▎        | 237/1838 [00:00<00:01, 1308.11 examples/s]
+Generating validation split:  25%|██▌       | 462/1838 [00:00<00:00, 1717.00 examples/s]
+Generating validation split:  50%|████▉     | 916/1838 [00:00<00:00, 2025.64 examples/s]
+Generating validation split:  64%|██████▍   | 1181/1838 [00:00<00:00, 1669.75 examples/s]
+Generating validation split:  85%|████████▌ | 1564/1838 [00:00<00:00, 1754.85 examples/s]
+Generating validation split:  99%|█████████▉| 1824/1838 [00:01<00:00, 1636.15 examples/s]
+Generating validation split: 100%|██████████| 1838/1838 [00:01<00:00, 1689.03 examples/s]
+2026-10-14:00:52:38,732 WARNING  [task.py:803] [Task: wikitext] metric word_perplexity is defined, but aggregation is not. using default aggregation=weighted_perplexity
+2026-10-14:00:52:38,733 WARNING  [task.py:815] [Task: wikitext] metric word_perplexity is defined, but higher_is_better is not. using default higher_is_better=False
+2026-10-14:00:52:38,733 WARNING  [task.py:803] [Task: wikitext] metric byte_perplexity is defined, but aggregation is not. using default aggregation=weighted_perplexity
+2026-10-14:00:52:38,733 WARNING  [task.py:815] [Task: wikitext] metric byte_perplexity is defined, but higher_is_better is not. using default higher_is_better=False
+2026-10-14:00:52:38,733 WARNING  [task.py:803] [Task: wikitext] metric bits_per_byte is defined, but aggregation is not. using default aggregation=bits_per_byte
+2026-10-14:00:52:38,733 WARNING  [task.py:815] [Task: wikitext] metric bits_per_byte is defined, but higher_is_better is not. using default higher_is_better=False
+
+Generating train split:   0%|          | 0/629 [00:00<?, ? examples/s]
+Generating train split: 100%|██████████| 629/629 [00:00<00:00, 2159.23 examples/s]
+Generating train split: 100%|██████████| 629/629 [00:00<00:00, 2153.86 examples/s]
+
+Generating validation split:   0%|          | 0/60 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 60/60 [00:00<00:00, 7656.87 examples/s]
+
+Generating test split:   0%|          | 0/62 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 62/62 [00:00<00:00, 798.00 examples/s]
+2026-10-14:00:52:47,818 WARNING  [evaluator.py:267] Overwriting default num_fewshot of wikitext from None to 0
+2026-10-14:00:52:47,818 INFO     [evaluator.py:279] Setting fewshot random generator seed to 1234
+2026-10-14:00:52:47,818 WARNING  [evaluator.py:267] Overwriting default num_fewshot of piqa from None to 0
+2026-10-14:00:52:47,818 INFO     [evaluator.py:279] Setting fewshot random generator seed to 1234
+2026-10-14:00:52:47,818 WARNING  [evaluator.py:267] Overwriting default num_fewshot of openbookqa from None to 0
+2026-10-14:00:52:47,818 INFO     [evaluator.py:279] Setting fewshot random generator seed to 1234
+2026-10-14:00:52:47,904 INFO     [task.py:423] Building contexts for wikitext on rank 0...
+
+  0%|          | 0/5 [00:00<?, ?it/s]
+100%|██████████| 5/5 [00:00<00:00, 351.41it/s]
+2026-10-14:00:52:47,919 INFO     [task.py:423] Building contexts for piqa on rank 0...
+
+  0%|          | 0/5 [00:00<?, ?it/s]
+100%|██████████| 5/5 [00:00<00:00, 60.63it/s]
+2026-10-14:00:52:48,005 INFO     [task.py:423] Building contexts for openbookqa on rank 0...
+
+  0%|          | 0/5 [00:00<?, ?it/s]
+100%|██████████| 5/5 [00:00<00:00, 1343.12it/s]
+2026-10-14:00:52:48,010 INFO     [evaluator.py:465] Running loglikelihood_rolling requests
+
+  0%|          | 0/5 [00:00<?, ?it/s]
+100%|██████████| 5/5 [00:00<00:00, 145635.56it/s]
+2026-10-14:00:52:48,011 INFO     [evaluator.py:465] Running loglikelihood requests
+
+  0%|          | 0/30 [00:00<?, ?it/s]
+100%|██████████| 30/30 [00:00<00:00, 569362.53it/s]
+2026-10-14:00:52:55,067 INFO     [evaluation_tracker.py:206] Saving results aggregated
+2026-10-14:00:52:55,069 INFO     [evaluation_tracker.py:287] Saving per-sample results for: openbookqa
+2026-10-14:00:52:55,102 INFO     [evaluation_tracker.py:287] Saving per-sample results for: piqa
+2026-10-14:00:52:55,103 INFO     [evaluation_tracker.py:287] Saving per-sample results for: wikitext
++ echo LMEVAL_RUN_EXIT=0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 135556  redactions: none
+==============================================================================
+[seq 4] 2026-10-14T01:19:48+00:00
+$ python3 run_e134.py --armA armA --cache /tmp/opencode/hfcache --armB armB --out results_e134.json
+cwd: /home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "run_e134.py", line 266, in <module>
+    main()
+  File "run_e134.py", line 194, in main
+    report["arms"]["A"]["C1_dataset_key_per_task"] = _per_task_c1(args.armA, args.cache)
+  File "run_e134.py", line 102, in _per_task_c1
+    ds_rows, report = build_key_rows(cache, results, task)
+  File "/home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run/dataset_key.py", line 115, in build_key_rows
+    key_rows = [{"task": task, "doc_id": index, "target": str(_label(doc, config))}
+  File "/home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run/dataset_key.py", line 115, in <listcomp>
+    key_rows = [{"task": task, "doc_id": index, "target": str(_label(doc, config))}
+  File "/home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run/dataset_key.py", line 41, in _label
+    raise KeyError("no label column in this row: %r" % sorted(doc))
+KeyError: "no label column in this row: ['page']"
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2343  redactions: none
+==============================================================================
+[seq 5] 2026-10-14T01:20:23+00:00
+$ python3 run_e134.py --armA armA --cache /tmp/opencode/hfcache --armB armB --out results_e134.json
+cwd: /home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "run_e134.py", line 266, in <module>
+    main()
+  File "run_e134.py", line 223, in main
+    c1_key, c1_out = adapt_lm_eval(c1dir)
+  File "/home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run/lm_eval_adapter.py", line 86, in adapt_lm_eval
+    identity = _identity(task, row)
+  File "/home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run/lm_eval_adapter.py", line 42, in _identity
+    return {"task": task, "doc_id": row["doc_id"], "target": row["target"]}
+KeyError: 'doc_id'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2041  redactions: none
+==============================================================================
+[seq 6] 2026-10-14T01:20:42+00:00
+$ python3 run_e134.py --armA armA --cache /tmp/opencode/hfcache --armB armB --out results_e134.json
+cwd: /home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "run_e134.py", line 277, in <module>
+    main()
+  File "run_e134.py", line 239, in main
+    "C1_dataset_key_per_task": _per_task_c1(c1dir, args.cache),
+  File "run_e134.py", line 98, in _per_task_c1
+    key_rows, out_rows = adapt_lm_eval(armA)
+  File "/home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run/lm_eval_adapter.py", line 86, in adapt_lm_eval
+    identity = _identity(task, row)
+  File "/home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run/lm_eval_adapter.py", line 42, in _identity
+    return {"task": task, "doc_id": row["doc_id"], "target": row["target"]}
+KeyError: 'doc_id'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1894  redactions: none
+==============================================================================
+[seq 7] 2026-10-14T01:21:09+00:00
+$ python3 run_e134.py --armA armA --cache /tmp/opencode/hfcache --armB armB --out results_e134.json
+cwd: /home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "run_e134.py", line 285, in <module>
+    main()
+  File "run_e134.py", line 251, in main
+    "C2_R1_R2_R3": _arm_summary(c2dir),
+  File "run_e134.py", line 183, in _arm_summary
+    "R1_R2_R3": recompute.run(armdir),
+  File "/home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run/recompute.py", line 251, in run
+    "R1_row_recomputation": check_r1(results, rows_by_task, configs),
+  File "/home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run/recompute.py", line 158, in check_r1
+    entry["shipped_verdict_column_mean"] = sum(shipped) / len(shipped)
+TypeError: unsupported operand type(s) for +: 'float' and 'NoneType'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2018  redactions: none
+==============================================================================
+[seq 8] 2026-10-14T01:21:21+00:00
+$ python3 run_e134.py --armA armA --cache /tmp/opencode/hfcache --armB armB --out results_e134.json
+cwd: /home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "run_e134.py", line 285, in <module>
+    main()
+  File "run_e134.py", line 259, in main
+    report["arms"]["B"] = _arm_summary(args.armB)
+  File "run_e134.py", line 183, in _arm_summary
+    "R1_R2_R3": recompute.run(armdir),
+  File "/home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run/recompute.py", line 251, in run
+    r3, stderr_keys = check_r3(results, rows_by_task, configs)
+  File "/home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run/recompute.py", line 185, in check_r3
+    declared = [m["metric"] for m in config_by_task[task]["metric_list"]]
+KeyError: 'bbq'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2130  redactions: none
+==============================================================================
+[seq 9] 2026-10-14T01:21:51+00:00
+$ python3 run_e134.py --armA armA --cache /tmp/opencode/hfcache --armB armB --out results_e134.json
+cwd: /home/ubuntu/think-free/EXPERIMENTS/134-preflight-real-run
+------------------------------------------------------------------------------
+wrote results_e134.json (90709 bytes)
+R1 entries: 7, R2 entries: 3
+  R1 openbookqa   acc              printed=0.2 recomputed=0.2 agrees=True
+  R1 openbookqa   acc_norm         printed=0.2 recomputed=0.2 agrees=True
+  R1 piqa         acc              printed=0.6 recomputed=0.6 agrees=True
+  R1 piqa         acc_norm         printed=0.8 recomputed=0.8 agrees=True
+  R1 wikitext     bits_per_byte    printed=5.2851537684272105e-05 recomputed=5.2851537684272105e-05 agrees=True
+  R1 wikitext     byte_perplexity  printed=1.0000366345653635 recomputed=1.0000366345653635 agrees=True
+  R1 wikitext     word_perplexity  printed=1.0001875813623529 recomputed=1.0001875813623529 agrees=True
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1912  redactions: none
+==============================================================================
+[seq 11] 2026-10-14T01:24:51+00:00
+$ python3 -m unittest preflight.test_vacuous_passes -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_a_flagger_that_flags_nothing_no_longer_passes (preflight.test_vacuous_passes.AlternateFormMissingArm) ... FAIL
+test_both_arms_present_still_passes_when_the_flagger_is_clean (preflight.test_vacuous_passes.AlternateFormMissingArm) ... FAIL
+test_empty_correct_arm_blocks_too (preflight.test_vacuous_passes.AlternateFormMissingArm) ... FAIL
+test_empty_incorrect_arm_blocks_even_with_many_correct_rows (preflight.test_vacuous_passes.AlternateFormMissingArm) ... FAIL
+test_empty_key_reason_names_the_consequence (preflight.test_vacuous_passes.ConcordanceEmptyKey) ... FAIL
+test_empty_key_with_output_rows_blocks (preflight.test_vacuous_passes.ConcordanceEmptyKey) ... FAIL
+test_no_rows_on_either_side_blocks (preflight.test_vacuous_passes.ConcordanceEmptyKey) ... FAIL
+test_nonempty_both_sides_still_passes_when_the_join_works (preflight.test_vacuous_passes.ConcordanceEmptyKey) ... ok
+
+======================================================================
+FAIL: test_a_flagger_that_flags_nothing_no_longer_passes (preflight.test_vacuous_passes.AlternateFormMissingArm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 80, in test_a_flagger_that_flags_nothing_no_longer_passes
+    self.assertFalse(may_report([result]),
+AssertionError: True is not false : a flagger with no output scored a perfect pass on E134
+
+======================================================================
+FAIL: test_both_arms_present_still_passes_when_the_flagger_is_clean (preflight.test_vacuous_passes.AlternateFormMissingArm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 93, in test_both_arms_present_still_passes_when_the_flagger_is_clean
+    self.assertEqual(result["arms"]["a"]["recall_on_incorrect"], 1.0)
+AssertionError: 0.0 != 1.0
+
+======================================================================
+FAIL: test_empty_correct_arm_blocks_too (preflight.test_vacuous_passes.AlternateFormMissingArm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 86, in test_empty_correct_arm_blocks_too
+    self.assertFalse(may_report([result]),
+AssertionError: True is not false : this verdict already said 'measured nothing' and did not block
+
+======================================================================
+FAIL: test_empty_incorrect_arm_blocks_even_with_many_correct_rows (preflight.test_vacuous_passes.AlternateFormMissingArm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 73, in test_empty_incorrect_arm_blocks_even_with_many_correct_rows
+    self.assertEqual(result["verdict"], "NO_LABELLED_INCORRECT_ITEMS")
+AssertionError: 'ALTERNATE_FORM_FP' != 'NO_LABELLED_INCORRECT_ITEMS'
+- ALTERNATE_FORM_FP
++ NO_LABELLED_INCORRECT_ITEMS
+
+
+======================================================================
+FAIL: test_empty_key_reason_names_the_consequence (preflight.test_vacuous_passes.ConcordanceEmptyKey)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 45, in test_empty_key_reason_names_the_consequence
+    self.assertIn("0", reason)
+AssertionError: '0' not found in 'the key file and the output file share no field name, so the join is by something this check cannot see'
+
+======================================================================
+FAIL: test_empty_key_with_output_rows_blocks (preflight.test_vacuous_passes.ConcordanceEmptyKey)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 36, in test_empty_key_with_output_rows_blocks
+    self.assertEqual(result["verdict"], "NO_KEY_ROWS")
+AssertionError: 'OK' != 'NO_KEY_ROWS'
+- OK
++ NO_KEY_ROWS
+
+
+======================================================================
+FAIL: test_no_rows_on_either_side_blocks (preflight.test_vacuous_passes.ConcordanceEmptyKey)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 50, in test_no_rows_on_either_side_blocks
+    self.assertEqual(result["verdict"], "NOTHING_TO_COMPARE")
+AssertionError: 'OK' != 'NOTHING_TO_COMPARE'
+- OK
++ NOTHING_TO_COMPARE
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.003s
+
+FAILED (failures=7)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 294  redactions: none
+==============================================================================
+[seq 12] 2026-10-14T01:24:57+00:00
+$ python3 -m unittest preflight.test_vacuous_passes -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_a_flagger_that_flags_nothing_no_longer_passes (preflight.test_vacuous_passes.AlternateFormMissingArm) ... FAIL
+test_both_arms_present_still_passes_when_the_flagger_is_clean (preflight.test_vacuous_passes.AlternateFormMissingArm) ... FAIL
+test_empty_correct_arm_blocks_too (preflight.test_vacuous_passes.AlternateFormMissingArm) ... FAIL
+test_empty_incorrect_arm_blocks_even_with_many_correct_rows (preflight.test_vacuous_passes.AlternateFormMissingArm) ... FAIL
+test_empty_key_reason_names_the_consequence (preflight.test_vacuous_passes.ConcordanceEmptyKey) ... FAIL
+test_empty_key_with_output_rows_blocks (preflight.test_vacuous_passes.ConcordanceEmptyKey) ... FAIL
+test_no_rows_on_either_side_blocks (preflight.test_vacuous_passes.ConcordanceEmptyKey) ... FAIL
+test_nonempty_both_sides_still_passes_when_the_join_works (preflight.test_vacuous_passes.ConcordanceEmptyKey) ... ok
+
+======================================================================
+FAIL: test_a_flagger_that_flags_nothing_no_longer_passes (preflight.test_vacuous_passes.AlternateFormMissingArm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 80, in test_a_flagger_that_flags_nothing_no_longer_passes
+    self.assertFalse(may_report([result]),
+AssertionError: True is not false : a flagger with no output scored a perfect pass on E134
+
+======================================================================
+FAIL: test_both_arms_present_still_passes_when_the_flagger_is_clean (preflight.test_vacuous_passes.AlternateFormMissingArm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 93, in test_both_arms_present_still_passes_when_the_flagger_is_clean
+    self.assertEqual(result["arms"]["a"]["recall_on_incorrect"], 1.0)
+AssertionError: 0.0 != 1.0
+
+======================================================================
+FAIL: test_empty_correct_arm_blocks_too (preflight.test_vacuous_passes.AlternateFormMissingArm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 86, in test_empty_correct_arm_blocks_too
+    self.assertFalse(may_report([result]),
+AssertionError: True is not false : this verdict already said 'measured nothing' and did not block
+
+======================================================================
+FAIL: test_empty_incorrect_arm_blocks_even_with_many_correct_rows (preflight.test_vacuous_passes.AlternateFormMissingArm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 73, in test_empty_incorrect_arm_blocks_even_with_many_correct_rows
+    self.assertEqual(result["verdict"], "NO_LABELLED_INCORRECT_ITEMS")
+AssertionError: 'ALTERNATE_FORM_FP' != 'NO_LABELLED_INCORRECT_ITEMS'
+- ALTERNATE_FORM_FP
++ NO_LABELLED_INCORRECT_ITEMS
+
+
+======================================================================
+FAIL: test_empty_key_reason_names_the_consequence (preflight.test_vacuous_passes.ConcordanceEmptyKey)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 45, in test_empty_key_reason_names_the_consequence
+    self.assertIn("0", reason)
+AssertionError: '0' not found in 'the key file and the output file share no field name, so the join is by something this check cannot see'
+
+======================================================================
+FAIL: test_empty_key_with_output_rows_blocks (preflight.test_vacuous_passes.ConcordanceEmptyKey)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 36, in test_empty_key_with_output_rows_blocks
+    self.assertEqual(result["verdict"], "NO_KEY_ROWS")
+AssertionError: 'OK' != 'NO_KEY_ROWS'
+- OK
++ NO_KEY_ROWS
+
+
+======================================================================
+FAIL: test_no_rows_on_either_side_blocks (preflight.test_vacuous_passes.ConcordanceEmptyKey)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 50, in test_no_rows_on_either_side_blocks
+    self.assertEqual(result["verdict"], "NOTHING_TO_COMPARE")
+AssertionError: 'OK' != 'NOTHING_TO_COMPARE'
+- OK
++ NOTHING_TO_COMPARE
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.003s
+
+FAILED (failures=7)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 232  redactions: none
+==============================================================================
+[seq 13] 2026-10-14T01:25:04+00:00
+$ python3 -m unittest preflight.test_vacuous_passes.AlternateFormMissingArm.test_both_arms_present_still_passes_when_the_flagger_is_clean
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+F
+======================================================================
+FAIL: test_both_arms_present_still_passes_when_the_flagger_is_clean (preflight.test_vacuous_passes.AlternateFormMissingArm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 93, in test_both_arms_present_still_passes_when_the_flagger_is_clean
+    self.assertEqual(result["arms"]["a"]["recall_on_incorrect"], 1.0)
+AssertionError: 0.0 != 1.0
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 238  redactions: none
+==============================================================================
+[seq 14] 2026-10-14T01:26:06+00:00
+$ python3 -m unittest preflight.test_vacuous_passes
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+...FF....
+======================================================================
+FAIL: test_empty_incorrect_arm_blocks_even_with_many_correct_rows (preflight.test_vacuous_passes.AlternateFormMissingArm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 73, in test_empty_incorrect_arm_blocks_even_with_many_correct_rows
+    self.assertEqual(result["verdict"], "NO_LABELLED_INCORRECT_ITEMS")
+AssertionError: 'ALTERNATE_FORM_FP' != 'NO_LABELLED_INCORRECT_ITEMS'
+- ALTERNATE_FORM_FP
++ NO_LABELLED_INCORRECT_ITEMS
+
+
+======================================================================
+FAIL: test_recall_is_recall_and_not_its_complement (preflight.test_vacuous_passes.AlternateFormMissingArm)
+E134: the field named ``recall_on_incorrect`` computed ``1 - recall``.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 115, in test_recall_is_recall_and_not_its_complement
+    self.assertEqual(result["arms"]["a"]["recall_on_incorrect"], expected,
+AssertionError: 0.05 != 0.5 : catches half: recall on wrong items
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.003s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 306  redactions: none
+==============================================================================
+[seq 15] 2026-10-14T01:26:27+00:00
+$ python3 -m unittest preflight.test_vacuous_passes
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+....F....
+======================================================================
+FAIL: test_recall_is_recall_and_not_its_complement (preflight.test_vacuous_passes.AlternateFormMissingArm)
+E134: the field named ``recall_on_incorrect`` computed ``1 - recall``.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_vacuous_passes.py", line 119, in test_recall_is_recall_and_not_its_complement
+    self.assertEqual(result["arms"]["a"]["recall_on_incorrect"], round(expected, 4),
+AssertionError: 0.35 != 0.3333 : every 3th wrong item
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.004s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 296  redactions: none
+==============================================================================
+[seq 16] 2026-10-14T01:26:37+00:00
+$ python3 -m unittest preflight.test_vacuous_passes
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.002s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 223  redactions: none
+==============================================================================
+[seq 17] 2026-10-14T01:26:38+00:00
+$ python3 -m unittest discover -s preflight -t . -p test_*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.F..F....................
+======================================================================
+FAIL: test_a_flagger_that_says_nothing_is_not_a_false_positive_rate (preflight.test_preflight.Falsification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_preflight.py", line 123, in test_a_flagger_that_says_nothing_is_not_a_false_positive_rate
+    self.assertEqual(result["verdict"], "OK")
+AssertionError: 'NO_LABELLED_INCORRECT_ITEMS' != 'OK'
+- NO_LABELLED_INCORRECT_ITEMS
++ OK
+
+
+======================================================================
+FAIL: test_no_labelled_correct_items_reports_that_it_measured_nothing (preflight.test_preflight.Falsification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/preflight/test_preflight.py", line 119, in test_no_labelled_correct_items_reports_that_it_measured_nothing
+    self.assertEqual(code, 0)  # measured nothing, so nothing was condemned
+AssertionError: 3 != 0
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.005s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 295  redactions: none
+==============================================================================
+[seq 18] 2026-10-14T01:26:57+00:00
+$ python3 -m unittest discover -s preflight -t . -p test_*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.........................
+----------------------------------------------------------------------
+Ran 25 tests in 0.004s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 293  redactions: none
+==============================================================================
+[seq 19] 2026-10-14T01:41:24+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+................................................................................../home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+...................................................F......................................................................................../home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................................................................................................................................................................................................................F.................................................................F............/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+......................................................................................................................................................................................................................................116-viewcount-classifier-prototype: 586 probes identical
+118-pypi-viewcount-matched-harvest: 546 probes identical
+119-hexpm-viewcount-matched-harvest: 646 probes identical
+..................................................................................
+======================================================================
+FAIL: test_the_tip_reports_nothing_and_annotates_nothing (test_ci_annotations.TheRealDefectTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_ci_annotations.py", line 86, in test_the_tip_reports_nothing_and_annotates_nothing
+    self.assertEqual(found, [], found)
+AssertionError: Lists differ: ["D046: defined more than once; an identif[291 chars]em'"] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+"D046: defined more than once; an identifier must mean one thing: DECISIONS-PUBLISHING.md:162 'A prototype tool with a working adapter interface is released when the adapter pattern is confirmed, not when a user base exists (2026-10-13)' / DECISIONS-RECORDS.md:267 'A list split across files is read by a reader that reads all of them'"
+
++ []
+- ['D046: defined more than once; an identifier must mean one thing: '
+-  "DECISIONS-PUBLISHING.md:162 'A prototype tool with a working adapter "
+-  'interface is released when the adapter pattern is confirmed, not when a user '
+-  "base exists (2026-10-13)' / DECISIONS-RECORDS.md:267 'A list split across "
+-  "files is read by a reader that reads all of them'"] : ["D046: defined more than once; an identifier must mean one thing: DECISIONS-PUBLISHING.md:162 'A prototype tool with a working adapter interface is released when the adapter pattern is confirmed, not when a user base exists (2026-10-13)' / DECISIONS-RECORDS.md:267 'A list split across files is read by a reader that reads all of them'"]
+
+======================================================================
+FAIL: test_this_repository_has_no_identifier_collision (test_identifier_enforcement.ThisRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_identifier_enforcement.py", line 65, in test_this_repository_has_no_identifier_collision
+    self.assertEqual(identifiers.report(self.real_root()), [])
+AssertionError: Lists differ: ["D046: defined more than once; an identif[291 chars]em'"] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+"D046: defined more than once; an identifier must mean one thing: DECISIONS-PUBLISHING.md:162 'A prototype tool with a working adapter interface is released when the adapter pattern is confirmed, not when a user base exists (2026-10-13)' / DECISIONS-RECORDS.md:267 'A list split across files is read by a reader that reads all of them'"
+
++ []
+- ['D046: defined more than once; an identifier must mean one thing: '
+-  "DECISIONS-PUBLISHING.md:162 'A prototype tool with a working adapter "
+-  'interface is released when the adapter pattern is confirmed, not when a user '
+-  "base exists (2026-10-13)' / DECISIONS-RECORDS.md:267 'A list split across "
+-  "files is read by a reader that reads all of them'"]
+
+======================================================================
+FAIL: test_no_tracked_link_leaves_the_repository (test_link_escape.NoRegressionTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_link_escape.py", line 236, in test_no_tracked_link_leaves_the_repository
+    self.assertEqual(escapes, [], f"{len(escapes)} of {examined} links leave the repository")
+AssertionError: Lists differ: ['EXPERIMENTS/125-third-party-harness-pref[3046 chars]rs/'] != []
+
+First list contains 21 additional elements.
+First extra element 0:
+'EXPERIMENTS/125-third-party-harness-preflight/readmes/microsoft__AIOpsLab.md: link leaves the repository -> /aiopslab/orchestrator/problems/registry.py#L15'
+
+Diff is 3299 characters long. Set self.maxDiff to None to see it. : 21 of 2371 links leave the repository
+
+----------------------------------------------------------------------
+Ran 837 tests in 864.904s
+
+FAILED (failures=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 865887  redactions: none
+==============================================================================
+[seq 20] 2026-10-14T01:55:46+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+................................................................................../home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+...................................................F......................................................................................../home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................................................................................................................................................................................................................F.................................................................F............/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+......................................................................................................................................................................................................................................116-viewcount-classifier-prototype: 586 probes identical
+118-pypi-viewcount-matched-harvest: 546 probes identical
+119-hexpm-viewcount-matched-harvest: 646 probes identical
+..................................................................................
+======================================================================
+FAIL: test_the_tip_reports_nothing_and_annotates_nothing (test_ci_annotations.TheRealDefectTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_ci_annotations.py", line 86, in test_the_tip_reports_nothing_and_annotates_nothing
+    self.assertEqual(found, [], found)
+AssertionError: Lists differ: ["D046: defined more than once; an identif[291 chars]em'"] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+"D046: defined more than once; an identifier must mean one thing: DECISIONS-PUBLISHING.md:162 'A prototype tool with a working adapter interface is released when the adapter pattern is confirmed, not when a user base exists (2026-10-13)' / DECISIONS-RECORDS.md:267 'A list split across files is read by a reader that reads all of them'"
+
++ []
+- ['D046: defined more than once; an identifier must mean one thing: '
+-  "DECISIONS-PUBLISHING.md:162 'A prototype tool with a working adapter "
+-  'interface is released when the adapter pattern is confirmed, not when a user '
+-  "base exists (2026-10-13)' / DECISIONS-RECORDS.md:267 'A list split across "
+-  "files is read by a reader that reads all of them'"] : ["D046: defined more than once; an identifier must mean one thing: DECISIONS-PUBLISHING.md:162 'A prototype tool with a working adapter interface is released when the adapter pattern is confirmed, not when a user base exists (2026-10-13)' / DECISIONS-RECORDS.md:267 'A list split across files is read by a reader that reads all of them'"]
+
+======================================================================
+FAIL: test_this_repository_has_no_identifier_collision (test_identifier_enforcement.ThisRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_identifier_enforcement.py", line 65, in test_this_repository_has_no_identifier_collision
+    self.assertEqual(identifiers.report(self.real_root()), [])
+AssertionError: Lists differ: ["D046: defined more than once; an identif[291 chars]em'"] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+"D046: defined more than once; an identifier must mean one thing: DECISIONS-PUBLISHING.md:162 'A prototype tool with a working adapter interface is released when the adapter pattern is confirmed, not when a user base exists (2026-10-13)' / DECISIONS-RECORDS.md:267 'A list split across files is read by a reader that reads all of them'"
+
++ []
+- ['D046: defined more than once; an identifier must mean one thing: '
+-  "DECISIONS-PUBLISHING.md:162 'A prototype tool with a working adapter "
+-  'interface is released when the adapter pattern is confirmed, not when a user '
+-  "base exists (2026-10-13)' / DECISIONS-RECORDS.md:267 'A list split across "
+-  "files is read by a reader that reads all of them'"]
+
+======================================================================
+FAIL: test_no_tracked_link_leaves_the_repository (test_link_escape.NoRegressionTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_link_escape.py", line 236, in test_no_tracked_link_leaves_the_repository
+    self.assertEqual(escapes, [], f"{len(escapes)} of {examined} links leave the repository")
+AssertionError: Lists differ: ['EXPERIMENTS/125-third-party-harness-pref[3046 chars]rs/'] != []
+
+First list contains 21 additional elements.
+First extra element 0:
+'EXPERIMENTS/125-third-party-harness-preflight/readmes/microsoft__AIOpsLab.md: link leaves the repository -> /aiopslab/orchestrator/problems/registry.py#L15'
+
+Diff is 3299 characters long. Set self.maxDiff to None to see it. : 21 of 2371 links leave the repository
+
+----------------------------------------------------------------------
+Ran 837 tests in 851.041s
+
+FAILED (failures=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 852022  redactions: none
+==============================================================================
+[seq 21] 2026-10-14T01:56:01+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest test_ci_annotations test_identifier_enforcement
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+..F...............F
+======================================================================
+FAIL: test_the_tip_reports_nothing_and_annotates_nothing (test_ci_annotations.TheRealDefectTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_ci_annotations.py", line 86, in test_the_tip_reports_nothing_and_annotates_nothing
+    self.assertEqual(found, [], found)
+AssertionError: Lists differ: ["D046: defined more than once; an identif[291 chars]em'"] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+"D046: defined more than once; an identifier must mean one thing: DECISIONS-PUBLISHING.md:162 'A prototype tool with a working adapter interface is released when the adapter pattern is confirmed, not when a user base exists (2026-10-13)' / DECISIONS-RECORDS.md:267 'A list split across files is read by a reader that reads all of them'"
+
++ []
+- ['D046: defined more than once; an identifier must mean one thing: '
+-  "DECISIONS-PUBLISHING.md:162 'A prototype tool with a working adapter "
+-  'interface is released when the adapter pattern is confirmed, not when a user '
+-  "base exists (2026-10-13)' / DECISIONS-RECORDS.md:267 'A list split across "
+-  "files is read by a reader that reads all of them'"] : ["D046: defined more than once; an identifier must mean one thing: DECISIONS-PUBLISHING.md:162 'A prototype tool with a working adapter interface is released when the adapter pattern is confirmed, not when a user base exists (2026-10-13)' / DECISIONS-RECORDS.md:267 'A list split across files is read by a reader that reads all of them'"]
+
+======================================================================
+FAIL: test_this_repository_has_no_identifier_collision (test_identifier_enforcement.ThisRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_identifier_enforcement.py", line 65, in test_this_repository_has_no_identifier_collision
+    self.assertEqual(identifiers.report(self.real_root()), [])
+AssertionError: Lists differ: ["D046: defined more than once; an identif[291 chars]em'"] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+"D046: defined more than once; an identifier must mean one thing: DECISIONS-PUBLISHING.md:162 'A prototype tool with a working adapter interface is released when the adapter pattern is confirmed, not when a user base exists (2026-10-13)' / DECISIONS-RECORDS.md:267 'A list split across files is read by a reader that reads all of them'"
+
++ []
+- ['D046: defined more than once; an identifier must mean one thing: '
+-  "DECISIONS-PUBLISHING.md:162 'A prototype tool with a working adapter "
+-  'interface is released when the adapter pattern is confirmed, not when a user '
+-  "base exists (2026-10-13)' / DECISIONS-RECORDS.md:267 'A list split across "
+-  "files is read by a reader that reads all of them'"]
+
+----------------------------------------------------------------------
+Ran 19 tests in 3.475s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 3887  redactions: none
+==============================================================================
+[seq 22] 2026-10-14T02:25:17+00:00
+$ tools/origin doc index
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+updated docs/INDEX.md
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 9568  redactions: none
+==============================================================================
+[seq 24] 2026-10-14T02:44:44+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+................................................................................../home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+..............................F................................................................................................................................................................................................................................................................................/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+......................................................................................................................................................................................................................................116-viewcount-classifier-prototype: 586 probes identical
+118-pypi-viewcount-matched-harvest: 546 probes identical
+119-hexpm-viewcount-matched-harvest: 646 probes identical
+..................................................................................
+======================================================================
+FAIL: test_a_decision_event_is_satisfied_by_any_decision_file (test_decision_files.DecisionFileListTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_decision_files.py", line 115, in test_a_decision_event_is_satisfied_by_any_decision_file
+    self.assertEqual(sorted(records), sorted(DECISION_FILES))
+AssertionError: Lists differ: ['DEC[145 chars]CORDS.md', 'DECISIONS-SCREENING-10.md', 'DECIS[569 chars].md'] != ['DEC[145 chars]CORDS-2.md', 'DECISIONS-RECORDS.md', 'DECISION[595 chars].md']
+
+First differing element 5:
+'DECISIONS-RECORDS.md'
+'DECISIONS-RECORDS-2.md'
+
+Second list contains 1 additional elements.
+First extra element 28:
+'DECISIONS.md'
+
+Diff is 883 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 837 tests in 831.700s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 832588  redactions: none
+==============================================================================
+[seq 25] 2026-10-14T02:59:08+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+................................................................................../home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.............................................................................................................................................................................................................................................................................................................../home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+......................................................................................................................................................................................................................................116-viewcount-classifier-prototype: 586 probes identical
+118-pypi-viewcount-matched-harvest: 546 probes identical
+119-hexpm-viewcount-matched-harvest: 646 probes identical
+..................................................................................
+----------------------------------------------------------------------
+Ran 837 tests in 840.385s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 841490  redactions: none
+==============================================================================
+[seq 26] 2026-10-14T03:20:40+00:00
+$ tools/origin doc index
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc index: already current
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5568  redactions: none
+==============================================================================
+[seq 43] 2026-10-14T03:32:57+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+................................................................................../home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.............................................................................................................................................................................................................................................................................................................../home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+......................................................................................................................................................................................................................................116-viewcount-classifier-prototype: 586 probes identical
+118-pypi-viewcount-matched-harvest: 546 probes identical
+119-hexpm-viewcount-matched-harvest: 646 probes identical
+..................................................................................
+----------------------------------------------------------------------
+Ran 837 tests in 701.974s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 702797  redactions: none
+==============================================================================
+[seq 44] 2026-10-14T03:32:59+00:00
+$ python3 -m unittest discover -s preflight -t . -p test_*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.........................
+----------------------------------------------------------------------
+Ran 25 tests in 0.004s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 303  redactions: none
+==============================================================================
+[seq 45] 2026-10-14T03:40:01+00:00
+$ tools/origin release check
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+release check: 103 path(s) checked
+  FAIL  .pyprovides-ranked.json: tracked at the top level but classified by neither manifest table
+  FAIL  DECISIONS-PYTESTIVE-SUMMARY.md: tracked at the top level but classified by neither manifest table
+  FAIL  DECISIONS-RECORDS-2.md: tracked at the top level but classified by neither manifest table
+  FAIL  DECISIONS-SCREENING-14.md: tracked at the top level but classified by neither manifest table
+  FAIL  DECISIONS-SCREENING-15.md: tracked at the top level but classified by neither manifest table
+  FAIL  DECISIONS-SCREENING-16.md: tracked at the top level but classified by neither manifest table
+  FAIL  DECISIONS-SCREENING-17.md: tracked at the top level but classified by neither manifest table
+  FAIL  DECISIONS-SCREENING-18.md: tracked at the top level but classified by neither manifest table
+  FAIL  DECISIONS-SCREENING-19.md: tracked at the top level but classified by neither manifest table
+  FAIL  DECISIONS-SCREENING-20.md: tracked at the top level but classified by neither manifest table
+  FAIL  FAILURES-findings-33.md: tracked at the top level but classified by neither manifest table
+  FAIL  FAILURES-findings-34.md: tracked at the top level but classified by neither manifest table
+  FAIL  FAILURES-findings-35.md: tracked at the top level but classified by neither manifest table
+  FAIL  FAILURES-findings-36.md: tracked at the top level but classified by neither manifest table
+  FAIL  FAILURES-findings-37.md: tracked at the top level but classified by neither manifest table
+  FAIL  FAILURES-findings-38.md: tracked at the top level but classified by neither manifest table
+  FAIL  FAILURES-findings-39.md: tracked at the top level but classified by neither manifest table
+  FAIL  FAILURES-findings-40.md: tracked at the top level but classified by neither manifest table
+  FAIL  FAILURES-findings-41.md: tracked at the top level but classified by neither manifest table
+  FAIL  FAILURES-other-vm.md: tracked at the top level but classified by neither manifest table
+  FAIL  FAILURES-reopening.md: tracked at the top level but classified by neither manifest table
+  FAIL  HYPOTHESES-experiments.md: tracked at the top level but classified by neither manifest table
+  FAIL  MISSION-OUTCOME.json: tracked at the top level but classified by neither manifest table
+  FAIL  NEXT-STEPS-SUMMARY.md: tracked at the top level but classified by neither manifest table
+  FAIL  SESSION_OUTCOME.json: tracked at the top level but classified by neither manifest table
+  FAIL  SESSION_OUTCOME.md: tracked at the top level but classified by neither manifest table
+  FAIL  SESSION_OUTCOMES.json: tracked at the top level but classified by neither manifest table
+  FAIL  STATE-in-flight-9.md: tracked at the top level but classified by neither manifest table
+  FAIL  SUMMARY.md: tracked at the top level but classified by neither manifest table
+  FAIL  SUMMARY_EXPERIMENT_OVERVIEW.md: tracked at the top level but classified by neither manifest table
+  FAIL  THINK_FREE_SUMMARY.md: tracked at the top level but classified by neither manifest table
+  FAIL  preflight_adapter_synthetic.py: tracked at the top level but classified by neither manifest table
+  FAIL  pyfix.fish: tracked at the top level but classified by neither manifest table
+  FAIL  pyfix.zsh: tracked at the top level but classified by neither manifest table
+  FAIL  pyprovides_classify.py: tracked at the top level but classified by neither manifest table
+  FAIL  raw: tracked at the top level but classified by neither manifest table
+  FAIL  results.json: tracked at the top level but classified by neither manifest table
+  FAIL  session-outcome-2026-10-13-021.txt: tracked at the top level but classified by neither manifest table
+  FAIL  session-outcome-E102.txt: tracked at the top level but classified by neither manifest table
+  FAIL  stage-lines: tracked at the top level but classified by neither manifest table
+  FAIL  synthetic_harness_output.json: tracked at the top level but classified by neither manifest table
+  FAIL  test_preflight_adapter.py: tracked at the top level but classified by neither manifest table
+  FAIL  test_preflight_adapter_success.py: tracked at the top level but classified by neither manifest table
+  FAIL  viewcount_crates.py: tracked at the top level but classified by neither manifest table
+  FAIL  EXPERIMENTS/070-silent-wrong-project/raw/api/gh-pip-install-succeeded-but-import-failed.json: credential-shaped text (assigned-credential); manifest rule 3 forbids it in a published or internal record
+  FAIL  EXPERIMENTS/070-silent-wrong-project/raw/api/se-stackoverflow-pip-cache-clear.json: credential-shaped text (assigned-credential); manifest rule 3 forbids it in a published or internal record
+  FAIL  EXPERIMENTS/070-silent-wrong-project/raw/api/se-stackoverflow-pip-install-color.json: credential-shaped text (openai-key); manifest rule 3 forbids it in a published or internal record
+  FAIL  EXPERIMENTS/070-silent-wrong-project/raw/api/se-stackoverflow-pip-install-telegram.json: credential-shaped text (assigned-credential); manifest rule 3 forbids it in a published or internal record
+  FAIL  EXPERIMENTS/070-silent-wrong-project/raw/api/se-stackoverflow-pip-install-typo.json: credential-shaped text (assigned-credential); manifest rule 3 forbids it in a published or internal record
+  FAIL  EXPERIMENTS/070-silent-wrong-project/raw/api/se-stackoverflow-telegram-python-telegram-bot.json: credential-shaped text (assigned-credential); manifest rule 3 forbids it in a published or internal record
+  FAIL  EXPERIMENTS/070-silent-wrong-project/raw/sample.tsv: credential-shaped text (assigned-credential, openai-key); manifest rule 3 forbids it in a published or internal record
+  FAIL  EXPERIMENTS/091-import-error-population/raw/api/se-python--ModuleNotFoundError---No-module-named.json: credential-shaped text (assigned-credential); manifest rule 3 forbids it in a published or internal record
+  FAIL  EXPERIMENTS/091-import-error-population/raw/api/se-python--No-module-named---pip.json: credential-shaped text (assigned-credential); manifest rule 3 forbids it in a published or internal record
+  FAIL  EXPERIMENTS/126-stackoverflow-service-test/grading-sheet.txt: credential-shaped text (assigned-credential); manifest rule 3 forbids it in a published or internal record
+  FAIL  EXPERIMENTS/126-stackoverflow-service-test/threads.json: credential-shaped text (assigned-credential); manifest rule 3 forbids it in a published or internal record
+release check: 55 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 421357  redactions: none

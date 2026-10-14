@@ -60,6 +60,7 @@ IMPLICATIONS = {
             "DECISIONS-SESSIONS.md",
             "DECISIONS-PUBLISHING.md",
             "DECISIONS-RECORDS.md",
+            "DECISIONS-RECORDS-2.md",
         ),
     ),
     "experiment_result": ("all", ("HYPOTHESES.md", "FAILURES.md")),

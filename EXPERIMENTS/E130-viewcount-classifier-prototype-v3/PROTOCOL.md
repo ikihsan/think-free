@@ -1,4 +1,11 @@
-E130 — View-count classifier prototype v3: whole-word matching, combined name+description, and uncertainty weighting
+<!-- origin-meta
+owner: EXPERIMENTS/README.md
+status: active
+last-verified: 2026-10-14
+-->
+
+# E130 — View-count classifier prototype v3: whole-word matching, combined name+description, and uncertainty weighting
+
 
 Purpose: Improve the classifier's effect size (Cliff's delta) by eliminating substring matching,
 using both package name AND description together, and marking uncertain classifications

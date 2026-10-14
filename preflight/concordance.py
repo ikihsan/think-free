@@ -103,6 +103,35 @@ def concordance(key_rows, out_rows, min_match=1):
     conflicts = type_conflicts(key_rows, out_rows)
     out_rows_n = len(out_rows)
     key_rows_n = len(key_rows)
+
+    # Nothing to compare against is not a passing join. E134 pointed this check
+    # at a real lm-eval run whose key side an adapter could not build -- the run
+    # does not record which split it evaluated -- and got ``OK`` with 0 key rows
+    # and 5 output rows, because the SILENT_NO_MATCH branch below is guarded on
+    # both sides being non-empty. A check that saw nothing must say so.
+    if not key_rows_n and not out_rows_n:
+        return {
+            "check": "C1_concordance",
+            "verdict": "NOTHING_TO_COMPARE",
+            "reason": ("no key rows and no output rows: this check measured nothing, "
+                       "and a rate reported against it is reported against no join"),
+            "key_rows": 0, "output_rows": 0, "best_rate": 0.0,
+            "summary": "nothing to compare",
+            "type_conflicts": conflicts, "pairings": [], "degenerate_pairings": [],
+        }
+    if not key_rows_n:
+        return {
+            "check": "C1_concordance",
+            "verdict": "NO_KEY_ROWS",
+            "reason": ("%d output rows and 0 key rows, and the two files share no "
+                       "field name because one of them is empty: the join sees "
+                       "nothing, and this check cannot distinguish a matched output "
+                       "row from an unmatched one" % out_rows_n),
+            "key_rows": 0, "output_rows": out_rows_n, "best_rate": 0.0,
+            "summary": fmt_interval(0, out_rows_n) if out_rows_n else "no output rows",
+            "type_conflicts": conflicts, "pairings": [], "degenerate_pairings": [],
+        }
+
     table = []
     degenerate = []
     for fields in [[f] for f in shared] + pairs:

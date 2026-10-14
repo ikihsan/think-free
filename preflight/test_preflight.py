@@ -116,11 +116,16 @@ class Falsification(unittest.TestCase):
         result = alternate_form_fp([{"arm": "a", "value": "1", "correct": False}], sound_verifier)
         self.assertEqual(result["verdict"], "NO_LABELLED_CORRECT_ITEMS")
         _text, code = render([result], rate="fp 0.0")
-        self.assertEqual(code, 0)  # measured nothing, so nothing was condemned
+        # E124 asserted exit 0 here, on the reasoning that a check which measured
+        # nothing condemns nothing. E134 ran this check against a published
+        # lm-eval run and got exactly that green light from a flagger that flagged
+        # nothing, and a rate printed against it. "Measured nothing" now withholds;
+        # see D110 and preflight/test_vacuous_passes.py.
+        self.assertEqual(code, 3)
 
     def test_a_flagger_that_says_nothing_is_not_a_false_positive_rate(self):
         result = alternate_form_fp([{"arm": "a", "value": "1", "correct": True}], lambda i: None)
-        self.assertEqual(result["verdict"], "OK")
+        self.assertEqual(result["verdict"], "NO_LABELLED_INCORRECT_ITEMS")
         self.assertEqual(result["arms"]["a"]["correct_items"]["flagged"], 0)
 
     def test_ungrounded_claim_counts_as_condemnation(self):

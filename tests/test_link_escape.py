@@ -29,7 +29,7 @@ from pathlib import Path
 
 from harness import RepoTest, git, make_repo
 
-from originlib import doclint
+from originlib import doclint, doclint_links
 
 # The escaping link T-0047 shipped, byte for byte. From `tasks/` it leaves the
 # repository; from `.worktrees/<name>/tasks/` it lands back inside the main
@@ -68,7 +68,7 @@ def probe_body(link: str) -> str:
 def link_findings(path: Path) -> list[str]:
     """Only this rule's findings, for one document, with the rest of the lint out of the way."""
     result = doclint.Result()
-    doclint.check_links(result, [path])
+    doclint_links.check_links(result, [path])
     return [str(item) for item in result.violations]
 
 
@@ -80,7 +80,7 @@ def previous_rule(path: Path, base: Path) -> dict[str, str]:
     filesystem includes whatever sits above the checkout.
     """
     verdicts: dict[str, str] = {}
-    for target, _line in doclint._links(path.read_text(encoding="utf-8")):
+    for target, _line in doclint_links.links(path.read_text(encoding="utf-8")):
         if target.startswith(("http://", "https://", "mailto:", "#")):
             continue
         clean = target.split("#", 1)[0]
@@ -224,13 +224,13 @@ class NoRegressionTest(unittest.TestCase):
         for path in files:
             if path.suffix != ".md":
                 continue
-            examined += len(doclint._links(path.read_text(encoding="utf-8", errors="replace")))
+            examined += len(doclint_links.links(path.read_text(encoding="utf-8", errors="replace")))
         # 577 on 2026-10-04. The floor is well below that so the assertion cannot
         # pass by reading almost nothing, and well above a scan that found no
         # `.md` files at all.
         self.assertGreaterEqual(examined, 100, "the scan read almost nothing")
         result = doclint.Result()
-        doclint.check_links(result, files)
+        doclint_links.check_links(result, files)
         escapes = [str(i) for i in result.violations if "leaves the repository" in str(i)]
         broken = [str(i) for i in result.violations if "broken link" in str(i)]
         self.assertEqual(escapes, [], f"{len(escapes)} of {examined} links leave the repository")

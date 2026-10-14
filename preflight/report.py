@@ -16,7 +16,13 @@ EXIT_OK = 0
 EXIT_USAGE = 1
 EXIT_WITHHELD = 3
 
-CLEAN = ("OK", "NO_LABELLED_CORRECT_ITEMS")
+#: Only a check that actually measured something clears the rate. E134 found two
+#: paths to a green light that measured nothing -- C1 on an empty key side, and
+#: C2 with no items labelled incorrect -- and a third, a "measured nothing"
+#: verdict that did not block. `NO_LABELLED_CORRECT_ITEMS` and its mirror are
+#: therefore withholding verdicts, not clean ones. Change here is behavioural:
+#: a C2 run with an empty correct arm now withholds where it used to pass.
+CLEAN = ("OK",)
 
 
 def blocking(checks):

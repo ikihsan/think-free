@@ -1,0 +1,3771 @@
+{
+ "arms": {
+  "A": {
+   "C1_dataset_key_per_task": {
+    "adapter_error": null,
+    "per_task": {
+     "openbookqa": {
+      "check": {
+       "best_rate": 0.0,
+       "check": "C1_concordance",
+       "degenerate_pairings": [],
+       "key_rows": 0,
+       "output_rows": 5,
+       "pairings": [],
+       "reason": "the key file and the output file share no field name, so the join is by something this check cannot see",
+       "summary": "0/5 = 0.0000 CI95 [0.0000, 0.4345]",
+       "type_conflicts": [],
+       "verdict": "OK"
+      },
+      "dataset_rows_built": 0,
+      "split_report": {
+       "dataset_name": "main",
+       "dataset_path": "openbookqa",
+       "declared_splits": {
+        "test_split": "test",
+        "training_split": "train",
+        "validation_split": "validation"
+       },
+       "eval_split_declared_in_results": null,
+       "eval_split_resolved_by_row_count": null,
+       "n_samples_original": 500,
+       "split_candidates": [
+        {
+         "field": "validation_split",
+         "split": "validation"
+        },
+        {
+         "field": "test_split",
+         "split": "test"
+        }
+       ],
+       "split_resolution": "AMBIGUOUS",
+       "task": "openbookqa"
+      }
+     },
+     "piqa": {
+      "check": {
+       "best_rate": 1.0,
+       "check": "C1_concordance",
+       "degenerate_pairings": [
+        "task"
+       ],
+       "key_rows": 5,
+       "output_rows": 5,
+       "pairings": [
+        {
+         "matched": 5,
+         "outputs": 5,
+         "pairing": "doc_id",
+         "rate": 1.0
+        },
+        {
+         "matched": 5,
+         "outputs": 5,
+         "pairing": "target",
+         "rate": 1.0
+        },
+        {
+         "matched": 5,
+         "outputs": 5,
+         "pairing": "task+doc_id",
+         "rate": 1.0
+        },
+        {
+         "matched": 5,
+         "outputs": 5,
+         "pairing": "task+target",
+         "rate": 1.0
+        },
+        {
+         "matched": 5,
+         "outputs": 5,
+         "pairing": "doc_id+target",
+         "rate": 1.0
+        }
+       ],
+       "reason": "",
+       "summary": "5/5 = 1.0000 CI95 [0.5655, 1.0000]",
+       "type_conflicts": [],
+       "verdict": "OK"
+      },
+      "dataset_rows_built": 5,
+      "split_report": {
+       "dataset_name": null,
+       "dataset_path": "piqa",
+       "declared_splits": {
+        "training_split": "train",
+        "validation_split": "validation"
+       },
+       "eval_split_declared_in_results": null,
+       "eval_split_field": "validation_split",
+       "eval_split_resolved_by_row_count": "validation",
+       "key_rows": 5,
+       "n_samples_original": 1838,
+       "split_candidates": [
+        {
+         "field": "validation_split",
+         "split": "validation"
+        }
+       ],
+       "split_resolution": "UNIQUE",
+       "task": "piqa"
+      }
+     },
+     "wikitext": {
+      "check": {
+       "best_rate": 1.0,
+       "check": "C1_concordance",
+       "degenerate_pairings": [
+        "task"
+       ],
+       "key_rows": 5,
+       "output_rows": 5,
+       "pairings": [
+        {
+         "matched": 5,
+         "outputs": 5,
+         "pairing": "doc_id",
+         "rate": 1.0
+        },
+        {
+         "matched": 5,
+         "outputs": 5,
+         "pairing": "target",
+         "rate": 1.0
+        },
+        {
+         "matched": 5,
+         "outputs": 5,
+         "pairing": "task+doc_id",
+         "rate": 1.0
+        },
+        {
+         "matched": 5,
+         "outputs": 5,
+         "pairing": "task+target",
+         "rate": 1.0
+        },
+        {
+         "matched": 5,
+         "outputs": 5,
+         "pairing": "doc_id+target",
+         "rate": 1.0
+        }
+       ],
+       "reason": "",
+       "summary": "5/5 = 1.0000 CI95 [0.5655, 1.0000]",
+       "type_conflicts": [],
+       "verdict": "OK"
+      },
+      "dataset_rows_built": 5,
+      "split_report": {
+       "dataset_name": "wikitext-2-raw-v1",
+       "dataset_path": "EleutherAI/wikitext_document_level",
+       "declared_splits": {
+        "test_split": "test",
+        "training_split": "train",
+        "validation_split": "validation"
+       },
+       "eval_split_declared_in_results": null,
+       "eval_split_field": "test_split",
+       "eval_split_resolved_by_row_count": "test",
+       "key_rows": 5,
+       "n_samples_original": 62,
+       "split_candidates": [
+        {
+         "field": "test_split",
+         "split": "test"
+        }
+       ],
+       "split_resolution": "UNIQUE",
+       "task": "wikitext"
+      }
+     }
+    },
+    "verdict": "OK"
+   },
+   "C1_vacuous_emitted_files_only": {
+    "best_rate": 1.0,
+    "check": "C1_concordance",
+    "degenerate_pairings": [],
+    "key_rows": 15,
+    "output_rows": 15,
+    "pairings": [
+     {
+      "matched": 15,
+      "outputs": 15,
+      "pairing": "task",
+      "rate": 1.0
+     },
+     {
+      "matched": 15,
+      "outputs": 15,
+      "pairing": "doc_id",
+      "rate": 1.0
+     },
+     {
+      "matched": 15,
+      "outputs": 15,
+      "pairing": "target",
+      "rate": 1.0
+     },
+     {
+      "matched": 15,
+      "outputs": 15,
+      "pairing": "task+doc_id",
+      "rate": 1.0
+     },
+     {
+      "matched": 15,
+      "outputs": 15,
+      "pairing": "task+target",
+      "rate": 1.0
+     },
+     {
+      "matched": 15,
+      "outputs": 15,
+      "pairing": "doc_id+target",
+      "rate": 1.0
+     }
+    ],
+    "reason": "",
+    "summary": "15/15 = 1.0000 CI95 [0.7961, 1.0000]",
+    "type_conflicts": [],
+    "verdict": "OK"
+   },
+   "C2_arm_sizes": {
+    "labelled_correct": 5,
+    "labelled_incorrect": 0,
+    "n_rows": 5
+   },
+   "C2_margin_abstention_sweep": [
+    {
+     "arms": {
+      "multiple_choice": {
+       "correct_items": {
+        "examples": [],
+        "flagged": 0,
+        "n": 5,
+        "rate": 0.0
+       },
+       "flag_rate_over_all_rows": 0.0,
+       "fp_wilson_lower": 0.0,
+       "incorrect_items": {
+        "examples": [],
+        "flagged": 0,
+        "n": 0,
+        "rate": 0.0
+       },
+       "recall_on_incorrect": null
+      }
+     },
+     "check": "C2_alternate_form_fp",
+     "fp_ceiling": 0.02,
+     "reason": "",
+     "tau": 0.0,
+     "verdict": "OK",
+     "worst_fp_wilson_lower": 0.0
+    },
+    {
+     "arms": {
+      "multiple_choice": {
+       "correct_items": {
+        "examples": [
+         {
+          "value": "doc_id=4",
+          "verdict": "flagged"
+         }
+        ],
+        "flagged": 1,
+        "n": 5,
+        "rate": 0.2
+       },
+       "flag_rate_over_all_rows": 0.2,
+       "fp_wilson_lower": 0.0362,
+       "incorrect_items": {
+        "examples": [],
+        "flagged": 0,
+        "n": 0,
+        "rate": 0.0
+       },
+       "recall_on_incorrect": null
+      }
+     },
+     "check": "C2_alternate_form_fp",
+     "fp_ceiling": 0.02,
+     "reason": "the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): multiple_choice",
+     "tau": 0.05,
+     "verdict": "ALTERNATE_FORM_FP",
+     "worst_fp_wilson_lower": 0.0362
+    },
+    {
+     "arms": {
+      "multiple_choice": {
+       "correct_items": {
+        "examples": [
+         {
+          "value": "doc_id=0",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=4",
+          "verdict": "flagged"
+         }
+        ],
+        "flagged": 2,
+        "n": 5,
+        "rate": 0.4
+       },
+       "flag_rate_over_all_rows": 0.4,
+       "fp_wilson_lower": 0.1176,
+       "incorrect_items": {
+        "examples": [],
+        "flagged": 0,
+        "n": 0,
+        "rate": 0.0
+       },
+       "recall_on_incorrect": null
+      }
+     },
+     "check": "C2_alternate_form_fp",
+     "fp_ceiling": 0.02,
+     "reason": "the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): multiple_choice",
+     "tau": 0.1,
+     "verdict": "ALTERNATE_FORM_FP",
+     "worst_fp_wilson_lower": 0.1176
+    },
+    {
+     "arms": {
+      "multiple_choice": {
+       "correct_items": {
+        "examples": [
+         {
+          "value": "doc_id=0",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=2",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=4",
+          "verdict": "flagged"
+         }
+        ],
+        "flagged": 3,
+        "n": 5,
+        "rate": 0.6
+       },
+       "flag_rate_over_all_rows": 0.6,
+       "fp_wilson_lower": 0.2307,
+       "incorrect_items": {
+        "examples": [],
+        "flagged": 0,
+        "n": 0,
+        "rate": 0.0
+       },
+       "recall_on_incorrect": null
+      }
+     },
+     "check": "C2_alternate_form_fp",
+     "fp_ceiling": 0.02,
+     "reason": "the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): multiple_choice",
+     "tau": 0.25,
+     "verdict": "ALTERNATE_FORM_FP",
+     "worst_fp_wilson_lower": 0.2307
+    },
+    {
+     "arms": {
+      "multiple_choice": {
+       "correct_items": {
+        "examples": [
+         {
+          "value": "doc_id=0",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=2",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=3",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=4",
+          "verdict": "flagged"
+         }
+        ],
+        "flagged": 4,
+        "n": 5,
+        "rate": 0.8
+       },
+       "flag_rate_over_all_rows": 0.8,
+       "fp_wilson_lower": 0.3755,
+       "incorrect_items": {
+        "examples": [],
+        "flagged": 0,
+        "n": 0,
+        "rate": 0.0
+       },
+       "recall_on_incorrect": null
+      }
+     },
+     "check": "C2_alternate_form_fp",
+     "fp_ceiling": 0.02,
+     "reason": "the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): multiple_choice",
+     "tau": 0.5,
+     "verdict": "ALTERNATE_FORM_FP",
+     "worst_fp_wilson_lower": 0.3755
+    },
+    {
+     "arms": {
+      "multiple_choice": {
+       "correct_items": {
+        "examples": [
+         {
+          "value": "doc_id=0",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=1",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=2",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=3",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=4",
+          "verdict": "flagged"
+         }
+        ],
+        "flagged": 5,
+        "n": 5,
+        "rate": 1.0
+       },
+       "flag_rate_over_all_rows": 1.0,
+       "fp_wilson_lower": 0.5655,
+       "incorrect_items": {
+        "examples": [],
+        "flagged": 0,
+        "n": 0,
+        "rate": 0.0
+       },
+       "recall_on_incorrect": null
+      }
+     },
+     "check": "C2_alternate_form_fp",
+     "fp_ceiling": 0.02,
+     "reason": "the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): multiple_choice",
+     "tau": 1.0,
+     "verdict": "ALTERNATE_FORM_FP",
+     "worst_fp_wilson_lower": 0.5655
+    }
+   ],
+   "C3_control_arm": {
+    "reason": "the run declares no negative arm and no sham input. C3 asks whether a negative arm is negative by evidence the key does not use, and a single-model run of three public datasets has no negative arm. Nothing here was substituted for it.",
+    "verdict": "NOT_COMPUTABLE"
+   },
+   "R1_R2_R3": {
+    "R1_row_recomputation": [
+     {
+      "agrees": true,
+      "metric": "acc",
+      "n_rows": 5,
+      "printed": 0.2,
+      "recomputation_matches_verdict_column": true,
+      "recomputed": 0.2,
+      "rows_missing_the_verdict_column": [],
+      "shipped_verdict_column_mean": 0.2,
+      "source": "lm_eval/api/task.py::ConfigurableTask.process_results, multiple_choice branch",
+      "task": "openbookqa"
+     },
+     {
+      "agrees": true,
+      "metric": "acc_norm",
+      "n_rows": 5,
+      "printed": 0.2,
+      "recomputation_matches_verdict_column": true,
+      "recomputed": 0.2,
+      "rows_missing_the_verdict_column": [],
+      "shipped_verdict_column_mean": 0.2,
+      "source": "lm_eval/api/task.py::ConfigurableTask.process_results, multiple_choice branch",
+      "task": "openbookqa"
+     },
+     {
+      "agrees": true,
+      "metric": "acc",
+      "n_rows": 5,
+      "printed": 0.6,
+      "recomputation_matches_verdict_column": true,
+      "recomputed": 0.6,
+      "rows_missing_the_verdict_column": [],
+      "shipped_verdict_column_mean": 0.6,
+      "source": "lm_eval/api/task.py::ConfigurableTask.process_results, multiple_choice branch",
+      "task": "piqa"
+     },
+     {
+      "agrees": true,
+      "metric": "acc_norm",
+      "n_rows": 5,
+      "printed": 0.8,
+      "recomputation_matches_verdict_column": true,
+      "recomputed": 0.8,
+      "rows_missing_the_verdict_column": [],
+      "shipped_verdict_column_mean": 0.8,
+      "source": "lm_eval/api/task.py::ConfigurableTask.process_results, multiple_choice branch",
+      "task": "piqa"
+     },
+     {
+      "agrees": true,
+      "metric": "bits_per_byte",
+      "n_rows": 5,
+      "printed": 5.2851537684272105e-05,
+      "recomputed": 5.2851537684272105e-05,
+      "source": "run's own shipped process_results",
+      "task": "wikitext"
+     },
+     {
+      "agrees": true,
+      "metric": "byte_perplexity",
+      "n_rows": 5,
+      "printed": 1.0000366345653635,
+      "recomputed": 1.0000366345653635,
+      "source": "run's own shipped process_results",
+      "task": "wikitext"
+     },
+     {
+      "agrees": true,
+      "metric": "word_perplexity",
+      "n_rows": 5,
+      "printed": 1.0001875813623529,
+      "recomputed": 1.0001875813623529,
+      "source": "run's own shipped process_results",
+      "task": "wikitext"
+     }
+    ],
+    "R2_row_count": [
+     {
+      "agrees": true,
+      "declared_effective": 5,
+      "shipped_rows": 5,
+      "task": "openbookqa"
+     },
+     {
+      "agrees": true,
+      "declared_effective": 5,
+      "shipped_rows": 5,
+      "task": "piqa"
+     },
+     {
+      "agrees": true,
+      "declared_effective": 5,
+      "shipped_rows": 5,
+      "task": "wikitext"
+     }
+    ],
+    "R3_metric_presence": [
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": true,
+      "status": "OK",
+      "task": "openbookqa"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": true,
+      "status": "OK",
+      "task": "openbookqa"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": true,
+      "status": "OK",
+      "task": "piqa"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": true,
+      "status": "OK",
+      "task": "piqa"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "bits_per_byte",
+      "per_row_column": true,
+      "status": "OK",
+      "task": "wikitext"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "byte_perplexity",
+      "per_row_column": true,
+      "status": "OK",
+      "task": "wikitext"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "word_perplexity",
+      "per_row_column": true,
+      "status": "OK",
+      "task": "wikitext"
+     }
+    ],
+    "R3_stderr_keys_carved_out": [
+     "bits_per_byte_stderr,none",
+     "byte_perplexity_stderr,none",
+     "word_perplexity_stderr,none"
+    ],
+    "aggregation_not_declared_in_config": [
+     {
+      "aggregation_in_shipped_config": null,
+      "metric": "bits_per_byte",
+      "reported_value": 5.2851537684272105e-05,
+      "task": "wikitext"
+     },
+     {
+      "aggregation_in_shipped_config": null,
+      "metric": "byte_perplexity",
+      "reported_value": 1.0000366345653635,
+      "task": "wikitext"
+     },
+     {
+      "aggregation_in_shipped_config": null,
+      "metric": "word_perplexity",
+      "reported_value": 1.0001875813623529,
+      "task": "wikitext"
+     }
+    ],
+    "coverage": {
+     "per_row_file_without_a_number": [],
+     "reported_with_no_config": [],
+     "reported_with_no_per_row_file": [],
+     "tasks_reporting_a_number": 3,
+     "tasks_with_a_config": 3,
+     "tasks_with_per_row_file": 3
+    },
+    "outdir": "armA",
+    "tasks": [
+     "openbookqa",
+     "piqa",
+     "wikitext"
+    ]
+   },
+   "R3_per_row_coverage": [
+    {
+     "metric": "acc",
+     "rows": 5,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "openbookqa"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 5,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "openbookqa"
+    },
+    {
+     "metric": "acc",
+     "rows": 5,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "piqa"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 5,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "piqa"
+    },
+    {
+     "metric": "bits_per_byte",
+     "rows": 5,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "wikitext"
+    },
+    {
+     "metric": "byte_perplexity",
+     "rows": 5,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "wikitext"
+    },
+    {
+     "metric": "word_perplexity",
+     "rows": 5,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "wikitext"
+    }
+   ],
+   "baseline_1_harness_own_checks": {
+    "lm_eval_does_not": [
+     "recompute a verdict from the model's responses and the gold label",
+     "check that a split was recorded",
+     "check that every shipped row carries the verdict it reports",
+     "compare against the dataset the run names"
+    ],
+    "lm_eval_emits": [
+     "results.json aggregate",
+     "samples_*.jsonl per-row",
+     "task_hashes",
+     "doc_hash/prompt_hash/target_hash per row"
+    ],
+    "lm_eval_verifies": [
+     "that its own printed table matches its own rows (arithmetic)"
+    ],
+    "source": "read from the committed run's own results.json and from lm_eval/api/task.py; no code path in the harness that performs any of the four absent checks was found"
+   }
+  },
+  "B": {
+   "C1_vacuous_emitted_files_only": {
+    "best_rate": 1.0,
+    "check": "C1_concordance",
+    "degenerate_pairings": [
+     "task"
+    ],
+    "key_rows": 200,
+    "output_rows": 200,
+    "pairings": [
+     {
+      "matched": 200,
+      "outputs": 200,
+      "pairing": "doc_id",
+      "rate": 1.0
+     },
+     {
+      "matched": 200,
+      "outputs": 200,
+      "pairing": "target",
+      "rate": 1.0
+     },
+     {
+      "matched": 200,
+      "outputs": 200,
+      "pairing": "task+doc_id",
+      "rate": 1.0
+     },
+     {
+      "matched": 200,
+      "outputs": 200,
+      "pairing": "task+target",
+      "rate": 1.0
+     },
+     {
+      "matched": 200,
+      "outputs": 200,
+      "pairing": "doc_id+target",
+      "rate": 1.0
+     }
+    ],
+    "reason": "",
+    "summary": "200/200 = 1.0000 CI95 [0.9812, 1.0000]",
+    "type_conflicts": [],
+    "verdict": "OK"
+   },
+   "C2_arm_sizes": {
+    "labelled_correct": 200,
+    "labelled_incorrect": 0,
+    "n_rows": 200
+   },
+   "C2_margin_abstention_sweep": [
+    {
+     "arms": {
+      "multiple_choice": {
+       "correct_items": {
+        "examples": [],
+        "flagged": 0,
+        "n": 200,
+        "rate": 0.0
+       },
+       "flag_rate_over_all_rows": 0.0,
+       "fp_wilson_lower": 0.0,
+       "incorrect_items": {
+        "examples": [],
+        "flagged": 0,
+        "n": 0,
+        "rate": 0.0
+       },
+       "recall_on_incorrect": null
+      }
+     },
+     "check": "C2_alternate_form_fp",
+     "fp_ceiling": 0.02,
+     "reason": "",
+     "tau": 0.0,
+     "verdict": "OK",
+     "worst_fp_wilson_lower": 0.0
+    },
+    {
+     "arms": {
+      "multiple_choice": {
+       "correct_items": {
+        "examples": [
+         {
+          "value": "doc_id=20",
+          "verdict": "flagged"
+         }
+        ],
+        "flagged": 1,
+        "n": 200,
+        "rate": 0.005
+       },
+       "flag_rate_over_all_rows": 0.005,
+       "fp_wilson_lower": 0.0009,
+       "incorrect_items": {
+        "examples": [],
+        "flagged": 0,
+        "n": 0,
+        "rate": 0.0
+       },
+       "recall_on_incorrect": null
+      }
+     },
+     "check": "C2_alternate_form_fp",
+     "fp_ceiling": 0.02,
+     "reason": "",
+     "tau": 0.05,
+     "verdict": "OK",
+     "worst_fp_wilson_lower": 0.0009
+    },
+    {
+     "arms": {
+      "multiple_choice": {
+       "correct_items": {
+        "examples": [
+         {
+          "value": "doc_id=20",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=36",
+          "verdict": "flagged"
+         }
+        ],
+        "flagged": 2,
+        "n": 200,
+        "rate": 0.01
+       },
+       "flag_rate_over_all_rows": 0.01,
+       "fp_wilson_lower": 0.0027,
+       "incorrect_items": {
+        "examples": [],
+        "flagged": 0,
+        "n": 0,
+        "rate": 0.0
+       },
+       "recall_on_incorrect": null
+      }
+     },
+     "check": "C2_alternate_form_fp",
+     "fp_ceiling": 0.02,
+     "reason": "",
+     "tau": 0.1,
+     "verdict": "OK",
+     "worst_fp_wilson_lower": 0.0027
+    },
+    {
+     "arms": {
+      "multiple_choice": {
+       "correct_items": {
+        "examples": [
+         {
+          "value": "doc_id=20",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=36",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=53",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=128",
+          "verdict": "flagged"
+         }
+        ],
+        "flagged": 4,
+        "n": 200,
+        "rate": 0.02
+       },
+       "flag_rate_over_all_rows": 0.02,
+       "fp_wilson_lower": 0.0078,
+       "incorrect_items": {
+        "examples": [],
+        "flagged": 0,
+        "n": 0,
+        "rate": 0.0
+       },
+       "recall_on_incorrect": null
+      }
+     },
+     "check": "C2_alternate_form_fp",
+     "fp_ceiling": 0.02,
+     "reason": "",
+     "tau": 0.25,
+     "verdict": "OK",
+     "worst_fp_wilson_lower": 0.0078
+    },
+    {
+     "arms": {
+      "multiple_choice": {
+       "correct_items": {
+        "examples": [
+         {
+          "value": "doc_id=20",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=36",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=49",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=53",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=105",
+          "verdict": "flagged"
+         }
+        ],
+        "flagged": 10,
+        "n": 200,
+        "rate": 0.05
+       },
+       "flag_rate_over_all_rows": 0.05,
+       "fp_wilson_lower": 0.0274,
+       "incorrect_items": {
+        "examples": [],
+        "flagged": 0,
+        "n": 0,
+        "rate": 0.0
+       },
+       "recall_on_incorrect": null
+      }
+     },
+     "check": "C2_alternate_form_fp",
+     "fp_ceiling": 0.02,
+     "reason": "the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): multiple_choice",
+     "tau": 0.5,
+     "verdict": "ALTERNATE_FORM_FP",
+     "worst_fp_wilson_lower": 0.0274
+    },
+    {
+     "arms": {
+      "multiple_choice": {
+       "correct_items": {
+        "examples": [
+         {
+          "value": "doc_id=10",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=18",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=19",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=20",
+          "verdict": "flagged"
+         },
+         {
+          "value": "doc_id=26",
+          "verdict": "flagged"
+         }
+        ],
+        "flagged": 35,
+        "n": 200,
+        "rate": 0.175
+       },
+       "flag_rate_over_all_rows": 0.175,
+       "fp_wilson_lower": 0.1286,
+       "incorrect_items": {
+        "examples": [],
+        "flagged": 0,
+        "n": 0,
+        "rate": 0.0
+       },
+       "recall_on_incorrect": null
+      }
+     },
+     "check": "C2_alternate_form_fp",
+     "fp_ceiling": 0.02,
+     "reason": "the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): multiple_choice",
+     "tau": 1.0,
+     "verdict": "ALTERNATE_FORM_FP",
+     "worst_fp_wilson_lower": 0.1286
+    }
+   ],
+   "C3_control_arm": {
+    "reason": "no negative arm is declared in a published single-model run",
+    "verdict": "NOT_COMPUTABLE"
+   },
+   "R1_R2_R3": {
+    "R1_row_recomputation": [
+     {
+      "metric": "acc",
+      "printed": 0.5371428571428571,
+      "status": "NO_ROWS",
+      "task": "BeaverTailsEval"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.0,
+      "status": "NO_ROWS",
+      "task": "BeaverTailsEval"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.005135730007336757,
+      "status": "NO_ROWS",
+      "task": "CDNA"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.0,
+      "status": "NO_ROWS",
+      "task": "CDNA"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.511686143572621,
+      "status": "NO_ROWS",
+      "task": "DTToxicity"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.5104340567612687,
+      "status": "NO_ROWS",
+      "task": "DTToxicity"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.3149933949801849,
+      "status": "NO_ROWS",
+      "task": "JailbreakHub"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.1334874504623514,
+      "status": "NO_ROWS",
+      "task": "JailbreakHub"
+     },
+     {
+      "agrees": true,
+      "metric": "acc",
+      "n_rows": 200,
+      "printed": 0.515,
+      "recomputation_matches_verdict_column": true,
+      "recomputed": 0.515,
+      "rows_missing_the_verdict_column": [],
+      "shipped_verdict_column_mean": 0.515,
+      "source": "lm_eval/api/task.py::ConfigurableTask.process_results, multiple_choice branch",
+      "task": "SGXSTest"
+     },
+     {
+      "agrees": true,
+      "metric": "acc_norm",
+      "n_rows": 200,
+      "printed": 0.5,
+      "recomputation_matches_verdict_column": true,
+      "recomputed": 0.5,
+      "rows_missing_the_verdict_column": [],
+      "shipped_verdict_column_mean": 0.5,
+      "source": "lm_eval/api/task.py::ConfigurableTask.process_results, multiple_choice branch",
+      "task": "SGXSTest"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.49583333333333335,
+      "status": "NO_ROWS",
+      "task": "SaladBench"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.49583333333333335,
+      "status": "NO_ROWS",
+      "task": "SaladBench"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.6677316293929713,
+      "status": "NO_ROWS",
+      "task": "StrongREJECT"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.0,
+      "status": "NO_ROWS",
+      "task": "StrongREJECT"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.6492753623188405,
+      "status": "NO_ROWS",
+      "task": "WildGuardTest"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.6405797101449275,
+      "status": "NO_ROWS",
+      "task": "WildGuardTest"
+     },
+     {
+      "metric": "*",
+      "printed": {
+       "acc,none": 0.7551118101620734,
+       "acc_norm,none": 0.7515899610203105,
+       "acc_norm_stderr,none": 0.0017704689390854518,
+       "acc_stderr,none": 0.0017615120557869302,
+       "alias": "bbq"
+      },
+      "status": "NO_CONFIG_IN_RUN",
+      "task": "bbq"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.6258152173913043,
+      "status": "NO_ROWS",
+      "task": "bbq_age"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.6239130434782608,
+      "status": "NO_ROWS",
+      "task": "bbq_age"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.6201799485861182,
+      "status": "NO_ROWS",
+      "task": "bbq_disabilitystatus"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.6047557840616966,
+      "status": "NO_ROWS",
+      "task": "bbq_disabilitystatus"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.7175599435825106,
+      "status": "NO_ROWS",
+      "task": "bbq_genderidentity"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.7254936530324401,
+      "status": "NO_ROWS",
+      "task": "bbq_genderidentity"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.7685064935064935,
+      "status": "NO_ROWS",
+      "task": "bbq_nationality"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.7626623376623377,
+      "status": "NO_ROWS",
+      "task": "bbq_nationality"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.6345177664974619,
+      "status": "NO_ROWS",
+      "task": "bbq_physicalappearance"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.6307106598984772,
+      "status": "NO_ROWS",
+      "task": "bbq_physicalappearance"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.7630813953488372,
+      "status": "NO_ROWS",
+      "task": "bbq_raceethnicity"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.7614825581395349,
+      "status": "NO_ROWS",
+      "task": "bbq_raceethnicity"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.8166666666666667,
+      "status": "NO_ROWS",
+      "task": "bbq_racexgender"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.8152255639097744,
+      "status": "NO_ROWS",
+      "task": "bbq_racexgender"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.7833333333333333,
+      "status": "NO_ROWS",
+      "task": "bbq_racexses"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.7689068100358423,
+      "status": "NO_ROWS",
+      "task": "bbq_racexses"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.7,
+      "status": "NO_ROWS",
+      "task": "bbq_religion"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.7033333333333334,
+      "status": "NO_ROWS",
+      "task": "bbq_religion"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.7237762237762237,
+      "status": "NO_ROWS",
+      "task": "bbq_ses"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.7234848484848485,
+      "status": "NO_ROWS",
+      "task": "bbq_ses"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.7280092592592593,
+      "status": "NO_ROWS",
+      "task": "bbq_sexualorientation"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.7245370370370371,
+      "status": "NO_ROWS",
+      "task": "bbq_sexualorientation"
+     },
+     {
+      "metric": "*",
+      "printed": {
+       " ": " ",
+       "alias": "leaderboard"
+      },
+      "status": "NO_CONFIG_IN_RUN",
+      "task": "leaderboard"
+     },
+     {
+      "metric": "*",
+      "printed": {
+       " ": " ",
+       "alias": " - leaderboard_bbh"
+      },
+      "status": "NO_CONFIG_IN_RUN",
+      "task": "leaderboard_bbh"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.8,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_boolean_expressions"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.5989304812834224,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_causal_judgement"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.332,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_date_understanding"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.672,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_disambiguation_qa"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.576,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_formal_fallacies"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.428,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_geometric_shapes"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.652,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_hyperbaton"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.36,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_logical_deduction_five_objects"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.336,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_logical_deduction_seven_objects"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.42,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_logical_deduction_three_objects"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.716,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_movie_recommendation"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.528,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_navigate"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.436,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_object_counting"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.4794520547945205,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_penguins_in_a_table"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.536,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_reasoning_about_colored_objects"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.364,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_ruin_names"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.444,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_salient_translation_error_detection"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.7865168539325843,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_snarks"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.74,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_sports_understanding"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.116,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_temporal_sequences"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.172,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_tracking_shuffled_objects_five_objects"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.116,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_tracking_shuffled_objects_seven_objects"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.316,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_tracking_shuffled_objects_three_objects"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.52,
+      "status": "NO_ROWS",
+      "task": "leaderboard_bbh_web_of_lies"
+     },
+     {
+      "metric": "*",
+      "printed": {
+       " ": " ",
+       "alias": " - leaderboard_gpqa"
+      },
+      "status": "NO_CONFIG_IN_RUN",
+      "task": "leaderboard_gpqa"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.2727272727272727,
+      "status": "NO_ROWS",
+      "task": "leaderboard_gpqa_diamond"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.3058608058608059,
+      "status": "NO_ROWS",
+      "task": "leaderboard_gpqa_extended"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.29017857142857145,
+      "status": "NO_ROWS",
+      "task": "leaderboard_gpqa_main"
+     },
+     {
+      "metric": "inst_level_loose_acc",
+      "printed": 0.5143884892086331,
+      "status": "NO_ROWS",
+      "task": "leaderboard_ifeval"
+     },
+     {
+      "metric": "inst_level_strict_acc",
+      "printed": 0.44844124700239807,
+      "status": "NO_ROWS",
+      "task": "leaderboard_ifeval"
+     },
+     {
+      "metric": "prompt_level_loose_acc",
+      "printed": 0.38817005545286504,
+      "status": "NO_ROWS",
+      "task": "leaderboard_ifeval"
+     },
+     {
+      "metric": "prompt_level_strict_acc",
+      "printed": 0.3123844731977819,
+      "status": "NO_ROWS",
+      "task": "leaderboard_ifeval"
+     },
+     {
+      "metric": "exact_match",
+      "printed": 0.035830618892508145,
+      "status": "NO_ROWS",
+      "task": "leaderboard_math_algebra_hard"
+     },
+     {
+      "metric": "exact_match",
+      "printed": 0.024390243902439025,
+      "status": "NO_ROWS",
+      "task": "leaderboard_math_counting_and_prob_hard"
+     },
+     {
+      "metric": "exact_match",
+      "printed": 0.007575757575757576,
+      "status": "NO_ROWS",
+      "task": "leaderboard_math_geometry_hard"
+     },
+     {
+      "metric": "*",
+      "printed": {
+       " ": " ",
+       "alias": " - leaderboard_math_hard"
+      },
+      "status": "NO_CONFIG_IN_RUN",
+      "task": "leaderboard_math_hard"
+     },
+     {
+      "metric": "exact_match",
+      "printed": 0.0,
+      "status": "NO_ROWS",
+      "task": "leaderboard_math_intermediate_algebra_hard"
+     },
+     {
+      "metric": "exact_match",
+      "printed": 0.03896103896103896,
+      "status": "NO_ROWS",
+      "task": "leaderboard_math_num_theory_hard"
+     },
+     {
+      "metric": "exact_match",
+      "printed": 0.06217616580310881,
+      "status": "NO_ROWS",
+      "task": "leaderboard_math_prealgebra_hard"
+     },
+     {
+      "metric": "exact_match",
+      "printed": 0.014814814814814815,
+      "status": "NO_ROWS",
+      "task": "leaderboard_math_precalculus_hard"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.2981216755319149,
+      "status": "NO_ROWS",
+      "task": "leaderboard_mmlu_pro"
+     },
+     {
+      "metric": "*",
+      "printed": {
+       " ": " ",
+       "alias": " - leaderboard_musr"
+      },
+      "status": "NO_CONFIG_IN_RUN",
+      "task": "leaderboard_musr"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.56,
+      "status": "NO_ROWS",
+      "task": "leaderboard_musr_murder_mysteries"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.3046875,
+      "status": "NO_ROWS",
+      "task": "leaderboard_musr_object_placements"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.324,
+      "status": "NO_ROWS",
+      "task": "leaderboard_musr_team_allocation"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.5404255319148936,
+      "status": "NO_ROWS",
+      "task": "toxigen"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.46914893617021275,
+      "status": "NO_ROWS",
+      "task": "toxigen"
+     },
+     {
+      "metric": "*",
+      "printed": {
+       "acc,none": 0.5160850599781898,
+       "acc_stderr,none": 0.008062732973025776,
+       "alias": "wmdp"
+      },
+      "status": "NO_CONFIG_IN_RUN",
+      "task": "wmdp"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.6614296936370778,
+      "status": "NO_ROWS",
+      "task": "wmdp_bio"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.48284313725490197,
+      "status": "NO_ROWS",
+      "task": "wmdp_chem"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.42979365878208353,
+      "status": "NO_ROWS",
+      "task": "wmdp_cyber"
+     },
+     {
+      "metric": "acc",
+      "printed": 0.5066666666666667,
+      "status": "NO_ROWS",
+      "task": "xstest"
+     },
+     {
+      "metric": "acc_norm",
+      "printed": 0.4444444444444444,
+      "status": "NO_ROWS",
+      "task": "xstest"
+     }
+    ],
+    "R2_row_count": [
+     {
+      "agrees": false,
+      "declared_effective": 700,
+      "shipped_rows": 0,
+      "task": "BeaverTailsEval"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 2726,
+      "shipped_rows": 0,
+      "task": "CDNA"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 2396,
+      "shipped_rows": 0,
+      "task": "DTToxicity"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 15140,
+      "shipped_rows": 0,
+      "task": "JailbreakHub"
+     },
+     {
+      "agrees": true,
+      "declared_effective": 200,
+      "shipped_rows": 200,
+      "task": "SGXSTest"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 3840,
+      "shipped_rows": 0,
+      "task": "SaladBench"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 313,
+      "shipped_rows": 0,
+      "task": "StrongREJECT"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 1725,
+      "shipped_rows": 0,
+      "task": "WildGuardTest"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 3680,
+      "shipped_rows": 0,
+      "task": "bbq_age"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 1556,
+      "shipped_rows": 0,
+      "task": "bbq_disabilitystatus"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 5672,
+      "shipped_rows": 0,
+      "task": "bbq_genderidentity"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 3080,
+      "shipped_rows": 0,
+      "task": "bbq_nationality"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 1576,
+      "shipped_rows": 0,
+      "task": "bbq_physicalappearance"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 6880,
+      "shipped_rows": 0,
+      "task": "bbq_raceethnicity"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 15960,
+      "shipped_rows": 0,
+      "task": "bbq_racexgender"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 11160,
+      "shipped_rows": 0,
+      "task": "bbq_racexses"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 1200,
+      "shipped_rows": 0,
+      "task": "bbq_religion"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 6864,
+      "shipped_rows": 0,
+      "task": "bbq_ses"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 864,
+      "shipped_rows": 0,
+      "task": "bbq_sexualorientation"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_boolean_expressions"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 187,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_causal_judgement"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_date_understanding"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_disambiguation_qa"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_formal_fallacies"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_geometric_shapes"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_hyperbaton"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_logical_deduction_five_objects"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_logical_deduction_seven_objects"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_logical_deduction_three_objects"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_movie_recommendation"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_navigate"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_object_counting"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 146,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_penguins_in_a_table"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_reasoning_about_colored_objects"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_ruin_names"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_salient_translation_error_detection"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 178,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_snarks"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_sports_understanding"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_temporal_sequences"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_tracking_shuffled_objects_five_objects"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_tracking_shuffled_objects_seven_objects"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_tracking_shuffled_objects_three_objects"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_bbh_web_of_lies"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 198,
+      "shipped_rows": 0,
+      "task": "leaderboard_gpqa_diamond"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 546,
+      "shipped_rows": 0,
+      "task": "leaderboard_gpqa_extended"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 448,
+      "shipped_rows": 0,
+      "task": "leaderboard_gpqa_main"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 541,
+      "shipped_rows": 0,
+      "task": "leaderboard_ifeval"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 307,
+      "shipped_rows": 0,
+      "task": "leaderboard_math_algebra_hard"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 123,
+      "shipped_rows": 0,
+      "task": "leaderboard_math_counting_and_prob_hard"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 132,
+      "shipped_rows": 0,
+      "task": "leaderboard_math_geometry_hard"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 280,
+      "shipped_rows": 0,
+      "task": "leaderboard_math_intermediate_algebra_hard"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 154,
+      "shipped_rows": 0,
+      "task": "leaderboard_math_num_theory_hard"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 193,
+      "shipped_rows": 0,
+      "task": "leaderboard_math_prealgebra_hard"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 135,
+      "shipped_rows": 0,
+      "task": "leaderboard_math_precalculus_hard"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 12032,
+      "shipped_rows": 0,
+      "task": "leaderboard_mmlu_pro"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_musr_murder_mysteries"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 256,
+      "shipped_rows": 0,
+      "task": "leaderboard_musr_object_placements"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 250,
+      "shipped_rows": 0,
+      "task": "leaderboard_musr_team_allocation"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 940,
+      "shipped_rows": 0,
+      "task": "toxigen"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 1273,
+      "shipped_rows": 0,
+      "task": "wmdp_bio"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 408,
+      "shipped_rows": 0,
+      "task": "wmdp_chem"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 1987,
+      "shipped_rows": 0,
+      "task": "wmdp_cyber"
+     },
+     {
+      "agrees": false,
+      "declared_effective": 450,
+      "shipped_rows": 0,
+      "task": "xstest"
+     }
+    ],
+    "R3_metric_presence": [
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "BeaverTailsEval"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "BeaverTailsEval"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "CDNA"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "CDNA"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "DTToxicity"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "DTToxicity"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "JailbreakHub"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "JailbreakHub"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": true,
+      "status": "OK",
+      "task": "SGXSTest"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": true,
+      "status": "OK",
+      "task": "SGXSTest"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "SaladBench"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "SaladBench"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "StrongREJECT"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "StrongREJECT"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "WildGuardTest"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "WildGuardTest"
+     },
+     {
+      "declared_in_metric_list": false,
+      "metric": "*",
+      "per_row_column": false,
+      "status": "NO_CONFIG_IN_RUN",
+      "task": "bbq"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_age"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_age"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_disabilitystatus"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_disabilitystatus"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_genderidentity"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_genderidentity"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_nationality"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_nationality"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_physicalappearance"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_physicalappearance"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_raceethnicity"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_raceethnicity"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_racexgender"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_racexgender"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_racexses"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_racexses"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_religion"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_religion"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_ses"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_ses"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_sexualorientation"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "bbq_sexualorientation"
+     },
+     {
+      "declared_in_metric_list": false,
+      "metric": "*",
+      "per_row_column": false,
+      "status": "NO_CONFIG_IN_RUN",
+      "task": "leaderboard"
+     },
+     {
+      "declared_in_metric_list": false,
+      "metric": "*",
+      "per_row_column": false,
+      "status": "NO_CONFIG_IN_RUN",
+      "task": "leaderboard_bbh"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_boolean_expressions"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_causal_judgement"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_date_understanding"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_disambiguation_qa"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_formal_fallacies"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_geometric_shapes"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_hyperbaton"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_logical_deduction_five_objects"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_logical_deduction_seven_objects"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_logical_deduction_three_objects"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_movie_recommendation"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_navigate"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_object_counting"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_penguins_in_a_table"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_reasoning_about_colored_objects"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_ruin_names"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_salient_translation_error_detection"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_snarks"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_sports_understanding"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_temporal_sequences"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_tracking_shuffled_objects_five_objects"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_tracking_shuffled_objects_seven_objects"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_tracking_shuffled_objects_three_objects"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_bbh_web_of_lies"
+     },
+     {
+      "declared_in_metric_list": false,
+      "metric": "*",
+      "per_row_column": false,
+      "status": "NO_CONFIG_IN_RUN",
+      "task": "leaderboard_gpqa"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_gpqa_diamond"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_gpqa_extended"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_gpqa_main"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "inst_level_loose_acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_ifeval"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "inst_level_strict_acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_ifeval"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "prompt_level_loose_acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_ifeval"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "prompt_level_strict_acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_ifeval"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "exact_match",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_math_algebra_hard"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "exact_match",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_math_counting_and_prob_hard"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "exact_match",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_math_geometry_hard"
+     },
+     {
+      "declared_in_metric_list": false,
+      "metric": "*",
+      "per_row_column": false,
+      "status": "NO_CONFIG_IN_RUN",
+      "task": "leaderboard_math_hard"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "exact_match",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_math_intermediate_algebra_hard"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "exact_match",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_math_num_theory_hard"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "exact_match",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_math_prealgebra_hard"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "exact_match",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_math_precalculus_hard"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_mmlu_pro"
+     },
+     {
+      "declared_in_metric_list": false,
+      "metric": "*",
+      "per_row_column": false,
+      "status": "NO_CONFIG_IN_RUN",
+      "task": "leaderboard_musr"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_musr_murder_mysteries"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_musr_object_placements"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "leaderboard_musr_team_allocation"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "toxigen"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "toxigen"
+     },
+     {
+      "declared_in_metric_list": false,
+      "metric": "*",
+      "per_row_column": false,
+      "status": "NO_CONFIG_IN_RUN",
+      "task": "wmdp"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "wmdp_bio"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "wmdp_chem"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "wmdp_cyber"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "xstest"
+     },
+     {
+      "declared_in_metric_list": true,
+      "metric": "acc_norm",
+      "per_row_column": false,
+      "status": "NO_PER_ROW_COLUMN",
+      "task": "xstest"
+     }
+    ],
+    "R3_stderr_keys_carved_out": [
+     "acc_norm_stderr,none",
+     "acc_stderr,none"
+    ],
+    "aggregation_not_declared_in_config": [],
+    "coverage": {
+     "per_row_file_without_a_number": [],
+     "reported_with_no_config": [
+      "bbq",
+      "leaderboard",
+      "leaderboard_bbh",
+      "leaderboard_gpqa",
+      "leaderboard_math_hard",
+      "leaderboard_musr",
+      "wmdp"
+     ],
+     "reported_with_no_per_row_file": [
+      "BeaverTailsEval",
+      "CDNA",
+      "DTToxicity",
+      "JailbreakHub",
+      "SaladBench",
+      "StrongREJECT",
+      "WildGuardTest",
+      "bbq",
+      "bbq_age",
+      "bbq_disabilitystatus",
+      "bbq_genderidentity",
+      "bbq_nationality",
+      "bbq_physicalappearance",
+      "bbq_raceethnicity",
+      "bbq_racexgender",
+      "bbq_racexses",
+      "bbq_religion",
+      "bbq_ses",
+      "bbq_sexualorientation",
+      "leaderboard",
+      "leaderboard_bbh",
+      "leaderboard_bbh_boolean_expressions",
+      "leaderboard_bbh_causal_judgement",
+      "leaderboard_bbh_date_understanding",
+      "leaderboard_bbh_disambiguation_qa",
+      "leaderboard_bbh_formal_fallacies",
+      "leaderboard_bbh_geometric_shapes",
+      "leaderboard_bbh_hyperbaton",
+      "leaderboard_bbh_logical_deduction_five_objects",
+      "leaderboard_bbh_logical_deduction_seven_objects",
+      "leaderboard_bbh_logical_deduction_three_objects",
+      "leaderboard_bbh_movie_recommendation",
+      "leaderboard_bbh_navigate",
+      "leaderboard_bbh_object_counting",
+      "leaderboard_bbh_penguins_in_a_table",
+      "leaderboard_bbh_reasoning_about_colored_objects",
+      "leaderboard_bbh_ruin_names",
+      "leaderboard_bbh_salient_translation_error_detection",
+      "leaderboard_bbh_snarks",
+      "leaderboard_bbh_sports_understanding",
+      "leaderboard_bbh_temporal_sequences",
+      "leaderboard_bbh_tracking_shuffled_objects_five_objects",
+      "leaderboard_bbh_tracking_shuffled_objects_seven_objects",
+      "leaderboard_bbh_tracking_shuffled_objects_three_objects",
+      "leaderboard_bbh_web_of_lies",
+      "leaderboard_gpqa",
+      "leaderboard_gpqa_diamond",
+      "leaderboard_gpqa_extended",
+      "leaderboard_gpqa_main",
+      "leaderboard_ifeval",
+      "leaderboard_math_algebra_hard",
+      "leaderboard_math_counting_and_prob_hard",
+      "leaderboard_math_geometry_hard",
+      "leaderboard_math_hard",
+      "leaderboard_math_intermediate_algebra_hard",
+      "leaderboard_math_num_theory_hard",
+      "leaderboard_math_prealgebra_hard",
+      "leaderboard_math_precalculus_hard",
+      "leaderboard_mmlu_pro",
+      "leaderboard_musr",
+      "leaderboard_musr_murder_mysteries",
+      "leaderboard_musr_object_placements",
+      "leaderboard_musr_team_allocation",
+      "toxigen",
+      "wmdp",
+      "wmdp_bio",
+      "wmdp_chem",
+      "wmdp_cyber",
+      "xstest"
+     ],
+     "tasks_reporting_a_number": 70,
+     "tasks_with_a_config": 63,
+     "tasks_with_per_row_file": 1
+    },
+    "outdir": "armB",
+    "tasks": [
+     "SGXSTest"
+    ]
+   },
+   "R3_per_row_coverage": [
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "BeaverTailsEval"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "BeaverTailsEval"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "CDNA"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "CDNA"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "DTToxicity"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "DTToxicity"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "JailbreakHub"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "JailbreakHub"
+    },
+    {
+     "metric": "acc",
+     "rows": 200,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "SGXSTest"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 200,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "SGXSTest"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "SaladBench"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "SaladBench"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "StrongREJECT"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "StrongREJECT"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "WildGuardTest"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "WildGuardTest"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_age"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_age"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_disabilitystatus"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_disabilitystatus"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_genderidentity"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_genderidentity"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_nationality"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_nationality"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_physicalappearance"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_physicalappearance"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_raceethnicity"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_raceethnicity"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_racexgender"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_racexgender"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_racexses"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_racexses"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_religion"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_religion"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_ses"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_ses"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_sexualorientation"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "bbq_sexualorientation"
+    },
+    {
+     "metric": " ",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard"
+    },
+    {
+     "metric": " ",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_boolean_expressions"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_causal_judgement"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_date_understanding"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_disambiguation_qa"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_formal_fallacies"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_geometric_shapes"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_hyperbaton"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_logical_deduction_five_objects"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_logical_deduction_seven_objects"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_logical_deduction_three_objects"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_movie_recommendation"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_navigate"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_object_counting"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_penguins_in_a_table"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_reasoning_about_colored_objects"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_ruin_names"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_salient_translation_error_detection"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_snarks"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_sports_understanding"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_temporal_sequences"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_tracking_shuffled_objects_five_objects"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_tracking_shuffled_objects_seven_objects"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_tracking_shuffled_objects_three_objects"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_bbh_web_of_lies"
+    },
+    {
+     "metric": " ",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_gpqa"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_gpqa_diamond"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_gpqa_extended"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_gpqa_main"
+    },
+    {
+     "metric": "inst_level_loose_acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_ifeval"
+    },
+    {
+     "metric": "inst_level_strict_acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_ifeval"
+    },
+    {
+     "metric": "prompt_level_loose_acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_ifeval"
+    },
+    {
+     "metric": "prompt_level_strict_acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_ifeval"
+    },
+    {
+     "metric": "exact_match",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_math_algebra_hard"
+    },
+    {
+     "metric": "exact_match",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_math_counting_and_prob_hard"
+    },
+    {
+     "metric": "exact_match",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_math_geometry_hard"
+    },
+    {
+     "metric": " ",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_math_hard"
+    },
+    {
+     "metric": "exact_match",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_math_intermediate_algebra_hard"
+    },
+    {
+     "metric": "exact_match",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_math_num_theory_hard"
+    },
+    {
+     "metric": "exact_match",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_math_prealgebra_hard"
+    },
+    {
+     "metric": "exact_match",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_math_precalculus_hard"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_mmlu_pro"
+    },
+    {
+     "metric": " ",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_musr"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_musr_murder_mysteries"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_musr_object_placements"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "leaderboard_musr_team_allocation"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "toxigen"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "toxigen"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "wmdp"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "wmdp_bio"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "wmdp_chem"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "wmdp_cyber"
+    },
+    {
+     "metric": "acc",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "xstest"
+    },
+    {
+     "metric": "acc_norm",
+     "rows": 0,
+     "rows_missing_the_column": 0,
+     "status": "OK",
+     "task": "xstest"
+    }
+   ]
+  },
+  "C": {
+   "C1_adapter_path": {
+    "C1_dataset_key_per_task": {
+     "adapter_error": {
+      "message": "'doc_id'",
+      "raised": "KeyError"
+     },
+     "per_task": null,
+     "verdict": "ADAPTER_RAISES"
+    },
+    "C1_vacuous": null,
+    "error": {
+     "message": "'doc_id'",
+     "raised": "KeyError"
+    },
+    "note": "a loud failure on the renamed field. The alternative would be an adapter that skips an unknown field, which is what would turn this defect into a clean 1.0000.",
+    "verdict": "ADAPTER_RAISES"
+   },
+   "C1_defect": {
+    "defect": "C1 identifier field renamed on the output side",
+    "evidence": [
+     {
+      "doc_id": 0,
+      "renamed_to": "sample_index"
+     },
+     {
+      "doc_id": 1,
+      "renamed_to": "sample_index"
+     },
+     {
+      "doc_id": 2,
+      "renamed_to": "sample_index"
+     },
+     {
+      "doc_id": 3,
+      "renamed_to": "sample_index"
+     },
+     {
+      "doc_id": 4,
+      "renamed_to": "sample_index"
+     }
+    ],
+    "file": "samples_piqa_2026-10-14T00-52-55.068909.jsonl",
+    "rows_touched": 5
+   },
+   "C2_R1_R2_R3": {
+    "R1_R2_R3": {
+     "R1_row_recomputation": [
+      {
+       "agrees": true,
+       "metric": "acc",
+       "n_rows": 5,
+       "printed": 0.2,
+       "recomputed": 0.2,
+       "rows_missing_the_verdict_column": [
+        4
+       ],
+       "source": "lm_eval/api/task.py::ConfigurableTask.process_results, multiple_choice branch",
+       "task": "openbookqa"
+      },
+      {
+       "agrees": true,
+       "metric": "acc_norm",
+       "n_rows": 5,
+       "printed": 0.2,
+       "recomputed": 0.2,
+       "rows_missing_the_verdict_column": [
+        4
+       ],
+       "source": "lm_eval/api/task.py::ConfigurableTask.process_results, multiple_choice branch",
+       "task": "openbookqa"
+      },
+      {
+       "agrees": true,
+       "metric": "acc",
+       "n_rows": 5,
+       "printed": 0.6,
+       "recomputation_matches_verdict_column": true,
+       "recomputed": 0.6,
+       "rows_missing_the_verdict_column": [],
+       "shipped_verdict_column_mean": 0.6,
+       "source": "lm_eval/api/task.py::ConfigurableTask.process_results, multiple_choice branch",
+       "task": "piqa"
+      },
+      {
+       "agrees": true,
+       "metric": "acc_norm",
+       "n_rows": 5,
+       "printed": 0.8,
+       "recomputation_matches_verdict_column": true,
+       "recomputed": 0.8,
+       "rows_missing_the_verdict_column": [],
+       "shipped_verdict_column_mean": 0.8,
+       "source": "lm_eval/api/task.py::ConfigurableTask.process_results, multiple_choice branch",
+       "task": "piqa"
+      },
+      {
+       "agrees": true,
+       "metric": "bits_per_byte",
+       "n_rows": 5,
+       "printed": 5.2851537684272105e-05,
+       "recomputed": 5.2851537684272105e-05,
+       "source": "run's own shipped process_results",
+       "task": "wikitext"
+      },
+      {
+       "agrees": true,
+       "metric": "byte_perplexity",
+       "n_rows": 5,
+       "printed": 1.0000366345653635,
+       "recomputed": 1.0000366345653635,
+       "source": "run's own shipped process_results",
+       "task": "wikitext"
+      },
+      {
+       "agrees": true,
+       "metric": "word_perplexity",
+       "n_rows": 5,
+       "printed": 1.0001875813623529,
+       "recomputed": 1.0001875813623529,
+       "source": "run's own shipped process_results",
+       "task": "wikitext"
+      }
+     ],
+     "R2_row_count": [
+      {
+       "agrees": true,
+       "declared_effective": 5,
+       "shipped_rows": 5,
+       "task": "openbookqa"
+      },
+      {
+       "agrees": true,
+       "declared_effective": 5,
+       "shipped_rows": 5,
+       "task": "piqa"
+      },
+      {
+       "agrees": true,
+       "declared_effective": 5,
+       "shipped_rows": 5,
+       "task": "wikitext"
+      }
+     ],
+     "R3_metric_presence": [
+      {
+       "declared_in_metric_list": true,
+       "metric": "acc",
+       "per_row_column": true,
+       "status": "OK",
+       "task": "openbookqa"
+      },
+      {
+       "declared_in_metric_list": true,
+       "metric": "acc_norm",
+       "per_row_column": true,
+       "status": "OK",
+       "task": "openbookqa"
+      },
+      {
+       "declared_in_metric_list": true,
+       "metric": "acc",
+       "per_row_column": true,
+       "status": "OK",
+       "task": "piqa"
+      },
+      {
+       "declared_in_metric_list": true,
+       "metric": "acc_norm",
+       "per_row_column": true,
+       "status": "OK",
+       "task": "piqa"
+      },
+      {
+       "declared_in_metric_list": true,
+       "metric": "bits_per_byte",
+       "per_row_column": true,
+       "status": "OK",
+       "task": "wikitext"
+      },
+      {
+       "declared_in_metric_list": true,
+       "metric": "byte_perplexity",
+       "per_row_column": true,
+       "status": "OK",
+       "task": "wikitext"
+      },
+      {
+       "declared_in_metric_list": true,
+       "metric": "word_perplexity",
+       "per_row_column": true,
+       "status": "OK",
+       "task": "wikitext"
+      }
+     ],
+     "R3_stderr_keys_carved_out": [
+      "bits_per_byte_stderr,none",
+      "byte_perplexity_stderr,none",
+      "word_perplexity_stderr,none"
+     ],
+     "aggregation_not_declared_in_config": [
+      {
+       "aggregation_in_shipped_config": null,
+       "metric": "bits_per_byte",
+       "reported_value": 5.2851537684272105e-05,
+       "task": "wikitext"
+      },
+      {
+       "aggregation_in_shipped_config": null,
+       "metric": "byte_perplexity",
+       "reported_value": 1.0000366345653635,
+       "task": "wikitext"
+      },
+      {
+       "aggregation_in_shipped_config": null,
+       "metric": "word_perplexity",
+       "reported_value": 1.0001875813623529,
+       "task": "wikitext"
+      }
+     ],
+     "coverage": {
+      "per_row_file_without_a_number": [],
+      "reported_with_no_config": [],
+      "reported_with_no_per_row_file": [],
+      "tasks_reporting_a_number": 3,
+      "tasks_with_a_config": 3,
+      "tasks_with_per_row_file": 3
+     },
+     "outdir": "/tmp/opencode/armC/c2-verdict-dropped",
+     "tasks": [
+      "openbookqa",
+      "piqa",
+      "wikitext"
+     ]
+    },
+    "R3_per_row_coverage": [
+     {
+      "metric": "acc",
+      "rows": 5,
+      "rows_missing_the_column": 1,
+      "status": "PARTIAL_COLUMN",
+      "task": "openbookqa"
+     },
+     {
+      "metric": "acc_norm",
+      "rows": 5,
+      "rows_missing_the_column": 1,
+      "status": "PARTIAL_COLUMN",
+      "task": "openbookqa"
+     },
+     {
+      "metric": "acc",
+      "rows": 5,
+      "rows_missing_the_column": 0,
+      "status": "OK",
+      "task": "piqa"
+     },
+     {
+      "metric": "acc_norm",
+      "rows": 5,
+      "rows_missing_the_column": 0,
+      "status": "OK",
+      "task": "piqa"
+     },
+     {
+      "metric": "bits_per_byte",
+      "rows": 5,
+      "rows_missing_the_column": 0,
+      "status": "OK",
+      "task": "wikitext"
+     },
+     {
+      "metric": "byte_perplexity",
+      "rows": 5,
+      "rows_missing_the_column": 0,
+      "status": "OK",
+      "task": "wikitext"
+     },
+     {
+      "metric": "word_perplexity",
+      "rows": 5,
+      "rows_missing_the_column": 0,
+      "status": "OK",
+      "task": "wikitext"
+     }
+    ]
+   },
+   "C2_arm_sizes": {
+    "labelled_correct": 4,
+    "labelled_incorrect": 1,
+    "n_rows": 5
+   },
+   "C2_defect": {
+    "defect": "C2 verdict column dropped from the final row",
+    "doc_id": 4,
+    "dropped_fields": [
+     "acc",
+     "acc_norm"
+    ],
+    "file": "samples_openbookqa_2026-10-14T00-52-55.068909.jsonl"
+   },
+   "C2_margin_at_tau_0.1": {
+    "arms": {
+     "multiple_choice": {
+      "correct_items": {
+       "examples": [
+        {
+         "value": "doc_id=0",
+         "verdict": "flagged"
+        }
+       ],
+       "flagged": 1,
+       "n": 4,
+       "rate": 0.25
+      },
+      "flag_rate_over_all_rows": 0.2,
+      "fp_wilson_lower": 0.0456,
+      "incorrect_items": {
+       "examples": [],
+       "flagged": 0,
+       "n": 1,
+       "rate": 0.0
+      },
+      "recall_on_incorrect": 1.0
+     }
+    },
+    "check": "C2_alternate_form_fp",
+    "fp_ceiling": 0.02,
+    "reason": "the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): multiple_choice",
+    "tau": 0.1,
+    "verdict": "ALTERNATE_FORM_FP",
+    "worst_fp_wilson_lower": 0.0456
+   }
+  }
+ },
+ "controls": {},
+ "experiment": "E134"
+}
