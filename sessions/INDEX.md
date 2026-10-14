@@ -15,7 +15,7 @@ Showing the 25 most recent. 333 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-14-004-run-e142-valueset-py-unchanged-on-regula](2026-10-14-004-run-e142-valueset-py-unchanged-on-regula/README.md) | unknown-agent | **unfinished** | Run E142: valueset.py unchanged on regulatory answers a person wrote ( | 2026-10-14T14:06 |
+| [2026-10-14-004-run-e142-valueset-py-unchanged-on-regula](2026-10-14-004-run-e142-valueset-py-unchanged-on-regula/README.md) | unknown-agent | worked | Run E142: valueset.py unchanged on regulatory answers a person wrote ( | 2026-10-14T15:20 |
 | [2026-10-14-003-land-the-f127-repair-left-uncommitted-by](2026-10-14-003-land-the-f127-repair-left-uncommitted-by/README.md) | unknown-agent | worked | Land the F127 repair left uncommitted by session 2026-10-14-002, then  | 2026-10-14T14:01 |
 | [2026-10-14-002-measure-valueset-py-unchanged-on-squad-v](2026-10-14-002-measure-valueset-py-unchanged-on-squad-v/README.md) | unknown-agent | worked | Measure valueset.py unchanged on SQuAD v2.0 dev - a human-written genr | 2026-10-14T02:22 |
 | [2026-10-14-001-measure-the-form-invariance-of-shipped-l](2026-10-14-001-measure-the-form-invariance-of-shipped-l/README.md) | unknown-agent | worked | Measure the form-invariance of shipped LLM-eval judges on correct-but- | 2026-10-14T01:48 |

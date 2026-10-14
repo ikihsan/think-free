@@ -1,0 +1,41 @@
+{
+    "gates": [
+        {
+            "name": "G0",
+            "description": "Classifier discrimination validated on synthetic fixtures",
+            "threshold": "pass if A1>=9, A2>=9, A3>=9, A4>=9 on 10 planted fixtures"
+        },
+        {
+            "name": "G1",
+            "description": ">=95% of topics have view_count > 0",
+            "threshold": "Arrival metric covers population"
+        },
+        {
+            "name": "G2",
+            "description": "Classifier coverage >=60% AND need fraction >=5%",
+            "threshold": "Classifier must cover population; domain must have needs"
+        },
+        {
+            "name": "G3",
+            "description": "Unserved fraction (zero replies) Wilson CI95 upper bound < 60%",
+            "threshold": "Not a dysfunctional forum"
+        },
+        {
+            "name": "G4",
+            "description": ">=30 topics classified total",
+            "threshold": "Sample size floor"
+        }
+    ],
+    "matched_harvest": {
+        "description": "Pool all classified topics (need + random), sort by view_count descending, split at median view_count, compare need fraction between high and low engagement halves, compute Cliff's delta and Mann-Whitney U test",
+        "steps": [
+            "Fetch all topics from forum categories",
+            "Classify each topic as need-related or random using developer-forum patterns",
+            "Pool all classified topics (need + random)",
+            "Sort pooled topics by view_count descending",
+            "Split at median view_count into high-engagement and low-engagement halves",
+            "Compare need fraction in high vs low engagement halves",
+            "Compute Cliff's delta and Mann-Whitney U test on view_count distributions"
+        ]
+    }
+}
