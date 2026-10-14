@@ -10,10 +10,10 @@ last-verified: 2026-10-14
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-14T00:38:41+00:00
-- **Duration:** ?s
+- **Duration:** 13307.4s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ E134: point preflight at a real run of a harness nobody here wrote, and measure 
 
 ## Summary
 
-_(none recorded)_
+E134 closed the preflight release question by running the experiment it had been validated around: a real lm-eval v0.4.4 run (committed raw) plus a third-party published run. R1 recomputes every printed rate from shipped inputs and agrees on all 9 metrics across both arms, so the declared failure condition fired and preflight is not released (D111). The run's real yield was three defects in preflight itself - two non-blocking OK verdicts for checks that measured nothing, and a recall field computing its complement - repaired with 9 regression tests, 4 falsified against the pre-fix code (F125, F126). Landing surfaced 467 doc lint violations on an inherited tree that STATE.md recorded as green, repaired in five named causes (F127, D112). Green: 837 tests, 25 preflight tests, doc lint OK; release check 55 to 53 with the remainder named.
+
+## Next
+
+Ask whether the six-line adapter and R1 reach the format a leaderboard publishes - the number people read without opening results.json. Declared in EXPERIMENTS/134-preflight-real-run/RESULT.md; not a second harness sweep.
 
 ## Artifacts
 
@@ -45,10 +49,17 @@ _(none recorded)_
 | DECISIONS-RECORDS-2.md | fb7b83868b98 | 5606 |
 | tools/originlib/doclint_links.py | 1858768958ac | 4480 |
 | vendor/MANIFEST.md | e26b1ffdcf5d | 10585 |
+| RELEASE-MANIFEST.md | f8f87700ae0c | 6759 |
+| STATE.md | 2eb8893e4a6a | 40776 |
+| DECISIONS-PUBLISHING.md | 49b53ba448e7 | 15994 |
+| tools/originlib/doclint.py | 127510d36cc6 | 10010 |
+| preflight/alternate_form.py | 2b45cbd84528 | 5278 |
+| preflight/concordance.py | edfbd1cb2961 | 9350 |
+| preflight/report.py | 4819d4b2f53d | 3027 |
 
 ## Commands
 
-25 captured, 16 non-zero exit.
+27 captured, 16 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -77,16 +88,27 @@ _(none recorded)_
 | 43 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 702797 |
 | 44 | ['python3', '-m', 'unittest', 'discover', '-s', 'preflight', '-t', '.', '-p', 'test_*.py'] | 0 | 303 |
 | 45 | ['tools/origin', 'release', 'check'] | 2 | 421357 |
+| 54 | ['tools/origin', 'doc', 'lint'] | 0 | 146881 |
+| 55 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 866009 |
 
 ## Integrity
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 22 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | DECISIONS-RECORDS.md |
+|   undeclared | DECISIONS.md |
+|   undeclared | EXPERIMENTS/130-preflight-adapter-prototype/RESULT.md |
+|   undeclared | EXPERIMENTS/130-preflight-third-harness/RESULT.md |
+|   undeclared | EXPERIMENTS/131-preflight-fourth-harness/RESULT.md |
+|   undeclared | EXPERIMENTS/132-preflight-fifth-harness/RESULT.md |
+|   undeclared | EXPERIMENTS/133-preflight-sixth-harness/RESULT.md |
+|   undeclared | EXPERIMENTS/134-preflight-real-run/armA/results_2026-10-14T00-52-55.068909.json |
+|   undeclared | EXPERIMENTS/134-preflight-real-run/armA/samples_openbookqa_2026-10-14T00-52-55.068909.jsonl |
+|   undeclared | EXPERIMENTS/134-preflight-real-run/armA/samples_piqa_2026-10-14T00-52-55.068909.jsonl |
 
 ## Timeline
 
@@ -132,12 +154,18 @@ _(none recorded)_
 | 38 | 03:20:57 | artifact | wrote preflight/test_vacuous_passes.py |
 | 39 | 03:20:58 | artifact | wrote FAILURES-findings-41.md |
 | 40 | 03:21:00 | artifact | wrote DECISIONS-RECORDS-2.md |
-| 41 | 03:21:01 | artifact | wrote tools/originlib/doclint_links.py |
-| 42 | 03:21:04 | artifact | wrote vendor/MANIFEST.md |
-| 43 | 03:32:57 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
-| 44 | 03:32:59 | command | $ python3 -m unittest discover -s preflight -t . -p test_*.py |
-| 45 | 03:40:01 | command | $ tools/origin release check |
-| 46 | 04:02:55 | milestone | records written: F125-F127, D111, D112, D110 renumber, STATE dashboard rows; 837/837 tests green, doc lint OK, release check down 55 to 53 with the re |
+| 75 | 04:20:28 | unlogged_change | changed but never declared as an artifact: tests/test_link_escape.py |
+| 76 | 04:20:28 | unlogged_change | changed but never declared as an artifact: tools/originlib/paths.py |
+| 77 | 04:20:28 | unlogged_change | changed but never declared as an artifact: tools/originlib/reconcile.py |
+| 78 | 04:20:28 | doc_update | updated DECISIONS-PUBLISHING.md |
+| 79 | 04:20:28 | doc_update | updated DECISIONS-RECORDS-2.md |
+| 80 | 04:20:28 | doc_update | updated DECISIONS-RECORDS.md |
+| 81 | 04:20:28 | doc_update | updated DECISIONS.md |
+| 82 | 04:20:28 | doc_update | updated FAILURES.md |
+| 83 | 04:20:28 | doc_update | updated STATE.md |
+| 84 | 04:20:28 | session_end | E134 closed the preflight release question by running the experiment it had been validated around: a real lm-eval v0.4.4 run (committed raw) plus a th |
+
+_34 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
