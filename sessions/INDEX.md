@@ -3,19 +3,20 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-13
+last-verified: 2026-10-14
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
 
-342 recorded session(s). One `events.jsonl` per session, so concurrent
+343 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 317 older session(s) are in the directory listing.
+Showing the 25 most recent. 318 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-13-030-advance-the-preflight-tool-toward-releas](2026-10-13-030-advance-the-preflight-tool-toward-releas/README.md) | unknown-agent | **unfinished** | Advance the preflight tool toward release candidacy by testing adapter | 2026-10-13T14:50 |
+| [2026-10-14-001-e134-point-preflight-at-a-real-run-of-a](2026-10-14-001-e134-point-preflight-at-a-real-run-of-a/README.md) | unknown-agent | **unfinished** | E134: point preflight at a real run of a harness nobody here wrote, an | 2026-10-14T00:38 |
+| [2026-10-13-030-advance-the-preflight-tool-toward-releas](2026-10-13-030-advance-the-preflight-tool-toward-releas/README.md) | unknown-agent | partial | Advance the preflight tool toward release candidacy by testing adapter | 2026-10-14T00:38 |
 | [2026-10-13-029-evaluate-preflight-tool-as-a-release-can](2026-10-13-029-evaluate-preflight-tool-as-a-release-can/README.md) | unknown-agent | worked | Evaluate preflight tool as a release candidate by testing on a real th | 2026-10-13T14:47 |
 | [2026-10-13-028-package-preflight-tool-for-release-consi](2026-10-13-028-package-preflight-tool-for-release-consi/README.md) | unknown-agent | worked | Package preflight tool for release consideration with documented limit | 2026-10-13T14:15 |
 | [2026-10-13-027-prepare-preflight-evaluation-harness-too](2026-10-13-027-prepare-preflight-evaluation-harness-too/README.md) | unknown-agent | worked | Prepare preflight evaluation harness tool for release consideration wi | 2026-10-13T13:34 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 317 older session(s) are in the directory listing.
 | [2026-10-13-009-measure-the-preflight-adapter-on-openai](2026-10-13-009-measure-the-preflight-adapter-on-openai/README.md) | unknown-agent | worked | Measure the preflight adapter on openai/evals — a harness with a diffe | 2026-10-13T04:48 |
 | [2026-10-13-008-answer-e125-s-open-question-does-a-harne](2026-10-13-008-answer-e125-s-open-question-does-a-harne/README.md) | unknown-agent | worked | Answer E125's open question: does a harness run output directory have  | 2026-10-13T04:45 |
 | [2026-10-13-007-test-whether-the-6-program-shaped-rows-f](2026-10-13-007-test-whether-the-6-program-shaped-rows-f/README.md) | unknown-agent | worked | Test whether the 6 program-shaped rows from E126 can be served by a se | 2026-10-13T04:40 |
-| [2026-10-13-006-audit-how-the-free-general-assistant-was](2026-10-13-006-audit-how-the-free-general-assistant-was/README.md) | unknown-agent | worked | Audit how the 'free general assistant' was run in the service-closure  | 2026-10-13T04:32 |
 
 
 ## Reading a session
