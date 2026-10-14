@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-13
+last-verified: 2026-10-14
 -->
 
 # Verified state
@@ -126,6 +126,38 @@ F126).** Two third-party-reproducibility facts came out of it: the run does not
 record its split, and three of seven metrics declare no aggregation. **While
 landing, the repository's own `doc lint` was found red on 467 violations that
 `STATE.md` recorded as green, in five named causes (F127, D112).**
+
+**E135 then answered E134's named next action — does R1 reach the
+number a leaderboard publishes? — on cell C2 (Stanford HELM, suite
+`lite`, release v1.0.0, MMLU abstract_algebra, method
+multiple_choice_joint, model 01-ai/yi-34b) with an exact AGREE.
+The run's published bytes ship everything R1 needs unauthenticated:
+per-instance golds (references tagged `correct`), raw completions, the
+letter→choice mapping, the run spec, and the per-instance verdicts. A
+71-line stdlib-only script that never reads a verdict column
+recomputed `valid` 3/11 = 0.272727… and `test` 40/100 = 0.4000 —
+equal to the published `stats.json` means to full printed precision —
+and agreed with the harness's own per-instance verdicts on 111 of 111
+rows. The HELM site renders its numbers from the same public GCS bytes
+(`helm.js` fetches the `crfm-helm-public` bucket), so "recompute the
+run" and "recompute the leaderboard cell" are the same operation
+here. C1 (Open LLM Leaderboard v2) and C3 (Chatbot Arena) fail G2 as
+probed — C1's detail dataset is auth-restricted and raw runs live in
+submitters' repos; C3's votes are `gated: auto` and its Elo is fit on
+the full vote population, not the published sample. **The kill gate
+did not fire** (it required G2 failure on all three cells), so the
+leaderboard direction stays open; per the protocol this is the weaker
+stated outcome — reach demonstrated, external value still unobserved,
+D111 stands, `preflight` stays unreleased. Two things the record now
+knows: the published valid/test split is 11/100 rows, so a pooled
+111-row recomputation (0.3874) would falsely report disagreement —
+the split key is part of the instrument; and the parse rule was never
+stressed, because all 111 completions are single letters
+(`max_tokens: 1`) — the agreement validates plumbing, not a parser.
+The named next action: point R1 at a cell with free-text completions
+whose published number is an aggregate over multiple runs, where a
+parser and a weighting rule are both exercised
+(`EXPERIMENTS/135-preflight-leaderboard-reach/`).
 
 ## Dashboard
 
