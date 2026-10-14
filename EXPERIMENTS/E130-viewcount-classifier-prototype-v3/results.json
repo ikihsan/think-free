@@ -1,0 +1,312 @@
+{
+  "experiment": "E130",
+  "platform": "hex",
+  "pool_size": 33,
+  "coverage_floor": 0.8,
+  "coverage_rate": 0.6363636363636364,
+  "classified": {
+    "need_related": 15,
+    "random": 6,
+    "uncertain": 12
+  },
+  "gate_results": {
+    "G1_sample_size": false,
+    "G2_coverage": false,
+    "G3_cliff_delta": true,
+    "G4_bothrepresented": true
+  },
+  "cliff_delta": 0.35555555555555557,
+  "p_value": 0.21291190281150457,
+  "pool_downloads_positive": 21,
+  "need_downloads": [
+    260000,
+    9000,
+    28000,
+    120,
+    18000,
+    35000,
+    1120000,
+    1087144,
+    22000,
+    720000,
+    850000,
+    280000,
+    37024,
+    980000,
+    82000
+  ],
+  "random_downloads": [
+    89000,
+    45000,
+    8500,
+    15000,
+    310000,
+    5800
+  ],
+  "packages_ranked": [
+    {
+      "name": "phoenix",
+      "description": "Web framework for Elixir",
+      "classification": "need-related",
+      "weight": 1.0,
+      "reason": "3 need-specific token(s) found (name and description)",
+      "recent_downloads": 980000
+    },
+    {
+      "name": "jason",
+      "description": "JSON parser/generator for Elixir",
+      "classification": "need-related",
+      "weight": 1.0,
+      "reason": "2 need-specific token(s) found (name and description)",
+      "recent_downloads": 280000
+    },
+    {
+      "name": "poison",
+      "description": "JSON encoding/decoding for Elixir",
+      "classification": "need-related",
+      "weight": 1.0,
+      "reason": "2 need-specific token(s) found (name and description)",
+      "recent_downloads": 260000
+    },
+    {
+      "name": "quantum",
+      "description": "Job scheduler",
+      "classification": "need-related",
+      "weight": 1.0,
+      "reason": "2 need-specific token(s) found (name and description)",
+      "recent_downloads": 37024
+    },
+    {
+      "name": "lumen",
+      "description": "Web framework for Elixir",
+      "classification": "need-related",
+      "weight": 1.0,
+      "reason": "2 need-specific token(s) found (name and description)",
+      "recent_downloads": 35000
+    },
+    {
+      "name": "redix",
+      "description": "Async Redis client for Elixir",
+      "classification": "need-related",
+      "weight": 1.0,
+      "reason": "2 need-specific token(s) found (name and description)",
+      "recent_downloads": 18000
+    },
+    {
+      "name": "absinthe",
+      "description": "GraphQL for Elixir",
+      "classification": "need-related",
+      "weight": 0.9,
+      "reason": "1 need indicator in package name",
+      "recent_downloads": 1120000
+    },
+    {
+      "name": "flow",
+      "description": "Functional programming primitives for Elixir",
+      "classification": "need-related",
+      "weight": 0.9,
+      "reason": "1 need indicator in package name",
+      "recent_downloads": 22000
+    },
+    {
+      "name": "oban",
+      "description": "Background job library",
+      "classification": "need-related",
+      "weight": 0.8,
+      "reason": "1 need-specific token(s) outweigh 1 generic tokens (with context)",
+      "recent_downloads": 1087144
+    },
+    {
+      "name": "plug",
+      "description": "Web routing library for Elixir",
+      "classification": "need-related",
+      "weight": 0.8,
+      "reason": "2 need-specific token(s) outweigh 1 generic tokens (with context)",
+      "recent_downloads": 850000
+    },
+    {
+      "name": "ecto",
+      "description": "Database wrapper and SQL library for Elixir",
+      "classification": "need-related",
+      "weight": 0.8,
+      "reason": "3 need-specific token(s) outweigh 1 generic tokens (with context)",
+      "recent_downloads": 720000
+    },
+    {
+      "name": "mox",
+      "description": "Mock object library for Elixir tests",
+      "classification": "need-related",
+      "weight": 0.8,
+      "reason": "1 need-specific token(s) outweigh 1 generic tokens (with context)",
+      "recent_downloads": 82000
+    },
+    {
+      "name": "teax",
+      "description": "Test framework for Elixir",
+      "classification": "need-related",
+      "weight": 0.8,
+      "reason": "2 need-specific token(s) outweigh 1 generic tokens (with context)",
+      "recent_downloads": 28000
+    },
+    {
+      "name": "pxgx",
+      "description": "Parallel JSON parsing",
+      "classification": "need-related",
+      "weight": 0.6,
+      "reason": "1 need indicator in package description",
+      "recent_downloads": 9000
+    },
+    {
+      "name": "webmachine",
+      "description": "Web machine for Elixir",
+      "classification": "need-related",
+      "weight": 0.6,
+      "reason": "1 need indicator in package description",
+      "recent_downloads": 120
+    },
+    {
+      "name": "nx",
+      "description": "Numerical computing library for Elixir/NIFs",
+      "classification": "random",
+      "weight": 0.8,
+      "reason": "1 generic token(s) in name/description, no need-specific signals",
+      "recent_downloads": 310000
+    },
+    {
+      "name": "distillery",
+      "description": "Release tool for Elixir",
+      "classification": "random",
+      "weight": 0.8,
+      "reason": "1 generic token(s) in name/description, no need-specific signals",
+      "recent_downloads": 45000
+    },
+    {
+      "name": "temper",
+      "description": "Temperature sensor library",
+      "classification": "random",
+      "weight": 0.8,
+      "reason": "1 generic token(s) in name/description, no need-specific signals",
+      "recent_downloads": 15000
+    },
+    {
+      "name": "grid",
+      "description": "Grid layout library",
+      "classification": "random",
+      "weight": 0.8,
+      "reason": "1 generic token(s) in name/description, no need-specific signals",
+      "recent_downloads": 8500
+    },
+    {
+      "name": "tess",
+      "description": "Template engine",
+      "classification": "random",
+      "weight": 0.8,
+      "reason": "1 generic token(s) in name/description, no need-specific signals",
+      "recent_downloads": 5800
+    },
+    {
+      "name": "timex",
+      "description": "Date and time library for Elixir",
+      "classification": "random",
+      "weight": 0.7,
+      "reason": "1 need token(s) but 1 generic dominates",
+      "recent_downloads": 89000
+    },
+    {
+      "name": "Credo",
+      "description": "Static analysis for Elixir",
+      "classification": "uncertain",
+      "weight": 0.0,
+      "reason": "no recognized need or generic tokens in name or description",
+      "recent_downloads": 120000
+    },
+    {
+      "name": "floki",
+      "description": "HTML parser for Elixir",
+      "classification": "uncertain",
+      "weight": 0.0,
+      "reason": "no recognized need or generic tokens in name or description",
+      "recent_downloads": 67000
+    },
+    {
+      "name": "benchee",
+      "description": "Benchmarks for Elixir",
+      "classification": "uncertain",
+      "weight": 0.0,
+      "reason": "no recognized need or generic tokens in name or description",
+      "recent_downloads": 54000
+    },
+    {
+      "name": "kino",
+      "description": "Toolkit for building interactive Elixir UIs",
+      "classification": "uncertain",
+      "weight": 0.0,
+      "reason": "no recognized need or generic tokens in name or description",
+      "recent_downloads": 38000
+    },
+    {
+      "name": "yabe",
+      "description": "Yet another blog engine",
+      "classification": "uncertain",
+      "weight": 0.0,
+      "reason": "no recognized need or generic tokens in name or description",
+      "recent_downloads": 28000
+    },
+    {
+      "name": "fly",
+      "description": "Concurrent task runner",
+      "classification": "uncertain",
+      "weight": 0.0,
+      "reason": "no recognized need or generic tokens in name or description",
+      "recent_downloads": 21000
+    },
+    {
+      "name": "ppx_encodings",
+      "description": "PPX extensions for encodings",
+      "classification": "uncertain",
+      "weight": 0.0,
+      "reason": "no recognized need or generic tokens in name or description",
+      "recent_downloads": 18000
+    },
+    {
+      "name": "knear",
+      "description": "Nearest neighbor",
+      "classification": "uncertain",
+      "weight": 0.0,
+      "reason": "no recognized need or generic tokens in name or description",
+      "recent_downloads": 12000
+    },
+    {
+      "name": "kinoite",
+      "description": "Kino theme for Elixir",
+      "classification": "uncertain",
+      "weight": 0.0,
+      "reason": "no recognized need or generic tokens in name or description",
+      "recent_downloads": 8000
+    },
+    {
+      "name": "sweet",
+      "description": "Syntactic sugar for Elixir",
+      "classification": "uncertain",
+      "weight": 0.0,
+      "reason": "no recognized need or generic tokens in name or description",
+      "recent_downloads": 6500
+    },
+    {
+      "name": "exla",
+      "description": "Elixir compiler backend",
+      "classification": "uncertain",
+      "weight": 0.0,
+      "reason": "no recognized need or generic tokens in name or description",
+      "recent_downloads": 5200
+    },
+    {
+      "name": "ugar",
+      "description": "User graph and relation",
+      "classification": "uncertain",
+      "weight": 0.0,
+      "reason": "no recognized need or generic tokens in name or description",
+      "recent_downloads": 4500
+    }
+  ]
+}

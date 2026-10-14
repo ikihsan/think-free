@@ -14,8 +14,7 @@ import sys
 import unittest
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-sys.path.insert(0, ROOT)
+sys.path.insert(0, HERE)
 
 from preflight import alternate_form_fp, concordance, control_arm, render, wilson  # noqa: E402
 

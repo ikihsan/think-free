@@ -1,18 +1,16 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
+requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "preflight-eval"
+name = "preflight"
 version = "0.1.0"
-description = "Three checks on the instrument that produces an evaluation rate"
-readme = "README.md"
+description = "Three checks on the instrument that produces an evaluation rate: C1 concordance, C2 alternate-form FP, C3 control arm"
+requires-python = ">=3.8"
 license = {text = "MIT"}
-authors = [{name = "Think Free"}]
+keywords = ["evaluation", "harness", "concordance", "verifier"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
-    "Intended Audience :: Developers",
-    "Intended Audience :: Science/Research",
+    "Development Status :: 4 - Beta",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
@@ -20,22 +18,15 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
-    "Topic :: Scientific/Engineering :: Artificial Intelligence",
-    "Topic :: Software Development :: Quality Assurance",
 ]
-requires-python = ">=3.8"
-dependencies = []
-
-[project.optional-dependencies]
-yaml = ["pyyaml>=6.0"]
 
 [project.scripts]
 preflight = "preflight.__main__:main"
 
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["preflight*"]
+[project.urls]
+Homepage = "https://github.com/think-free/preflight"
+Repository = "https://github.com/think-free/think-free"
+Documentation = "https://github.com/think-free/think-free/tree/main/EXPERIMENTS/124-eval-harness-preflight"
 
-[tool.setuptools.package-data]
-"*" = ["*.md", "*.txt", "LICENSE"]
+[dependencies]
+# Standard library only - no external dependencies

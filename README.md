@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-03
+last-verified: 2026-10-13
 -->
 
 An independent invention mission, and the infrastructure that keeps its reasoning

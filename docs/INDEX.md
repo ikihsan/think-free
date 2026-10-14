@@ -71,6 +71,7 @@ Skill bodies under `.agents/skills/` are indexed by
 |---|---|---|---|---|
 | [`docs/2026-10-06-strongest-shell-baseline.md`](2026-10-06-strongest-shell-baseline.md) | `docs/INDEX.md` | active | 2026-10-06 | > For agentic workers: This is an experiment plan, not a product implementation. It follows the  |
 | [`docs/METHODOLOGY-SUMMARY.md`](METHODOLOGY-SUMMARY.md) | `docs/INDEX.md` | active | 2026-10-07 | A concise synthesis of patterns across all closed invention claims in this repository. |
+| [`docs/preflight-adapter-plan.md`](preflight-adapter-plan.md) | `docs/INDEX.md` | active | 2026-10-13 | ## Adapter Created |
 
 ## sessions
 
@@ -385,6 +386,17 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/124-eval-harness-preflight/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10, instance-20260717-0947. |
 | `EXPERIMENTS/125-third-party-harness-preflight/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10, instance-20260717-0947. |
 | `EXPERIMENTS/126-stackoverflow-service-test/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-13 | 3 documents |
+| `EXPERIMENTS/127-program-shaped-rows/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-13 | 2 documents |
+| `EXPERIMENTS/128-preflight-run-output/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-13 | 1 documents |
+| `EXPERIMENTS/129-preflight-adapter-openai-evals/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-13 | 1 documents |
+| `EXPERIMENTS/130-classifier-coverage-prototype/` | `docs/INDEX.md` | active | 2026-10-13 | owner: docs/INDEX.md |
+| `EXPERIMENTS/130-preflight-adapter-prototype/` | `docs/INDEX.md` | active | 2026-10-13 | 1 documents |
+| `EXPERIMENTS/130-preflight-adapter-third-harness/` | `EXPERIMENTS/README.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10, instance-20260717-0947. |
+| `EXPERIMENTS/130-preflight-third-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
+| `EXPERIMENTS/131-preflight-fourth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
+| `EXPERIMENTS/132-preflight-fifth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
+| `EXPERIMENTS/133-preflight-sixth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
+| `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `—` | — | — | 2 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |

@@ -1,25 +1,25 @@
 {
-  "observed_at_utc": "2026-10-11T17:46:00Z",
-  "user_date": "2026-10-11",
+  "observed_at_utc": "2026-10-13T09:32:31Z",
+  "user_date": "2026-10-13",
   "platform": "Linux-x86_64",
   "keyword": "database",
   "sample_size": 200,
   "classified": {
-    "need-related": 33,
-    "random": 154
+    "need-related": 65,
+    "random": 122
   },
   "active": {
-    "need-related": 33,
-    "random": 101
+    "need-related": 59,
+    "random": 75
   },
   "active_rates": {
-    "need-related": 1.0,
-    "random": 0.6558441558441559
+    "need-related": 0.9076923076923077,
+    "random": 0.6147540983606558
   },
   "g1_pass": true,
   "g2_pass": true,
   "g3_pass": true,
   "g4_pass": true,
   "conclusion": "pending",
-  "experiment_description": "View-count principle prototype v2: PyPI package discovery tool"
+  "experiment_description": "View-count principle prototype v3: PyPI package discovery tool with improved classification and prioritization"
 }

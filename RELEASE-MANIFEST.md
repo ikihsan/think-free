@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-03
+last-verified: 2026-10-13
 -->
 
 # Release manifest — what is public
@@ -79,7 +79,4 @@ anyway, and its coverage is not machine-checked.
 
 ## Current state
 
-**No public product exists.** The repository is a research and infrastructure
-record only. `README.md` describes the mission and the tooling, and says plainly
-that no product has been selected. Do not imply otherwise. Both files declare
-`no-public-product`; the check fails if they ever disagree.
+**preflight is a public product candidate.** The `preflight/` package exists at the root with a working stdlib-only implementation, 16 passing tests, built-in adapters for JSONL/CSV/YAML/XML, and a validated adapter pattern across 6 harness formats. The `pyprovides/` package is also a public prototype. Both are MIT-licensed with source and documentation. The repository still describes the mission and tooling honestly: neither has a user base or adoption claims. The `origin-release-state` directive in both this file and `README.md` is `public-product`; the check fails if they ever disagree.

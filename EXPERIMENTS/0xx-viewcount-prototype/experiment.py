@@ -1,16 +1,21 @@
+#!/usr/bin/env python3
 """E0xx — View-count principle prototype v3: PyPI package discovery tool.
 
 Refined experiment building on E0xx prototype findings. Demonstrates that
 the view-count principle operationalizes as a PyPI package classifier with
 statistically significant active-rate differentiation.
 
-Improvements over v2: better API failure handling, word-boundary-aware
-classification using both description and keywords, prioritized package
-output ranked by need-relatedness + active-rate product.
+Improvements over v2:
+- Better API failure handling: skip unreachable packages gracefully, maintain classified count
+- More robust word-boundary-aware classification using both description and keywords
+- Prioritized package output ranked by need-relatedness + active-rate product
 
-Gates G1–G4 from the view-count protocol: G1 need-related active rate
->= 55% of random rate; G2 >= 100 classified; G3 both categories;
-G4 >= 50 classified. Evidence-gathering, not product validation.
+Gates G1–G4 from the view-count protocol:
+G1 need-related active rate >= 55% of random rate
+G2 >= 100 classified
+G3 both categories
+G4 >= 50 classified
+Evidence-gathering, not product validation.
 """
 
 import json, os, sys, urllib.request, time, re
@@ -19,20 +24,31 @@ from vocabulary import (  # noqa: E402
     NEED_INDICATORS, SAMPLE_SIZE, THRESHOLD_RATIO,
 )
 
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
+
 
 def fetch_pypi_packages(keyword, n=200):
+    """Fetch up to n PyPI packages matching a keyword query."""
     url = f"https://pypi.org/simple/?q={keyword}"
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'origin-mission-E0xx'})
         with urllib.request.urlopen(req, timeout=15) as resp:
-            names = re.findall(r'href="/simple/([^"]+)"', resp.read().decode())
+            html = resp.read().decode()
+            names = re.findall(r'href="/simple/([^"]+)"', html)
             packages, seen = [], set()
             for name in names:
-                if re.match(r'^[\d._-]+$', name): continue
-                if not name or len(name) < 2: continue
-                if name in seen: continue
-                seen.add(name); packages.append(name)
-                if len(packages) >= n: break
+                # Skip version-like names and very short/empty names
+                if re.match(r'^[\d._-]+$', name):
+                    continue
+                if not name or len(name) < 2:
+                    continue
+                if name in seen:
+                    continue
+                seen.add(name)
+                packages.append(name)
+                if len(packages) >= n:
+                    break
             return packages
     except Exception as e:
         print(f"Error fetching PyPI packages: {e}")
@@ -40,36 +56,54 @@ def fetch_pypi_packages(keyword, n=200):
 
 
 def fetch_pypi_package_info(name):
+    """Fetch package metadata from PyPI JSON API. Returns dict or None on failure."""
     url = f"https://pypi.org/pypi/{name}/json"
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'origin-mission-E0xx'})
         with urllib.request.urlopen(req, timeout=15) as resp:
             data = json.loads(resp.read().decode())
             info = data.get("info", {})
-            return {"name": name, "description": info.get("description", "") or "",
-                    "version": info.get("version", "") or "", "keywords": info.get("keywords", "") or ""}
+            return {
+                "name": info.get("name", name),
+                "description": info.get("description", "") or "",
+                "version": info.get("version", "") or "",
+                "keywords": info.get("keywords", "") or "",
+            }
     except Exception as e:
         print(f"  fetch error for {name}: {e}", file=sys.stderr)
         return None
 
 
 def classify_pypi_package(pkg):
+    """Classify a package as need-related, random, or uncertain.
+
+    Uses word-boundary-aware matching of need indicators against
+    the combined lowercase description + keywords text.
+    """
     desc = pkg.get("description", "") or ""
     kw = pkg.get("keywords", "") or ""
     combined = desc.lower() + " " + kw.lower()
+
+    # First check: generic terms disambiguate toward "random"
     for term in GENERIC_TERMS:
         pat = r"(?<![a-zA-Z0-9])" + re.escape(term) + r"(?![a-zA-Z0-9])"
         if re.search(pat, combined):
+            # If the generic term is also in the package name and very short,
+            # it's likely just a generic name, not a description term
             if not (term in pkg.get("name", "").lower() and len(term) <= 3 and len(pkg.get("name", "").lower()) <= len(term) * 2):
                 return "random"
+
+    # Then check: need indicators classify as "need-related"
     for term in NEED_INDICATORS:
         pat = r"(?<![a-zA-Z0-9])" + re.escape(term) + r"(?![a-zA-Z0-9])"
         if re.search(pat, combined):
             return "need-related"
+
     return "random"
 
 
 def is_active_pypi(pkg):
+    """Check if a package has meaningful activity metadata (description + version)."""
     desc = pkg.get("description", "") or ""
     ver = pkg.get("version", "") or ""
     return len(desc.strip()) > 0 and ver != "" and ver is not None
@@ -89,7 +123,7 @@ def main():
     if len(packages) < MIN_CLASSIFIED_G4:
         print(f"Warning: fewer than {MIN_CLASSIFIED_G4} packages found.")
 
-    # Step 2: Fetch details, classify, track active
+    # Step 2: Fetch details, classify, track active status
     classified = {"need-related": 0, "random": 0}
     active = {"need-related": 0, "random": 0}
     classified_count = 0
@@ -178,7 +212,7 @@ def main():
         "conclusion": "pending",
         "experiment_description": "View-count principle prototype v3: PyPI package discovery tool with improved classification and prioritization",
     }
-    out_dir = "EXPERIMENTS/0xx-viewcount-prototype"
+    out_dir = os.path.join(REPO_ROOT, "EXPERIMENTS", "0xx-viewcount-prototype")
     os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(out_dir, "results.json"), "w") as f:
         json.dump(results, f, indent=2)

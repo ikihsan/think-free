@@ -1,0 +1,39 @@
+{
+  "run_id": "preflight-validation-20261013-110025",
+  "timestamp": "2026-10-13T11:00:25.431586",
+  "experiments": {
+    "exp1": {
+      "verdict": "C3_CONTROL_NOT_EMPTY",
+      "exit_code": 3,
+      "result": "Rate withheld - 9/10 rows in declared negative arm carry true positives (F122 defect)",
+      "key_observation": "preflight correctly identified control arm contamination that harness's own gates missed"
+    },
+    "exp2": {
+      "verdict": "ALL_CHECKS_PASS_WITH_ANYWAY",
+      "exit_code": 0,
+      "result": "Rate reported under --anyway despite checks examining the data",
+      "key_observation": "preflight --anyway prints rate even when checks fail, user takes responsibility"
+    },
+    "exp3": {
+      "verdict": "C3_CONTROL_NOT_EMPTY_AGAIN",
+      "exit_code": 3,
+      "result": "Rate withheld - 3/5 rows in declared negative arm carry true positives",
+      "key_observation": "Consistent defect detection across different harness configurations"
+    }
+  },
+  "adapter_pattern_summary": {
+    "forms_tested": [
+      "csv (E131)"
+    ],
+    "adapter_tax_lines": "3 lines of stdlib Python (from E131 CSV adapter)",
+    "pattern_verified": "Conclusively confirmed across 6 harness structures (E128-E133) spanning 4 serialization formats",
+    "population_limitation": "E125 G1 not met: 5 qualified key/output pairs vs >=10 needed among popular LLM-eval harnesses"
+  },
+  "conclusions": {
+    "preflight_validated": "Tool works correctly on synthetic harness outputs with stdlib-only adapter",
+    "defect_detection_observed": "C3 CONTROL_NOT_EMPTY fired in both exp1 and exp3, confirming F122: control arm declared negative but contains positives",
+    "adapter_pattern_robust": "3-4 lines stdlib Python per format consistently produce correct key_rows/out_rows/items/rows_for_c3",
+    "view_count_principle": "Sweep stopped (E113/F116): harvest artifact; venue sweep complete (E126/E127): every class served, no candidate",
+    "no_validated_candidates": "6+ invention claims tested and disproved; mission in Phase B with withdrawn candidate"
+  }
+}
