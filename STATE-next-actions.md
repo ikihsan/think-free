@@ -6,6 +6,17 @@ last-verified: 2026-10-14
 
 # Next actions
 
+**E142 completed (2026-10-14): the pre-pass is exact on regulatory text.**
+E141's named next action — run `valueset.py` unchanged on regulatory answers a
+person wrote — measured **1.0 detection** (4/4), **0.0 false positives** (0/16),
+**0 misses**, **0.90 resolved share** on 20 Federal Register final rules
+(SUMMARY vs. full rule text minus SUMMARY). Against E141's SQuAD (0.2826,
+0.0113, 0.2763 of clears wrong): the genre limitation is real and measured in
+both directions. M1 `ground.py` is worse than M2 on this corpus (0.25 FP vs.
+0.0). The general claim stays closed (F126); the regulatory claim is now
+measured. Next: whether exactness survives a longer submission (a full
+regulatory analysis, not a SUMMARY).
+
 **E141 completed (2026-10-14): the value-pre-pass build trigger is WITHDRAWN,
 and the scope it does have is measured (F126, D111, D112).** E140 left
 `valueset.py` with 0 false positives in 929 values and a protocol that said

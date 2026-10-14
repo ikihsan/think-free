@@ -1,0 +1,88 @@
+{
+  "K1": {
+    "ci95": [
+      0.5101,
+      1.0
+    ],
+    "detected": 4,
+    "rate": 1.0,
+    "total": 4,
+    "verdict": "PASS"
+  },
+  "K2": {
+    "ci95": [
+      0.0,
+      0.1936
+    ],
+    "fp": 0,
+    "rate": 0.0,
+    "total": 16,
+    "verdict": "PASS"
+  },
+  "K3": {
+    "ci95": [
+      0.6398,
+      0.965
+    ],
+    "covered": 14,
+    "rate": 0.875,
+    "total": 16,
+    "verdict": "PASS"
+  },
+  "K4_A_and_D": {
+    "ci95": [
+      0.7847,
+      1.0
+    ],
+    "covered": 14,
+    "rate": 1.0,
+    "total": 14,
+    "verdict": "PASS"
+  },
+  "K4_B_and_D": {
+    "ci95": [
+      0.5101,
+      1.0
+    ],
+    "covered": 4,
+    "rate": 1.0,
+    "total": 4,
+    "verdict": "PASS"
+  },
+  "K5": {
+    "ci95": [
+      0.8241,
+      1.0
+    ],
+    "covered": 18,
+    "rate": 1.0,
+    "total": 18,
+    "verdict": "PASS"
+  },
+  "M1_FP_on_A": {
+    "ci95": [
+      0.1018,
+      0.495
+    ],
+    "fp": 4,
+    "rate": 0.25,
+    "total": 16
+  },
+  "M1_detection_on_B": {
+    "ci95": [
+      0.5101,
+      1.0
+    ],
+    "detected": 4,
+    "rate": 1.0,
+    "total": 4
+  },
+  "triage": {
+    "clear": 14,
+    "condemn": 4,
+    "condemn_share": 0.2,
+    "defer": 2,
+    "resolved_share": 0.9,
+    "total": 20
+  }
+}

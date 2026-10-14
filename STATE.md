@@ -6,9 +6,15 @@ last-verified: 2026-10-14
 
 # Verified state
 
-Date: 2026-10-14, Asia/Kolkata. Phase: B — **the mission's first positive build
-trigger fired on one population and was withdrawn by a second, and the two
-defects that measurement exposed are now named.** E140 measured a deterministic
+Date: 2026-10-14, Asia/Kolkata. Phase: B — **the value pre-pass is exact on
+regulatory text and not on encyclopedic text; the genre limitation is measured
+in both directions.** E142 ran `valueset.py` unchanged on 20 Federal Register
+final rules — SUMMARY (submission) vs. full rule text minus SUMMARY
+(reference) — and measured **1.0 detection** (4/4), **0.0 false positives**
+(0/16), **0 misses**, **0.90 resolved share**, against E141's SQuAD: 0.2826
+detection, 0.0113 FP, 0.2763 of clears wrong. The pre-pass was built for
+regulatory text; on regulatory text it works. **The general claim stays
+closed (F126); the regulatory claim is now measured, not hoped.** E140 measured a deterministic
 value canonicalizer (`valueset.py`) at 0 false positives in 929 values against
 model-written expert answers, blind only to binding. **E141 ran it unchanged
 on SQuAD v2.0 dev — 11,873 questions, 1,204 paragraphs, every question and

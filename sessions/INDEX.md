@@ -8,14 +8,15 @@ last-verified: 2026-10-14
 
 <!-- generated-by: origin; do not edit by hand -->
 
-357 recorded session(s). One `events.jsonl` per session, so concurrent
+358 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 332 older session(s) are in the directory listing.
+Showing the 25 most recent. 333 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-14-003-land-the-f127-repair-left-uncommitted-by](2026-10-14-003-land-the-f127-repair-left-uncommitted-by/README.md) | unknown-agent | **unfinished** | Land the F127 repair left uncommitted by session 2026-10-14-002, then  | 2026-10-14T04:46 |
+| [2026-10-14-004-run-e142-valueset-py-unchanged-on-regula](2026-10-14-004-run-e142-valueset-py-unchanged-on-regula/README.md) | unknown-agent | **unfinished** | Run E142: valueset.py unchanged on regulatory answers a person wrote ( | 2026-10-14T14:06 |
+| [2026-10-14-003-land-the-f127-repair-left-uncommitted-by](2026-10-14-003-land-the-f127-repair-left-uncommitted-by/README.md) | unknown-agent | worked | Land the F127 repair left uncommitted by session 2026-10-14-002, then  | 2026-10-14T14:01 |
 | [2026-10-14-002-measure-valueset-py-unchanged-on-squad-v](2026-10-14-002-measure-valueset-py-unchanged-on-squad-v/README.md) | unknown-agent | worked | Measure valueset.py unchanged on SQuAD v2.0 dev - a human-written genr | 2026-10-14T02:22 |
 | [2026-10-14-001-measure-the-form-invariance-of-shipped-l](2026-10-14-001-measure-the-form-invariance-of-shipped-l/README.md) | unknown-agent | worked | Measure the form-invariance of shipped LLM-eval judges on correct-but- | 2026-10-14T01:48 |
 | [2026-10-13-042-explore-current-state-and-choose-next-in](2026-10-13-042-explore-current-state-and-choose-next-in/README.md) | unknown-agent | no-change | Explore current state and choose next investigative direction | 2026-10-14T00:18 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 332 older session(s) are in the directory listing.
 | [2026-10-13-024-promote-preflight-to-public-product-stat](2026-10-13-024-promote-preflight-to-public-product-stat/README.md) | unknown-agent | worked | Promote preflight to public product state and conduct E136 experiment  | 2026-10-13T09:51 |
 | [2026-10-13-023-finish-session-with-experiment-artifacts](2026-10-13-023-finish-session-with-experiment-artifacts/README.md) | unknown-agent | worked | Finish session with experiment artifacts logged | 2026-10-13T09:09 |
 | [2026-10-13-022-declare-last-2-unlogged-artifacts](2026-10-13-022-declare-last-2-unlogged-artifacts/README.md) | unknown-agent | worked | Declare last 2 unlogged artifacts | 2026-10-13T09:08 |
-| [2026-10-13-021-declare-all-remaining-experiment-artifac](2026-10-13-021-declare-all-remaining-experiment-artifac/README.md) | unknown-agent | worked | Declare all remaining experiment artifacts | 2026-10-13T09:07 |
 
 
 ## Reading a session
