@@ -1,0 +1,88 @@
+#!/usr/bin/env python3
+"""fetch.py — fetch Federal Register final rules from the API.
+
+Saves raw text to raw/<document_number>.txt and metadata to raw/documents.json.
+Standard library only, deterministic given the API state at fetch time.
+"""
+import hashlib
+import json
+import os
+import time
+import urllib.request
+
+RAW = os.path.join(os.path.dirname(os.path.abspath(__file__)), "raw")
+API = "https://www.federalregister.gov/api/v1/documents.json"
+
+
+def fetch_documents(per_page=10, pages=2):
+    """Fetch document metadata from the Federal Register API."""
+    docs = []
+    for page in range(1, pages + 1):
+        url = (
+            f"{API}?conditions%5Bterm%5D=final+rule&per_page={per_page}"
+            f"&page={page}&fields%5B%5D=title&fields%5B%5D=abstract"
+            f"&fields%5B%5D=publication_date&fields%5B%5D=document_number"
+            f"&fields%5B%5D=raw_text_url&order=newest"
+        )
+        data = json.loads(urllib.request.urlopen(url, timeout=15).read())
+        results = data.get("results", [])
+        if not results:
+            break
+        docs.extend(results)
+        time.sleep(0.3)
+    return docs
+
+
+def fetch_full_text(raw_url, retries=3):
+    """Fetch the full text of a document."""
+    for attempt in range(retries):
+        try:
+            return urllib.request.urlopen(raw_url, timeout=20).read().decode(
+                "utf-8", "replace"
+            )
+        except Exception:
+            if attempt < retries - 1:
+                time.sleep(1)
+            else:
+                raise
+
+
+def main():
+    os.makedirs(RAW, exist_ok=True)
+    docs = fetch_documents()
+    print(f"Fetched {len(docs)} document metadata entries")
+
+    # Save metadata
+    with open(os.path.join(RAW, "documents.json"), "w") as f:
+        json.dump(docs, f, indent=2)
+
+    # Save metadata with SHA256 for reproducibility
+    meta_with_hashes = []
+    for r in docs:
+        raw_url = r.get("raw_text_url")
+        if not raw_url:
+            meta_with_hashes.append({**r, "text_sha256": None})
+            continue
+        try:
+            text = fetch_full_text(raw_url)
+            sha256 = hashlib.sha256(text.encode("utf-8")).hexdigest()
+            doc_num = r["document_number"]
+            out_path = os.path.join(RAW, f"{doc_num}.txt")
+            with open(out_path, "w") as f:
+                f.write(text)
+            meta_with_hashes.append({**r, "text_sha256": sha256})
+            time.sleep(0.3)
+        except Exception as e:
+            print(f"  Error fetching {r.get('document_number', 'unknown')}: {e}")
+            meta_with_hashes.append({**r, "text_sha256": None})
+
+    with open(os.path.join(RAW, "documents_with_hashes.json"), "w") as f:
+        json.dump(meta_with_hashes, f, indent=2)
+
+    fetched = sum(1 for m in meta_with_hashes if m["text_sha256"])
+    print(f"Fetched full text for {fetched} documents")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
