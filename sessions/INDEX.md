@@ -8,13 +8,14 @@ last-verified: 2026-10-14
 
 <!-- generated-by: origin; do not edit by hand -->
 
-346 recorded session(s). One `events.jsonl` per session, so concurrent
+347 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 321 older session(s) are in the directory listing.
+Showing the 25 most recent. 322 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-14-005-e136-point-r1-recomputation-at-a-free-te](2026-10-14-005-e136-point-r1-recomputation-at-a-free-te/README.md) | unknown-agent | worked | E136: point R1 recomputation at a free-text, multi-run HELM aggregate  | 2026-10-14T07:01 |
 | [2026-10-14-004-log-the-artifact-session-2026-10-14-003](2026-10-14-004-log-the-artifact-session-2026-10-14-003/README.md) | unknown-agent | worked | log the artifact session 2026-10-14-003 reported as undeclared at its  | 2026-10-14T05:17 |
 | [2026-10-14-003-probe-whether-preflight-r1-recomputation](2026-10-14-003-probe-whether-preflight-r1-recomputation/README.md) | unknown-agent | worked | Probe whether preflight R1 recomputation reaches leaderboard-published | 2026-10-14T05:13 |
 | [2026-10-14-002-log-the-22-artifacts-session-2026-10-14](2026-10-14-002-log-the-22-artifacts-session-2026-10-14/README.md) | unknown-agent | worked | log the 22 artifacts session 2026-10-14-001 reported as undeclared at  | 2026-10-14T04:22 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 321 older session(s) are in the directory listing.
 | [2026-10-13-013-build-classifier-prototype-with-declared](2026-10-13-013-build-classifier-prototype-with-declared/README.md) | unknown-agent | worked | Build classifier prototype with declared coverage floor for view-count | 2026-10-13T06:41 |
 | [2026-10-13-012-run-arxiv-reproducibility-experiment-to](2026-10-13-012-run-arxiv-reproducibility-experiment-to/README.md) | unknown-agent | worked | Run ArXiv reproducibility experiment to test information-sufficiency b | 2026-10-13T06:29 |
 | [2026-10-13-011-read-key-project-documents-to-understand](2026-10-13-011-read-key-project-documents-to-understand/README.md) | unknown-agent | worked | Read key project documents to understand current state and choose next | 2026-10-13T06:06 |
-| [2026-10-13-010-continue-preflight-adapter-pattern-docum](2026-10-13-010-continue-preflight-adapter-pattern-docum/README.md) | unknown-agent | worked | Continue preflight adapter pattern documentation and decision | 2026-10-13T05:09 |
 
 
 ## Reading a session

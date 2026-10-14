@@ -398,6 +398,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/133-preflight-sixth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
 | `EXPERIMENTS/134-preflight-real-run/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 6 documents |
 | `EXPERIMENTS/135-preflight-leaderboard-reach/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
+| `EXPERIMENTS/136-leaderboard-free-text-aggregate/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |

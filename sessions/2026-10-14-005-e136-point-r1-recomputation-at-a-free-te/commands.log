@@ -1,0 +1,1013 @@
+==============================================================================
+[seq 4] 2026-10-14T06:02:03+00:00
+$ python3 EXPERIMENTS/136-leaderboard-free-text-aggregate/fetch_inventory.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+run dirs listed        : 868 (pages: 1)
+scenario groups        : 688
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/136-leaderboard-free-text-aggregate/fetch_inventory.py", line 74, in <module>
+    main()
+  File "EXPERIMENTS/136-leaderboard-free-text-aggregate/fetch_inventory.py", line 69, in main
+    print(f"  {c:4d}  {g}")
+TypeError: unsupported format string passed to list.__format__
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 3080  redactions: none
+==============================================================================
+[seq 5] 2026-10-14T06:02:30+00:00
+$ python3 EXPERIMENTS/136-leaderboard-free-text-aggregate/fetch_inventory.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+run dirs listed        : 868 (pages: 1)
+scenario groups        : 688
+    31  commonsense:dataset=openbookqa
+     1  gsm:model=01-ai_yi-34b
+     1  gsm:model=01-ai_yi-6b
+     1  gsm:model=AlephAlpha_luminous-base
+     1  gsm:model=AlephAlpha_luminous-extended
+     1  gsm:model=AlephAlpha_luminous-supreme
+     1  gsm:model=ai21_j2-grande
+     1  gsm:model=ai21_j2-jumbo
+     1  gsm:model=anthropic_claude-2.0
+     1  gsm:model=anthropic_claude-2.1
+     1  gsm:model=anthropic_claude-instant-1.2
+     1  gsm:model=anthropic_claude-instant-v1
+     1  gsm:model=anthropic_claude-v1.3
+     1  gsm:model=cohere_command
+     1  gsm:model=cohere_command-light
+     1  gsm:model=google_text-bison@001
+     1  gsm:model=google_text-unicorn@001
+     1  gsm:model=meta_llama-2-13b
+     1  gsm:model=meta_llama-2-70b
+     1  gsm:model=meta_llama-2-7b
+     1  gsm:model=meta_llama-65b
+     1  gsm:model=mistralai_mistral-7b-v0.1
+     1  gsm:model=mistralai_mixtral-8x7b-32kseqlen
+     1  gsm:model=openai_gpt-3.5-turbo-0613
+     1  gsm:model=openai_gpt-4-0613
+     1  gsm:model=openai_gpt-4-1106-preview
+     1  gsm:model=openai_text-davinci-002
+     1  gsm:model=openai_text-davinci-003
+     1  gsm:model=tiiuae_falcon-40b
+     1  gsm:model=tiiuae_falcon-7b
+     1  gsm:model=writer_palmyra-x-v2
+     1  gsm:model=writer_palmyra-x-v3
+     1  legalbench:subset=abercrombie,model=01-ai_yi-34b
+     1  legalbench:subset=abercrombie,model=01-ai_yi-6b
+     1  legalbench:subset=abercrombie,model=AlephAlpha_luminous-base
+     1  legalbench:subset=abercrombie,model=AlephAlpha_luminous-extended
+     1  legalbench:subset=abercrombie,model=AlephAlpha_luminous-supreme
+     1  legalbench:subset=abercrombie,model=ai21_j2-grande
+     1  legalbench:subset=abercrombie,model=ai21_j2-jumbo
+     1  legalbench:subset=abercrombie,model=anthropic_claude-2.0
+     1  legalbench:subset=abercrombie,model=anthropic_claude-2.1
+     1  legalbench:subset=abercrombie,model=anthropic_claude-instant-1.2
+     1  legalbench:subset=abercrombie,model=anthropic_claude-instant-v1
+     1  legalbench:subset=abercrombie,model=anthropic_claude-v1.3
+     1  legalbench:subset=abercrombie,model=cohere_command
+     1  legalbench:subset=abercrombie,model=cohere_command-light
+     1  legalbench:subset=abercrombie,model=google_text-bison@001
+     1  legalbench:subset=abercrombie,model=google_text-unicorn@001
+     1  legalbench:subset=abercrombie,model=meta_llama-2-13b
+     1  legalbench:subset=abercrombie,model=meta_llama-2-70b
+     1  legalbench:subset=abercrombie,model=meta_llama-2-7b
+     1  legalbench:subset=abercrombie,model=meta_llama-65b
+     1  legalbench:subset=abercrombie,model=mistralai_mistral-7b-v0.1
+     1  legalbench:subset=abercrombie,model=mistralai_mixtral-8x7b-32kseqlen
+     1  legalbench:subset=abercrombie,model=openai_gpt-3.5-turbo-0613
+     1  legalbench:subset=abercrombie,model=openai_gpt-4-0613
+     1  legalbench:subset=abercrombie,model=openai_gpt-4-1106-preview
+     1  legalbench:subset=abercrombie,model=openai_text-davinci-002
+     1  legalbench:subset=abercrombie,model=openai_text-davinci-003
+     1  legalbench:subset=abercrombie,model=tiiuae_falcon-40b
+     1  legalbench:subset=abercrombie,model=tiiuae_falcon-7b
+     1  legalbench:subset=abercrombie,model=writer_palmyra-x-v2
+     1  legalbench:subset=abercrombie,model=writer_palmyra-x-v3
+     1  legalbench:subset=corporate_lobbying,model=01-ai_yi-34b
+     1  legalbench:subset=corporate_lobbying,model=01-ai_yi-6b
+     1  legalbench:subset=corporate_lobbying,model=AlephAlpha_luminous-base
+     1  legalbench:subset=corporate_lobbying,model=AlephAlpha_luminous-extended
+     1  legalbench:subset=corporate_lobbying,model=AlephAlpha_luminous-supreme
+     1  legalbench:subset=corporate_lobbying,model=ai21_j2-grande
+     1  legalbench:subset=corporate_lobbying,model=ai21_j2-jumbo
+     1  legalbench:subset=corporate_lobbying,model=anthropic_claude-2.0
+     1  legalbench:subset=corporate_lobbying,model=anthropic_claude-2.1
+     1  legalbench:subset=corporate_lobbying,model=anthropic_claude-instant-1.2
+     1  legalbench:subset=corporate_lobbying,model=anthropic_claude-instant-v1
+     1  legalbench:subset=corporate_lobbying,model=anthropic_claude-v1.3
+     1  legalbench:subset=corporate_lobbying,model=cohere_command
+     1  legalbench:subset=corporate_lobbying,model=cohere_command-light
+     1  legalbench:subset=corporate_lobbying,model=google_text-bison@001
+     1  legalbench:subset=corporate_lobbying,model=google_text-unicorn@001
+     1  legalbench:subset=corporate_lobbying,model=meta_llama-2-13b
+     1  legalbench:subset=corporate_lobbying,model=meta_llama-2-70b
+     1  legalbench:subset=corporate_lobbying,model=meta_llama-2-7b
+     1  legalbench:subset=corporate_lobbying,model=meta_llama-65b
+     1  legalbench:subset=corporate_lobbying,model=mistralai_mistral-7b-v0.1
+     1  legalbench:subset=corporate_lobbying,model=mistralai_mixtral-8x7b-32kseqlen
+     1  legalbench:subset=corporate_lobbying,model=openai_gpt-3.5-turbo-0613
+     1  legalbench:subset=corporate_lobbying,model=openai_gpt-4-0613
+     1  legalbench:subset=corporate_lobbying,model=openai_gpt-4-1106-preview
+     1  legalbench:subset=corporate_lobbying,model=openai_text-davinci-002
+     1  legalbench:subset=corporate_lobbying,model=openai_text-davinci-003
+     1  legalbench:subset=corporate_lobbying,model=tiiuae_falcon-40b
+     1  legalbench:subset=corporate_lobbying,model=tiiuae_falcon-7b
+     1  legalbench:subset=corporate_lobbying,model=writer_palmyra-x-v2
+     1  legalbench:subset=corporate_lobbying,model=writer_palmyra-x-v3
+     1  legalbench:subset=function_of_decision_section,model=01-ai_yi-34b
+     1  legalbench:subset=function_of_decision_section,model=01-ai_yi-6b
+     1  legalbench:subset=function_of_decision_section,model=AlephAlpha_luminous-base
+     1  legalbench:subset=function_of_decision_section,model=AlephAlpha_luminous-extended
+     1  legalbench:subset=function_of_decision_section,model=AlephAlpha_luminous-supreme
+     1  legalbench:subset=function_of_decision_section,model=ai21_j2-grande
+     1  legalbench:subset=function_of_decision_section,model=ai21_j2-jumbo
+     1  legalbench:subset=function_of_decision_section,model=anthropic_claude-2.0
+     1  legalbench:subset=function_of_decision_section,model=anthropic_claude-2.1
+     1  legalbench:subset=function_of_decision_section,model=anthropic_claude-instant-1.2
+     1  legalbench:subset=function_of_decision_section,model=anthropic_claude-instant-v1
+     1  legalbench:subset=function_of_decision_section,model=anthropic_claude-v1.3
+     1  legalbench:subset=function_of_decision_section,model=cohere_command
+     1  legalbench:subset=function_of_decision_section,model=cohere_command-light
+     1  legalbench:subset=function_of_decision_section,model=google_text-bison@001
+     1  legalbench:subset=function_of_decision_section,model=google_text-unicorn@001
+     1  legalbench:subset=function_of_decision_section,model=meta_llama-2-13b
+     1  legalbench:subset=function_of_decision_section,model=meta_llama-2-70b
+     1  legalbench:subset=function_of_decision_section,model=meta_llama-2-7b
+     1  legalbench:subset=function_of_decision_section,model=meta_llama-65b
+     1  legalbench:subset=function_of_decision_section,model=mistralai_mistral-7b-v0.1
+     1  legalbench:subset=function_of_decision_section,model=mistralai_mixtral-8x7b-32kseqlen
+     1  legalbench:subset=function_of_decision_section,model=openai_gpt-3.5-turbo-0613
+     1  legalbench:subset=function_of_decision_section,model=openai_gpt-4-0613
+     1  legalbench:subset=function_of_decision_section,model=openai_gpt-4-1106-preview
+     1  legalbench:subset=function_of_decision_section,model=openai_text-davinci-002
+     1  legalbench:subset=function_of_decision_section,model=openai_text-davinci-003
+     1  legalbench:subset=function_of_decision_section,model=tiiuae_falcon-40b
+     1  legalbench:subset=function_of_decision_section,model=tiiuae_falcon-7b
+     1  legalbench:subset=function_of_decision_section,model=writer_palmyra-x-v2
+     1  legalbench:subset=function_of_decision_section,model=writer_palmyra-x-v3
+     1  legalbench:subset=international_citizenship_questions,model=01-ai_yi-34b
+     1  legalbench:subset=international_citizenship_questions,model=01-ai_yi-6b
+     1  legalbench:subset=international_citizenship_questions,model=AlephAlpha_luminous-base
+     1  legalbench:subset=international_citizenship_questions,model=AlephAlpha_luminous-extended
+     1  legalbench:subset=international_citizenship_questions,model=AlephAlpha_luminous-supreme
+     1  legalbench:subset=international_citizenship_questions,model=ai21_j2-grande
+     1  legalbench:subset=international_citizenship_questions,model=ai21_j2-jumbo
+     1  legalbench:subset=international_citizenship_questions,model=anthropic_claude-2.0
+     1  legalbench:subset=international_citizenship_questions,model=anthropic_claude-2.1
+     1  legalbench:subset=international_citizenship_questions,model=anthropic_claude-instant-1.2
+     1  legalbench:subset=international_citizenship_questions,model=anthropic_claude-instant-v1
+     1  legalbench:subset=international_citizenship_questions,model=anthropic_claude-v1.3
+     1  legalbench:subset=international_citizenship_questions,model=cohere_command
+     1  legalbench:subset=international_citizenship_questions,model=cohere_command-light
+     1  legalbench:subset=international_citizenship_questions,model=google_text-bison@001
+     1  legalbench:subset=international_citizenship_questions,model=google_text-unicorn@001
+     1  legalbench:subset=international_citizenship_questions,model=meta_llama-2-13b
+     1  legalbench:subset=international_citizenship_questions,model=meta_llama-2-70b
+     1  legalbench:subset=international_citizenship_questions,model=meta_llama-2-7b
+     1  legalbench:subset=international_citizenship_questions,model=meta_llama-65b
+     1  legalbench:subset=international_citizenship_questions,model=mistralai_mistral-7b-v0.1
+     1  legalbench:subset=international_citizenship_questions,model=mistralai_mixtral-8x7b-32kseqlen
+     1  legalbench:subset=international_citizenship_questions,model=openai_gpt-3.5-turbo-0613
+     1  legalbench:subset=international_citizenship_questions,model=openai_gpt-4-0613
+     1  legalbench:subset=international_citizenship_questions,model=openai_gpt-4-1106-preview
+     1  legalbench:subset=international_citizenship_questions,model=openai_text-davinci-002
+     1  legalbench:subset=international_citizenship_questions,model=openai_text-davinci-003
+     1  legalbench:subset=international_citizenship_questions,model=tiiuae_falcon-40b
+     1  legalbench:subset=international_citizenship_questions,model=tiiuae_falcon-7b
+     1  legalbench:subset=international_citizenship_questions,model=writer_palmyra-x-v2
+     1  legalbench:subset=international_citizenship_questions,model=writer_palmyra-x-v3
+     1  legalbench:subset=proa,model=01-ai_yi-34b
+     1  legalbench:subset=proa,model=01-ai_yi-6b
+     1  legalbench:subset=proa,model=AlephAlpha_luminous-base
+     1  legalbench:subset=proa,model=AlephAlpha_luminous-extended
+     1  legalbench:subset=proa,model=AlephAlpha_luminous-supreme
+     1  legalbench:subset=proa,model=ai21_j2-grande
+     1  legalbench:subset=proa,model=ai21_j2-jumbo
+     1  legalbench:subset=proa,model=anthropic_claude-2.0
+     1  legalbench:subset=proa,model=anthropic_claude-2.1
+     1  legalbench:subset=proa,model=anthropic_claude-instant-1.2
+     1  legalbench:subset=proa,model=anthropic_claude-instant-v1
+     1  legalbench:subset=proa,model=anthropic_claude-v1.3
+     1  legalbench:subset=proa,model=cohere_command
+     1  legalbench:subset=proa,model=cohere_command-light
+     1  legalbench:subset=proa,model=google_text-bison@001
+     1  legalbench:subset=proa,model=google_text-unicorn@001
+     1  legalbench:subset=proa,model=meta_llama-2-13b
+     1  legalbench:subset=proa,model=meta_llama-2-70b
+     1  legalbench:subset=proa,model=meta_llama-2-7b
+     1  legalbench:subset=proa,model=meta_llama-65b
+     1  legalbench:subset=proa,model=mistralai_mistral-7b-v0.1
+     1  legalbench:subset=proa,model=mistralai_mixtral-8x7b-32kseqlen
+     1  legalbench:subset=proa,model=openai_gpt-3.5-turbo-0613
+     1  legalbench:subset=proa,model=openai_gpt-4-0613
+     1  legalbench:subset=proa,model=openai_gpt-4-1106-preview
+     1  legalbench:subset=proa,model=openai_text-davinci-002
+     1  legalbench:subset=proa,model=openai_text-davinci-003
+     1  legalbench:subset=proa,model=tiiuae_falcon-40b
+     1  legalbench:subset=proa,model=tiiuae_falcon-7b
+     1  legalbench:subset=proa,model=writer_palmyra-x-v2
+     1  legalbench:subset=proa,model=writer_palmyra-x-v3
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-34b
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-6b
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-base
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-extended
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-supreme
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-grande
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-jumbo
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.0
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.1
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-1.2
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-v1
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-v1.3
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command-light
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-bison@001
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-unicorn@001
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-13b
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-70b
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-7b
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-65b
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mistral-7b-v0.1
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mixtral-8x7b-32kseqlen
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-3.5-turbo-0613
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-0613
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-1106-preview
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-002
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-003
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-40b
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-7b
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v2
+     1  math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v3
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-34b
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-6b
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-base
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-extended
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-supreme
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-grande
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-jumbo
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.0
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.1
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-1.2
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-v1
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-v1.3
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command-light
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-bison@001
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-unicorn@001
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-13b
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-70b
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-7b
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-65b
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mistral-7b-v0.1
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mixtral-8x7b-32kseqlen
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-3.5-turbo-0613
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-0613
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-1106-preview
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-002
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-003
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-40b
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-7b
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v2
+     1  math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v3
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-34b
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-6b
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-base
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-extended
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-supreme
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-grande
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-jumbo
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.0
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.1
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-1.2
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-v1
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-v1.3
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command-light
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-bison@001
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-unicorn@001
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-13b
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-70b
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-7b
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-65b
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mistral-7b-v0.1
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mixtral-8x7b-32kseqlen
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-3.5-turbo-0613
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-0613
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-1106-preview
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-002
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-003
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-40b
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-7b
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v2
+     1  math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v3
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-34b
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-6b
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-base
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-extended
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-supreme
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-grande
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-jumbo
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.0
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.1
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-1.2
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-v1
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-v1.3
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command-light
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-bison@001
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-unicorn@001
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-13b
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-70b
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-7b
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-65b
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mistral-7b-v0.1
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mixtral-8x7b-32kseqlen
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-3.5-turbo-0613
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-0613
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-1106-preview
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-002
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-003
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-40b
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-7b
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v2
+     1  math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v3
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-34b
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-6b
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-base
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-extended
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-supreme
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-grande
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-jumbo
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.0
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.1
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-1.2
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-v1
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-v1.3
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command-light
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-bison@001
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-unicorn@001
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-13b
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-70b
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-7b
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-65b
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mistral-7b-v0.1
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mixtral-8x7b-32kseqlen
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-3.5-turbo-0613
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-0613
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-1106-preview
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-002
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-003
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-40b
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-7b
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v2
+     1  math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v3
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-34b
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-6b
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-base
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-extended
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-supreme
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-grande
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-jumbo
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.0
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.1
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-1.2
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-v1
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-v1.3
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command-light
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-bison@001
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-unicorn@001
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-13b
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-70b
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-7b
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-65b
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mistral-7b-v0.1
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mixtral-8x7b-32kseqlen
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-3.5-turbo-0613
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-0613
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-1106-preview
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-002
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-003
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-40b
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-7b
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v2
+     1  math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v3
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-34b
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-6b
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-base
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-extended
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-supreme
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-grande
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-jumbo
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.0
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.1
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-1.2
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-v1
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-v1.3
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command-light
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-bison@001
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-unicorn@001
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-13b
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-70b
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-7b
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-65b
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mistral-7b-v0.1
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mixtral-8x7b-32kseqlen
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-3.5-turbo-0613
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-0613
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-1106-preview
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-002
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-003
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-40b
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-7b
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v2
+     1  math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v3
+     1  med_qa:model=01-ai_yi-34b
+     1  med_qa:model=01-ai_yi-6b
+     1  med_qa:model=AlephAlpha_luminous-base
+     1  med_qa:model=AlephAlpha_luminous-extended
+     1  med_qa:model=AlephAlpha_luminous-supreme
+     1  med_qa:model=ai21_j2-grande
+     1  med_qa:model=ai21_j2-jumbo
+     1  med_qa:model=anthropic_claude-2.0
+     1  med_qa:model=anthropic_claude-2.1
+     1  med_qa:model=anthropic_claude-instant-1.2
+     1  med_qa:model=anthropic_claude-instant-v1
+     1  med_qa:model=anthropic_claude-v1.3
+     1  med_qa:model=cohere_command
+     1  med_qa:model=cohere_command-light
+     1  med_qa:model=google_text-bison@001
+     1  med_qa:model=google_text-unicorn@001
+     1  med_qa:model=meta_llama-2-13b
+     1  med_qa:model=meta_llama-2-70b
+     1  med_qa:model=meta_llama-2-7b
+     1  med_qa:model=meta_llama-65b
+     1  med_qa:model=mistralai_mistral-7b-v0.1
+     1  med_qa:model=mistralai_mixtral-8x7b-32kseqlen
+     1  med_qa:model=openai_gpt-3.5-turbo-0613
+     1  med_qa:model=openai_gpt-4-0613
+     1  med_qa:model=openai_gpt-4-1106-preview
+     1  med_qa:model=openai_text-davinci-002
+     1  med_qa:model=openai_text-davinci-003
+     1  med_qa:model=tiiuae_falcon-40b
+     1  med_qa:model=tiiuae_falcon-7b
+     1  med_qa:model=writer_palmyra-x-v2
+     1  med_qa:model=writer_palmyra-x-v3
+    31  mmlu:subject=abstract_algebra
+    31  mmlu:subject=college_chemistry
+    31  mmlu:subject=computer_security
+    31  mmlu:subject=econometrics
+    31  mmlu:subject=us_foreign_policy
+     1  narrative_qa:model=01-ai_yi-34b
+     1  narrative_qa:model=01-ai_yi-6b
+     1  narrative_qa:model=AlephAlpha_luminous-base
+     1  narrative_qa:model=AlephAlpha_luminous-extended
+     1  narrative_qa:model=AlephAlpha_luminous-supreme
+     1  narrative_qa:model=ai21_j2-grande
+     1  narrative_qa:model=ai21_j2-jumbo
+     1  narrative_qa:model=anthropic_claude-2.0
+     1  narrative_qa:model=anthropic_claude-2.1
+     1  narrative_qa:model=anthropic_claude-instant-1.2
+     1  narrative_qa:model=anthropic_claude-instant-v1
+     1  narrative_qa:model=anthropic_claude-v1.3
+     1  narrative_qa:model=cohere_command
+     1  narrative_qa:model=cohere_command-light
+     1  narrative_qa:model=google_text-bison@001
+     1  narrative_qa:model=google_text-unicorn@001
+     1  narrative_qa:model=meta_llama-2-13b
+     1  narrative_qa:model=meta_llama-2-70b
+     1  narrative_qa:model=meta_llama-2-7b
+     1  narrative_qa:model=meta_llama-65b
+     1  narrative_qa:model=mistralai_mistral-7b-v0.1
+     1  narrative_qa:model=mistralai_mixtral-8x7b-32kseqlen
+     1  narrative_qa:model=openai_gpt-3.5-turbo-0613
+     1  narrative_qa:model=openai_gpt-4-0613
+     1  narrative_qa:model=openai_gpt-4-1106-preview
+     1  narrative_qa:model=openai_text-davinci-002
+     1  narrative_qa:model=openai_text-davinci-003
+     1  narrative_qa:model=tiiuae_falcon-40b
+     1  narrative_qa:model=tiiuae_falcon-7b
+     1  narrative_qa:model=writer_palmyra-x-v2
+     1  narrative_qa:model=writer_palmyra-x-v3
+     1  natural_qa:mode=closedbook,model=01-ai_yi-34b
+     1  natural_qa:mode=closedbook,model=01-ai_yi-6b
+     1  natural_qa:mode=closedbook,model=AlephAlpha_luminous-base
+     1  natural_qa:mode=closedbook,model=AlephAlpha_luminous-extended
+     1  natural_qa:mode=closedbook,model=AlephAlpha_luminous-supreme
+     1  natural_qa:mode=closedbook,model=ai21_j2-grande
+     1  natural_qa:mode=closedbook,model=ai21_j2-jumbo
+     1  natural_qa:mode=closedbook,model=anthropic_claude-2.0
+     1  natural_qa:mode=closedbook,model=anthropic_claude-2.1
+     1  natural_qa:mode=closedbook,model=anthropic_claude-instant-1.2
+     1  natural_qa:mode=closedbook,model=anthropic_claude-instant-v1
+     1  natural_qa:mode=closedbook,model=anthropic_claude-v1.3
+     1  natural_qa:mode=closedbook,model=cohere_command
+     1  natural_qa:mode=closedbook,model=cohere_command-light
+     1  natural_qa:mode=closedbook,model=google_text-bison@001
+     1  natural_qa:mode=closedbook,model=google_text-unicorn@001
+     1  natural_qa:mode=closedbook,model=meta_llama-2-13b
+     1  natural_qa:mode=closedbook,model=meta_llama-2-70b
+     1  natural_qa:mode=closedbook,model=meta_llama-2-7b
+     1  natural_qa:mode=closedbook,model=meta_llama-65b
+     1  natural_qa:mode=closedbook,model=mistralai_mistral-7b-v0.1
+     1  natural_qa:mode=closedbook,model=mistralai_mixtral-8x7b-32kseqlen
+     1  natural_qa:mode=closedbook,model=openai_gpt-3.5-turbo-0613
+     1  natural_qa:mode=closedbook,model=openai_gpt-4-0613
+     1  natural_qa:mode=closedbook,model=openai_gpt-4-1106-preview
+     1  natural_qa:mode=closedbook,model=openai_text-davinci-002
+     1  natural_qa:mode=closedbook,model=openai_text-davinci-003
+     1  natural_qa:mode=closedbook,model=tiiuae_falcon-40b
+     1  natural_qa:mode=closedbook,model=tiiuae_falcon-7b
+     1  natural_qa:mode=closedbook,model=writer_palmyra-x-v2
+     1  natural_qa:mode=closedbook,model=writer_palmyra-x-v3
+     1  natural_qa:mode=openbook_longans,model=01-ai_yi-34b
+     1  natural_qa:mode=openbook_longans,model=01-ai_yi-6b
+     1  natural_qa:mode=openbook_longans,model=AlephAlpha_luminous-base
+     1  natural_qa:mode=openbook_longans,model=AlephAlpha_luminous-extended
+     1  natural_qa:mode=openbook_longans,model=AlephAlpha_luminous-supreme
+     1  natural_qa:mode=openbook_longans,model=ai21_j2-grande
+     1  natural_qa:mode=openbook_longans,model=ai21_j2-jumbo
+     1  natural_qa:mode=openbook_longans,model=anthropic_claude-2.0
+     1  natural_qa:mode=openbook_longans,model=anthropic_claude-2.1
+     1  natural_qa:mode=openbook_longans,model=anthropic_claude-instant-1.2
+     1  natural_qa:mode=openbook_longans,model=anthropic_claude-instant-v1
+     1  natural_qa:mode=openbook_longans,model=anthropic_claude-v1.3
+     1  natural_qa:mode=openbook_longans,model=cohere_command
+     1  natural_qa:mode=openbook_longans,model=cohere_command-light
+     1  natural_qa:mode=openbook_longans,model=google_text-bison@001
+     1  natural_qa:mode=openbook_longans,model=google_text-unicorn@001
+     1  natural_qa:mode=openbook_longans,model=meta_llama-2-13b
+     1  natural_qa:mode=openbook_longans,model=meta_llama-2-70b
+     1  natural_qa:mode=openbook_longans,model=meta_llama-2-7b
+     1  natural_qa:mode=openbook_longans,model=meta_llama-65b
+     1  natural_qa:mode=openbook_longans,model=mistralai_mistral-7b-v0.1
+     1  natural_qa:mode=openbook_longans,model=mistralai_mixtral-8x7b-32kseqlen
+     1  natural_qa:mode=openbook_longans,model=openai_gpt-3.5-turbo-0613
+     1  natural_qa:mode=openbook_longans,model=openai_gpt-4-0613
+     1  natural_qa:mode=openbook_longans,model=openai_gpt-4-1106-preview
+     1  natural_qa:mode=openbook_longans,model=openai_text-davinci-002
+     1  natural_qa:mode=openbook_longans,model=openai_text-davinci-003
+     1  natural_qa:mode=openbook_longans,model=tiiuae_falcon-40b
+     1  natural_qa:mode=openbook_longans,model=tiiuae_falcon-7b
+     1  natural_qa:mode=openbook_longans,model=writer_palmyra-x-v2
+     1  natural_qa:mode=openbook_longans,model=writer_palmyra-x-v3
+     1  wmt_14:language_pair=cs-en,model=01-ai_yi-34b
+     1  wmt_14:language_pair=cs-en,model=01-ai_yi-6b
+     1  wmt_14:language_pair=cs-en,model=AlephAlpha_luminous-base
+     1  wmt_14:language_pair=cs-en,model=AlephAlpha_luminous-extended
+     1  wmt_14:language_pair=cs-en,model=AlephAlpha_luminous-supreme
+     1  wmt_14:language_pair=cs-en,model=ai21_j2-grande
+     1  wmt_14:language_pair=cs-en,model=ai21_j2-jumbo
+     1  wmt_14:language_pair=cs-en,model=anthropic_claude-2.0
+     1  wmt_14:language_pair=cs-en,model=anthropic_claude-2.1
+     1  wmt_14:language_pair=cs-en,model=anthropic_claude-instant-1.2
+     1  wmt_14:language_pair=cs-en,model=anthropic_claude-instant-v1
+     1  wmt_14:language_pair=cs-en,model=anthropic_claude-v1.3
+     1  wmt_14:language_pair=cs-en,model=cohere_command
+     1  wmt_14:language_pair=cs-en,model=cohere_command-light
+     1  wmt_14:language_pair=cs-en,model=google_text-bison@001
+     1  wmt_14:language_pair=cs-en,model=google_text-unicorn@001
+     1  wmt_14:language_pair=cs-en,model=meta_llama-2-13b
+     1  wmt_14:language_pair=cs-en,model=meta_llama-2-70b
+     1  wmt_14:language_pair=cs-en,model=meta_llama-2-7b
+     1  wmt_14:language_pair=cs-en,model=meta_llama-65b
+     1  wmt_14:language_pair=cs-en,model=mistralai_mistral-7b-v0.1
+     1  wmt_14:language_pair=cs-en,model=mistralai_mixtral-8x7b-32kseqlen
+     1  wmt_14:language_pair=cs-en,model=openai_gpt-3.5-turbo-0613
+     1  wmt_14:language_pair=cs-en,model=openai_gpt-4-0613
+     1  wmt_14:language_pair=cs-en,model=openai_gpt-4-1106-preview
+     1  wmt_14:language_pair=cs-en,model=openai_text-davinci-002
+     1  wmt_14:language_pair=cs-en,model=openai_text-davinci-003
+     1  wmt_14:language_pair=cs-en,model=tiiuae_falcon-40b
+     1  wmt_14:language_pair=cs-en,model=tiiuae_falcon-7b
+     1  wmt_14:language_pair=cs-en,model=writer_palmyra-x-v2
+     1  wmt_14:language_pair=cs-en,model=writer_palmyra-x-v3
+     1  wmt_14:language_pair=de-en,model=01-ai_yi-34b
+     1  wmt_14:language_pair=de-en,model=01-ai_yi-6b
+     1  wmt_14:language_pair=de-en,model=AlephAlpha_luminous-base
+     1  wmt_14:language_pair=de-en,model=AlephAlpha_luminous-extended
+     1  wmt_14:language_pair=de-en,model=AlephAlpha_luminous-supreme
+     1  wmt_14:language_pair=de-en,model=ai21_j2-grande
+     1  wmt_14:language_pair=de-en,model=ai21_j2-jumbo
+     1  wmt_14:language_pair=de-en,model=anthropic_claude-2.0
+     1  wmt_14:language_pair=de-en,model=anthropic_claude-2.1
+     1  wmt_14:language_pair=de-en,model=anthropic_claude-instant-1.2
+     1  wmt_14:language_pair=de-en,model=anthropic_claude-instant-v1
+     1  wmt_14:language_pair=de-en,model=anthropic_claude-v1.3
+     1  wmt_14:language_pair=de-en,model=cohere_command
+     1  wmt_14:language_pair=de-en,model=cohere_command-light
+     1  wmt_14:language_pair=de-en,model=google_text-bison@001
+     1  wmt_14:language_pair=de-en,model=google_text-unicorn@001
+     1  wmt_14:language_pair=de-en,model=meta_llama-2-13b
+     1  wmt_14:language_pair=de-en,model=meta_llama-2-70b
+     1  wmt_14:language_pair=de-en,model=meta_llama-2-7b
+     1  wmt_14:language_pair=de-en,model=meta_llama-65b
+     1  wmt_14:language_pair=de-en,model=mistralai_mistral-7b-v0.1
+     1  wmt_14:language_pair=de-en,model=mistralai_mixtral-8x7b-32kseqlen
+     1  wmt_14:language_pair=de-en,model=openai_gpt-3.5-turbo-0613
+     1  wmt_14:language_pair=de-en,model=openai_gpt-4-0613
+     1  wmt_14:language_pair=de-en,model=openai_gpt-4-1106-preview
+     1  wmt_14:language_pair=de-en,model=openai_text-davinci-002
+     1  wmt_14:language_pair=de-en,model=openai_text-davinci-003
+     1  wmt_14:language_pair=de-en,model=tiiuae_falcon-40b
+     1  wmt_14:language_pair=de-en,model=tiiuae_falcon-7b
+     1  wmt_14:language_pair=de-en,model=writer_palmyra-x-v2
+     1  wmt_14:language_pair=de-en,model=writer_palmyra-x-v3
+     1  wmt_14:language_pair=fr-en,model=01-ai_yi-34b
+     1  wmt_14:language_pair=fr-en,model=01-ai_yi-6b
+     1  wmt_14:language_pair=fr-en,model=AlephAlpha_luminous-base
+     1  wmt_14:language_pair=fr-en,model=AlephAlpha_luminous-extended
+     1  wmt_14:language_pair=fr-en,model=AlephAlpha_luminous-supreme
+     1  wmt_14:language_pair=fr-en,model=ai21_j2-grande
+     1  wmt_14:language_pair=fr-en,model=ai21_j2-jumbo
+     1  wmt_14:language_pair=fr-en,model=anthropic_claude-2.0
+     1  wmt_14:language_pair=fr-en,model=anthropic_claude-2.1
+     1  wmt_14:language_pair=fr-en,model=anthropic_claude-instant-1.2
+     1  wmt_14:language_pair=fr-en,model=anthropic_claude-instant-v1
+     1  wmt_14:language_pair=fr-en,model=anthropic_claude-v1.3
+     1  wmt_14:language_pair=fr-en,model=cohere_command
+     1  wmt_14:language_pair=fr-en,model=cohere_command-light
+     1  wmt_14:language_pair=fr-en,model=google_text-bison@001
+     1  wmt_14:language_pair=fr-en,model=google_text-unicorn@001
+     1  wmt_14:language_pair=fr-en,model=meta_llama-2-13b
+     1  wmt_14:language_pair=fr-en,model=meta_llama-2-70b
+     1  wmt_14:language_pair=fr-en,model=meta_llama-2-7b
+     1  wmt_14:language_pair=fr-en,model=meta_llama-65b
+     1  wmt_14:language_pair=fr-en,model=mistralai_mistral-7b-v0.1
+     1  wmt_14:language_pair=fr-en,model=mistralai_mixtral-8x7b-32kseqlen
+     1  wmt_14:language_pair=fr-en,model=openai_gpt-3.5-turbo-0613
+     1  wmt_14:language_pair=fr-en,model=openai_gpt-4-0613
+     1  wmt_14:language_pair=fr-en,model=openai_gpt-4-1106-preview
+     1  wmt_14:language_pair=fr-en,model=openai_text-davinci-002
+     1  wmt_14:language_pair=fr-en,model=openai_text-davinci-003
+     1  wmt_14:language_pair=fr-en,model=tiiuae_falcon-40b
+     1  wmt_14:language_pair=fr-en,model=tiiuae_falcon-7b
+     1  wmt_14:language_pair=fr-en,model=writer_palmyra-x-v2
+     1  wmt_14:language_pair=fr-en,model=writer_palmyra-x-v3
+     1  wmt_14:language_pair=hi-en,model=01-ai_yi-34b
+     1  wmt_14:language_pair=hi-en,model=01-ai_yi-6b
+     1  wmt_14:language_pair=hi-en,model=AlephAlpha_luminous-base
+     1  wmt_14:language_pair=hi-en,model=AlephAlpha_luminous-extended
+     1  wmt_14:language_pair=hi-en,model=AlephAlpha_luminous-supreme
+     1  wmt_14:language_pair=hi-en,model=ai21_j2-grande
+     1  wmt_14:language_pair=hi-en,model=ai21_j2-jumbo
+     1  wmt_14:language_pair=hi-en,model=anthropic_claude-2.0
+     1  wmt_14:language_pair=hi-en,model=anthropic_claude-2.1
+     1  wmt_14:language_pair=hi-en,model=anthropic_claude-instant-1.2
+     1  wmt_14:language_pair=hi-en,model=anthropic_claude-instant-v1
+     1  wmt_14:language_pair=hi-en,model=anthropic_claude-v1.3
+     1  wmt_14:language_pair=hi-en,model=cohere_command
+     1  wmt_14:language_pair=hi-en,model=cohere_command-light
+     1  wmt_14:language_pair=hi-en,model=google_text-bison@001
+     1  wmt_14:language_pair=hi-en,model=google_text-unicorn@001
+     1  wmt_14:language_pair=hi-en,model=meta_llama-2-13b
+     1  wmt_14:language_pair=hi-en,model=meta_llama-2-70b
+     1  wmt_14:language_pair=hi-en,model=meta_llama-2-7b
+     1  wmt_14:language_pair=hi-en,model=meta_llama-65b
+     1  wmt_14:language_pair=hi-en,model=mistralai_mistral-7b-v0.1
+     1  wmt_14:language_pair=hi-en,model=mistralai_mixtral-8x7b-32kseqlen
+     1  wmt_14:language_pair=hi-en,model=openai_gpt-3.5-turbo-0613
+     1  wmt_14:language_pair=hi-en,model=openai_gpt-4-0613
+     1  wmt_14:language_pair=hi-en,model=openai_gpt-4-1106-preview
+     1  wmt_14:language_pair=hi-en,model=openai_text-davinci-002
+     1  wmt_14:language_pair=hi-en,model=openai_text-davinci-003
+     1  wmt_14:language_pair=hi-en,model=tiiuae_falcon-40b
+     1  wmt_14:language_pair=hi-en,model=tiiuae_falcon-7b
+     1  wmt_14:language_pair=hi-en,model=writer_palmyra-x-v2
+     1  wmt_14:language_pair=hi-en,model=writer_palmyra-x-v3
+     1  wmt_14:language_pair=ru-en,model=01-ai_yi-34b
+     1  wmt_14:language_pair=ru-en,model=01-ai_yi-6b
+     1  wmt_14:language_pair=ru-en,model=AlephAlpha_luminous-base
+     1  wmt_14:language_pair=ru-en,model=AlephAlpha_luminous-extended
+     1  wmt_14:language_pair=ru-en,model=AlephAlpha_luminous-supreme
+     1  wmt_14:language_pair=ru-en,model=ai21_j2-grande
+     1  wmt_14:language_pair=ru-en,model=ai21_j2-jumbo
+     1  wmt_14:language_pair=ru-en,model=anthropic_claude-2.0
+     1  wmt_14:language_pair=ru-en,model=anthropic_claude-2.1
+     1  wmt_14:language_pair=ru-en,model=anthropic_claude-instant-1.2
+     1  wmt_14:language_pair=ru-en,model=anthropic_claude-instant-v1
+     1  wmt_14:language_pair=ru-en,model=anthropic_claude-v1.3
+     1  wmt_14:language_pair=ru-en,model=cohere_command
+     1  wmt_14:language_pair=ru-en,model=cohere_command-light
+     1  wmt_14:language_pair=ru-en,model=google_text-bison@001
+     1  wmt_14:language_pair=ru-en,model=google_text-unicorn@001
+     1  wmt_14:language_pair=ru-en,model=meta_llama-2-13b
+     1  wmt_14:language_pair=ru-en,model=meta_llama-2-70b
+     1  wmt_14:language_pair=ru-en,model=meta_llama-2-7b
+     1  wmt_14:language_pair=ru-en,model=meta_llama-65b
+     1  wmt_14:language_pair=ru-en,model=mistralai_mistral-7b-v0.1
+     1  wmt_14:language_pair=ru-en,model=mistralai_mixtral-8x7b-32kseqlen
+     1  wmt_14:language_pair=ru-en,model=openai_gpt-3.5-turbo-0613
+     1  wmt_14:language_pair=ru-en,model=openai_gpt-4-0613
+     1  wmt_14:language_pair=ru-en,model=openai_gpt-4-1106-preview
+     1  wmt_14:language_pair=ru-en,model=openai_text-davinci-002
+     1  wmt_14:language_pair=ru-en,model=openai_text-davinci-003
+     1  wmt_14:language_pair=ru-en,model=tiiuae_falcon-40b
+     1  wmt_14:language_pair=ru-en,model=tiiuae_falcon-7b
+     1  wmt_14:language_pair=ru-en,model=writer_palmyra-x-v2
+     1  wmt_14:language_pair=ru-en,model=writer_palmyra-x-v3
+wrote /home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/inventory.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2718  redactions: none
+==============================================================================
+[seq 6] 2026-10-14T06:06:13+00:00
+$ python3 EXPERIMENTS/136-leaderboard-free-text-aggregate/fetch_cells.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+ 200     15371  groups.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 404         0  math__benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 404         0  mmlu__benchmark_output/runs/v1.0.0/mmlu:subject=abstract_algebra,method=multiple_choice_joint__run_spec.json
+ 404         0  mmlu__benchmark_output/runs/v1.0.0/mmlu:subject=abstract_algebra,method=multiple_choice_joint__scenario_state.json
+ 404         0  mmlu__benchmark_output/runs/v1.0.0/mmlu:subject=abstract_algebra,method=multiple_choice_joint__stats.json
+ 404         0  mmlu__benchmark_output/runs/v1.0.0/mmlu:subject=college_chemistry,method=multiple_choice_joint__run_spec.json
+ 404         0  mmlu__benchmark_output/runs/v1.0.0/mmlu:subject=college_chemistry,method=multiple_choice_joint__scenario_state.json
+ 404         0  mmlu__benchmark_output/runs/v1.0.0/mmlu:subject=college_chemistry,method=multiple_choice_joint__stats.json
+ 404         0  mmlu__benchmark_output/runs/v1.0.0/mmlu:subject=computer_security,method=multiple_choice_joint__run_spec.json
+ 404         0  mmlu__benchmark_output/runs/v1.0.0/mmlu:subject=computer_security,method=multiple_choice_joint__scenario_state.json
+ 404         0  mmlu__benchmark_output/runs/v1.0.0/mmlu:subject=computer_security,method=multiple_choice_joint__stats.json
+ 404         0  mmlu__benchmark_output/runs/v1.0.0/mmlu:subject=econometrics,method=multiple_choice_joint__run_spec.json
+ 404         0  mmlu__benchmark_output/runs/v1.0.0/mmlu:subject=econometrics,method=multiple_choice_joint__scenario_state.json
+ 404         0  mmlu__benchmark_output/runs/v1.0.0/mmlu:subject=econometrics,method=multiple_choice_joint__stats.json
+ 404         0  mmlu__benchmark_output/runs/v1.0.0/mmlu:subject=us_foreign_policy,method=multiple_choice_joint__run_spec.json
+ 404         0  mmlu__benchmark_output/runs/v1.0.0/mmlu:subject=us_foreign_policy,method=multiple_choice_joint__scenario_state.json
+ 404         0  mmlu__benchmark_output/runs/v1.0.0/mmlu:subject=us_foreign_policy,method=multiple_choice_joint__stats.json
+ 404         0  gsm__run_spec.json
+ 404         0  gsm__scenario_state.json
+ 404         0  gsm__stats.json
+
+1/40 fetched 200; manifest.json written
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 65615  redactions: none
+==============================================================================
+[seq 7] 2026-10-14T06:07:36+00:00
+$ python3 EXPERIMENTS/136-leaderboard-free-text-aggregate/fetch_cells.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+ 200     15371  groups.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 404         0  math__lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 404         0  mmlu__lite/benchmark_output/runs/v1.0.0/mmlu:subject=abstract_algebra,method=multiple_choice_joint__run_spec.json
+ 404         0  mmlu__lite/benchmark_output/runs/v1.0.0/mmlu:subject=abstract_algebra,method=multiple_choice_joint__scenario_state.json
+ 404         0  mmlu__lite/benchmark_output/runs/v1.0.0/mmlu:subject=abstract_algebra,method=multiple_choice_joint__stats.json
+ 404         0  mmlu__lite/benchmark_output/runs/v1.0.0/mmlu:subject=college_chemistry,method=multiple_choice_joint__run_spec.json
+ 404         0  mmlu__lite/benchmark_output/runs/v1.0.0/mmlu:subject=college_chemistry,method=multiple_choice_joint__scenario_state.json
+ 404         0  mmlu__lite/benchmark_output/runs/v1.0.0/mmlu:subject=college_chemistry,method=multiple_choice_joint__stats.json
+ 404         0  mmlu__lite/benchmark_output/runs/v1.0.0/mmlu:subject=computer_security,method=multiple_choice_joint__run_spec.json
+ 404         0  mmlu__lite/benchmark_output/runs/v1.0.0/mmlu:subject=computer_security,method=multiple_choice_joint__scenario_state.json
+ 404         0  mmlu__lite/benchmark_output/runs/v1.0.0/mmlu:subject=computer_security,method=multiple_choice_joint__stats.json
+ 404         0  mmlu__lite/benchmark_output/runs/v1.0.0/mmlu:subject=econometrics,method=multiple_choice_joint__run_spec.json
+ 404         0  mmlu__lite/benchmark_output/runs/v1.0.0/mmlu:subject=econometrics,method=multiple_choice_joint__scenario_state.json
+ 404         0  mmlu__lite/benchmark_output/runs/v1.0.0/mmlu:subject=econometrics,method=multiple_choice_joint__stats.json
+ 404         0  mmlu__lite/benchmark_output/runs/v1.0.0/mmlu:subject=us_foreign_policy,method=multiple_choice_joint__run_spec.json
+ 404         0  mmlu__lite/benchmark_output/runs/v1.0.0/mmlu:subject=us_foreign_policy,method=multiple_choice_joint__scenario_state.json
+ 404         0  mmlu__lite/benchmark_output/runs/v1.0.0/mmlu:subject=us_foreign_policy,method=multiple_choice_joint__stats.json
+ 404         0  gsm__run_spec.json
+ 404         0  gsm__scenario_state.json
+ 404         0  gsm__stats.json
+
+1/40 fetched 200; manifest.json written
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 62902  redactions: none
+==============================================================================
+[seq 8] 2026-10-14T06:08:42+00:00
+$ python3 EXPERIMENTS/136-leaderboard-free-text-aggregate/fetch_cells.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+ 200     15371  groups.json
+ 200      1735  math__math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 200    608315  math__math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 200     19849  math__math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 200      1769  math__math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 200    189407  math__math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 200     19868  math__math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 200      1737  math__math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 200    305483  math__math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 200     19859  math__math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 200      1761  math__math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 200    393731  math__math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 200     19886  math__math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 200      1747  math__math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 200    156602  math__math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 200     19720  math__math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 200      1741  math__math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 200    451395  math__math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 200     19877  math__math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 200      1743  math__math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True__run_spec.json
+ 200    266213  math__math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True__scenario_state.json
+ 200     19883  math__math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True__stats.json
+ 200      1692  mmlu__mmlu:subject=abstract_algebra,method=multiple_choice_joint__run_spec.json
+ 200    352521  mmlu__mmlu:subject=abstract_algebra,method=multiple_choice_joint__scenario_state.json
+ 200     54919  mmlu__mmlu:subject=abstract_algebra,method=multiple_choice_joint__stats.json
+ 200      1695  mmlu__mmlu:subject=college_chemistry,method=multiple_choice_joint__run_spec.json
+ 200    418241  mmlu__mmlu:subject=college_chemistry,method=multiple_choice_joint__scenario_state.json
+ 200     53315  mmlu__mmlu:subject=college_chemistry,method=multiple_choice_joint__stats.json
+ 200      1695  mmlu__mmlu:subject=computer_security,method=multiple_choice_joint__run_spec.json
+ 200    414565  mmlu__mmlu:subject=computer_security,method=multiple_choice_joint__scenario_state.json
+ 200     54607  mmlu__mmlu:subject=computer_security,method=multiple_choice_joint__stats.json
+ 200      1680  mmlu__mmlu:subject=econometrics,method=multiple_choice_joint__run_spec.json
+ 200    576134  mmlu__mmlu:subject=econometrics,method=multiple_choice_joint__scenario_state.json
+ 200     56452  mmlu__mmlu:subject=econometrics,method=multiple_choice_joint__stats.json
+ 200      1695  mmlu__mmlu:subject=us_foreign_policy,method=multiple_choice_joint__run_spec.json
+ 200    475315  mmlu__mmlu:subject=us_foreign_policy,method=multiple_choice_joint__scenario_state.json
+ 200     53119  mmlu__mmlu:subject=us_foreign_policy,method=multiple_choice_joint__stats.json
+ 200      1439  gsm__run_spec.json
+ 200   5632163  gsm__scenario_state.json
+ 200     20511  gsm__stats.json
+
+40/40 fetched 200; manifest.json written
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 47499  redactions: none
+==============================================================================
+[seq 9] 2026-10-14T06:09:27+00:00
+$ curl -s --max-time 60 https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/releases/v1.0.0/groups/math_chain_of_thought.json -o /tmp/opencode/e136/group_math_chain_of_thought.json -w math-group %{http_code} %{size_download}\n
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+math-group 200 671251
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2139  redactions: none
+==============================================================================
+[seq 10] 2026-10-14T06:12:01+00:00
+$ bash -c for s in algebra counting_and_probability geometry intermediate_algebra number_theory prealgebra precalculus; do curl -s --max-time 60 "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=$s,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-34b/per_instance_stats.json" -o "/tmp/opencode/e136/pis_math_$s.json" -w "$s %{http_code} %{size_download}\n"; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+algebra 200 752487
+counting_and_probability 200 217477
+geometry 200 211970
+intermediate_algebra 200 290053
+number_theory 200 167371
+prealgebra 200 479832
+precalculus 200 317934
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 12114  redactions: none
+==============================================================================
+[seq 11] 2026-10-14T06:13:49+00:00
+$ python3 EXPERIMENTS/136-leaderboard-free-text-aggregate/recompute_math.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+algebra                recomputed  76/135 = 0.562962962962963    printed 0.562962962962963    match=True row-agree 135/135
+counting_and_probability recomputed  12/39  = 0.3076923076923077   printed 0.3076923076923077   match=True row-agree 37/39
+geometry               recomputed  12/38  = 0.3157894736842105   printed 0.3157894736842105   match=True row-agree 38/38
+intermediate_algebra   recomputed  21/52  = 0.40384615384615385  printed 0.38461538461538464  match=False row-agree 51/52
+number_theory          recomputed   5/30  = 0.16666666666666666  printed 0.16666666666666666  match=True row-agree 30/30
+prealgebra             recomputed  46/86  = 0.5348837209302325   printed 0.5348837209302325   match=True row-agree 84/86
+precalculus            recomputed  20/57  = 0.3508771929824561   printed 0.3508771929824561   match=True row-agree 57/57
+
+rows recomputed            : 437
+row-level verdict agreement: 432/437
+RECOMPUTED macro (mean of 7 subject means): 0.3775312112521415
+RECOMPUTED micro (pooled 945 rows)         : 0.43935926773455375
+PUBLISHED group value                      : 0.37478395850488877
+macro == published (full precision)        : False
+diff macro-published                       : 0.0027472527472527375
+
+no-boxed completions       : 95 (harness scored 0 of them 1.0)
+
+
+[stderr]
+<string>:1: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:1: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:1: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:1: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 335  redactions: none
+==============================================================================
+[seq 12] 2026-10-14T06:14:28+00:00
+$ python3 EXPERIMENTS/136-leaderboard-free-text-aggregate/disagree_rows.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== counting_and_probability / id51  mine=1 harness=0.0
+    gold raw : '\\frac{7}{12}'
+    pred raw : '\\frac{35}{60}'
+    gold norm: '((35)/(60))'  eval=0.5833333333333334
+    pred norm: '((35)/(60))'  eval=0.5833333333333334
+=== counting_and_probability / id87  mine=0 harness=1.0
+    gold raw : '\\frac14'
+    pred raw : '\\frac{1}{4}'
+    gold norm: '((1)/(4))'  eval=0.25
+    pred norm: '((1)/(4))'  eval=0.25
+=== intermediate_algebra / id74  mine=1 harness=0.0
+    gold raw : '\\frac{3}{2}'
+    pred raw : '1.5'
+    gold norm: '1.5'  eval=1.5
+    pred norm: '1.5'  eval=1.5
+=== prealgebra / id137  mine=1 harness=0.0
+    gold raw : '\\frac{4}{11}'
+    pred raw : '\\frac{44}{121}'
+    gold norm: '((44)/(121))'  eval=0.36363636363636365
+    pred norm: '((44)/(121))'  eval=0.36363636363636365
+=== prealgebra / id168  mine=0 harness=1.0
+    gold raw : '8\\frac47'
+    pred raw : '8\\frac{4}{7}'
+    gold norm: '8((4)/(7))'  eval=None
+    pred norm: '8((4)/(7))'  eval=None
+
+
+[stderr]
+<string>:1: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:1: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:1: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:1: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:1: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:1: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 320  redactions: none
+==============================================================================
+[seq 13] 2026-10-14T06:16:25+00:00
+$ python3 EXPERIMENTS/136-leaderboard-free-text-aggregate/recompute_math.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+algebra                recomputed  76/135 = 0.562962962962963    printed 0.562962962962963    match=True row-agree 135/135
+counting_and_probability recomputed  12/39  = 0.3076923076923077   printed 0.3076923076923077   match=True row-agree 39/39
+geometry               recomputed  12/38  = 0.3157894736842105   printed 0.3157894736842105   match=True row-agree 38/38
+intermediate_algebra   recomputed  20/52  = 0.38461538461538464  printed 0.38461538461538464  match=True row-agree 52/52
+number_theory          recomputed   5/30  = 0.16666666666666666  printed 0.16666666666666666  match=True row-agree 30/30
+prealgebra             recomputed  46/86  = 0.5348837209302325   printed 0.5348837209302325   match=True row-agree 86/86
+precalculus            recomputed  20/57  = 0.3508771929824561   printed 0.3508771929824561   match=True row-agree 57/57
+
+rows recomputed            : 437
+row-level verdict agreement: 437/437
+RECOMPUTED macro (mean of 7 subject means): 0.37478395850488877
+RECOMPUTED micro (pooled 945 rows)         : 0.43707093821510296
+PUBLISHED group value                      : 0.37478395850488877
+macro == published (full precision)        : True
+diff macro-published                       : 0.0
+
+no-boxed completions       : 95 (harness scored 0 of them 1.0)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 307  redactions: none
+==============================================================================
+[seq 14] 2026-10-14T06:17:22+00:00
+$ python3 EXPERIMENTS/136-leaderboard-free-text-aggregate/recompute_math.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+algebra                recomputed  76/135 = 0.562962962962963    printed 0.562962962962963    match=True row-agree 135/135
+counting_and_probability recomputed  12/39  = 0.3076923076923077   printed 0.3076923076923077   match=True row-agree 39/39
+geometry               recomputed  12/38  = 0.3157894736842105   printed 0.3157894736842105   match=True row-agree 38/38
+intermediate_algebra   recomputed  20/52  = 0.38461538461538464  printed 0.38461538461538464  match=True row-agree 52/52
+number_theory          recomputed   5/30  = 0.16666666666666666  printed 0.16666666666666666  match=True row-agree 30/30
+prealgebra             recomputed  46/86  = 0.5348837209302325   printed 0.5348837209302325   match=True row-agree 86/86
+precalculus            recomputed  20/57  = 0.3508771929824561   printed 0.3508771929824561   match=True row-agree 57/57
+
+rows recomputed            : 437
+row-level verdict agreement: 437/437
+RECOMPUTED macro (mean of 7 subject means): 0.37478395850488877
+RECOMPUTED micro (pooled 437 rows)        : 0.43707093821510296
+PUBLISHED group value                      : 0.37478395850488877
+macro == published (full precision)        : True
+diff macro-published                       : 0.0
+
+no-boxed completions       : 95 (harness scored 0 of them 1.0)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 324  redactions: none
+==============================================================================
+[seq 15] 2026-10-14T06:17:50+00:00
+$ python3 EXPERIMENTS/136-leaderboard-free-text-aggregate/manifest_fetched.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+48/48 bytes hashed; /home/ubuntu/think-free/EXPERIMENTS/136-leaderboard-free-text-aggregate/fetched-manifest.json written
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 212  redactions: none
