@@ -1,0 +1,62 @@
+# E140 J1 — the shipped LLM judge rubric, copied verbatim
+#
+# Provenance
+#   project:  UKGovernmentBEIS/inspect_ai
+#   file:     src/inspect_ai/scorer/_model.py
+#   ref:      main
+#   fetched:  2026-10-14, https://raw.githubusercontent.com/UKGovernmentBEIS/inspect_ai/main/src/inspect_ai/scorer/_model.py
+#   used:     model_graded_fact scorer, with its default template, its default
+#             instructions, and its default grade pattern, none edited.
+#   sha256:   recorded in PROTOCOL.md as RUBRIC_SHA256.
+#
+# Nothing below this line is paraphrase. The judge is asked, item for item, to
+# reproduce the rubric exactly and to answer only with the grade.
+#
+# ---------------------------------------------------------------------------
+DEFAULT_MODEL_GRADED_FACT_TEMPLATE
+"""You are comparing a submitted answer to an expert answer on a given question. Here is the data:
+
+[BEGIN DATA]
+************
+[Question]: {question}
+************
+[Expert]: {criterion}
+************
+[Submission]: {answer}
+************
+[END DATA]
+
+Compare the factual content of the submitted answer with the expert answer. Ignore any differences in style, grammar, or punctuation.
+
+Does the submission contain the content in the expert answer?
+
+{instructions}
+"""
+
+# ---------------------------------------------------------------------------
+default_instructions(partial_credit=False)
+"""
+After assessing the submitted answer, reply with 'GRADE: $LETTER' (without quotes) where LETTER is one of CI.  Please choose ONE option for the grade: either "C" for correct answers, or "I" for incorrect answers.
+
+For example, after reviewing a correct answer you might write 'GRADE: C' or after reviewing an incorrect answer you might write 'GRADE: I'.
+
+First, write out in a step by step manner your reasoning about the criterion to be sure that your conclusion is correct. Avoid simply stating the correct answers at the outset. Then, end with your answer formatted as 'GRADE: $LETTER' (without quotes) where LETTER is one of CI.
+"""
+
+# ---------------------------------------------------------------------------
+# DEFAULT_GRADE_PATTERN, the library's own docstring, quoted so the reason the
+# leading ".*" exists is not lost:
+#
+#   The leading greedy ``.*`` (with DOTALL) ensures ``re.search`` binds to the
+#   *last* ``GRADE: X`` in the grader output - the instructions tell the grader
+#   to end with the grade, so earlier mentions (e.g. echoed in chain-of-thought
+#   or injected via the submission) must not win.
+#
+#   (?is).*(?<!\w)GRADE(?!\w)[\s\u200b\u200c\u200d\u200e\u200f\u2060\u2063\ufeff]*:
+#   [\s\u200b\u200c\u200d\u200e\u200f\u2060\u2063\ufeff]*([CPI])
+#
+# Prompt-injection neutralisation applied by the library to dataset-controlled
+# inputs (neutralize_structural_delimiters), also reproduced verbatim:
+#
+#   _STRUCTURAL_DELIMITER_RE = re.compile(r"\[(BEGIN|END) DATA\]", re.IGNORECASE)
+#   -> m.group(0).replace(" ", "-")
