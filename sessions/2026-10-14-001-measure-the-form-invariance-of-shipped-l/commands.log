@@ -1,0 +1,1290 @@
+==============================================================================
+[seq 6] 2026-10-14T00:48:12+00:00
+$ python3 build_arms.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/140-judge-form-invariance
+------------------------------------------------------------------------------
+[stderr]
+/usr/lib/python3/dist-packages/requests/__init__.py:89: RequestsDependencyWarning: urllib3 (2.2.3) or chardet (3.0.4) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+Traceback (most recent call last):
+  File "build_arms.py", line 170, in <module>
+    sys.exit(main())
+  File "build_arms.py", line 94, in main
+    docs[num] = e114_controls.load(E114, num)
+  File "/home/ubuntu/think-free/EXPERIMENTS/140-judge-form-invariance/../114-value-grounding/controls.py", line 36, in load
+    with open(os.path.join(rawdir, "text", num + ".txt"), "rb") as fh:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/think-free/EXPERIMENTS/140-judge-form-invariance/../114-value-grounding/text/2026-20748.txt'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 930  redactions: none
+==============================================================================
+[seq 7] 2026-10-14T00:48:22+00:00
+$ python3 build_arms.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/140-judge-form-invariance
+------------------------------------------------------------------------------
+{
+ "arms_written": 56,
+ "batches": 9,
+ "items": 15,
+ "judge_items": 45,
+ "judge_subset": [
+  "2026-20748",
+  "2026-20834",
+  "2026-20860",
+  "2026-20861",
+  "2026-20889"
+ ],
+ "k4_dropped": [
+  {
+   "arm": "C",
+   "document_number": "2026-20748",
+   "reason": "corrupter found nothing confusable"
+  },
+  {
+   "arm": "P",
+   "document_number": "2026-20748"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20748"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834",
+   "reason": "corrupter found nothing confusable"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834"
+  },
+  {
+   "arm": "P",
+   "document_number": "2026-20834"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20860",
+   "reason": "corrupter found nothing confusable"
+  },
+  {
+   "arm": "P",
+   "document_number": "2026-20860"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20861",
+   "reason": "corrupter found nothing confusable"
+  },
+  {
+   "arm": "P",
+   "document_number": "2026-20861"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20861"
+  },
+  {
+   "arm": "P",
+   "document_number": "2026-20889"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20889"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20889"
+  },
+  {
+   "arm": "P",
+   "document_number": "2026-20889"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20889"
+  }
+ ],
+ "p2_items": 5
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 505  redactions: none
+==============================================================================
+[seq 8] 2026-10-14T00:48:28+00:00
+$ python3 build_arms.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/140-judge-form-invariance
+------------------------------------------------------------------------------
+{
+ "arms_written": 56,
+ "batches": 9,
+ "items": 15,
+ "judge_items": 45,
+ "judge_subset": [
+  "2026-20748",
+  "2026-20834",
+  "2026-20860",
+  "2026-20861",
+  "2026-20889"
+ ],
+ "k4_dropped": [
+  {
+   "arm": "C",
+   "document_number": "2026-20748",
+   "reason": "corrupter found nothing confusable"
+  },
+  {
+   "arm": "P",
+   "document_number": "2026-20748"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20748"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834",
+   "reason": "corrupter found nothing confusable"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834"
+  },
+  {
+   "arm": "P",
+   "document_number": "2026-20834"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20860",
+   "reason": "corrupter found nothing confusable"
+  },
+  {
+   "arm": "P",
+   "document_number": "2026-20860"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20861",
+   "reason": "corrupter found nothing confusable"
+  },
+  {
+   "arm": "P",
+   "document_number": "2026-20861"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20861"
+  },
+  {
+   "arm": "P",
+   "document_number": "2026-20889"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20889"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20889"
+  },
+  {
+   "arm": "P",
+   "document_number": "2026-20889"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20889"
+  }
+ ],
+ "p2_items": 5
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 496  redactions: none
+==============================================================================
+[seq 9] 2026-10-14T00:50:27+00:00
+$ python3 build_arms.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/140-judge-form-invariance
+------------------------------------------------------------------------------
+{
+ "arms_written": 56,
+ "batches": 6,
+ "items": 15,
+ "judge_items": 30,
+ "judge_subset": [
+  [
+   "2026-20748",
+   "List every CFR section citation, U.S.C. section, docket number, and FR document number in this document."
+  ],
+  [
+   "2026-20748",
+   "List every date in this document and what it applies to."
+  ],
+  [
+   "2026-20748",
+   "List every dollar amount stated in this document, with what it applies to."
+  ],
+  [
+   "2026-20834",
+   "List every date in this document and what it applies to."
+  ],
+  [
+   "2026-20834",
+   "List every dollar amount stated in this document, with what it applies to."
+  ],
+  [
+   "2026-20860",
+   "List every CFR section citation, U.S.C. section, docket number, and FR document number in this document."
+  ],
+  [
+   "2026-20860",
+   "List every date in this document and what it applies to."
+  ],
+  [
+   "2026-20861",
+   "List every CFR section citation, U.S.C. section, docket number, and FR document number in this document."
+  ],
+  [
+   "2026-20861",
+   "List every dollar amount stated in this document, with what it applies to."
+  ],
+  [
+   "2026-20889",
+   "List every CFR section citation, U.S.C. section, docket number, and FR document number in this document."
+  ]
+ ],
+ "k4_dropped": [
+  {
+   "arm": "P",
+   "document_number": "2026-20748"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20748"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20748",
+   "reason": "corrupter found nothing corruptible"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834",
+   "reason": "corrupter found nothing corruptible"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20860",
+   "reason": "corrupter found nothing corruptible"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20861"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20861",
+   "reason": "corrupter found nothing corruptible"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20889"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20889"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20889"
+  }
+ ],
+ "p2_items": 5
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 682  redactions: none
+==============================================================================
+[seq 10] 2026-10-14T00:50:34+00:00
+$ python3 build_arms.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/140-judge-form-invariance
+------------------------------------------------------------------------------
+{
+ "arms_written": 56,
+ "batches": 6,
+ "items": 15,
+ "judge_items": 30,
+ "judge_subset": [
+  [
+   "2026-20748",
+   "List every CFR section citation, U.S.C. section, docket number, and FR document number in this document."
+  ],
+  [
+   "2026-20748",
+   "List every date in this document and what it applies to."
+  ],
+  [
+   "2026-20748",
+   "List every dollar amount stated in this document, with what it applies to."
+  ],
+  [
+   "2026-20834",
+   "List every date in this document and what it applies to."
+  ],
+  [
+   "2026-20834",
+   "List every dollar amount stated in this document, with what it applies to."
+  ],
+  [
+   "2026-20860",
+   "List every CFR section citation, U.S.C. section, docket number, and FR document number in this document."
+  ],
+  [
+   "2026-20860",
+   "List every date in this document and what it applies to."
+  ],
+  [
+   "2026-20861",
+   "List every CFR section citation, U.S.C. section, docket number, and FR document number in this document."
+  ],
+  [
+   "2026-20861",
+   "List every dollar amount stated in this document, with what it applies to."
+  ],
+  [
+   "2026-20889",
+   "List every CFR section citation, U.S.C. section, docket number, and FR document number in this document."
+  ]
+ ],
+ "k4_dropped": [
+  {
+   "arm": "P",
+   "document_number": "2026-20748"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20748"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20748",
+   "reason": "corrupter found nothing corruptible"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834",
+   "reason": "corrupter found nothing corruptible"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20860",
+   "reason": "corrupter found nothing corruptible"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20861"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20861",
+   "reason": "corrupter found nothing corruptible"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20889"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20889"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20889"
+  }
+ ],
+ "p2_items": 5
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1488  redactions: none
+==============================================================================
+[seq 11] 2026-10-14T00:54:03+00:00
+$ python3 build_arms.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+python3: can't open file 'build_arms.py': [Errno 2] No such file or directory
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 94  redactions: none
+==============================================================================
+[seq 12] 2026-10-14T00:54:12+00:00
+$ python3 ./build_arms.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/140-judge-form-invariance
+------------------------------------------------------------------------------
+{
+ "arms_written": 56,
+ "batches": 6,
+ "items": 15,
+ "judge_items": 27,
+ "judge_subset": [
+  [
+   "2026-20748",
+   "List every CFR section citation, U.S.C. section, docket number, and FR document number in this document."
+  ],
+  [
+   "2026-20748",
+   "List every date in this document and what it applies to."
+  ],
+  [
+   "2026-20748",
+   "List every dollar amount stated in this document, with what it applies to."
+  ],
+  [
+   "2026-20834",
+   "List every date in this document and what it applies to."
+  ],
+  [
+   "2026-20834",
+   "List every dollar amount stated in this document, with what it applies to."
+  ],
+  [
+   "2026-20860",
+   "List every CFR section citation, U.S.C. section, docket number, and FR document number in this document."
+  ],
+  [
+   "2026-20860",
+   "List every date in this document and what it applies to."
+  ],
+  [
+   "2026-20861",
+   "List every CFR section citation, U.S.C. section, docket number, and FR document number in this document."
+  ],
+  [
+   "2026-20861",
+   "List every dollar amount stated in this document, with what it applies to."
+  ],
+  [
+   "2026-20889",
+   "List every CFR section citation, U.S.C. section, docket number, and FR document number in this document."
+  ]
+ ],
+ "k4_dropped": [
+  {
+   "arm": "C",
+   "document_number": "2026-20748"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20748",
+   "reason": "no extractable value to corrupt; C == V"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834",
+   "reason": "no extractable value to corrupt; C == V"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20860",
+   "reason": "no extractable value to corrupt; C == V"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20861"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20861",
+   "reason": "no extractable value to corrupt; C == V"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20889"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20889"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20889"
+  }
+ ],
+ "p2_items": 5
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 624  redactions: none
+==============================================================================
+[seq 13] 2026-10-14T00:54:47+00:00
+$ python3 ./build_arms.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/140-judge-form-invariance
+------------------------------------------------------------------------------
+{
+ "arms_written": 56,
+ "batches": 6,
+ "items": 15,
+ "judge_items": 27,
+ "judge_subset": [
+  [
+   "2026-20748",
+   "List every CFR section citation, U.S.C. section, docket number, and FR document number in this document."
+  ],
+  [
+   "2026-20748",
+   "List every date in this document and what it applies to."
+  ],
+  [
+   "2026-20748",
+   "List every dollar amount stated in this document, with what it applies to."
+  ],
+  [
+   "2026-20834",
+   "List every date in this document and what it applies to."
+  ],
+  [
+   "2026-20834",
+   "List every dollar amount stated in this document, with what it applies to."
+  ],
+  [
+   "2026-20860",
+   "List every CFR section citation, U.S.C. section, docket number, and FR document number in this document."
+  ],
+  [
+   "2026-20860",
+   "List every date in this document and what it applies to."
+  ],
+  [
+   "2026-20861",
+   "List every CFR section citation, U.S.C. section, docket number, and FR document number in this document."
+  ],
+  [
+   "2026-20861",
+   "List every dollar amount stated in this document, with what it applies to."
+  ],
+  [
+   "2026-20889",
+   "List every CFR section citation, U.S.C. section, docket number, and FR document number in this document."
+  ]
+ ],
+ "k4_dropped": [
+  {
+   "arm": "C",
+   "document_number": "2026-20748",
+   "reason": "corruption changed 0 values, expected 1"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20748",
+   "reason": "no extractable value to corrupt; C == V"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834",
+   "reason": "corruption changed 0 values, expected 1"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20834",
+   "reason": "no extractable value to corrupt; C == V"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20860",
+   "reason": "corruption changed 0 values, expected 1"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20860",
+   "reason": "corruption changed 0 values, expected 1"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20860",
+   "reason": "no extractable value to corrupt; C == V"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20861",
+   "reason": "corruption changed 0 values, expected 1"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20861",
+   "reason": "corruption changed 0 values, expected 1"
+  },
+  {
+   "arm": "C",
+   "document_number": "2026-20861",
+   "reason": "no extractable value to corrupt; C == V"
+  }
+ ],
+ "p2_items": 5
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 688  redactions: none
+==============================================================================
+[seq 15] 2026-10-14T00:58:35+00:00
+$ python3 finalize_p2.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+python3: can't open file 'finalize_p2.py': [Errno 2] No such file or directory
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 188  redactions: none
+==============================================================================
+[seq 16] 2026-10-14T00:58:40+00:00
+$ python3 EXPERIMENTS/140-judge-form-invariance/finalize_p2.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "arms_written": 59,
+ "batches": 6,
+ "judge_items": 30,
+ "k4_dropped": [
+  {
+   "arm": "P2",
+   "document_number": "2026-20748",
+   "reason": "canonical value multiset differs from V"
+  },
+  {
+   "arm": "P2",
+   "document_number": "2026-20834",
+   "reason": "canonical value multiset differs from V"
+  }
+ ],
+ "p2_items_kept": 3,
+ "p2_items_written": 5,
+ "p2_sha256": "f63d8a96530fce645bc903406795adf06fb0f8fc2b3983d18ec67d0edf1fabc3"
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 397  redactions: none
+==============================================================================
+[seq 17] 2026-10-14T00:59:18+00:00
+$ python3 EXPERIMENTS/140-judge-form-invariance/finalize_p2.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "arms_written": 60,
+ "batches": 7,
+ "judge_items": 31,
+ "k4_dropped": [
+  {
+   "arm": "P2",
+   "document_number": "2026-20748",
+   "reason": "canonical value multiset differs from V"
+  }
+ ],
+ "p2_items_kept": 4,
+ "p2_items_written": 5,
+ "p2_sha256": "f63d8a96530fce645bc903406795adf06fb0f8fc2b3983d18ec67d0edf1fabc3"
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 182  redactions: none
+==============================================================================
+[seq 18] 2026-10-14T01:00:43+00:00
+$ python3 EXPERIMENTS/140-judge-form-invariance/emit_judge_prompts.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+/usr/lib/python3/dist-packages/requests/__init__.py:89: RequestsDependencyWarning: urllib3 (2.2.3) or chardet (3.0.4) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+Traceback (most recent call last):
+  File "EXPERIMENTS/140-judge-form-invariance/emit_judge_prompts.py", line 139, in <module>
+    raise SystemExit(main())
+  File "EXPERIMENTS/140-judge-form-invariance/emit_judge_prompts.py", line 129, in main
+    leaked = [w for w in written
+  File "EXPERIMENTS/140-judge-form-invariance/emit_judge_prompts.py", line 130, in <listcomp>
+    if re.search(r"^\s*(arm|_key|corruption_mode)\s*[:=]", "",
+TypeError: search() takes from 2 to 3 positional arguments but 4 were given
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 869  redactions: none
+==============================================================================
+[seq 19] 2026-10-14T01:00:53+00:00
+$ python3 EXPERIMENTS/140-judge-form-invariance/emit_judge_prompts.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "prompts": [
+  {
+   "file": "batch_00.md",
+   "items": 5
+  },
+  {
+   "file": "batch_01.md",
+   "items": 5
+  },
+  {
+   "file": "batch_02.md",
+   "items": 5
+  },
+  {
+   "file": "batch_03.md",
+   "items": 5
+  },
+  {
+   "file": "batch_04.md",
+   "items": 5
+  },
+  {
+   "file": "batch_05.md",
+   "items": 5
+  },
+  {
+   "file": "batch_06.md",
+   "items": 1
+  }
+ ],
+ "total_items": 31,
+ "arm_label_leaks": []
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 99  redactions: none
+==============================================================================
+[seq 20] 2026-10-14T01:07:43+00:00
+$ python3 EXPERIMENTS/140-judge-form-invariance/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "gates": {
+  "G0": {
+   "declared": "J1 grades I on >= 0.667 of corrupted C",
+   "observed": 0.8571428571428571,
+   "pass": true
+  },
+  "K1": {
+   "declared": "M2 recall >= 0.95 on C (value unit)",
+   "observed": 0.7333333333333333,
+   "pass": false
+  },
+  "K2": {
+   "declared": "M2 false positives <= 0.02 on P (value unit)",
+   "observed": 0.0,
+   "pass": true
+  },
+  "K3": {
+   "declared": "M2 false positives <= 0.02 on V (value unit)",
+   "observed": 0.0,
+   "pass": true
+  },
+  "K4": {
+   "declared": "P and P2 canonical multiset equals V, per item",
+   "observed": {
+    "P": {
+     "items": 15,
+     "multiset_equal_to_V": 15
+    },
+    "P2": {
+     "items": 4,
+     "multiset_equal_to_V": 4
+    }
+   },
+   "pass": true
+  },
+  "kill_gate": {
+   "build_trigger_fires": false,
+   "declared": "M2 failing K1 or K2 closes the line; passing all four fires the build trigger"
+  }
+ },
+ "judge_fp": {
+  "P": {
+   "k": 0,
+   "n": 10,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.2775
+   ]
+  },
+  "P2": {
+   "k": 0,
+   "n": 4,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.4899
+   ]
+  },
+  "V": {
+   "k": 0,
+   "n": 10,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.2775
+   ]
+  }
+ },
+ "m1": {
+  "C": {
+   "flag_rate": 0.3898,
+   "values": 372
+  },
+  "K": {
+   "flag_rate": 0.3613,
+   "values": 346
+  },
+  "P": {
+   "flag_rate": 0.4651,
+   "values": 372
+  },
+  "P2": {
+   "flag_rate": 0.6019,
+   "values": 108
+  },
+  "V": {
+   "flag_rate": 0.3727,
+   "values": 373
+  }
+ },
+ "m2_false_positive_rate": {
+  "C": 0.0226,
+  "K": 0.0653,
+  "P": 0.0,
+  "P2": 0.0,
+  "V": 0.0
+ }
+}
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 4037  redactions: none
+==============================================================================
+[seq 21] 2026-10-14T01:07:56+00:00
+$ python3 EXPERIMENTS/140-judge-form-invariance/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "gates": {
+  "G0": {
+   "declared": "J1 grades I on >= 0.667 of corrupted C",
+   "observed": 0.8571428571428571,
+   "pass": true
+  },
+  "K1": {
+   "declared": "M2 recall >= 0.95 on C (value unit)",
+   "observed": 0.7333333333333333,
+   "pass": false
+  },
+  "K2": {
+   "declared": "M2 false positives <= 0.02 on P (value unit)",
+   "observed": 0.0,
+   "pass": true
+  },
+  "K3": {
+   "declared": "M2 false positives <= 0.02 on V (value unit)",
+   "observed": 0.0,
+   "pass": true
+  },
+  "K4": {
+   "declared": "P and P2 canonical multiset equals V, per item",
+   "observed": {
+    "P": {
+     "items": 15,
+     "multiset_equal_to_V": 15
+    },
+    "P2": {
+     "items": 4,
+     "multiset_equal_to_V": 4
+    }
+   },
+   "pass": true
+  },
+  "kill_gate": {
+   "build_trigger_fires": false,
+   "declared": "M2 failing K1 or K2 closes the line; passing all four fires the build trigger"
+  }
+ },
+ "judge_fp": {
+  "P": {
+   "k": 0,
+   "n": 10,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.2775
+   ]
+  },
+  "P2": {
+   "k": 0,
+   "n": 4,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.4899
+   ]
+  },
+  "V": {
+   "k": 0,
+   "n": 10,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.2775
+   ]
+  }
+ },
+ "m1": {
+  "C": {
+   "flag_rate": 0.3898,
+   "values": 372
+  },
+  "K": {
+   "flag_rate": 0.3613,
+   "values": 346
+  },
+  "P": {
+   "flag_rate": 0.4651,
+   "values": 372
+  },
+  "P2": {
+   "flag_rate": 0.6019,
+   "values": 108
+  },
+  "V": {
+   "flag_rate": 0.3727,
+   "values": 373
+  }
+ },
+ "m2_false_positive_rate": {
+  "C": 0.0226,
+  "K": 0.0653,
+  "P": 0.0,
+  "P2": 0.0,
+  "V": 0.0
+ }
+}
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 3505  redactions: none
+==============================================================================
+[seq 22] 2026-10-14T01:08:48+00:00
+$ python3 EXPERIMENTS/140-judge-form-invariance/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "gates": {
+  "G0": {
+   "declared": "J1 grades I on >= 0.667 of corrupted C",
+   "observed": 0.8571428571428571,
+   "pass": true
+  },
+  "K1": {
+   "declared": "M2 recall >= 0.95 on C (value unit)",
+   "observed": 1.0,
+   "observed_if_degenerate_items_counted": 0.7333333333333333,
+   "pass": true,
+   "unit_note": "denominator is the 11 C rows carrying a real corruption; the other 4 have no extractable value, so C == V and there is nothing to detect (AMENDMENT-4 \u00a71)"
+  },
+  "K2": {
+   "declared": "M2 false positives <= 0.02 on P (value unit)",
+   "observed": 0.0,
+   "pass": true
+  },
+  "K3": {
+   "declared": "M2 false positives <= 0.02 on V (value unit)",
+   "observed": 0.0,
+   "pass": true
+  },
+  "K4": {
+   "declared": "P and P2 canonical multiset equals V, per item",
+   "observed": {
+    "P": {
+     "items": 15,
+     "multiset_equal_to_V": 15
+    },
+    "P2": {
+     "items": 4,
+     "multiset_equal_to_V": 4
+    }
+   },
+   "pass": true
+  },
+  "kill_gate": {
+   "build_trigger_fires": true,
+   "declared": "M2 failing K1 or K2 closes the line; passing all four fires the build trigger"
+  }
+ },
+ "judge_fp": {
+  "P": {
+   "k": 0,
+   "n": 10,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.2775
+   ]
+  },
+  "P2": {
+   "k": 0,
+   "n": 4,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.4899
+   ]
+  },
+  "V": {
+   "k": 0,
+   "n": 10,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.2775
+   ]
+  }
+ },
+ "m1": {
+  "C": {
+   "flag_rate": 0.3898,
+   "values": 372
+  },
+  "K": {
+   "flag_rate": 0.3613,
+   "values": 346
+  },
+  "P": {
+   "flag_rate": 0.4651,
+   "values": 372
+  },
+  "P2": {
+   "flag_rate": 0.6019,
+   "values": 108
+  },
+  "V": {
+   "flag_rate": 0.3727,
+   "values": 373
+  }
+ },
+ "m2_false_positive_rate": {
+  "C": 0.0226,
+  "K": 0.0653,
+  "P": 0.0,
+  "P2": 0.0,
+  "V": 0.0
+ }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3415  redactions: none
+==============================================================================
+[seq 23] 2026-10-14T01:09:24+00:00
+$ python3 EXPERIMENTS/140-judge-form-invariance/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "gates": {
+  "G0": {
+   "declared": "J1 grades I on >= 0.667 of corrupted C",
+   "observed": 0.8571428571428571,
+   "pass": true
+  },
+  "K1": {
+   "declared": "M2 recall >= 0.95 on C (value unit)",
+   "observed": 1.0,
+   "observed_if_degenerate_items_counted": 0.7333333333333333,
+   "pass": true,
+   "unit_note": "denominator is the 11 C rows carrying a real corruption; the other 4 have no extractable value, so C == V and there is nothing to detect (AMENDMENT-4 \u00a71)"
+  },
+  "K2": {
+   "declared": "M2 false positives <= 0.02 on P (value unit)",
+   "observed": 0.0,
+   "pass": true
+  },
+  "K3": {
+   "declared": "M2 false positives <= 0.02 on V (value unit)",
+   "observed": 0.0,
+   "pass": true
+  },
+  "K4": {
+   "declared": "P and P2 canonical multiset equals V, per item",
+   "observed": {
+    "P": {
+     "items": 15,
+     "multiset_equal_to_V": 15
+    },
+    "P2": {
+     "items": 4,
+     "multiset_equal_to_V": 4
+    }
+   },
+   "pass": true
+  },
+  "kill_gate": {
+   "build_trigger_fires": true,
+   "declared": "M2 failing K1 or K2 closes the line; passing all four fires the build trigger"
+  }
+ },
+ "judge_fp": {
+  "P": {
+   "k": 0,
+   "n": 10,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.2775
+   ]
+  },
+  "P2": {
+   "k": 0,
+   "n": 4,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.4899
+   ]
+  },
+  "V": {
+   "k": 0,
+   "n": 10,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.2775
+   ]
+  }
+ },
+ "m1": {
+  "C": {
+   "flag_rate": 0.3898,
+   "values": 372
+  },
+  "K": {
+   "flag_rate": 0.3613,
+   "values": 346
+  },
+  "P": {
+   "flag_rate": 0.4651,
+   "values": 372
+  },
+  "P2": {
+   "flag_rate": 0.6019,
+   "values": 108
+  },
+  "V": {
+   "flag_rate": 0.3727,
+   "values": 373
+  }
+ },
+ "m2_false_positive_rate": {
+  "C": 0.0226,
+  "K": 0.0653,
+  "P": 0.0,
+  "P2": 0.0,
+  "V": 0.0
+ }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4310  redactions: none
+==============================================================================
+[seq 24] 2026-10-14T01:09:59+00:00
+$ python3 EXPERIMENTS/140-judge-form-invariance/misattribution.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "built": 6,
+ "dropped": [
+  {
+   "document_number": "2026-20748",
+   "reason": "canonical multiset changed"
+  },
+  {
+   "document_number": "2026-20748",
+   "reason": "no two single-value clauses of one kind"
+  },
+  {
+   "document_number": "2026-20834",
+   "reason": "canonical multiset changed"
+  },
+  {
+   "document_number": "2026-20834",
+   "reason": "no two single-value clauses of one kind"
+  },
+  {
+   "document_number": "2026-20860",
+   "reason": "canonical multiset changed"
+  },
+  {
+   "document_number": "2026-20860",
+   "reason": "no two single-value clauses of one kind"
+  },
+  {
+   "document_number": "2026-20861",
+   "reason": "canonical multiset changed"
+  },
+  {
+   "document_number": "2026-20861",
+   "reason": "no two single-value clauses of one kind"
+  },
+  {
+   "document_number": "2026-20889",
+   "reason": "canonical multiset changed"
+  }
+ ],
+ "items": 6,
+ "k4_all_preserved": true,
+ "m1_flagged_any": 6,
+ "m2_detected": 0,
+ "per_item": [
+  {
+   "document_number": "2026-20748",
+   "flagged": 4,
+   "m2": "match",
+   "values": 8
+  },
+  {
+   "document_number": "2026-20834",
+   "flagged": 7,
+   "m2": "match",
+   "values": 19
+  },
+  {
+   "document_number": "2026-20860",
+   "flagged": 4,
+   "m2": "match",
+   "values": 17
+  },
+  {
+   "document_number": "2026-20861",
+   "flagged": 6,
+   "m2": "match",
+   "values": 12
+  },
+  {
+   "document_number": "2026-20889",
+   "flagged": 10,
+   "m2": "match",
+   "values": 13
+  },
+  {
+   "document_number": "2026-20889",
+   "flagged": 35,
+   "m2": "match",
+   "values": 150
+  }
+ ]
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 902  redactions: none
