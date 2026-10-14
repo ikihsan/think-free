@@ -113,11 +113,27 @@ API credentials, and each a cost:
    this protocol, so the judge never learns which arm an item came from. This
    removes the worst confound at the cost of deviation 2.
 
+**Seed, fixed before the run: `20261014`.** The judge subset is
+`random.Random(20261014).sample(sorted(document_numbers), 10)`, and the
+presentation order inside every generation is shuffled with a fresh
+`random.Random(20261014)` seeded from the batch index. Both are reproducible from
+`build_arms.py`, which is the only thing that chooses what the judge sees.
+
 **M2 — the deterministic canonicalizer.** `valueset.py`: extract values with
 E114's extractor, canonicalize each to a comparable form, compare multisets.
 Canonicalization is the whole claim: thousands separators, decimal trailing
 zeros, currency prefix or suffix, `per`/`each`, percent sign or word, case,
 whitespace, and list order are all removed before comparison.
+
+**M2's declared weakness, stated before the run.** Comparing value *multisets*
+binds nothing to what the value is said to be about. An answer that lists every
+right number attached to the wrong descriptions passes M2 and fails M1's
+`ungrounded_claim` verdict. **M2 buys form-invariance by giving up the
+claim-proximity property**, and it is not proposed as a replacement for M1; it is
+proposed as the cheap pass that runs first, with M1's slower check behind it. A
+pass on K1 and K2 is therefore a statement about *value correspondence under
+rephrasing*, not about faithfulness.
+
 
 **M1 — the incumbent.** E114's `ground.py`, run unchanged on the same arms, so
 the new comparison sits beside the number it is meant to repair.

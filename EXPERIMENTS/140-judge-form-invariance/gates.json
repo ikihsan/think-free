@@ -1,0 +1,1470 @@
+{
+ "gates": {
+  "G0": {
+   "declared": "J1 grades I on >= 0.667 of corrupted C",
+   "observed": 0.8571428571428571,
+   "pass": true
+  },
+  "K1": {
+   "declared": "M2 recall >= 0.95 on C (value unit)",
+   "observed": 1.0,
+   "observed_if_degenerate_items_counted": 0.7333333333333333,
+   "pass": true,
+   "unit_note": "denominator is the 11 C rows carrying a real corruption; the other 4 have no extractable value, so C == V and there is nothing to detect (AMENDMENT-4 \u00a71)"
+  },
+  "K2": {
+   "declared": "M2 false positives <= 0.02 on P (value unit)",
+   "observed": 0.0,
+   "pass": true
+  },
+  "K3": {
+   "declared": "M2 false positives <= 0.02 on V (value unit)",
+   "observed": 0.0,
+   "pass": true
+  },
+  "K4": {
+   "declared": "P and P2 canonical multiset equals V, per item",
+   "observed": {
+    "P": {
+     "items": 15,
+     "multiset_equal_to_V": 15
+    },
+    "P2": {
+     "items": 4,
+     "multiset_equal_to_V": 4
+    }
+   },
+   "pass": true
+  },
+  "kill_gate": {
+   "build_trigger_fires": true,
+   "declared": "M2 failing K1 or K2 closes the line; passing all four fires the build trigger"
+  }
+ },
+ "judge": {
+  "G0": {
+   "k": 6,
+   "n": 7,
+   "pass": true,
+   "rate": 0.8571428571428571,
+   "wilson95": [
+    0.4869,
+    0.9743
+   ]
+  },
+  "detail": [
+   {
+    "arm": "V",
+    "batch": 0,
+    "correct_answer": true,
+    "document_number": "2026-20861",
+    "grade": "C",
+    "item": 1
+   },
+   {
+    "arm": "P",
+    "batch": 0,
+    "correct_answer": true,
+    "document_number": "2026-20861",
+    "grade": "C",
+    "item": 2
+   },
+   {
+    "arm": "P",
+    "batch": 0,
+    "correct_answer": true,
+    "document_number": "2026-20834",
+    "grade": "C",
+    "item": 3
+   },
+   {
+    "arm": "V",
+    "batch": 0,
+    "correct_answer": true,
+    "document_number": "2026-20748",
+    "grade": "C",
+    "item": 4
+   },
+   {
+    "arm": "C",
+    "batch": 0,
+    "correct_answer": false,
+    "document_number": "2026-20889",
+    "grade": "C",
+    "item": 5
+   },
+   {
+    "arm": "P",
+    "batch": 1,
+    "correct_answer": true,
+    "document_number": "2026-20834",
+    "grade": "C",
+    "item": 1
+   },
+   {
+    "arm": "P2",
+    "batch": 1,
+    "correct_answer": true,
+    "document_number": "2026-20889",
+    "grade": "C",
+    "item": 2
+   },
+   {
+    "arm": "P",
+    "batch": 1,
+    "correct_answer": true,
+    "document_number": "2026-20748",
+    "grade": "C",
+    "item": 3
+   },
+   {
+    "arm": "P",
+    "batch": 1,
+    "correct_answer": true,
+    "document_number": "2026-20860",
+    "grade": "C",
+    "item": 4
+   },
+   {
+    "arm": "V",
+    "batch": 1,
+    "correct_answer": true,
+    "document_number": "2026-20748",
+    "grade": "C",
+    "item": 5
+   },
+   {
+    "arm": "C",
+    "batch": 2,
+    "correct_answer": false,
+    "document_number": "2026-20834",
+    "grade": "I",
+    "item": 1
+   },
+   {
+    "arm": "C",
+    "batch": 2,
+    "correct_answer": false,
+    "document_number": "2026-20748",
+    "grade": "I",
+    "item": 2
+   },
+   {
+    "arm": "V",
+    "batch": 2,
+    "correct_answer": true,
+    "document_number": "2026-20861",
+    "grade": "C",
+    "item": 3
+   },
+   {
+    "arm": "P",
+    "batch": 2,
+    "correct_answer": true,
+    "document_number": "2026-20861",
+    "grade": "C",
+    "item": 4
+   },
+   {
+    "arm": "V",
+    "batch": 2,
+    "correct_answer": true,
+    "document_number": "2026-20834",
+    "grade": "C",
+    "item": 5
+   },
+   {
+    "arm": "V",
+    "batch": 3,
+    "correct_answer": true,
+    "document_number": "2026-20889",
+    "grade": "C",
+    "item": 1
+   },
+   {
+    "arm": "V",
+    "batch": 3,
+    "correct_answer": true,
+    "document_number": "2026-20748",
+    "grade": "C",
+    "item": 2
+   },
+   {
+    "arm": "V",
+    "batch": 3,
+    "correct_answer": true,
+    "document_number": "2026-20860",
+    "grade": "C",
+    "item": 3
+   },
+   {
+    "arm": "V",
+    "batch": 3,
+    "correct_answer": true,
+    "document_number": "2026-20834",
+    "grade": "C",
+    "item": 4
+   },
+   {
+    "arm": "C",
+    "batch": 3,
+    "correct_answer": false,
+    "document_number": "2026-20860",
+    "grade": "I",
+    "item": 5
+   },
+   {
+    "arm": "C",
+    "batch": 4,
+    "correct_answer": false,
+    "document_number": "2026-20860",
+    "grade": "I",
+    "item": 1
+   },
+   {
+    "arm": "P2",
+    "batch": 4,
+    "correct_answer": true,
+    "document_number": "2026-20861",
+    "grade": "C",
+    "item": 2
+   },
+   {
+    "arm": "C",
+    "batch": 4,
+    "correct_answer": false,
+    "document_number": "2026-20861",
+    "grade": "I",
+    "item": 3
+   },
+   {
+    "arm": "P",
+    "batch": 4,
+    "correct_answer": true,
+    "document_number": "2026-20889",
+    "grade": "C",
+    "item": 4
+   },
+   {
+    "arm": "P",
+    "batch": 4,
+    "correct_answer": true,
+    "document_number": "2026-20748",
+    "grade": "C",
+    "item": 5
+   },
+   {
+    "arm": "C",
+    "batch": 5,
+    "correct_answer": false,
+    "document_number": "2026-20748",
+    "grade": "I",
+    "item": 1
+   },
+   {
+    "arm": "V",
+    "batch": 5,
+    "correct_answer": true,
+    "document_number": "2026-20860",
+    "grade": "C",
+    "item": 2
+   },
+   {
+    "arm": "P",
+    "batch": 5,
+    "correct_answer": true,
+    "document_number": "2026-20860",
+    "grade": "C",
+    "item": 3
+   },
+   {
+    "arm": "P2",
+    "batch": 5,
+    "correct_answer": true,
+    "document_number": "2026-20834",
+    "grade": "C",
+    "item": 4
+   },
+   {
+    "arm": "P",
+    "batch": 5,
+    "correct_answer": true,
+    "document_number": "2026-20748",
+    "grade": "C",
+    "item": 5
+   },
+   {
+    "arm": "P2",
+    "batch": 6,
+    "correct_answer": true,
+    "document_number": "2026-20860",
+    "grade": "C",
+    "item": 1
+   }
+  ],
+  "false_positive_rate_on_P": {
+   "k": 0,
+   "n": 10,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.2775
+   ]
+  },
+  "false_positive_rate_on_P2": {
+   "k": 0,
+   "n": 4,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.4899
+   ]
+  },
+  "false_positive_rate_on_V": {
+   "k": 0,
+   "n": 10,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.2775
+   ]
+  },
+  "misses": []
+ },
+ "k4": {
+  "P": {
+   "items": 15,
+   "multiset_equal_to_V": 15
+  },
+  "P2": {
+   "items": 4,
+   "multiset_equal_to_V": 4
+  }
+ },
+ "m1": {
+  "C": {
+   "by_verdict": {
+    "ungrounded_claim": 116,
+    "ungrounded_value": 29
+   },
+   "flag_rate": 0.3897849462365591,
+   "flagged": 145,
+   "items": 15,
+   "per_item": [
+    {
+     "document_number": "2026-20748",
+     "flagged": 12,
+     "values": 22
+    },
+    {
+     "document_number": "2026-20748",
+     "flagged": 3,
+     "values": 8
+    },
+    {
+     "document_number": "2026-20748",
+     "flagged": 0,
+     "values": 0
+    },
+    {
+     "document_number": "2026-20834",
+     "flagged": 23,
+     "values": 43
+    },
+    {
+     "document_number": "2026-20834",
+     "flagged": 4,
+     "values": 19
+    },
+    {
+     "document_number": "2026-20834",
+     "flagged": 0,
+     "values": 0
+    },
+    {
+     "document_number": "2026-20860",
+     "flagged": 10,
+     "values": 22
+    },
+    {
+     "document_number": "2026-20860",
+     "flagged": 5,
+     "values": 17
+    },
+    {
+     "document_number": "2026-20860",
+     "flagged": 0,
+     "values": 0
+    },
+    {
+     "document_number": "2026-20861",
+     "flagged": 7,
+     "values": 23
+    },
+    {
+     "document_number": "2026-20861",
+     "flagged": 7,
+     "values": 12
+    },
+    {
+     "document_number": "2026-20861",
+     "flagged": 0,
+     "values": 0
+    },
+    {
+     "document_number": "2026-20889",
+     "flagged": 30,
+     "values": 43
+    },
+    {
+     "document_number": "2026-20889",
+     "flagged": 8,
+     "values": 13
+    },
+    {
+     "document_number": "2026-20889",
+     "flagged": 36,
+     "values": 150
+    }
+   ],
+   "values": 372
+  },
+  "K": {
+   "by_verdict": {
+    "ungrounded_claim": 107,
+    "ungrounded_value": 18
+   },
+   "flag_rate": 0.36127167630057805,
+   "flagged": 125,
+   "items": 11,
+   "per_item": [
+    {
+     "document_number": "2026-20748",
+     "flagged": 13,
+     "values": 20
+    },
+    {
+     "document_number": "2026-20748",
+     "flagged": 0,
+     "values": 5
+    },
+    {
+     "document_number": "2026-20834",
+     "flagged": 19,
+     "values": 41
+    },
+    {
+     "document_number": "2026-20834",
+     "flagged": 3,
+     "values": 16
+    },
+    {
+     "document_number": "2026-20860",
+     "flagged": 9,
+     "values": 20
+    },
+    {
+     "document_number": "2026-20860",
+     "flagged": 2,
+     "values": 14
+    },
+    {
+     "document_number": "2026-20861",
+     "flagged": 6,
+     "values": 21
+    },
+    {
+     "document_number": "2026-20861",
+     "flagged": 5,
+     "values": 9
+    },
+    {
+     "document_number": "2026-20889",
+     "flagged": 29,
+     "values": 42
+    },
+    {
+     "document_number": "2026-20889",
+     "flagged": 5,
+     "values": 10
+    },
+    {
+     "document_number": "2026-20889",
+     "flagged": 34,
+     "values": 148
+    }
+   ],
+   "values": 346
+  },
+  "P": {
+   "by_verdict": {
+    "ungrounded_claim": 150,
+    "ungrounded_value": 23
+   },
+   "flag_rate": 0.4650537634408602,
+   "flagged": 173,
+   "items": 15,
+   "per_item": [
+    {
+     "document_number": "2026-20748",
+     "flagged": 13,
+     "values": 22
+    },
+    {
+     "document_number": "2026-20748",
+     "flagged": 2,
+     "values": 8
+    },
+    {
+     "document_number": "2026-20748",
+     "flagged": 0,
+     "values": 0
+    },
+    {
+     "document_number": "2026-20834",
+     "flagged": 20,
+     "values": 43
+    },
+    {
+     "document_number": "2026-20834",
+     "flagged": 5,
+     "values": 19
+    },
+    {
+     "document_number": "2026-20834",
+     "flagged": 0,
+     "values": 0
+    },
+    {
+     "document_number": "2026-20860",
+     "flagged": 11,
+     "values": 22
+    },
+    {
+     "document_number": "2026-20860",
+     "flagged": 8,
+     "values": 17
+    },
+    {
+     "document_number": "2026-20860",
+     "flagged": 0,
+     "values": 0
+    },
+    {
+     "document_number": "2026-20861",
+     "flagged": 6,
+     "values": 23
+    },
+    {
+     "document_number": "2026-20861",
+     "flagged": 6,
+     "values": 12
+    },
+    {
+     "document_number": "2026-20861",
+     "flagged": 0,
+     "values": 0
+    },
+    {
+     "document_number": "2026-20889",
+     "flagged": 31,
+     "values": 43
+    },
+    {
+     "document_number": "2026-20889",
+     "flagged": 8,
+     "values": 13
+    },
+    {
+     "document_number": "2026-20889",
+     "flagged": 63,
+     "values": 150
+    }
+   ],
+   "values": 372
+  },
+  "P2": {
+   "by_verdict": {
+    "ungrounded_claim": 52,
+    "ungrounded_value": 13
+   },
+   "flag_rate": 0.6018518518518519,
+   "flagged": 65,
+   "items": 4,
+   "per_item": [
+    {
+     "document_number": "2026-20834",
+     "flagged": 7,
+     "values": 19
+    },
+    {
+     "document_number": "2026-20860",
+     "flagged": 13,
+     "values": 22
+    },
+    {
+     "document_number": "2026-20861",
+     "flagged": 11,
+     "values": 23
+    },
+    {
+     "document_number": "2026-20889",
+     "flagged": 34,
+     "values": 44
+    }
+   ],
+   "values": 108
+  },
+  "V": {
+   "by_verdict": {
+    "ungrounded_claim": 116,
+    "ungrounded_value": 23
+   },
+   "flag_rate": 0.3726541554959786,
+   "flagged": 139,
+   "items": 15,
+   "per_item": [
+    {
+     "document_number": "2026-20748",
+     "flagged": 13,
+     "values": 22
+    },
+    {
+     "document_number": "2026-20748",
+     "flagged": 2,
+     "values": 8
+    },
+    {
+     "document_number": "2026-20748",
+     "flagged": 0,
+     "values": 0
+    },
+    {
+     "document_number": "2026-20834",
+     "flagged": 20,
+     "values": 43
+    },
+    {
+     "document_number": "2026-20834",
+     "flagged": 4,
+     "values": 19
+    },
+    {
+     "document_number": "2026-20834",
+     "flagged": 0,
+     "values": 0
+    },
+    {
+     "document_number": "2026-20860",
+     "flagged": 10,
+     "values": 22
+    },
+    {
+     "document_number": "2026-20860",
+     "flagged": 4,
+     "values": 17
+    },
+    {
+     "document_number": "2026-20860",
+     "flagged": 0,
+     "values": 0
+    },
+    {
+     "document_number": "2026-20861",
+     "flagged": 6,
+     "values": 23
+    },
+    {
+     "document_number": "2026-20861",
+     "flagged": 7,
+     "values": 12
+    },
+    {
+     "document_number": "2026-20861",
+     "flagged": 0,
+     "values": 0
+    },
+    {
+     "document_number": "2026-20889",
+     "flagged": 30,
+     "values": 44
+    },
+    {
+     "document_number": "2026-20889",
+     "flagged": 8,
+     "values": 13
+    },
+    {
+     "document_number": "2026-20889",
+     "flagged": 35,
+     "values": 150
+    }
+   ],
+   "values": 373
+  },
+  "paired_corruption_detection": {
+   "caught": 9,
+   "corrupted_items": 11,
+   "detail": [
+    {
+     "document_number": "2026-20748",
+     "flagged_as_ungrounded": false,
+     "swapped": "195",
+     "verdict": null
+    },
+    {
+     "document_number": "2026-20748",
+     "flagged_as_ungrounded": true,
+     "swapped": "August 17, 2028",
+     "verdict": "ungrounded_value"
+    },
+    {
+     "document_number": "2026-20834",
+     "flagged_as_ungrounded": true,
+     "swapped": "64756",
+     "verdict": "ungrounded_claim"
+    },
+    {
+     "document_number": "2026-20834",
+     "flagged_as_ungrounded": true,
+     "swapped": "2026",
+     "verdict": "ungrounded_claim"
+    },
+    {
+     "document_number": "2026-20860",
+     "flagged_as_ungrounded": true,
+     "swapped": "August 24, 2026",
+     "verdict": "ungrounded_value"
+    },
+    {
+     "document_number": "2026-20860",
+     "flagged_as_ungrounded": true,
+     "swapped": "April 8, 2026",
+     "verdict": "ungrounded_value"
+    },
+    {
+     "document_number": "2026-20861",
+     "flagged_as_ungrounded": true,
+     "swapped": "6932",
+     "verdict": "ungrounded_value"
+    },
+    {
+     "document_number": "2026-20861",
+     "flagged_as_ungrounded": true,
+     "swapped": "January 25, 2027",
+     "verdict": "ungrounded_value"
+    },
+    {
+     "document_number": "2026-20889",
+     "flagged_as_ungrounded": false,
+     "swapped": "1247",
+     "verdict": null
+    },
+    {
+     "document_number": "2026-20889",
+     "flagged_as_ungrounded": true,
+     "swapped": "29500",
+     "verdict": "ungrounded_value"
+    },
+    {
+     "document_number": "2026-20889",
+     "flagged_as_ungrounded": true,
+     "swapped": "$4915",
+     "verdict": "ungrounded_claim"
+    }
+   ]
+  }
+ },
+ "m2": {
+  "C": {
+   "detail": [
+    {
+     "document_number": "2026-20748",
+     "extra": 1,
+     "missing": 1,
+     "n_reference": 22,
+     "sample_missing": [
+      [
+       "num",
+       "362.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20748",
+     "extra": 1,
+     "missing": 0,
+     "n_reference": 8,
+     "sample_missing": [],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20748",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 0,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20834",
+     "extra": 1,
+     "missing": 0,
+     "n_reference": 43,
+     "sample_missing": [],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20834",
+     "extra": 1,
+     "missing": 1,
+     "n_reference": 19,
+     "sample_missing": [
+      [
+       "num",
+       "2100.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20834",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 0,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20860",
+     "extra": 1,
+     "missing": 1,
+     "n_reference": 22,
+     "sample_missing": [
+      [
+       "date",
+       "(2026, 8, 28)"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20860",
+     "extra": 1,
+     "missing": 1,
+     "n_reference": 17,
+     "sample_missing": [
+      [
+       "date",
+       "(2026, 4, 2)"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20860",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 0,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20861",
+     "extra": 1,
+     "missing": 1,
+     "n_reference": 23,
+     "sample_missing": [
+      [
+       "num",
+       "3510.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20861",
+     "extra": 1,
+     "missing": 1,
+     "n_reference": 12,
+     "sample_missing": [
+      [
+       "date",
+       "(2027, 1, 1)"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20861",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 0,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20889",
+     "extra": 1,
+     "missing": 1,
+     "n_reference": 69,
+     "sample_missing": [
+      [
+       "num",
+       "4915.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20889",
+     "extra": 1,
+     "missing": 1,
+     "n_reference": 13,
+     "sample_missing": [
+      [
+       "num",
+       "64787.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20889",
+     "extra": 1,
+     "missing": 1,
+     "n_reference": 150,
+     "sample_missing": [
+      [
+       "money",
+       "50.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    }
+   ],
+   "false_positive_rate": 0.022613065326633167,
+   "items": 15,
+   "items_detected": 11,
+   "missing_values": 9,
+   "reference_values": 398
+  },
+  "C_corrupted_only": {
+   "detected": 11,
+   "items_with_a_real_corruption": 11,
+   "items_with_no_corruption_possible": 4
+  },
+  "K": {
+   "detail": [
+    {
+     "document_number": "2026-20748",
+     "extra": 0,
+     "missing": 2,
+     "n_reference": 22,
+     "sample_missing": [
+      [
+       "num",
+       "9.0"
+      ],
+      [
+       "num",
+       "4410.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20748",
+     "extra": 0,
+     "missing": 3,
+     "n_reference": 8,
+     "sample_missing": [
+      [
+       "date",
+       "(2026, 10, 8)"
+      ],
+      [
+       "num",
+       "8.0"
+      ],
+      [
+       "num",
+       "45.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20834",
+     "extra": 0,
+     "missing": 2,
+     "n_reference": 43,
+     "sample_missing": [
+      [
+       "num",
+       "13.0"
+      ],
+      [
+       "num",
+       "4910.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20834",
+     "extra": 0,
+     "missing": 3,
+     "n_reference": 19,
+     "sample_missing": [
+      [
+       "date",
+       "(2026, 10, 9)"
+      ],
+      [
+       "num",
+       "8.0"
+      ],
+      [
+       "num",
+       "45.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20860",
+     "extra": 0,
+     "missing": 2,
+     "n_reference": 22,
+     "sample_missing": [
+      [
+       "num",
+       "22.0"
+      ],
+      [
+       "num",
+       "3510.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20860",
+     "extra": 0,
+     "missing": 3,
+     "n_reference": 17,
+     "sample_missing": [
+      [
+       "date",
+       "(2026, 10, 9)"
+      ],
+      [
+       "num",
+       "8.0"
+      ],
+      [
+       "num",
+       "45.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20861",
+     "extra": 0,
+     "missing": 2,
+     "n_reference": 23,
+     "sample_missing": [
+      [
+       "num",
+       "22.0"
+      ],
+      [
+       "num",
+       "3510.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20861",
+     "extra": 0,
+     "missing": 3,
+     "n_reference": 12,
+     "sample_missing": [
+      [
+       "date",
+       "(2026, 10, 9)"
+      ],
+      [
+       "num",
+       "8.0"
+      ],
+      [
+       "num",
+       "45.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20889",
+     "extra": 0,
+     "missing": 2,
+     "n_reference": 69,
+     "sample_missing": [
+      [
+       "num",
+       "1.0"
+      ],
+      [
+       "num",
+       "4915.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20889",
+     "extra": 0,
+     "missing": 3,
+     "n_reference": 13,
+     "sample_missing": [
+      [
+       "date",
+       "(2026, 10, 9)"
+      ],
+      [
+       "num",
+       "8.0"
+      ],
+      [
+       "num",
+       "45.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    },
+    {
+     "document_number": "2026-20889",
+     "extra": 0,
+     "missing": 1,
+     "n_reference": 150,
+     "sample_missing": [
+      [
+       "money",
+       "153.0"
+      ]
+     ],
+     "verdict": "mismatch"
+    }
+   ],
+   "false_positive_rate": 0.06532663316582915,
+   "items": 11,
+   "items_detected": 11,
+   "missing_values": 26,
+   "reference_values": 398
+  },
+  "P": {
+   "detail": [
+    {
+     "document_number": "2026-20748",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 22,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20748",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 8,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20748",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 0,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20834",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 43,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20834",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 19,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20834",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 0,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20860",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 22,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20860",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 17,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20860",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 0,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20861",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 23,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20861",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 12,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20861",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 0,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20889",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 69,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20889",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 13,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20889",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 150,
+     "sample_missing": [],
+     "verdict": "match"
+    }
+   ],
+   "false_positive_rate": 0.0,
+   "items": 15,
+   "items_detected": 0,
+   "missing_values": 0,
+   "reference_values": 398
+  },
+  "P2": {
+   "detail": [
+    {
+     "document_number": "2026-20834",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 19,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20860",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 22,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20861",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 23,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20889",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 69,
+     "sample_missing": [],
+     "verdict": "match"
+    }
+   ],
+   "false_positive_rate": 0.0,
+   "items": 4,
+   "items_detected": 0,
+   "missing_values": 0,
+   "reference_values": 133
+  },
+  "V": {
+   "detail": [
+    {
+     "document_number": "2026-20748",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 22,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20748",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 8,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20748",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 0,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20834",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 43,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20834",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 19,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20834",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 0,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20860",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 22,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20860",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 17,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20860",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 0,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20861",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 23,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20861",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 12,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20861",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 0,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20889",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 69,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20889",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 13,
+     "sample_missing": [],
+     "verdict": "match"
+    },
+    {
+     "document_number": "2026-20889",
+     "extra": 0,
+     "missing": 0,
+     "n_reference": 150,
+     "sample_missing": [],
+     "verdict": "match"
+    }
+   ],
+   "false_positive_rate": 0.0,
+   "items": 15,
+   "items_detected": 0,
+   "missing_values": 0,
+   "reference_values": 398
+  }
+ }
+}

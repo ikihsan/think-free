@@ -137,6 +137,15 @@ exempt: EXPERIMENTS/**/raw/*.tsv
 # part it belongs to. `parts-title29.jsonl` is the derived, committed record.
 exempt: EXPERIMENTS/**/cache/*
 
+# Blinded judge prompts, added by E140 on 2026-10-14. Same class as the `.txt`
+# and `.html` raw captures: the exact bytes a judge was shown, written by
+# `emit_judge_prompts.py` before any verdict existed, never hand-edited, and
+# Markdown only because a rubric and a batch of items read better that way.
+# They are the *input* half of a run whose scored verdicts sit beside them in
+# `judge_output/`, and a reader checking a verdict needs the prompt that
+# produced it, so the two are kept together rather than split.
+exempt: EXPERIMENTS/**/judge_prompts/*.md
+
 exempt: .agents/skills/brainstorming/**
 exempt: .agents/skills/dispatching-parallel-agents/**
 exempt: .agents/skills/executing-plans/**
