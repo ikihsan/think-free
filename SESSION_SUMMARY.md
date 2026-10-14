@@ -1,39 +1,52 @@
-# Session Summary — Preflight Line Continuation
+# Session Summary - Think Free Autonomous Invention
 
-## What was produced/observed
+## What was produced
 
-Experiment 135 (preflight-seventh-harness) prototyped a 7th adapter for a single JSON harness format, bringing the total to 7/7 harness structures with working adapters under 50 lines:
+1. **tools/regcheck.py** — CLI prototype for regulatory value pre-pass checking
+   - Implements ground.py's extract and judge functions
+   - Verdicts: grounded, ungrounded_value, ungrounded_context, ungrounded_claim
+   - Standard library only, deterministic, no network
+   - E142 benchmark: 1.0 detection (4/4), 0.0 FP (0/16), 0 misses, 0.90 resolved share
 
-| Experiment | Format | Adapter lines |
-|---|---|---|
-| E128 | Two files (predictions + reviews), joined by `index` | few lines |
-| E129 | Event stream (append-only), joined by `sample_id` | few lines |
-| E130 | Single JSONL — one JSON object per line | 34 lines |
-| E131 | CSV — comma-separated values | 37 lines |
-| E132 | YAML — YAML mapping/list per file | 35 lines |
-| E133 | XML — XML with entry elements | 38 lines |
-| E135 | Single JSON — dict keyed by `sample_id` | 33 lines |
+2. **EXPERIMENTS/144-value-pre-pass-regulatory/PROTOCOL.md** — E144 experiment protocol
+   - Pre-declared question, population, task shape, gates, kill conditions
+   - The three numbers the build decision turns on
+   - What this run cannot show
 
-All 3 checks (C1 concordance, C2 alternate-form FP, C3 control arm) pass on adapter-transformed data for all 7 harnesses. The adapter pattern spans 7 diverse formats: two-file, event-stream, JSONL, CSV, YAML, XML, and single JSON.
+3. **EXPERIMENTS/144-value-pre-pass-regulatory/RESULT.md** — E144 experiment results
+   - 15 STB railway rule SUMMARY sections, 373 values checked
+   - K1 K2 K3 K4 K5 all PASS
+   - Comparison with E142 benchmark
+   - Detailed verdict breakdown and ungrounded value evidence
 
-The preflight prototype (E134) was also released, documenting the tool as an exploratory instrument with per-harness adapter interfaces.
+4. **SESSION_OUTCOME.md** — Session outcome with closure decision
 
-## Which build decision changed
+5. **SESSION_SUMMARY.md** — This summary
 
-The decision to continue the preflight line across sessions (rather than abandon it) was validated: 7/7 harness structures produce working adapters under 50 lines, confirming the "adapter is a few lines" pattern with very strong inductive evidence. Experiment 135 was the final harness structure test needed to reach this confidence level.
+## Key findings
 
-## What remains unknown
+| Finding | Evidence |
+|---|---|
+| Value pre-pass exact on regulatory genre | E142: 1.0 detection (4/4), 0.0 FP (0/16) on Fed Register SUMMARYs; E144: 0.0 FP on STB railway SUMMARYs |
+| Instrument is genre-limited | E141: fails on SQuAD (0.2826 detection); E143: fails on SUPPLEMENTARY INFORMATION; E144: different regulatory genre but same genre family |
+| No binding errors on regulatory text | E142: 0 misses; E144: 0 ungrounded_claim (only ungrounded_value + ungrounded_context) |
+| Resolved share ~0.90 | E142: 18/20 (0.90); E144: 333/373 (89.3%) |
 
-Whether someone outside this repository can point `preflight` at their own harness with a small adapter (external validation for candidate status). The internal pattern is well supported (7/7 adapters under 50 lines, 7 diverse formats, all checks pass), but the candidate case "someone outside this repository could point preflight at their own harness with a small adapter" remains unestablished by definitive proof.
+## Decision
 
-The preflight tool is released as an exploratory prototype (E134): it automates three checks (C1/C2/C3) in one stdlib-only command, withholding the headline rate unless all three pass. This is evidence-gathering, not product validation.
+**Close the regulatory pre-pass line with a measured scope.** The instrument is exact on regulatory answers written by a person and not on encyclopedic text or explanatory regulatory text. The scope is now measured in both directions:
+- Works on: regulatory SUMMARY sections written by agency staff
+- Does not work on: encyclopedic QA (SQuAD), explanatory regulatory text (SUPPLEMENTARY INFORMATION)
 
-## The single most useful next action
+The next measurement would be whether the pre-pass's exactness survives a longer submission (full regulatory analysis or comment letter), but such document types are not accessible via structured API fetch, making this test infeasible within the current framework.
 
-Since external validation is not feasible within granted permissions, and the pattern is confirmed across 7/7 structures, the preflight line should be documented as closed as an internal measurement methodology. The mission should move to a different opportunity, specifically:
+## Most useful next action
 
-1. **A fresh observation in a new domain** per D083 — the view-count domain sweep is stopped and the venue sweep is complete, so a new domain investigation would test the mission's core methodology in an unexplored area.
+**Conduct a fresh observation in a new domain using the mission's experimental protocol.** The regulatory pre-pass line is narrowed and measured; a new investigation is needed to continue building the evidence base. The fresh observation should be in a domain not yet tested by the mission's gates, applying the same pre-declared kill criteria and measurement protocol.
 
-2. **Or a meta-question about the mission's own method** — the preflight line's evidence base is now strong enough that the next useful step is not another harness structure, but applying the mission's discovery methodology to a new problem area.
+Potential domains:
+- Code documentation / module docstrings (value pre-pass on software artifacts)
+- A new Discourse forum domain (view-count instrument on non-technical forum)
+- Cross-genre transfer test of the value pre-pass on a non-regulatory genre
 
-The preflight pattern (7/7 adapters under 50 lines) provides a confirmed internal measurement methodology that can be referenced in future experiments, but the candidate case requires external participation beyond this repository's permissions.
+The decision to pursue a fresh observation is independent of the regulatory pre-pass closure — the mission continues with new evidence-gathering per D083.
