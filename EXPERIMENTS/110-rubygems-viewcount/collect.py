@@ -184,46 +184,53 @@ def collect_need_related(max_packages: int = 100) -> List[Dict[str, Any]]:
 
 
 def collect_random(max_packages: int = 100) -> List[Dict[str, Any]]:
-    """Collect random packages from latest versions."""
+    """Collect random packages from search with generic terms."""
     packages = []
     seen = set()
-    page = 1
 
-    # Use the versions API to get recent gems for random sampling
-    while len(packages) < max_packages and page <= 50:
-        print(f"Fetching random page {page}")
-        url = f"https://rubygems.org/api/v1/versions.json?page={page}"
+    # Use search with generic terms that are unlikely to match need indicators
+    # but are broad enough to get a variety of packages
+    generic_queries = ["a", "the", "ruby", "code", "program", "script", "gem", "lib",
+                       "module", "class", "function", "file", "string", "hash",
+                       "array", "hash", "hash", "data", "info", "doc", "wiki"]
+
+    for query in generic_queries:
+        if len(packages) >= max_packages:
+            break
+        print(f"Fetching random search: {query}")
+        url = f"https://rubygems.org/api/v1/search.json?query={urllib.parse.quote(query)}"
         data = fetch(url)
         if not data:
-            break
+            continue
 
-        for entry in data:
+        for pkg in data:
             if len(packages) >= max_packages:
                 break
-            name = entry.get("name")
+            name = pkg.get("name")
             if name in seen:
                 continue
             seen.add(name)
 
-            # Fetch full details for description and downloads
-            detail = fetch_package_detail(name)
-            if not detail:
-                continue
-
-            desc = detail.get("info", "")
+            desc = pkg.get("info", "")
             classification = classify_need(desc)
             if classification == "random":
-                version_downloads = detail.get("version_downloads", 0)
-                total_downloads = detail.get("downloads", 0)
+                # Fetch detailed info for version_downloads
+                detail = fetch_package_detail(name)
+                if detail:
+                    version_downloads = detail.get("version_downloads", 0)
+                    total_downloads = detail.get("downloads", 0)
+                else:
+                    version_downloads = pkg.get("version_downloads", 0)
+                    total_downloads = pkg.get("downloads", 0)
+
                 packages.append({
                     "name": name,
                     "description": desc,
                     "downloads_total": total_downloads,
                     "downloads_version": version_downloads,
                     "classification": "random",
-                    "source_query": f"random_page_{page}",
+                    "source_query": f"random_search_{query}",
                 })
-        page += 1
         time.sleep(0.2)
 
     return packages

@@ -31,9 +31,13 @@ def extract_imports(repo_path: Path):
             for line in content.splitlines():
                 line = line.strip()
                 if line.startswith("import "):
-                    parts = line[7:].split(",")
+                    import_str = line[7:]  # everything after "import "
+                    # Strip " as <alias>" clause to get the base import name
+                    if " as " in import_str:
+                        import_str = import_str.split(" as ")[0]
+                    parts = import_str.split(",")
                     for p in parts:
-                        imports.add(p.split(".")[0].strip())
+                        imports.add(p.strip().split(".")[0].strip())
                 elif line.startswith("from "):
                     parts = line[5:].split(" import")
                     if parts:

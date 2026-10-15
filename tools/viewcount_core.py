@@ -61,20 +61,30 @@ GENERIC_TERMS = {
 }
 
 
+def _matches_word_boundary(desc_lower, term):
+    """Check if *term* appears as a whole word in *desc_lower* (regex \b)."""
+    # word-boundary match: avoid substring hits like "database" inside "databaseify"
+    return bool(re.search(r'\b' + re.escape(term) + r'\b', desc_lower))
+
+
 def classify_package(description):
-    """Classify a package as 'need-related' or 'random' based on its description."""
+    """Classify a package as 'need-related' or 'random' based on its description.
+
+    Uses word-boundary matching to reduce substring false positives.
+    First checks generic terms (classifies as random), then need indicators.
+    """
     if not description:
         return "random"
     desc_lower = description.lower()
 
-    # If a generic term appears in the description words, classify as random.
-    words = set(desc_lower.split())
-    if words & GENERIC_TERMS:
-        return "random"
+    # If a generic term appears as a whole word, classify as random.
+    for term in GENERIC_TERMS:
+        if _matches_word_boundary(desc_lower, term):
+            return "random"
 
-    # Check for need-related indicators.
+    # Check for need-related indicators with word-boundary matching.
     for term in NEED_INDICATORS:
-        if term in desc_lower:
+        if _matches_word_boundary(desc_lower, term):
             return "need-related"
 
     # Default to random.
@@ -89,6 +99,34 @@ def is_active(package_info):
     desc_active = len(desc.strip()) > 0
     version_active = version != "" and version is not None
     return desc_active and version_active
+
+
+# ---------------------------------------------------------------------------
+# Keyword-based extension: if description alone is insufficient, check title/
+# project_name fields for need indicators.
+# ---------------------------------------------------------------------------
+
+def classify_by_keywords(package_info):
+    """Supplementary classification using package metadata fields beyond description.
+
+    Checks the project name and other available text fields for need indicators.
+    Returns 'need-related', 'random', or None if insufficient fields are present.
+    """
+    name = (package_info.get("name", "") or "").lower()
+    desc = (package_info.get("description", "") or package_info.get("summary", "") or "").lower()
+
+    # Check name first - if a need indicator is in the project name, it's likely need-related
+    for term in NEED_INDICATORS:
+        if _matches_word_boundary(name, term):
+            return "need-related"
+
+    # If name has a generic term, classify as random
+    for term in GENERIC_TERMS:
+        if _matches_word_boundary(name, term):
+            return "random"
+
+    # Fall through to description-level classification
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -143,7 +181,7 @@ def search_pypi(keyword, max_results=200):
     # Try the PyPI simple index to get package names
     try:
         url = "https://pypi.org/simple/"
-        req = urllib.request.Request(url, headers={"User-Agent": "origin-viewcount-prototype/1.0"})
+        req = urllib.request.Request(url, headers={"User-Agent": "origin-viewcount-prototype/3.0"})
         with urllib.request.urlopen(req, timeout=5) as resp:
             html = resp.read().decode("utf-8")
             # Extract package names from the simple index HTML
@@ -169,7 +207,7 @@ def search_pypi(keyword, max_results=200):
                         pkg_url = f"https://pypi.org/p/{name}/json"
                         pkg_req = urllib.request.Request(
                             pkg_url,
-                            headers={"User-Agent": "origin-viewcount-prototype/1.0"},
+                            headers={"User-Agent": "origin-viewcount-prototype/3.0"},
                         )
                         with urllib.request.urlopen(pkg_req, timeout=5) as pkg_resp:
                             pkg_data = json.loads(pkg_resp.read().decode("utf-8"))
@@ -206,5 +244,7 @@ def search_pypi(keyword, max_results=200):
 
 
 # ---------------------------------------------------------------------------
-# Prototype entry point
+# End of viewcount_core module (vocabulary, classifiers, registry adapters).
+# The prototype entry point (run_prototype, CLI) has been moved to
+# tools/viewcount_prototype.py to keep this file within the 300-line cap.
 # ---------------------------------------------------------------------------

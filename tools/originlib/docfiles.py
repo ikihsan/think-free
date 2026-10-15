@@ -55,7 +55,7 @@ def _ignored_paths(relatives: list[str]) -> set[str]:
 
 def tracked_files(root: Path | None = None) -> list[Path]:
     """Every file git would consider part of the repository."""
-    base = root or paths.repo_root()
+    base = (root or paths.repo_root()).resolve()
     candidates = [
         path for path in sorted(base.rglob("*"))
         if path.is_file() and not _skip(path, base)

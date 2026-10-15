@@ -5,31 +5,61 @@ Refined experiment building on E0xx prototype findings. Demonstrates that
 the view-count principle operationalizes as a PyPI package classifier with
 statistically significant active-rate differentiation.
 
-Improvements over v2:
-- Better API failure handling: skip unreachable packages gracefully, maintain classified count
-- More robust word-boundary-aware classification using both description and keywords
-- Prioritized package output ranked by need-relatedness + active-rate product
-
 Gates G1–G4 from the view-count protocol:
 G1 need-related active rate >= 55% of random rate
 G2 >= 100 classified
 G3 both categories
 G4 >= 50 classified
+
 Evidence-gathering, not product validation.
 """
 
-import json, os, sys, urllib.request, time, re
-from vocabulary import (  # noqa: E402
-    GENERIC_TERMS, MIN_CLASSIFIED, MIN_CLASSIFIED_G4,
-    NEED_INDICATORS, SAMPLE_SIZE, THRESHOLD_RATIO,
-)
+import json
+import os
+import re
+import sys
+import time
+import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 
+# Need indicators shared with the view-count experiment family
+NEED_INDICATORS = {
+    "database", "cache", "auth", "security", "logging", "monitoring",
+    "testing", "benchmark", "profiler", "tracing", "observability",
+    "deployment", "ci", "cd", "pipeline", "build", "package",
+    "network", "api", "client", "server", "framework", "engine",
+    "parser", "lexer", "converter", "transform", "serializer",
+    "validation", "sanitization", "encryption", "decryption",
+    "compression", "decompression", "encoding", "decoding",
+    "serialization", "deserialization", "persistance", "storage",
+    "retrieval", "indexing", "search", "query", "aggregation",
+    "reporting", "metrics", "observability", "dashboard",
+    "debugging", "troubleshooting", "diagnostics", "audit",
+    "compliance", "governance", "risk", "mitigation",
+    "optimization", "performance", "scaling", "load",
+    "queue", "messaging", "broker", "topic", "publish",
+    "subscribe", "routing", "firehose", "stream",
+    "cache", "redis", "memcached", "eviction",
+    "queue", "rabbit", "kafka", "mqtt",
+    "container", "docker", "kubernetes", "orchestration",
+    "micro service", "distributed", "cluster",
+}
+
+# Generic terms that classify as "random" (overly broad terms)
+GENERIC_TERMS = {"utils", "common", "core", "library", "framework", "jar", "dependencies", "gem", "rake", "rails", "cpan", "perl"}
+
+SAMPLE_SIZE = 200  # G2 gate: minimum 100 classified (we fetch 200 to ensure threshold)
+MIN_CLASSIFIED = 100  # G2 gate: minimum classified for meaningful results
+MIN_CLASSIFIED_G4 = 50  # G4 gate: minimum 50 classified
+THRESHOLD_RATIO = 0.55  # G1: need-related active rate must be >= 55% of random active rate
+
 
 def fetch_pypi_packages(keyword, n=200):
     """Fetch up to n PyPI packages matching a keyword query."""
+    packages = []
+    seen = set()
     url = f"https://pypi.org/simple/?q={keyword}"
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'origin-mission-E0xx'})
@@ -117,11 +147,13 @@ def main():
     print(f"Need keyword: {keyword}")
 
     # Step 1: Fetch packages
+    print(f"\nStep 1: Fetching 200 packages from PyPI via keyword search...")
     packages = fetch_pypi_packages(keyword, n=SAMPLE_SIZE)
     print(f"Found {len(packages)} packages")
 
     if len(packages) < MIN_CLASSIFIED_G4:
         print(f"Warning: fewer than {MIN_CLASSIFIED_G4} packages found.")
+        sys.exit(1)
 
     # Step 2: Fetch details, classify, track active status
     classified = {"need-related": 0, "random": 0}
@@ -150,7 +182,7 @@ def main():
     print(f"Classified {classified_count} packages (failed: {failures})")
 
     # Step 3: Classification results
-    print("\n=== Classification Results ===")
+    print(f"\n=== Classification Results ===")
     for cls in ["need-related", "random"]:
         count = classified[cls]
         rate = (active[cls] / count * 100) if count else 0
@@ -158,7 +190,7 @@ def main():
     print(f"Total classified: {classified_count} / {len(packages)} | Failures: {failures}")
 
     # Step 4: Gate evaluation
-    print("\n=== Gate Evaluation ===")
+    print(f"\n=== Gate Evaluation ===")
     g2_pass = classified_count >= 100
     g4_pass = classified_count >= 50
     print(f"  G2 (classified >= 100): {'PASS' if g2_pass else 'FAIL'} ({classified_count})")
@@ -179,7 +211,7 @@ def main():
     print(f"\n  Overall: {'ALL GATES PASS' if all_pass else 'SOME GATES FAILED'}")
 
     # Step 5: Prioritized package list ranked by need-relatedness + active-rate product
-    print("\n=== Prioritized Package List (top 50) ===")
+    print(f"\n=== Prioritized Package List (top 50) ===")
     # Score: need-related×2 * active×2 → max 4, then random×1 * active×1 → max 1
     scored = []
     for name, cls, act in pkg_records:

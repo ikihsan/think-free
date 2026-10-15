@@ -1,25 +1,25 @@
 {
-  "observed_at_utc": "2026-10-14T08:06:44Z",
+  "observed_at_utc": "2026-10-14T11:49:50Z",
   "user_date": "2026-10-14",
   "platform": "Linux-x86_64",
   "keyword": "cache",
   "sample_size": 200,
   "classified": {
-    "need-related": 103,
-    "random": 84
+    "need-related": 65,
+    "random": 122
   },
   "active": {
-    "need-related": 97,
-    "random": 37
+    "need-related": 59,
+    "random": 75
   },
   "active_rates": {
-    "need-related": 0.941747572815534,
-    "random": 0.44047619047619047
+    "need-related": 0.9076923076923077,
+    "random": 0.6147540983606558
   },
   "g1_pass": true,
   "g2_pass": true,
   "g3_pass": true,
   "g4_pass": true,
-  "conclusion": "ALL GATES PASS",
+  "conclusion": "pending",
   "experiment_description": "View-count principle prototype v3: PyPI package discovery tool with improved classification and prioritization"
 }
