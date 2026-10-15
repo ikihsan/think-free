@@ -285,3 +285,5 @@
 {"action": "create", "schema": "origin.task.claim/1", "task": "T-0093", "ts": "2026-10-12T00:11:36+00:00"}
 {"action": "claim", "schema": "origin.task.claim/1", "task": "T-0093", "ts": "2026-10-12T00:13:03+00:00"}
 {"action": "create", "schema": "origin.task.claim/1", "task": "T-0094", "ts": "2026-10-13T08:28:22+00:00"}
+{"action": "complete", "reason": "Discriminating-observation procedure implemented on F116 pool: 2 served / 40 total (0.0500 raw, Wilson LB 0.3424, K1 FAIL). Procedure avoided wrong-first-hypothesis misses (0 of 40) by refraining when insufficient evidence existed, but served share well below F116 baseline of 0.8750 (Wilson LB 0.7389). K1 gate FAILs. Premise measured on cached corpus with kill gate declared before measurement.", "schema": "origin.task.claim/1", "task": "T-0093", "ts": "2026-10-14T16:12:07+00:00"}
+{"action": "create", "schema": "origin.task.claim/1", "task": "T-0096", "ts": "2026-10-15T00:19:04+00:00"}
