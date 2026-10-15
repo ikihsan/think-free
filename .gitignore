@@ -133,6 +133,23 @@ EXPERIMENTS/085-declared-not-provided/cache/
 EXPERIMENTS/090-reverse-index/baseline-cache/
 .pyprovides-cache/
 
+# E162's axe-core + jsdom install (31 MB, 1,862 files). Third-party code the
+# experiment declares by version in EXPERIMENTS/162-*/package.json and
+# package-lock.json, reproducible with `npm ci` in that directory — so the
+# record is the lockfile, not the tree. Tracking the bytes would put 31 MB of
+# vendored JavaScript into every commit that touches this experiment.
+node_modules/
+
+# E162's fetched corpus: 27 third-party pages (2.7 MB), re-fetchable with
+# `node EXPERIMENTS/162-a11y-deterministic-repair/fetch.js`. The record is
+# corpus-manifest.json - url, sha256 and bytes per page - plus the frame they
+# belong to, and every number in RESULT.md is derived from those bytes. This is
+# F004's rule (pin the inputs by hash, do not commit the tarballs) and the same
+# clause E068's repos/ and E085's cache/ use. Tracking them would put 23 foreign
+# documents, their sizes and their broken links under this repository's own
+# documentation gate.
+EXPERIMENTS/*/corpus/
+
 # `origin session finish` lock: a committed lock is a lock nothing holds
 .finish.lock
 .module-demand-cache/

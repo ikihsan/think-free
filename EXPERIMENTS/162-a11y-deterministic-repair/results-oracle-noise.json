@@ -1,0 +1,189 @@
+{
+ "question": "how much of what axe reports is aimed at elements a page's author never intended a user to read?",
+ "method": "classification of axe's own reported node markup: an anchor with no content, or a syntax highlighter's line anchor",
+ "instances": 216,
+ "by_kind": {
+  "content": 124,
+  "generated line anchor": 90,
+  "empty anchor": 2
+ },
+ "share_machine_generated": 0.4166666666666667,
+ "share_empty_anchor": 0.009259259259259259,
+ "aa_instances": 125,
+ "aa_non_content": 92,
+ "aa_share_non_content": 0.736,
+ "worst_pages": [
+  [
+   "C19-212ad8c1",
+   98
+  ],
+  [
+   "C20-ce701bd7",
+   29
+  ],
+  [
+   "A24-5c8502b8",
+   20
+  ],
+  [
+   "B11-b47d02cb",
+   13
+  ],
+  [
+   "B10-6b15a600",
+   8
+  ]
+ ],
+ "examples": [
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-0-1\" name=\"__codelineno-0-1\" href=\"#__codelineno-0-1\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-1-1\" name=\"__codelineno-1-1\" href=\"#__codelineno-1-1\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-1\" name=\"__codelineno-2-1\" href=\"#__codelineno-2-1\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-2\" name=\"__codelineno-2-2\" href=\"#__codelineno-2-2\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-3\" name=\"__codelineno-2-3\" href=\"#__codelineno-2-3\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-4\" name=\"__codelineno-2-4\" href=\"#__codelineno-2-4\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-5\" name=\"__codelineno-2-5\" href=\"#__codelineno-2-5\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-6\" name=\"__codelineno-2-6\" href=\"#__codelineno-2-6\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-7\" name=\"__codelineno-2-7\" href=\"#__codelineno-2-7\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-8\" name=\"__codelineno-2-8\" href=\"#__codelineno-2-8\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-9\" name=\"__codelineno-2-9\" href=\"#__codelineno-2-9\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-10\" name=\"__codelineno-2-10\" href=\"#__codelineno-2-10\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-11\" name=\"__codelineno-2-11\" href=\"#__codelineno-2-11\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-12\" name=\"__codelineno-2-12\" href=\"#__codelineno-2-12\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-13\" name=\"__codelineno-2-13\" href=\"#__codelineno-2-13\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-14\" name=\"__codelineno-2-14\" href=\"#__codelineno-2-14\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-15\" name=\"__codelineno-2-15\" href=\"#__codelineno-2-15\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-16\" name=\"__codelineno-2-16\" href=\"#__codelineno-2-16\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-17\" name=\"__codelineno-2-17\" href=\"#__codelineno-2-17\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-18\" name=\"__codelineno-2-18\" href=\"#__codelineno-2-18\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-19\" name=\"__codelineno-2-19\" href=\"#__codelineno-2-19\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-20\" name=\"__codelineno-2-20\" href=\"#__codelineno-2-20\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-21\" name=\"__codelineno-2-21\" href=\"#__codelineno-2-21\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-22\" name=\"__codelineno-2-22\" href=\"#__codelineno-2-22\"></a>"
+  },
+  {
+   "page": "C19-212ad8c1",
+   "rule": "link-name",
+   "kind": "generated line anchor",
+   "html": "<a id=\"__codelineno-2-23\" name=\"__codelineno-2-23\" href=\"#__codelineno-2-23\"></a>"
+  }
+ ]
+}

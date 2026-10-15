@@ -186,3 +186,54 @@ its defects; treat the column as *untested on a matched harvest*, not confirmed:
 **Lessons:** Synthetic fixture design critically determines whether keyword or structural classification wins. Fixtures must force structural reasoning (overlapping keywords, ambiguity) to test structural classifiers meaningfully. The G4 info-sufficiency pair shared some keywords but not all — distinguishing keywords (`ShareLock` vs `tuple`) remained, so it did not truly test information sufficiency.
 
 **Recorded in:** `FAILURES-findings-43.md` (F128)
+
+---
+
+## E162 — can a deterministic program repair real accessibility defects without inventing anything?
+
+**Result:** `observed`, 2026-10-15, `EXPERIMENTS/162-a11y-deterministic-repair/`
+
+**Protocol:** Declared before any page was fetched. 27 real pages (status 200,
+sha256-pinned in `corpus-manifest.json`) from three declared frames — UK public
+sector, US public sector, independent OSS documentation. Oracle: axe-core
+4.14.0 in jsdom 29.1.1, default ruleset, page JavaScript not executed. Two arms
+over one rule table differing only in a `fabricates` flag: **A** blanket (may
+invent a name), **B** conservative (applies a repair only where the value is
+derivable from the document). 216 violation instances, 125 WCAG-tagged.
+
+**Kill gates (predeclared) and observed:**
+
+| Gate | Threshold | Observed | Verdict |
+|------|-----------|----------|---------|
+| G0 oracle validity | axe on ≥22 of 24 pages; ≥1 violation on ≥12 | 27; 21 | **PASS** |
+| G1 repairable share (arm B) | ≥30% of AA-tagged eliminated | **0.0% (0 of 125)** | **FAIL** |
+| G2 no fabrication (arm B) | rate ≤ 0.02 | undefined (0 repairs applied); run 1: 0.0000 | **FAIL, vacuous** |
+| G3 no regression | ≤1% introduced per eliminated, every frame | arm A frame B: 3/7 = 42.9% | **FAIL** |
+| G4 population (arm B) | ≥8 pages, ≥3 frames | 0 pages | **FAIL** |
+
+**Results:**
+
+| | Arm A — blanket | Arm B — conservative |
+|---|---|---|
+| AA-tagged after repair | 26 | 125 |
+| eliminated | **99 (79.2%)** | 0 |
+| repairs applied | 104 | 0 (145 abstentions, each with a reason) |
+| fabrications | **104 (100%)** | 0 |
+
+**Conclusion:** G1 is the kill gate and it fails by the full margin. The reason
+is a property of the defects: with no repairer in the loop, **120 of the 121
+instances whose defect is a missing name (99.2%) carry no author-written string
+anywhere on the node axe reported**, so no rule can derive the value and writing
+one is exactly what the rule forbids. Separately, **92 of 125 AA-tagged
+instances (73.6%) are aimed at machine-generated anchors** (90 of them one
+syntax highlighter's line anchors), so the denominator every accessibility
+score uses is mostly plumbing.
+
+**Lessons:** An independent oracle on real pages (the opposite construction from
+E122/E147/E150/E160) makes the population, not the fixture, deliver the
+negative. And an instrument that counts plumbing as content reports a mechanism
+as available: counting the HTML `name` attribute as an accessible name made
+94.8% of `link-name` instances look repairable, when **HTML `name` does not
+compute an accessible name on `<a>`**.
+
+**Recorded in:** `FAILURES-findings-43.md` (F129)

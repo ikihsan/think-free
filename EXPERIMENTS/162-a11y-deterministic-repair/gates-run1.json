@@ -1,0 +1,124 @@
+{
+ "run": "run1",
+ "arm0": {
+  "pages_in_manifest": 27,
+  "pages_axe_ran_on": 27,
+  "pages_with_at_least_one_violation": 21,
+  "total_instances": 216
+ },
+ "A": {
+  "arm": "A",
+  "policy": "blanket",
+  "pages": 27,
+  "before_total": 216,
+  "after_total": 122,
+  "before_aa": 125,
+  "after_aa": 26,
+  "eliminated": 131,
+  "introduced": 37,
+  "aa_eliminated": 99,
+  "aa_share_eliminated": 0.792,
+  "repairs_applied": 115,
+  "repairs_fabricated": 104,
+  "fabrication_rate": 0.9043478260869565,
+  "pages_with_repair": 12,
+  "frames": {
+   "A": {
+    "eliminated": 4,
+    "introduced": 5
+   },
+   "B": {
+    "eliminated": 18,
+    "introduced": 15
+   },
+   "C": {
+    "eliminated": 109,
+    "introduced": 17
+   }
+  }
+ },
+ "B": {
+  "arm": "B",
+  "policy": "conservative",
+  "pages": 27,
+  "before_total": 216,
+  "after_total": 223,
+  "before_aa": 125,
+  "after_aa": 125,
+  "eliminated": 28,
+  "introduced": 35,
+  "aa_eliminated": 0,
+  "aa_share_eliminated": 0,
+  "repairs_applied": 11,
+  "repairs_fabricated": 0,
+  "fabrication_rate": 0,
+  "pages_with_repair": 11,
+  "frames": {
+   "A": {
+    "eliminated": 4,
+    "introduced": 5
+   },
+   "B": {
+    "eliminated": 11,
+    "introduced": 12
+   },
+   "C": {
+    "eliminated": 13,
+    "introduced": 18
+   }
+  }
+ },
+ "gates": [
+  {
+   "gate": "G0 oracle validity",
+   "declared": "axe runs on >=22 of 24 pages; >=1 violation on >=12 distinct pages",
+   "observed": "axe ran on 27; 21 pages had >=1 violation",
+   "verdict": "PASS"
+  },
+  {
+   "gate": "G1 repairable share (arm B)",
+   "declared": "arm B eliminates >= 30% of arm-0 AA-tagged violation instances",
+   "observed": "0.0% (0 of 125)",
+   "verdict": "FAIL"
+  },
+  {
+   "gate": "G2 no fabrication (arm B)",
+   "declared": "arm B fabrication rate <= 0.02",
+   "observed": "0.0000",
+   "verdict": "PASS"
+  },
+  {
+   "gate": "G3 no regression (each arm, every frame)",
+   "declared": "newly introduced <= 1% of eliminated, in every frame",
+   "observed": {
+    "arm A frame A": "5 new / 4 eliminated = 125.0% <-- FAIL",
+    "arm A frame B": "15 new / 18 eliminated = 83.3% <-- FAIL",
+    "arm A frame C": "17 new / 109 eliminated = 15.6% <-- FAIL",
+    "arm B frame A": "5 new / 4 eliminated = 125.0% <-- FAIL",
+    "arm B frame B": "12 new / 11 eliminated = 109.1% <-- FAIL",
+    "arm B frame C": "18 new / 13 eliminated = 138.5% <-- FAIL"
+   },
+   "verdict": "FAIL"
+  },
+  {
+   "gate": "G4 population (arm B)",
+   "declared": "repairs applied on >= 8 distinct pages, >= 3 frames",
+   "observed": "11 pages; 3 frames",
+   "verdict": "PASS"
+  }
+ ],
+ "incomplete": {
+  "color-contrast": 27,
+  "landmark-one-main": 22,
+  "page-has-heading-one": 22,
+  "label-content-name-mismatch": 13,
+  "aria-valid-attr-value": 10,
+  "aria-hidden-focus": 10,
+  "video-caption": 1,
+  "aria-prohibited-attr": 17,
+  "frame-tested": 5,
+  "duplicate-id-aria": 3,
+  "frame-title-unique": 2,
+  "form-field-multiple-labels": 31
+ }
+}

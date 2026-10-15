@@ -8,13 +8,14 @@ last-verified: 2026-10-15
 
 <!-- generated-by: origin; do not edit by hand -->
 
-393 recorded session(s). One `events.jsonl` per session, so concurrent
+394 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 368 older session(s) are in the directory listing.
+Showing the 25 most recent. 369 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-15-002-measure-whether-real-accessibility-defec](2026-10-15-002-measure-whether-real-accessibility-defec/README.md) | unknown-agent | **unfinished** | measure whether real accessibility defects are deterministically repai | 2026-10-15T01:38 |
 | [2026-10-15-001-prior-art-and-demand-evidence-for-a-dete](2026-10-15-001-prior-art-and-demand-evidence-for-a-dete/README.md) | opencode | worked | prior-art and demand evidence for a deterministic CSV type-coercion ch | 2026-10-15T01:36 |
 | [2026-10-14-038-investigate-recurring-payment-detection](2026-10-14-038-investigate-recurring-payment-detection/README.md) | unknown-agent | worked | Investigate recurring payment detection on real modern bank exports wi | 2026-10-15T00:13 |
 | [2026-10-14-037-investigate-t-0093-discriminating-observ](2026-10-14-037-investigate-t-0093-discriminating-observ/README.md) | unknown-agent | worked | Investigate T-0093 discriminating-observation procedure on appliance d | 2026-10-14T22:52 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 368 older session(s) are in the directory listing.
 | [2026-10-14-018-prototype-second-sensor-ventilation-diag](2026-10-14-018-prototype-second-sensor-ventilation-diag/README.md) | unknown-agent | worked | prototype second-sensor ventilation diagnosis tool from F008 surviving | 2026-10-14T20:02 |
 | [2026-10-14-017-finalize-work-and-document-decision-for](2026-10-14-017-finalize-work-and-document-decision-for/README.md) | unknown-agent | worked | Finalize work and document decision for next phase | 2026-10-14T19:47 |
 | [2026-10-14-016-analyze-patterns-across-11-experiment-do](2026-10-14-016-analyze-patterns-across-11-experiment-do/README.md) | unknown-agent | worked | Analyze patterns across 11 experiment domains to identify view-count p | 2026-10-14T19:46 |
-| [2026-10-14-015-investigate-fresh-observation-domain-app](2026-10-14-015-investigate-fresh-observation-domain-app/README.md) | unknown-agent | worked | Investigate fresh observation domain: apply view-count principle class | 2026-10-14T19:45 |
 
 
 ## Reading a session

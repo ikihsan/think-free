@@ -26,8 +26,9 @@ experiment directories are `001-photo-baseline` (E001),
 `003-information-sufficiency` (the E002 witness gate),
 `004-knitting-stage-a` and `005-knitting-bounded-search` (the knitting Stage-A
 pair), `006-ventilation-measurement-design` (C2), and
-`007-build-timestamps` (E3's prevalence census) and
-`008-build-timestamp-attribution` (its cause attribution).
+`007-build-timestamps` (E3's prevalence census),
+`008-build-timestamp-attribution` (its cause attribution) and
+`162-a11y-deterministic-repair` (E162, F129 — closed on mechanism).
 
 **E012, E021, E023, E024, E025, E026 and E027 tested this mission's own
 methods rather than a candidate** — the generator, the serving channel, a rate

@@ -1,0 +1,71 @@
+{
+ "arms": {
+  "A": {
+   "arm": "A",
+   "policy": "blanket",
+   "pages": 27,
+   "before_total": 216,
+   "after_total": 115,
+   "before_aa": 125,
+   "after_aa": 26,
+   "arm0_aa": 125,
+   "eliminated": 104,
+   "introduced": 3,
+   "eliminated_share_of_aa": 0.792,
+   "aa_removed_by_count": 99,
+   "repairs_applied": 104,
+   "repairs_fabricated": 104,
+   "fabrication_rate": 1,
+   "pages_with_repair": 6,
+   "frames_affected": 2,
+   "frames": {
+    "A": {
+     "eliminated": 0,
+     "introduced": 0
+    },
+    "B": {
+     "eliminated": 7,
+     "introduced": 3
+    },
+    "C": {
+     "eliminated": 97,
+     "introduced": 0
+    }
+   }
+  },
+  "B": {
+   "arm": "B",
+   "policy": "conservative",
+   "pages": 27,
+   "before_total": 216,
+   "after_total": 216,
+   "before_aa": 125,
+   "after_aa": 125,
+   "arm0_aa": 125,
+   "eliminated": 0,
+   "introduced": 0,
+   "eliminated_share_of_aa": 0,
+   "aa_removed_by_count": 0,
+   "repairs_applied": 0,
+   "repairs_fabricated": 0,
+   "fabrication_rate": null,
+   "pages_with_repair": 0,
+   "frames_affected": 0,
+   "frames": {
+    "A": {
+     "eliminated": 0,
+     "introduced": 0
+    },
+    "B": {
+     "eliminated": 0,
+     "introduced": 0
+    },
+    "C": {
+     "eliminated": 0,
+     "introduced": 0
+    }
+   }
+  }
+ },
+ "pages_missing_from_arm0": []
+}

@@ -1,0 +1,35 @@
+# Declared site list, in fetch order. First that returns 200 is taken.
+# Frame A - UK public sector (PSBAR 2018 legal duty)
+A https://www.gov.uk/
+A https://www.camden.gov.uk/
+A https://www.westminster.gov.uk/
+A https://www.birmingham.gov.uk/
+A https://www.manchester.gov.uk/
+A https://www.southwark.gov.uk/
+A https://www.leeds.gov.uk/
+A https://www.bristol.gov.uk/
+# Frame B - US public sector (Section 508 / Title II legal duty)
+B https://www.usa.gov/
+B https://www.ed.gov/
+B https://www.nps.gov/
+B https://www.cdc.gov/
+B https://www.nyc.gov/
+B https://www.chicago.gov/
+B https://www.seattle.gov/
+B https://www.michigan.gov/
+# Frame C - independent OSS project documentation sites
+C https://docs.djangoproject.com/en/5.0/
+C https://docs.flask.palletsprojects.com/en/3.0.x/
+C https://docs.pytest.org/en/stable/
+C https://click.palletsprojects.com/
+C https://docs.astral.sh/uv/
+C https://fastapi.tiangolo.com/
+C https://docs.python.org/3/
+C https://nodejs.org/en/docs
+# Amendment 1 - replacements declared before any axe run
+A https://www.gov.wales/
+A https://www.reading.gov.uk/
+B https://www.dol.gov/
+B https://www.phoenix.gov/
+C https://docs.pydantic.dev/
+C https://docs.ansible.com/
