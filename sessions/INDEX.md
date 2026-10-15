@@ -8,13 +8,15 @@ last-verified: 2026-10-15
 
 <!-- generated-by: origin; do not edit by hand -->
 
-401 recorded session(s). One `events.jsonl` per session, so concurrent
+403 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 376 older session(s) are in the directory listing.
+Showing the 25 most recent. 378 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-15-027-fresh-observation-in-an-untested-domain](2026-10-15-027-fresh-observation-in-an-untested-domain/README.md) | unknown-agent | worked | Fresh observation in an untested domain: job posting platforms (Linked | 2026-10-15T22:42 |
+| [2026-10-15-026-run-fresh-observation-experiment-t-0094](2026-10-15-026-run-fresh-observation-experiment-t-0094/README.md) | unknown-agent | worked | Run fresh observation experiment T-0094: test view-count principle acr | 2026-10-15T21:48 |
 | [2026-10-15-025-run-a-fresh-observation-experiment-testi](2026-10-15-025-run-a-fresh-observation-experiment-testi/README.md) | unknown-agent | worked | Run a fresh observation experiment testing the view-count principle on | 2026-10-15T21:13 |
 | [2026-10-15-024-finalize-e162-experiment-and-update-miss](2026-10-15-024-finalize-e162-experiment-and-update-miss/README.md) | unknown-agent | worked | Finalize E162 experiment and update mission state | 2026-10-15T20:10 |
 | [2026-10-15-023-declare-e162-experiment-artifacts-and-up](2026-10-15-023-declare-e162-experiment-artifacts-and-up/README.md) | unknown-agent | worked | Declare E162 experiment artifacts and update state documents | 2026-10-15T20:00 |
@@ -38,8 +40,6 @@ Showing the 25 most recent. 376 older session(s) are in the directory listing.
 | [2026-10-15-005-run-e147-physics-se-view-count-principle](2026-10-15-005-run-e147-physics-se-view-count-principle/README.md) | unknown-agent | worked | Run E147 Physics SE view-count principle fresh observation experiment  | 2026-10-15T13:37 |
 | [2026-10-15-004-run-fresh-observation-experiment-on-elec](2026-10-15-004-run-fresh-observation-experiment-on-elec/README.md) | unknown-agent | worked | Run fresh observation experiment on Electrical Engineering Stack Excha | 2026-10-15T13:20 |
 | [2026-10-15-003-design-and-run-a-fresh-observation-exper](2026-10-15-003-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment in a domain the mission  | 2026-10-15T11:32 |
-| [2026-10-15-002-run-e140-s-incumbent-gap-gate-g5-as-a-ch](2026-10-15-002-run-e140-s-incumbent-gap-gate-g5-as-a-ch/README.md) | unknown-agent | worked | Run E140's incumbent-gap gate (G5) as a cheap pre-fetch prior-art prob | 2026-10-15T08:59 |
-| [2026-10-15-001-e141-measure-the-scorer-false-negative-r](2026-10-15-001-e141-measure-the-scorer-false-negative-r/README.md) | unknown-agent | worked | E141: measure the scorer false-negative rate on the already-fetched HE | 2026-10-15T02:34 |
 
 
 ## Reading a session

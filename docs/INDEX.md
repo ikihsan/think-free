@@ -414,6 +414,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/146-viewcount-crates/` | `docs/INDEX.md` | active | 2026-10-15 | Result: GATECLOSED — classifier vocabulary mismatch |
 | `EXPERIMENTS/150-huggingface-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 3 documents |
 | `EXPERIMENTS/151-vscode-marketplace-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 3 documents |
+| `EXPERIMENTS/165-pypi-tier-analysis/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
