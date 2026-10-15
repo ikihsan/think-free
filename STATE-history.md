@@ -12,7 +12,41 @@ detail behind it, kept so that history does not push the reload point past
 the line cap. Identifiers here are the same ones `STATE.md` uses. Older history
 is in [`STATE-history-2.md`](STATE-history-2.md).
 
+**E141 completed (2026-10-15): the one check that could have made `preflight`
+find something, measured on real published rows, returns almost nothing. Its
+kill gate FIRED.** E141 asked the question D111 left open — does the reach
+demonstrated across four exact AGREEEs turn into a finding? — by asking whether
+the harness's own scorer marks correct answers wrong. Population: the four HELM
+lite v1.0.0 cells E136/E137 already fetched and hash-verified, 2,874 rows, two
+models, two scenarios. On **2,874 real rows, 6 scored-wrong rows are
+mathematically equal to the reference**; all six read by hand and all six are
+correct. Pooled 6 of 1,593 wrong rows = **0.377%**. Primary cell P1 recovered
+**4 of 246 = 1.626%**, against a declared gate of 2.0% **and** 5 rows — both
+conditions failed, so the direction is **KILLED**. Effect on the published
+number: P1 macro 0.37478395850488877 → 0.38651834814625513, **+1.17 accuracy
+points**, entirely from unreduced fractions, thousands separators and decimals.
+GSM: **0** of 1,000 rows in both models. All controls green: G0a 0 violations of
+191 (P1) and 648 (P3) harness-correct rows, G0b 0, G0c 0 of 2,185 gold-pairs
+(Wilson upper 0.176%), G0d 6 of 6 emitted and read. **The recall audit is what
+makes this a statement about the world and not about the instrument:** 25 of 25
+hand-read wrong rows are genuinely wrong answers, and a weaker extractor over the
+95 rows with no `\boxed` at all recovered 0, so the recoverable remainder is
+bounded at ≤9.6% with a point estimate of 1.63%. Two defects in this session's
+own work were caught by the controls and recorded: HELM's MATH subject runs carry
+only **267 distinct instance ids across 437 rows**, so a verdict dict keyed on id
+alone silently crosses subjects; and a verbatim copy of the calibrated normalizer
+that omitted its brace-less-`\frac` repair. One protocol defect too: G0c was
+declared unpassable (0.5% Wilson upper at n=437) and was widened to five offsets
+*after* the gate had already fired, changing nothing.
+[`EXPERIMENTS/141-scorer-false-negatives/RESULT.md`](EXPERIMENTS/141-scorer-false-negatives/RESULT.md).
 
+Named next action: **stop adding adapters and cells to `preflight`.** D111's
+open sub-question is now answered for the only check that could have produced a
+finding — 0.4% of rows, all of it in cases one normalization rule catches, zero on
+half the populations — which is not worth shipping as a gate, and is now a
+measurement rather than an opinion. The line's remaining question is E134's
+population question restated (do the harness-defect checks fire on *any*
+published run?) and E134's answer was that the one available run was clean.
 - **Session 2026-10-07-003, VM 0947 (T-0084, E047, F084, D079): the last
   observation derived from a candidate is closed, and it closed by being run.**
   E045 left one thing unpromoted and `STATE.md` named it the single most useful

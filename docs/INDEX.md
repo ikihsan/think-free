@@ -61,6 +61,7 @@ Skill bodies under `.agents/skills/` are indexed by
 
 | Document | Owner index | Status | Verified | Summary |
 |---|---|---|---|---|
+| [`docs/reference/VIEW-COUNT-SUMMARY.md`](reference/VIEW-COUNT-SUMMARY.md) | `docs/INDEX.md` | active | 2026-10-15 | ============================================================ |
 | [`docs/reference/cli-reference.md`](reference/cli-reference.md) | `docs/INDEX.md` | active | 2026-10-04 | Every command the repository's tooling provides. Stdlib Python only, so no |
 | [`docs/reference/identifier-allocation.md`](reference/identifier-allocation.md) | `docs/INDEX.md` | active | 2026-10-04 | How an F, D or T number is chosen, and why the choice is recorded. Every number |
 | [`docs/reference/skill-inventory.md`](reference/skill-inventory.md) | `docs/INDEX.md` | active | 2026-10-03 | Twenty-one skills in .agents/skills/<name>/SKILL.md, mirrored into |
@@ -405,7 +406,18 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/140-github-actions-ci-failures/` | `EXPERIMENTS/140-github-actions-ci-failures/PROTOCOL.md` | active | 2026-10-14 | 4 documents |
 | `EXPERIMENTS/141-scorer-false-negatives/` | `EXPERIMENTS/README.md` | active | 2026-10-15 | 2 documents |
 | `EXPERIMENTS/142-cicd-incumbent-probe/` | `EXPERIMENTS/README.md` | active | 2026-10-15 | 2 documents |
+| `EXPERIMENTS/143-crossvalidated-service-test/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 2 documents |
+| `EXPERIMENTS/144-electrical-engineering-se/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 2 documents |
+| `EXPERIMENTS/144-wordpress-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/145-viewcount-reddit/` | `docs/INDEX.md` | active | 2026-10-15 | Result: GATECLOSED — data accessibility boundary |
+| `EXPERIMENTS/146-viewcount-crates/` | `docs/INDEX.md` | active | 2026-10-15 | Result: GATECLOSED — classifier vocabulary mismatch |
+| `EXPERIMENTS/150-huggingface-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 3 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
+| `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/E149-github-repo-viewcount-followup/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/E150-so-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/E151-se-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/E161-vscode-extension-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/e138-viewcount-discrimination/` | `docs/INDEX.md` | active | 2026-10-14 | 1 documents |

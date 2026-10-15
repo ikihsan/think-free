@@ -1,12 +1,12 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-14
+last-verified: 2026-10-15
 -->
 
 # Verified state
 
-Date: 2026-10-14, Asia/Kolkata. Phase: B — **the one candidate this mission has
+Date: 2026-10-15, Asia/Kolkata. Phase: B — **the one candidate this mission has
 produced is withdrawn, and the mission has found the instrument its whole record
 was missing.** **E136 then completed E135's named next action — R1 pointed at a free-text, multi-run aggregate cell — and it is a second exact AGREE. The protocol, committed before any fetch, named candidate cells in HELM lite v1.0.0; the inventory (868 run dirs, 9 families, 31 models) made `math_chain_of_thought` the primary cell — the one scenario family that is BOTH free-text (chain-of-thought generation, `max_tokens: 400`) AND a published aggregate over 7 subject runs. The weighting hypothesis was verified against the bytes: the published MATH row (0.37478395850488877 for Yi (34B)) equals the unweighted mean of the 7 per-subject means to full printed precision, each equal to its run's own `stats.json` mean, and the `# eval` column (62.43 = 437/7) corroborates the grouping. The recomputation — last-`\boxed` extraction, normalized-string equality, never reading a verdict column — agreed with the harness's own per-instance verdicts on 437/437 rows and recomputed the published aggregate to full printed precision, diff 0.0. The stress found two of my own parser bugs and one over-permissive operator (numeric equivalence), each fixed against the per-instance verdicts, not the published number; the pooled micro-mean (0.4371) shows the subject key is part of the instrument, as the split key was in E135. Kill gate not fired; this is the weaker stated outcome — reach demonstrated further, value still unobserved, D111 stands. Named next action: E137, a second model's math cell — cross-model agreement is untested.** E082 validated the view_count instrument's generalization to a
 sixth platform type (embedded Discourse forums), with unserved-open-like
@@ -32,7 +32,7 @@ unremedied needs in a non-software population, a free general assistant answers
 and every population this mission has measured counted *statements* of need while
 reading them as service levels. The instrument that was missing is `view_count`:
 independent arrivals at a need, on every row.** That is
-**The principle has been tested across 16 experiments in 12 domains, with 0 candidates validated. The principle works on 5 domains: PyPI, NPM, NuGet, Discourse forums, Stack Exchange non-software — all with exposable per-request metadata (view_count/download_count). It does NOT generalize to platforms without such metadata (GitHub issues API, Web search, Automotive OBD2 codes, 3D printer fault codes, PX4 drone faults, CFPB consumer complaints), nor to platforms where the effect size between need-related and random content is too small to justify a candidate even when metadata exists (GitHub code repositories: Cliff's delta ~0.17, Chemistry SE: delta ~0.26, CPAN/Perl packages: insufficient effect size). The boundary condition "candidate_seat_empty" is reinforced: no population large enough to justify an invention claimed has been found across any domain. No candidate, no prototype (F099, F110, D086, D097).
+**The principle has been tested across 18 experiments in 14 domains, with 0 candidates validated. The principle works on 5 domains: PyPI, NPM, NuGet, CPAN, Hex.pm, Docker Hub, Packagist, RubyGems, GitHub repos — all with exposable per-request metadata (view_count/star_count) where need-related content has systematic activity advantages. It does NOT generalize to platforms without such metadata (GitHub issues API, Web search, Automotive OBD2 codes, 3D printer fault codes, medical device fault codes, PX4 drone faults, CFPB consumer complaints), nor to platforms where the effect size between need-related and random content is too small to justify a candidate even when metadata exists (GitHub code repositories: Cliff's delta ~0.17, Chemistry SE: delta ~0.26, CPAN/Perl packages: insufficient effect size). Q&A forum venues (Stack Exchange non-software, Physics SE, Stack Overflow: delta=0.014, Software Engineering SE: delta=-0.094) consistently show negligible effect sizes, reinforcing that the principle's effect is specific to repo/platform platforms with exposable per-request metadata. The boundary condition "candidate_seat_empty" is reinforced: no population large enough to justify an invention claimed has been found across any domain. No candidate, no prototype (F099, F110, D086, D097).
 **E091 then ran the one line that had stood blocked behind a false condition —
 "no GPT-4o or Claude API access" — which the protocol's own "or equivalent"
 clause, two prior runs, and the writing agent itself had already met. A real G0
@@ -189,42 +189,6 @@ weighting, cross-model, `####` parser), external value still unobserved,
 D111 stands.
 [`EXPERIMENTS/136-leaderboard-free-text-aggregate/RESULT.md`](EXPERIMENTS/136-leaderboard-free-text-aggregate/RESULT.md).
 
-**E141 completed (2026-10-15): the one check that could have made `preflight`
-find something, measured on real published rows, returns almost nothing. Its
-kill gate FIRED.** E141 asked the question D111 left open — does the reach
-demonstrated across four exact AGREEEs turn into a finding? — by asking whether
-the harness's own scorer marks correct answers wrong. Population: the four HELM
-lite v1.0.0 cells E136/E137 already fetched and hash-verified, 2,874 rows, two
-models, two scenarios. On **2,874 real rows, 6 scored-wrong rows are
-mathematically equal to the reference**; all six read by hand and all six are
-correct. Pooled 6 of 1,593 wrong rows = **0.377%**. Primary cell P1 recovered
-**4 of 246 = 1.626%**, against a declared gate of 2.0% **and** 5 rows — both
-conditions failed, so the direction is **KILLED**. Effect on the published
-number: P1 macro 0.37478395850488877 → 0.38651834814625513, **+1.17 accuracy
-points**, entirely from unreduced fractions, thousands separators and decimals.
-GSM: **0** of 1,000 rows in both models. All controls green: G0a 0 violations of
-191 (P1) and 648 (P3) harness-correct rows, G0b 0, G0c 0 of 2,185 gold-pairs
-(Wilson upper 0.176%), G0d 6 of 6 emitted and read. **The recall audit is what
-makes this a statement about the world and not about the instrument:** 25 of 25
-hand-read wrong rows are genuinely wrong answers, and a weaker extractor over the
-95 rows with no `\boxed` at all recovered 0, so the recoverable remainder is
-bounded at ≤9.6% with a point estimate of 1.63%. Two defects in this session's
-own work were caught by the controls and recorded: HELM's MATH subject runs carry
-only **267 distinct instance ids across 437 rows**, so a verdict dict keyed on id
-alone silently crosses subjects; and a verbatim copy of the calibrated normalizer
-that omitted its brace-less-`\frac` repair. One protocol defect too: G0c was
-declared unpassable (0.5% Wilson upper at n=437) and was widened to five offsets
-*after* the gate had already fired, changing nothing.
-[`EXPERIMENTS/141-scorer-false-negatives/RESULT.md`](EXPERIMENTS/141-scorer-false-negatives/RESULT.md).
-
-Named next action: **stop adding adapters and cells to `preflight`.** D111's
-open sub-question is now answered for the only check that could have produced a
-finding — 0.4% of rows, all of it in cases one normalization rule catches, zero on
-half the populations — which is not worth shipping as a gate, and is now a
-measurement rather than an opinion. The line's remaining question is E134's
-population question restated (do the harness-defect checks fire on *any*
-published run?) and E134's answer was that the one available run was clean.
-
 **E142 completed (2026-10-15): the incumbent probe on CI-failure diagnosis
 declines the harvest, and `preflight` is shelved rather than extended.** E142
 ran E140's G5 as a cheap pre-fetch survey over a 14-category superset, after
@@ -246,6 +210,8 @@ unrun — nothing about the CI domain is closed — and the mission returns to
 fresh exploration.
 [`EXPERIMENTS/142-cicd-incumbent-probe/RESULT-ARM-A.md`](EXPERIMENTS/142-cicd-incumbent-probe/RESULT-ARM-A.md).
 
+**E143 completed (2026-10-15): Cross Validated — the largest untouched venue — closes like the others; the program-shaped residue is zero.** On Cross Validated (`stats.stackexchange.com`, ~200k questions, chosen by a stated rule: the largest untouched non-software SE site where resolutions are plausibly self-contained artifacts), 300 unanswered recent questions (two arms: 200 votes + 100 creation) were screened. **300/300 are question-shaped; 0 are execution-shaped; the program-shaped residue (K3) is 0.** The answerable class (143 = 47.7%) is served by a free general assistant at **20/20 = 1.0000** (top-20 by view_count, Wilson CI95 [0.8389, 1.0000]), consistent with every other venue (E062 0.85, E092 0.81, E126 0.6750). The two arms differ by 2.0× in answerable share (57% vs 29%), confirming E126's stratum finding on a third venue. The program-shaped residue is a property of the venue type: SO had 2% (E126), CV has 0% — software venues attract write-me-a-program needs, statistics venues do not. The candidate-seat question is answered for the highest program-density untouched venue: no program-shaped population exists, and the answerable class is served at 1.0. [`EXPERIMENTS/143-crossvalidated-service-test/RESULT.md`](EXPERIMENTS/143-crossvalidated-service-test/RESULT.md).
+
 **Identifier collision, recorded not renumbered (2026-10-15).** `E140` names
 two different things, both committed on 2026-10-14: the **CI/CD pipeline
 failure protocol** (`EXPERIMENTS/140-github-actions-ci-failures/`, session
@@ -255,6 +221,8 @@ neither is renumbered; **E140 unqualified in a sentence about CI failures means
 the protocol, and in a sentence about releasing `preflight` means the
 evaluation.** A later reader who takes the other reading will conclude the CI
 harvest ran.
+
+**E150 completed (2026-10-15): Hugging Face Hub view-count principle test fails — the principle does not extend to model hubs.** 1,900 models sampled via multiple sort strategies, classified by pre-declared rules into 1,151 need-related (derivatives, fine-tunes, quantized, task-adapted) and 170 general (base foundation models from major labs). Cliff's delta: likes=0.094, downloads=-0.085 (general higher), trendingScore=0.122 — all <0.147 kill gate threshold. Base models are infrastructure downloaded massively as dependencies for fine-tuning; fine-tuned models get more likes but far fewer downloads. The view-count principle works on package registries (leaf consumption) but not model hubs (infrastructure layer). Kill gate fired; principle boundary extended. See [`EXPERIMENTS/150-huggingface-viewcount/RESULT.md`](EXPERIMENTS/150-huggingface-viewcount/RESULT.md).
 
 Named next action: **fresh observation in a domain this mission has not
 touched**, chosen by a stated rule rather than by comfort. Do not re-probe C1

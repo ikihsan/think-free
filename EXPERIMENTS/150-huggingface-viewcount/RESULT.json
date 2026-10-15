@@ -1,0 +1,53 @@
+{
+  "results": {
+    "likes": {
+      "metric": "likes",
+      "need_n": 1151,
+      "general_n": 170,
+      "need_median": 186,
+      "general_median": 104,
+      "need_mean": 742.1225021720244,
+      "general_mean": 585.0705882352942,
+      "cliffs_delta": 0.09356058670210048,
+      "mann_whitney_u": 88681.5,
+      "p_value": 0.04762672099109122,
+      "ci_95_lower": 0.00909694894465171,
+      "ci_95_upper": 0.17923033679153677,
+      "shuffle_p": 0.02
+    },
+    "downloads": {
+      "metric": "downloads",
+      "need_n": 1151,
+      "general_n": 170,
+      "need_median": 54023,
+      "general_median": 256950,
+      "need_mean": 1197193.9192006951,
+      "general_mean": 2210342.3647058825,
+      "cliffs_delta": -0.08539888587928655,
+      "mann_whitney_u": 89480.0,
+      "p_value": 0.07036836716301131,
+      "ci_95_lower": -0.1826851331323146,
+      "ci_95_upper": 0.026585577758470896,
+      "shuffle_p": 0.96
+    },
+    "trendingScore": {
+      "metric": "trendingScore",
+      "need_n": 1151,
+      "general_n": 170,
+      "need_median": 0,
+      "general_median": 0,
+      "need_mean": 9.986880973066897,
+      "general_mean": 2.0352941176470587,
+      "cliffs_delta": 0.12213420555016098,
+      "mann_whitney_u": 85886.0,
+      "p_value": 0.00016206955297937142,
+      "ci_95_lower": 0.0815045740276997,
+      "ci_95_upper": 0.1691828077886237,
+      "shuffle_p": 0.0
+    }
+  },
+  "decision": "FAIL (primary kill gate: all metrics show negligible effect)",
+  "need_related_count": 1151,
+  "general_count": 170,
+  "excluded_count": 579
+}

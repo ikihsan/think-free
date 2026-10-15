@@ -149,3 +149,41 @@ to 312 lines. The repair was the standing one: the rule moved to a new
 its cap, and `doclint._links` was renamed public (`doclint_links.links`) because
 the control in `tests/test_link_escape.py` had been reaching into a private to
 read the tree.
+
+## F128 — Hugging Face Hub view-count principle test fails: need-related models show no systematic activity advantage over base foundation models (E150)
+
+**Date:** 2026-10-15. `EXPERIMENTS/150-huggingface-viewcount/`. Raw:
+[`RESULT.json`](EXPERIMENTS/150-huggingface-viewcount/RESULT.json).
+
+### What was asked
+
+Does the view-count principle — that need-related content shows systematically higher activity metrics than random/general content — extend to Hugging Face Hub models? The principle had previously held on PyPI, NPM, NuGet, CPAN, Hex.pm, Docker Hub, Packagist, RubyGems, and GitHub repositories (per E148/E149).
+
+### What happened
+
+1,900 models were sampled via multiple sort strategies (top downloads, likes, trending, recent, modified, random). Classified by pre-declared rules into:
+- **Need-related (1,151)**: Models with `base_model:` references, explicit fine-tuning/deployment tags (`conversational`, `gguf`, `lora`, `quantized`, etc.), adaptation patterns in model ID (`-it`, `-chat`, `-ft`, etc.), or fine-tuned pipeline tags (`sentence-similarity`, `text-classification`, `automatic-speech-recognition`, etc.)
+- **General/Foundation (170)**: Base models from major labs (Google, Meta, OpenAI, Microsoft, BAAI, etc.) with base pipeline tags (`fill-mask`, `feature-extraction`, `text-generation` without conversational, etc.)
+- **Excluded (579)**: Ambiguous cases
+
+Three activity metrics compared: **likes**, **downloads**, **trendingScore**.
+
+| Metric | Need-related median | General median | Cliff's delta | 95% CI | Shuffle p |
+|--------|---------------------|----------------|---------------|--------|-----------|
+| likes | 186 | 104 | **0.0936** | [0.009, 0.179] | 0.020 |
+| downloads | 54,023 | 256,950 | **-0.0854** | [-0.183, 0.027] | 0.960 |
+| trendingScore | 0 | 0 | **0.1221** | [0.082, 0.169] | 0.000 |
+
+**Kill gate fired**: All three metrics show Cliff's delta < 0.147 (negligible/small effect threshold). The primary kill gate condition — "all metrics show Cliff's delta < 0.147" — is met.
+
+**Direction**: Downloads actually favor general models (base models like BERT, GPT-2, CLIP, T5, ViT are downloaded 4.7× more as dependencies for fine-tuning). Likes and trendingScore slightly favor need-related models but with negligible effect sizes.
+
+### Why this is the finding and not a bug ticket
+
+The classification correctly identifies the semantic distinction: base foundation models vs. task-adapted derivatives. The negative result is real — on Hugging Face, **base models are infrastructure** downloaded massively because they're dependencies, while fine-tuned models get more likes (social signal) but far fewer downloads.
+
+This extends the boundary of the view-count principle: it works on **package registries** (where need-related packages are consumed directly) but **not on model hubs** (where base models are the consumable infrastructure). The principle's domain is "platforms where need-related content is the leaf consumption unit," not "platforms where need-related content is built on general infrastructure."
+
+### What this does not establish
+
+That no view-count signal exists on Hugging Face. The trendingScore signal (delta=0.122, p<0.001) suggests recent activity favors need-related models, but the effect is too small to justify a candidate. A different classification (e.g., spaces/demos vs. models) might yield different results.
