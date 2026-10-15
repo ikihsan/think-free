@@ -15,7 +15,7 @@ Showing the 25 most recent. 376 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-15-025-run-a-fresh-observation-experiment-testi](2026-10-15-025-run-a-fresh-observation-experiment-testi/README.md) | unknown-agent | **unfinished** | Run a fresh observation experiment testing the view-count principle on | 2026-10-15T20:15 |
+| [2026-10-15-025-run-a-fresh-observation-experiment-testi](2026-10-15-025-run-a-fresh-observation-experiment-testi/README.md) | unknown-agent | worked | Run a fresh observation experiment testing the view-count principle on | 2026-10-15T21:13 |
 | [2026-10-15-024-finalize-e162-experiment-and-update-miss](2026-10-15-024-finalize-e162-experiment-and-update-miss/README.md) | unknown-agent | worked | Finalize E162 experiment and update mission state | 2026-10-15T20:10 |
 | [2026-10-15-023-declare-e162-experiment-artifacts-and-up](2026-10-15-023-declare-e162-experiment-artifacts-and-up/README.md) | unknown-agent | worked | Declare E162 experiment artifacts and update state documents | 2026-10-15T20:00 |
 | [2026-10-15-022-run-view-count-principle-fresh-observati](2026-10-15-022-run-view-count-principle-fresh-observati/README.md) | unknown-agent | worked | Run view-count principle fresh observation on Mozilla Add-ons, a domai | 2026-10-15T19:59 |
