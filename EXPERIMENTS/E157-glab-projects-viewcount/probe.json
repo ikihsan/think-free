@@ -1,0 +1,55 @@
+{
+  "experiment": "E157 -- GitLab Projects view-count principle fresh observation",
+  "timestamp": "2026-10-15 15:12:53",
+  "source": "api_fetch",
+  "target_domain": "glab",
+  "sample_size": 50,
+  "classified": {
+    "need-related": 11,
+    "random": 39
+  },
+  "activity": {
+    "need_related_active": 0,
+    "need_related_inactive": 11,
+    "random_active": 0,
+    "random_inactive": 39
+  },
+  "gates": {
+    "G1": {
+      "met": false,
+      "observed": "50 classified (11 need-related, 39 random)",
+      "threshold": ">=30 per arm",
+      "reason": "only 50 classified"
+    },
+    "G2": {
+      "met": false,
+      "observed": {
+        "p_need": 0.0,
+        "p_random": 0.0,
+        "difference_p": 0.0,
+        "mean_diff_percent": 0,
+        "t_stat": 0,
+        "p_value": 1.0
+      },
+      "threshold": "p < 0.05, need-related > random on Welch's t-test on star counts"
+    },
+    "G3": {
+      "met": false,
+      "observed": {
+        "need_related_arrival_rate": 0.0,
+        "random_arrival_rate": 0.0
+      },
+      "threshold": ">=80% of need-related projects have star > 0"
+    },
+    "G4": {
+      "met": false,
+      "observed": {
+        "total_with_arrivals": 0,
+        "total_packages": 50,
+        "arrival_rate": 0.0
+      },
+      "threshold": ">=80% of classified projects have star > 0"
+    }
+  },
+  "verdict": "failed: G1 not met; G2 not met; G3 not met; G4 not met"
+}

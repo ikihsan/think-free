@@ -1,0 +1,579 @@
+{
+  "experiment": "E160 -- GitHub devops repos view-count principle fresh observation",
+  "timestamp": "2026-10-15 15:39:18",
+  "source": "api_fetch",
+  "target_domain": "github",
+  "sample_size": 80,
+  "classified": {
+    "need-related": 16,
+    "random": 64
+  },
+  "activity": {
+    "need_related_active": 16,
+    "need_related_inactive": 0,
+    "random_active": 64,
+    "random_inactive": 0
+  },
+  "classified_repos": [
+    {
+      "index": 0,
+      "full_name": "trimstray/the-book-of-secret-knowledge",
+      "description": "A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, cli/web tools and more.",
+      "stars": 250253,
+      "classification": "need-related"
+    },
+    {
+      "index": 1,
+      "full_name": "bregman-arie/devops-exercises",
+      "description": "Linux, Jenkins, AWS, SRE, Prometheus, Docker, Python, Ansible, Git, Kubernetes, Terraform, OpenStack, SQL, NoSQL, Azure, GCP, DNS, Elastic, Network, Virtualization. DevOps Interview Questions",
+      "stars": 84869,
+      "classification": "random"
+    },
+    {
+      "index": 2,
+      "full_name": "netdata/netdata",
+      "description": "The fastest path to AI-powered full stack observability, even for lean teams.",
+      "stars": 80963,
+      "classification": "random"
+    },
+    {
+      "index": 3,
+      "full_name": "binhnguyennus/awesome-scalability",
+      "description": "The Patterns of Scalable, Reliable, and Performant Large-Scale Systems",
+      "stars": 74745,
+      "classification": "random"
+    },
+    {
+      "index": 4,
+      "full_name": "nektos/act",
+      "description": "Run your GitHub Actions locally \ud83d\ude80",
+      "stars": 72334,
+      "classification": "random"
+    },
+    {
+      "index": 5,
+      "full_name": "go-gitea/gitea",
+      "description": "Git with a cup of tea! Painless self-hosted all-in-one software development service, including Git hosting, code review, team collaboration, package registry and CI/CD",
+      "stars": 58516,
+      "classification": "random"
+    },
+    {
+      "index": 6,
+      "full_name": "getsentry/sentry",
+      "description": "Developer-first error tracking and performance monitoring",
+      "stars": 45567,
+      "classification": "random"
+    },
+    {
+      "index": 7,
+      "full_name": "Kong/kong",
+      "description": "\ud83e\udd8d The API and AI Gateway",
+      "stars": 44269,
+      "classification": "random"
+    },
+    {
+      "index": 8,
+      "full_name": "httpie/cli",
+      "description": "\ud83e\udd67 HTTPie CLI  \u2014 modern, user-friendly command-line HTTP client for the API era. JSON support, colors, sessions, downloads, plugins & more.",
+      "stars": 38641,
+      "classification": "random"
+    },
+    {
+      "index": 9,
+      "full_name": "Dokploy/dokploy",
+      "description": "Open Source Alternative to Vercel, Netlify and Heroku.",
+      "stars": 37801,
+      "classification": "random"
+    },
+    {
+      "index": 10,
+      "full_name": "awesome-foss/awesome-sysadmin",
+      "description": "A curated list of amazingly awesome open-source sysadmin resources.",
+      "stars": 35415,
+      "classification": "random"
+    },
+    {
+      "index": 11,
+      "full_name": "dokku/dokku",
+      "description": "A docker-powered PaaS that helps you build and manage the lifecycle of applications",
+      "stars": 32185,
+      "classification": "random"
+    },
+    {
+      "index": 12,
+      "full_name": "MichaelCade/90DaysOfDevOps",
+      "description": "This repository started out as a learning in public project for myself and has now become a structured learning map for many in the community. We have 3 years under our belt covering all things DevOps, including Principles, Processes, Tooling and Use Cases surrounding this vast topic. ",
+      "stars": 29834,
+      "classification": "need-related"
+    },
+    {
+      "index": 13,
+      "full_name": "kestra-io/kestra",
+      "description": "Event Driven Orchestration & Scheduling Platform for Mission Critical Applications",
+      "stars": 29622,
+      "classification": "random"
+    },
+    {
+      "index": 14,
+      "full_name": "floci-io/floci",
+      "description": "Light, fluffy, and always free - The AWS Local Emulator alternative",
+      "stars": 26835,
+      "classification": "random"
+    },
+    {
+      "index": 15,
+      "full_name": "jenkinsci/jenkins",
+      "description": "Jenkins automation server",
+      "stars": 26666,
+      "classification": "random"
+    },
+    {
+      "index": 16,
+      "full_name": "yeasy/docker_practice",
+      "description": "\u6700\u65b0Docker\u5bb9\u5668\u6280\u672f\uff0c\u4ece\u771f\u5b9e\u6848\u4f8b\u4e2d\u5b66\u4e60\u6700\u4f73\u5b9e\u8df5\uff01| Learn and understand Docker&Container technologies, with real DevOps practice!",
+      "stars": 26306,
+      "classification": "random"
+    },
+    {
+      "index": 17,
+      "full_name": "containrrr/watchtower",
+      "description": "A process for automating Docker container base image updates. ",
+      "stars": 24626,
+      "classification": "random"
+    },
+    {
+      "index": 18,
+      "full_name": "argoproj/argo-cd",
+      "description": "Declarative Continuous Deployment for Kubernetes",
+      "stars": 24407,
+      "classification": "random"
+    },
+    {
+      "index": 19,
+      "full_name": "getsops/sops",
+      "description": "Simple and flexible tool for managing secrets",
+      "stars": 23398,
+      "classification": "need-related"
+    },
+    {
+      "index": 20,
+      "full_name": "lensapp/lens",
+      "description": "Lens - The way the world runs Kubernetes",
+      "stars": 23246,
+      "classification": "random"
+    },
+    {
+      "index": 21,
+      "full_name": "pranshuparmar/witr",
+      "description": "Why is this running? Trace any process, port, container, or file back to what started it - CLI + TUI. ",
+      "stars": 22702,
+      "classification": "random"
+    },
+    {
+      "index": 22,
+      "full_name": "milanm/DevOps-Roadmap",
+      "description": "DevOps Roadmap for 2026. with learning resources",
+      "stars": 20756,
+      "classification": "random"
+    },
+    {
+      "index": 23,
+      "full_name": "dariubs/GoBooks",
+      "description": "List of Golang books",
+      "stars": 19722,
+      "classification": "random"
+    },
+    {
+      "index": 24,
+      "full_name": "probelabs/goreplay",
+      "description": "GoReplay is an open-source tool for capturing and replaying live HTTP traffic into a test environment in order to continuously test your system with real data. It can be used to increase confidence in code deployments, configuration changes and infrastructure changes.",
+      "stars": 19320,
+      "classification": "need-related"
+    },
+    {
+      "index": 25,
+      "full_name": "apache/apisix",
+      "description": "The Cloud-Native API Gateway and AI Gateway",
+      "stars": 17226,
+      "classification": "random"
+    },
+    {
+      "index": 26,
+      "full_name": "wtfutil/wtf",
+      "description": "The personal information dashboard for your terminal",
+      "stars": 17113,
+      "classification": "random"
+    },
+    {
+      "index": 27,
+      "full_name": "kubesphere/kubesphere",
+      "description": "The container platform tailored for Kubernetes multi-cloud, datacenter, and edge management \u2388 \ud83d\udda5 \u2601\ufe0f",
+      "stars": 17060,
+      "classification": "random"
+    },
+    {
+      "index": 28,
+      "full_name": "CISOfy/lynis",
+      "description": "Lynis - Security auditing tool for Linux, macOS, and UNIX-based systems. Assists with compliance testing (HIPAA/ISO27001/PCI DSS) and system hardening. Agentless, and installation optional.",
+      "stars": 16482,
+      "classification": "need-related"
+    },
+    {
+      "index": 29,
+      "full_name": "dagger/dagger",
+      "description": "Automation engine to build, test and ship any codebase. Runs locally, in CI, or directly in the cloud",
+      "stars": 16342,
+      "classification": "random"
+    },
+    {
+      "index": 30,
+      "full_name": "go-task/task",
+      "description": "A fast, cross-platform build tool inspired by Make, designed for modern workflows.",
+      "stars": 16251,
+      "classification": "need-related"
+    },
+    {
+      "index": 31,
+      "full_name": "theonedev/onedev",
+      "description": "The Unified and Autonomous Development Platform",
+      "stars": 15310,
+      "classification": "random"
+    },
+    {
+      "index": 32,
+      "full_name": "bytebase/bytebase",
+      "description": "Database governance built for humans and agents \u2014 controlling changes and access across every major database.",
+      "stars": 14567,
+      "classification": "random"
+    },
+    {
+      "index": 33,
+      "full_name": "semaphoreui/semaphore",
+      "description": "Modern UI and powerful API for Ansible, Terraform/OpenTofu/Terragrunt, PowerShell and other DevOps tools.",
+      "stars": 14264,
+      "classification": "need-related"
+    },
+    {
+      "index": 34,
+      "full_name": "visenger/awesome-mlops",
+      "description": "A curated list of references for MLOps ",
+      "stars": 14240,
+      "classification": "random"
+    },
+    {
+      "index": 35,
+      "full_name": "Unleash/unleash",
+      "description": "Open-source feature management platform",
+      "stars": 13877,
+      "classification": "random"
+    },
+    {
+      "index": 36,
+      "full_name": "dastergon/awesome-sre",
+      "description": "A curated list of Site Reliability and Production Engineering resources.",
+      "stars": 13727,
+      "classification": "random"
+    },
+    {
+      "index": 37,
+      "full_name": "infracost/infracost",
+      "description": "Cloud cost intelligence for engineers, AI coding agents, and CI/CD \ud83d\udcb0\ud83d\udcc9 Shift FinOps Left!",
+      "stars": 12564,
+      "classification": "random"
+    },
+    {
+      "index": 38,
+      "full_name": "encoredev/encore",
+      "description": "Infrastructure orchestration from local to your cloud",
+      "stars": 12450,
+      "classification": "random"
+    },
+    {
+      "index": 39,
+      "full_name": "TwiN/gatus",
+      "description": "Automated developer-oriented status page with alerting and incident support",
+      "stars": 12315,
+      "classification": "need-related"
+    },
+    {
+      "index": 40,
+      "full_name": "adnanh/webhook",
+      "description": "webhook is a lightweight incoming webhook server to run shell commands",
+      "stars": 12185,
+      "classification": "random"
+    },
+    {
+      "index": 41,
+      "full_name": "kubeshark/kubeshark",
+      "description": "eBPF-powered network observability for Kubernetes. Indexes L4/L7 traffic with full K8s context, decrypts TLS without keys. Queryable by AI agents via MCP and humans via dashboard.",
+      "stars": 12097,
+      "classification": "random"
+    },
+    {
+      "index": 42,
+      "full_name": "meolu/walle-web",
+      "description": "walle - \u74e6\u529b Devops\u5f00\u6e90\u9879\u76ee\u4ee3\u7801\u90e8\u7f72\u5e73\u53f0",
+      "stars": 11986,
+      "classification": "random"
+    },
+    {
+      "index": 43,
+      "full_name": "trimstray/test-your-sysadmin-skills",
+      "description": "A collection of Linux Sysadmin Test Questions and Answers. Test your knowledge and skills in different fields with these Q/A.",
+      "stars": 11882,
+      "classification": "random"
+    },
+    {
+      "index": 44,
+      "full_name": "kubescape/kubescape",
+      "description": "Kubescape is an open-source Kubernetes security platform for your IDE, CI/CD pipelines, and clusters. It includes risk analysis, security, compliance, and misconfiguration scanning, saving Kubernetes users and administrators precious time, effort, and resources.",
+      "stars": 11802,
+      "classification": "random"
+    },
+    {
+      "index": 45,
+      "full_name": "grafana/pyroscope",
+      "description": "Continuous Profiling Platform. Debug performance issues down to a single line of code",
+      "stars": 11697,
+      "classification": "need-related"
+    },
+    {
+      "index": 46,
+      "full_name": "openspug/spug",
+      "description": "Spug is a lightweight agent-free automatic operation and maintenance platform designed for small and medium-sized enterprises. It integrates host management, host batch execution, host online terminal, file management, application release and deployment, pipelines, online task planning, configuration center, monitoring, alarm and so on.",
+      "stars": 11084,
+      "classification": "random"
+    },
+    {
+      "index": 47,
+      "full_name": "bunkerity/bunkerweb",
+      "description": "\ud83d\udee1\ufe0f Open-source and cloud-native Web Application Firewall (WAF)",
+      "stars": 11071,
+      "classification": "random"
+    },
+    {
+      "index": 48,
+      "full_name": "healthchecks/healthchecks",
+      "description": "Open-source cron job and background task monitoring service, written in Python & Django",
+      "stars": 10419,
+      "classification": "random"
+    },
+    {
+      "index": 49,
+      "full_name": "flyway/flyway",
+      "description": "Flyway by Redgate \u2022 Database Migrations Made Easy.",
+      "stars": 10149,
+      "classification": "random"
+    },
+    {
+      "index": 50,
+      "full_name": "johnkerl/miller",
+      "description": "Miller is like awk, sed, cut, join, and sort for name-indexed data such as CSV, TSV, and tabular JSON",
+      "stars": 10042,
+      "classification": "random"
+    },
+    {
+      "index": 51,
+      "full_name": "geerlingguy/ansible-for-devops",
+      "description": "Ansible for DevOps examples.",
+      "stars": 9924,
+      "classification": "random"
+    },
+    {
+      "index": 52,
+      "full_name": "gruntwork-io/terragrunt",
+      "description": "Terragrunt is a flexible orchestration tool that allows Infrastructure as Code written in OpenTofu/Terraform to scale.",
+      "stars": 9881,
+      "classification": "need-related"
+    },
+    {
+      "index": 53,
+      "full_name": "openebs/openebs",
+      "description": "A popular & widely deployed Open Source Container Native Storage platform for Stateful Persistent Applications on Kubernetes.",
+      "stars": 9832,
+      "classification": "random"
+    },
+    {
+      "index": 54,
+      "full_name": "upgundecha/howtheysre",
+      "description": "A curated collection of publicly available resources on how technology and tech-savvy organizations around the world practice Site Reliability Engineering (SRE)",
+      "stars": 9826,
+      "classification": "random"
+    },
+    {
+      "index": 55,
+      "full_name": "bregman-arie/devops-resources",
+      "description": "DevOps resources - Linux, Jenkins, AWS, SRE, Prometheus, Docker, Python, Ansible, Git, Kubernetes, Terraform, OpenStack, SQL, NoSQL, Azure, GCP",
+      "stars": 9723,
+      "classification": "random"
+    },
+    {
+      "index": 56,
+      "full_name": "khuedoan/homelab",
+      "description": "Fully automated homelab from empty disk to running services with a single command.",
+      "stars": 9675,
+      "classification": "need-related"
+    },
+    {
+      "index": 57,
+      "full_name": "xonsh/xonsh",
+      "description": "\ud83d\udc1a Python-powered shell. Full-featured, cross-platform and AI-friendly.",
+      "stars": 9670,
+      "classification": "random"
+    },
+    {
+      "index": 58,
+      "full_name": "cloudnative-pg/cloudnative-pg",
+      "description": "The most popular Kubernetes Operator for PostgreSQL.",
+      "stars": 9455,
+      "classification": "random"
+    },
+    {
+      "index": 59,
+      "full_name": "certimate-go/certimate",
+      "description": "An open-source and free self-hosted SSL certificates ACME tool, automates the full-cycle of issuance, deployment, renewal, and monitoring visually. \u5b8c\u5168\u5f00\u6e90\u514d\u8d39\u7684\u81ea\u6258\u7ba1 SSL \u8bc1\u4e66 ACME \u5de5\u5177\uff0c\u7533\u8bf7\u3001\u90e8\u7f72\u3001\u7eed\u671f\u3001\u76d1\u63a7\u5168\u6d41\u7a0b\u81ea\u52a8\u5316\u53ef\u89c6\u5316\uff0c\u652f\u6301\u5404\u5927\u4e3b\u6d41\u4e91\u5382\u5546\u3002",
+      "stars": 9367,
+      "classification": "need-related"
+    },
+    {
+      "index": 60,
+      "full_name": "Tikam02/DevOps-Guide",
+      "description": " DevOps Guide - Development to Production all configurations with basic notes to debug efficiently.",
+      "stars": 9363,
+      "classification": "need-related"
+    },
+    {
+      "index": 61,
+      "full_name": "runatlantis/atlantis",
+      "description": "Terraform Pull Request Automation",
+      "stars": 9325,
+      "classification": "random"
+    },
+    {
+      "index": 62,
+      "full_name": "databasus/databasus",
+      "description": "PostgreSQL backup tool with Point-In-Time-Recovery and restore verification",
+      "stars": 9079,
+      "classification": "need-related"
+    },
+    {
+      "index": 63,
+      "full_name": "bridgecrewio/checkov",
+      "description": "Prevent cloud misconfigurations and find vulnerabilities during build-time in infrastructure as code, container images and open source packages with Checkov by Bridgecrew.",
+      "stars": 9072,
+      "classification": "random"
+    },
+    {
+      "index": 64,
+      "full_name": "cookieY/Yearning",
+      "description": "\ud83d\udc33 A most popular sql audit platform for mysql ",
+      "stars": 8968,
+      "classification": "random"
+    },
+    {
+      "index": 65,
+      "full_name": "fission/fission",
+      "description": "Fast and Simple Serverless Functions for Kubernetes",
+      "stars": 8934,
+      "classification": "random"
+    },
+    {
+      "index": 66,
+      "full_name": "openshift/origin",
+      "description": "Conformance test suite for OpenShift",
+      "stars": 8696,
+      "classification": "random"
+    },
+    {
+      "index": 67,
+      "full_name": "SeleniumHQ/docker-selenium",
+      "description": "Provides a simple way to run Selenium Grid with Chrome, Firefox, and Edge using Container Platform, making it easier to perform browser automation at scale",
+      "stars": 8659,
+      "classification": "random"
+    },
+    {
+      "index": 68,
+      "full_name": "isno/theByteBook",
+      "description": "\u2b50 \u3010\u51fa\u7248\u4e66\u7c4d\u3011\u4eac\u4e1c\u8d2d\u4e70\u94fe\u63a5 https://item.jd.com/14531549.html  \u6df1\u5165\u8bb2\u89e3\u5185\u6838\u7f51\u7edc\u3001Kubernetes\u3001ServiceMesh\u3001\u5bb9\u5668\u7b49\u4e91\u539f\u751f\u76f8\u5173\u6280\u672f\u3002\u7ecf\u5386\u5b9e\u8df5\u68c0\u9a8c\u7684\u201c\u5927\u89c4\u6a21\u5206\u5e03\u5f0f\u7cfb\u7edf\u201d\u5f00\u53d1\u6307\u5357\u3002",
+      "stars": 8550,
+      "classification": "random"
+    },
+    {
+      "index": 69,
+      "full_name": "HariSekhon/DevOps-Bash-tools",
+      "description": "1200+ DevOps Bash Scripts - AWS, GCP, Kubernetes, Docker, CI/CD, APIs, SQL, PostgreSQL, MySQL, Hive, Impala, Kafka, Hadoop, Jenkins, GitHub, GitLab, BitBucket, Azure DevOps, TeamCity, Spotify, MP3, LDAP, Code/Build Linting, pkg mgmt for Linux, Mac, Python, Perl, Ruby, NodeJS, Golang, Advanced dotfiles: .bashrc, .vimrc, .gitconfig, .screenrc, tmux..",
+      "stars": 8430,
+      "classification": "random"
+    },
+    {
+      "index": 70,
+      "full_name": "chef/chef",
+      "description": "Chef Infra, a powerful automation platform that transforms infrastructure into code automating how infrastructure is configured, deployed and managed across any environment, at any scale",
+      "stars": 8254,
+      "classification": "random"
+    },
+    {
+      "index": 71,
+      "full_name": "k8sgpt-ai/k8sgpt",
+      "description": "Giving Kubernetes Superpowers to everyone",
+      "stars": 8248,
+      "classification": "random"
+    },
+    {
+      "index": 72,
+      "full_name": "wasm3/wasm3",
+      "description": "\ud83d\ude80 A fast WebAssembly interpreter and the most universal WASM runtime",
+      "stars": 8053,
+      "classification": "random"
+    },
+    {
+      "index": 73,
+      "full_name": "woodpecker-ci/woodpecker",
+      "description": "Woodpecker is a simple, yet powerful CI/CD engine with great extensibility.",
+      "stars": 8005,
+      "classification": "random"
+    },
+    {
+      "index": 74,
+      "full_name": "turbot/steampipe",
+      "description": "Zero-ETL, infinite possibilities. Live query APIs, code & more with SQL. No DB required.",
+      "stars": 7986,
+      "classification": "random"
+    },
+    {
+      "index": 75,
+      "full_name": "gruntwork-io/terratest",
+      "description": " Terratest is a Go library that makes it easier to write automated tests for your infrastructure code.",
+      "stars": 7980,
+      "classification": "need-related"
+    },
+    {
+      "index": 76,
+      "full_name": "rorkai/App-Store-Connect-CLI",
+      "description": "Fast, scriptable CLI for the App Store Connect API. Automate TestFlight, builds, submissions, signing, analytics, screenshots, subscriptions, and more",
+      "stars": 7922,
+      "classification": "need-related"
+    },
+    {
+      "index": 77,
+      "full_name": "OneUptime/oneuptime",
+      "description": "Complete open-source monitoring and observability platform.",
+      "stars": 7736,
+      "classification": "random"
+    },
+    {
+      "index": 78,
+      "full_name": "kubernetes-sigs/headlamp",
+      "description": "A Kubernetes web UI that is fully-featured, user-friendly and extensible",
+      "stars": 7450,
+      "classification": "random"
+    },
+    {
+      "index": 79,
+      "full_name": "alexellis/k3sup",
+      "description": "bootstrap K3s over SSH in < 60s \ud83d\ude80",
+      "stars": 7437,
+      "classification": "random"
+    }
+  ]
+}

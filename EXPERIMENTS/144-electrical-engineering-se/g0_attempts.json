@@ -1,0 +1,142 @@
+[
+  {
+    "probe_id": "A1",
+    "true_label": "answerable",
+    "attempt": "[ANSWER] Textbook stability issue: gain-bandwidth product, phase margin, compensation capacitor needed. General knowledge suffices.",
+    "declined": false,
+    "rationale": "Textbook stability issue: gain-bandwidth product, phase margin, compensation capacitor needed. General knowledge suffices."
+  },
+  {
+    "probe_id": "A2",
+    "true_label": "answerable",
+    "attempt": "[ANSWER] Standard switching loss / gate drive voltage issue. IRF540N needs 10V Vgs for full enhancement. General knowledge.",
+    "declined": false,
+    "rationale": "Standard switching loss / gate drive voltage issue. IRF540N needs 10V Vgs for full enhancement. General knowledge."
+  },
+  {
+    "probe_id": "A3",
+    "true_label": "answerable",
+    "attempt": "[ANSWER] Classic 555 troubleshooting: floating control voltage pin, incorrect wiring. General knowledge.",
+    "declined": false,
+    "rationale": "Classic 555 troubleshooting: floating control voltage pin, incorrect wiring. General knowledge."
+  },
+  {
+    "probe_id": "A4",
+    "true_label": "answerable",
+    "attempt": "[ANSWER] Thermal shutdown or dropout voltage issue. LM7805 needs ~2.5V headroom, 12V->5V at 500mA = 3.5W, needs proper heatsink. General knowledge.",
+    "declined": false,
+    "rationale": "Thermal shutdown or dropout voltage issue. LM7805 needs ~2.5V headroom, 12V->5V at 500mA = 3.5W, needs proper heatsink. General knowledge."
+  },
+  {
+    "probe_id": "A5",
+    "true_label": "answerable",
+    "attempt": "[ANSWER] Known I2C limitation: master must support clock stretching or use polling. General knowledge.",
+    "declined": false,
+    "rationale": "Known I2C limitation: master must support clock stretching or use polling. General knowledge."
+  },
+  {
+    "probe_id": "A6",
+    "true_label": "answerable",
+    "attempt": "[ANSWER] Standard crystal startup issues: cap values, drive level, PCB layout, ESR. General knowledge.",
+    "declined": false,
+    "rationale": "Standard crystal startup issues: cap values, drive level, PCB layout, ESR. General knowledge."
+  },
+  {
+    "probe_id": "A7",
+    "true_label": "answerable",
+    "attempt": "[ANSWER] Inductor saturation, current limit, or diode loss. Standard boost converter troubleshooting. General knowledge.",
+    "declined": false,
+    "rationale": "Inductor saturation, current limit, or diode loss. Standard boost converter troubleshooting. General knowledge."
+  },
+  {
+    "probe_id": "A8",
+    "true_label": "answerable",
+    "attempt": "[ANSWER] EMI pickup, ground loops, impedance mismatch. Standard ADC noise issue. General knowledge.",
+    "declined": false,
+    "rationale": "EMI pickup, ground loops, impedance mismatch. Standard ADC noise issue. General knowledge."
+  },
+  {
+    "probe_id": "A9",
+    "true_label": "answerable",
+    "attempt": "[ANSWER] Signal reflection, common-mode voltage, biasing resistors needed. Standard RS485 issue. General knowledge.",
+    "declined": false,
+    "rationale": "Signal reflection, common-mode voltage, biasing resistors needed. Standard RS485 issue. General knowledge."
+  },
+  {
+    "probe_id": "A10",
+    "true_label": "answerable",
+    "attempt": "[ANSWER] Common-mode radiation, switch node ringing, snubbers, spread spectrum. Standard EMI debugging. General knowledge.",
+    "declined": false,
+    "rationale": "Common-mode radiation, switch node ringing, snubbers, spread spectrum. Standard EMI debugging. General knowledge."
+  },
+  {
+    "probe_id": "S1",
+    "true_label": "specific",
+    "attempt": "[DECLINE] This requires the asker's specific schematic, measurements, or board details which are not provided in general knowledge.",
+    "declined": true,
+    "rationale": "Requires asker's schematic, layout, component choices, measurement setup. Cannot answer from general knowledge."
+  },
+  {
+    "probe_id": "S2",
+    "true_label": "specific",
+    "attempt": "[DECLINE] This requires the asker's specific schematic, measurements, or board details which are not provided in general knowledge.",
+    "declined": true,
+    "rationale": "Requires asker's schematic (pull-up on ADC pin), board layout, pin configuration. Specific to their design."
+  },
+  {
+    "probe_id": "S3",
+    "true_label": "specific",
+    "attempt": "[DECLINE] This requires the asker's specific schematic, measurements, or board details which are not provided in general knowledge.",
+    "declined": true,
+    "rationale": "Requires asker's layout photo, component selection, board stackup. Specific to their implementation."
+  },
+  {
+    "probe_id": "S4",
+    "true_label": "specific",
+    "attempt": "[DECLINE] This requires the asker's specific schematic, measurements, or board details which are not provided in general knowledge.",
+    "declined": true,
+    "rationale": "Requires asker's exact stackup, trace geometry, materials. Specific to their PCB design."
+  },
+  {
+    "probe_id": "S5",
+    "true_label": "specific",
+    "attempt": "[DECLINE] This requires the asker's specific schematic, measurements, or board details which are not provided in general knowledge.",
+    "declined": true,
+    "rationale": "Requires asker's schematic, thermal data, gate drive waveforms, layout. Specific to their design."
+  },
+  {
+    "probe_id": "S6",
+    "true_label": "specific",
+    "attempt": "[DECLINE] This requires the asker's specific schematic, measurements, or board details which are not provided in general knowledge.",
+    "declined": true,
+    "rationale": "Requires asker's board layout, trace length, signal integrity. Specific to their implementation."
+  },
+  {
+    "probe_id": "S7",
+    "true_label": "specific",
+    "attempt": "[DECLINE] This requires the asker's specific schematic, measurements, or board details which are not provided in general knowledge.",
+    "declined": true,
+    "rationale": "Requires asker's schematic, load conditions, supply voltage measurement. Specific to their circuit."
+  },
+  {
+    "probe_id": "S8",
+    "true_label": "specific",
+    "attempt": "[DECLINE] This requires the asker's specific schematic, measurements, or board details which are not provided in general knowledge.",
+    "declined": true,
+    "rationale": "Requires asker's node B schematic, layout, oscillator accuracy, termination. Specific to their node."
+  },
+  {
+    "probe_id": "S9",
+    "true_label": "specific",
+    "attempt": "[DECLINE] This requires the asker's specific schematic, measurements, or board details which are not provided in general knowledge.",
+    "declined": true,
+    "rationale": "Requires asker's PCB thermal design, copper area, ambient, airflow. Specific to their implementation."
+  },
+  {
+    "probe_id": "S10",
+    "true_label": "specific",
+    "attempt": "[DECLINE] This requires the asker's specific schematic, measurements, or board details which are not provided in general knowledge.",
+    "declined": true,
+    "rationale": "Requires asker's schematic, power sequencing, JTAG layout, clock source. Specific to their board."
+  }
+]

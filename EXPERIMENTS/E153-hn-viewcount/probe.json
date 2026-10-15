@@ -1,0 +1,849 @@
+{
+  "experiment": "E153 -- Hacker News view-count principle fresh observation",
+  "timestamp": "2026-10-15 14:52:52",
+  "source": "api_fetch",
+  "target_domain": "hn",
+  "sample_size": 99,
+  "classified": {
+    "need-related": 97,
+    "random": 2
+  },
+  "activity": {
+    "need_related_active": 97,
+    "need_related_inactive": 0,
+    "random_active": 2,
+    "random_inactive": 0
+  },
+  "gates": {
+    "G1": {
+      "met": false,
+      "observed": "99 classified (97 need-related, 2 random)",
+      "threshold": ">=30 per arm",
+      "reason": "only 99 classified"
+    },
+    "G2": {
+      "met": false,
+      "observed": {
+        "p_need": 1.0,
+        "p_random": 1.0,
+        "difference_p": 0.0,
+        "mean_diff_percent": 3.088310933202143,
+        "t_stat": 0.042217288445971994,
+        "p_value": 1.932650961319693
+      },
+      "threshold": "p < 0.05, need-related > random on Welch's t-test on scores"
+    },
+    "G3": {
+      "met": true,
+      "observed": {
+        "need_related_arrival_rate": 1.0,
+        "random_arrival_rate": 1.0
+      },
+      "threshold": ">=80% of need-related stories have score > 0"
+    },
+    "G4": {
+      "met": true,
+      "observed": {
+        "total_with_arrivals": 99,
+        "total_packages": 99,
+        "arrival_rate": 1.0
+      },
+      "threshold": ">=80% of classified stories have score > 0"
+    }
+  },
+  "verdict": "failed: G1 not met; G2 not met",
+  "raw_results": [
+    {
+      "index": 0,
+      "story_id": 50102923,
+      "title": "Libreboot 26.10 \"Ominous Olive\" released with UEFI, Chromebook support",
+      "score": 111,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 1,
+      "story_id": 50103000,
+      "title": "Israeli firm's digital ads enabling installation of 'zero-click' spyware",
+      "score": 267,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 2,
+      "story_id": 50103338,
+      "title": "Wayland desktop for Linux with skeuomorphic design",
+      "score": 35,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 3,
+      "story_id": 50103164,
+      "title": "C++26 Contracts: Introduction to Preconditions and Postconditions",
+      "score": 38,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 4,
+      "story_id": 50093568,
+      "title": "Things to know when you get cancer",
+      "score": 1697,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 5,
+      "story_id": 50102247,
+      "title": "Show HN: Unfenced \u2013 Land for sale that borders public land",
+      "score": 113,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 6,
+      "story_id": 50070625,
+      "title": "Wanted to download an ISO, ended up writing a kernel exploit",
+      "score": 236,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 7,
+      "story_id": 50058531,
+      "title": "The Haunted Toys R Us",
+      "score": 31,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 8,
+      "story_id": 50101813,
+      "title": "Zero-Click Spyware Delivered via Targeted Ads: AdFection",
+      "score": 43,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 9,
+      "story_id": 50104310,
+      "title": "Prompt injection in HTTP headers: what 217M web responses show",
+      "score": 4,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 10,
+      "story_id": 50094994,
+      "title": "OpenCode 2.0",
+      "score": 760,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 11,
+      "story_id": 50096142,
+      "title": "Tiny Little Office",
+      "score": 565,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 12,
+      "story_id": 50079701,
+      "title": "The First Social Network: In rural Argentina residents send messages w AM radio",
+      "score": 85,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 13,
+      "story_id": 50050553,
+      "title": "Do dentists know what they're doing?",
+      "score": 853,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 14,
+      "story_id": 50064470,
+      "title": "Show HN: Indigene \u2013 Native plants for where you stand",
+      "score": 81,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 15,
+      "story_id": 50103263,
+      "title": "GridSnap \u2013 an open-source Divvy-style window snapper for macOS",
+      "score": 7,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 16,
+      "story_id": 50053384,
+      "title": "Catch a Bird \u2013 I made it for my own sanity",
+      "score": 306,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 17,
+      "story_id": 50104299,
+      "title": "Using AI to reverse engineer hardware",
+      "score": 10,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 18,
+      "story_id": 50089921,
+      "title": "Americans' social activity has steeply declined in the past 30 years",
+      "score": 501,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 19,
+      "story_id": 50097369,
+      "title": "LFM2.5-24B-A2B: Built for fast on-device agents",
+      "score": 259,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 20,
+      "story_id": 50072456,
+      "title": "Show HN: A 3D Configurator for Macropads",
+      "score": 4,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 21,
+      "story_id": 50103630,
+      "title": "I know why Mathematicians weep",
+      "score": 67,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 22,
+      "story_id": 50070661,
+      "title": "It took me nine years to hack my Xbox 360",
+      "score": 141,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 23,
+      "story_id": 50071068,
+      "title": "Tracing Mystery Network Traffic with eBPF Across HRT's Global Compute Cluster",
+      "score": 27,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 24,
+      "story_id": 50060547,
+      "title": "Sticky alpine flower confirms Darwin's 150-year-old carnivorous plant prediction",
+      "score": 73,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 25,
+      "story_id": 50065237,
+      "title": "Stopping sand from destroying a hydropower turbine [video]",
+      "score": 23,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 26,
+      "story_id": 50077709,
+      "title": "Donaldson Futuro House in Idyllwild, California, USA",
+      "score": 75,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 27,
+      "story_id": 50096300,
+      "title": "Show HN: Ito \u2013 Build Terminal UIs in Lua",
+      "score": 54,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 28,
+      "story_id": 50099136,
+      "title": "Show HN: Flipflop, Iroh-powered persistent tunnels for filesharing",
+      "score": 73,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 29,
+      "story_id": 50090369,
+      "title": "Better HTTP/1 connection reuse in Go 1.27",
+      "score": 284,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 30,
+      "story_id": 50060923,
+      "title": "David Rudnick on \"borderline impossible\" process of designing Arsenal typeface",
+      "score": 51,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 31,
+      "story_id": 50098274,
+      "title": "The Double Headed Stack Allocator",
+      "score": 83,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 32,
+      "story_id": 50071546,
+      "title": "Your C is not standard C",
+      "score": 116,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 33,
+      "story_id": 50084757,
+      "title": "How Amazon pushes up prices all across the Internet",
+      "score": 905,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 34,
+      "story_id": 50092470,
+      "title": "Show HN: Petal, open-source CoScreen/ScreenHero finally free",
+      "score": 202,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 35,
+      "story_id": 50067325,
+      "title": "Ask HN: CAD for wood working with LLM support?",
+      "score": 105,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 36,
+      "story_id": 50047576,
+      "title": "The Toftwood Male Voice Choir: A Mystery Pressed in Vinyl",
+      "score": 50,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 37,
+      "story_id": 50091788,
+      "title": "Containment and monitoring failures are to blame for AI hacking reports:\u00a0experts",
+      "score": 927,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 38,
+      "story_id": 50095353,
+      "title": "We\u2019re releasing Jev 1.14.0 along with experimental features for dreamers",
+      "score": 318,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 39,
+      "story_id": 50103427,
+      "title": "ChatGPT Targets Ads to You Based on Your Prompts, Phone Number, and Email",
+      "score": 12,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 40,
+      "story_id": 50102664,
+      "title": "RIAA Flags Anna's Archive and AI Voice Cloner to U.S. Government",
+      "score": 12,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 41,
+      "story_id": 50090799,
+      "title": "Has AI tells",
+      "score": 129,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 42,
+      "story_id": 50054465,
+      "title": "Phloem: Git history grown like a slime mold",
+      "score": 123,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 43,
+      "story_id": 50088935,
+      "title": "Passkeys are not a trap",
+      "score": 623,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 44,
+      "story_id": 50089229,
+      "title": "Submarine cable resilience",
+      "score": 163,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 45,
+      "story_id": 50092423,
+      "title": "Virtual Oxide Labs: Emulating a Full Oxide Rack",
+      "score": 135,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 46,
+      "story_id": 50093612,
+      "title": "Fancy Curl Sites",
+      "score": 136,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 47,
+      "story_id": 50103525,
+      "title": "Things are finally looking up for NASA's first missions to Venus in a generation",
+      "score": 5,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 48,
+      "story_id": 50100345,
+      "title": "How to be more ambitious: A tutorial for humans with models",
+      "score": 14,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 49,
+      "story_id": 50092730,
+      "title": "Fire at Starlink site in Bulgaria after suspected sabotage in Poland",
+      "score": 373,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 50,
+      "story_id": 50086165,
+      "title": "Pg_vectorsearch: An index that is faster than pgvector's IVFFlat and HNSW",
+      "score": 205,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 51,
+      "story_id": 50084240,
+      "title": "Iosevka is an open-source, sans-serif and slab-serif monospace font",
+      "score": 729,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 52,
+      "story_id": 50103752,
+      "title": "Some things are worth dying for: Karl Bushby's 28-year walk",
+      "score": 3,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 53,
+      "story_id": 50099375,
+      "title": "Claude Code Desktop Vulnerability: Preview Pane Data Exfiltration",
+      "score": 15,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 54,
+      "story_id": 50090349,
+      "title": "Google is silently linking your phone number across all signed-in accounts",
+      "score": 490,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 55,
+      "story_id": 50094694,
+      "title": "Anthropic's Scion is heavily inspired by Mononoke",
+      "score": 393,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 56,
+      "story_id": 50073879,
+      "title": "Gemini 4 Argon",
+      "score": 1453,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 57,
+      "story_id": 50090932,
+      "title": "Show HN: I wrote an email app that accepts only one sender per inbox",
+      "score": 102,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 58,
+      "story_id": 50064673,
+      "title": "The Origin Story of Kid Pix",
+      "score": 195,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 59,
+      "story_id": 50093180,
+      "title": "Suicide rates highest ever among middle-aged men",
+      "score": 453,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 60,
+      "story_id": 50097858,
+      "title": "Why are chip companies allergic to open source?",
+      "score": 19,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 61,
+      "story_id": 50097797,
+      "title": "Making all divisions slower to fix a bug in 0.000000000000000000542% of cases",
+      "score": 26,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 62,
+      "story_id": 50065572,
+      "title": "LittleJS is 2D and 3D now",
+      "score": 107,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 63,
+      "story_id": 50063427,
+      "title": "AI is a tool and using it well takes skill",
+      "score": 781,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 64,
+      "story_id": 50083028,
+      "title": "Why is every rationalist blog post way too long?",
+      "score": 396,
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 65,
+      "story_id": 50094673,
+      "title": "Yandex outage: data shows that instead of going dark, malicious bots moved",
+      "score": 274,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 66,
+      "story_id": 50085323,
+      "title": "TV4 postpones show after AI agent erases edited material",
+      "score": 151,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 67,
+      "story_id": 50086363,
+      "title": "Nvidia's first GPU: GeForce 256",
+      "score": 77,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 68,
+      "story_id": 50086313,
+      "title": "Smart people don't think others are stupid (2012)",
+      "score": 115,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 69,
+      "story_id": 50077096,
+      "title": "The Four Colour Theorem: The first time machines mogged mathematicians",
+      "score": 86,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 70,
+      "story_id": 50080007,
+      "title": "Grace Hopper Celebration Cancelled",
+      "score": 251,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 71,
+      "story_id": 50054092,
+      "title": "Ledger confirms spy chip implant behind wallet crypto thefts",
+      "score": 790,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 72,
+      "story_id": 50055632,
+      "title": "The Gold-Bug: Edgar Allan Poe's story that taught me about cryptography (2024)",
+      "score": 67,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 73,
+      "story_id": 50091875,
+      "title": "America didn't lose its rare earth industry, it sold it",
+      "score": 185,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 74,
+      "story_id": 50088643,
+      "title": "Running Windows desktop tests from Linux with disposable VMs",
+      "score": 91,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 75,
+      "story_id": 50070438,
+      "title": "Webster\u2019s Dictionary: The pleasure of finding things out (2014)",
+      "score": 34,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 76,
+      "story_id": 50100731,
+      "title": "Sunsetting Decomp.dev",
+      "score": 3,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 77,
+      "story_id": 50100791,
+      "title": "AI was great until it was not",
+      "score": 107,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 78,
+      "story_id": 50087337,
+      "title": "Scientists are teaching birds to sing lost songs",
+      "score": 52,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 79,
+      "story_id": 50088166,
+      "title": "Gaming on Linux without cheating",
+      "score": 82,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 80,
+      "story_id": 50091794,
+      "title": "Neckbeard \u2013 A DevOps/platform/SRE plugin for your agent",
+      "score": 71,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 81,
+      "story_id": 50102423,
+      "title": "Ubuntu 26.10 (Stonking Stingray) released",
+      "score": 57,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 82,
+      "story_id": 50082021,
+      "title": "Strafe: A new open-source, E2E Encrypted, and federated alternative to Discord",
+      "score": 116,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 83,
+      "story_id": 50098454,
+      "title": "Show HN: My Terminal Themes Web App",
+      "score": 20,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 84,
+      "story_id": 50073633,
+      "title": "Redesigning source control at Anthropic",
+      "score": 881,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 85,
+      "story_id": 50103304,
+      "title": "Ask HN: Did you 'invest' in NFTs or memecoins?",
+      "score": 6,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 86,
+      "story_id": 50100387,
+      "title": "Aidlc: Adaptive workflow steering rules for AI coding agents",
+      "score": 18,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 87,
+      "story_id": 50085022,
+      "title": "Show HN: A guided 3D Leonardo da Vinci museum, built in code",
+      "score": 89,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 88,
+      "story_id": 50069499,
+      "title": "11 year old unsoundness bugs found in Rust borrow checker",
+      "score": 744,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 89,
+      "story_id": 50071017,
+      "title": "Apple HomeView",
+      "score": 757,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 90,
+      "story_id": 50092664,
+      "title": "Banks are now trying to offload the AI data center debt they just underwrote",
+      "score": 373,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 91,
+      "story_id": 50088447,
+      "title": "Strands Decider: Why Not an Encoder?",
+      "score": 37,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 92,
+      "story_id": 50078757,
+      "title": "Marshall Islands Stick Chart",
+      "score": 51,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 93,
+      "story_id": 50084416,
+      "title": "What agents mean for Rust (and vice versa)",
+      "score": 70,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 94,
+      "story_id": 50085296,
+      "title": "I let an AI run my startup for a week",
+      "score": 65,
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 95,
+      "story_id": 50077020,
+      "title": "Show HN: Guitoro, a virtual guitar you strum with your keyboard",
+      "score": 563,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 96,
+      "story_id": 50096513,
+      "title": "Show HN: Ask a technical question, get an animated explainer you can interrupt",
+      "score": 13,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 97,
+      "story_id": 50083130,
+      "title": "AOSP Source Releases Are So Late Developers Disassemble Libraries to Report Bugs",
+      "score": 496,
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 98,
+      "story_id": 50088713,
+      "title": "Show HN: Graphicle, a Rust port of Graphify with memory for coding agents",
+      "score": 46,
+      "classified": "need-related",
+      "has_activity": true
+    }
+  ]
+}

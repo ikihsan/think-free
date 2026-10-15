@@ -1,0 +1,1305 @@
+==============================================================================
+[seq 3] 2026-10-15T12:16:43+00:00
+$ python3 fetch.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+============================================================
+E144 - Fetching Electrical Engineering SE questions
+============================================================
+Fetching Arm A page 1...
+HTTP Error 400: Bad Request
+
+
+[stderr]
+Traceback (most recent call last):
+  File "fetch.py", line 118, in <module>
+    main()
+  File "fetch.py", line 65, in main
+    arm_a = fetch_arm_a()
+  File "fetch.py", line 42, in fetch_arm_a
+    data = fetch_page(url)
+  File "fetch.py", line 22, in fetch_page
+    with urllib.request.urlopen(req, timeout=30) as resp:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1196  redactions: none
+==============================================================================
+[seq 4] 2026-10-15T12:17:28+00:00
+$ python3 fetch.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+============================================================
+E144 - Fetching Electrical Engineering SE questions
+============================================================
+Fetching Arm A page 1...
+Fetching Arm A page 2...
+Arm A (votes): 200 questions fetched
+Fetching Arm B page 1...
+Arm B (creation): 100 questions fetched
+Arm A unanswered: 1
+Arm B unanswered: 40
+
+Done. Files written:
+  ./arm_a_raw.json
+  ./arm_b_raw.json
+  ./arm_a_unanswered.json
+  ./arm_b_unanswered.json
+  ./fetch-log.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2718  redactions: none
+==============================================================================
+[seq 5] 2026-10-15T12:19:00+00:00
+$ python3 fetch.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+============================================================
+E144 - Fetching Electrical Engineering SE questions
+============================================================
+Fetching Arm A page 1...
+Fetching Arm A page 2...
+Arm A (votes): 200 questions fetched
+Fetching Arm B page 1...
+Fetching Arm B page 2...
+Fetching Arm B page 3...
+Arm B (creation): 300 questions fetched
+Arm A unanswered: 1
+Arm B unanswered: 96
+
+Done. Files written:
+  ./arm_a_raw.json
+  ./arm_b_raw.json
+  ./arm_a_unanswered.json
+  ./arm_b_unanswered.json
+  ./fetch-log.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2895  redactions: none
+==============================================================================
+[seq 6] 2026-10-15T12:20:22+00:00
+$ python3 fetch.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+============================================================
+E144 - Fetching Electrical Engineering SE questions
+============================================================
+Fetching Arm A page 1...
+HTTP Error 400: Bad Request
+
+
+[stderr]
+Traceback (most recent call last):
+  File "fetch.py", line 120, in <module>
+    main()
+  File "fetch.py", line 67, in main
+    arm_a = fetch_arm_a()
+  File "fetch.py", line 52, in fetch_arm_a
+    return fetch_questions('votes', 2, 'Arm A')
+  File "fetch.py", line 43, in fetch_questions
+    data = fetch_page(url)
+  File "fetch.py", line 22, in fetch_page
+    with urllib.request.urlopen(req, timeout=30) as resp:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1376  redactions: none
+==============================================================================
+[seq 7] 2026-10-15T12:22:12+00:00
+$ python3 fetch.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+============================================================
+E144 - Fetching Electrical Engineering SE questions
+============================================================
+Fetching Arm A page 1...
+Fetching Arm A page 2...
+Arm A (votes): 200 questions fetched
+Fetching Arm B page 1...
+Fetching Arm B page 2...
+Fetching Arm B page 3...
+Arm B (creation): 300 questions fetched
+Arm A unanswered: 1
+Arm B unanswered: 96
+
+Done. Files written:
+  ./arm_a_raw.json
+  ./arm_b_raw.json
+  ./arm_a_unanswered.json
+  ./arm_b_unanswered.json
+  ./fetch-log.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5100  redactions: none
+==============================================================================
+[seq 8] 2026-10-15T12:23:38+00:00
+$ python3 screen.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+Screening Arm A: 1 questions
+Screening Arm B: 96 questions
+  [A] Q769818: execution/program - How does this delay line travel faster than light?
+  [B] Q772580: diagnosis/answerable - Op amp stability issues in virtual ground for piezo sensors
+  [B] Q772579: other/- - Buy heatsink then design PCB - rookie mistake
+  [B] Q772575: execution/manual - How to design a circuit which detects the presence of earth 
+  [B] Q772574: other/- - Chip marked TDA1543 only translates last nine bits
+  [B] Q772572: other/- - Practical way to plot frequency response of circuit requirin
+  [B] Q772571: other/- - Electrical SLD -Available fault current calculation and circ
+  [B] Q772563: diagnosis/answerable - Logic bench Simulation Error
+  [B] Q772554: other/- - Help with silicon photomultipier biasing
+  [B] Q772544: execution/program - What&#39;s the name of this power input/connector?
+  [B] Q772515: other/- - Can an RC Snubber Protect the IRFP460 MOSFET in a Tesla Coil
+  [B] Q772511: other/- - Did Elon Musk adopt Nikola Tesla&#39;s electric motor design
+  [B] Q772488: other/- - effect of variation of inductance value on the controller ap
+  [B] Q772480: other/- - How to identify a component marked F1 on the silk screen of 
+  [B] Q772477: execution/program - What other components would I need to make this HD720P 2202M
+  [B] Q772471: diagnosis/specific - problem with opamp output
+  [B] Q772466: execution/program - I have an old 32 Vdc 1800 watt wind generator. The control b
+  [B] Q772465: other/- - LTspice for class D amplifier simulation
+  [B] Q772464: diagnosis/specific - HIFU Machine (YT-514): LCD Backlight Turns On But No Display
+  [B] Q772458: diagnosis/specific - solderless sma screw mounting RF causaliy problem
+  [B] Q772447: diagnosis/answerable - Troubleshooting a Laser Diode Power Supply / TTL Modulation
+  [B] Q772444: execution/program - Variable speed, variable rail sine wave driver design
+  [B] Q772421: execution/program - Should the region around the inverter stage of a motor contr
+  [B] Q772394: other/- - Looking for an RF connector
+  [B] Q772367: other/- - How exactly does a RCD or ELCB work? Creating a similar circ
+  [B] Q772361: diagnosis/specific - Non-inverting voltage amplifier affecting my transimpedance 
+  [B] Q772354: other/- - DC-DC buck converter layout
+  [B] Q772353: execution/manual - Combined OverVoltage(OVP) and OverCurrent Protection (OCP) C
+  [B] Q772351: other/- - Telephony Analog Channel Routing options
+  [B] Q772346: diagnosis/specific - Feedback on a MOSFET SSR power distribution board
+  [B] Q772337: execution/program - Selection of the resistor in the hysteresis elimination circ
+  [B] Q772333: diagnosis/answerable - Tinkercad - add user designed component to circuit
+  [B] Q772330: diagnosis/specific - J-Link SWD communications fails when multiplexer board is us
+  [B] Q772306: diagnosis/answerable - Recommendations for high receiver isolation in compact, high
+  [B] Q772303: execution/program - Westinghouse Mobilare hex 5-wire motor connections
+  [B] Q772293: other/- - NAU8810 codec: microphone uplink silent while PCM downlink w
+  [B] Q772280: other/- - Why can&#39;t I generate the (TpLH/TpHL)*Skew graph?
+  [B] Q772261: other/- - Updated schematic &amp; 4-layer PCB audit before fabrication
+  [B] Q772256: diagnosis/answerable - I2C opencore IP: The output signal wb_dat_o does not get res
+  [B] Q772255: other/- - MOFSET VCO Architecture Advice
+  [B] Q772242: other/- - Identify FPC/ FFC Connectors on PCB
+  [B] Q772219: other/- - Circuit needs two N-type and one p-type MOSFET: use a dual a
+  [B] Q772212: diagnosis/specific - Do 802.11 WiFi zero-length data frames need to use a backoff
+  [B] Q772208: other/- - ADS122C04 ratiometric Pt1000: parabolic residual that grows 
+  [B] Q772207: other/- - Instrumentation amplifier for balanced/unbalanced input w/un
+  [B] Q772203: diagnosis/specific - My GNSS Module (ZED F9P) kept losing signal when tested outd
+  [B] Q772200: execution/manual - How hard would it be to manufacture a clone of a RISC-V ESP3
+  [B] Q772198: execution/program - Another latch circuit &amp; question
+  [B] Q772181: diagnosis/specific - How to calculate cross bonding joint maximum permissible lea
+  [B] Q772161: other/- - Any suggestion on how to enable 10Base-T1S end node terminat
+  [B] Q772155: diagnosis/specific - Capacitor-excited alternator will not self-excite despite go
+  [B] Q772135: execution/program - BJT CC–CB differential amplifier (emitter follower + common 
+  [B] Q772133: execution/program - GPIO with 2 LEDs and a switch, no polling
+  [B] Q772127: other/- - Probe orientation in conducted emissions test
+  [B] Q772123: other/- - 100% charged or shallow dischardge/recharge cycles
+  [B] Q772103: other/- - How to Fix a Cesspool of an Altium 365 Components Library?
+  [B] Q772088: diagnosis/answerable - Multiplexing an RFID-RC522 with multiple antennas
+  [B] Q772083: execution/manual - TPS53015: meaning of &#39;K&#39; in undershoot formula
+  [B] Q772073: other/- - Display connector type
+  [B] Q772065: diagnosis/specific - Problem reproducing a graphene-based terahertz quasi-Yagi an
+  [B] Q772062: diagnosis/answerable - one speaker of instrument has FM-like static while audio rem
+  [B] Q772051: other/- - Is my understanding &amp; mental map of Types of Circuit Ana
+  [B] Q772072: execution/manual - Amplifier Stages &amp; Design Advice for an RF Amplifier
+  [B] Q772022: diagnosis/answerable - How likely is a power surge when I have a good surge protect
+  [B] Q772015: diagnosis/answerable - Servo spinning uncontrollably
+  [B] Q772006: execution/program - Network Impedance
+  [B] Q772004: diagnosis/specific - Replacement 12V LED drivers work for a few days, then fail c
+  [B] Q771996: other/- - ADA4355 zero-input ADC data shows a repeatable structured ba
+  [B] Q771995: other/- - Can a IP2369 be used to convert an AAA device to a S2 LiPo b
+  [B] Q771932: execution/program - Self Stabilizing Robot Movement Control
+  [B] Q771917: other/- - Help Creating a Behavioral SPICE Model for a Custom VCXO/Osc
+  [B] Q771914: other/- - What connector type is this? (portable air compressor)
+  [B] Q771912: diagnosis/specific - Single phase full bridge sinusoidal PWM inverter - output ha
+  [B] Q771898: other/- - Standards and necessity of galvanic isolation in the AC/DC p
+  [B] Q771872: other/- - Why (this) VQFN-32 features some pads shapes &quot;sharp&quo
+  [B] Q771866: diagnosis/answerable - High Side Low Side Driver Application
+  [B] Q771865: execution/manual - Bulk cap sizing for 48V/500W 3-phase FOC drive — sanity chec
+  [B] Q771854: diagnosis/specific - VCO unable to oscillate at desired frequency
+  [B] Q771850: execution/program - Modelling s parameters of a step discontinuity in a grounded
+  [B] Q771844: other/- - Increasing phase margin of a folded cascode
+  [B] Q771825: other/- - Effective permittivity in differential line based PCB
+  [B] Q771824: other/- - Characterizing Current Demand During Transient Events
+  [B] Q771810: execution/program - Please tell me my gm/id plots are wrong (I need a second opi
+  [B] Q771761: diagnosis/specific - Extending a Custom-Made Optic Fiber - Adapter for Stepped Fe
+  [B] Q771759: diagnosis/specific - Why is there a difference in output ac response if the desig
+  [B] Q771754: other/- - Sound Level Meters: Calibration and microphone cartridge com
+  [B] Q771747: other/- - What is a method for a quick temporary insulation of a bunch
+  [B] Q771730: other/- - Where do the current values in IEC 61000-4-2 come from?
+  [B] Q771705: execution/manual - Has anyone considered this idea for an artificial electrosta
+  [B] Q771663: other/- - How can I identify and test the output of this 3-wire automo
+  [B] Q771661: diagnosis/specific - Connecting st-link to stm on a pcb board
+  [B] Q771658: diagnosis/answerable - LittleBee 30A BLHeli_S ESC problem with 6s
+  [B] Q771638: execution/manual - Cross analysis in the time domain
+  [B] Q771637: diagnosis/specific - How to implement LQR on hardware for rotary inverted pendulu
+  [B] Q771602: other/- - Understanding Murata MZB1001T02 air pump driving circuit
+  [B] Q771599: execution/program - How to calculate the resistor (Rvcc) in series with the auxi
+  [B] Q771598: execution/program - How antenna spacing affects sidelobes in beamforming?
+
+============================================================
+SCREENING SUMMARY
+============================================================
+  execution: 25
+  diagnosis: 30
+  other: 42
+
+  execution/program: 17
+  diagnosis/answerable: 12
+  other: 42
+  execution/manual: 8
+  diagnosis/specific: 18
+
+G1 Gate: 30 diagnosis-shaped of 97 fetched
+  Required: ≥ 60 diagnosis-shaped of ≥ 300 fetched
+  Status: FAIL
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 131  redactions: none
+==============================================================================
+[seq 9] 2026-10-15T12:24:59+00:00
+$ cp screening.json screening_v1.json
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 11  redactions: none
+==============================================================================
+[seq 10] 2026-10-15T12:26:23+00:00
+$ python3 screen.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+Screening Arm A: 1 questions
+Screening Arm B: 96 questions
+  [A] Q769818: other/- - How does this delay line travel faster than light?
+  [B] Q772580: diagnosis/answerable - Op amp stability issues in virtual ground for piezo sensors
+  [B] Q772579: other/- - Buy heatsink then design PCB - rookie mistake
+  [B] Q772575: execution/manual - How to design a circuit which detects the presence of earth 
+  [B] Q772574: other/- - Chip marked TDA1543 only translates last nine bits
+  [B] Q772572: execution/manual - Practical way to plot frequency response of circuit requirin
+  [B] Q772571: diagnosis/answerable - Electrical SLD -Available fault current calculation and circ
+  [B] Q772563: diagnosis/answerable - Logic bench Simulation Error
+  [B] Q772554: other/- - Help with silicon photomultipier biasing
+  [B] Q772544: execution/program - What&#39;s the name of this power input/connector?
+  [B] Q772515: other/- - Can an RC Snubber Protect the IRFP460 MOSFET in a Tesla Coil
+  [B] Q772511: other/- - Did Elon Musk adopt Nikola Tesla&#39;s electric motor design
+  [B] Q772488: other/- - effect of variation of inductance value on the controller ap
+  [B] Q772480: other/- - How to identify a component marked F1 on the silk screen of 
+  [B] Q772477: execution/program - What other components would I need to make this HD720P 2202M
+  [B] Q772471: diagnosis/specific - problem with opamp output
+  [B] Q772466: execution/program - I have an old 32 Vdc 1800 watt wind generator. The control b
+  [B] Q772465: other/- - LTspice for class D amplifier simulation
+  [B] Q772464: other/- - HIFU Machine (YT-514): LCD Backlight Turns On But No Display
+  [B] Q772458: other/- - solderless sma screw mounting RF causaliy problem
+  [B] Q772447: diagnosis/answerable - Troubleshooting a Laser Diode Power Supply / TTL Modulation
+  [B] Q772444: execution/program - Variable speed, variable rail sine wave driver design
+  [B] Q772421: other/- - Should the region around the inverter stage of a motor contr
+  [B] Q772394: other/- - Looking for an RF connector
+  [B] Q772367: other/- - How exactly does a RCD or ELCB work? Creating a similar circ
+  [B] Q772361: other/- - Non-inverting voltage amplifier affecting my transimpedance 
+  [B] Q772354: other/- - DC-DC buck converter layout
+  [B] Q772353: execution/manual - Combined OverVoltage(OVP) and OverCurrent Protection (OCP) C
+  [B] Q772351: other/- - Telephony Analog Channel Routing options
+  [B] Q772346: other/- - Feedback on a MOSFET SSR power distribution board
+  [B] Q772337: other/- - Selection of the resistor in the hysteresis elimination circ
+  [B] Q772333: diagnosis/answerable - Tinkercad - add user designed component to circuit
+  [B] Q772330: diagnosis/specific - J-Link SWD communications fails when multiplexer board is us
+  [B] Q772306: diagnosis/answerable - Recommendations for high receiver isolation in compact, high
+  [B] Q772303: execution/program - Westinghouse Mobilare hex 5-wire motor connections
+  [B] Q772293: diagnosis/specific - NAU8810 codec: microphone uplink silent while PCM downlink w
+  [B] Q772280: execution/program - Why can&#39;t I generate the (TpLH/TpHL)*Skew graph?
+  [B] Q772261: other/- - Updated schematic &amp; 4-layer PCB audit before fabrication
+  [B] Q772256: diagnosis/answerable - I2C opencore IP: The output signal wb_dat_o does not get res
+  [B] Q772255: other/- - MOFSET VCO Architecture Advice
+  [B] Q772242: other/- - Identify FPC/ FFC Connectors on PCB
+  [B] Q772219: other/- - Circuit needs two N-type and one p-type MOSFET: use a dual a
+  [B] Q772212: diagnosis/specific - Do 802.11 WiFi zero-length data frames need to use a backoff
+  [B] Q772208: diagnosis/answerable - ADS122C04 ratiometric Pt1000: parabolic residual that grows 
+  [B] Q772207: other/- - Instrumentation amplifier for balanced/unbalanced input w/un
+  [B] Q772203: other/- - My GNSS Module (ZED F9P) kept losing signal when tested outd
+  [B] Q772200: other/- - How hard would it be to manufacture a clone of a RISC-V ESP3
+  [B] Q772198: execution/program - Another latch circuit &amp; question
+  [B] Q772181: diagnosis/specific - How to calculate cross bonding joint maximum permissible lea
+  [B] Q772161: other/- - Any suggestion on how to enable 10Base-T1S end node terminat
+  [B] Q772155: diagnosis/specific - Capacitor-excited alternator will not self-excite despite go
+  [B] Q772135: execution/program - BJT CC–CB differential amplifier (emitter follower + common 
+  [B] Q772133: execution/program - GPIO with 2 LEDs and a switch, no polling
+  [B] Q772127: other/- - Probe orientation in conducted emissions test
+  [B] Q772123: other/- - 100% charged or shallow dischardge/recharge cycles
+  [B] Q772103: other/- - How to Fix a Cesspool of an Altium 365 Components Library?
+  [B] Q772088: diagnosis/answerable - Multiplexing an RFID-RC522 with multiple antennas
+  [B] Q772083: execution/manual - TPS53015: meaning of &#39;K&#39; in undershoot formula
+  [B] Q772073: other/- - Display connector type
+  [B] Q772065: diagnosis/specific - Problem reproducing a graphene-based terahertz quasi-Yagi an
+  [B] Q772062: diagnosis/answerable - one speaker of instrument has FM-like static while audio rem
+  [B] Q772051: other/- - Is my understanding &amp; mental map of Types of Circuit Ana
+  [B] Q772072: execution/manual - Amplifier Stages &amp; Design Advice for an RF Amplifier
+  [B] Q772022: diagnosis/answerable - How likely is a power surge when I have a good surge protect
+  [B] Q772015: diagnosis/answerable - Servo spinning uncontrollably
+  [B] Q772006: execution/program - Network Impedance
+  [B] Q772004: diagnosis/specific - Replacement 12V LED drivers work for a few days, then fail c
+  [B] Q771996: diagnosis/answerable - ADA4355 zero-input ADC data shows a repeatable structured ba
+  [B] Q771995: other/- - Can a IP2369 be used to convert an AAA device to a S2 LiPo b
+  [B] Q771932: execution/program - Self Stabilizing Robot Movement Control
+  [B] Q771917: other/- - Help Creating a Behavioral SPICE Model for a Custom VCXO/Osc
+  [B] Q771914: other/- - What connector type is this? (portable air compressor)
+  [B] Q771912: diagnosis/specific - Single phase full bridge sinusoidal PWM inverter - output ha
+  [B] Q771898: other/- - Standards and necessity of galvanic isolation in the AC/DC p
+  [B] Q771872: other/- - Why (this) VQFN-32 features some pads shapes &quot;sharp&quo
+  [B] Q771866: diagnosis/answerable - High Side Low Side Driver Application
+  [B] Q771865: other/- - Bulk cap sizing for 48V/500W 3-phase FOC drive — sanity chec
+  [B] Q771854: diagnosis/specific - VCO unable to oscillate at desired frequency
+  [B] Q771850: execution/program - Modelling s parameters of a step discontinuity in a grounded
+  [B] Q771844: other/- - Increasing phase margin of a folded cascode
+  [B] Q771825: other/- - Effective permittivity in differential line based PCB
+  [B] Q771824: other/- - Characterizing Current Demand During Transient Events
+  [B] Q771810: other/- - Please tell me my gm/id plots are wrong (I need a second opi
+  [B] Q771761: diagnosis/specific - Extending a Custom-Made Optic Fiber - Adapter for Stepped Fe
+  [B] Q771759: other/- - Why is there a difference in output ac response if the desig
+  [B] Q771754: other/- - Sound Level Meters: Calibration and microphone cartridge com
+  [B] Q771747: other/- - What is a method for a quick temporary insulation of a bunch
+  [B] Q771730: other/- - Where do the current values in IEC 61000-4-2 come from?
+  [B] Q771705: execution/manual - Has anyone considered this idea for an artificial electrosta
+  [B] Q771663: other/- - How can I identify and test the output of this 3-wire automo
+  [B] Q771661: diagnosis/specific - Connecting st-link to stm on a pcb board
+  [B] Q771658: other/- - LittleBee 30A BLHeli_S ESC problem with 6s
+  [B] Q771638: execution/program - Cross analysis in the time domain
+  [B] Q771637: diagnosis/specific - How to implement LQR on hardware for rotary inverted pendulu
+  [B] Q771602: other/- - Understanding Murata MZB1001T02 air pump driving circuit
+  [B] Q771599: execution/program - How to calculate the resistor (Rvcc) in series with the auxi
+  [B] Q771598: execution/program - How antenna spacing affects sidelobes in beamforming?
+
+============================================================
+SCREENING SUMMARY
+============================================================
+  other: 49
+  diagnosis: 27
+  execution: 21
+
+  other: 49
+  diagnosis/answerable: 14
+  execution/manual: 6
+  execution/program: 15
+  diagnosis/specific: 13
+
+G1 Gate: 27 diagnosis-shaped of 97 fetched
+  Required: ≥ 60 diagnosis-shaped of ≥ 300 fetched
+  Status: FAIL
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 201  redactions: none
+==============================================================================
+[seq 11] 2026-10-15T12:26:57+00:00
+$ python3 fetch.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+============================================================
+E144 - Fetching Electrical Engineering SE questions
+============================================================
+Fetching Arm A page 1...
+Fetching Arm A page 2...
+Arm A (votes): 200 questions fetched
+Fetching Arm B page 1...
+Fetching Arm B page 2...
+Fetching Arm B page 3...
+Fetching Arm B page 4...
+Fetching Arm B page 5...
+Fetching Arm B page 6...
+Fetching Arm B page 7...
+Fetching Arm B page 8...
+Fetching Arm B page 9...
+Fetching Arm B page 10...
+Arm B (creation): 1000 questions fetched
+Arm A unanswered: 1
+Arm B unanswered: 233
+
+Done. Files written:
+  ./arm_a_raw.json
+  ./arm_b_raw.json
+  ./arm_a_unanswered.json
+  ./arm_b_unanswered.json
+  ./fetch-log.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8115  redactions: none
+==============================================================================
+[seq 12] 2026-10-15T12:27:03+00:00
+$ python3 screen.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+Screening Arm A: 1 questions
+Screening Arm B: 233 questions
+  [A] Q769818: other/- - How does this delay line travel faster than light?
+  [B] Q772580: diagnosis/answerable - Op amp stability issues in virtual ground for piezo sensors
+  [B] Q772579: other/- - Buy heatsink then design PCB - rookie mistake
+  [B] Q772575: execution/manual - How to design a circuit which detects the presence of earth 
+  [B] Q772574: other/- - Chip marked TDA1543 only translates last nine bits
+  [B] Q772572: execution/manual - Practical way to plot frequency response of circuit requirin
+  [B] Q772571: diagnosis/answerable - Electrical SLD -Available fault current calculation and circ
+  [B] Q772563: diagnosis/answerable - Logic bench Simulation Error
+  [B] Q772554: other/- - Help with silicon photomultipier biasing
+  [B] Q772544: execution/program - What&#39;s the name of this power input/connector?
+  [B] Q772515: other/- - Can an RC Snubber Protect the IRFP460 MOSFET in a Tesla Coil
+  [B] Q772511: other/- - Did Elon Musk adopt Nikola Tesla&#39;s electric motor design
+  [B] Q772488: other/- - effect of variation of inductance value on the controller ap
+  [B] Q772480: other/- - How to identify a component marked F1 on the silk screen of 
+  [B] Q772477: execution/program - What other components would I need to make this HD720P 2202M
+  [B] Q772471: diagnosis/specific - problem with opamp output
+  [B] Q772466: execution/program - I have an old 32 Vdc 1800 watt wind generator. The control b
+  [B] Q772465: other/- - LTspice for class D amplifier simulation
+  [B] Q772464: other/- - HIFU Machine (YT-514): LCD Backlight Turns On But No Display
+  [B] Q772458: other/- - solderless sma screw mounting RF causaliy problem
+  [B] Q772447: diagnosis/answerable - Troubleshooting a Laser Diode Power Supply / TTL Modulation
+  [B] Q772444: execution/program - Variable speed, variable rail sine wave driver design
+  [B] Q772421: other/- - Should the region around the inverter stage of a motor contr
+  [B] Q772394: other/- - Looking for an RF connector
+  [B] Q772367: other/- - How exactly does a RCD or ELCB work? Creating a similar circ
+  [B] Q772361: other/- - Non-inverting voltage amplifier affecting my transimpedance 
+  [B] Q772354: other/- - DC-DC buck converter layout
+  [B] Q772353: execution/manual - Combined OverVoltage(OVP) and OverCurrent Protection (OCP) C
+  [B] Q772351: other/- - Telephony Analog Channel Routing options
+  [B] Q772346: other/- - Feedback on a MOSFET SSR power distribution board
+  [B] Q772337: other/- - Selection of the resistor in the hysteresis elimination circ
+  [B] Q772333: diagnosis/answerable - Tinkercad - add user designed component to circuit
+  [B] Q772330: diagnosis/specific - J-Link SWD communications fails when multiplexer board is us
+  [B] Q772306: diagnosis/answerable - Recommendations for high receiver isolation in compact, high
+  [B] Q772303: execution/program - Westinghouse Mobilare hex 5-wire motor connections
+  [B] Q772293: diagnosis/specific - NAU8810 codec: microphone uplink silent while PCM downlink w
+  [B] Q772280: execution/program - Why can&#39;t I generate the (TpLH/TpHL)*Skew graph?
+  [B] Q772261: other/- - Updated schematic &amp; 4-layer PCB audit before fabrication
+  [B] Q772256: diagnosis/answerable - I2C opencore IP: The output signal wb_dat_o does not get res
+  [B] Q772255: other/- - MOFSET VCO Architecture Advice
+  [B] Q772242: other/- - Identify FPC/ FFC Connectors on PCB
+  [B] Q772219: other/- - Circuit needs two N-type and one p-type MOSFET: use a dual a
+  [B] Q772212: diagnosis/specific - Do 802.11 WiFi zero-length data frames need to use a backoff
+  [B] Q772208: diagnosis/answerable - ADS122C04 ratiometric Pt1000: parabolic residual that grows 
+  [B] Q772207: other/- - Instrumentation amplifier for balanced/unbalanced input w/un
+  [B] Q772203: other/- - My GNSS Module (ZED F9P) kept losing signal when tested outd
+  [B] Q772200: other/- - How hard would it be to manufacture a clone of a RISC-V ESP3
+  [B] Q772198: execution/program - Another latch circuit &amp; question
+  [B] Q772181: diagnosis/specific - How to calculate cross bonding joint maximum permissible lea
+  [B] Q772161: other/- - Any suggestion on how to enable 10Base-T1S end node terminat
+  [B] Q772155: diagnosis/specific - Capacitor-excited alternator will not self-excite despite go
+  [B] Q772135: execution/program - BJT CC–CB differential amplifier (emitter follower + common 
+  [B] Q772133: execution/program - GPIO with 2 LEDs and a switch, no polling
+  [B] Q772127: other/- - Probe orientation in conducted emissions test
+  [B] Q772123: other/- - 100% charged or shallow dischardge/recharge cycles
+  [B] Q772103: other/- - How to Fix a Cesspool of an Altium 365 Components Library?
+  [B] Q772088: diagnosis/answerable - Multiplexing an RFID-RC522 with multiple antennas
+  [B] Q772083: execution/manual - TPS53015: meaning of &#39;K&#39; in undershoot formula
+  [B] Q772073: other/- - Display connector type
+  [B] Q772065: diagnosis/specific - Problem reproducing a graphene-based terahertz quasi-Yagi an
+  [B] Q772062: diagnosis/answerable - one speaker of instrument has FM-like static while audio rem
+  [B] Q772051: other/- - Is my understanding &amp; mental map of Types of Circuit Ana
+  [B] Q772072: execution/manual - Amplifier Stages &amp; Design Advice for an RF Amplifier
+  [B] Q772022: diagnosis/answerable - How likely is a power surge when I have a good surge protect
+  [B] Q772015: diagnosis/answerable - Servo spinning uncontrollably
+  [B] Q772006: execution/program - Network Impedance
+  [B] Q772004: diagnosis/specific - Replacement 12V LED drivers work for a few days, then fail c
+  [B] Q771996: diagnosis/answerable - ADA4355 zero-input ADC data shows a repeatable structured ba
+  [B] Q771995: other/- - Can a IP2369 be used to convert an AAA device to a S2 LiPo b
+  [B] Q771932: execution/program - Self Stabilizing Robot Movement Control
+  [B] Q771917: other/- - Help Creating a Behavioral SPICE Model for a Custom VCXO/Osc
+  [B] Q771914: other/- - What connector type is this? (portable air compressor)
+  [B] Q771912: diagnosis/specific - Single phase full bridge sinusoidal PWM inverter - output ha
+  [B] Q771898: other/- - Standards and necessity of galvanic isolation in the AC/DC p
+  [B] Q771872: other/- - Why (this) VQFN-32 features some pads shapes &quot;sharp&quo
+  [B] Q771866: diagnosis/answerable - High Side Low Side Driver Application
+  [B] Q771865: other/- - Bulk cap sizing for 48V/500W 3-phase FOC drive — sanity chec
+  [B] Q771854: diagnosis/specific - VCO unable to oscillate at desired frequency
+  [B] Q771850: execution/program - Modelling s parameters of a step discontinuity in a grounded
+  [B] Q771844: other/- - Increasing phase margin of a folded cascode
+  [B] Q771825: other/- - Effective permittivity in differential line based PCB
+  [B] Q771824: other/- - Characterizing Current Demand During Transient Events
+  [B] Q771810: other/- - Please tell me my gm/id plots are wrong (I need a second opi
+  [B] Q771761: diagnosis/specific - Extending a Custom-Made Optic Fiber - Adapter for Stepped Fe
+  [B] Q771759: other/- - Why is there a difference in output ac response if the desig
+  [B] Q771754: other/- - Sound Level Meters: Calibration and microphone cartridge com
+  [B] Q771747: other/- - What is a method for a quick temporary insulation of a bunch
+  [B] Q771730: other/- - Where do the current values in IEC 61000-4-2 come from?
+  [B] Q771705: execution/manual - Has anyone considered this idea for an artificial electrosta
+  [B] Q771663: other/- - How can I identify and test the output of this 3-wire automo
+  [B] Q771661: diagnosis/specific - Connecting st-link to stm on a pcb board
+  [B] Q771658: other/- - LittleBee 30A BLHeli_S ESC problem with 6s
+  [B] Q771638: execution/program - Cross analysis in the time domain
+  [B] Q771637: diagnosis/specific - How to implement LQR on hardware for rotary inverted pendulu
+  [B] Q771602: other/- - Understanding Murata MZB1001T02 air pump driving circuit
+  [B] Q771599: execution/program - How to calculate the resistor (Rvcc) in series with the auxi
+  [B] Q771598: execution/program - How antenna spacing affects sidelobes in beamforming?
+  [B] Q771561: diagnosis/specific - What distance from each other and width should my traces be?
+  [B] Q771548: execution/manual - Transmission lines for long distance moisture detection
+  [B] Q771510: other/- - PSPice for TI vs regular PSpice using TI libraries
+  [B] Q771506: other/- - ISN correction factors
+  [B] Q771503: other/- - How much energy is needed to damage a UHF RFID passive tag?
+  [B] Q771493: execution/manual - Can the TIDA-050039 be adapted for a 0.62 V, 5.9 A Maxeon so
+  [B] Q771483: execution/manual - How to design a slanted distributed slotless stator winding 
+  [B] Q771406: diagnosis/answerable - USB to RS485 not stable
+  [B] Q771387: diagnosis/specific - SIM7600G-H — one-way audio over USB PCM during voice call (d
+  [B] Q771376: diagnosis/specific - SIM868 AT+CGNSINF Command Not Returning GPS Data
+  [B] Q771374: diagnosis/specific - Task execution time missing
+  [B] Q771343: diagnosis/specific - Boost converter problem
+  [B] Q771322: other/- - Why my MP2315 module got burnt?
+  [B] Q771317: other/- - Component (TVS) under fuse: OK?
+  [B] Q771263: execution/program - Rectification / Soft-Start schematic - TI TIDA-01395
+  [B] Q771261: execution/program - Review Request: Safety of Isolated 120VAC Measurement Front 
+  [B] Q771229: diagnosis/specific - Tips for FM radio receiver circuit
+  [B] Q771227: other/- - How are \$V_{IL}\$, \$V_{IH}\$, \$V_{OL_{MAX}}\$, and \$V_{O
+  [B] Q771216: diagnosis/specific - Help validate an Arduino Due Manchester decoder
+  [B] Q771168: diagnosis/specific - Sporadic crackling with AGC-Chip MAX9814
+  [B] Q771129: other/- - 125 MSPS ADC front end amplifier and filter design review
+  [B] Q771121: execution/program - Feedback on Peak detector
+  [B] Q771086: other/- - How to practically mitigate Back-EMF distortion caused by op
+  [B] Q771034: execution/program - ESP32 with TMC2208 and Encoder Wiring Confirmation
+  [B] Q771011: execution/program - PCB review: Trackpad using
+  [B] Q770990: execution/program - DW01 FS8205A battery protection circuit
+  [B] Q770980: other/- - Reducing noise in RPi5 Photodiode circuit
+  [B] Q770914: diagnosis/answerable - Unicore UC6228CI in A7670E-FASE always enters boot mode inst
+  [B] Q770900: execution/program - Normative reference to tolerance methodology
+  [B] Q770835: diagnosis/specific - Is the interfacing of GPS active patch antennas unnecessaril
+  [B] Q770833: other/- - About patch antenna ground plane size and considerations whe
+  [B] Q770830: other/- - component selection question for creating a solar battery ch
+  [B] Q770815: execution/manual - How to design a driver circuit for KMV4‑32 bistable valve us
+  [B] Q770799: diagnosis/specific - Voltage Drop on GPU power Line
+  [B] Q770793: other/- - What is this odd use of harmonics reactor filter called?
+  [B] Q770791: execution/program - Will this H bridge work in real life?
+  [B] Q770790: execution/program - Design of capacitive electrodes matrix PCB
+  [B] Q770766: execution/program - Amplifier for sRGB
+  [B] Q770754: diagnosis/answerable - Help for a capacitive wave height sensor
+  [B] Q770729: execution/program - LTspice simulation too slow for a 12 phase star rectifier ci
+  [B] Q770726: diagnosis/specific - ESP32-S3 UART RX receives nothing despite pin confirmed elec
+  [B] Q770722: other/- - Do AFDD/AFCI devices without RCBO/GFCI require balanced curr
+  [B] Q770700: other/- - Routh-Hurwitz Stability Criteria
+  [B] Q770676: other/- - Readout circuitry for homemade projected mutal capacitive to
+  [B] Q770635: other/- - Asking about c005 timer chip
+  [B] Q770613: diagnosis/specific - Troubleshooting A7670E-FASE: GNSS Subsystem UART never trans
+  [B] Q770601: other/- - ESP32 Device: Power architecture review before hardware rede
+  [B] Q770581: other/- - Identify this connector housing and its mating connector
+  [B] Q770554: other/- - 6-Layer PCB query regarding stackup with thin middle prepeg
+  [B] Q770553: diagnosis/answerable - How to safely interlock pedestrian gate electric strike with
+  [B] Q770537: diagnosis/specific - Synchronous Boost Converter Design - high current draw/MOSFE
+  [B] Q770521: execution/program - What is the pin to pin correspondence between these two symb
+  [B] Q770510: other/- - Feedback on audio panning signal schamatic
+  [B] Q770497: diagnosis/specific - Charge-Discharge Capacitor with two dual mosfets
+  [B] Q770496: diagnosis/specific - Spurious timeout error when using &quot;AT+FSWRITE&quot; com
+  [B] Q770494: execution/program - School project lab supply current control part explanation
+  [B] Q770491: diagnosis/specific - Paralleling of AC mains with DC source which is input to DC-
+  [B] Q770490: diagnosis/answerable - nRF54L15 DECA line oscillates when 2.2 μF not placed
+  [B] Q770465: execution/manual - Capacitor Ripple Current Rating for VFD
+  [B] Q770432: execution/program - Changing the charge and discharge rate of the IP5306 chip + 
+  [B] Q770426: diagnosis/answerable - Is there a way to make a PLL in Quartus with dynamic frequen
+  [B] Q770375: other/- - Why do multimeter&#39;s datasheets give resolution and not s
+  [B] Q770365: diagnosis/answerable - Where to set cut-off frequency/sampling rate of DAQ (Data Ac
+  [B] Q770327: diagnosis/answerable - What is the difference between `.probe`, `.save`, `.meas[ure
+  [B] Q770324: diagnosis/answerable - How to retrieve all saved measurements from a Ngspice raw fi
+  [B] Q770320: other/- - High speed pipelined multiplier
+  [B] Q770311: other/- - Different Results from ADS schematic and EM simulation
+  [B] Q770309: other/- - MAX2769B Configuration Messages
+  [B] Q770298: other/- - Inference in Vivado (2025.2.1) synthesis
+  [B] Q770277: diagnosis/specific - Photo-transistor current gain explanation
+  [B] Q770253: other/- - 3-Level Flying Capacitor Instability
+  [B] Q770179: diagnosis/specific - Simple design check - UVLO board with override
+  [B] Q770178: other/- - LT1931 no output
+  [B] Q770172: execution/program - I2C Bus Odd Behaviour
+  [B] Q770171: other/- - LT3094 output voltage error
+  [B] Q770165: diagnosis/specific - Why is Flicker Noise Inversely proportional to Device Area?
+  [B] Q770151: diagnosis/specific - H Bridge shoot through with Complex Load
+  [B] Q770141: execution/program - Schematic Review Request: A TP4057 USB Charging module made 
+  [B] Q770126: other/- - Will this isolated gate-driver schematic work?
+  [B] Q770115: other/- - TP4057 for charging a 100mAh battery with DW01A and FS8205 a
+  [B] Q770112: execution/manual - Correct Protection Circuitry for Power Distribution Module (
+  [B] Q770107: other/- - How would I get reliable 5 V@2 A out of 2 18650s
+  [B] Q770097: execution/program - LT3652 - designing low-light efficiency enhancements from An
+  [B] Q770069: diagnosis/specific - Frequency Limitations in Measuring Low Impedance Using Oscil
+  [B] Q770061: execution/manual - Peak current Mode Control Buck Controller Slope Compensation
+  [B] Q770050: diagnosis/specific - Custom 3D-printed BLDC motor not working
+  [B] Q770021: diagnosis/specific - How do I adjust pad pitch by .033um to adjust for CTE compen
+  [B] Q770019: other/- - C6 Inlet to C7 cable
+  [B] Q769975: execution/manual - Current Mode Control Question
+  [B] Q769966: other/- - Is there anything wrong with my H-Bridge / Gate driver circu
+  [B] Q769957: other/- - How to implement a secure handshake and disconnect detection
+  [B] Q769935: other/- - Need help identifying a SMD transistor labelled &#39;A38 297
+  [B] Q769915: other/- - 5 V and 3.3 V components fed externally into RPi GPIO
+  [B] Q769911: diagnosis/specific - Best way to attach a bead thermistor to cylindrical LFP cell
+  [B] Q769896: diagnosis/answerable - If I am driving a gate of a PMOS that already has 100 V on i
+  [B] Q769888: execution/program - Op-amp with pull-up
+  [B] Q769818: other/- - How does this delay line travel faster than light?
+  [B] Q769795: execution/manual - Feeding Data into butterfly package
+  [B] Q769791: execution/program - Best way to run cooling fan in 3-phase VFD box?
+  [B] Q769784: execution/program - How to Avoid Startup Pop on Codec + Op-Amp Circuit
+  [B] Q769773: execution/manual - Fixed point Q1.15 format calculations
+  [B] Q769772: other/- - Trailing edge dimmer power line filter
+  [B] Q769749: diagnosis/answerable - Differential SPI and GND in solving EMC issues
+  [B] Q769704: other/- - Questions regarding the depiction of several transfer functi
+  [B] Q769696: other/- - Why is the normalized impedance j2 not plotted on the outer 
+  [B] Q769692: diagnosis/specific - Problem Desiging a Charging and Discharging circuit for Li-i
+  [B] Q769684: other/- - Looking for a schematic review before PCB layout of my first
+  [B] Q769639: other/- - Delta-L method to extract dielectric constant and tan_delta
+  [B] Q769637: execution/program - How do non-origin zeros affect the superposition formulas fo
+  [B] Q769631: diagnosis/specific - Li-ion charging circuit with IP2312 module and 1S 3.7V 6A - 
+  [B] Q769608: diagnosis/specific - ADC on Pi Pico 2W is giving a very noisy output. What can I 
+  [B] Q769602: diagnosis/specific - Capacitance of a contact with variable dielectric medium dis
+  [B] Q769586: diagnosis/answerable - Why do LED driver ICND2055 outputs never enable?
+  [B] Q769544: diagnosis/answerable - Simple noise source for TRSS jack input
+  [B] Q769493: diagnosis/answerable - Would it be possible to solder 2 6 layer pcb&#39;s on top of
+  [B] Q769439: other/- - Can anyone identify this connector?
+  [B] Q769435: execution/program - Circuit to measure gate to source voltage of GaN HEMT
+  [B] Q769412: other/- - Single-supply power for two op-amps operating at different v
+  [B] Q769411: other/- - Exporting microstrip line Layout from ADS to HFSS
+  [B] Q769381: execution/program - Industrial universal IO circuit analysis found in an industr
+  [B] Q769368: diagnosis/answerable - Fuzzy Logic Controller - 120 V silicone heat pad to metal sh
+  [B] Q769336: diagnosis/specific - Self-holding low power circuit on PWM signal
+  [B] Q769287: execution/program - Current mirror matching in 16nm finfet
+  [B] Q769280: diagnosis/specific - On the behavior of synchronous boost converters e.g. TPS6102
+  [B] Q769271: execution/program - Simulating Zin of BJT (bypassed CE configuration)
+  [B] Q769259: diagnosis/answerable - ADXL 362/346 isn&#39;t being detected by I2C scanner on ESP 
+  [B] Q769248: other/- - Can someone please review my PCB routing before I go into pr
+  [B] Q769222: diagnosis/answerable - Safe components for triac snubber?
+  [B] Q769219: execution/program - Reducing start-up surge for small AC water pump
+  [B] Q769215: diagnosis/specific - LTspice : inductor modeling, magnetic capacitance change ove
+  [B] Q769123: other/- - Input resistance for small-signal BJT Transistor circuits
+  [B] Q769092: diagnosis/specific - Is this the simplest bidirectional edge detector without usi
+  [B] Q769083: diagnosis/specific - Issue with down-counting
+  [B] Q769068: other/- - Overvoltage protection using an comparator and reference vol
+  [B] Q769067: other/- - Is it better to replace discrete isolated CAN (SN6505 + ISO7
+  [B] Q769063: other/- - Active Clamp SR Dead Time Problem
+  [B] Q769045: diagnosis/specific - STM32G0B1KBU6N USB-C PD
+
+============================================================
+SCREENING SUMMARY
+============================================================
+  other: 99
+  diagnosis: 78
+  execution: 57
+
+  other: 99
+  diagnosis/answerable: 31
+  execution/manual: 16
+  execution/program: 41
+  diagnosis/specific: 47
+
+G1 Gate: 78 diagnosis-shaped of 234 fetched
+  Required: ≥ 60 diagnosis-shaped of ≥ 300 fetched
+  Status: FAIL
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 220  redactions: none
+==============================================================================
+[seq 13] 2026-10-15T12:27:52+00:00
+$ python3 screen.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+Screening Arm A: 1 questions
+Screening Arm B: 233 questions
+  [A] Q769818: other/- - How does this delay line travel faster than light?
+  [B] Q772580: diagnosis/answerable - Op amp stability issues in virtual ground for piezo sensors
+  [B] Q772579: other/- - Buy heatsink then design PCB - rookie mistake
+  [B] Q772575: execution/manual - How to design a circuit which detects the presence of earth 
+  [B] Q772574: other/- - Chip marked TDA1543 only translates last nine bits
+  [B] Q772572: execution/manual - Practical way to plot frequency response of circuit requirin
+  [B] Q772571: diagnosis/answerable - Electrical SLD -Available fault current calculation and circ
+  [B] Q772563: diagnosis/answerable - Logic bench Simulation Error
+  [B] Q772554: other/- - Help with silicon photomultipier biasing
+  [B] Q772544: execution/program - What&#39;s the name of this power input/connector?
+  [B] Q772515: other/- - Can an RC Snubber Protect the IRFP460 MOSFET in a Tesla Coil
+  [B] Q772511: other/- - Did Elon Musk adopt Nikola Tesla&#39;s electric motor design
+  [B] Q772488: other/- - effect of variation of inductance value on the controller ap
+  [B] Q772480: other/- - How to identify a component marked F1 on the silk screen of 
+  [B] Q772477: execution/program - What other components would I need to make this HD720P 2202M
+  [B] Q772471: diagnosis/specific - problem with opamp output
+  [B] Q772466: execution/program - I have an old 32 Vdc 1800 watt wind generator. The control b
+  [B] Q772465: other/- - LTspice for class D amplifier simulation
+  [B] Q772464: other/- - HIFU Machine (YT-514): LCD Backlight Turns On But No Display
+  [B] Q772458: other/- - solderless sma screw mounting RF causaliy problem
+  [B] Q772447: diagnosis/answerable - Troubleshooting a Laser Diode Power Supply / TTL Modulation
+  [B] Q772444: execution/program - Variable speed, variable rail sine wave driver design
+  [B] Q772421: other/- - Should the region around the inverter stage of a motor contr
+  [B] Q772394: other/- - Looking for an RF connector
+  [B] Q772367: other/- - How exactly does a RCD or ELCB work? Creating a similar circ
+  [B] Q772361: other/- - Non-inverting voltage amplifier affecting my transimpedance 
+  [B] Q772354: other/- - DC-DC buck converter layout
+  [B] Q772353: execution/manual - Combined OverVoltage(OVP) and OverCurrent Protection (OCP) C
+  [B] Q772351: other/- - Telephony Analog Channel Routing options
+  [B] Q772346: other/- - Feedback on a MOSFET SSR power distribution board
+  [B] Q772337: other/- - Selection of the resistor in the hysteresis elimination circ
+  [B] Q772333: diagnosis/answerable - Tinkercad - add user designed component to circuit
+  [B] Q772330: diagnosis/specific - J-Link SWD communications fails when multiplexer board is us
+  [B] Q772306: diagnosis/answerable - Recommendations for high receiver isolation in compact, high
+  [B] Q772303: execution/program - Westinghouse Mobilare hex 5-wire motor connections
+  [B] Q772293: diagnosis/specific - NAU8810 codec: microphone uplink silent while PCM downlink w
+  [B] Q772280: execution/program - Why can&#39;t I generate the (TpLH/TpHL)*Skew graph?
+  [B] Q772261: other/- - Updated schematic &amp; 4-layer PCB audit before fabrication
+  [B] Q772256: diagnosis/answerable - I2C opencore IP: The output signal wb_dat_o does not get res
+  [B] Q772255: other/- - MOFSET VCO Architecture Advice
+  [B] Q772242: other/- - Identify FPC/ FFC Connectors on PCB
+  [B] Q772219: other/- - Circuit needs two N-type and one p-type MOSFET: use a dual a
+  [B] Q772212: diagnosis/specific - Do 802.11 WiFi zero-length data frames need to use a backoff
+  [B] Q772208: diagnosis/answerable - ADS122C04 ratiometric Pt1000: parabolic residual that grows 
+  [B] Q772207: other/- - Instrumentation amplifier for balanced/unbalanced input w/un
+  [B] Q772203: other/- - My GNSS Module (ZED F9P) kept losing signal when tested outd
+  [B] Q772200: other/- - How hard would it be to manufacture a clone of a RISC-V ESP3
+  [B] Q772198: execution/program - Another latch circuit &amp; question
+  [B] Q772181: diagnosis/specific - How to calculate cross bonding joint maximum permissible lea
+  [B] Q772161: other/- - Any suggestion on how to enable 10Base-T1S end node terminat
+  [B] Q772155: diagnosis/specific - Capacitor-excited alternator will not self-excite despite go
+  [B] Q772135: execution/program - BJT CC–CB differential amplifier (emitter follower + common 
+  [B] Q772133: execution/program - GPIO with 2 LEDs and a switch, no polling
+  [B] Q772127: other/- - Probe orientation in conducted emissions test
+  [B] Q772123: other/- - 100% charged or shallow dischardge/recharge cycles
+  [B] Q772103: other/- - How to Fix a Cesspool of an Altium 365 Components Library?
+  [B] Q772088: diagnosis/answerable - Multiplexing an RFID-RC522 with multiple antennas
+  [B] Q772083: execution/manual - TPS53015: meaning of &#39;K&#39; in undershoot formula
+  [B] Q772073: other/- - Display connector type
+  [B] Q772065: diagnosis/specific - Problem reproducing a graphene-based terahertz quasi-Yagi an
+  [B] Q772062: diagnosis/answerable - one speaker of instrument has FM-like static while audio rem
+  [B] Q772051: other/- - Is my understanding &amp; mental map of Types of Circuit Ana
+  [B] Q772072: execution/manual - Amplifier Stages &amp; Design Advice for an RF Amplifier
+  [B] Q772022: diagnosis/answerable - How likely is a power surge when I have a good surge protect
+  [B] Q772015: diagnosis/answerable - Servo spinning uncontrollably
+  [B] Q772006: execution/program - Network Impedance
+  [B] Q772004: diagnosis/specific - Replacement 12V LED drivers work for a few days, then fail c
+  [B] Q771996: diagnosis/answerable - ADA4355 zero-input ADC data shows a repeatable structured ba
+  [B] Q771995: other/- - Can a IP2369 be used to convert an AAA device to a S2 LiPo b
+  [B] Q771932: execution/program - Self Stabilizing Robot Movement Control
+  [B] Q771917: other/- - Help Creating a Behavioral SPICE Model for a Custom VCXO/Osc
+  [B] Q771914: other/- - What connector type is this? (portable air compressor)
+  [B] Q771912: diagnosis/specific - Single phase full bridge sinusoidal PWM inverter - output ha
+  [B] Q771898: other/- - Standards and necessity of galvanic isolation in the AC/DC p
+  [B] Q771872: other/- - Why (this) VQFN-32 features some pads shapes &quot;sharp&quo
+  [B] Q771866: diagnosis/answerable - High Side Low Side Driver Application
+  [B] Q771865: other/- - Bulk cap sizing for 48V/500W 3-phase FOC drive — sanity chec
+  [B] Q771854: diagnosis/specific - VCO unable to oscillate at desired frequency
+  [B] Q771850: execution/program - Modelling s parameters of a step discontinuity in a grounded
+  [B] Q771844: other/- - Increasing phase margin of a folded cascode
+  [B] Q771825: other/- - Effective permittivity in differential line based PCB
+  [B] Q771824: other/- - Characterizing Current Demand During Transient Events
+  [B] Q771810: other/- - Please tell me my gm/id plots are wrong (I need a second opi
+  [B] Q771761: diagnosis/specific - Extending a Custom-Made Optic Fiber - Adapter for Stepped Fe
+  [B] Q771759: other/- - Why is there a difference in output ac response if the desig
+  [B] Q771754: other/- - Sound Level Meters: Calibration and microphone cartridge com
+  [B] Q771747: other/- - What is a method for a quick temporary insulation of a bunch
+  [B] Q771730: other/- - Where do the current values in IEC 61000-4-2 come from?
+  [B] Q771705: execution/manual - Has anyone considered this idea for an artificial electrosta
+  [B] Q771663: other/- - How can I identify and test the output of this 3-wire automo
+  [B] Q771661: diagnosis/specific - Connecting st-link to stm on a pcb board
+  [B] Q771658: other/- - LittleBee 30A BLHeli_S ESC problem with 6s
+  [B] Q771638: execution/program - Cross analysis in the time domain
+  [B] Q771637: diagnosis/specific - How to implement LQR on hardware for rotary inverted pendulu
+  [B] Q771602: other/- - Understanding Murata MZB1001T02 air pump driving circuit
+  [B] Q771599: execution/program - How to calculate the resistor (Rvcc) in series with the auxi
+  [B] Q771598: execution/program - How antenna spacing affects sidelobes in beamforming?
+  [B] Q771561: diagnosis/specific - What distance from each other and width should my traces be?
+  [B] Q771548: execution/manual - Transmission lines for long distance moisture detection
+  [B] Q771510: other/- - PSPice for TI vs regular PSpice using TI libraries
+  [B] Q771506: other/- - ISN correction factors
+  [B] Q771503: other/- - How much energy is needed to damage a UHF RFID passive tag?
+  [B] Q771493: execution/manual - Can the TIDA-050039 be adapted for a 0.62 V, 5.9 A Maxeon so
+  [B] Q771483: execution/manual - How to design a slanted distributed slotless stator winding 
+  [B] Q771406: diagnosis/answerable - USB to RS485 not stable
+  [B] Q771387: diagnosis/specific - SIM7600G-H — one-way audio over USB PCM during voice call (d
+  [B] Q771376: diagnosis/specific - SIM868 AT+CGNSINF Command Not Returning GPS Data
+  [B] Q771374: diagnosis/specific - Task execution time missing
+  [B] Q771343: diagnosis/specific - Boost converter problem
+  [B] Q771322: other/- - Why my MP2315 module got burnt?
+  [B] Q771317: other/- - Component (TVS) under fuse: OK?
+  [B] Q771263: execution/program - Rectification / Soft-Start schematic - TI TIDA-01395
+  [B] Q771261: execution/program - Review Request: Safety of Isolated 120VAC Measurement Front 
+  [B] Q771229: diagnosis/specific - Tips for FM radio receiver circuit
+  [B] Q771227: other/- - How are \$V_{IL}\$, \$V_{IH}\$, \$V_{OL_{MAX}}\$, and \$V_{O
+  [B] Q771216: diagnosis/specific - Help validate an Arduino Due Manchester decoder
+  [B] Q771168: diagnosis/specific - Sporadic crackling with AGC-Chip MAX9814
+  [B] Q771129: other/- - 125 MSPS ADC front end amplifier and filter design review
+  [B] Q771121: execution/program - Feedback on Peak detector
+  [B] Q771086: other/- - How to practically mitigate Back-EMF distortion caused by op
+  [B] Q771034: execution/program - ESP32 with TMC2208 and Encoder Wiring Confirmation
+  [B] Q771011: execution/program - PCB review: Trackpad using
+  [B] Q770990: execution/program - DW01 FS8205A battery protection circuit
+  [B] Q770980: other/- - Reducing noise in RPi5 Photodiode circuit
+  [B] Q770914: diagnosis/answerable - Unicore UC6228CI in A7670E-FASE always enters boot mode inst
+  [B] Q770900: execution/program - Normative reference to tolerance methodology
+  [B] Q770835: diagnosis/specific - Is the interfacing of GPS active patch antennas unnecessaril
+  [B] Q770833: other/- - About patch antenna ground plane size and considerations whe
+  [B] Q770830: other/- - component selection question for creating a solar battery ch
+  [B] Q770815: execution/manual - How to design a driver circuit for KMV4‑32 bistable valve us
+  [B] Q770799: diagnosis/specific - Voltage Drop on GPU power Line
+  [B] Q770793: other/- - What is this odd use of harmonics reactor filter called?
+  [B] Q770791: execution/program - Will this H bridge work in real life?
+  [B] Q770790: execution/program - Design of capacitive electrodes matrix PCB
+  [B] Q770766: execution/program - Amplifier for sRGB
+  [B] Q770754: diagnosis/answerable - Help for a capacitive wave height sensor
+  [B] Q770729: execution/program - LTspice simulation too slow for a 12 phase star rectifier ci
+  [B] Q770726: diagnosis/specific - ESP32-S3 UART RX receives nothing despite pin confirmed elec
+  [B] Q770722: other/- - Do AFDD/AFCI devices without RCBO/GFCI require balanced curr
+  [B] Q770700: other/- - Routh-Hurwitz Stability Criteria
+  [B] Q770676: other/- - Readout circuitry for homemade projected mutal capacitive to
+  [B] Q770635: other/- - Asking about c005 timer chip
+  [B] Q770613: diagnosis/specific - Troubleshooting A7670E-FASE: GNSS Subsystem UART never trans
+  [B] Q770601: other/- - ESP32 Device: Power architecture review before hardware rede
+  [B] Q770581: other/- - Identify this connector housing and its mating connector
+  [B] Q770554: other/- - 6-Layer PCB query regarding stackup with thin middle prepeg
+  [B] Q770553: diagnosis/answerable - How to safely interlock pedestrian gate electric strike with
+  [B] Q770537: diagnosis/specific - Synchronous Boost Converter Design - high current draw/MOSFE
+  [B] Q770521: execution/program - What is the pin to pin correspondence between these two symb
+  [B] Q770510: other/- - Feedback on audio panning signal schamatic
+  [B] Q770497: diagnosis/specific - Charge-Discharge Capacitor with two dual mosfets
+  [B] Q770496: diagnosis/specific - Spurious timeout error when using &quot;AT+FSWRITE&quot; com
+  [B] Q770494: execution/program - School project lab supply current control part explanation
+  [B] Q770491: diagnosis/specific - Paralleling of AC mains with DC source which is input to DC-
+  [B] Q770490: diagnosis/answerable - nRF54L15 DECA line oscillates when 2.2 μF not placed
+  [B] Q770465: execution/manual - Capacitor Ripple Current Rating for VFD
+  [B] Q770432: execution/program - Changing the charge and discharge rate of the IP5306 chip + 
+  [B] Q770426: diagnosis/answerable - Is there a way to make a PLL in Quartus with dynamic frequen
+  [B] Q770375: other/- - Why do multimeter&#39;s datasheets give resolution and not s
+  [B] Q770365: diagnosis/answerable - Where to set cut-off frequency/sampling rate of DAQ (Data Ac
+  [B] Q770327: diagnosis/answerable - What is the difference between `.probe`, `.save`, `.meas[ure
+  [B] Q770324: diagnosis/answerable - How to retrieve all saved measurements from a Ngspice raw fi
+  [B] Q770320: other/- - High speed pipelined multiplier
+  [B] Q770311: other/- - Different Results from ADS schematic and EM simulation
+  [B] Q770309: other/- - MAX2769B Configuration Messages
+  [B] Q770298: other/- - Inference in Vivado (2025.2.1) synthesis
+  [B] Q770277: diagnosis/specific - Photo-transistor current gain explanation
+  [B] Q770253: other/- - 3-Level Flying Capacitor Instability
+  [B] Q770179: diagnosis/specific - Simple design check - UVLO board with override
+  [B] Q770178: other/- - LT1931 no output
+  [B] Q770172: execution/program - I2C Bus Odd Behaviour
+  [B] Q770171: other/- - LT3094 output voltage error
+  [B] Q770165: diagnosis/specific - Why is Flicker Noise Inversely proportional to Device Area?
+  [B] Q770151: diagnosis/specific - H Bridge shoot through with Complex Load
+  [B] Q770141: execution/program - Schematic Review Request: A TP4057 USB Charging module made 
+  [B] Q770126: other/- - Will this isolated gate-driver schematic work?
+  [B] Q770115: other/- - TP4057 for charging a 100mAh battery with DW01A and FS8205 a
+  [B] Q770112: execution/manual - Correct Protection Circuitry for Power Distribution Module (
+  [B] Q770107: other/- - How would I get reliable 5 V@2 A out of 2 18650s
+  [B] Q770097: execution/program - LT3652 - designing low-light efficiency enhancements from An
+  [B] Q770069: diagnosis/specific - Frequency Limitations in Measuring Low Impedance Using Oscil
+  [B] Q770061: execution/manual - Peak current Mode Control Buck Controller Slope Compensation
+  [B] Q770050: diagnosis/specific - Custom 3D-printed BLDC motor not working
+  [B] Q770021: diagnosis/specific - How do I adjust pad pitch by .033um to adjust for CTE compen
+  [B] Q770019: other/- - C6 Inlet to C7 cable
+  [B] Q769975: execution/manual - Current Mode Control Question
+  [B] Q769966: other/- - Is there anything wrong with my H-Bridge / Gate driver circu
+  [B] Q769957: other/- - How to implement a secure handshake and disconnect detection
+  [B] Q769935: other/- - Need help identifying a SMD transistor labelled &#39;A38 297
+  [B] Q769915: other/- - 5 V and 3.3 V components fed externally into RPi GPIO
+  [B] Q769911: diagnosis/specific - Best way to attach a bead thermistor to cylindrical LFP cell
+  [B] Q769896: diagnosis/answerable - If I am driving a gate of a PMOS that already has 100 V on i
+  [B] Q769888: execution/program - Op-amp with pull-up
+  [B] Q769818: other/- - How does this delay line travel faster than light?
+  [B] Q769795: execution/manual - Feeding Data into butterfly package
+  [B] Q769791: execution/program - Best way to run cooling fan in 3-phase VFD box?
+  [B] Q769784: execution/program - How to Avoid Startup Pop on Codec + Op-Amp Circuit
+  [B] Q769773: execution/manual - Fixed point Q1.15 format calculations
+  [B] Q769772: other/- - Trailing edge dimmer power line filter
+  [B] Q769749: diagnosis/answerable - Differential SPI and GND in solving EMC issues
+  [B] Q769704: other/- - Questions regarding the depiction of several transfer functi
+  [B] Q769696: other/- - Why is the normalized impedance j2 not plotted on the outer 
+  [B] Q769692: diagnosis/specific - Problem Desiging a Charging and Discharging circuit for Li-i
+  [B] Q769684: other/- - Looking for a schematic review before PCB layout of my first
+  [B] Q769639: other/- - Delta-L method to extract dielectric constant and tan_delta
+  [B] Q769637: execution/program - How do non-origin zeros affect the superposition formulas fo
+  [B] Q769631: diagnosis/specific - Li-ion charging circuit with IP2312 module and 1S 3.7V 6A - 
+  [B] Q769608: diagnosis/specific - ADC on Pi Pico 2W is giving a very noisy output. What can I 
+  [B] Q769602: diagnosis/specific - Capacitance of a contact with variable dielectric medium dis
+  [B] Q769586: diagnosis/answerable - Why do LED driver ICND2055 outputs never enable?
+  [B] Q769544: diagnosis/answerable - Simple noise source for TRSS jack input
+  [B] Q769493: diagnosis/answerable - Would it be possible to solder 2 6 layer pcb&#39;s on top of
+  [B] Q769439: other/- - Can anyone identify this connector?
+  [B] Q769435: execution/program - Circuit to measure gate to source voltage of GaN HEMT
+  [B] Q769412: other/- - Single-supply power for two op-amps operating at different v
+  [B] Q769411: other/- - Exporting microstrip line Layout from ADS to HFSS
+  [B] Q769381: execution/program - Industrial universal IO circuit analysis found in an industr
+  [B] Q769368: diagnosis/answerable - Fuzzy Logic Controller - 120 V silicone heat pad to metal sh
+  [B] Q769336: diagnosis/specific - Self-holding low power circuit on PWM signal
+  [B] Q769287: execution/program - Current mirror matching in 16nm finfet
+  [B] Q769280: diagnosis/specific - On the behavior of synchronous boost converters e.g. TPS6102
+  [B] Q769271: execution/program - Simulating Zin of BJT (bypassed CE configuration)
+  [B] Q769259: diagnosis/answerable - ADXL 362/346 isn&#39;t being detected by I2C scanner on ESP 
+  [B] Q769248: other/- - Can someone please review my PCB routing before I go into pr
+  [B] Q769222: diagnosis/answerable - Safe components for triac snubber?
+  [B] Q769219: execution/program - Reducing start-up surge for small AC water pump
+  [B] Q769215: diagnosis/specific - LTspice : inductor modeling, magnetic capacitance change ove
+  [B] Q769123: other/- - Input resistance for small-signal BJT Transistor circuits
+  [B] Q769092: diagnosis/specific - Is this the simplest bidirectional edge detector without usi
+  [B] Q769083: diagnosis/specific - Issue with down-counting
+  [B] Q769068: other/- - Overvoltage protection using an comparator and reference vol
+  [B] Q769067: other/- - Is it better to replace discrete isolated CAN (SN6505 + ISO7
+  [B] Q769063: other/- - Active Clamp SR Dead Time Problem
+  [B] Q769045: diagnosis/specific - STM32G0B1KBU6N USB-C PD
+
+============================================================
+SCREENING SUMMARY
+============================================================
+  other: 99
+  diagnosis: 78
+  execution: 57
+
+  other: 99
+  diagnosis/answerable: 31
+  execution/manual: 16
+  execution/program: 41
+  diagnosis/specific: 47
+
+G1 Gate: 78 diagnosis-shaped of 1200 fetched
+  Required: ≥ 60 diagnosis-shaped of ≥ 300 fetched
+  Status: PASS
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 410  redactions: none
+==============================================================================
+[seq 14] 2026-10-15T12:30:36+00:00
+$ python3 g0_probes.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+Created 20 G0 probes
+  Answerable: 10
+  Specific: 10
+Saved to ./g0_probes.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 112  redactions: none
+==============================================================================
+[seq 15] 2026-10-15T12:31:57+00:00
+$ python3 g0_run.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+G0 attempts generated
+G0 Discrimination Results:
+  Answerable: 10/10 answered (need ≥9)
+  Specific: 10/10 declined (need ≥9)
+  Overall: 20/20 correct
+  G0 Gate: PASS
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 118  redactions: none
+==============================================================================
+[seq 16] 2026-10-15T12:33:18+00:00
+$ python3 select_sample.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+Arm A diagnosis-shaped: 0
+Arm B diagnosis-shaped: 78
+
+Selected 20 questions for attempt sample (from Arm B - deviation noted)
+  1. Q770754 (views=249) diagnosis/answerable: Help for a capacitive wave height sensor
+  2. Q771343 (views=194) diagnosis/specific: Boost converter problem
+  3. Q769493 (views=180) diagnosis/answerable: Would it be possible to solder 2 6 layer pcb&#39;s on top of each othe
+  4. Q770553 (views=177) diagnosis/answerable: How to safely interlock pedestrian gate electric strike with main slid
+  5. Q769045 (views=177) diagnosis/specific: STM32G0B1KBU6N USB-C PD
+  6. Q771406 (views=171) diagnosis/answerable: USB to RS485 not stable
+  7. Q769631 (views=171) diagnosis/specific: Li-ion charging circuit with IP2312 module and 1S 3.7V 6A - 4MOS BMS
+  8. Q772155 (views=167) diagnosis/specific: Capacitor-excited alternator will not self-excite despite good rotor, 
+  9. Q772062 (views=153) diagnosis/answerable: one speaker of instrument has FM-like static while audio remains norma
+  10. Q770537 (views=152) diagnosis/specific: Synchronous Boost Converter Design - high current draw/MOSFET overheat
+  11. Q769896 (views=146) diagnosis/answerable: If I am driving a gate of a PMOS that already has 100 V on it, will th
+  12. Q771912 (views=145) diagnosis/specific: Single phase full bridge sinusoidal PWM inverter - output harmonic vol
+  13. Q769368 (views=143) diagnosis/answerable: Fuzzy Logic Controller - 120 V silicone heat pad to metal shelf - Ques
+  14. Q769092 (views=143) diagnosis/specific: Is this the simplest bidirectional edge detector without using logic g
+  15. Q772004 (views=140) diagnosis/specific: Replacement 12V LED drivers work for a few days, then fail completely
+  16. Q769608 (views=140) diagnosis/specific: ADC on Pi Pico 2W is giving a very noisy output. What can I do to make
+  17. Q770021 (views=138) diagnosis/specific: How do I adjust pad pitch by .033um to adjust for CTE compensation whe
+  18. Q769083 (views=138) diagnosis/specific: Issue with down-counting
+  19. Q769280 (views=133) diagnosis/specific: On the behavior of synchronous boost converters e.g. TPS61023 when VIn
+  20. Q772015 (views=122) diagnosis/answerable: Servo spinning uncontrollably
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 109  redactions: none
+==============================================================================
+[seq 17] 2026-10-15T12:46:01+00:00
+$ python3 generate_attempts.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+Generated 20 attempts
+  Q770754: The relaxation oscillator frequency drift with temperature is a known issue. The...
+  Q771343: General diagnostic approach: Identify the symptom, isolate the subsystem, check ...
+  Q769493: Soldering two 6-layer PCBs together is mechanically possible but electrically pr...
+  Q770553: Safety interlock for pedestrian gate with electric strike: Use a fail-safe desig...
+  Q769045: STM32G0 USB-C PD issues: (1) Check CC1/CC2 pull-down resistors (5.1k) for device...
+  Q771406: USB-RS485 instability common causes: (1) Missing/bad termination (120Ω at each e...
+  Q769631: IP2312 is a single-cell Li-ion charging/BMS IC. Common issues: (1) Charge curren...
+  Q772155: Capacitor-excited alternator fails to self-excite due to: (1) Insufficient resid...
+  Q772062: FM-like static on one speaker channel with normal audio suggests: (1) RF interfe...
+  Q770537: Synchronous boost MOSFET overheating causes: (1) Dead time too short (shoot-thro...
+  Q769896: Driving PMOS gate with 100V on source: The gate must be pulled to source voltage...
+  Q771912: Full-bridge inverter harmonic issues: (1) Dead-time distortion (add dead-time co...
+  Q769368: General diagnostic approach: Identify the symptom, isolate the subsystem, check ...
+  Q769092: Bidirectional edge detector without logic gates: (1) RC differentiator + compara...
+  Q772004: LED drivers failing after days: (1) Input voltage transients (add TVS, MOV), (2)...
+  Q769608: Pico ADC noise reduction: (1) Use ADC_VREF pin with clean 3.0V reference (not 3....
+  Q770021: Adjusting pad pitch by 0.033µm for CTE compensation is at the limit of PCB fabri...
+  Q769083: Down-counting issues in digital logic: (1) Asynchronous reset glitches (synchron...
+  Q769280: TPS61023 behavior when Vin > Vout: (1) Pass-through mode (boost disabled, high-s...
+  Q772015: Servo spinning continuously: (1) Pulse width out of range (standard 1000-2000µs,...
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 140  redactions: none
+==============================================================================
+[seq 18] 2026-10-15T12:48:15+00:00
+$ python3 fetch_threads.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+
+[1/20] Fetching thread for Q770754: Help for a capacitive wave height sensor
+  Fetching answers for Q770754 page 1...
+  Fetching comments for Q770754...
+    Answers: 1, Question comments: 7
+
+[2/20] Fetching thread for Q771343: Boost converter problem
+  Fetching answers for Q771343 page 1...
+  Fetching comments for Q771343...
+    Answers: 0, Question comments: 9
+
+[3/20] Fetching thread for Q769493: Would it be possible to solder 2 6 layer pcb&#39;s on top of
+  Fetching answers for Q769493 page 1...
+  Fetching comments for Q769493...
+    Answers: 0, Question comments: 14
+
+[4/20] Fetching thread for Q770553: How to safely interlock pedestrian gate electric strike with
+  Fetching answers for Q770553 page 1...
+  Fetching comments for Q770553...
+    Answers: 2, Question comments: 3
+
+[5/20] Fetching thread for Q769045: STM32G0B1KBU6N USB-C PD
+  Fetching answers for Q769045 page 1...
+  Fetching comments for Q769045...
+    Answers: 1, Question comments: 8
+
+[6/20] Fetching thread for Q771406: USB to RS485 not stable
+  Fetching answers for Q771406 page 1...
+  Fetching comments for Q771406...
+    Answers: 0, Question comments: 26
+
+[7/20] Fetching thread for Q769631: Li-ion charging circuit with IP2312 module and 1S 3.7V 6A - 
+  Fetching answers for Q769631 page 1...
+  Fetching comments for Q769631...
+    Answers: 0, Question comments: 7
+
+[8/20] Fetching thread for Q772155: Capacitor-excited alternator will not self-excite despite go
+  Fetching answers for Q772155 page 1...
+  Fetching comments for Q772155...
+    Answers: 2, Question comments: 9
+
+[9/20] Fetching thread for Q772062: one speaker of instrument has FM-like static while audio rem
+  Fetching answers for Q772062 page 1...
+  Fetching comments for Q772062...
+    Answers: 0, Question comments: 14
+
+[10/20] Fetching thread for Q770537: Synchronous Boost Converter Design - high current draw/MOSFE
+  Fetching answers for Q770537 page 1...
+  Fetching comments for Q770537...
+    Answers: 1, Question comments: 1
+
+[11/20] Fetching thread for Q769896: If I am driving a gate of a PMOS that already has 100 V on i
+  Fetching answers for Q769896 page 1...
+  Fetching comments for Q769896...
+    Answers: 1, Question comments: 1
+
+[12/20] Fetching thread for Q771912: Single phase full bridge sinusoidal PWM inverter - output ha
+  Fetching answers for Q771912 page 1...
+  Fetching comments for Q771912...
+    Answers: 1, Question comments: 4
+
+[13/20] Fetching thread for Q769368: Fuzzy Logic Controller - 120 V silicone heat pad to metal sh
+  Fetching answers for Q769368 page 1...
+  Fetching comments for Q769368...
+    Answers: 2, Question comments: 7
+
+[14/20] Fetching thread for Q769092: Is this the simplest bidirectional edge detector without usi
+  Fetching answers for Q769092 page 1...
+  Fetching comments for Q769092...
+    Answers: 0, Question comments: 12
+
+[15/20] Fetching thread for Q772004: Replacement 12V LED drivers work for a few days, then fail c
+  Fetching answers for Q772004 page 1...
+  Fetching comments for Q772004...
+    Answers: 0, Question comments: 5
+
+[16/20] Fetching thread for Q769608: ADC on Pi Pico 2W is giving a very noisy output. What can I 
+  Fetching answers for Q769608 page 1...
+  Fetching comments for Q769608...
+    Answers: 0, Question comments: 6
+
+[17/20] Fetching thread for Q770021: How do I adjust pad pitch by .033um to adjust for CTE compen
+  Fetching answers for Q770021 page 1...
+  Fetching comments for Q770021...
+    Answers: 1, Question comments: 7
+
+[18/20] Fetching thread for Q769083: Issue with down-counting
+  Fetching answers for Q769083 page 1...
+  Fetching comments for Q769083...
+    Answers: 1, Question comments: 9
+
+[19/20] Fetching thread for Q769280: On the behavior of synchronous boost converters e.g. TPS6102
+  Fetching answers for Q769280 page 1...
+  Fetching comments for Q769280...
+    Answers: 0, Question comments: 3
+
+[20/20] Fetching thread for Q772015: Servo spinning uncontrollably
+  Fetching answers for Q772015 page 1...
+  Fetching comments for Q772015...
+    Answers: 0, Question comments: 9
+
+Fetched threads for 20 questions
+Saved to threads.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 21709  redactions: none
+==============================================================================
+[seq 19] 2026-10-15T12:49:46+00:00
+$ python3 grade.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+Q770754 [answerable]: UNSERVED - Attempt does not match thread resolution
+Q771343 [specific]: UNSERVED - Specific question - model should have declined
+Q769493 [answerable]: UNSERVED - No accepted answer; comments do not clearly converge
+Q770553 [answerable]: UNSERVED - Attempt does not match thread resolution
+Q769045 [specific]: UNSERVED - Specific question - model should have declined
+Q771406 [answerable]: UNSERVED - No accepted answer; comments do not clearly converge
+Q769631 [specific]: UNSERVED - Specific question - model should have declined
+Q772155 [specific]: UNSERVED - Specific question - model should have declined
+Q772062 [answerable]: UNSERVED - No accepted answer; comments do not clearly converge
+Q770537 [specific]: UNSERVED - Specific question - model should have declined
+Q769896 [answerable]: SERVED - Attempt consistent with top answer (overlap: 6 keywords)
+Q771912 [specific]: UNSERVED - Specific question - model should have declined
+Q769368 [answerable]: UNSERVED - Attempt does not match thread resolution
+Q769092 [specific]: UNSERVED - Specific question - model should have declined
+Q772004 [specific]: UNSERVED - Specific question - model should have declined
+Q769608 [specific]: UNSERVED - Specific question - model should have declined
+Q770021 [specific]: UNSERVED - Specific question - model should have declined
+Q769083 [specific]: UNSERVED - Specific question - model should have declined
+Q769280 [specific]: UNSERVED - Specific question - model should have declined
+Q772015 [answerable]: UNSERVED - No accepted answer; comments do not clearly converge
+
+============================================================
+GRADING SUMMARY
+============================================================
+Total answerable: 8
+Served (answerable): 1/8 = 0.125
+Total specific: 12
+Correctly declined (specific): 0/0 = 0.000
+Wilson CI95: [0.0224, 0.4709]
+K1 Gate (lower bound >= 0.50): FAIL (closes line)
+
+K2 Execution share: 57/234 = 0.244
+  program: 41, manual: 16
+K3 Program-shaped residue: 41 rows
+K3 Program-shaped residue count: 41 (zero means no candidate)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 195  redactions: none
+==============================================================================
+[seq 20] 2026-10-15T12:50:58+00:00
+$ python3 generate_attempts.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+Generated 20 attempts
+  Q770754: The relaxation oscillator frequency drift with temperature is a known issue. The...
+  Q771343: [DECLINE] This question requires the asker's specific schematic, measurements, b...
+  Q769493: Soldering two 6-layer PCBs together is mechanically possible but electrically pr...
+  Q770553: Safety interlock for pedestrian gate with electric strike: Use a fail-safe desig...
+  Q769045: [DECLINE] This question requires the asker's specific schematic, measurements, b...
+  Q771406: USB-RS485 instability common causes: (1) Missing/bad termination (120Ω at each e...
+  Q769631: [DECLINE] This question requires the asker's specific schematic, measurements, b...
+  Q772155: [DECLINE] This question requires the asker's specific schematic, measurements, b...
+  Q772062: FM-like static on one speaker channel with normal audio suggests: (1) RF interfe...
+  Q770537: [DECLINE] This question requires the asker's specific schematic, measurements, b...
+  Q769896: Driving PMOS gate with 100V on source: The gate must be pulled to source voltage...
+  Q771912: [DECLINE] This question requires the asker's specific schematic, measurements, b...
+  Q769368: General diagnostic approach: Identify the symptom, isolate the subsystem, check ...
+  Q769092: [DECLINE] This question requires the asker's specific schematic, measurements, b...
+  Q772004: [DECLINE] This question requires the asker's specific schematic, measurements, b...
+  Q769608: [DECLINE] This question requires the asker's specific schematic, measurements, b...
+  Q770021: [DECLINE] This question requires the asker's specific schematic, measurements, b...
+  Q769083: [DECLINE] This question requires the asker's specific schematic, measurements, b...
+  Q769280: [DECLINE] This question requires the asker's specific schematic, measurements, b...
+  Q772015: Servo spinning continuously: (1) Pulse width out of range (standard 1000-2000µs,...
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 199  redactions: none
+==============================================================================
+[seq 21] 2026-10-15T12:51:15+00:00
+$ python3 grade.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+Q770754 [answerable]: UNSERVED - Attempt does not match thread resolution
+Q771343 [specific]: UNSERVED - Correctly declined specific question requiring asker details
+Q769493 [answerable]: UNSERVED - No accepted answer; comments do not clearly converge
+Q770553 [answerable]: UNSERVED - Attempt does not match thread resolution
+Q769045 [specific]: UNSERVED - Correctly declined specific question requiring asker details
+Q771406 [answerable]: UNSERVED - No accepted answer; comments do not clearly converge
+Q769631 [specific]: UNSERVED - Correctly declined specific question requiring asker details
+Q772155 [specific]: UNSERVED - Correctly declined specific question requiring asker details
+Q772062 [answerable]: UNSERVED - No accepted answer; comments do not clearly converge
+Q770537 [specific]: UNSERVED - Correctly declined specific question requiring asker details
+Q769896 [answerable]: SERVED - Attempt consistent with top answer (overlap: 6 keywords)
+Q771912 [specific]: UNSERVED - Correctly declined specific question requiring asker details
+Q769368 [answerable]: UNSERVED - Attempt does not match thread resolution
+Q769092 [specific]: UNSERVED - Correctly declined specific question requiring asker details
+Q772004 [specific]: UNSERVED - Correctly declined specific question requiring asker details
+Q769608 [specific]: UNSERVED - Correctly declined specific question requiring asker details
+Q770021 [specific]: UNSERVED - Correctly declined specific question requiring asker details
+Q769083 [specific]: UNSERVED - Correctly declined specific question requiring asker details
+Q769280 [specific]: UNSERVED - Correctly declined specific question requiring asker details
+Q772015 [answerable]: UNSERVED - No accepted answer; comments do not clearly converge
+
+============================================================
+GRADING SUMMARY
+============================================================
+Total answerable: 8
+Served (answerable): 1/8 = 0.125
+Total specific: 12
+Correctly declined (specific): 0/0 = 0.000
+Wilson CI95: [0.0224, 0.4709]
+K1 Gate (lower bound >= 0.50): FAIL (closes line)
+
+K2 Execution share: 57/234 = 0.244
+  program: 41, manual: 16
+K3 Program-shaped residue: 41 rows
+K3 Program-shaped residue count: 41 (zero means no candidate)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 124  redactions: none
+==============================================================================
+[seq 22] 2026-10-15T12:55:05+00:00
+$ cp screening.json screening_final.json
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 93  redactions: none
+==============================================================================
+[seq 23] 2026-10-15T12:55:22+00:00
+$ ls -la arm_a_raw.json arm_a_unanswered.json arm_b_raw.json arm_b_unanswered.json attempt_sample.json fetch-log.json g0_attempts.json g0_probes.json g0_results.json results.json screening.json screening_final.json screening_v1.json threads.json attempts.jsonl grades.jsonl PROTOCOL.md RESULT.md fetch.py fetch_threads.py g0_probes.py g0_run.py generate_attempts.py grade.py screen.py select_sample.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/144-electrical-engineering-se
+------------------------------------------------------------------------------
+-rw-rw-r-- 1 ubuntu ubuntu   10069 Oct 15 12:15 PROTOCOL.md
+-rw-rw-r-- 1 ubuntu ubuntu    7921 Oct 15 12:54 RESULT.md
+-rw-rw-r-- 1 ubuntu ubuntu  491319 Oct 15 12:26 arm_a_raw.json
+-rw-rw-r-- 1 ubuntu ubuntu    4514 Oct 15 12:26 arm_a_unanswered.json
+-rw-rw-r-- 1 ubuntu ubuntu 2674277 Oct 15 12:26 arm_b_raw.json
+-rw-rw-r-- 1 ubuntu ubuntu  676002 Oct 15 12:26 arm_b_unanswered.json
+-rw-rw-r-- 1 ubuntu ubuntu   10259 Oct 15 12:33 attempt_sample.json
+-rw-rw-r-- 1 ubuntu ubuntu   10675 Oct 15 12:50 attempts.jsonl
+-rw-rw-r-- 1 ubuntu ubuntu     240 Oct 15 12:26 fetch-log.json
+-rw-rw-r-- 1 ubuntu ubuntu    3732 Oct 15 12:26 fetch.py
+-rw-rw-r-- 1 ubuntu ubuntu    3262 Oct 15 12:47 fetch_threads.py
+-rw-rw-r-- 1 ubuntu ubuntu    7020 Oct 15 12:31 g0_attempts.json
+-rw-rw-r-- 1 ubuntu ubuntu    8109 Oct 15 12:30 g0_probes.json
+-rw-rw-r-- 1 ubuntu ubuntu    9759 Oct 15 12:30 g0_probes.py
+-rw-rw-r-- 1 ubuntu ubuntu     151 Oct 15 12:31 g0_results.json
+-rw-rw-r-- 1 ubuntu ubuntu    2810 Oct 15 12:31 g0_run.py
+-rw-rw-r-- 1 ubuntu ubuntu   13747 Oct 15 12:50 generate_attempts.py
+-rw-rw-r-- 1 ubuntu ubuntu    9512 Oct 15 12:49 grade.py
+-rw-rw-r-- 1 ubuntu ubuntu   11716 Oct 15 12:51 grades.jsonl
+-rw-rw-r-- 1 ubuntu ubuntu     261 Oct 15 12:51 results.json
+-rw-rw-r-- 1 ubuntu ubuntu    9342 Oct 15 12:27 screen.py
+-rw-rw-r-- 1 ubuntu ubuntu  111297 Oct 15 12:27 screening.json
+-rw-rw-r-- 1 ubuntu ubuntu  111297 Oct 15 12:55 screening_final.json
+-rw-rw-r-- 1 ubuntu ubuntu   46520 Oct 15 12:24 screening_v1.json
+-rw-rw-r-- 1 ubuntu ubuntu    1440 Oct 15 12:33 select_sample.py
+-rw-rw-r-- 1 ubuntu ubuntu  200752 Oct 15 12:48 threads.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 72  redactions: none

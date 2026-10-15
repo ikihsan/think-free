@@ -1,0 +1,52 @@
+{
+  "experiment": "E156 -- HN new stories view-count principle",
+  "gates": {
+    "G1": {
+      "met": false,
+      "observed": "20 classified (3 need-related, 17 random)",
+      "threshold": ">=30 per arm",
+      "reason": "only 20 classified"
+    },
+    "G2": {
+      "met": false,
+      "observed": {
+        "p_need": 1.0,
+        "p_random": 1.0,
+        "difference_p": 0.0,
+        "mean_diff_percent": 3.030303030303019,
+        "t_stat": 0.10258096472657768,
+        "p_value": 1.8365911021529298
+      },
+      "threshold": "p < 0.05, need-related > random on Welch's t-test on scores"
+    },
+    "G3": {
+      "met": true,
+      "observed": {
+        "need_related_arrival_rate": 1.0,
+        "random_arrival_rate": 1.0
+      },
+      "threshold": ">=80% of need-related stories have score > 0"
+    },
+    "G4": {
+      "met": true,
+      "observed": {
+        "total_with_arrivals": 20,
+        "total_packages": 20,
+        "arrival_rate": 1.0
+      },
+      "threshold": ">=80% of classified stories have score > 0"
+    }
+  },
+  "verdict": "failed: G1 not met; G2 not met",
+  "classified": {
+    "need-related": 3,
+    "random": 17
+  },
+  "activity": {
+    "need_related_active": 3,
+    "need_related_inactive": 0,
+    "random_active": 17,
+    "random_inactive": 0
+  },
+  "raw_results": []
+}

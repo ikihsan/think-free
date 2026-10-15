@@ -1,0 +1,579 @@
+{
+  "experiment": "E158 -- GitHub data-science repos view-count principle fresh observation",
+  "timestamp": "2026-10-15 15:29:14",
+  "source": "api_fetch",
+  "target_domain": "github",
+  "sample_size": 80,
+  "classified": {
+    "need-related": 17,
+    "random": 63
+  },
+  "activity": {
+    "need_related_active": 17,
+    "need_related_inactive": 0,
+    "random_active": 63,
+    "random_inactive": 0
+  },
+  "classified_repos": [
+    {
+      "index": 0,
+      "full_name": "microsoft/ML-For-Beginners",
+      "description": "12 weeks, 26 lessons, 52 quizzes, classic Machine Learning for all",
+      "stars": 91505,
+      "classification": "random"
+    },
+    {
+      "index": 1,
+      "full_name": "Asabeneh/30-Days-Of-Python",
+      "description": "The 30 Days of Python programming challenge is a step-by-step guide to learn the Python programming language in 30 days. This challenge may take more than 100 days. Follow your own pace. These videos may help too: https://www.youtube.com/channel/UC7PNRuno1rzYPb1xLa4yktw",
+      "stars": 76269,
+      "classification": "random"
+    },
+    {
+      "index": 2,
+      "full_name": "apache/superset",
+      "description": "Apache Superset is a Data Visualization and Data Exploration Platform",
+      "stars": 75158,
+      "classification": "random"
+    },
+    {
+      "index": 3,
+      "full_name": "scikit-learn/scikit-learn",
+      "description": "scikit-learn: machine learning in Python",
+      "stars": 67613,
+      "classification": "random"
+    },
+    {
+      "index": 4,
+      "full_name": "keras-team/keras",
+      "description": "Deep Learning for humans",
+      "stars": 64372,
+      "classification": "random"
+    },
+    {
+      "index": 5,
+      "full_name": "pandas-dev/pandas",
+      "description": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+      "stars": 50045,
+      "classification": "need-related"
+    },
+    {
+      "index": 6,
+      "full_name": "GokuMohandas/Made-With-ML",
+      "description": "Learn how to develop, deploy and iterate on production-grade ML applications.",
+      "stars": 49740,
+      "classification": "random"
+    },
+    {
+      "index": 7,
+      "full_name": "SimplifyJobs/Summer2027-Internships",
+      "description": "Summer 2027 software engineering, data science, AI, quant, product management, and hardware internship postings. Updated daily by Simplify and Pitt CSC.",
+      "stars": 47996,
+      "classification": "random"
+    },
+    {
+      "index": 8,
+      "full_name": "apache/airflow",
+      "description": "Apache Airflow - A platform to programmatically author, schedule, and monitor workflows",
+      "stars": 47184,
+      "classification": "random"
+    },
+    {
+      "index": 9,
+      "full_name": "streamlit/streamlit",
+      "description": "Streamlit \u2014 A faster way to build and share data apps.",
+      "stars": 45998,
+      "classification": "random"
+    },
+    {
+      "index": 10,
+      "full_name": "ray-project/ray",
+      "description": "Ray is an AI compute engine. Ray consists of a core distributed runtime and a set of AI Libraries for accelerating ML workloads.",
+      "stars": 44034,
+      "classification": "random"
+    },
+    {
+      "index": 11,
+      "full_name": "gradio-app/gradio",
+      "description": "Build and share delightful machine learning apps, all in Python. \ud83c\udf1f Star to support our work!",
+      "stars": 43763,
+      "classification": "random"
+    },
+    {
+      "index": 12,
+      "full_name": "microsoft/Data-Science-For-Beginners",
+      "description": "10 Weeks, 20 Lessons, Data Science for All!",
+      "stars": 37600,
+      "classification": "random"
+    },
+    {
+      "index": 13,
+      "full_name": "ashishpatel26/500-AI-Machine-learning-Deep-learning-Computer-vision-NLP-Projects-with-code",
+      "description": "500 AI Machine learning Deep learning Computer vision NLP Projects with code",
+      "stars": 37272,
+      "classification": "random"
+    },
+    {
+      "index": 14,
+      "full_name": "explosion/spaCy",
+      "description": "\ud83d\udcab Industrial-strength Natural Language Processing (NLP) in Python",
+      "stars": 33964,
+      "classification": "random"
+    },
+    {
+      "index": 15,
+      "full_name": "eriklindernoren/ML-From-Scratch",
+      "description": "Machine Learning From Scratch. Bare bones NumPy implementations of machine learning models and algorithms with a focus on accessibility. Aims to cover everything from linear regression to deep learning.",
+      "stars": 32993,
+      "classification": "random"
+    },
+    {
+      "index": 16,
+      "full_name": "Lightning-AI/pytorch-lightning",
+      "description": "Pretrain, finetune ANY AI model of ANY size on 1 or 10,000+ GPUs with zero code changes.",
+      "stars": 31406,
+      "classification": "random"
+    },
+    {
+      "index": 17,
+      "full_name": "AMAI-GmbH/AI-Expert-Roadmap",
+      "description": "Roadmap to becoming an Artificial Intelligence Expert in 2022",
+      "stars": 31299,
+      "classification": "random"
+    },
+    {
+      "index": 18,
+      "full_name": "eugeneyan/applied-ml",
+      "description": "\ud83d\udcda Papers & tech blogs by companies sharing their work on data science & machine learning in production.",
+      "stars": 30582,
+      "classification": "random"
+    },
+    {
+      "index": 19,
+      "full_name": "academic/awesome-datascience",
+      "description": ":memo: An awesome Data Science repository to learn and apply for real world problems.",
+      "stars": 30170,
+      "classification": "random"
+    },
+    {
+      "index": 20,
+      "full_name": "d2l-ai/d2l-en",
+      "description": "Interactive deep learning book with multi-framework code, math, and discussions. Adopted at 500 universities from 70 countries including Stanford, MIT, Harvard, and Cambridge.",
+      "stars": 29841,
+      "classification": "need-related"
+    },
+    {
+      "index": 21,
+      "full_name": "donnemartin/data-science-ipython-notebooks",
+      "description": "Data science Python notebooks: Deep learning (TensorFlow, Theano, Caffe, Keras), scikit-learn, Kaggle, big data (Spark, Hadoop MapReduce, HDFS), matplotlib, pandas, NumPy, SciPy, Python essentials, AWS, and various command lines.",
+      "stars": 29365,
+      "classification": "random"
+    },
+    {
+      "index": 22,
+      "full_name": "reflex-dev/reflex",
+      "description": "\ud83d\udd78\ufe0f Web apps in pure Python \ud83d\udc0d",
+      "stars": 28953,
+      "classification": "random"
+    },
+    {
+      "index": 23,
+      "full_name": "CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers",
+      "description": "aka \"Bayesian Methods for Hackers\": An introduction to Bayesian methods + probabilistic programming with a computation/understanding-first, mathematics-second point of view. All in pure Python ;)  ",
+      "stars": 28185,
+      "classification": "random"
+    },
+    {
+      "index": 24,
+      "full_name": "fastai/fastbook",
+      "description": "The fastai book, published as Jupyter Notebooks",
+      "stars": 25387,
+      "classification": "random"
+    },
+    {
+      "index": 25,
+      "full_name": "plotly/dash",
+      "description": "Data Apps & Dashboards for Python. No JavaScript Required.",
+      "stars": 24453,
+      "classification": "random"
+    },
+    {
+      "index": 26,
+      "full_name": "PrefectHQ/prefect",
+      "description": "Prefect is a workflow orchestration framework for building resilient data pipelines in Python.",
+      "stars": 24025,
+      "classification": "need-related"
+    },
+    {
+      "index": 27,
+      "full_name": "sinaptik-ai/pandas-ai",
+      "description": "Chat with your database or your datalake (SQL, CSV, parquet). PandasAI makes data analysis conversational using LLMs and RAG.",
+      "stars": 23879,
+      "classification": "random"
+    },
+    {
+      "index": 28,
+      "full_name": "lukasmasuch/best-of-ml-python",
+      "description": "\ud83c\udfc6 A ranked list of awesome machine learning Python libraries. Updated weekly.",
+      "stars": 23845,
+      "classification": "random"
+    },
+    {
+      "index": 29,
+      "full_name": "matplotlib/matplotlib",
+      "description": "matplotlib: plotting with Python",
+      "stars": 23369,
+      "classification": "random"
+    },
+    {
+      "index": 30,
+      "full_name": "marimo-team/marimo",
+      "description": "A reactive notebook for Python \u2014 run reproducible experiments, query with SQL, execute as a script, deploy as an app, and version with git. Stored as pure Python. All in a modern, AI-native editor.",
+      "stars": 23192,
+      "classification": "random"
+    },
+    {
+      "index": 31,
+      "full_name": "akfamily/akshare",
+      "description": "AKShare is an elegant and simple financial data interface library for Python, built for human beings! \u5f00\u6e90\u8d22\u7ecf\u6570\u636e\u63a5\u53e3\u5e93",
+      "stars": 22940,
+      "classification": "need-related"
+    },
+    {
+      "index": 32,
+      "full_name": "recommenders-team/recommenders",
+      "description": "Best Practices on Recommendation Systems",
+      "stars": 21954,
+      "classification": "random"
+    },
+    {
+      "index": 33,
+      "full_name": "stefan-jansen/machine-learning-for-trading",
+      "description": "Code for Machine Learning for Trading, 3rd edition \u2014 from data sourcing to live execution.",
+      "stars": 21360,
+      "classification": "random"
+    },
+    {
+      "index": 34,
+      "full_name": "afshinea/stanford-cs-229-machine-learning",
+      "description": "VIP cheatsheets for Stanford's CS 229 Machine Learning",
+      "stars": 20312,
+      "classification": "random"
+    },
+    {
+      "index": 35,
+      "full_name": "dair-ai/ML-YouTube-Courses",
+      "description": "\ud83d\udcfa Discover the latest machine learning / AI courses on YouTube.",
+      "stars": 17431,
+      "classification": "random"
+    },
+    {
+      "index": 36,
+      "full_name": "ipython/ipython",
+      "description": "Official repository for IPython itself. Other repos in the IPython organization contain things like the website, documentation builds, etc.",
+      "stars": 16792,
+      "classification": "random"
+    },
+    {
+      "index": 37,
+      "full_name": "bharathgs/Awesome-pytorch-list",
+      "description": "A comprehensive list of pytorch related content on github,such as different models,implementations,helper libraries,tutorials etc.",
+      "stars": 16706,
+      "classification": "need-related"
+    },
+    {
+      "index": 38,
+      "full_name": "piskvorky/gensim",
+      "description": "Topic Modelling for Humans",
+      "stars": 16505,
+      "classification": "random"
+    },
+    {
+      "index": 39,
+      "full_name": "dagster-io/dagster",
+      "description": "An orchestration platform for the development, production, and observation of data assets.",
+      "stars": 16282,
+      "classification": "random"
+    },
+    {
+      "index": 40,
+      "full_name": "treeverse/dvc",
+      "description": "\ud83e\udd89 Data Versioning and ML Experiments",
+      "stars": 15925,
+      "classification": "random"
+    },
+    {
+      "index": 41,
+      "full_name": "kubeflow/kubeflow",
+      "description": "The Cloud Native AI Platform",
+      "stars": 15910,
+      "classification": "random"
+    },
+    {
+      "index": 42,
+      "full_name": "virgili0/Virgilio",
+      "description": "Your new Mentor for Data Science E-Learning.",
+      "stars": 15000,
+      "classification": "random"
+    },
+    {
+      "index": 43,
+      "full_name": "microsoft/RD-Agent",
+      "description": "Research and development (R&D) is crucial for the enhancement of industrial productivity, especially in the AI era, where the core aspects of R&D are mainly focused on data and models. We are committed to automating these high-value generic R&D processes through R&D-Agent, which lets AI drive data-driven AI. \ud83d\udd17https://aka.ms/RD-Agent-Tech-Report",
+      "stars": 14944,
+      "classification": "random"
+    },
+    {
+      "index": 44,
+      "full_name": "oxnr/awesome-bigdata",
+      "description": "A curated list of awesome big data frameworks, ressources and other awesomeness.",
+      "stars": 14676,
+      "classification": "need-related"
+    },
+    {
+      "index": 45,
+      "full_name": "microsoft/nni",
+      "description": "An open source AutoML toolkit for automate machine learning lifecycle, including feature engineering, neural architecture search, model compression and hyper-parameter tuning.",
+      "stars": 14366,
+      "classification": "need-related"
+    },
+    {
+      "index": 46,
+      "full_name": "jpmorganchase/python-training",
+      "description": "Python training for business analysts and traders",
+      "stars": 14258,
+      "classification": "random"
+    },
+    {
+      "index": 47,
+      "full_name": "visenger/awesome-mlops",
+      "description": "A curated list of references for MLOps ",
+      "stars": 14240,
+      "classification": "random"
+    },
+    {
+      "index": 48,
+      "full_name": "mwaskom/seaborn",
+      "description": "Statistical data visualization in Python",
+      "stars": 14073,
+      "classification": "random"
+    },
+    {
+      "index": 49,
+      "full_name": "Data-Centric-AI-Community/fg-data-profiling",
+      "description": "1 Line of code data quality profiling & exploratory data analysis for Pandas and Spark DataFrames. ",
+      "stars": 13729,
+      "classification": "random"
+    },
+    {
+      "index": 50,
+      "full_name": "tangyudi/Ai-Learn",
+      "description": "\u4eba\u5de5\u667a\u80fd\u5b66\u4e60\u8def\u7ebf\u56fe\uff0c\u6574\u7406\u8fd1200\u4e2a\u5b9e\u6218\u6848\u4f8b\u4e0e\u9879\u76ee\uff0c\u514d\u8d39\u63d0\u4f9b\u914d\u5957\u6559\u6750\uff0c\u96f6\u57fa\u7840\u5165\u95e8\uff0c\u5c31\u4e1a\u5b9e\u6218\uff01\u5305\u62ec\uff1aPython\uff0c\u6570\u5b66\uff0c\u673a\u5668\u5b66\u4e60\uff0c\u6570\u636e\u5206\u6790\uff0c\u6df1\u5ea6\u5b66\u4e60\uff0c\u8ba1\u7b97\u673a\u89c6\u89c9\uff0c\u81ea\u7136\u8bed\u8a00\u5904\u7406\uff0cPyTorch tensorflow machine-learning,deep-learning data-analysis data-mining mathematics data-science artificial-intelligence python tensorflow tensorflow2 caffe keras pytorch algorithm numpy pandas matplotlib seaborn nlp cv\u7b49\u70ed\u95e8\u9886\u57df",
+      "stars": 13413,
+      "classification": "random"
+    },
+    {
+      "index": 51,
+      "full_name": "trinodb/trino",
+      "description": "Official repository of Trino, the distributed SQL query engine for big data, formerly known as PrestoSQL (https://trino.io)",
+      "stars": 13337,
+      "classification": "random"
+    },
+    {
+      "index": 52,
+      "full_name": "dair-ai/AI-Papers-of-the-Week",
+      "description": "\ud83d\udd25Highlighting the top ML papers every week.",
+      "stars": 13278,
+      "classification": "random"
+    },
+    {
+      "index": 53,
+      "full_name": "rasbt/python-machine-learning-book",
+      "description": "The \"Python Machine Learning (1st edition)\"  book code repository and info resource",
+      "stars": 12659,
+      "classification": "random"
+    },
+    {
+      "index": 54,
+      "full_name": "OpenRefine/OpenRefine",
+      "description": "OpenRefine is a free, open source power tool for working with messy data and improving it",
+      "stars": 12038,
+      "classification": "need-related"
+    },
+    {
+      "index": 55,
+      "full_name": "dbcli/mycli",
+      "description": "Rich MySQL Terminal Client with AutoCompletion, Syntax Highlighting, and Dataframes",
+      "stars": 11982,
+      "classification": "random"
+    },
+    {
+      "index": 56,
+      "full_name": "allenai/allennlp",
+      "description": "An open-source NLP research library, built on PyTorch.",
+      "stars": 11885,
+      "classification": "need-related"
+    },
+    {
+      "index": 57,
+      "full_name": "fivetran/great_expectations",
+      "description": "Always know what to expect from your data.",
+      "stars": 11873,
+      "classification": "random"
+    },
+    {
+      "index": 58,
+      "full_name": "ludwig-ai/ludwig",
+      "description": "Low-code framework for building custom LLMs, neural networks, and other AI models",
+      "stars": 11773,
+      "classification": "need-related"
+    },
+    {
+      "index": 59,
+      "full_name": "cleanlab/cleanlab",
+      "description": "Cleanlab's open-source library is the standard data-centric AI package for data quality and machine learning with messy, real-world data and labels.",
+      "stars": 11707,
+      "classification": "need-related"
+    },
+    {
+      "index": 60,
+      "full_name": "statsmodels/statsmodels",
+      "description": "Statsmodels: statistical modeling and econometrics in Python",
+      "stars": 11686,
+      "classification": "random"
+    },
+    {
+      "index": 61,
+      "full_name": "wandb/wandb",
+      "description": "The AI developer platform. Use Weights & Biases to train and fine-tune models, and manage models from experimentation to production.",
+      "stars": 11299,
+      "classification": "random"
+    },
+    {
+      "index": 62,
+      "full_name": "voxel51/fiftyone",
+      "description": "Refine high-quality datasets and visual AI models",
+      "stars": 11188,
+      "classification": "random"
+    },
+    {
+      "index": 63,
+      "full_name": "fastai/numerical-linear-algebra",
+      "description": "Free online textbook of Jupyter notebooks for fast.ai Computational Linear Algebra course",
+      "stars": 11003,
+      "classification": "random"
+    },
+    {
+      "index": 64,
+      "full_name": "aws/amazon-sagemaker-examples",
+      "description": "Example \ud83d\udcd3 Jupyter notebooks that demonstrate how to build, train, and deploy machine learning models using \ud83e\udde0 Amazon SageMaker. ",
+      "stars": 10995,
+      "classification": "random"
+    },
+    {
+      "index": 65,
+      "full_name": "pymupdf/PyMuPDF",
+      "description": "PyMuPDF is a high performance Python library for data extraction, analysis, conversion & manipulation of PDF (and other) documents.",
+      "stars": 10908,
+      "classification": "need-related"
+    },
+    {
+      "index": 66,
+      "full_name": "autogluon/autogluon",
+      "description": "Fast and Accurate ML in 3 Lines of Code",
+      "stars": 10781,
+      "classification": "random"
+    },
+    {
+      "index": 67,
+      "full_name": "Yorko/mlcourse.ai",
+      "description": "Open Machine Learning Course",
+      "stars": 10756,
+      "classification": "random"
+    },
+    {
+      "index": 68,
+      "full_name": "chiphuyen/machine-learning-systems-design",
+      "description": "A booklet on machine learning systems design with exercises. NOT the repo for the book \"Designing Machine Learning Systems\", which is `dmls-book`",
+      "stars": 10703,
+      "classification": "random"
+    },
+    {
+      "index": 69,
+      "full_name": "lexfridman/mit-deep-learning",
+      "description": "Tutorials, assignments, and competitions for MIT Deep Learning related courses.",
+      "stars": 10458,
+      "classification": "random"
+    },
+    {
+      "index": 70,
+      "full_name": "modin-project/modin",
+      "description": "Modin: Scale your Pandas workflows by changing a single line of code",
+      "stars": 10391,
+      "classification": "random"
+    },
+    {
+      "index": 71,
+      "full_name": "alexeygrigorev/data-science-interviews",
+      "description": "Data science interview questions and answers",
+      "stars": 10184,
+      "classification": "random"
+    },
+    {
+      "index": 72,
+      "full_name": "drivendataorg/cookiecutter-data-science",
+      "description": "A logical, reasonably standardized, but flexible project structure for doing and sharing data science work.",
+      "stars": 10094,
+      "classification": "random"
+    },
+    {
+      "index": 73,
+      "full_name": "sktime/sktime",
+      "description": "A unified framework for machine learning with time series",
+      "stars": 10067,
+      "classification": "need-related"
+    },
+    {
+      "index": 74,
+      "full_name": "EpistasisLab/tpot",
+      "description": "A Python Automated Machine Learning tool that optimizes machine learning pipelines using genetic programming.",
+      "stars": 10056,
+      "classification": "need-related"
+    },
+    {
+      "index": 75,
+      "full_name": "yzhao062/pyod",
+      "description": "A Python library for anomaly detection across tabular, time series, graph, text, image, and audio data. 60+ detectors, benchmark-backed ADEngine orchestration, and an agentic workflow for AI agents.",
+      "stars": 10037,
+      "classification": "need-related"
+    },
+    {
+      "index": 76,
+      "full_name": "microsoft/computervision-recipes",
+      "description": "Best Practices, code samples, and documentation for Computer Vision.",
+      "stars": 9896,
+      "classification": "random"
+    },
+    {
+      "index": 77,
+      "full_name": "pycaret/pycaret",
+      "description": "Open-source, low-code AutoML platform for Python. PyCaret 4.0: sklearn-native engine + React control plane.",
+      "stars": 9855,
+      "classification": "random"
+    },
+    {
+      "index": 78,
+      "full_name": "NVIDIA/cudf",
+      "description": "cuDF - GPU DataFrame Library ",
+      "stars": 9775,
+      "classification": "need-related"
+    },
+    {
+      "index": 79,
+      "full_name": "tflearn/tflearn",
+      "description": "Deep learning library featuring a higher-level API for TensorFlow.",
+      "stars": 9569,
+      "classification": "need-related"
+    }
+  ]
+}
