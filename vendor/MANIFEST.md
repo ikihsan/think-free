@@ -128,6 +128,18 @@ exempt: EXPERIMENTS/**/raw/*.html
 # to say: splitting the table would separate a row from its own verdict.
 exempt: EXPERIMENTS/**/raw/*.tsv
 
+# Raw JSON/JSONL captures are deliberately NOT declared exempt here (removed
+# 2026-10-15). `.json` and `.jsonl` already carry the cap's own data-suffix
+# exemption (`doclint.is_exempt`), so a declared exemption bought nothing for the
+# line cap and for secret scanning — `release.check_secrets` skips them either way.
+# What it did buy was a hole in `session finish`: reconciliation asks
+# `is_declared_exempt`, not `is_exempt`, so the four `exempt:` lines silently
+# stopped `EXPERIMENTS/010-annotation-rendering/raw/summary.json` and its siblings
+# from being reported when a session changed them without declaring them. That is
+# the defect the recorded test `tests/test_unlogged_data.py::RecordedSilenceTest`
+# was written to hold shut. Re-adding a data-suffix glob here is a check
+# weakening, not a fix.
+
 # Raw CFR part XML, fetched by E115's `harvest.py` on 2026-10-12 and never
 # hand-edited. Same class as the `.html` and `.txt` raw captures above: bytes
 # an external endpoint returned, keyed by a slug of the request URL because the
