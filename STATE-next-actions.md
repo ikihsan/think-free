@@ -88,11 +88,18 @@ that is now a measurement. D111's remaining sub-question is E134's population
 question restated, and E134's answer was that the one published run available was
 clean.
 
-**Named next action: E140**, the only live fresh-observation protocol
-(CI/CD pipeline failures, declared 2026-10-14, never run). Its G2 — top-10 error
-patterns covering ≥30% of cases — is the gate most likely to decide it and is
-cheap to run. Do not re-probe C1 Open LLM Leaderboard v2 or C3 Chatbot Arena:
-both failed G2 at probe time and nothing new has happened to either.
+**Named next action: E140 is shelved, mission returns to fresh exploration.**
+E142 ran E140's G5 as a cheap pre-fetch probe and both branches resolve
+against running the harvest now. G5-tool-strict = 0/14 (kill needed ≥7), so
+no kill — but the probe's value is what it found instead: the top
+marketplace hit for "fix failed build" (Badgr) disclaims auto-fix in its own
+FAQ, the only asserted auto-repair (JAIPilot) is Java bot-PR drafts with 3
+installs, and the strongest adjacent incumbent (pre-commit.ci autofix) reads
+PRs, not failing runs. P1 (project-code dominance) gained no sourced support
+(TravisTorrent fetch failed; Badgr's 14-type list states no distribution) and
+G5-alt (assistant baseline on CI logs) is untested — so per E142's declared
+condition 2 the ~7,500-request harvest is declined. Do not re-probe C1/C3.
+[`EXPERIMENTS/142-cicd-incumbent-probe/RESULT-ARM-A.md`](EXPERIMENTS/142-cicd-incumbent-probe/RESULT-ARM-A.md).
 
 E071 conclusive result: the view-count principle is supported on PyPI — need-related packages (82.93% active) are systematically more "active" (have significant activity metadata) than random packages (57.50% active). G1 retrieval met, G2 significant (t=3.4660, p=0.001), G3 PASSES (Wilson CI95 lower bound 0.6874 > 0.6). All gates met. **Superseded by E113/F116 as unconfirmed on a matched harvest.**
 

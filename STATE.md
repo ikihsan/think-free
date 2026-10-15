@@ -223,13 +223,44 @@ finding — 0.4% of rows, all of it in cases one normalization rule catches, zer
 half the populations — which is not worth shipping as a gate, and is now a
 measurement rather than an opinion. The line's remaining question is E134's
 population question restated (do the harness-defect checks fire on *any*
-published run?) and E134's answer was that the one available run was clean. The
-next action is therefore **E140, the only live fresh-observation protocol**
-(CI/CD pipeline failures, declared 2026-10-14, not run); its declared G2 — top-10
-error patterns covering ≥30% of cases — is the gate most likely to decide it and
-is cheap to run. The other open options, both of which failed G2 at probe time
-and are not worth re-probing without new information, are C1 Open LLM Leaderboard
-v2 and C3 Chatbot Arena.
+published run?) and E134's answer was that the one available run was clean.
+
+**E142 completed (2026-10-15): the incumbent probe on CI-failure diagnosis
+declines the harvest, and `preflight` is shelved rather than extended.** E142
+ran E140's G5 as a cheap pre-fetch survey over a 14-category superset, after
+fixing two defects in it: G5's baseline omitted the strongest alternative this
+mission has measured twice (a free general assistant with the log — E092,
+30/37 = 0.8108), and "top 10 patterns" is undefined until the harvest runs, so
+the probe used a superset, biased toward not killing prematurely. Result:
+**G5-tool-strict = 0 of 14, claimed 0 full + 2 partials** (JAIPilot's Java
+bot-PR repair drafts, 3 installs; pre-commit.ci's hook-driven autofix of PRs),
+against a kill at ≥7 — **no kill**. The probe's value was what it found
+instead: the top marketplace hit for "fix failed build" (Badgr) **disclaims
+auto-fix in its own FAQ**, the only asserted auto-repair is a narrow Java
+sub-case, and the strongest adjacent incumbent reads PRs rather than failing
+runs. Its structural prediction P1 got **no sourced support** (the one
+sourcing attempt failed; Badgr's "14+ error types" list states no
+distribution), so the protocol's declared second kill condition fired as
+written: **the ~7,500-request harvest is declined.** E140 stays declared and
+unrun — nothing about the CI domain is closed — and the mission returns to
+fresh exploration.
+[`EXPERIMENTS/142-cicd-incumbent-probe/RESULT-ARM-A.md`](EXPERIMENTS/142-cicd-incumbent-probe/RESULT-ARM-A.md).
+
+**Identifier collision, recorded not renumbered (2026-10-15).** `E140` names
+two different things, both committed on 2026-10-14: the **CI/CD pipeline
+failure protocol** (`EXPERIMENTS/140-github-actions-ci-failures/`, session
+2026-10-14-030) and the **preflight release-readiness evaluation** (the
+"E140 completed" entry below, commit `fc997da4`). Both are already pushed, so
+neither is renumbered; **E140 unqualified in a sentence about CI failures means
+the protocol, and in a sentence about releasing `preflight` means the
+evaluation.** A later reader who takes the other reading will conclude the CI
+harvest ran.
+
+Named next action: **fresh observation in a domain this mission has not
+touched**, chosen by a stated rule rather than by comfort. Do not re-probe C1
+Open LLM Leaderboard v2 or C3 Chatbot Arena: both failed G2 at probe time and
+nothing new has happened to either. E140's protocol stays reusable if P1 ever
+gains sourced support.
 
 ## Dashboard
 
@@ -251,40 +282,6 @@ Full list, with the ceiling on each item and the reasoning behind it, is in
 whichever item is next are in
 [`STATE-constraints.md`](STATE-constraints.md).
 
-**E101 completed:** Fresh observation in network equipment fault codes domain (Discourse forums). ALL GATES PASS — 150 topics across 3 forums, G1 17 need (11.3%), G2 150 topics, G3 unserved 10.0% (CI95 [5.7%, 16.5%]), G4 view_count 100%. Unserved fraction consistent with Discourse baseline (E077: 11.7%, E082: 15.3%). **E100 completed:** Industrial automation/SCADA Discourse forum — G3 FAIL (76.2% unserved), revealing domain variation. **E086 follow-on completed:** pyprovides workflow evaluation shows 2.44x speedup for alias-case import fixes (psycopg2), 100% suggestion accuracy across 3 alias cases. Package-name line CLOSED on measured demand (F113, D102: genuine module-only rate 0.23–0.47%, under 1% gate). **E103 completed:** Fresh observation on Hex.pm (Elixir/Erlang package registry). ALL GATES PASS — 200 packages (100 need-related, 100 random), G2 p≈0.000 (Cliff's δ=0.861), G3 Wilson LB=0.946 (99/100 need-related above random median). Need median 80,078 vs random 365 (220×). **E107 completed (2026-10-13): GitHub code repositories — GATE_CLOSED.** E107 tested the view-count principle on GitHub code repositories using star counts as arrival metadata and issue titles as need statements, with a sample of 50 repositories. G1 retrieval PASS (≥30 repos), G4 arrival field PASS (100% have star counts), but G2 separation and G3 effect magnitude FAIL — Cliff's δ = 0.1683 (need: >0.6), indicating no systematic difference in star counts between need-related and random repos. This adds GitHub code repositories to the list of domains where the principle does not generalize, as the effect size between need-related and random content is too small to justify a candidate.
-**E108:** Personal finance forums experiment could not be completed — Reddit API access blocked, requiring authentication. Experiment design ready but data collection prevented.
-
-**E109 completed (2026-10-13): Chemistry Stack Exchange — GATE_CLOSED.** E109 tested the view-count principle on Chemistry Stack Exchange using question view counts as arrival metadata and question titles about chemical problems as need statements, with a sample of 100 questions. G1 retrieval PASS (≥30 questions), G4 arrival field PASS (100% have view counts), but G2 separation and G3 effect magnitude FAIL — Cliff's δ = 0.2552 (need: >0.6), indicating only a small effect size. Need-related questions do tend to have higher view counts, but the overlap with random questions is substantial (26 need-related vs 74 random), well below the 0.6 gate threshold. This further narrows the principle's boundary into scientific Q&A domains.
-
-**E113 (2026-10-12) — the view-count sweep is STOPPED (F116, D105).** E113 re-ran
-E107's own platform with a **matched harvest** and found the effect is a
-**harvest artifact**. E107 drew its need arm from `topic:web-framework` and its
-random arm from `topic:utils`, both sorted by stars: 80/80 need rows carry
-`web-framework`, 80/80 random rows carry `utils`, before any classifier runs. Its
-published `Cliff's δ = 0.826010` reproduces exactly from its own committed data
-and is a comparison of the most-starred web frameworks against the most-starred
-utility libraries. Under a matched harvest (one pool, 7 star strata, 700 rows):
-within-stratum **δ = +0.0746**, stratified permutation **p = 0.183** (20k iters),
-5 of 7 strata negative or zero. **The larger obstacle: the shared classifier
-labels only 196 of 700 rows (28%)**, 458 matching neither vocabulary, because it
-matches unanchored substrings (`ai` inside `email`, `base` inside `database`).
-Every experiment on this line reported coverage over rows it had labelled, so a
-28% screen was recorded as a 100% measurement. **No coverage gate existed on the
-line** — that is the process fix. Consequences: E090/E095/E102/E103/E108 are
-`untested` on a matched harvest, not confirmed; E109 (Pub.dev) superseded, not
-run; the D083 sweep is withdrawn. **The screen is withdrawn, not the idea** — the
-null is about this classifier on this pool, not about whether need-related
-artifacts receive arrivals. Reopening requires (i) a classifier with a declared
-coverage floor, (ii) matched harvest as the default design, (iii) a stratified
-reading beside the pooled one.
-
-**E114–E133 completed (2026-10-12 to 2026-10-13): multiple lines closed and preflight line reopened.** See [`STATE-history.md`](STATE-history.md) for detail. Summary: E114 (value-grounding closed, 0 of 374 fabricated), E116 (recurring-payment closed, assistant is best reader), E126/E127 (venue sweep complete, all classes served), E128/E129 (preflight adapters for evalscope and openai/evals), E124 (preflight tool built, catches harness defects), E130–E133 (preflight adapters for JSONL, CSV, YAML, XML — 6 harness formats validated).
-
-**E139 completed (2026-10-14): preflight adapter for modelscope/evalscope run output demonstrated.** The evalscope two-file format (predictions + reviews, joined by `index` within task directories) is correctly handled by a ~10-line stdlib adapter. All three preflight checks (C1 concordance, C2 alternate-form FP, C3 control arm) function on this format. F121-style silent join failure (composite key vs simple index) produces `NO_DISCRIMINATING_PAIRING` and withholds rate; repaired composite key produces `OK`. F122-style control arm contamination produces `CONTROL_NOT_EMPTY`. C2 alternate-form FP with strict flagger produces `ALTERNATE_FORM_FP`. Clean run exits 0 with all checks `OK`. This extends the population coverage to 6 harness structures with working adapters (lm-eval real run, evalscope synthetic format, openai/evals inferred, JSONL/CSV/YAML/XML synthetic). Python 3.8 `zoneinfo` incompatibility prevented a real evalscope run; adapter tested against documented format.
-
-**E140 completed (2026-10-14): preflight release readiness evaluation.** Evaluated the preflight package for prototype release per STATE-next-actions.md Option C. All 25 tests pass. Package has: MIT license, pyproject.toml for packaging, stdlib-only implementation, built-in adapters for JSONL/CSV/YAML/XML, custom adapter interface validated on 6 harness formats, documented limitations (population limitation E125: only 5/22 harnesses have qualified committed pairs; no external dependencies; prior art partially-covered; false-positive rate is arm-specific). Catches real defects (F118: verifier flagged 37% of correct answers, F121: silent zero-match join, F122: contaminated control arm). Adoption interest documented in `EXPERIMENTS/preflight-adoption-interest.md` — open issues in lm-eval and HELM mapping to C1/C2/C3, MLS-Bench audit finding 61/140 tasks with broken scoring. User population is niche (evaluation engineers, benchmark maintainers). No adoption claims made. Doc lint passes. Release manifest and README agree on `public-product` state. Honest assessment: tool is a correct prototype for harness authors who control their run outputs; not a general-purpose product.
-
-**ID collision + direct contradiction on Docker Hub, from two uncoordinated runs (2026-10-12, found while landing).** Two VMs numbered a Docker Hub run **E108** independently. `b4e0db34` (this VM, now **E112**) reports **GATES FAIL, Cliff's delta = -0.810** on 55 need / 55 random images, its random arm catching base images (alpine 12.3B, ubuntu 10.1B, node 7.1B, mysql 5.2B pulls). The landed `EXPERIMENTS/111-dockerhub-viewcount` (**E111**) reports **ALL GATES PASS, delta = +0.386** on 3,313 need / 537 random images. Same platform, opposite sign, a 29x gap in need-arm size. Renumbered on the unpushed side, per the standing rule: the Docker Hub run is **E112**, the matched-harvest control is **E113**, and the landed **E110** (`EXPERIMENTS/110-rubygems-viewcount`) is **RubyGems**, not a matched harvest. Neither Docker Hub row is independent evidence — both drew its arms with the asymmetric harvest E113 falsifies, and E113's own need arm is 6:1 imbalanced in the same shape. A coordinate was claimed (`T-0093`) and a second worker then took the same D083 slot anyway; the next session should read the task ledger before taking a D083 domain.
 
 ## Capability evidence
 

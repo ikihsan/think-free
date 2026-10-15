@@ -404,6 +404,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/139-evalscope-preflight-test/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/140-github-actions-ci-failures/` | `EXPERIMENTS/140-github-actions-ci-failures/PROTOCOL.md` | active | 2026-10-14 | 4 documents |
 | `EXPERIMENTS/141-scorer-false-negatives/` | `EXPERIMENTS/README.md` | active | 2026-10-15 | 2 documents |
+| `EXPERIMENTS/142-cicd-incumbent-probe/` | `EXPERIMENTS/README.md` | active | 2026-10-15 | 2 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |

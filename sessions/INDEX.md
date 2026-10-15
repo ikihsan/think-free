@@ -8,13 +8,14 @@ last-verified: 2026-10-15
 
 <!-- generated-by: origin; do not edit by hand -->
 
-377 recorded session(s). One `events.jsonl` per session, so concurrent
+378 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 352 older session(s) are in the directory listing.
+Showing the 25 most recent. 353 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-15-002-run-e140-s-incumbent-gap-gate-g5-as-a-ch](2026-10-15-002-run-e140-s-incumbent-gap-gate-g5-as-a-ch/README.md) | unknown-agent | worked | Run E140's incumbent-gap gate (G5) as a cheap pre-fetch prior-art prob | 2026-10-15T08:59 |
 | [2026-10-15-001-e141-measure-the-scorer-false-negative-r](2026-10-15-001-e141-measure-the-scorer-false-negative-r/README.md) | unknown-agent | worked | E141: measure the scorer false-negative rate on the already-fetched HE | 2026-10-15T02:34 |
 | [2026-10-14-034-complete-preflight-release-verify-doc-li](2026-10-14-034-complete-preflight-release-verify-doc-li/README.md) | unknown-agent | worked | Complete preflight release: verify doc lint, release check, and ensure | 2026-10-15T00:25 |
 | [2026-10-14-033-evaluate-preflight-tool-for-release-and](2026-10-14-033-evaluate-preflight-tool-for-release-and/README.md) | unknown-agent | worked | Evaluate preflight tool for release and decide on continuation | 2026-10-14T20:46 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 352 older session(s) are in the directory listing.
 | [2026-10-14-014-complete-e137-cross-model-agreement-on-h](2026-10-14-014-complete-e137-cross-model-agreement-on-h/README.md) | unknown-agent | worked | Complete E137 cross-model agreement on HELM cells and decide on contin | 2026-10-14T10:19 |
 | [2026-10-14-013-document-v3-prototype-decision-and-initi](2026-10-14-013-document-v3-prototype-decision-and-initi/README.md) | unknown-agent | worked | Document v3 prototype decision and initiate fresh view-count experimen | 2026-10-14T10:00 |
 | [2026-10-14-012-initiate-fresh-view-count-experiment-on](2026-10-14-012-initiate-fresh-view-count-experiment-on/README.md) | unknown-agent | worked | Initiate fresh view-count experiment on Hackage/Metacpan for Haskell p | 2026-10-14T09:59 |
-| [2026-10-14-011-build-view-count-prototype-v3-and-decide](2026-10-14-011-build-view-count-prototype-v3-and-decide/README.md) | unknown-agent | worked | Build view-count prototype v3 and decide on next experiment | 2026-10-14T09:56 |
 
 
 ## Reading a session
