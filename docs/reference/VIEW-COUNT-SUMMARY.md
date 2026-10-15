@@ -38,6 +38,7 @@ need-related content has systematic activity advantages (higher counts) compared
 - **Physics SE**: view_count present but no differential activity (p_need = p_random = 1.0)
 - **crates.io**: classifier vocabulary mismatch (default listings lack need-indicator terms)
 - **Reddit**: API accessibility boundary (network security block prevented data collection)
+- **VS Code Marketplace (Open VSX)**: API sampling limitation — search API returns only top 100 per query sorted by downloads, preventing adequate sampling of general (theme/icon/keymap/snippet) extensions. Population kill gate fired (24 general vs 4,519 need-related). Cliff's delta = -0.055 (negligible). Inconclusive due to API constraints, not measured effect.
 
 ### Key Quantitative Findings from E148+E149:
 - **E148** (n=80 repos): need-related mean 151,550 stars vs random 122,890 (~23% higher);
@@ -55,6 +56,7 @@ is too small to justify a candidate.
 ### Experiment Artifacts:
 - EXPERIMENTS/E148-github-repo-viewcount/RESULT.md: Fresh observation on GitHub repos
 - EXPERIMENTS/E149-github-repo-viewcount-followup/RESULT.md: Follow-up with improved classification
+- EXPERIMENTS/151-vscode-marketplace-viewcount/RESULT.md: VS Code Marketplace (Open VSX) test — inconclusive due to API sampling limitations
 - STATE-next-actions.md: Updated with E148 in documented observations, domain list updated to 15+ domains
 
 ### Named Next Action (per D083):
@@ -72,7 +74,7 @@ constraint for the next investigation session.
 
 **Option A: Fresh observation in a new domain axis**
 - Test the view-count principle on a platform with per-request metadata the mission has not touched
-- Candidates include VS Code Extension Marketplace, Mozilla Add-ons, Chrome Web Store,
+- Candidates include Mozilla Add-ons, Chrome Web Store,
   GitLab code repositories, GitHub user/organization follower counts
 - Rationale: Tests the principle's breadth beyond established domains
 

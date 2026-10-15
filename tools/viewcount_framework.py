@@ -1,15 +1,8 @@
-"""View-Count Principle Framework v4.
+"""View-count principle classifier core module.
 
-Split out of viewcount_core.py and vscode_adapter.py at the 300-line cap.
-This half owns the framework, gate computation, and experimentation workflow.
-The need-indicator vocabulary lives here shared across all experiments.
-
-Principle: On platforms with per-request metadata (view_count/download_count/star_count),
-need-related content has systematic activity advantages over random content.
-Boundary condition: Does NOT generalize to Q&A forum venues, model hubs, or platforms
-where effect size between need-related and random content is too small.
-
-See EXPERIMENTS/ summary files for detailed per-domain results.
+Shared vocabulary and classification logic inherited from viewcount_core.py.
+See docs/policy/doc-standards.md for the shared vocabulary rule.
+Vocabulary mirroring ensures consistency across all experiment modules.
 """
 
 import re
@@ -18,44 +11,9 @@ import os
 from collections import Counter
 from typing import Dict, List, Optional, Tuple, Any
 
-# ---------------------------------------------------------------------------
-# Need-indicator classifier vocabulary (shared across all experiments)
-# ---------------------------------------------------------------------------
-
-# Generic terms that classify as "random" (not need-related)
-# These are broad terms that appear in almost any description, so their presence
-# suggests the item is general-purpose rather than need-specific.
-GENERIC_TERMS = {
-    "utils", "common", "core", "library", "framework", "jar", "dependencies",
-    "gem", "rake", "rails", "bundle", "assets", "snippet", "boilerplate",
-    "template", "skeleton", "example", "sample", "hello", "quickstart",
-    "sdk", "api", "docs", "tutorial", "guide", "intro", "basic",
-    "starter", "skeleton", "minimal", "vanilla", "raw", "vanilla",
-}
-
-# Need-related indicators — whole-word boundary matching to reduce substring
-# false positives (e.g., "database" should not match "databaseify").
-NEED_INDICATORS = {
-    "database", "cache", "auth", "security", "logging", "monitoring",
-    "testing", "benchmark", "profiler", "tracing", "observability",
-    "deployment", "ci", "cd", "pipeline", "build", "package",
-    "network", "api", "client", "server", "framework", "engine",
-    "parser", "lexer", "converter", "transform", "serializer",
-    "validation", "sanitization", "encryption", "decryption",
-    "compression", "decompression", "encoding", "decoding",
-    "serialization", "deserialization", "persistance", "storage",
-    "retrieval", "indexing", "search", "query", "aggregation",
-    "reporting", "metrics", "observability", "dashboard",
-    "debugging", "troubleshooting", "diagnostics", "audit",
-    "compliance", "governance", "risk", "mitigation",
-    "optimization", "performance", "scaling", "load",
-    "queue", "messaging", "broker", "topic", "publish",
-    "subscribe", "routing", "firehose", "stream",
-    "cache", "redis", "memcached", "eviction",
-    "queue", "rabbit", "kafka", "mqtt",
-    "container", "docker", "kubernetes", "orchestration",
-    "micro service", "distributed", "cluster",
-}
+# Vocabulary (NEED_INDICATORS, GENERIC_TERMS) is mirrored from viewcount_core.py.
+# Updates to vocabulary should be made in viewcount_core.py and reflected
+# here via the doc index mirroring process.
 
 # ---------------------------------------------------------------------------
 # Core classifier utilities
@@ -298,72 +256,3 @@ class ViewCountExperiment:
     def _empty_results(self, reason: str) -> Dict[str, Any]:
         return {
             "observed_at_utc": __import__('time').strftime("%Y-%m-%dT%H:%M:%SZ", __import__('time').gmtime()),
-            "user_date": __import__('time').strftime("%Y-%m-%d", __import__('time').gmtime()),
-            "platform": self.platform,
-            "keyword": self.keyword,
-            "sample_size": 0,
-            "classified": {"need-related": 0, "random": 0},
-            "active": {"need-related": 0, "random": 0},
-            "active_rates": {"need-related": 0, "random": 0},
-            "g1_pass": False,
-            "g2_pass": False,
-            "g3_pass": False,
-            "g4_pass": False,
-            "conclusion": reason,
-            "experiment_description": f"View-count principle on {self.platform} for keyword: {self.keyword}",
-            "note": f"Experiment aborted: {reason}",
-        }
-    
-    def _determine_conclusion(self, gates: Dict[str, Any]) -> str:
-        """Determine the experiment conclusion from gate results."""
-        if gates["g1_pass"] and gates["g2_pass"] and gates["g3_pass"] and gates["g4_pass"]:
-            return "gates_all_pass"
-        elif not gates["g1_pass"] and not gates["g2_pass"]:
-            return "g1_and_g2_fail"
-        elif not gates["g1_pass"]:
-            return "g1_fail"
-        elif not gates["g2_pass"]:
-            return "g2_fail"
-        else:
-            return "partial"
-
-
-# ---------------------------------------------------------------------------
-# Framework entry point
-# ---------------------------------------------------------------------------
-
-def list_need_indicators() -> List[str]:
-    """Return the sorted list of need-indicator terms."""
-    return sorted(NEED_INDICATORS)
-
-
-def list_generic_terms() -> List[str]:
-    """Return the sorted list of generic terms."""
-    return sorted(GENERIC_TERMS)
-
-
-def run_classification_demo(texts: List[str]) -> None:
-    """Run a quick classification demo on a list of texts."""
-    print("=== Classification Demo ===")
-    for i, text in enumerate(texts):
-        cls = classify_text(text)
-        print(f"  {i+1}. [{cls}] {text[:80]}")
-
-
-if __name__ == "__main__":
-    # Quick demo
-    demo_texts = [
-        "A Python database connection pool with caching and monitoring",
-        "A utility library for common operations",
-        "A security authentication framework with OAuth2 support",
-        "A tool for debugging web application issues",
-    ]
-    run_classification_demo(demo_texts)
-    
-    print("\n=== Need Indicators ===")
-    for term in sorted(NEED_INDICATORS)[:10]:
-        print(f"  - {term}")
-    
-    print("\n=== Generic Terms ===")
-    for term in sorted(GENERIC_TERMS)[:10]:
-        print(f"  - {term}")

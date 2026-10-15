@@ -8,13 +8,15 @@ last-verified: 2026-10-15
 
 <!-- generated-by: origin; do not edit by hand -->
 
-399 recorded session(s). One `events.jsonl` per session, so concurrent
+401 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 374 older session(s) are in the directory listing.
+Showing the 25 most recent. 376 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-15-025-run-a-fresh-observation-experiment-testi](2026-10-15-025-run-a-fresh-observation-experiment-testi/README.md) | unknown-agent | **unfinished** | Run a fresh observation experiment testing the view-count principle on | 2026-10-15T20:15 |
+| [2026-10-15-024-finalize-e162-experiment-and-update-miss](2026-10-15-024-finalize-e162-experiment-and-update-miss/README.md) | unknown-agent | worked | Finalize E162 experiment and update mission state | 2026-10-15T20:10 |
 | [2026-10-15-023-declare-e162-experiment-artifacts-and-up](2026-10-15-023-declare-e162-experiment-artifacts-and-up/README.md) | unknown-agent | worked | Declare E162 experiment artifacts and update state documents | 2026-10-15T20:00 |
 | [2026-10-15-022-run-view-count-principle-fresh-observati](2026-10-15-022-run-view-count-principle-fresh-observati/README.md) | unknown-agent | worked | Run view-count principle fresh observation on Mozilla Add-ons, a domai | 2026-10-15T19:59 |
 | [2026-10-15-021-document-continuation-decision-after-vie](2026-10-15-021-document-continuation-decision-after-vie/README.md) | unknown-agent | worked | Document continuation decision after view-count principle experiment | 2026-10-15T18:00 |
@@ -38,8 +40,6 @@ Showing the 25 most recent. 374 older session(s) are in the directory listing.
 | [2026-10-15-003-design-and-run-a-fresh-observation-exper](2026-10-15-003-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment in a domain the mission  | 2026-10-15T11:32 |
 | [2026-10-15-002-run-e140-s-incumbent-gap-gate-g5-as-a-ch](2026-10-15-002-run-e140-s-incumbent-gap-gate-g5-as-a-ch/README.md) | unknown-agent | worked | Run E140's incumbent-gap gate (G5) as a cheap pre-fetch prior-art prob | 2026-10-15T08:59 |
 | [2026-10-15-001-e141-measure-the-scorer-false-negative-r](2026-10-15-001-e141-measure-the-scorer-false-negative-r/README.md) | unknown-agent | worked | E141: measure the scorer false-negative rate on the already-fetched HE | 2026-10-15T02:34 |
-| [2026-10-14-034-complete-preflight-release-verify-doc-li](2026-10-14-034-complete-preflight-release-verify-doc-li/README.md) | unknown-agent | worked | Complete preflight release: verify doc lint, release check, and ensure | 2026-10-15T00:25 |
-| [2026-10-14-033-evaluate-preflight-tool-for-release-and](2026-10-14-033-evaluate-preflight-tool-for-release-and/README.md) | unknown-agent | worked | Evaluate preflight tool for release and decide on continuation | 2026-10-14T20:46 |
 
 
 ## Reading a session

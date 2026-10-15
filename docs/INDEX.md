@@ -72,7 +72,6 @@ Skill bodies under `.agents/skills/` are indexed by
 |---|---|---|---|---|
 | [`docs/2026-10-06-strongest-shell-baseline.md`](2026-10-06-strongest-shell-baseline.md) | `docs/INDEX.md` | active | 2026-10-06 | > For agentic workers: This is an experiment plan, not a product implementation. It follows the  |
 | [`docs/METHODOLOGY-SUMMARY.md`](METHODOLOGY-SUMMARY.md) | `docs/INDEX.md` | active | 2026-10-07 | A concise synthesis of patterns across all closed invention claims in this repository. |
-| [`session-summary-2026-10-15.md`](../session-summary-2026-10-15.md) | `docs/INDEX.md` | active | 2026-10-15 | Session summary for 2026-10-15, view-count principle fresh observation experiment |
 | [`docs/preflight-adapter-plan.md`](preflight-adapter-plan.md) | `docs/INDEX.md` | active | 2026-10-13 | ## Adapter Created |
 
 ## sessions
@@ -181,7 +180,6 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0089-e090-measure-whether-a-module-to-distribution-re.md`](../tasks/T-0089-e090-measure-whether-a-module-to-distribution-re.md) | `tasks/INDEX.md` | active | 2026-10-10 | ## Goal |
 | [`tasks/T-0090-e091-hand-replicate-e062-s-answerability-sub-tes.md`](../tasks/T-0090-e091-hand-replicate-e062-s-answerability-sub-tes.md) | `tasks/INDEX.md` | active | 2026-10-10 | ## Goal |
 | [`tasks/T-0091-run-a-fresh-observation-experiment-testing-the-v.md`](../tasks/T-0091-run-a-fresh-observation-experiment-testing-the-v.md) | `tasks/INDEX.md` | active | 2026-10-11 | ## Goal |
-| [`tasks/T-0091-run-a-fresh-observation-experiment-testing-the-view-count-principle.md`](../tasks/T-0091-run-a-fresh-observation-experiment-testing-the-view-count-principle.md) | `—` | — | — | ## Goal |
 | [`tasks/T-0093-test-whether-a-discriminating-observation-proced.md`](../tasks/T-0093-test-whether-a-discriminating-observation-proced.md) | `tasks/INDEX.md` | active | 2026-10-12 | ## Goal |
 | [`tasks/T-0094-run-a-fresh-observation-experiment-testing-the-view-count-principle.md`](../tasks/T-0094-run-a-fresh-observation-experiment-testing-the-view-count-principle.md) | `docs/INDEX.md` | active | 2026-10-15 | ## Goal |
 
@@ -415,13 +413,15 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/145-viewcount-reddit/` | `docs/INDEX.md` | active | 2026-10-15 | Result: GATECLOSED — data accessibility boundary |
 | `EXPERIMENTS/146-viewcount-crates/` | `docs/INDEX.md` | active | 2026-10-15 | Result: GATECLOSED — classifier vocabulary mismatch |
 | `EXPERIMENTS/150-huggingface-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 3 documents |
-| `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `—` | — | — | 1 documents |
+| `EXPERIMENTS/151-vscode-marketplace-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 3 documents |
+| `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E149-github-repo-viewcount-followup/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E150-so-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E151-se-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E161-vscode-extension-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/E162-mozilla-addons-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/e138-viewcount-discrimination/` | `docs/INDEX.md` | active | 2026-10-14 | 1 documents |
