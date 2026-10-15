@@ -1,0 +1,71 @@
+{
+  "experiment_id": "T-0094",
+  "experiment_name": "Harvest public issue trackers for LLM evaluation frameworks",
+  "date": "2026-10-14",
+  "kill_gate": {
+    "description": "< 10 credible reports across 3+ frameworks = demand too weak",
+    "assessment": "GATE_OPEN - demand sufficient (>=10 credible across >=3 frameworks)"
+  },
+  "frameworks_analyzed": [
+    "LLM evaluation framework",
+    "evalscope",
+    "evals",
+    "promptfoo",
+    "deepeval",
+    "inspect_ai"
+  ],
+  "results_per_framework": {
+    "LLM evaluation framework": {
+      "total_issues": 100,
+      "credible_c1": 1,
+      "credible_c2": 1,
+      "credible_c3": 1,
+      "total_credible": 3
+    },
+    "evalscope": {
+      "total_issues": 100,
+      "credible_c1": 6,
+      "credible_c2": 1,
+      "credible_c3": 0,
+      "total_credible": 7
+    },
+    "evals": {
+      "total_issues": 100,
+      "credible_c1": 3,
+      "credible_c2": 1,
+      "credible_c3": 0,
+      "total_credible": 4
+    },
+    "promptfoo": {
+      "total_issues": 100,
+      "credible_c1": 8,
+      "credible_c2": 8,
+      "credible_c3": 0,
+      "total_credible": 16
+    },
+    "deepeval": {
+      "total_issues": 100,
+      "credible_c1": 7,
+      "credible_c2": 0,
+      "credible_c3": 0,
+      "total_credible": 7
+    },
+    "inspect_ai": {
+      "total_issues": 100,
+      "credible_c1": 7,
+      "credible_c2": 7,
+      "credible_c3": 6,
+      "total_credible": 20
+    }
+  },
+  "summary": {
+    "total_issues_examined": 60,
+    "total_credible_reports": 57,
+    "frameworks_with_credible_reports": 6,
+    "defect_type_breakdown": {
+      "C1_silent_join_failures": 32,
+      "C2_alternate_form_false_positives": 18,
+      "C3_contaminated_control_arms": 7
+    }
+  }
+}

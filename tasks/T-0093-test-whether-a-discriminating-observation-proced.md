@@ -6,7 +6,7 @@ last-verified: 2026-10-12
 
 <!-- task-meta
 id: T-0093
-status: claimed
+status: done
 created: 2026-10-12
 claim-agent: 
 claim-session: 

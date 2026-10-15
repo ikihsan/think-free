@@ -1,0 +1,111 @@
+==============================================================================
+[seq 2] 2026-10-14T16:25:47+00:00
+$ python3 -c 
+import urllib.request, json
+# Explore document types
+url = 'https://www.federalregister.gov/api/v1/documents.json?conditions%5Bterm%5D=proposed+rule&per_page=5&fields%5B%5D=title&fields%5B%5D=abstract&fields%5B%5D=document_number&fields%5B%5D=type&fields%5B%5D=raw_text_url&order=newest'
+data = json.loads(urllib.request.urlopen(url, timeout=15).read())
+for r in data.get('results', []):
+    print(f"Type: {r.get('type')}, Doc: {r.get('document_number')}, Title: {r.get('title')[:80]}...")
+    print(f"  Abstract: {r.get('abstract')[:200] if r.get('abstract') else 'None'}...")
+    print()
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Type: Proposed Rule, Doc: 2026-21031, Title: AP1000 Design Certification Renewal...
+  Abstract: The U.S. Nuclear Regulatory Commission (NRC) is proposing to amend its regulations to renew the AP1000 design certification and incorporate Revision 20 of the AP1000 design control document. The purpo...
+
+Type: Rule, Doc: 2026-21030, Title: AP1000 Design Certification Renewal...
+  Abstract: The U.S. Nuclear Regulatory Commission (NRC) is amending its regulations to renew the AP1000 design certification and incorporate Revision 20 of the AP1000 design control document. The purpose of this...
+
+Type: Rule, Doc: 2026-21024, Title: Imposition and Collection of Civil Penalties for Certain Immigration-Related Vio...
+  Abstract: On June 27, 2025, the Departments issued an interim final rule ("IFR") to streamline assessment of civil penalties under the Immigration and Nationality Act ("INA") for aliens who fail to depart durin...
+
+Type: Notice, Doc: 2026-21020, Title: New Postal Products...
+  Abstract: The Commission is noticing a recent Postal Service filing for the Commission's consideration concerning a negotiated service agreement. This notice informs the public of the filing, invites public com...
+
+Type: Rule, Doc: 2026-21019, Title: Allocation of Assets in Single-Employer Plans; Interest Assumptions for Valuing ...
+  Abstract: This final rule amends the Pension Benefit Guaranty Corporation's regulation on Allocation of Assets in Single-Employer Plans to prescribe the spreads component of the interest assumption under the as...
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 942  redactions: none
+==============================================================================
+[seq 3] 2026-10-14T16:26:13+00:00
+$ python3 -c 
+import urllib.request, json
+# Fetch a proposed rule full text
+url = 'https://www.federalregister.gov/api/v1/documents.json?conditions%5Bterm%5D=proposed+rule&per_page=3&fields%5B%5D=document_number&fields%5B%5Draw_text_url&order=newest'
+data = json.loads(urllib.request.urlopen(url, timeout=15).read())
+for r in data.get('results', []):
+    raw_url = r.get('raw_text_url')
+    if raw_url:
+        text = urllib.request.urlopen(raw_url, timeout=20).read().decode('utf-8', 'replace')
+        print(f'=== {r["document_number"]} ===')
+        # Show first 5000 chars
+        print(text[:5000])
+        print('...')
+        print()
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+/usr/lib/python3/dist-packages/requests/__init__.py:89: RequestsDependencyWarning: urllib3 (2.2.3) or chardet (3.0.4) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+Traceback (most recent call last):
+  File "<string>", line 5, in <module>
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1444  redactions: none
+==============================================================================
+[seq 4] 2026-10-14T16:26:28+00:00
+$ python3 -c 
+import urllib.request, json
+# Fetch a final rule full text using the same approach as E142
+url = 'https://www.federalregister.gov/api/v1/documents.json?conditions%5Bterm%5D=final+rule&per_page=3&fields%5B%5D=document_number&fields%5B%5Draw_text_url&order=newest'
+data = json.loads(urllib.request.urlopen(url, timeout=15).read())
+for r in data.get('results', []):
+    raw_url = r.get('raw_text_url')
+    if raw_url:
+        print(f'Raw URL: {raw_url}')
+        try:
+            text = urllib.request.urlopen(raw_url, timeout=20).read().decode('utf-8', 'replace')
+            print(f'=== {r["document_number"]} ===')
+            print(text[:5000])
+            print('...')
+            print()
+        except Exception as e:
+            print(f'Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+/usr/lib/python3/dist-packages/requests/__init__.py:89: RequestsDependencyWarning: urllib3 (2.2.3) or chardet (3.0.4) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+Traceback (most recent call last):
+  File "<string>", line 5, in <module>
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1220  redactions: none

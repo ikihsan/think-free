@@ -1,0 +1,24 @@
+{
+  "task": "T-0093",
+  "title": "Test whether a discriminating-observation procedure beats a free general assistant's first hypothesis on appliance diagnosis",
+  "completion_date": "2026-10-14",
+  "measurement": {
+    "corpus": "E092 appliance-fault diagnosis cached corpus",
+    "total_answerable": 37,
+    "served_by_general_assistant": 30,
+    "served_share": 0.8108,
+    "wilson_lower_ci": 0.6580,
+    "gate_k1_threshold": 0.50,
+    "gate_k1_result": "PASS (0.6580 > 0.50)",
+    "missed_wrong_first_hypothesis": 7,
+    "missed_share": 0.1891,
+    "gate_k2_result": "CONFIRMED (0/40 self-contained programs in 40 resolutions)",
+    "all_eight_misses": "7 wrong-first-hypothesis answerable + 1 vendor",
+    "conclusion": "General assistant serves 0.81 on answerable class; K1 passage; line closed because general assistant already serves population and no program serves it"
+  },
+  "kill_gate_declared_before": true,
+  "kill_gates": {
+    "K1_served_share": "declared: lower CI bound > 0.50; observed: 0.6580; verdict: PASS",
+    "K2_self_contained_program": "declared: 0 of 40; observed: 0/40; verdict: CONFIRMED"
+  }
+}

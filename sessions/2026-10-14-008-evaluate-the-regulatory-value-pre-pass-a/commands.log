@@ -1,0 +1,105 @@
+==============================================================================
+[seq 2] 2026-10-14T17:56:56+00:00
+$ python3 EXPERIMENTS/142-improved-discriminating-observation.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+============================================================
+E142 — Improved discriminating-observation procedure on appliance-fault diagnosis
+============================================================
+
+Total rows processed: 40
+Served: 3
+Wrong-first-hypothesis: 0
+Refrained: 14
+Answerable count: 4
+Wilson CI95 lower bound: 0.3006
+K1 gate (lower bound >= 0.50): FAIL
+Vendor rows: 1
+Repair rows: 1
+
+Served rows:
+  Row 7: qid=32313, model=Whirlpool, symptom=drainage, remedy=Check drain hose for clogs; ensure drain hose rises to recom...
+  Row 9: qid=16434, model=Kenmore, symptom=electrical, remedy=Test on non-GFCI outlet; dry machine; inspect ground wire an...
+  Row 19: qid=3113, model=None, symptom=compressor, remedy=Clean condenser coils first; listen for condenser fan operat...
+
+Wrong-first-hypothesis rows:
+
+Refrained rows:
+  Row 1: qid=2959, model=None, symptom=unknown
+  Row 3: qid=3969, model=Frigidaire, symptom=drainage
+  Row 5: qid=41231, model=model-XXNN, symptom=drainage
+  Row 10: qid=186085, model=LG, symptom=drainage
+  Row 14: qid=1171, model=model-XXNN, symptom=electrical
+  Row 15: qid=111570, model=LG, symptom=electrical
+  Row 21: qid=207503, model=None, symptom=unknown
+  Row 22: qid=153062, model=model-XXNN, symptom=oven_cooktop
+  Row 23: qid=74802, model=model-XXNN, symptom=drainage
+  Row 31: qid=100820, model=None, symptom=unknown
+  Row 32: qid=244273, model=model-XXNN, symptom=electrical
+  Row 33: qid=78804, model=model-XXNN, symptom=drainage
+  Row 34: qid=100808, model=Maytag, symptom=compressor
+  Row 37: qid=10739, model=Frigidaire, symptom=compressor
+
+============================================================
+DECISION:
+============================================================
+K1 FAIL but 0 wrong-first-hypothesis misses:
+Wilson LB 0.3006 < 0.50, but all served rows were correct proposals.
+The procedure avoids incorrect proposals but serves too few people. Need broader
+symptom pattern matching to serve more of the answerable-class population.
+
+Compared to T-0093: served=2, wrong-first-hypothesis=0, Wilson LB=0.3424, K1=FAIL
+Compared to E092 baseline: served=30/37=0.8108, Wilson LB=0.6580, K1=PASS, wrong-first-hypothesis=7/37
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 884  redactions: none
+==============================================================================
+[seq 3] 2026-10-14T18:00:02+00:00
+$ python3 -c 
+import json
+
+# Load the valueset.py and ground.py from E140/E142
+import sys
+sys.path.insert(0, 'EXPERIMENTS/114-value-grounding')
+sys.path.insert(0, 'EXPERIMENTS/142-valueset-regulatory-human')
+
+from valueset import extract_values, canonical
+
+# Test on a simple case
+test_text = 'The rule sets the penalty at $12,500,000 per violation.'
+values = extract_values(test_text)
+print('Extracted values:', values)
+for v in values:
+    print(f'  canonical: {canonical(v)}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+/usr/lib/python3/dist-packages/requests/__init__.py:89: RequestsDependencyWarning: urllib3 (2.2.3) or chardet (3.0.4) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+Traceback (most recent call last):
+  File "<string>", line 9, in <module>
+ModuleNotFoundError: No module named 'valueset'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 709  redactions: none
+==============================================================================
+[seq 4] 2026-10-14T18:01:16+00:00
+$ python3 -c 
+import sys
+sys.path.insert(0, 'EXPERIMENTS/140-judge-form-invariance')
+from valueset import canonical, compare, numeric_multiset
+
+# Test the numeric multiset comparison (which ignores kind)
+ref = 'The penalty is $12,500,000 per violation effective January 15, 2024.'
+sub1 = 'The penalty is 12500000 dollars per violation effective Jan 15, 2024.'
+
+print('numeric_multiset(ref):', numeric_multiset(ref))
+print('numeric_multiset(sub1):', numeric_multiset(sub1))
+print('numeric match:', numeric_multiset(ref) == numeric_multiset(sub1))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+numeric_multiset(ref): [12500000.0]
+numeric_multiset(sub1): [12500000.0]
+numeric match: True
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 189  redactions: none

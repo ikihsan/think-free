@@ -1,0 +1,176 @@
+{
+  "n_fixtures": 16,
+  "keyword_accuracy": 0.8125,
+  "structural_accuracy": 0.9375,
+  "keyword_baseline_accuracy": 0.8125,
+  "g1_pass": false,
+  "g2_pass": false,
+  "g3_pass": true,
+  "g4_pass": true,
+  "g5_pass": true,
+  "all_pass": false,
+  "keyword_results": {
+    "0": {
+      "query": "SELECT extractvalue(xml_document, '//row/@id') FROM dual",
+      "true": "error_based",
+      "pred": "error_based"
+    },
+    "1": {
+      "query": "SELECT updatexml(xml_col, '/row/id', 0) FROM source_table WHERE condition",
+      "true": "error_based",
+      "pred": "union_based"
+    },
+    "2": {
+      "query": "MySQL error: '#1415 - Not allowed to client requested query' during query EXTRACTVALUE",
+      "true": "error_based",
+      "pred": "error_based"
+    },
+    "3": {
+      "query": "PHP Warning: extract() [function.extractvalue] expects parameter 1 to be resource, boolean given in /var/www/query.php on line 12",
+      "true": "error_based",
+      "pred": "error_based"
+    },
+    "4": {
+      "query": "SELECT SLEEP(5) FROM users WHERE id=1",
+      "true": "blind_time_based",
+      "pred": "blind_time_based"
+    },
+    "5": {
+      "query": "SELECT benchmark(5000000,MD5(NOW())) FROM dual",
+      "true": "blind_time_based",
+      "pred": "blind_time_based"
+    },
+    "6": {
+      "query": "SELECT SLEEP(10) FROM information_schema.tables LIMIT 1",
+      "true": "blind_time_based",
+      "pred": "union_based"
+    },
+    "7": {
+      "query": "SELECT PG_SLEEP(5) FROM pg_class LIMIT 1",
+      "true": "blind_time_based",
+      "pred": "blind_time_based"
+    },
+    "8": {
+      "query": "SELECT * FROM users WHERE id=1 AND 1=1 --",
+      "true": "boolean_blind",
+      "pred": "boolean_blind"
+    },
+    "9": {
+      "query": "SELECT * FROM products WHERE category='test' OR 1=1 --",
+      "true": "boolean_blind",
+      "pred": "boolean_blind"
+    },
+    "10": {
+      "query": "IF(1=1, 1, 0) FROM dual",
+      "true": "boolean_blind",
+      "pred": "union_based"
+    },
+    "11": {
+      "query": "SELECT CASE WHEN 1=1 THEN 'true' ELSE 'false' END FROM dual",
+      "true": "boolean_blind",
+      "pred": "boolean_blind"
+    },
+    "12": {
+      "query": "SELECT password FROM users UNION SELECT username FROM admin",
+      "true": "union_based",
+      "pred": "union_based"
+    },
+    "13": {
+      "query": "SELECT name FROM table_1 UNION ALL SELECT name FROM table_2",
+      "true": "union_based",
+      "pred": "union_based"
+    },
+    "14": {
+      "query": "UNION SELECT credit_card FROM customers FROM dual",
+      "true": "union_based",
+      "pred": "union_based"
+    },
+    "15": {
+      "query": "SELECT email FROM users UNION SELECT phone FROM staff",
+      "true": "union_based",
+      "pred": "union_based"
+    }
+  },
+  "structural_results": {
+    "0": {
+      "query": "SELECT extractvalue(xml_document, '//row/@id') FROM dual",
+      "true": "error_based",
+      "pred": "error_based"
+    },
+    "1": {
+      "query": "SELECT updatexml(xml_col, '/row/id', 0) FROM source_table WHERE condition",
+      "true": "error_based",
+      "pred": "error_based"
+    },
+    "2": {
+      "query": "MySQL error: '#1415 - Not allowed to client requested query' during query EXTRACTVALUE",
+      "true": "error_based",
+      "pred": "error_based"
+    },
+    "3": {
+      "query": "PHP Warning: extract() [function.extractvalue] expects parameter 1 to be resource, boolean given in /var/www/query.php on line 12",
+      "true": "error_based",
+      "pred": "error_based"
+    },
+    "4": {
+      "query": "SELECT SLEEP(5) FROM users WHERE id=1",
+      "true": "blind_time_based",
+      "pred": "blind_time_based"
+    },
+    "5": {
+      "query": "SELECT benchmark(5000000,MD5(NOW())) FROM dual",
+      "true": "blind_time_based",
+      "pred": "blind_time_based"
+    },
+    "6": {
+      "query": "SELECT SLEEP(10) FROM information_schema.tables LIMIT 1",
+      "true": "blind_time_based",
+      "pred": "blind_time_based"
+    },
+    "7": {
+      "query": "SELECT PG_SLEEP(5) FROM pg_class LIMIT 1",
+      "true": "blind_time_based",
+      "pred": "blind_time_based"
+    },
+    "8": {
+      "query": "SELECT * FROM users WHERE id=1 AND 1=1 --",
+      "true": "boolean_blind",
+      "pred": "boolean_blind"
+    },
+    "9": {
+      "query": "SELECT * FROM products WHERE category='test' OR 1=1 --",
+      "true": "boolean_blind",
+      "pred": "boolean_blind"
+    },
+    "10": {
+      "query": "IF(1=1, 1, 0) FROM dual",
+      "true": "boolean_blind",
+      "pred": "union_based"
+    },
+    "11": {
+      "query": "SELECT CASE WHEN 1=1 THEN 'true' ELSE 'false' END FROM dual",
+      "true": "boolean_blind",
+      "pred": "boolean_blind"
+    },
+    "12": {
+      "query": "SELECT password FROM users UNION SELECT username FROM admin",
+      "true": "union_based",
+      "pred": "union_based"
+    },
+    "13": {
+      "query": "SELECT name FROM table_1 UNION ALL SELECT name FROM table_2",
+      "true": "union_based",
+      "pred": "union_based"
+    },
+    "14": {
+      "query": "UNION SELECT credit_card FROM customers FROM dual",
+      "true": "union_based",
+      "pred": "union_based"
+    },
+    "15": {
+      "query": "SELECT email FROM users UNION SELECT phone FROM staff",
+      "true": "union_based",
+      "pred": "union_based"
+    }
+  }
+}

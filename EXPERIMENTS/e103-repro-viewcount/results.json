@@ -1,0 +1,78 @@
+{
+  "observed_at_utc": "2026-10-14T19:29:18Z",
+  "user_date": "2026-10-14",
+  "platform": "x86_64",
+  "sample_size": 200,
+  "classified": {
+    "need-related": 22,
+    "random": 178
+  },
+  "active": {
+    "need-related": 21,
+    "random": 2
+  },
+  "active_rates": {
+    "need-related": 0.9545454545454546,
+    "random": 0.011235955056179775
+  },
+  "g1_pass": true,
+  "g2_pass": true,
+  "g3_pass": true,
+  "g4_pass": false,
+  "all_gates_pass": false,
+  "conclusion": "gate_failure",
+  "experiment_description": "Independent re-run of E103 Hex.pm view-count prototype",
+  "cliff_delta": 0.029137529137529136,
+  "need_mean_downloads": 405070.86363636365,
+  "infra_mean_downloads": 3140385.705128205,
+  "need_median_downloads": 190255,
+  "infra_median_downloads": 116020,
+  "classification_detail": {
+    "need_indicators": [
+      "accessibility",
+      "auth",
+      "authentication",
+      "debugging",
+      "eval",
+      "expression",
+      "fuzz",
+      "fuzzing",
+      "integration",
+      "oauth",
+      "parser",
+      "payment",
+      "property based",
+      "property test",
+      "reliability",
+      "robustness",
+      "sdk",
+      "security",
+      "testing",
+      "validation",
+      "web app",
+      "web application",
+      "webhook"
+    ],
+    "infra_terms": [
+      "base",
+      "boilerplate",
+      "core",
+      "default",
+      "framework",
+      "helper",
+      "library",
+      "module",
+      "package",
+      "skeleton",
+      "snippet",
+      "standard",
+      "tool",
+      "utility"
+    ],
+    "packages_classified": 200,
+    "need_count": 22,
+    "infra_count": 78,
+    "served_count": 21,
+    "unserved_open_like_count": 1
+  }
+}

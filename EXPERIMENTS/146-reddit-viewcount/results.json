@@ -1,0 +1,30 @@
+{
+  "experiment": "E146",
+  "platform": "GitHub repositories (cross-platform test)",
+  "source_data": "E107 GitHub repos harvest (160 repos)",
+  "total_harvested": 160,
+  "classified": {
+    "need_related": 76,
+    "random": 44,
+    "uncertain": 40,
+    "total_classified": 120,
+    "coverage_rate": 0.75
+  },
+  "engagement": {
+    "need_median_stars": 2505,
+    "random_median_stars": 379,
+    "need_star_count": 76,
+    "random_star_count": 44
+  },
+  "gate_results": {
+    "g1_pass": false,
+    "g2_pass": false,
+    "g3_pass": true,
+    "g4_pass": true,
+    "cliff_delta": 0.41866028708133973,
+    "p_value": 0.00013779815862769004
+  },
+  "all_pass": false,
+  "verdict": "SOME GATES FAILED \u2014 Principle not supported on GitHub repositories (cross-platform)",
+  "conclusion": "Classifier does not generalize from Reddit to GitHub repos"
+}

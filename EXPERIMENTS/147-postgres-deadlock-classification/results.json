@@ -1,0 +1,148 @@
+{
+  "experiment": "E147",
+  "timestamp": "2026-10-14",
+  "fixtures_count": 27,
+  "structural_results": {
+    "accuracy": 0.7407407407407407,
+    "correct": 20,
+    "total": 27,
+    "per_category": {
+      "fk_lock_contention": {
+        "correct": 1,
+        "total": 6
+      },
+      "index_lock_contention": {
+        "correct": 3,
+        "total": 5
+      },
+      "tuple_lock_contention": {
+        "correct": 6,
+        "total": 6
+      },
+      "advisory_lock_contention": {
+        "correct": 5,
+        "total": 5
+      },
+      "explicit_lock_contention": {
+        "correct": 5,
+        "total": 5
+      }
+    },
+    "confusion": {
+      "fk_lock_contention": {
+        "unknown": 5,
+        "fk_lock_contention": 1
+      },
+      "index_lock_contention": {
+        "index_lock_contention": 3,
+        "tuple_lock_contention": 1,
+        "unknown": 1
+      },
+      "tuple_lock_contention": {
+        "tuple_lock_contention": 6
+      },
+      "advisory_lock_contention": {
+        "advisory_lock_contention": 5
+      },
+      "explicit_lock_contention": {
+        "explicit_lock_contention": 5
+      }
+    }
+  },
+  "keyword_results": {
+    "accuracy": 1.0,
+    "correct": 27,
+    "total": 27,
+    "per_category": {
+      "fk_lock_contention": {
+        "correct": 6,
+        "total": 6
+      },
+      "index_lock_contention": {
+        "correct": 5,
+        "total": 5
+      },
+      "tuple_lock_contention": {
+        "correct": 6,
+        "total": 6
+      },
+      "advisory_lock_contention": {
+        "correct": 5,
+        "total": 5
+      },
+      "explicit_lock_contention": {
+        "correct": 5,
+        "total": 5
+      }
+    },
+    "confusion": {
+      "fk_lock_contention": {
+        "fk_lock_contention": 6
+      },
+      "index_lock_contention": {
+        "index_lock_contention": 5
+      },
+      "tuple_lock_contention": {
+        "tuple_lock_contention": 6
+      },
+      "advisory_lock_contention": {
+        "advisory_lock_contention": 5
+      },
+      "explicit_lock_contention": {
+        "explicit_lock_contention": 5
+      }
+    }
+  },
+  "gates": {
+    "G1": {
+      "pass": true,
+      "detail": "All 27 fixtures labelled by construction",
+      "accuracy": 1.0
+    },
+    "G2": {
+      "pass": false,
+      "delta": -0.2592592592592593,
+      "structural_accuracy": 0.7407407407407407,
+      "keyword_accuracy": 1.0,
+      "threshold": 0.15
+    },
+    "G3": {
+      "pass": false,
+      "accuracy": 0.7407407407407407,
+      "threshold": 0.8
+    },
+    "G4": {
+      "pass": true,
+      "pair_results": [
+        {
+          "true": "fk_lock_contention",
+          "pred": "fk_lock_contention",
+          "correct": true
+        },
+        {
+          "true": "tuple_lock_contention",
+          "pred": "tuple_lock_contention",
+          "correct": true
+        }
+      ],
+      "both_correct": true,
+      "both_abstained": false
+    },
+    "G5": {
+      "pass": false,
+      "abstention_rate": 0.2222222222222222,
+      "abstained": 6,
+      "total": 27,
+      "threshold": 0.2
+    }
+  },
+  "negative_controls": {
+    "random_accuracy": 0.14814814814814814,
+    "majority_accuracy": 0.2222222222222222,
+    "keyword_accuracy": 1.0,
+    "structural_accuracy": 0.7407407407407407,
+    "structural_beats_all": false
+  },
+  "all_gates_pass": false,
+  "overall": "CLAIM_FALSIFIED"
+}

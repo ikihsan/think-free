@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-14
+last-verified: 2026-10-15
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -62,6 +62,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | Document | Owner index | Status | Verified | Summary |
 |---|---|---|---|---|
 | [`docs/reference/cli-reference.md`](reference/cli-reference.md) | `docs/INDEX.md` | active | 2026-10-04 | Every command the repository's tooling provides. Stdlib Python only, so no |
+| [`docs/reference/ground-truth-issue-discriminating-observation.md`](reference/ground-truth-issue-discriminating-observation.md) | `docs/INDEX.md` | active | 2026-10-14 | owner: docs/INDEX.md |
 | [`docs/reference/identifier-allocation.md`](reference/identifier-allocation.md) | `docs/INDEX.md` | active | 2026-10-04 | How an F, D or T number is chosen, and why the choice is recorded. Every number |
 | [`docs/reference/skill-inventory.md`](reference/skill-inventory.md) | `docs/INDEX.md` | active | 2026-10-03 | Twenty-one skills in .agents/skills/<name>/SKILL.md, mirrored into |
 
@@ -78,6 +79,7 @@ Skill bodies under `.agents/skills/` are indexed by
 |---|---|---|---|---|
 | [`sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md`](../sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md) | `docs/INDEX.md` | stale | 2026-10-08 | Date: 2026-10-07 |
 | [`sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md`](../sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session 2026-10-08-013, VM instance-20260717-0944, 2026-10-08. Defect 24. |
+| [`sessions/2026-10-14-001-session-summary.md`](../sessions/2026-10-14-001-session-summary.md) | `—` | — | — | ## Goal |
 | [`sessions/README.md`](../sessions/README.md) | `docs/INDEX.md` | active | 2026-10-03 | The append-only record of every working session in this repository. |
 
 ## tasks
@@ -179,6 +181,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0093-test-whether-a-discriminating-observation-proced.md`](../tasks/T-0093-test-whether-a-discriminating-observation-proced.md) | `tasks/INDEX.md` | active | 2026-10-12 | ## Goal |
 | [`tasks/T-0094-harvest-public-issue-trackers-and-practitioner-d.md`](../tasks/T-0094-harvest-public-issue-trackers-and-practitioner-d.md) | `tasks/INDEX.md` | active | 2026-10-13 | ## Goal |
 | [`tasks/T-0095-improve-preflight-usability-and-documentation.md`](../tasks/T-0095-improve-preflight-usability-and-documentation.md) | `tasks/INDEX.md` | active | 2026-10-13 | id: T-0095 |
+| [`tasks/T-0096-e161-measure-how-often-a-real-spreadsheet-engine.md`](../tasks/T-0096-e161-measure-how-often-a-real-spreadsheet-engine.md) | `tasks/INDEX.md` | active | 2026-10-15 | ## Note on the verify command |
 
 ## RESEARCH
 
@@ -416,8 +419,22 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/137-viewcount-classifier-prototype/` | `docs/INDEX.md` | active | 2026-10-13 | 1 documents |
 | `EXPERIMENTS/138-cicd-debugging-fresh/` | `docs/INDEX.md` | active | 2026-10-13 | Date: 2026-10-13 · Status: Complete — all gates measured |
 | `EXPERIMENTS/138-prometheus-discourse-viewcount/` | `docs/INDEX.md` | active | 2026-10-13 | 2 documents |
+| `EXPERIMENTS/139-px4-discourse-viewcount-matched/` | `docs/INDEX.md` | active | 2026-10-14 | 2 documents |
+| `EXPERIMENTS/139-viewcount-pubdev-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-14 | owner: docs/INDEX.md |
 | `EXPERIMENTS/140-judge-form-invariance/` | `docs/INDEX.md` | active | 2026-10-14 | 14 documents |
+| `EXPERIMENTS/141-discriminating-observation-procedure/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-14 | 1 documents |
 | `EXPERIMENTS/141-valueset-second-genre/` | `docs/INDEX.md` | active | 2026-10-14 | 5 documents |
+| `EXPERIMENTS/142-valueset-regulatory-human/` | `docs/INDEX.md` | active | 2026-10-14 | 3 documents |
+| `EXPERIMENTS/143-fresh-observation-medical-device-alarm-codes/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-14 | 1 documents |
+| `EXPERIMENTS/143-valueset-longer-regulatory/` | `docs/INDEX.md` | active | 2026-10-14 | 3 documents |
+| `EXPERIMENTS/143-valueset-longer-submission/` | `docs/INDEX.md` | active | 2026-10-14 | 2 documents |
+| `EXPERIMENTS/144-ofx-merchant-noise/` | `docs/INDEX.md` | active | 2026-10-15 | 3 documents |
+| `EXPERIMENTS/144-value-pre-pass-regulatory/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-14 | 2 documents |
+| `EXPERIMENTS/146-reddit-viewcount/` | `docs/INDEX.md` | active | 2026-10-14 | 2 documents |
+| `EXPERIMENTS/147-postgres-deadlock-classification/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-14 | 2 documents |
+| `EXPERIMENTS/150-sql-injection-classification/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-14 | 2 documents |
+| `EXPERIMENTS/160-medical-diagnosis-classification/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-14 | 2 documents |
+| `EXPERIMENTS/161-csv-spreadsheet-coercion/` | `docs/INDEX.md` | active | 2026-10-15 | Method, files and how to re-run. The numbers and the verdict are in |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |

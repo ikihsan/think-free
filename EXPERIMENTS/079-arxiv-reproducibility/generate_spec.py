@@ -24,20 +24,42 @@ from heuristics import get_version_range, map_import_to_package
 def extract_imports(repo_path: Path):
     """Extract Python imports from all .py files in repo."""
     imports = set()
+    # Standard library modules to exclude
+    stdlib_modules = {
+        "os", "sys", "json", "re", "pathlib", "subprocess", "tempfile", "venv",
+        "argparse", "collections", "itertools", "functools", "typing", "datetime",
+        "time", "math", "random", "hashlib", "urllib", "http", "socket", "ssl",
+        "pickle", "copy", "pprint", "textwrap", "string", "fractions", "decimal",
+        "statistics", "uuid", "base64", "hmac", "secrets", "csv", "configparser",
+        "logging", "warnings", "traceback", "inspect", "importlib", "pkgutil",
+        "dataclasses", "enum", "contextlib", "abc", "numbers", "operator",
+        "builtins", "types", "io", "html", "xml", "email", "mimetypes", "json",
+        "sqlite3", "zlib", "gzip", "bz2", "lzma", "tarfile", "zipfile", "shutil",
+        "glob", "fnmatch", "linecache", "shlex", "getopt", "optparse", "cmd",
+        "platform", "errno", "ctypes", "multiprocessing", "threading", "queue",
+        "asyncio", "concurrent", "select", "signal", "mmap", "resource", "syslog",
+    }
     for py_file in repo_path.rglob("*.py"):
         try:
             content = py_file.read_text(encoding="utf-8", errors="ignore")
-            # Simple import extraction
             for line in content.splitlines():
                 line = line.strip()
                 if line.startswith("import "):
                     parts = line[7:].split(",")
                     for p in parts:
-                        imports.add(p.split(".")[0].strip())
+                        p = p.strip()
+                        # Handle "module as alias" - take the module part
+                        if " as " in p:
+                            p = p.split(" as ")[0].strip()
+                        mod = p.split(".")[0].strip()
+                        if mod and mod not in stdlib_modules:
+                            imports.add(mod)
                 elif line.startswith("from "):
                     parts = line[5:].split(" import")
                     if parts:
-                        imports.add(parts[0].split(".")[0].strip())
+                        mod = parts[0].split(".")[0].strip()
+                        if mod and mod not in stdlib_modules:
+                            imports.add(mod)
         except Exception:
             pass
     return imports

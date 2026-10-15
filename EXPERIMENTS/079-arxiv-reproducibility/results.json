@@ -1,0 +1,145 @@
+{
+  "papers_tested": 3,
+  "tool": {
+    "install_success": 0,
+    "smoke_success": 0,
+    "combined_success": 0,
+    "details": [
+      {
+        "arxiv_id": "2501.00658v2",
+        "repo": "VITA-Group/SSM-Bottleneck",
+        "install": false,
+        "smoke": false,
+        "requirements": [
+          "torch==2.3.1",
+          "autograd_function",
+          "cuda_kernel",
+          "fftconv",
+          "cauchy_mult",
+          "einops==0.9.0.dev0",
+          "pytorch_lightning==2.6.6",
+          "kernel==0.126.0",
+          "ray==2.59.0",
+          "pyyaml==6.0.3",
+          "pydantic==2.14.1",
+          "deepspeed==0.19.7",
+          "wandb==0.30.0",
+          "transformers==5.19.0",
+          "pykeops==2.3",
+          "pandas==2.2.2",
+          "adv_attack",
+          "triton==3.8.0",
+          "causal_conv1d_cuda",
+          "tqdm==4.70.1",
+          "flash_attn==2.8.3.post2",
+          "numpy==1.26.4",
+          "zoology",
+          "click==8.5.0",
+          "torchvision==0.29.1",
+          "associative_recall",
+          "csrc",
+          "opt_einsum==3.4.0",
+          "selective_scan_cuda",
+          "fast_transformers",
+          "gc",
+          "scipy==1.13.0",
+          "apex==0.9.10dev",
+          "rich==15.0.0",
+          "causal_conv1d==1.7.0"
+        ],
+        "message": "Timeout"
+      },
+      {
+        "arxiv_id": "2501.00603v2",
+        "repo": "YuchuanTian/DiC",
+        "install": false,
+        "smoke": false,
+        "requirements": [
+          "torch==2.3.1",
+          "torchvision==0.29.1",
+          "numpy==1.26.4",
+          "dic_models",
+          "utils==1.0.2",
+          "requests==2.34.2",
+          "models==0.9.7",
+          "diffusion==6.12.2",
+          "torchprofile==0.1.0",
+          "tensorflow==2.16.1",
+          "Song et al (2020)",
+          "pillow==12.3.0",
+          "tqdm==4.70.1",
+          "scipy==1.13.0",
+          "einops==0.9.0.dev0",
+          "timm==1.0.30",
+          "the DDIM paper is used, and only one section is allowed",
+          "torch_npu # for running on ascend 910",
+          "accelerate==1.15.0",
+          "download==0.3.5",
+          "diffusers==0.41.0"
+        ],
+        "message": "Install failed: ERROR: Invalid requirement: 'Song et al (2020)' (from line 11 of /tmp/tmpisxrvdoc/req_1.txt)\n"
+      },
+      {
+        "arxiv_id": "2501.00527v1",
+        "repo": "madeleinedarbyshire/HierarchicalMask2Former",
+        "install": false,
+        "smoke": false,
+        "requirements": [
+          "functions==0.7.0",
+          "matplotlib==3.11.2",
+          "pillow==12.3.0",
+          "tqdm==4.70.1",
+          "setuptools==84.0.0",
+          "torchvision==0.29.1",
+          "timm==1.0.30",
+          "shapely==2.2.0",
+          "register_phenobench",
+          "detectron2",
+          "opencv-python==5.0.0.93",
+          "phenobench==0.1.0",
+          "mask2former",
+          "fvcore==0.1.5.post20221221",
+          "torch==2.3.1",
+          "pycocotools==2.0.11",
+          "MultiScaleDeformableAttention==1.0",
+          "tifffile==0.15.1",
+          "__future__",
+          "input resolution), used in inference",
+          "numpy==1.26.4",
+          "scipy==1.13.0",
+          "cython==3.3.0",
+          "h5py==1.0.0",
+          "submitit==1.5.4",
+          "scikit-image==0.26.0",
+          "torchmetrics==1.9.0"
+        ],
+        "message": "Install failed: ERROR: Invalid requirement: '__future__' (from line 19 of /tmp/tmpisxrvdoc/req_2.txt)\n"
+      }
+    ]
+  },
+  "baseline": {
+    "install_success": 0,
+    "smoke_success": 0,
+    "combined_success": 0,
+    "details": [
+      {
+        "arxiv_id": "2501.00658v2",
+        "repo": "VITA-Group/SSM-Bottleneck",
+        "success": false,
+        "message": "repo2docker not installed"
+      },
+      {
+        "arxiv_id": "2501.00603v2",
+        "repo": "YuchuanTian/DiC",
+        "success": false,
+        "message": "repo2docker not installed"
+      },
+      {
+        "arxiv_id": "2501.00527v1",
+        "repo": "madeleinedarbyshire/HierarchicalMask2Former",
+        "success": false,
+        "message": "repo2docker not installed"
+      }
+    ]
+  }
+}

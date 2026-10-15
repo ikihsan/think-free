@@ -1,0 +1,19 @@
+{"category": "error_based", "query": "SELECT extractvalue(xml_document, '//row/@id') FROM dual", "source": "synthetic"}
+{"category": "error_based", "query": "SELECT updatexml(xml_col, '/row/id', 0) FROM source_table WHERE condition", "source": "synthetic"}
+{"category": "error_based", "query": "MySQL error: '#1415 - Not allowed to client requested query' during query EXTRACTVALUE", "source": "synthetic"}
+{"category": "error_based", "query": "PHP Warning: extract() [function.extractvalue] expects parameter 1 to be resource, boolean given in /var/www/query.php on line 12", "source": "synthetic"}
+
+{"category": "blind_time_based", "query": "SELECT SLEEP(5) FROM users WHERE id=1", "source": "synthetic"}
+{"category": "blind_time_based", "query": "SELECT benchmark(5000000,MD5(NOW())) FROM dual", "source": "synthetic"}
+{"category": "blind_time_based", "query": "SELECT SLEEP(10) FROM information_schema.tables LIMIT 1", "source": "synthetic"}
+{"category": "blind_time_based", "query": "SELECT PG_SLEEP(5) FROM pg_class LIMIT 1", "source": "synthetic"}
+
+{"category": "boolean_blind", "query": "SELECT * FROM users WHERE id=1 AND 1=1 --", "source": "synthetic"}
+{"category": "boolean_blind", "query": "SELECT * FROM products WHERE category='test' OR 1=1 --", "source": "synthetic"}
+{"category": "boolean_blind", "query": "IF(1=1, 1, 0) FROM dual", "source": "synthetic"}
+{"category": "boolean_blind", "query": "SELECT CASE WHEN 1=1 THEN 'true' ELSE 'false' END FROM dual", "source": "synthetic"}
+
+{"category": "union_based", "query": "SELECT password FROM users UNION SELECT username FROM admin", "source": "synthetic"}
+{"category": "union_based", "query": "SELECT name FROM table_1 UNION ALL SELECT name FROM table_2", "source": "synthetic"}
+{"category": "union_based", "query": "UNION SELECT credit_card FROM customers FROM dual", "source": "synthetic"}
+{"category": "union_based", "query": "SELECT email FROM users UNION SELECT phone FROM staff", "source": "synthetic"}

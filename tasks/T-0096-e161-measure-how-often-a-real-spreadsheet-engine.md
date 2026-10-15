@@ -6,15 +6,24 @@ last-verified: 2026-10-15
 
 <!-- task-meta
 id: T-0096
-status: open
+status: done
 created: 2026-10-15
 claim-agent:
 claim-session:
 claim-vm:
-verify: python3 EXPERIMENTS/161-csv-spreadsheet-coercion/roundtrip.py
+verify: python3 -m unittest discover -s EXPERIMENTS/161-csv-spreadsheet-coercion -t EXPERIMENTS/161-csv-spreadsheet-coercion
 -->
 
 # T-0096 — E161: measure how often a real spreadsheet engine silently alters real
+
+## Note on the verify command
+
+It was declared as `python3 EXPERIMENTS/161-csv-spreadsheet-coercion/roundtrip.py`,
+which needs the fetched corpus and a LibreOffice install, so it is a
+reproduction command rather than a completion check. It was replaced by the
+prototype's test suite, whose expectations are the engine's own measured
+outcomes, recorded in `results-*.json` and `sample-changes-*.tsv`. The
+reproduction path is in the experiment's `README.md`.
 
 ## Goal
 

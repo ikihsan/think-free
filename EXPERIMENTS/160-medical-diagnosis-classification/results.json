@@ -1,0 +1,186 @@
+{
+  "n_fixtures": 17,
+  "keyword_accuracy": 0.9411764705882353,
+  "structural_accuracy": 0.9411764705882353,
+  "keyword_baseline_accuracy": 0.9411764705882353,
+  "g1_pass": false,
+  "g2_pass": false,
+  "g3_pass": true,
+  "g4_pass": true,
+  "g5_pass": true,
+  "all_pass": false,
+  "keyword_results": {
+    "0": {
+      "query": "Fever 102\u00b0F, elevated WBC 18.5K, purulent throat discharge, acute onset 2 days ago, no cough",
+      "true": "bacterial_infection",
+      "pred": "bacterial_infection"
+    },
+    "1": {
+      "query": "High fever 103\u00b0F, WBC 20.3K, purulent sinus discharge, acute onset 1 day ago, no cough",
+      "true": "bacterial_infection",
+      "pred": "bacterial_infection"
+    },
+    "2": {
+      "query": "Fever 101\u00b0F, WBC 19.1K, purulent sinus discharge, acute onset 3 days ago, improved with antibiotics",
+      "true": "bacterial_infection",
+      "pred": "bacterial_infection"
+    },
+    "3": {
+      "query": "Fever 101.5\u00b0F, WBC 17.8K, purulent ear discharge, acute onset 2 days ago, no respiratory symptoms",
+      "true": "bacterial_infection",
+      "pred": "bacterial_infection"
+    },
+    "4": {
+      "query": "Fever 101\u00b0F, mild cough, runny nose, normal WBC 6.5K, gradual onset 3 days ago, diffuse symptoms",
+      "true": "viral_infection",
+      "pred": "viral_infection"
+    },
+    "5": {
+      "query": "Fever 101.5\u00b0F, mild cough, runny nose, normal WBC 5.8K, gradual onset 2 days ago, no bacterial symptoms",
+      "true": "viral_infection",
+      "pred": "viral_infection"
+    },
+    "6": {
+      "query": "Fever 100.5\u00b0F, cough, coryza, normal WBC 7.2K, gradual onset 4 days ago, no purulent discharge",
+      "true": "viral_infection",
+      "pred": "viral_infection"
+    },
+    "7": {
+      "query": "Fever 102\u00b0F, cough, white sputum, normal WBC 6.1K, gradual onset 3 days ago, no fever after 5 days",
+      "true": "viral_infection",
+      "pred": "viral_infection"
+    },
+    "8": {
+      "query": "Cough > 3 weeks duration, weight loss 5kg, lab trend shows rising CRP, gradual onset over 2 months, fluctuating severity",
+      "true": "chronic_condition",
+      "pred": "chronic_condition"
+    },
+    "9": {
+      "query": "Persistent fatigue > 6 weeks, weight loss 3kg, lab trend shows declining hemoglobin, gradual onset, symptoms fluctuate with season",
+      "true": "chronic_condition",
+      "pred": "chronic_condition"
+    },
+    "10": {
+      "query": "Chronic cough > 3 weeks, weight loss 8kg, lab trend shows falling albumin, gradual onset over 3 months, night sweats",
+      "true": "chronic_condition",
+      "pred": "chronic_condition"
+    },
+    "11": {
+      "query": "Persistent dyspnea > 8 weeks, weight loss 4kg, lab trend shows rising ESR, gradual onset over 6 months, symptoms worse with exertion",
+      "true": "chronic_condition",
+      "pred": "chronic_condition"
+    },
+    "12": {
+      "query": "Severe neck pain after car collision, swelling at C7, limited ROM, acute onset immediate, no fever",
+      "true": "acute_injury",
+      "pred": "acute_injury"
+    },
+    "13": {
+      "query": "Severe ankle swelling after hiking trip, inability to bear weight, acute onset immediate, no fever",
+      "true": "acute_injury",
+      "pred": "acute_injury"
+    },
+    "14": {
+      "query": "Severe lower back pain after lifting heavy box, muscle spasm, acute onset immediate, no fever, improved with rest",
+      "true": "acute_injury",
+      "pred": "bacterial_infection"
+    },
+    "15": {
+      "query": "Severe wrist pain after fall onto outstretched hand, immediate swelling, acute onset, no fever, wrist deformity noted",
+      "true": "acute_injury",
+      "pred": "acute_injury"
+    },
+    "16": {
+      "query": "Severe knee pain after soccer game, immediate swelling, acute onset, no fever, limited ROM, no fever",
+      "true": "acute_injury",
+      "pred": "acute_injury"
+    }
+  },
+  "structural_results": {
+    "0": {
+      "query": "Fever 102\u00b0F, elevated WBC 18.5K, purulent throat discharge, acute onset 2 days ago, no cough",
+      "true": "bacterial_infection",
+      "pred": "bacterial_infection"
+    },
+    "1": {
+      "query": "High fever 103\u00b0F, WBC 20.3K, purulent sinus discharge, acute onset 1 day ago, no cough",
+      "true": "bacterial_infection",
+      "pred": "bacterial_infection"
+    },
+    "2": {
+      "query": "Fever 101\u00b0F, WBC 19.1K, purulent sinus discharge, acute onset 3 days ago, improved with antibiotics",
+      "true": "bacterial_infection",
+      "pred": "bacterial_infection"
+    },
+    "3": {
+      "query": "Fever 101.5\u00b0F, WBC 17.8K, purulent ear discharge, acute onset 2 days ago, no respiratory symptoms",
+      "true": "bacterial_infection",
+      "pred": "bacterial_infection"
+    },
+    "4": {
+      "query": "Fever 101\u00b0F, mild cough, runny nose, normal WBC 6.5K, gradual onset 3 days ago, diffuse symptoms",
+      "true": "viral_infection",
+      "pred": "viral_infection"
+    },
+    "5": {
+      "query": "Fever 101.5\u00b0F, mild cough, runny nose, normal WBC 5.8K, gradual onset 2 days ago, no bacterial symptoms",
+      "true": "viral_infection",
+      "pred": "viral_infection"
+    },
+    "6": {
+      "query": "Fever 100.5\u00b0F, cough, coryza, normal WBC 7.2K, gradual onset 4 days ago, no purulent discharge",
+      "true": "viral_infection",
+      "pred": "viral_infection"
+    },
+    "7": {
+      "query": "Fever 102\u00b0F, cough, white sputum, normal WBC 6.1K, gradual onset 3 days ago, no fever after 5 days",
+      "true": "viral_infection",
+      "pred": "viral_infection"
+    },
+    "8": {
+      "query": "Cough > 3 weeks duration, weight loss 5kg, lab trend shows rising CRP, gradual onset over 2 months, fluctuating severity",
+      "true": "chronic_condition",
+      "pred": "chronic_condition"
+    },
+    "9": {
+      "query": "Persistent fatigue > 6 weeks, weight loss 3kg, lab trend shows declining hemoglobin, gradual onset, symptoms fluctuate with season",
+      "true": "chronic_condition",
+      "pred": "chronic_condition"
+    },
+    "10": {
+      "query": "Chronic cough > 3 weeks, weight loss 8kg, lab trend shows falling albumin, gradual onset over 3 months, night sweats",
+      "true": "chronic_condition",
+      "pred": "chronic_condition"
+    },
+    "11": {
+      "query": "Persistent dyspnea > 8 weeks, weight loss 4kg, lab trend shows rising ESR, gradual onset over 6 months, symptoms worse with exertion",
+      "true": "chronic_condition",
+      "pred": "chronic_condition"
+    },
+    "12": {
+      "query": "Severe neck pain after car collision, swelling at C7, limited ROM, acute onset immediate, no fever",
+      "true": "acute_injury",
+      "pred": "acute_injury"
+    },
+    "13": {
+      "query": "Severe ankle swelling after hiking trip, inability to bear weight, acute onset immediate, no fever",
+      "true": "acute_injury",
+      "pred": "acute_injury"
+    },
+    "14": {
+      "query": "Severe lower back pain after lifting heavy box, muscle spasm, acute onset immediate, no fever, improved with rest",
+      "true": "acute_injury",
+      "pred": "bacterial_infection"
+    },
+    "15": {
+      "query": "Severe wrist pain after fall onto outstretched hand, immediate swelling, acute onset, no fever, wrist deformity noted",
+      "true": "acute_injury",
+      "pred": "acute_injury"
+    },
+    "16": {
+      "query": "Severe knee pain after soccer game, immediate swelling, acute onset, no fever, limited ROM, no fever",
+      "true": "acute_injury",
+      "pred": "acute_injury"
+    }
+  }
+}

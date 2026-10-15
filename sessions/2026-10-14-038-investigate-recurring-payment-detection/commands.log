@@ -1,0 +1,1315 @@
+==============================================================================
+[seq 2] 2026-10-14T23:53:40+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Check Firefly III test fixtures
+url = 'https://api.github.com/repos/firefly-iii/firefly-iii/contents/tests'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('Firefly III tests:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Firefly III error: {e}')
+
+# Check Actual Budget
+url = 'https://api.github.com/repos/actualbudget/actual/contents'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('\nActual Budget root:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Actual Budget error: {e}')
+
+# Check beancount
+url = 'https://api.github.com/repos/beancount/beancount/contents'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('\nBeancount root:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Beancount error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Firefly III tests:
+  feature: dir
+  integration: dir
+  unit: dir
+
+Actual Budget root:
+  .actrc: file
+  .agents: dir
+  .claude: dir
+  .coderabbit.yaml: file
+  .codex: dir
+  .cursor: dir
+  .devcontainer: dir
+  .dockerignore: file
+  .editorconfig: file
+  .gitattributes: file
+  .github: dir
+  .gitignore: file
+  .husky: dir
+  .nano-staged.json: file
+  .nvmrc: file
+  .oxfmtrc.json: file
+  .oxlintrc.json: file
+  .vscode: dir
+  .yarn: dir
+  .yarnrc.yml: file
+  AGENTS.md: file
+  CLAUDE.md: file
+  CODEOWNERS: file
+  CODE_REVIEW_GUIDELINES.md: file
+  CONTRIBUTING.md: file
+  DESIGN.md: file
+  Dockerfile: file
+  LICENSE.txt: file
+  PRODUCT.md: file
+  README.md: file
+  bin: dir
+  data: dir
+  demo.png: file
+  docker-compose.yml: file
+  knip.json: file
+  lage.config.js: file
+  package.json: file
+  packages: dir
+  scripts: dir
+  sync-server.Dockerfile: file
+  tsconfig.json: file
+  tsconfig.root.json: file
+  upcoming-release-notes: dir
+  vitest.config.ts: file
+  yarn.config.cjs: file
+  yarn.lock: file
+
+Beancount root:
+  .dir-locals.el: file
+  .gitattributes: file
+  .github: dir
+  .gitignore: file
+  .nginx.conf: file
+  .pre-commit-config.yaml: file
+  CHANGES: file
+  COPYING: file
+  CREDITS: file
+  Makefile: file
+  README.rst: file
+  TODO: file
+  beancount: dir
+  bin: dir
+  docs: dir
+  etc: dir
+  examples: dir
+  experiments: dir
+  index.html: file
+  meson.build: file
+  meson.options: file
+  pyproject.toml: file
+  style.css: file
+  tools: dir
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1299  redactions: none
+==============================================================================
+[seq 3] 2026-10-14T23:53:55+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Check Firefly III test fixtures for import/CSV/OFX
+url = 'https://api.github.com/repos/firefly-iii/firefly-iii/contents/tests/integration'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('Firefly III integration tests:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Firefly III integration error: {e}')
+
+# Check beancount examples
+url = 'https://api.github.com/repos/beancount/beancount/contents/examples'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('\nBeancount examples:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Beancount examples error: {e}')
+
+# Check beancount tests
+url = 'https://api.github.com/repos/beancount/beancount/contents/beancount'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('\nBeancount source:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Beancount source error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Firefly III integration tests:
+  Api: dir
+  CreatesApplication.php: file
+  Support: dir
+  TestCase.php: file
+  Traits: dir
+
+Beancount examples:
+  .keep: file
+  README: file
+  docs.md: file
+  example.beancount: file
+  ingest: dir
+  simple: dir
+  tutorial: dir
+  vesting: dir
+
+Beancount source:
+  VERSION: file
+  __init__.py: file
+  api.py: file
+  core: dir
+  docs.md: file
+  loader.py: file
+  loader_test.py: file
+  ops: dir
+  parser: dir
+  plugins: dir
+  projects: dir
+  py.typed: file
+  scripts: dir
+  tools: dir
+  utils: dir
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1987  redactions: none
+==============================================================================
+[seq 4] 2026-10-14T23:54:06+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Check beancount ingest
+url = 'https://api.github.com/repos/beancount/beancount/contents/examples/ingest'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('Beancount examples/ingest:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Beancount ingest error: {e}')
+
+# Check beancount tools for importers
+url = 'https://api.github.com/repos/beancount/beancount/contents/beancount/tools'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('\nBeancount tools:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Beancount tools error: {e}')
+
+# Check Firefly III for import related tests
+url = 'https://api.github.com/repos/firefly-iii/firefly-iii/contents/tests/feature'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('\nFirefly III feature tests:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Firefly III feature error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Beancount examples/ingest:
+  docs.md: file
+  office: dir
+
+Beancount tools:
+  __init__.py: file
+  docs.md: file
+  treeify.py: file
+  treeify_test.py: file
+
+Firefly III feature tests:
+  Http: dir
+  TestCase.php: file
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1221  redactions: none
+==============================================================================
+[seq 5] 2026-10-14T23:54:27+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Check beancount ingest office
+url = 'https://api.github.com/repos/beancount/beancount/contents/examples/ingest/office'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('Beancount examples/ingest/office:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Beancount ingest office error: {e}')
+
+# Check beancount plugins for importers
+url = 'https://api.github.com/repos/beancount/beancount/contents/beancount/plugins'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('\nBeancount plugins:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Beancount plugins error: {e}')
+
+# Check beancount scripts
+url = 'https://api.github.com/repos/beancount/beancount/contents/beancount/scripts'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('\nBeancount scripts:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Beancount scripts error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Beancount examples/ingest/office:
+  docs.md: file
+  importers: dir
+
+Beancount plugins:
+  __init__.py: file
+  auto.py: file
+  auto_accounts.py: file
+  auto_accounts_test.py: file
+  auto_test.py: file
+  check_average_cost.py: file
+  check_average_cost_test.py: file
+  check_closing.py: file
+  check_closing_test.py: file
+  check_commodity.py: file
+  check_commodity_test.py: file
+  check_drained.py: file
+  check_drained_test.py: file
+  close_tree.py: file
+  close_tree_test.py: file
+  coherent_cost.py: file
+  coherent_cost_test.py: file
+  commodity_attr.py: file
+  commodity_attr_test.py: file
+  currency_accounts.py: file
+  currency_accounts_test.py: file
+  docs.md: file
+  implicit_prices.py: file
+  implicit_prices_test.py: file
+  leafonly.py: file
+  leafonly_test.py: file
+  noduplicates.py: file
+  noduplicates_test.py: file
+  nounused.py: file
+  nounused_test.py: file
+  onecommodity.py: file
+  onecommodity_test.py: file
+  pedantic.py: file
+  pedantic_test.py: file
+  sellgains.py: file
+  sellgains_test.py: file
+  unique_prices.py: file
+  unique_prices_test.py: file
+
+Beancount scripts:
+  __init__.py: file
+  check.py: file
+  check_examples_test.py: file
+  check_test.py: file
+  deps.py: file
+  deps_test.py: file
+  directories.py: file
+  directories_test.py: file
+  docs.md: file
+  doctor.py: file
+  doctor_test.py: file
+  example.py: file
+  example_test.py: file
+  format.py: file
+  format_test.py: file
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1725  redactions: none
+==============================================================================
+[seq 6] 2026-10-14T23:54:41+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Check beancount importers
+url = 'https://api.github.com/repos/beancount/beancount/contents/examples/ingest/office/importers'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('Beancount examples/ingest/office/importers:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Beancount importers error: {e}')
+
+# Check beancount core for importers
+url = 'https://api.github.com/repos/beancount/beancount/contents/beancount/core'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('\nBeancount core:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Beancount core error: {e}')
+
+# Check beancount importers in the beancount module (might be in ops or elsewhere)
+url = 'https://api.github.com/repos/beancount/beancount/contents/beancount/ops'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('\nBeancount ops:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Beancount ops error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Beancount examples/ingest/office/importers:
+  acme: dir
+  docs.md: file
+
+Beancount core:
+  __init__.py: file
+  account.py: file
+  account_test.py: file
+  account_types.py: file
+  account_types_test.py: file
+  amount.py: file
+  amount_test.py: file
+  compare.py: file
+  compare_test.py: file
+  convert.py: file
+  convert_test.py: file
+  data.py: file
+  data_test.py: file
+  display_context.py: file
+  display_context_test.py: file
+  distribution.py: file
+  distribution_test.py: file
+  docs.md: file
+  flags.py: file
+  flags_test.py: file
+  getters.py: file
+  getters_test.py: file
+  interpolate.py: file
+  interpolate_test.py: file
+  inventory.py: file
+  inventory_test.py: file
+  number.py: file
+  number_test.py: file
+  position.py: file
+  position_test.py: file
+  prices.py: file
+  prices_test.py: file
+  realization.py: file
+  realization_test.py: file
+
+Beancount ops:
+  __init__.py: file
+  balance.py: file
+  balance_test.py: file
+  basicops.py: file
+  basicops_test.py: file
+  compress.py: file
+  compress_test.py: file
+  docs.md: file
+  documents.py: file
+  documents_test.py: file
+  find_prices.py: file
+  find_prices_test.py: file
+  lifetimes.py: file
+  lifetimes_test.py: file
+  pad.py: file
+  pad_test.py: file
+  summarize.py: file
+  summarize_test.py: file
+  validation.py: file
+  validation_test.py: file
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1397  redactions: none
+==============================================================================
+[seq 7] 2026-10-14T23:54:54+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Check beancount acme importer
+url = 'https://api.github.com/repos/beancount/beancount/contents/examples/ingest/office/importers/acme'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('Beancount acme importer:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Beancount acme error: {e}')
+
+# Check Actual Budget packages for import-related code
+url = 'https://api.github.com/repos/actualbudget/actual/contents/packages'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('\nActual Budget packages:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'Actual Budget packages error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Beancount acme importer:
+  acmebank1.pdf.extract: file
+  acmebank1.pdf.file_account: file
+  docs.md: file
+
+Actual Budget packages:
+  api: dir
+  ci-actions: dir
+  cli: dir
+  component-library: dir
+  crdt: dir
+  desktop-client: dir
+  desktop-electron: dir
+  docs: dir
+  eslint-plugin-actual: dir
+  loot-core: dir
+  mobile-client: dir
+  plugins-service: dir
+  sync-server: dir
+  vite-plugin-peggy: dir
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 898  redactions: none
+==============================================================================
+[seq 8] 2026-10-14T23:55:26+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Check beancount acme bank files
+for fname in ['acmebank1.pdf.extract', 'acmebank1.pdf.file_account']:
+    url = f'https://raw.githubusercontent.com/beancount/beancount/master/examples/ingest/office/importers/acme/{fname}'
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        resp = urllib.request.urlopen(req, timeout=10)
+        print(f'{fname}:')
+        print(resp.read().decode()[:2000])
+        print('---')
+    except Exception as e:
+        print(f'{fname} error: {e}')
+
+# Search for OFX in beancount
+url = 'https://api.github.com/repos/beancount/beancount/contents/beancount/scripts'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    for item in json.loads(resp.read()):
+        if 'ofx' in item['name'].lower() or 'csv' in item['name'].lower() or 'import' in item['name'].lower():
+            print(f'  Found: {item["name"]}')
+except Exception as e:
+    print(f'Search error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+acmebank1.pdf.extract:
+
+---
+acmebank1.pdf.file_account:
+Assets:US:AcmeBank
+
+---
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 12292  redactions: none
+==============================================================================
+[seq 9] 2026-10-14T23:55:45+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Search beancount for OFX-related files
+url = 'https://api.github.com/repos/beancount/beancount/git/trees/master?recursive=1'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=15)
+    tree = json.loads(resp.read())
+    for item in tree['tree']:
+        path = item['path'].lower()
+        if 'ofx' in path or 'csv' in path or 'import' in path:
+            if item['type'] == 'blob':
+                print(f'{item["path"]} ({item["size"]} bytes)')
+except Exception as e:
+    print(f'Search error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+beancount/utils/import_utils.py (697 bytes)
+beancount/utils/import_utils_test.py (722 bytes)
+examples/ingest/office/importers/acme/acmebank1.pdf.extract (0 bytes)
+examples/ingest/office/importers/acme/acmebank1.pdf.file_account (19 bytes)
+examples/ingest/office/importers/acme/docs.md (1316 bytes)
+examples/ingest/office/importers/docs.md (1980 bytes)
+examples/tutorial/holdings-csv.output (7894 bytes)
+experiments/docs/intro-doc/balances.csv (2169 bytes)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 607  redactions: none
+==============================================================================
+[seq 10] 2026-10-14T23:56:17+00:00
+$ python3 -c 
+import urllib.request
+
+# Check beancount import_utils
+url = 'https://raw.githubusercontent.com/beancount/beancount/master/beancount/utils/import_utils.py'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('import_utils.py:')
+    print(resp.read().decode())
+except Exception as e:
+    print(f'Error: {e}')
+
+# Check holdings-csv.output
+url = 'https://raw.githubusercontent.com/beancount/beancount/master/examples/tutorial/holdings-csv.output'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('\nholdings-csv.output:')
+    print(resp.read().decode()[:3000])
+except Exception as e:
+    print(f'Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+import_utils.py:
+"""Utilities for importing symbols programmatically."""
+
+__copyright__ = "Copyright (C) 2018, 2024-2025  Martin Blais"
+__license__ = "GNU GPLv2"
+
+import importlib
+
+
+def import_symbol(dotted_name):
+    """Import a symbol in an arbitrary module.
+
+    Args:
+      dotted_name: A dotted path to a symbol.
+    Returns:
+      The object referenced by the given name.
+    Raises:
+      ImportError: If the module not not be imported.
+      AttributeError: If the symbol could not be found in the module.
+    """
+    comps = dotted_name.split(".")
+    module_name = ".".join(comps[:-1])
+    symbol_name = comps[-1]
+    module = importlib.import_module(module_name)
+    return getattr(module, symbol_name)
+
+
+holdings-csv.output:
+Account,Units,Currency,Cost Currency,Average Cost,Price,Book Value,Market Value
+Assets:US:BofA:Checking,596.05,USD,USD,,,596.05,596.05
+Assets:US:ETrade:Cash,"5,120.50",USD,USD,,,"5,120.50","5,120.50"
+Assets:US:ETrade:GLD,9.00,GLD,USD,84.76,97.00,762.84,873.00
+Assets:US:ETrade:GLD,10.00,GLD,USD,83.93,97.00,839.30,970.00
+Assets:US:ETrade:GLD,5.00,GLD,USD,86.44,97.00,432.20,485.00
+Assets:US:ETrade:GLD,18.00,GLD,USD,86.08,97.00,"1,549.44","1,746.00"
+Assets:US:ETrade:GLD,4.00,GLD,USD,87.34,97.00,349.36,388.00
+Assets:US:ETrade:GLD,24.00,GLD,USD,88.77,97.00,"2,130.48","2,328.00"
+Assets:US:ETrade:ITOT,5.00,ITOT,USD,140.46,155.42,702.30,777.10
+Assets:US:ETrade:ITOT,2.00,ITOT,USD,146.01,155.42,292.02,310.84
+Assets:US:ETrade:ITOT,10.00,ITOT,USD,155.78,155.42,"1,557.80","1,554.20"
+Assets:US:ETrade:VEA,12.00,VEA,USD,117.63,122.33,"1,411.56","1,467.96"
+Assets:US:ETrade:VEA,7.00,VEA,USD,112.02,122.33,784.14,856.31
+Assets:US:ETrade:VEA,3.00,VEA,USD,109.74,122.33,329.22,366.99
+Assets:US:ETrade:VEA,14.00,VEA,USD,119.19,122.33,"1,668.66","1,712.62"
+Assets:US:ETrade:VHT,10.00,VHT,USD,45.56,50.10,455.60,501.00
+Assets:US:ETrade:VHT,36.00,VHT,USD,44.39,50.10,"1,598.04","1,803.60"
+Assets:US:ETrade:VHT,8.00,VHT,USD,44.60,50.10,356.80,400.80
+Assets:US:ETrade:VHT,38.00,VHT,USD,44.00,50.10,"1,672.00","1,903.80"
+Assets:US:ETrade:VHT,90.00,VHT,USD,44.23,50.10,"3,980.70","4,509.00"
+Assets:US:ETrade:VHT,33.00,VHT,USD,47.52,50.10,"1,568.16","1,653.30"
+Assets:US:ETrade:VHT,79.00,VHT,USD,50.28,50.10,"3,972.12","3,957.90"
+Assets:US:Hoogle:Vacation,337.26,VACHR,VACHR,,,337.26,337.26
+Assets:US:Vanguard:Cash,-0.02,USD,USD,,,-0.02,-0.02
+Assets:US:Vanguard:RGAGX,9.41,RGAGX,USD,114.78,82.09,"1,079.97",772.38
+Assets:US:Vanguard:RGAGX,9.40,RGAGX,USD,114.90,82.09,"1,079.95",771.56
+Assets:US:Vanguard:RGAGX,9.57,RGAGX,USD,112.81,82.09,"1,080.04",785.93
+Assets:US:Vanguard:RGAGX,9.92,RGAGX,USD,108.84,82.09,"1,079.91",814.50
+Assets:US:Vanguard:RGAGX,10.17,RGAGX,USD,106.20,82.09,"1,080.05",834.86
+Assets:US:Vanguard:RGAGX,9.95,RGAGX,USD,108.55,82.09,"1,079.96",816.71
+Assets:US:Vanguard:RGAGX,9.95,RGAGX,USD,108.56,82.09,"1,080.06",816.71
+Assets:US:Vanguard:RGAGX,10.12,RGAGX,USD,106.77,82.09,"1,079.98",830.34
+Assets:US:Vanguard:RGAGX,10.34,RGAGX,USD,104.49,82.09,"1,079.90",848.40
+Assets:US:Vanguard:RGAGX,10.27,RGAGX,USD,105.12,82.09,"1,080.00",843.39
+Assets:US:Vanguard:RGAGX,9.73,RGAGX,USD,110.99,82.09,"1,080.04",798.82
+Assets:US:Vanguard:RGAGX,9.54,RGAGX,USD,113.16,82.09,"1,080.00",783.47
+Assets:US:Vanguard:RGAGX,10.06,RGAGX,USD,107.38,82.09,"1,080.03",825.66
+Assets:US:Vanguard:RGAGX,9.93,RGAGX,USD,108.78,82.09,"1,079.97",814.99
+Assets:US:Vanguard:RGAGX,1.62,RGAGX,USD,111.42,82.09,180.05,132.66
+Assets:US:Vanguard:RGAGX,12.05,RGAGX,USD,89.63,82.09,"1,079.95",989.10
+Assets:US:Vanguard:RGAGX,11.64,RGAGX,USD,92.78,82.09,"1,079.96",955.53
+Assets:US:Vanguard:RGAGX,12.20,RGAGX,USD,88.53,82.09,"1,079.98","1,001.42"
+Assets:US:Vanguard:RGAGX,12.29,RGAGX,USD,87.86,82
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 20891  redactions: none
+==============================================================================
+[seq 11] 2026-10-14T23:56:51+00:00
+$ python3 -c 
+import urllib.request
+import json
+
+# Check Actual Budget loot-core for import-related tests
+url = 'https://api.github.com/repos/actualbudget/actual/contents/packages/loot-core'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=10)
+    print('Actual Budget loot-core:')
+    for item in json.loads(resp.read()):
+        print(f'  {item["name"]}: {item["type"]}')
+except Exception as e:
+    print(f'loot-core error: {e}')
+
+# Search for OFX in actualbudget
+url = 'https://api.github.com/repos/actualbudget/actual/git/trees/master?recursive=1'
+try:
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    resp = urllib.request.urlopen(req, timeout=15)
+    tree = json.loads(resp.read())
+    for item in tree['tree']:
+        path = item['path'].lower()
+        if 'ofx' in path or 'csv' in path or 'import' in path or 'transaction' in path:
+            if item['type'] == 'blob' and item['size'] < 50000:
+                print(f'{item["path"]} ({item["size"]} bytes)')
+except Exception as e:
+    print(f'Actual Budget search error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Actual Budget loot-core:
+  .gitignore: file
+  .swcrc: file
+  db.sqlite: file
+  default-db.sqlite: file
+  default-filesystem.d.ts: file
+  default-filesystem.mjs: file
+  migrations: dir
+  package.json: file
+  scripts: dir
+  src: dir
+  tsconfig.json: file
+  typings: dir
+  vite.config.mts: file
+  vite.desktop.config.mts: file
+  vitest.config.ts: file
+  vitest.web.config.ts: file
+bin/__tests__/validate-publish-imports.test.ts (6296 bytes)
+bin/validate-publish-imports.mts (6353 bytes)
+packages/cli/src/commands/transactions.ts (4048 bytes)
+packages/desktop-client/e2e/budget.mobile.test.ts-snapshots/Mobile-Budget-Envelope-checks-that-clicking--c18ad-l-redirects-to-the-category-transactions-page-1-chromium-linux.png (14728 bytes)
+packages/desktop-client/e2e/budget.mobile.test.ts-snapshots/Mobile-Budget-Envelope-checks-that-clicking--e995e-l-redirects-to-the-category-transactions-page-3-chromium-linux.png (15092 bytes)
+packages/desktop-client/e2e/budget.mobile.test.ts-snapshots/Mobile-Budget-Envelope-checks-that-clicking--ff568-l-redirects-to-the-category-transactions-page-2-chromium-linux.png (15031 bytes)
+packages/desktop-client/e2e/budget.mobile.test.ts-snapshots/Mobile-Budget-Tracking-checks-that-clicking--11290-l-redirects-to-the-category-transactions-page-3-chromium-linux.png (15092 bytes)
+packages/desktop-client/e2e/budget.mobile.test.ts-snapshots/Mobile-Budget-Tracking-checks-that-clicking--57d88-l-redirects-to-the-category-transactions-page-2-chromium-linux.png (15031 bytes)
+packages/desktop-client/e2e/budget.mobile.test.ts-snapshots/Mobile-Budget-Tracking-checks-that-clicking--5d90c-l-redirects-to-the-category-transactions-page-1-chromium-linux.png (14728 bytes)
+packages/desktop-client/e2e/data/test.csv (381 bytes)
+packages/desktop-client/e2e/page-models/mobile-transaction-entry-page.ts (2109 bytes)
+packages/desktop-client/e2e/reports.test.ts-snapshots/Reports-custom-reports-splits-transactions-into-exact-tag-buckets-and-scopes-them-1-chromium-linux.png (14503 bytes)
+packages/desktop-client/e2e/reports.test.ts-snapshots/Reports-custom-reports-splits-transactions-into-exact-tag-buckets-and-scopes-them-2-chromium-linux.png (15123 bytes)
+packages/desktop-client/e2e/reports.test.ts-snapshots/Reports-custom-reports-splits-transactions-into-exact-tag-buckets-and-scopes-them-3-chromium-linux.png (15077 bytes)
+packages/desktop-client/e2e/reports.test.ts-snapshots/Reports-custom-reports-splits-transactions-into-exact-tag-buckets-and-scopes-them-4-chromium-linux.png (2612 bytes)
+packages/desktop-client/e2e/reports.test.ts-snapshots/Reports-custom-reports-splits-transactions-into-exact-tag-buckets-and-scopes-them-5-chromium-linux.png (2935 bytes)
+packages/desktop-client/e2e/reports.test.ts-snapshots/Reports-custom-reports-splits-transactions-into-exact-tag-buckets-and-scopes-them-6-chromium-linux.png (2943 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts (8361 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-a-categorized-transaction-from-categories-uncategorized-page-1-chromium-linux.png (15675 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-a-categorized-transaction-from-categories-uncategorized-page-2-chromium-linux.png (16114 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-a-categorized-transaction-from-categories-uncategorized-page-3-chromium-linux.png (16317 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-a-transaction-from-accounts-id-page-1-chromium-linux.png (23708 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-a-transaction-from-accounts-id-page-2-chromium-linux.png (24276 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-a-transaction-from-accounts-id-page-3-chromium-linux.png (24672 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-a-transaction-via-footer-button-1-chromium-linux.png (23281 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-a-transaction-via-footer-button-2-chromium-linux.png (24096 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-a-transaction-via-footer-button-3-chromium-linux.png (24333 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-a-transaction-via-footer-button-4-chromium-linux.png (21396 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-a-transaction-via-footer-button-5-chromium-linux.png (21739 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-a-transaction-via-footer-button-6-chromium-linux.png (21800 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-a-transaction-via-footer-button-7-chromium-linux.png (35420 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-a-transaction-via-footer-button-8-chromium-linux.png (37524 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-a-transaction-via-footer-button-9-chromium-linux.png (37103 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-an-uncategorized-transaction-from-accounts-uncategorized-page-1-chromium-linux.png (17518 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-an-uncategorized-transaction-from-accounts-uncategorized-page-2-chromium-linux.png (18172 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-an-uncategorized-transaction-from-accounts-uncategorized-page-3-chromium-linux.png (18450 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-an-uncategorized-transaction-from-categories-uncategorized-page-1-chromium-linux.png (18996 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-an-uncategorized-transaction-from-categories-uncategorized-page-2-chromium-linux.png (19530 bytes)
+packages/desktop-client/e2e/transactions.mobile.test.ts-snapshots/Mobile-Transactions-creates-an-uncategorized-transaction-from-categories-uncategorized-page-3-chromium-linux.png (19818 bytes)
+packages/desktop-client/e2e/transactions.test.ts (14766 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-1-chromium-linux.png (9271 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-2-chromium-linux.png (9064 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-3-chromium-linux.png (9122 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-4-chromium-linux.png (5902 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-5-chromium-linux.png (5819 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-6-chromium-linux.png (5949 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-7-chromium-linux.png (6758 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-8-chromium-linux.png (6692 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-9-chromium-linux.png (6856 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-group-1-chromium-linux.png (10382 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-group-2-chromium-linux.png (10450 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-group-3-chromium-linux.png (10462 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-group-4-chromium-linux.png (2780 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-group-5-chromium-linux.png (2809 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-group-6-chromium-linux.png (2772 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-group-7-chromium-linux.png (1653 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-group-8-chromium-linux.png (1638 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-category-group-9-chromium-linux.png (1673 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-date-1-chromium-linux.png (7264 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-date-2-chromium-linux.png (7303 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-date-3-chromium-linux.png (7489 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-date-4-chromium-linux.png (9245 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-date-5-chromium-linux.png (9231 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-date-6-chromium-linux.png (9216 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-payee-1-chromium-linux.png (6384 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-payee-2-chromium-linux.png (6289 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-payee-3-chromium-linux.png (6579 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-payee-4-chromium-linux.png (969 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-payee-5-chromium-linux.png (1070 bytes)
+packages/desktop-client/e2e/transactions.test.ts-snapshots/Transactions-filters-transactions-by-payee-6-chromium-linux.png (1068 bytes)
+packages/desktop-client/public/shortcut-transaction.svg (256 bytes)
+packages/desktop-client/src/components/mobile/accounts/AccountTransactions.tsx (10453 bytes)
+packages/desktop-client/src/components/mobile/accounts/AllAccountTransactions.tsx (6164 bytes)
+packages/desktop-client/src/components/mobile/accounts/OffBudgetAccountTransactions.tsx (5293 bytes)
+packages/desktop-client/src/components/mobile/accounts/OnBudgetAccountTransactions.tsx (5280 bytes)
+packages/desktop-client/src/components/mobile/budget/CategoryTransactions.tsx (3831 bytes)
+packages/desktop-client/src/components/mobile/budget/UncategorizedTransactions.tsx (2334 bytes)
+packages/desktop-client/src/components/mobile/transactions/AddTransactionButton.tsx (812 bytes)
+packages/desktop-client/src/components/mobile/transactions/AmountInput.tsx (2629 bytes)
+packages/desktop-client/src/components/mobile/transactions/CalculatorAmountInput.tsx (7764 bytes)
+packages/desktop-client/src/components/mobile/transactions/CalculatorKeyboard.tsx (4110 bytes)
+packages/desktop-client/src/components/mobile/transactions/FocusableAmountInput.tsx (8649 bytes)
+packages/desktop-client/src/components/mobile/transactions/SplitAmountInput.tsx (2543 bytes)
+packages/desktop-client/src/components/mobile/transactions/TransactionList.tsx (22135 bytes)
+packages/desktop-client/src/components/mobile/transactions/TransactionListItem.tsx (13388 bytes)
+packages/desktop-client/src/components/mobile/transactions/TransactionListWithBalances.tsx (9575 bytes)
+packages/desktop-client/src/components/modals/ConfirmTransactionEditModal.tsx (4882 bytes)
+packages/desktop-client/src/components/modals/ImportTransactionsModal/DateFormatSelect.tsx (1504 bytes)
+packages/desktop-client/src/components/modals/ImportTransactionsModal/FieldMappings.tsx (4403 bytes)
+packages/desktop-client/src/components/modals/ImportTransactionsModal/ImportTransactionsModal.tsx (45454 bytes)
+packages/desktop-client/src/components/modals/ImportTransactionsModal/InOutOption.tsx (1157 bytes)
+packages/desktop-client/src/components/modals/ImportTransactionsModal/MultiplierOption.tsx (1178 bytes)
+packages/desktop-client/src/components/modals/ImportTransactionsModal/ParsedDate.tsx (986 bytes)
+packages/desktop-client/src/components/modals/ImportTransactionsModal/SelectField.tsx (1018 bytes)
+packages/desktop-client/src/components/modals/ImportTransactionsModal/SubLabel.tsx (352 bytes)
+packages/desktop-client/src/components/modals/ImportTransactionsModal/Transaction.tsx (10816 bytes)
+packages/desktop-client/src/components/modals/ImportTransactionsModal/index.ts (69 bytes)
+packages/desktop-client/src/components/modals/ImportTransactionsModal/utils.test.ts (9611 bytes)
+packages/desktop-client/src/components/modals/ImportTransactionsModal/utils.ts (8353 bytes)
+packages/desktop-client/src/components/modals/ScheduledTransactionMenuModal.tsx (4527 bytes)
+packages/desktop-client/src/components/modals/TransactionTableColumnListItem.tsx (2726 bytes)
+packages/desktop-client/src/components/modals/TransactionTableColumnsModal.tsx (6760 bytes)
+packages/desktop-client/src/components/modals/manager/ImportActualModal.tsx (4147 bytes)
+packages/desktop-client/src/components/modals/manager/ImportModal.tsx (3416 bytes)
+packages/desktop-client/src/components/modals/manager/ImportProgress.tsx (3575 bytes)
+packages/desktop-client/src/components/modals/manager/ImportYNAB4Modal.tsx (3766 bytes)
+packages/desktop-client/src/components/modals/manager/ImportYNAB5Modal.tsx (4188 bytes)
+packages/desktop-client/src/components/settings/RepairTransactions.tsx (6039 bytes)
+packages/desktop-client/src/components/transactions/SelectedTransactionsButton.tsx (14117 bytes)
+packages/desktop-client/src/components/transactions/SimpleTransactionsTable.tsx (7935 bytes)
+packages/desktop-client/src/components/transactions/TransactionList.tsx (16329 bytes)
+packages/desktop-client/src/components/transactions/applyRulesToTransaction.test.ts (5932 bytes)
+packages/desktop-client/src/components/transactions/applyRulesToTransaction.ts (2964 bytes)
+packages/desktop-client/src/components/transactions/table/columns.ts (4557 bytes)
+packages/desktop-client/src/components/transactions/table/utils.test.ts (5058 bytes)
+packages/desktop-client/src/components/transactions/table/utils.ts (7538 bytes)
+packages/desktop-client/src/components/transactions/useTransactionRowContextActions.ts (6788 bytes)
+packages/desktop-client/src/hooks/useAccountPreviewTransactions.test.ts (5046 bytes)
+packages/desktop-client/src/hooks/useAccountPreviewTransactions.ts (8173 bytes)
+packages/desktop-client/src/hooks/useCategoryPreviewTransactions.ts (2564 bytes)
+packages/desktop-client/src/hooks/usePreviewTransactions.test.ts (1526 bytes)
+packages/desktop-client/src/hooks/usePreviewTransactions.ts (5097 bytes)
+packages/desktop-client/src/hooks/useTransactionBatchActions.ts (17865 bytes)
+packages/desktop-client/src/hooks/useTransactionFilters.ts (961 bytes)
+packages/desktop-client/src/hooks/useTransactionTableColumns.ts (4094 bytes)
+packages/desktop-client/src/hooks/useTransactions.test.ts (1285 bytes)
+packages/desktop-client/src/hooks/useTransactions.ts (8430 bytes)
+packages/desktop-client/src/hooks/useTransactionsSearch.ts (1532 bytes)
+packages/desktop-client/src/transactions/index.ts (27 bytes)
+packages/desktop-client/src/transactions/queries.ts (1205 bytes)
+packages/desktop-client/src/transactions/transactionsSlice.ts (2240 bytes)
+packages/docs/docs/transactions/bulk-editing.md (3117 bytes)
+packages/docs/docs/transactions/filters.md (6397 bytes)
+packages/docs/docs/transactions/importing.md (4108 bytes)
+packages/docs/docs/transactions/merging.md (1386 bytes)
+packages/docs/docs/transactions/payee-locations.md (4139 bytes)
+packages/docs/docs/transactions/payees.md (4357 bytes)
+packages/docs/docs/transactions/split-transactions.md (3077 bytes)
+packages/docs/docs/transactions/tags.md (2584 bytes)
+packages/docs/docs/transactions/transfers.md (5550 bytes)
+packages/docs/static/img/backup-restore/restore-import-actual@2x.webp (38962 bytes)
+packages/docs/static/img/backup-restore/restore-import-file-choose-file.webp (13126 bytes)
+packages/docs/static/img/backup-restore/restore-import-file@2x.webp (26116 bytes)
+packages/docs/static/img/backup-restore/restore-import-source@2x.webp (25248 bytes)
+packages/docs/static/img/backup-restore/restore-imported-budget@2x.webp (30910 bytes)
+packages/docs/static/img/budgeting/rules/custom-imported-payee@2x.webp (30062 bytes)
+packages/docs/static/img/migrating/nynab-import-select-file@2x.webp (44840 bytes)
+packages/docs/static/img/migrating/nynab-import-source@2x.webp (25204 bytes)
+packages/docs/static/img/transactions/bulk-editing-category@2x.webp (9262 bytes)
+packages/docs/static/img/transactions/bulk-editing-fields@2x.webp (24790 bytes)
+packages/docs/static/img/transactions/bulk-editing-notes@2x.webp (12190 bytes)
+packages/docs/static/img/transactions/filters-category-operators@2x.webp (18392 bytes)
+packages/docs/static/img/transactions/filters-date-operators@2x.webp (20312 bytes)
+packages/docs/static/img/transactions/filters-field-list@2x.webp (44064 bytes)
+packages/docs/static/img/transactions/filters-multiple@2x.webp (42760 bytes)
+packages/docs/static/img/transactions/filters-name-filter@2x.webp (8656 bytes)
+packages/docs/static/img/transactions/filters-save-filter@2x.webp (7562 bytes)
+packages/docs/static/img/transactions/filters-saved-picker@2x.webp (15608 bytes)
+packages/docs/static/img/transactions/filters-select-saved@2x.webp (43492 bytes)
+packages/docs/static/img/transactions/filters-year-option@2x.webp (18618 bytes)
+packages/docs/static/img/transactions/filters-year-value@2x.webp (8434 bytes)
+packages/docs/static/img/transactions/payee-locations-nearby-autocomplete@2x.webp (22714 bytes)
+packages/docs/static/img/transactions/payee-locations-nearby-button@2x.webp (12776 bytes)
+packages/docs/static/img/transactions/payee-locations-request@2x.webp (13726 bytes)
+packages/docs/static/img/transactions/payee-locations-save@2x.webp (13292 bytes)
+packages/docs/static/img/transactions/payees-merge-option@2x.webp (21632 bytes)
+packages/docs/static/img/transactions/payees-merged@2x.webp (8916 bytes)
+packages/docs/static/img/transactions/payees-search@2x.webp (16714 bytes)
+packages/docs/static/img/transactions/payees-selected@2x.webp (16594 bytes)
+packages/docs/static/img/transactions/split-transactions-buttons@2x.webp (25102 bytes)
+packages/docs/static/img/transactions/tags-filter@2x.webp (23184 bytes)
+packages/docs/static/img/transactions/tags-input-result@2x.webp (40198 bytes)
+packages/docs/static/img/transactions/tags-input@2x.webp (44216 bytes)
+packages/docs/static/img/transactions/transfers-linked-pair@2x.webp (26260 bytes)
+packages/docs/static/img/transactions/transfers-payees-dropdown@2x.webp (39804 bytes)
+packages/docs/static/img/transactions/transfers-sync-both-dates@2x.webp (23826 bytes)
+packages/eslint-plugin-actual/lib/rules/__tests__/no-react-default-import.test.js (2431 bytes)
+packages/eslint-plugin-actual/lib/rules/no-react-default-import.js (2509 bytes)
+packages/eslint-plugin-actual/lib/rules/prefer-subpath-imports.js (2577 bytes)
+packages/eslint-plugin-actual/lib/utils/import-helpers.js (3284 bytes)
+packages/loot-core/migrations/1688749527273_transaction_filters.sql (190 bytes)
+packages/loot-core/migrations/1762178745667_rename_csv_skip_lines_pref.sql (212 bytes)
+packages/loot-core/src/mocks/files/credit-card.ofx (925 bytes)
+packages/loot-core/src/mocks/files/data-multi-decimal.ofx (1431 bytes)
+packages/loot-core/src/mocks/files/data-payee-memo.ofx (1129 bytes)
+packages/loot-core/src/mocks/files/data.ofx (2450 bytes)
+packages/loot-core/src/mocks/files/utf-16be.csv (1582 bytes)
+packages/loot-core/src/mocks/files/utf-16le.csv (1582 bytes)
+packages/loot-core/src/mocks/files/utf-8-bom.csv (847 bytes)
+packages/loot-core/src/mocks/files/windows-1252-euro.csv (59 bytes)
+packages/loot-core/src/mocks/files/windows-1252.csv (101 bytes)
+packages/loot-core/src/server/accounts/split-formula-import.test.ts (4885 bytes)
+packages/loot-core/src/server/cloud-import.test.ts (8191 bytes)
+packages/loot-core/src/server/importers/actual.ts (1446 bytes)
+packages/loot-core/src/server/importers/index.ts (1487 bytes)
+packages/loot-core/src/server/importers/progress.test.ts (2915 bytes)
+packages/loot-core/src/server/importers/progress.ts (2470 bytes)
+packages/loot-core/src/server/importers/ynab4-types.ts (3436 bytes)
+packages/loot-core/src/server/importers/ynab4.test.ts (8002 bytes)
+packages/loot-core/src/server/importers/ynab4.ts (15610 bytes)
+packages/loot-core/src/server/importers/ynab5-types.ts (8723 bytes)
+packages/loot-core/src/server/importers/ynab5.test.ts (7876 bytes)
+packages/loot-core/src/server/importers/ynab5.ts (37017 bytes)
+packages/loot-core/src/server/transactions/__snapshots__/transaction-rules.test.ts.snap (3592 bytes)
+packages/loot-core/src/server/transactions/__snapshots__/transfer.test.ts.snap (14555 bytes)
+packages/loot-core/src/server/transactions/app.ts (4879 bytes)
+packages/loot-core/src/server/transactions/export/export-to-csv.test.ts (1604 bytes)
+packages/loot-core/src/server/transactions/export/export-to-csv.ts (3873 bytes)
+packages/loot-core/src/server/transactions/import/__snapshots__/parse-file.test.ts.snap (38556 bytes)
+packages/loot-core/src/server/transactions/import/ofx2json.test.ts (1252 bytes)
+packages/loot-core/src/server/transactions/import/ofx2json.ts (5729 bytes)
+packages/loot-core/src/server/transactions/import/parse-file.test.ts (11994 bytes)
+packages/loot-core/src/server/transactions/import/parse-file.ts (9572 bytes)
+packages/loot-core/src/server/transactions/import/qif2json.ts (2776 bytes)
+packages/loot-core/src/server/transactions/import/xmlcamt2json.ts (5277 bytes)
+packages/loot-core/src/server/transactions/index.test.ts (2353 bytes)
+packages/loot-core/src/server/transactions/index.ts (6943 bytes)
+packages/loot-core/src/server/transactions/merge.test.ts (15384 bytes)
+packages/loot-core/src/server/transactions/merge.ts (7706 bytes)
+packages/loot-core/src/server/transactions/transaction-rules.test.ts (47535 bytes)
+packages/loot-core/src/server/transactions/transaction-rules.ts (38402 bytes)
+packages/loot-core/src/server/transactions/transfer.test.ts (6771 bytes)
+packages/loot-core/src/server/transactions/transfer.ts (5258 bytes)
+packages/loot-core/src/shared/transactions.test.ts (13020 bytes)
+packages/loot-core/src/shared/transactions.ts (13032 bytes)
+packages/loot-core/src/types/models/import-transaction.ts (1944 bytes)
+packages/loot-core/src/types/models/transaction-filter.ts (214 bytes)
+packages/loot-core/src/types/models/transaction.ts (1074 bytes)
+packages/sync-server/src/app-enablebanking/tests/transactions.spec.ts (3629 bytes)
+upcoming-release-notes/avoid-commerzbank-import-stalls.md (121 bytes)
+upcoming-release-notes/csv-import-unchecked-match.md (167 bytes)
+upcoming-release-notes/import-amount-currency-suffix.md (159 bytes)
+upcoming-release-notes/keep-cleared-fields-on-new-transactions.md (202 bytes)
+upcoming-release-notes/preserve-qif-import-categories.md (117 bytes)
+upcoming-release-notes/protect-csv-formulas-after-bom.md (153 bytes)
+upcoming-release-notes/protect-local-import-destinations.md (126 bytes)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 20501  redactions: none
+==============================================================================
+[seq 12] 2026-10-14T23:58:05+00:00
+$ python3 -c 
+import urllib.request
+
+# Check Actual Budget OFX mock files
+for fname in ['credit-card.ofx', 'data.ofx', 'data-multi-decimal.ofx', 'data-payee-memo.ofx']:
+    url = f'https://raw.githubusercontent.com/actualbudget/actual/master/packages/loot-core/src/mocks/files/{fname}'
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        resp = urllib.request.urlopen(req, timeout=10)
+        print(f'{fname}:')
+        print(resp.read().decode())
+        print('---')
+    except Exception as e:
+        print(f'{fname} error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+credit-card.ofx:
+OFXHEADER:100
+DATA:OFXSGML
+VERSION:102
+SECURITY:NONE
+ENCODING:USASCII
+CHARSET:1252
+COMPRESSION:NONE
+OLDFILEUID:NONE
+NEWFILEUID:NONE
+
+<OFX><SIGNONMSGSRSV1><SONRS><STATUS><CODE>0<SEVERITY>INFO</STATUS><DTSERVER>20230407120000[0:GMT]<LANGUAGE>ENG<FI><ORG>Apple Card<FID>12345</FI></SONRS></SIGNONMSGSRSV1><CREDITCARDMSGSRSV1><CCSTMTTRNRS><TRNUID>0<STATUS><CODE>0<SEVERITY>INFO</STATUS><CCSTMTRS><CURDEF>USD<CCACCTFROM><ACCTID>7dc6a2fd-2124-457a-a14</CCACCTFROM><BANKTRANLIST><DTSTART>20230301120000[0:GMT]<DTEND>20230331120000[0:GMT]<STMTTRN><TRNTYPE>DEBIT<DTPOSTED>20230330120000[0:GMT]<TRNAMT>-6.00<FITID>57f91dca-0460-4692-be90-84165b7002<NAME>LOUISIANA STATE MUSEUM751 PLACE JOHN PAUL NEW ORLEANS 70116-3205LA USA</STMTTRN></BANKTRANLIST><LEDGERBAL><BALAMT>-9654.01<DTASOF>20230331120000[0:GMT]</LEDGERBAL><AVAILBAL><BALAMT>1173.02<DTASOF>20230331120000[0:GMT]</AVAILBAL></CCSTMTRS></CCSTMTTRNRS></CREDITCARDMSGSRSV1></OFX>
+
+---
+data.ofx:
+OFXHEADER:100
+DATA:OFXSGML
+VERSION:102
+SECURITY:NONE
+ENCODING:USASCII
+CHARSET:1252
+COMPRESSION:NONE
+OLDFILEUID:NONE
+NEWFILEUID:NONE
+
+<OFX>
+<SIGNONMSGSRSV1>
+<SONRS>
+<STATUS>
+<CODE>0
+<SEVERITY>INFO
+</STATUS>
+<DTSERVER>20190124212851.000[0:UTC]
+<LANGUAGE>ENG
+<DTACCTUP>20190124212851.000[0:UTC]
+<FI>
+<ORG>Bank of America
+<FID>5959
+</FI>
+<INTU.BID>6526
+<INTU.USERID>jlongster03
+</SONRS>
+</SIGNONMSGSRSV1>
+<BANKMSGSRSV1>
+<STMTTRNRS>
+<TRNUID>0
+<STATUS>
+<CODE>0
+<SEVERITY>INFO
+</STATUS>
+<STMTRS>
+<CURDEF>USD
+<BANKACCTFROM>
+<BANKID>012345678
+<ACCTID>123456789123
+<ACCTTYPE>CHECKING
+</BANKACCTFROM>
+<BANKTRANLIST>
+<DTSTART>20190119120000
+<DTEND>20190124120000
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20190123120000
+<TRNAMT>-30.00
+<FITID>00092990122-30.00019012312798.01
+<NAME>PATIENT FIRST TOKEN 01/22 PURCHA
+</STMTTRN>
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20190123120000
+<TRNAMT>-3.77
+<FITID>00092990121-3.77019012312828.01
+<NAME>STARBUCKS STORE 07604 01/21 PURC
+</STMTTRN>
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20190123120000
+<TRNAMT>-9.62
+<FITID>00092990121-9.62019012312831.78
+<NAME>STARBUCKS STORE 07604 01/21 PURC
+</STMTTRN>
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20190122120000
+<TRNAMT>-115.99
+<FITID>00090231800-115.99019012212841.40
+<NAME>VERIZON DES:PAYMENTREC ID:XXXXX3
+</STMTTRN>
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20190122120000
+<TRNAMT>-10.34
+<FITID>00092990120-10.34019012212957.39
+<NAME>URBAN FARMHOUSE NO 2 01/19 PURCH
+</STMTTRN>
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20190122120000
+<TRNAMT>-22.53
+<FITID>00092990120-22.53019012212967.73
+<NAME>URBAN FARMHOUSE NO 2 01/19 PURCH
+</STMTTRN>
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20190122120000
+<TRNAMT>-108.71
+<FITID>00092990119-108.71019012212990.26
+<NAME>TMOBILE*AUTO PAY 01/19 PURCHASE 
+</STMTTRN>
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20190122120000
+<TRNAMT>-25.00
+<FITID>00092990118-25.00019012213098.97
+<NAME>COUNTY WASTE 01/18 PURCHASE 804-
+</STMTTRN>
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20190122120000
+<TRNAMT>-32.38
+<FITID>00092990118-32.38019012213123.97
+<NAME>REGENCY MART CITGO 01/18 PURCHAS
+</STMTTRN>
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20190122120000
+<TRNAMT>-6.07
+<FITID>00092990117-6.07019012213156.35
+<NAME>CHICK-FIL-A #01342 01/17 PURCHAS
+</STMTTRN>
+</BANKTRANLIST>
+<LEDGERBAL>
+<BALAMT>12798.01
+<DTASOF>20190124212851
+</LEDGERBAL>
+</STMTRS>
+</STMTTRNRS>
+</BANKMSGSRSV1>
+</OFX>
+
+---
+data-multi-decimal.ofx:
+OFXHEADER:100
+DATA:OFXSGML
+VERSION:102
+SECURITY:NONE
+ENCODING:USASCII
+CHARSET:1252
+COMPRESSION:NONE
+OLDFILEUID:NONE
+NEWFILEUID:NONE
+
+<OFX>
+  <SIGNONMSGSRSV1>
+    <SONRS>
+      <STATUS>
+        <CODE>0
+        <SEVERITY>INFO
+      </STATUS>
+      <DTSERVER>20190124212851.000[0:UTC]
+      <LANGUAGE>ENG
+      <DTACCTUP>20190124212851.000[0:UTC]
+      <FI>
+        <ORG>Bank of America
+        <FID>5959
+      </FI>
+      <INTU.BID>6526
+      <INTU.USERID>jlongster03
+    </SONRS>
+  </SIGNONMSGSRSV1>
+  <BANKMSGSRSV1>
+    <STMTTRNRS>
+      <TRNUID>0
+      <STATUS>
+        <CODE>0
+        <SEVERITY>INFO
+      </STATUS>
+      <STMTRS>
+        <CURDEF>USD
+        <BANKACCTFROM>
+          <BANKID>012345678
+          <ACCTID>123456789123
+          <ACCTTYPE>CHECKING
+        </BANKACCTFROM>
+        <BANKTRANLIST>
+          <DTSTART>20190119120000
+          <DTEND>20190124120000
+          <STMTTRN>
+            <TRNTYPE>DEBIT
+            <DTPOSTED>20190123120000
+            <TRNAMT>-30.000
+            <FITID>00092990122-30.00019012312798.01
+            <NAME>PATIENT FIRST TOKEN 01/22 PURCHA
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT
+            <DTPOSTED>20190123120000
+            <TRNAMT>-3.77000
+            <FITID>00092990121-3.77019012312828.01
+            <NAME>STARBUCKS STORE 07604 01/21 PURC
+          </STMTTRN>
+        </BANKTRANLIST>
+      </STMTRS>
+    </STMTTRNRS>
+  </BANKMSGSRSV1>
+</OFX>
+
+---
+data-payee-memo.ofx:
+OFXHEADER:100
+DATA:OFXSGML
+VERSION:102
+SECURITY:NONE
+ENCODING:USASCII
+CHARSET:1252
+COMPRESSION:NONE
+OLDFILEUID:NONE
+NEWFILEUID:NONE
+
+<OFX>
+<SIGNONMSGSRSV1>
+<SONRS>
+<STATUS>
+<CODE>0
+<SEVERITY>INFO
+</STATUS>
+<DTSERVER>20190124212851.000[0:UTC]
+<LANGUAGE>ENG
+</SONRS>
+</SIGNONMSGSRSV1>
+<BANKMSGSRSV1>
+<STMTTRNRS>
+<TRNUID>0
+<STATUS>
+<CODE>0
+<SEVERITY>INFO
+</STATUS>
+<STMTRS>
+<CURDEF>USD
+<BANKACCTFROM>
+<BANKID>012345678
+<ACCTID>123456789123
+<ACCTTYPE>CHECKING
+</BANKACCTFROM>
+<BANKTRANLIST>
+<DTSTART>20190119120000
+<DTEND>20190124120000
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20190123120000
+<TRNAMT>-10.00
+<FITID>test-name-and-memo
+<NAME>Payee Name
+<MEMO>Memo Text
+</STMTTRN>
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20190123120000
+<TRNAMT>-20.00
+<FITID>test-name-only
+<NAME>Payee Name Only
+</STMTTRN>
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20190123120000
+<TRNAMT>-30.00
+<FITID>test-memo-only
+<MEMO>Memo Only Text
+</STMTTRN>
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20190123120000
+<TRNAMT>-40.00
+<FITID>test-neither
+</STMTTRN>
+</BANKTRANLIST>
+<LEDGERBAL>
+<BALAMT>1000.00
+<DTASOF>20190124212851
+</LEDGERBAL>
+</STMTRS>
+</STMTTRNRS>
+</BANKMSGSRSV1>
+</OFX>
+
+---
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 41544  redactions: none
+==============================================================================
+[seq 13] 2026-10-14T23:59:12+00:00
+$ python3 -c 
+import urllib.request
+
+# Check CSV mock files
+for fname in ['utf-8-bom.csv', 'utf-16le.csv', 'utf-16be.csv', 'windows-1252.csv', 'windows-1252-euro.csv']:
+    url = f'https://raw.githubusercontent.com/actualbudget/actual/master/packages/loot-core/src/mocks/files/{fname}'
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        resp = urllib.request.urlopen(req, timeout=10)
+        print(f'{fname}:')
+        print(resp.read().decode())
+        print('---')
+    except Exception as e:
+        print(f'{fname} error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+utf-8-bom.csv:
+﻿"Felhasználónév","Számlaszám","Könyvelés dátuma","Összeg","Devizanem","Partner név","Partner IBAN száma","Partner számlaszáma","Partner bankkódja","Könyvelési információk","Tranzakcióazonosító","Hitel azonosító","Közlemény","Partner címe","Küldő címe","Megjegyzés","Kedvenc","Dátum","Tranzakció dátuma és ideje","Kategória","Kártyaszám","Cím","Tranzakció elfogadásának típusa","Kártya típusa","Termék típusa","Digitalizált kártya száma","Mobilapplikáció","Tranzakció típusa","Számlaegyenleg"
+"tariff package name","11600006-XXXXXXXX-XXXXXXXX","2025.12.04","100","HUF","","","","","","","","","","","","0","","","","","","","","","","","",""
+"tariff package name","11600006-XXXXXXXX-XXXXXXXX","2025.12.01","100","HUF","","","","","","","","","","","","0","","","","","","","","","","","",""
+
+---
+utf-16le.csv:
+utf-16le.csv error: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+utf-16be.csv:
+utf-16be.csv error: 'utf-8' codec can't decode byte 0xfe in position 0: invalid start byte
+windows-1252.csv:
+windows-1252.csv error: 'utf-8' codec can't decode byte 0xe9 in position 41: invalid continuation byte
+windows-1252-euro.csv:
+windows-1252-euro.csv error: 'utf-8' codec can't decode byte 0xe9 in position 41: invalid continuation byte
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 52788  redactions: none

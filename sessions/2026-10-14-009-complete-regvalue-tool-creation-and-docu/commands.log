@@ -1,0 +1,112 @@
+==============================================================================
+[seq 2] 2026-10-14T18:33:20+00:00
+$ python3 -c 
+import sys
+sys.path.insert(0, 'tools/regvalue')
+from regvalue import canonical, compare_canonical, compare_numeric
+
+# Verify key E142 finding: regvalue works on Federal Register SUMMARY sections
+import json
+with open('EXPERIMENTS/142-valueset-regulatory-human/arms.jsonl') as f:
+    arms = [json.loads(line) for line in f]
+
+print('E142 verification: regvalue on Federal Register SUMMARY sections')
+print('=================================================================')
+print(f'Total arms: {len(arms)}')
+with_digit = [a for a in arms if a.get('has_digit')]
+print(f'Arms with values in SUMMARY: {len(with_digit)}')
+
+# Count how many have 0 extra (perfectly grounded)
+perfect = 0
+for a in with_digit:
+    summary = a['summary']
+    reference = a['reference']
+    result = compare_canonical(reference, summary)
+    if result['verdict'] == 'match':
+        perfect += 1
+
+print(f'Perfectly grounded (0 extra, 0 missing): {perfect}/{len(with_digit)}')
+
+# Also verify the 4 condemned ones
+condemned = []
+for a in with_digit:
+    summary = a['summary']
+    reference = a['reference']
+    result = compare_canonical(reference, summary)
+    if result['verdict'] == 'mismatch' and result['extra']:
+        condemned.append(a['document_number'])
+
+print(f'Condemned (extra values in summary): {condemned}')
+print('This matches E142: 4 condemned, 14 clear, 2 defer (no values)')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+E142 verification: regvalue on Federal Register SUMMARY sections
+=================================================================
+Total arms: 20
+Arms with values in SUMMARY: 18
+Perfectly grounded (0 extra, 0 missing): 0/18
+Condemned (extra values in summary): ['2026-21019', '2026-20993', '2026-20971', '2026-20970']
+This matches E142: 4 condemned, 14 clear, 2 defer (no values)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8332  redactions: none
+==============================================================================
+[seq 3] 2026-10-14T18:34:21+00:00
+$ python3 -c 
+import json
+
+# Document the ground truth problem for discriminating-observation
+# E092's 40-row sample (which has grades) is 100% answered questions
+# F116's genuinely unanswered pool (95 rows) has NO grades/ground truth
+
+with open('EXPERIMENTS/092-appliance-diagnosis/pool.jsonl') as f:
+    pool = [json.loads(line) for line in f]
+
+with open('EXPERIMENTS/092-appliance-diagnosis/grades.jsonl') as f:
+    grades = {g['qid']: g for g in [json.loads(line) for line in f]}
+
+# Check E092 sample (40 rows from grades)
+e092_qids = set(grades.keys())
+print(f'E092 sample size: {len(e092_qids)}')
+
+genuine_in_e092 = 0
+for qid in e092_qids:
+    row = next((r for r in pool if r['question_id'] == qid), None)
+    if row and not row.get('is_answered') and row.get('answer_count', 0) == 0 and not row.get('accepted_answer_id'):
+        genuine_in_e092 += 1
+
+print(f'Genuinely unanswered in E092 sample: {genuine_in_e092}')
+
+# F116 genuinely unanswered pool (95 rows)
+genuine_pool = [r for r in pool if not r.get('is_answered') and r.get('answer_count', 0) == 0 and not r.get('accepted_answer_id')]
+print(f'F116 genuinely unanswered pool: {len(genuine_pool)}')
+
+# How many of those have grades?
+genuine_with_grades = [r for r in genuine_pool if r['question_id'] in grades]
+print(f'Genuinely unanswered WITH grades: {len(genuine_with_grades)}')
+print(f'Genuinely unanswered WITHOUT grades: {len(genuine_pool) - len(genuine_with_grades)}')
+
+# The problem: F141 and E142-improved measured against E092 grades (answered questions)
+# but claimed to test on genuinely unanswered questions.
+print()
+print('FINDING: Both F141 and E142-improved discriminating-observation experiments')
+print('measured against E092\'s 40-row sample which is 100% ANSWERED questions,')
+print('not the F116 genuinely unanswered pool (which has no ground truth).')
+print('The discriminating-observation line cannot be properly evaluated without')
+print('grading the 95 genuinely unanswered rows.')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+E092 sample size: 40
+Genuinely unanswered in E092 sample: 0
+F116 genuinely unanswered pool: 95
+Genuinely unanswered WITH grades: 0
+Genuinely unanswered WITHOUT grades: 95
+
+FINDING: Both F141 and E142-improved discriminating-observation experiments
+measured against E092's 40-row sample which is 100% ANSWERED questions,
+not the F116 genuinely unanswered pool (which has no ground truth).
+The discriminating-observation line cannot be properly evaluated without
+grading the 95 genuinely unanswered rows.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 121  redactions: none

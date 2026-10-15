@@ -1,0 +1,23 @@
+{
+  "session_start": "2026-10-14T00:00:00Z",
+  "work_done": [
+    "Built E103-repro-viewcount prototype (e103_repro.py) - independent re-run of Hex.pm view-count experiment",
+    "Prototype classifies Hex.pm packages as need-related vs infrastructure using description analysis",
+    "Key finding: G4 gate (view_count > 0 ≥ 95%) fails on Hex.pm (99/200 = 49.5% have downloads > 0)",
+    "Cliff's δ ≈ 0.03 (near-zero effect: need-related and infrastructure packages have similar download rates)",
+    "Compared with E101: principle passes G4 on Discourse forums (100% view_positive_rate)",
+    "Identified boundary condition: principle's G4 gate requires platforms where most items have view/download counts > 0"
+  ],
+  "artifacts": [
+    "EXPERIMENTS/e103-repro-viewcount/e103_repro.py - prototype script",
+    "EXPERIMENTS/e103-repro-viewcount/results.json - measured results"
+  ],
+  "key_claims": {
+    "viewcount_boundary_g4": "The view-count principle's G4 gate (≥ 95% view_count > 0) is a platform filter - it passes on forums where all topics have been viewed (Discourse) but fails on package registries where not all packages have downloads (Hex.pm)",
+    "cliff_delta_near_zero": "Need-related and infrastructure packages on Hex.pm have statistically indistinguishable download rates (Cliff's δ = 0.03), contradicting E103's reported 220x median ratio effect",
+    "classifier_conservative": "The prototype's classification rubric catches 22/200 need-related packages (conservative lower bound); original E103 caught 100/200 with human/aided classification"
+  },
+  "session_end": "2026-10-14T22:00:00Z",
+  "session_outcome": "completed-prototype",
+  "next_action": "explore-fresh-observation"
+}
