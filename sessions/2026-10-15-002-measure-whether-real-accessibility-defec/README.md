@@ -10,10 +10,10 @@ last-verified: 2026-10-15
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-15T01:38:11+00:00
-- **Duration:** ?s
+- **Duration:** 10760.4s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `work/e141-valueset-second-genre`
 
@@ -23,7 +23,11 @@ measure whether real accessibility defects are deterministically repairable with
 
 ## Summary
 
-_(none recorded)_
+E162 closed the deterministic accessibility repairer on mechanism by its predeclared kill gate: arm B (may only repair what the document states) eliminated 0 of 125 AA-tagged axe instances against a 30% gate, while arm A (may invent) eliminated 99 and fabricated all 104 of its repairs. The closing work was verification and record repair: the draft had carried run 1's arm-B repair count, so the gate table was recomputed from the final bytes and the arm-B row corrected; the canonical arm files, which a backgrounded re-run had rewritten after the last recorded command, were re-summarised under capture and then reproduced from scratch after lib/repair.js was split at the 300-line cap - identical on every field across 27 pages, including all 145 abstention records, which also makes the pipeline's determinism observed rather than asserted. Recorded F129 with its scope (the table as written, not the wider idea), HYPOTHESES-results, STATE.md, and the ranked plan's continuation; untracked the 2.7 MB corpus and node_modules with their inputs pinned by hash; split STATE-next-actions.md back under the cap by invariant; and corrected STATE.md's claim that doc lint exits 0 - it reports 451 inherited violations, none of them from E162.
+
+## Next
+
+Count content-bearing WCAG defects with the plumbing excluded, on a population chosen for defect density rather than fame, filtering rule declared before the count: the same 27 pages yield 33 content-bearing defects instead of 125 and no single rule holds 77% of the denominator, which is the composition every accessibility budget assumes and none measures.
 
 ## Artifacts
 
@@ -168,7 +172,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -218,18 +221,18 @@ _(none recorded)_
 | 38 | 04:30:24 | artifact | wrote EXPERIMENTS/162-a11y-deterministic-repair/README.md |
 | 39 | 04:30:28 | artifact | wrote EXPERIMENTS/162-a11y-deterministic-repair/RESULT.md |
 | 40 | 04:30:32 | artifact | wrote EXPERIMENTS/162-a11y-deterministic-repair/analyze.js |
-| 121 | 04:35:58 | artifact | wrote RELEASE-MANIFEST.md |
-| 122 | 04:36:00 | artifact | wrote FAILURES.md |
-| 123 | 04:36:02 | artifact | wrote FAILURES-findings-43.md |
-| 124 | 04:36:07 | artifact | wrote HYPOTHESES.md |
-| 125 | 04:36:09 | artifact | wrote HYPOTHESES-results.md |
 | 126 | 04:36:10 | artifact | wrote STATE.md |
 | 127 | 04:36:14 | artifact | wrote STATE-next-actions.md |
 | 128 | 04:36:16 | artifact | wrote STATE-next-actions-sessions.md |
 | 129 | 04:36:42 | artifact | wrote STATE.md |
 | 130 | 04:36:58 | command | $ tools/origin doc index |
+| 131 | 04:37:23 | milestone | E162 closed and committed: gate table recomputed from the final bytes, arm-B row corrected, run 2 reproduced from scratch (0 field differences), F129  |
+| 132 | 04:37:31 | doc_update | updated FAILURES.md |
+| 133 | 04:37:31 | doc_update | updated HYPOTHESES.md |
+| 134 | 04:37:31 | doc_update | updated STATE.md |
+| 135 | 04:37:31 | session_end | E162 closed the deterministic accessibility repairer on mechanism by its predeclared kill gate: arm B (may only repair what the document states) elimi |
 
-_80 middle events omitted; see `events.jsonl`._
+_85 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
