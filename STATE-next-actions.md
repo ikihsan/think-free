@@ -53,12 +53,46 @@ single-letter, free-text aggregate with weighting, cross-model, `####`
 parser, external value still unobserved).
 [`EXPERIMENTS/136-leaderboard-free-text-aggregate/RESULT.md`](EXPERIMENTS/136-leaderboard-free-text-aggregate/RESULT.md).
 
-**Named next action:** The R1 instrument has now been validated on four
-cells in HELM lite v1.0.0 with exact agreement on all. The remaining
-question is whether this reach translates to external value (D111). Options:
-continue testing on other leaderboards (C1 Open LLM Leaderboard v2, C3
-Chatbot Arena — both failed G2 at probe time), or accept D111 as the final
-state of this line and pivot.
+**Named next action:** superseded by E141 below. The R1 instrument was validated
+on four cells in HELM lite v1.0.0 with exact agreement on all, and E141 then
+measured whether that reach carries a finding. It does not.
+
+## E141 completed (2026-10-15) — the scorer false-negative rate is small; kill gate FIRED
+
+E141 is the experiment D111 was waiting on. `preflight` had demonstrated reach
+(four exact AGREEEs) but never a finding, so its release question had nothing to
+go on. E141 pointed the calibrated instrument at the one check that could have
+produced one: **does the harness's own scorer mark correct answers wrong?**
+
+On the four already-fetched, hash-verified HELM lite v1.0.0 cells — 2,874 rows,
+two models, two scenarios — **6 scored-wrong rows are mathematically equal to the
+reference**, all six confirmed correct by hand. Pooled 6 of 1,593 wrong rows
+= 0.377%. Primary cell P1: **4 of 246 = 1.626%** against a declared gate of 2.0%
+**and** 5 rows, so **both conditions failed and the gate fired**. Effect on the
+published number: +1.17 accuracy points on P1, entirely from unreduced fractions,
+thousands separators and decimals; **0** rows on 1,000 GSM rows in both models.
+
+The result survives its own falsification because the recall audit bounds what
+the instrument could have missed: 25 of 25 hand-read wrong rows are genuinely
+wrong, and a weaker extractor over the 95 no-answer rows recovered 0. Controls
+G0a/G0b/G0c/G0d all green, and two defects in this session's own work (a verdict
+dict keyed on instance id alone, which crosses subject runs because the seven
+HELM MATH runs carry only 267 distinct ids across 437 rows; and an incomplete
+copy of the calibrated normalizer) were caught by them.
+[`EXPERIMENTS/141-scorer-false-negatives/RESULT.md`](EXPERIMENTS/141-scorer-false-negatives/RESULT.md).
+
+**What this decides.** Stop adding adapters, cells and harnesses to `preflight`.
+A check that fires on 0.4% of rows, in cases a single normalization rule catches,
+and on zero rows of half the populations tested, is not worth shipping as a gate;
+that is now a measurement. D111's remaining sub-question is E134's population
+question restated, and E134's answer was that the one published run available was
+clean.
+
+**Named next action: E140**, the only live fresh-observation protocol
+(CI/CD pipeline failures, declared 2026-10-14, never run). Its G2 — top-10 error
+patterns covering ≥30% of cases — is the gate most likely to decide it and is
+cheap to run. Do not re-probe C1 Open LLM Leaderboard v2 or C3 Chatbot Arena:
+both failed G2 at probe time and nothing new has happened to either.
 
 E071 conclusive result: the view-count principle is supported on PyPI — need-related packages (82.93% active) are systematically more "active" (have significant activity metadata) than random packages (57.50% active). G1 retrieval met, G2 significant (t=3.4660, p=0.001), G3 PASSES (Wilson CI95 lower bound 0.6874 > 0.6). All gates met. **Superseded by E113/F116 as unconfirmed on a matched harvest.**
 

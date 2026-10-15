@@ -1,0 +1,413 @@
+{
+ "cell": "P1",
+ "nobox_rows": [
+  {
+   "gold": "16",
+   "instance_id": "id192",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "350",
+   "instance_id": "id200",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "288",
+   "instance_id": "id206",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "4",
+   "instance_id": "id210",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "6",
+   "instance_id": "id211",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "C",
+   "instance_id": "id222",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "3qr + 6q - 15r -30",
+   "instance_id": "id234",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "-4",
+   "instance_id": "id235",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "13",
+   "instance_id": "id236",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "(r+5)^2",
+   "instance_id": "id241",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "24",
+   "instance_id": "id246",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "\\frac{2}{3}",
+   "instance_id": "id248",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "4000",
+   "instance_id": "id250",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "18",
+   "instance_id": "id253",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "108",
+   "instance_id": "id256",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "\\frac{2}{5}",
+   "instance_id": "id258",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "78",
+   "instance_id": "id263",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "0",
+   "instance_id": "id280",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "15",
+   "instance_id": "id281",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "10",
+   "instance_id": "id289",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "1120",
+   "instance_id": "id293",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "9",
+   "instance_id": "id295",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "3",
+   "instance_id": "id310",
+   "pred_present": false,
+   "subject": "algebra"
+  },
+  {
+   "gold": "52",
+   "instance_id": "id52",
+   "pred_present": false,
+   "subject": "counting_and_probability"
+  },
+  {
+   "gold": "27",
+   "instance_id": "id54",
+   "pred_present": false,
+   "subject": "counting_and_probability"
+  }
+ ],
+ "rows": [
+  {
+   "gold": "350",
+   "instance_id": "id179",
+   "norm_gold": "350",
+   "norm_pred": "340",
+   "pred": "340",
+   "rational_gold": "350",
+   "rational_pred": "340",
+   "subject": "algebra"
+  },
+  {
+   "gold": "10",
+   "instance_id": "id207",
+   "norm_gold": "10",
+   "norm_pred": "5",
+   "pred": "5",
+   "rational_gold": "10",
+   "rational_pred": "5",
+   "subject": "algebra"
+  },
+  {
+   "gold": "137 \\frac{1}{2}",
+   "instance_id": "id231",
+   "norm_gold": "137((1)/(2))",
+   "norm_pred": "12((1)/(4))",
+   "pred": "12\\frac{1}{4}",
+   "rational_gold": null,
+   "rational_pred": null,
+   "subject": "algebra"
+  },
+  {
+   "gold": "400",
+   "instance_id": "id261",
+   "norm_gold": "400",
+   "norm_pred": "380",
+   "pred": "380",
+   "rational_gold": "400",
+   "rational_pred": "380",
+   "subject": "algebra"
+  },
+  {
+   "gold": "7",
+   "instance_id": "id271",
+   "norm_gold": "7",
+   "norm_pred": "6",
+   "pred": "6",
+   "rational_gold": "7",
+   "rational_pred": "6",
+   "subject": "algebra"
+  },
+  {
+   "gold": "10",
+   "instance_id": "id288",
+   "norm_gold": "10",
+   "norm_pred": "12.5",
+   "pred": "12.5",
+   "rational_gold": "10",
+   "rational_pred": "25/2",
+   "subject": "algebra"
+  },
+  {
+   "gold": "\\frac{1}{5}",
+   "instance_id": "id55",
+   "norm_gold": "((1)/(5))",
+   "norm_pred": "((4)/(5))",
+   "pred": "\\frac{4}{5}",
+   "rational_gold": "1/5",
+   "rational_pred": "4/5",
+   "subject": "counting_and_probability"
+  },
+  {
+   "gold": "21",
+   "instance_id": "id71",
+   "norm_gold": "21",
+   "norm_pred": "40",
+   "pred": "40",
+   "rational_gold": "21",
+   "rational_pred": "40",
+   "subject": "counting_and_probability"
+  },
+  {
+   "gold": "81",
+   "instance_id": "id81",
+   "norm_gold": "81",
+   "norm_pred": "881",
+   "pred": "881",
+   "rational_gold": "81",
+   "rational_pred": "881",
+   "subject": "counting_and_probability"
+  },
+  {
+   "gold": "21",
+   "instance_id": "id47",
+   "norm_gold": "21",
+   "norm_pred": "12",
+   "pred": "12",
+   "rational_gold": "21",
+   "rational_pred": "12",
+   "subject": "geometry"
+  },
+  {
+   "gold": "126",
+   "instance_id": "id71",
+   "norm_gold": "126",
+   "norm_pred": "27",
+   "pred": "27",
+   "rational_gold": "126",
+   "rational_pred": "27",
+   "subject": "geometry"
+  },
+  {
+   "gold": "1",
+   "instance_id": "id71",
+   "norm_gold": "1",
+   "norm_pred": "3",
+   "pred": "3",
+   "rational_gold": "1",
+   "rational_pred": "3",
+   "subject": "intermediate_algebra"
+  },
+  {
+   "gold": "x^9+6859",
+   "instance_id": "id95",
+   "norm_gold": "x**9+6859",
+   "norm_pred": "x**9+361",
+   "pred": "x^9 + 361",
+   "rational_gold": null,
+   "rational_pred": null,
+   "subject": "intermediate_algebra"
+  },
+  {
+   "gold": "(2,1)",
+   "instance_id": "id108",
+   "norm_gold": "(2,1)",
+   "norm_pred": "(((4)/(5)),((9)/(2)))",
+   "pred": "\\left(\\frac{4}{5}, \\frac{9}{2}\\right)",
+   "rational_gold": null,
+   "rational_pred": null,
+   "subject": "intermediate_algebra"
+  },
+  {
+   "gold": "104",
+   "instance_id": "id57",
+   "norm_gold": "104",
+   "norm_pred": "247",
+   "pred": "247",
+   "rational_gold": "104",
+   "rational_pred": "247",
+   "subject": "number_theory"
+  },
+  {
+   "gold": "5",
+   "instance_id": "id68",
+   "norm_gold": "5",
+   "norm_pred": "24",
+   "pred": "24",
+   "rational_gold": "5",
+   "rational_pred": "24",
+   "subject": "number_theory"
+  },
+  {
+   "gold": "\\frac{7}{8}",
+   "instance_id": "id129",
+   "norm_gold": "((7)/(8))",
+   "norm_pred": "((1)/(2))",
+   "pred": "\\frac{1}{2}",
+   "rational_gold": "7/8",
+   "rational_pred": "1/2",
+   "subject": "prealgebra"
+  },
+  {
+   "gold": "\\frac{13}{15}",
+   "instance_id": "id163",
+   "norm_gold": "((13)/(15))",
+   "norm_pred": "((2)/(5))",
+   "pred": "\\frac{2}{5}",
+   "rational_gold": "13/15",
+   "rational_pred": "2/5",
+   "subject": "prealgebra"
+  },
+  {
+   "gold": "0",
+   "instance_id": "id183",
+   "norm_gold": "0",
+   "norm_pred": "130",
+   "pred": "130",
+   "rational_gold": "0",
+   "rational_pred": "130",
+   "subject": "prealgebra"
+  },
+  {
+   "gold": "-16",
+   "instance_id": "id203",
+   "norm_gold": "-16",
+   "norm_pred": "-2**{4/9}",
+   "pred": "-2^{4/9}",
+   "rational_gold": "-16",
+   "rational_pred": null,
+   "subject": "prealgebra"
+  },
+  {
+   "gold": "(15,-29)",
+   "instance_id": "id77",
+   "norm_gold": "(15,-29)",
+   "norm_pred": "(17,-23)",
+   "pred": "(17, -23)",
+   "rational_gold": null,
+   "rational_pred": null,
+   "subject": "precalculus"
+  },
+  {
+   "gold": "1",
+   "instance_id": "id89",
+   "norm_gold": "1",
+   "norm_pred": "0",
+   "pred": "0",
+   "rational_gold": "1",
+   "rational_pred": "0",
+   "subject": "precalculus"
+  },
+  {
+   "gold": "\\frac13",
+   "instance_id": "id99",
+   "norm_gold": "((1)/(3))",
+   "norm_pred": "((2)/(3))sinD",
+   "pred": "\\frac{2}{3} \\sin D",
+   "rational_gold": "1/3",
+   "rational_pred": null,
+   "subject": "precalculus"
+  },
+  {
+   "gold": "1",
+   "instance_id": "id106",
+   "norm_gold": "1",
+   "norm_pred": "0",
+   "pred": "0",
+   "rational_gold": "1",
+   "rational_pred": "0",
+   "subject": "precalculus"
+  },
+  {
+   "gold": "16",
+   "instance_id": "id117",
+   "norm_gold": "16",
+   "norm_pred": "12sqrt(5)",
+   "pred": "12\\sqrt{5}",
+   "rational_gold": "16",
+   "rational_pred": null,
+   "subject": "precalculus"
+  }
+ ],
+ "rows_with_no_extractable_answer": 95,
+ "sample_step": 6,
+ "sampled": 25,
+ "sampled_nobox": 25,
+ "unrecovered_by_eq_t1": 147,
+ "wrong_rows": 242
+}

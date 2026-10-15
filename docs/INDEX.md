@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-14
+last-verified: 2026-10-15
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -403,6 +403,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/137-leaderboard-cross-model-agreement/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/139-evalscope-preflight-test/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/140-github-actions-ci-failures/` | `EXPERIMENTS/140-github-actions-ci-failures/PROTOCOL.md` | active | 2026-10-14 | 4 documents |
+| `EXPERIMENTS/141-scorer-false-negatives/` | `EXPERIMENTS/README.md` | active | 2026-10-15 | 2 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
