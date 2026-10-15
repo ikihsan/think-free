@@ -1,0 +1,357 @@
+{
+  "controls": {
+    "cells_ok": null,
+    "checker_flags": 45,
+    "damaging_false_negatives": 1,
+    "damaging_false_positives": 0,
+    "damaging_precision": 1.0,
+    "damaging_recall": 0.9231,
+    "damaging_true_positives": 12,
+    "engine_changes": 38,
+    "per_file": [
+      {
+        "file": "controls.csv",
+        "fn": 0,
+        "fp": 7,
+        "tp": 38
+      }
+    ],
+    "precision": 0.8444,
+    "recall": 1.0,
+    "top_false_alarms": [
+      [
+        [
+          "formula_coercion",
+          "+1-800-555-1212"
+        ],
+        1
+      ],
+      [
+        [
+          "date",
+          "02.01.2020"
+        ],
+        1
+      ],
+      [
+        [
+          "date",
+          "01-02-2020"
+        ],
+        1
+      ],
+      [
+        [
+          "datetime",
+          "2020-01-02T15:04:05Z"
+        ],
+        1
+      ],
+      [
+        [
+          "bool",
+          "TRUE"
+        ],
+        1
+      ],
+      [
+        [
+          "formula_coercion",
+          "+1-1"
+        ],
+        1
+      ],
+      [
+        [
+          "formula_coercion",
+          "@SUM(A1)"
+        ],
+        1
+      ]
+    ],
+    "top_misses": [
+      [
+        [
+          "DAMAGING-FN",
+          "1.23456789012345678E18"
+        ],
+        1
+      ]
+    ]
+  },
+  "corpus": {
+    "cells_ok": null,
+    "checker_flags": 11029,
+    "damaging_false_negatives": 0,
+    "damaging_false_positives": 0,
+    "damaging_precision": null,
+    "damaging_recall": null,
+    "damaging_true_positives": 0,
+    "engine_changes": 11029,
+    "per_file": [
+      {
+        "file": "owid-00-population.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 0
+      },
+      {
+        "file": "owid-02-life-expectancy.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 0
+      },
+      {
+        "file": "owid-04-child-mortality.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 0
+      },
+      {
+        "file": "owid-10-share-of-women-in-parliament.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 0
+      },
+      {
+        "file": "owid-11-electricity-generation.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 0
+      },
+      {
+        "file": "vega-00-airports.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 2
+      },
+      {
+        "file": "vega-01-birdstrikes.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 10000
+      },
+      {
+        "file": "vega-02-co2-concentration.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 913
+      },
+      {
+        "file": "vega-03-disasters.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 0
+      },
+      {
+        "file": "vega-04-flights-airport.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 0
+      },
+      {
+        "file": "vega-05-gapminder-health-income.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 0
+      },
+      {
+        "file": "vega-06-github.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 0
+      },
+      {
+        "file": "vega-07-global-temp.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 0
+      },
+      {
+        "file": "vega-08-iowa-electricity.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 51
+      },
+      {
+        "file": "vega-09-la-riots.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 63
+      },
+      {
+        "file": "vega-10-lookup_groups.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 0
+      },
+      {
+        "file": "vega-11-lookup_people.csv",
+        "fn": 0,
+        "fp": 0,
+        "tp": 0
+      }
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "top_false_alarms": [],
+    "top_misses": []
+  },
+  "corpus-census": {
+    "cells_ok": null,
+    "checker_flags": 83334,
+    "damaging_false_negatives": 0,
+    "damaging_false_positives": 0,
+    "damaging_precision": 1.0,
+    "damaging_recall": 0,
+    "damaging_true_positives": 36697,
+    "engine_changes": 83331,
+    "per_file": [
+      {
+        "file": "census-gazetteer-place.csv",
+        "fn": 0,
+        "fp": 3,
+        "tp": 83331
+      }
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "top_false_alarms": [
+      [
+        [
+          "whitespace",
+          "INTPTLONG               "
+        ],
+        1
+      ],
+      [
+        [
+          "whitespace",
+          " Village of Islands vill"
+        ],
+        1
+      ],
+      [
+        [
+          "whitespace",
+          " Moore County metropolit"
+        ],
+        1
+      ]
+    ],
+    "top_misses": []
+  },
+  "corpus-govuk": {
+    "cells_ok": null,
+    "checker_flags": 31777,
+    "damaging_false_negatives": 0,
+    "damaging_false_positives": 0,
+    "damaging_precision": null,
+    "damaging_recall": null,
+    "damaging_true_positives": 0,
+    "engine_changes": 18897,
+    "per_file": [
+      {
+        "file": "govuk-00-export.csv",
+        "fn": 0,
+        "fp": 9541,
+        "tp": 13817
+      },
+      {
+        "file": "govuk-01-export.csv",
+        "fn": 0,
+        "fp": 3339,
+        "tp": 5080
+      }
+    ],
+    "precision": 0.5947,
+    "recall": 1.0,
+    "top_false_alarms": [
+      [
+        [
+          "datetime",
+          "14/10/2026 11:40:13 PM"
+        ],
+        5596
+      ],
+      [
+        [
+          "datetime",
+          "14/10/2026 11:40:14 PM"
+        ],
+        2655
+      ],
+      [
+        [
+          "datetime",
+          "14/10/2026 11:40:12 PM"
+        ],
+        231
+      ],
+      [
+        [
+          "datetime",
+          "31/08/2005 12:00:00 AM"
+        ],
+        41
+      ],
+      [
+        [
+          "datetime",
+          "26/08/2005 12:00:00 AM"
+        ],
+        39
+      ],
+      [
+        [
+          "datetime",
+          "30/08/2005 12:00:00 AM"
+        ],
+        38
+      ],
+      [
+        [
+          "datetime",
+          "19/08/2005 12:00:00 AM"
+        ],
+        34
+      ],
+      [
+        [
+          "datetime",
+          "24/08/2005 12:00:00 AM"
+        ],
+        34
+      ],
+      [
+        [
+          "datetime",
+          "29/08/2005 12:00:00 AM"
+        ],
+        33
+      ],
+      [
+        [
+          "datetime",
+          "25/08/2005 12:00:00 AM"
+        ],
+        31
+      ],
+      [
+        [
+          "datetime",
+          "27/08/2005 12:00:00 AM"
+        ],
+        25
+      ],
+      [
+        [
+          "datetime",
+          "16/07/2005 12:00:00 AM"
+        ],
+        21
+      ]
+    ],
+    "top_misses": []
+  }
+}

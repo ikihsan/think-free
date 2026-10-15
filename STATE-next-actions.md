@@ -6,6 +6,22 @@ last-verified: 2026-10-14
 
 # Next actions
 
+**E161 completed (2026-10-15): a real engine as oracle, and no candidate.**
+See [`EXPERIMENTS/161-csv-spreadsheet-coercion/RESULT.md`](EXPERIMENTS/161-csv-spreadsheet-coercion/RESULT.md).
+1,206,342 cells of real CSVs through a real spreadsheet engine: the US Census
+Gazetteer loses **36,697 leading-zero `GEOID` cells (9.5%)**; 818,222 cells of
+analyst and public-body files lose nothing. `csvsafe.py` reproduces the engine's
+decisions at precision 1.0 / recall 1.0 on two real frames, and `write` takes
+the Census file to 0 damaging cells. **Not a candidate** — demand probes are
+weak and 0-to-1-star tools already do parts of it. Kept unreleased,
+`status: draft`, plus the round-trip instrument the four synthetic-fixture
+experiments (E122/E147/E150/E160) lacked. **Next, if anything:** size the
+population that actually hands CSVs to spreadsheet users, by measuring the
+damaging-cell rate over a larger sample of the data.gov.uk frame rather than
+two files; the frame E number is one chosen file, not an estimate.
+(This file was already over the 300-line cap before this entry; the split it
+needs is separate work.)
+
 **E142 completed (2026-10-14): the pre-pass is exact on regulatory text.**
 E141's named next action — run `valueset.py` unchanged on regulatory answers a
 person wrote — measured **1.0 detection** (4/4), **0.0 false positives** (0/16),
@@ -313,6 +329,23 @@ Premise: E092's '707 unanswered' pool is 84% answered; /search/advanced?answered
 
 **E147 completed (2026-10-14): PostgreSQL deadlock classification claim falsified.**
 Fresh observation in new domain per D083. Synthetic fixtures (27), structural vs keyword-only classifiers. Keyword baseline achieves 100% accuracy (non-overlapping keyword signatures by construction); structural classifier achieves 74.1% (parsing conservatism). G2 (Δ≥15pp) FAIL, G3 (≥80%) FAIL, G5 (abstention≤20%) FAIL. Negative controls violated (keyword beats structural). Claim falsified. Lesson: fixture design must force structural reasoning (overlapping keywords, ambiguity) to test structural classifiers. F128 recorded.
+
+**E150 completed (2026-10-14): SQL injection technique classification claim falsified.**
+Fresh observation per D083. Synthetic fixtures (16). Keyword-only 81.2%, structural 93.8% (Δ=12.5pp < 15pp gate). G2 FAIL, G1 FAIL (structural 93.8% < 100%). Structural classifier outperforms keyword but not by required margin. Fixture keyword overlap partial (mainly `FROM`/`table`), giving modest edge but not decisive.
+
+**E160 completed (2026-10-14): Medical diagnosis classification claim falsified.**
+Fresh observation per D083. Synthetic fixtures (17). Keyword-only 94.1%, structural 94.1% (Δ=0pp). G2 FAIL, G1 FAIL (both 94.1%). Fixtures have mutually exclusive keyword signatures by construction — keyword matching is optimal. Structural logic redundant with keyword features.
+
+**E122 completed (2026-10-12): CI/CD pipeline failure classification falsified on synthetic fixtures.**
+Fresh observation per D083. 140 synthetic fixtures (20 per 7 categories). Classifier accuracy 52.1% (KG1 threshold 80%). Flaky tests confused with test failures (17/20), compile errors at 40%. Falsification criterion met (KG1 fails). Domain closed for candidate generation.
+
+**E049 Part B completed (2026-10-14): Registry-side drift of pinned requirements falsified.**
+Re-resolved `requests==2.32.3`, `rich==13.9.4`, `httpx==0.28.1` one week after original snapshot (2026-10-07 → 2026-10-14). All 16 artifacts in transitive closure bit-identical (100% match). Kill gate MET: bit-stable re-resolution over time falsifies registry-drift mechanism. E049 Part A showed projects rewrite lockfiles (10/11); Part B shows drift is from project edits, not registry mutation. E2 lockfile drift line fully tested: mechanism not supported.
+
+**ArXiv reproducibility (E079) attempted: implementation gaps prevent evaluation.**
+Tool's import extraction fails on aliases (`import X as Y`), stdlib modules (`pickle`), CUDA deps (`selective_scan_cuda`), and comment text. Install success 0/3. Witness correctly predicted static analysis bound, but trial installation infrastructure not robust enough to overcome it. Candidate not viable in current form.
+
+**Pattern confirmed:** Classification fresh observations (E147, E150, E160, E122) consistently fail due to synthetic fixture design — clean keyword separation makes keyword matching optimal. Structural advantage only emerges with substantial keyword ambiguity, which fixtures lack by construction. The 15pp gate is demanding and correctly catches this.
 
 This session's work advances better decisions by narrowing applicability domains, 
 consistent with the mission's success criterion: 'better decisions and artifacts someone 

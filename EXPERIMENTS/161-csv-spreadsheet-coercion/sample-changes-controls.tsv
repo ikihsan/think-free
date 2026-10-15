@@ -1,0 +1,40 @@
+# sample: first 300 of 39 lines of changes-controls.tsv
+file	row	col	rule	source	stored_kind	stored
+controls.csv	1	1	leading_zero	01234	number	1234
+controls.csv	2	1	leading_zero	07	number	7
+controls.csv	4	1	leading_zero	+01234	number	1234
+controls.csv	5	1	leading_zero	02108	number	2108
+controls.csv	6	1	leading_zero	01234	number	1234
+controls.csv	7	1	leading_zero	0001234567890123	number	1234567890123
+controls.csv	8	1	leading_zero	01234567890	number	1234567890
+controls.csv	9	1	precision_loss	4111111111111111	number	4111111111111110.0
+controls.csv	10	1	precision_loss	12345678901234567	number	1.23456789012346e+16
+controls.csv	11	1	precision_loss	12345678901234567890	number	1.23456789012346e+19
+controls.csv	13	1	precision_loss	1234567890.123456789	number	1234567890.12346
+controls.csv	23	1	date_serial	2020-01-02	number	43832
+controls.csv	24	1	date_serial	01/02/2020	number	43832
+controls.csv	25	1	date_serial	1/2/2020	number	43832
+controls.csv	26	1	date_serial	01/02/20	number	43832
+controls.csv	30	1	date_serial	2-Jan-2020	number	43832
+controls.csv	31	1	date_serial	January 2, 2020	number	43832
+controls.csv	32	1	datetime_serial	02/09/2005 12:00:00 AM	number	38392
+controls.csv	33	1	datetime_serial	02/09/2005 01:30:00 PM	number	38392.5625
+controls.csv	34	1	datetime_serial	02/09/2005 09:05:00 AM	number	38392.3784722222
+controls.csv	35	1	datetime_serial	2020-01-02T13:45:30	number	43832.5732638889
+controls.csv	36	1	datetime_serial	2020-01-02T15:04:05	number	43832.6278356482
+controls.csv	38	1	time_serial	12:30	number	0.520833333333333
+controls.csv	39	1	time_serial	12:30:45	number	0.521354166666667
+controls.csv	40	1	time_serial	1:30 PM	number	0.5625
+controls.csv	41	1	percent_stripped	12%	number	0.12
+controls.csv	43	1	currency_stripped	$1,234.56	number	1234.56
+controls.csv	45	1	numeric_reformat	1,234	number	1234
+controls.csv	48	1	numeric_reformat	1.5E10	number	15000000000
+controls.csv	49	1	numeric_reformat	1e-7	number	1e-07
+controls.csv	50	1	precision_loss	1.23456789012345678E18	number	1.23456789012346e+18
+controls.csv	51	1	numeric_reformat	5.	number	5
+controls.csv	52	1	numeric_reformat	.5	number	0.5
+controls.csv	53	1	formula_coercion	+.5	number	0.5
+controls.csv	57	1	whitespace_trim	 12345	number	12345
+controls.csv	58	1	whitespace_trim	12345 	number	12345
+controls.csv	60	1	formula_executed	=1+1	number	2
+controls.csv	76	1	numeric_reformat	1.50	number	1.5
