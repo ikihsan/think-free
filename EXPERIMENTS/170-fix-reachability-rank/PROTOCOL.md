@@ -97,6 +97,13 @@ results of a single query, `per_page=10`, relevance order as returned.
   on this host is **7 of 300 remaining**, and E169 consumed the rest fetching
   the pool. Reported as not run, never as a pass.
 
+**Primary scope is `global`** — no repository hint — because a repository hint is
+information the developer usually does not have when a version-pinned failure
+happens; the repo-scoped numbers are reported as G3 and are the *easier*
+variant, never the deciding one. G2's primary comparison is therefore A1-global
+against A0-quoted-global, since a developer pasting an error into a search box
+quotes it.
+
 ## Decision rule, declared before the run
 
 If **G0, V1, V2, G5 pass** and **G2 does not fire** and A1 ≥ 0.30 of rows at
