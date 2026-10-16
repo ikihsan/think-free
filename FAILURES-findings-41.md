@@ -1,14 +1,15 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-14
+last-verified: 2026-10-16
 -->
 
 # Findings — failures and negative results, part 41
 
 Split out of [`FAILURES-findings-40.md`](FAILURES-findings-40.md), which held
 F119–F124. See [`FAILURES.md`](FAILURES.md) for the index. **Identifiers are
-stable across all findings files.**
+stable across all findings files.** F130 and F131 continue in
+[`FAILURES-findings-42.md`](FAILURES-findings-42.md).
 
 ## F125 — `preflight` returned a non-blocking `OK` on two paths that measured nothing, and the only way to find out was to point it at a real foreign run (E134)
 
@@ -219,53 +220,3 @@ vocabulary size or the screen is not informative. It also does not disturb
 D105's withdrawal of the sweep on its own terms — E113's matched-harvest
 control already retired the registry passes, and E165 was run afterwards.
 
-## F130 — GitHub's unauthenticated issue search cannot measure whether a query reaches a fix, and the harness's own control is what proved it (E169)
-
-**Date:** 2026-10-16. `EXPERIMENTS/169-version-pinned-reach/`. Raw:
-[`raw/controls-summary.json`](EXPERIMENTS/169-version-pinned-reach/raw/controls-summary.json)
-and [`raw/containment-summary.json`](EXPERIMENTS/169-version-pinned-reach/raw/containment-summary.json).
-
-### What was asked
-
-E168's addendum named the incumbent mechanism for version-pinned failures —
-*search the project's issue tracker with the exact error string* — and the cheap
-measurement of its ceiling: take the error string from the post, query, and see
-whether the linked fix comes back. E169 ran that over 13 rows whose thread
-points at a GitHub issue or pull request.
-
-### What happened
-
-The treatment arm returned **1 of 13**. The control then failed: feed each
-target its own title and require it back at rank 1, and it failed on **3 of 13**,
-then on **13 of 13** once the query was rewritten. The totals explain it.
-
-| query | hits |
-|---|---|
-| a target issue's own title, quoted in full | **17,033,706** |
-| `"error: mprotect failed: 13 (Permission denied)"` | **8,041,878** |
-| the same words unquoted | 532 |
-| `"Sonnet" OR "Copilot"` and `Sonnet OR Copilot` | **11,087,649** each |
-
-`/search/issues` accepts `sort=best-match` and ignores it. A quoted phrase is
-not matched as a phrase. `OR` is not honoured. A colon inside a phrase breaks
-the parse. **Every number the search arms produced is withdrawn, not adjusted**,
-and the instrument was replaced by containment in the fix's own text — a
-deterministic necessary condition for any query to match.
-
-General web search is also unavailable from this VM: the harness's `websearch`
-returns `Web search cancelled`, DuckDuckGo and Bing refuse, and **Bing answers
-HTTP 200 with results unrelated to the query**. That last one is the dangerous
-half: an instrument that returns plausible-looking HTML containing confidently
-wrong results is worse than one that refuses, because a reader who does not
-check the top result against the query records a finding.
-
-### What this is for
-
-A mission whose entire baseline for thirteen service closures has been "a free
-general assistant, no retrieval" cannot measure a **retrieval** baseline from
-this VM. The reachable alternatives are: GitHub's REST API on a specific
-resource (works), GitHub's search endpoint (does not do what it appears to),
-and no general web search at all. Any future screen that must compare against a
-search-enabled assistant needs a host with search, and the screen should say so
-in its protocol rather than discovering it in the results — this one declared a
-gate that no reachable instrument could fire.

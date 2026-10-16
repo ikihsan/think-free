@@ -6,7 +6,7 @@ last-verified: 2026-10-14
 
 # Decisions — records (continued)
 
-Decisions **D110, D112, D113, D114**. Each entry records a choice that was genuinely open, the
+Decisions **D110, D112, D113, D114, D115**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
 
 The second half of [`DECISIONS-RECORDS.md`](DECISIONS-RECORDS.md), split on
@@ -198,3 +198,48 @@ resource must fetch the resource.
 thirteen closures; it does not re-open any of them, because no reachable
 instrument here could re-open them. What it does buy is that the next screen
 that *can* run will say which alternative it beat.
+
+## D115 — an index is named as a *surface*, and a control's selectivity is part of its result
+
+**Date:** 2026-10-16. Evidence: F131, F132, and E170's two amendments.
+
+**What this is about.** D114 required a screen to declare its alternative's
+retrieval ability and the instrument's positive control. E170 ran the first
+screen under that rule and found the remaining hole: *the index* was named as a
+single thing, when the corpus behind one name is served by surfaces with
+different semantics, and a control can pass while being unselective.
+
+**The decision.**
+
+1. **An index is declared as a surface**, with its version and its query
+   semantics, not as a corpus. `api.github.com/search/issues` and
+   `github.com/search?type=issues` are two instruments over one corpus, and they
+   disagree on what a quoted phrase means — 1 result against term-AND over 10^8
+   issues. A number from one is not comparable with a number from the other.
+2. **A positive control reports its own `total_count`.** A control whose query
+   matches a quarter of a million documents cannot rank one of them first, and
+   the failure reads as an instrument defect when it is a query defect. Selectivity
+   is part of the control's result, not a diagnostic detail.
+3. **A control that fails identically on two instruments has located the defect
+   in the control.** One instrument's failure is ambiguous; two agreeing failures
+   are a location.
+
+**Why this is a decision and not a note.** It changes what a protocol must
+contain, and it is the difference between E170's first attempt (0 of 13, arms
+void) and its second (an instrument whose capability is demonstrated, and a
+measured negative). It is also the rule that keeps the repair from being a
+weakening: the bar stayed at ≥ 10 of 13 throughout, and the repair moved the
+query, not the threshold.
+
+**Rejected: one surface per corpus.** Choosing the web surface because it
+passes is how an arm gets to pick its own instrument; the API surface is reported
+beside it in every case. Rejected: **a stronger control mined from the target's
+own text**, which is what `G0r` tried; it fails on both surfaces because the
+longest tokens in an issue body are URLs and image markup, and a control that
+depends on document structure is not portable. Rejected: reporting E170's API
+arm rates as the result — they are void under the protocol's own reading rule and
+are published as void, with the reason, next to the numbers.
+
+**Ceiling.** This governs screens that measure retrieval. It does not license a
+retrieval claim about any surface this repository has not run, and it does not
+re-open a closure that rests on a pool-level service rate.

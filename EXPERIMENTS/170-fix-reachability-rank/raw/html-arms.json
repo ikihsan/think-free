@@ -1,0 +1,610 @@
+[
+ {
+  "G-A0": {
+   "error": "no_query",
+   "keys": [],
+   "query": null,
+   "rank": null
+  },
+  "G-A1": {
+   "error": null,
+   "keys": [
+    "donjayamanne/vscodejupyter#19",
+    "albertoirurueta/docs#282",
+    "spyder-ide/ux-improvements#60",
+    "ropensci/software-review#744",
+    "galaxyproject/training-material#989",
+    "posit-dev/positron#9852",
+    "posit-dev/positron#5484",
+    "posit-dev/positron#4398",
+    "rstudio/rstudio#16006",
+    "rstudio/rstudio#16079"
+   ],
+   "query": "rstudio console up arrow history not working",
+   "rank": null
+  },
+  "G-C1": {
+   "error": null,
+   "keys": [],
+   "query": "![not-working-1 4](https://user-images.githubusercontent.com/6791940/94917843-a0e4be00-04b1-11eb-803e-b3f38c54bbe9.gif) ###",
+   "rank": null
+  },
+  "G-C2": {
+   "error": null,
+   "keys": [
+    "rstudio/rstudio#7945"
+   ],
+   "query": "in:title \"Up and Down arrow keys in Console to navigate last commands don't work correctly anymore \"",
+   "rank": 1
+  },
+  "qid": "79324837",
+  "target": "rstudio/rstudio#7945"
+ },
+ {
+  "G-A0": {
+   "error": "no_query",
+   "keys": [],
+   "query": null,
+   "rank": null
+  },
+  "G-A1": {
+   "error": null,
+   "keys": [
+    "dotnet/macios#10113",
+    "moshehason/117-lab-test#3",
+    "zed-industries/zed#60661",
+    "microsoft/vscode#70764",
+    "microsoft/vscode#107016",
+    "deepseek-launch-community/xuanji-isa#122",
+    "jessepollak/home#1118",
+    "dart-lang/sdk#55281",
+    "flutter/flutter#36666",
+    "flutter/flutter#51715"
+   ],
+   "query": "paste slow delay visual studio code",
+   "rank": null
+  },
+  "G-C1": {
+   "error": null,
+   "keys": [
+    "microsoft/vscode#341939",
+    "microsoft/vscode#341042",
+    "microsoft/vscode#341773",
+    "microsoft/vscode#340278",
+    "opencortexide/cortexide#95",
+    "roblourens/vscode#9",
+    "microsoft/vscode#341501",
+    "microsoft/vscode#341228",
+    "microsoft/vscode#341148",
+    "microsoft/vscode#341039"
+   ],
+   "query": "issues: https://github.com/microsoft/vscode/wiki/Submitting-Bugs-and-Suggestions --",
+   "rank": null
+  },
+  "G-C2": {
+   "error": null,
+   "keys": [
+    "dominictarr/hipster#12",
+    "microsoft/vscode#299786",
+    "googlechromelabs/text-app#350",
+    "bhauman/rebel-readline#177",
+    "microsoft/powertoys#29725",
+    "aceph/seven-square#4",
+    "hbirchtree/it2901-project#43",
+    "system2k/nodeworldoftext#73",
+    "microsoft/typescript#60485",
+    "xavi-/node-copy-paste#54"
+   ],
+   "query": "in:title \"Paste slow\"",
+   "rank": null
+  },
+  "qid": "79327621",
+  "target": "microsoft/vscode#235959"
+ },
+ {
+  "G-A0": {
+   "error": null,
+   "keys": [
+    "docker/for-mac#7520"
+   ],
+   "query": "\"Docker.app will damage your computer\"",
+   "rank": 1
+  },
+  "G-A1": {
+   "error": null,
+   "keys": [
+    "docker/for-mac#7520",
+    "docker/for-mac#7594",
+    "docker/for-mac#6191",
+    "docker/for-mac#681",
+    "docker/for-mac#6700",
+    "docker/for-mac#7046",
+    "docker/for-mac#7550",
+    "docker/for-mac#7529",
+    "docker/for-mac#7368",
+    "docker/for-mac#6487"
+   ],
+   "query": "Docker.app will damage your computer",
+   "rank": 1
+  },
+  "G-C1": {
+   "error": null,
+   "keys": [
+    "docker/for-mac#7520",
+    "docker/for-mac#7501"
+   ],
+   "query": "Labels: com.docker.desktop.address=unix:///Users/lorenzo/Library/Containers/com.docker.docker/Data/docker-cli.sock Experimental",
+   "rank": 1
+  },
+  "G-C2": {
+   "error": null,
+   "keys": [
+    "docker/for-mac#7520"
+   ],
+   "query": "in:title \"[Workaround in description] Mac is detecting Docker as a malware and keeping it from starting\"",
+   "rank": 1
+  },
+  "qid": "79344101",
+  "target": "docker/for-mac#7520"
+ },
+ {
+  "G-A0": {
+   "error": "no_query",
+   "keys": [],
+   "query": null,
+   "rank": null
+  },
+  "G-A1": {
+   "error": null,
+   "keys": [],
+   "query": "IsNullOrEmpty Microsoft.Identity.Web 3.7.0 removed",
+   "rank": null
+  },
+  "G-C1": {
+   "error": null,
+   "keys": [],
+   "query": "extension [introduced](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/pull/1695/files#diff-d6203951e787f84d178b2d2ae5f8375daa4e79d7a333b2ca9ee91a48ca66423f) in",
+   "rank": null
+  },
+  "G-C2": {
+   "error": null,
+   "keys": [
+    "azuread/azure-activedirectory-identitymodel-extensions-for-dotnet#1722"
+   ],
+   "query": "in:title \"Conflict with Microsoft.IdentityModel.Tokens.CollectionUtilities.IsNullOrEmpty extension\"",
+   "rank": 1
+  },
+  "qid": "79429899",
+  "target": "azuread/azure-activedirectory-identitymodel-extensions-for-dotnet#1722"
+ },
+ {
+  "G-A0": {
+   "error": null,
+   "keys": [
+    "lfortran/lfortran#7732",
+    "lfortran/lfortran#8214",
+    "radioconda/radioconda-installer#127",
+    "mlafarga/raccoon#9",
+    "opengisch/qgis-conda-builder#32",
+    "gnss-sdr/gnss-sdr#554",
+    "mesonbuild/meson#10711",
+    "nki-ccb/discover#29",
+    "spatial-data-lab/knime-geospatial-extension#421",
+    "looooo/freecad.gears#208"
+   ],
+   "query": "\"Library not loaded: @rpath/libgfortran.5.dylib\"",
+   "rank": null
+  },
+  "G-A1": {
+   "error": null,
+   "keys": [],
+   "query": "Library not loaded @rpath/libgfortran.5.dylib numpy macOS",
+   "rank": null
+  },
+  "G-C1": {
+   "error": null,
+   "keys": [
+    "conda-forge/numpy-feedstock#347"
+   ],
+   "query": "ImportError: dlopen(/Users/jeffreybaker/miniforge3/envs/test-env/lib/python3.12/site-packages/numpy/_core/_multiarray_umath.cpython-312-darwin.so, 0x0002",
+   "rank": 1
+  },
+  "G-C2": {
+   "error": null,
+   "keys": [
+    "conda-forge/numpy-feedstock#347",
+    "numpy/numpy#28395"
+   ],
+   "query": "in:title \"Numpy import error when using conda-forge build of numpy 2.2.3 // no issue with pip\"",
+   "rank": 1
+  },
+  "qid": "79550279",
+  "target": "conda-forge/numpy-feedstock#347"
+ },
+ {
+  "G-A0": {
+   "error": null,
+   "keys": [
+    "distrho/cardinal#933",
+    "grpc/grpc-dotnet#2646",
+    "sfztools/sfizz#1305",
+    "artap-framework/agrossuite#8",
+    "rive-app/rive-unreal#150",
+    "miki151/keeperrl#2077",
+    "google/eclipsa-audio-plugin#128",
+    "stan-dev/rstan#1130",
+    "geomscale/volesti#436",
+    "usnistgov/netsimulyzer-ns3-module#45"
+   ],
+   "query": "\"A template argument list is expected after a name prefixed by the template keyword\"",
+   "rank": null
+  },
+  "G-A1": {
+   "error": null,
+   "keys": [
+    "grpc/grpc-dotnet#2646",
+    "devmeremenko/xcodebenchmark#591",
+    "grpc/grpc#36801",
+    "firebase/firebase-unity-sdk#1346",
+    "firebase/firebase-ios-sdk#14643",
+    "revenuecat/purchases-ios#4937",
+    "grpc/grpc#39458"
+   ],
+   "query": "gRPC-Core Xcode 16.3 template keyword argument list",
+   "rank": 5
+  },
+  "G-C1": {
+   "error": null,
+   "keys": [
+    "firebase/firebase-ios-sdk#16909",
+    "firebase/firebase-ios-sdk#16711",
+    "firebase/firebase-ios-sdk#15201",
+    "firebase/firebase-ios-sdk#14137",
+    "firebase/firebase-ios-sdk#12168",
+    "firebase/firebase-ios-sdk#16736",
+    "firebase/firebase-ios-sdk#16742",
+    "firebase/firebase-ios-sdk#16508",
+    "firebase/firebase-ios-sdk#16303",
+    "firebase/firebase-ios-sdk#15008"
+   ],
+   "query": "summary>Expand <code>Package.resolved</code> snippet</summary",
+   "rank": null
+  },
+  "G-C2": {
+   "error": null,
+   "keys": [
+    "firebase/firebase-ios-sdk#14643"
+   ],
+   "query": "in:title \"Xcode 16.3 Compile issue with gRPC-c++ with iOS 18.4 SDK\"",
+   "rank": 1
+  },
+  "qid": "79551968",
+  "target": "firebase/firebase-ios-sdk#14643"
+ },
+ {
+  "G-A0": {
+   "error": "no_query",
+   "keys": [],
+   "query": null,
+   "rank": null
+  },
+  "G-A1": {
+   "error": null,
+   "keys": [
+    "claysecai/claude-enterprise-control-baseline#21",
+    "newrelic-experimental/preflight#688",
+    "mynamejeff625-png/elementbound#114",
+    "trandenydfw/claude-code-extension-engineering#47",
+    "deepseek-ai/deepseek-v3#1527",
+    "tete-cordobes/landing-curso-claude-code#141",
+    "sydevs/sahajcloud#898",
+    "tete-cordobes/landing-curso-claude-code#136",
+    "block/buzz#2698",
+    "btsouth/stackreplay#110"
+   ],
+   "query": "Claude Sonnet 4 not showing up model list Anthropic bring your own key",
+   "rank": null
+  },
+  "G-C1": {
+   "error": null,
+   "keys": [
+    "microsoft/vscode#255782",
+    "microsoft/vscode#255783"
+   ],
+   "query": "4. https://www.reddit.com/r/GithubCopilot/comments/1lwuhtj/cant_add_claude_sonnet_4_with_byok/ Further",
+   "rank": 2
+  },
+  "G-C2": {
+   "error": null,
+   "keys": [
+    "microsoft/vscode#255783"
+   ],
+   "query": "in:title \"Missing Anthropic Sonnet 4 model with Bring Your Own Key from Github Coilot Chat and Agentic mode\"",
+   "rank": 1
+  },
+  "qid": "79642080",
+  "target": "microsoft/vscode#255783"
+ },
+ {
+  "G-A0": {
+   "error": null,
+   "keys": [],
+   "query": "\"UpdateService error: The operation couldn't be completed. (OSStatus error -60006.)\"",
+   "rank": null
+  },
+  "G-A1": {
+   "error": null,
+   "keys": [],
+   "query": "UpdateService error OSStatus -60006",
+   "rank": null
+  },
+  "G-C1": {
+   "error": null,
+   "keys": [
+    "microsoft/vscode#7426",
+    "microsoft/vscode#7406",
+    "microsoft/vscode#7343",
+    "microsoft/typescript-tmlanguage#186"
+   ],
+   "query": "1.3.0-insider) 6bc81df453ab2156d2630fbb89ad7d0c80620420 -",
+   "rank": 1
+  },
+  "G-C2": {
+   "error": null,
+   "keys": [
+    "jacksonkearl/testissues#6873",
+    "chrmarti/testissues#10265",
+    "microsoft/vscode#100216",
+    "microsoft/vscode#7426",
+    "microsoft/vscode#27928"
+   ],
+   "query": "in:title \"Code won't update on macOS\"",
+   "rank": 4
+  },
+  "qid": "79671399",
+  "target": "microsoft/vscode#7426"
+ },
+ {
+  "G-A0": {
+   "error": null,
+   "keys": [
+    "angular/angular#22508",
+    "mgechev/angular-seed#1431",
+    "ivogabe/gulp-typescript#307",
+    "mgechev/angular-seed#1145"
+   ],
+   "query": "\"Could not find file 'app.component.ts'\"",
+   "rank": null
+  },
+  "G-A1": {
+   "error": null,
+   "keys": [
+    "juergengutsch/blog#56",
+    "angular/angular#65525",
+    "s-panferov/awesome-typescript-loader#168",
+    "frangoteam/fuxa#1213",
+    "wiselibs/better-sqlite3#126",
+    "flutter/flutter#131934",
+    "microsoft/typescript#36235",
+    "ni/nimble#1661",
+    "codingame/monaco-vscode-api#465",
+    "angular/vscode-ng-language-service#2043"
+   ],
+   "query": "Could not find file app.component.ts Angular visual studio project",
+   "rank": null
+  },
+  "G-C1": {
+   "error": null,
+   "keys": [],
+   "query": "in [#52049](https://github.com/dotnet/aspnetcore/issues/52049#issuecomment-1832595193)_ ##",
+   "rank": null
+  },
+  "G-C2": {
+   "error": null,
+   "keys": [
+    "dotnet/aspnetcore#62258",
+    "dotnet/aspnetcore#52049"
+   ],
+   "query": "in:title \"Angular and ASP.NET Core Template fails on creation\"",
+   "rank": 1
+  },
+  "qid": "79674579",
+  "target": "dotnet/aspnetcore#62258"
+ },
+ {
+  "G-A0": {
+   "error": null,
+   "keys": [
+    "tauri-apps/tauri#14616",
+    "carthage/carthage#3393",
+    "flutter/flutter#124835",
+    "walid1992/weex-frame#16",
+    "nativephp/mobile-air#67",
+    "cirruslabs/macos-image-templates#362",
+    "noi-techpark/it.bz.noi.community.ios#161",
+    "libsdl-org/sdl#11446",
+    "marmelroy/localize-swift#99",
+    "maarkn/claude-remote#44"
+   ],
+   "query": "\"Unable to find a destination matching the provided destination specifier\"",
+   "rank": null
+  },
+  "G-A1": {
+   "error": null,
+   "keys": [
+    "tauri-apps/tauri#14616",
+    "carthage/carthage#3393",
+    "nativephp/mobile-air#67",
+    "flutter/flutter#124835",
+    "llamenos-hotline/llamenos-platform#1359",
+    "decosoftware/deco-ide#297",
+    "hushield/hushield#17",
+    "cirruslabs/macos-image-templates#362",
+    "walid1992/weex-frame#16",
+    "lionheart/openradar-mirror#17405"
+   ],
+   "query": "Unable to find a destination matching the provided destination specifier",
+   "rank": null
+  },
+  "G-C1": {
+   "error": null,
+   "keys": [
+    "flutter/flutter#163984"
+   ],
+   "query": "0x000000016eee91c0 _UISceneSettingsDiffActionPerformChangesWithTransitionContextAndCompletion+0xe0 pc",
+   "rank": 1
+  },
+  "G-C2": {
+   "error": null,
+   "keys": [
+    "flutter/flutter#163984"
+   ],
+   "query": "in:title \"Debug mode and hot reload fail on iOS 26 due to JIT restriction `error: mprotect failed: 13 (Permission denied)`\"",
+   "rank": 1
+  },
+  "qid": "79768764",
+  "target": "flutter/flutter#163984"
+ },
+ {
+  "G-A0": {
+   "error": null,
+   "keys": [
+    "mendix/docs#12039",
+    "shlomoa/angular-django2#143",
+    "timjmitchell/studio#8",
+    "jmix-framework/jmix#5737",
+    "itwin/stratakit#1868",
+    "mui/mui-x#23880",
+    "reikanysora/helios#459",
+    "igniteui/igniteui-documentation#681",
+    "daufderheide/racecoordinator_ai#990",
+    "mui/mui-x#23858"
+   ],
+   "query": "\"Data grid\"",
+   "rank": null
+  },
+  "G-A1": {
+   "error": null,
+   "keys": [
+    "matt17br/openwrangler#1548",
+    "allisonmahmood/patchy-cloud#309",
+    "gavingro/seatrades#30",
+    "clawbio/clawbio#99",
+    "microsoft/vscode-data-wrangler#387"
+   ],
+   "query": "Data Wrangler shows \"Data grid\" instead of dataframe name",
+   "rank": null
+  },
+  "G-C1": {
+   "error": null,
+   "keys": [
+    "microsoft/vscode-data-wrangler#586"
+   ],
+   "query": "alt=\"Image\" src=\"https://github.com/user-attachments/assets/f2803e2d-ab94-4727-89e5-49f47dda151f\" /",
+   "rank": 1
+  },
+  "G-C2": {
+   "error": null,
+   "keys": [
+    "microsoft/vscode-data-wrangler#586"
+   ],
+   "query": "in:title \"Data Wrangler Tab not showing variable name\"",
+   "rank": 1
+  },
+  "qid": "79821337",
+  "target": "microsoft/vscode-data-wrangler#586"
+ },
+ {
+  "G-A0": {
+   "error": null,
+   "keys": [
+    "nix-community/bundix#121",
+    "sciencehistory/scihist_digicoll#3236",
+    "thoughtbot/botcasts#32",
+    "activecampaign/postmark-gem#158",
+    "fastlane/fastlane#27261",
+    "cocoapods/cocoapods#12853",
+    "neocities/neocities#608",
+    "jekyll/jekyll#9658",
+    "hartator/wayback-machine-downloader#292",
+    "dsaenztagarro/homebrew-tap#2"
+   ],
+   "query": "\"certificate verify failed (unable to get certificate CRL)\"",
+   "rank": null
+  },
+  "G-A1": {
+   "error": null,
+   "keys": [
+    "nix-community/bundix#121",
+    "neocities/neocities#608",
+    "sciencehistory/scihist_digicoll#3236",
+    "thoughtbot/botcasts#32",
+    "activecampaign/postmark-gem#158",
+    "openvoxproject/openvox#485",
+    "fastlane/fastlane#27261",
+    "jekyll/jekyll#9658",
+    "fluent/fluent-plugin-opensearch#139",
+    "hartator/wayback-machine-downloader#292"
+   ],
+   "query": "ruby OpenSSL certificate verify failed unable to get certificate CRL",
+   "rank": null
+  },
+  "G-C1": {
+   "error": null,
+   "keys": [
+    "openssl/openssl#28758"
+   ],
+   "query": "errno=0 peeraddr=54.208.14.64:443 state=error",
+   "rank": 1
+  },
+  "G-C2": {
+   "error": null,
+   "keys": [
+    "openssl/openssl#28758"
+   ],
+   "query": "in:title \"OpenSSL 3.6.0 results in error: certificate verify failed (unable to get certificate CRL)\"",
+   "rank": 1
+  },
+  "qid": "79826631",
+  "target": "openssl/openssl#28758"
+ },
+ {
+  "G-A0": {
+   "error": "no_query",
+   "keys": [],
+   "query": null,
+   "rank": null
+  },
+  "G-A1": {
+   "error": null,
+   "keys": [
+    "open-orcha/orcha#290",
+    "microsoft/vscode#253137",
+    "stablyai/orca#2284",
+    "bloodf/durindoor#1072",
+    "yaojiejia/agents-radar#312",
+    "microsoft/vscode#253136",
+    "bloodf/durindoor#1073",
+    "mgrin/awesome-bb-plugins#16",
+    "bianzhilong2-ctrl/agents-radar#1543",
+    "yaojiejia/agents-radar#306"
+   ],
+   "query": "Ollama models missing from Copilot Chat model selection menu",
+   "rank": null
+  },
+  "G-C1": {
+   "error": null,
+   "keys": [],
+   "query": "to `byokKnownModelsToAPIInfo`](https://github.com/microsoft/vscode-copilot-chat/blob/f9a18ed6848b3e6b0d2bf1124f25680fa67e919e/src/extension/byok/vscode-node/ollamaProvider.ts#L110). However",
+   "rank": null
+  },
+  "G-C2": {
+   "error": null,
+   "keys": [],
+   "query": "in:title \"Fix tool calling detection and support for Ollama models\"",
+   "rank": null
+  },
+  "qid": "79888998",
+  "target": "microsoft/vscode-copilot-chat#3566"
+ }
+]

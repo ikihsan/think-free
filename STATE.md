@@ -7,10 +7,10 @@ last-verified: 2026-10-15
 # Verified state
 
 Date: 2026-10-16, Asia/Kolkata. Phase: B. **The one candidate this mission
-produced is withdrawn; the mission now has the instrument its record was
-missing, and — as of E168 — its first positive reading of *why* the strongest
-alternative wins.** The superseded narrative this file used to carry in full is
-in [`STATE-history.md`](STATE-history.md); what follows is only what a reader
+produced is withdrawn; and as of E170 the mission has measured, on a live ranked
+index, the mechanism by which the strongest alternative wins on the class that
+resisted it longest.** The superseded narrative this file used to carry in full
+is in [`STATE-history.md`](STATE-history.md); what follows is only what a reader
 still needs.
 
 `stage-lines` / `stg` (E037, E038, F060, F062–F064, D068, D069) was the first
@@ -162,83 +162,58 @@ harvest ran.
 
 **E165 completed (2026-10-15): VS Code Marketplace view-count principle test fails — the principle does not extend to this extension marketplace with broad keyword classification.** 1,884 extensions fetched from 28 categories via the VS Code Marketplace API (v7.1-preview.1); 1,706 (90.5%) classified as "need-related" (keywords: fix, debug, lint, test, deploy, tool, utility, helper, etc.), 105 (5.6%) as "general" (theme, keymap, snippet, pack), 73 (3.9%) other. Cliff's delta (install count, need-related vs general): **-0.0266**, below 0.147 kill gate. The classifier was too broad — 90% of extensions captured as "need-related". General category (themes, keymaps, snippets) has marginally higher median installs (1,033 vs 955). Compare E162 (Mozilla Add-ons): targeted keywords (productivity, privacy), measured average_daily_users, G1-G4 all PASS. The view-count principle's domain of validity remains package registries (PyPI, NPM, NuGet, CPAN, Hex.pm, Docker Hub, Packagist, RubyGems, GitHub repos) and Mozilla Add-ons with targeted classification. Kill gate fired; principle boundary extended. See [`EXPERIMENTS/165-vscode-marketplace-viewcount/RESULT.md`](EXPERIMENTS/165-vscode-marketplace-viewcount/RESULT.md).
 
-**E168 completed (2026-10-16): the first positive structural reading of why the
-strongest alternative wins — version-pinned needs are 28% of a high-arrival
-pool, and the assistant serves them materially worse.** E126 graded 13 Stack
-Overflow attempts unserved and never characterised them; reading those reasons
-on 2026-10-16, every one of the software rows fails for the same reason — the
-attempt named the fault category and got the **version-pinned fact** wrong
-("I do not know the exact new package"; the JetBrains plugin *does* read
-`.github/copilot-instructions.md` from build 722431). Stratifying the same
-299-row pool on that property: **85 of 299 = 0.2843** version-pinned, Wilson
-95% [0.2361, 0.3379], **14× the 2.0% program-shaped residue** E126 called too
-small to be a population. The classifier agrees with E126's independent
-`answerable`/`specific` labels on only 53 of 85 (Jaccard 0.4417) — the two
-screens see different rows at both edges, and that is the finding. **G2: the
-assistant serves the high-arrival end of the class at 11 of 24 = 0.4583
-against E126's pool-level 0.6750 on the same rows with the same instrument
-(Fisher p = 0.1168, four near-miss grades, so the stratum difference is a
-point estimate and not established).** **G1 and G2 pass as declared; G3 is NOT
-RUN**, because this session had already read every thread, so a grounded
-attempt would be contaminated. G3 is the only gate whose failure would close a
-product rather than a population. D113 requires every future service screen to
-stratify on version-dependence rather than report one pool-level rate.
+**The version-pinned line (E168 → E169 → E170, all 2026-10-16) is closed, with
+its mechanism measured rather than asserted.** E168 stratified a 299-row
+high-arrival Stack Overflow pool and found **85 of 299 = 0.2843** version-pinned
+needs, Wilson [0.2361, 0.3379], **14× E126's 2.0% program-shaped residue**, with
+the assistant serving the high-arrival end of that class at **11 of 24 = 0.4583**
+against a pool-level 0.6750 (Fisher p = 0.1168 — a point estimate, not
+established). E169 measured the incumbent mechanism E168 had named — *search the
+project's issue tracker with the exact error string* — and **withdrew it on its
+own control**: a target's own quoted title returns **17,033,706** hits, and
+general web search is unavailable from this host (F130). Replaced by
+**containment**, which needs no search engine: median term coverage 0.625, 9 of
+13 ≥ 0.5, and **0 of 13 share a 3-word run with the fix**, while coverage against
+the whole **thread** is ≥ 0.8 on 12 of 13 — the forum thread is the delivery
+mechanism and the tracker link is a citation. Two record corrections ride with
+it: E168's "`github.com` in 15 of 24" does not reproduce (12 by `href`, 13
+counting gists), and 7 of the 85 `vp=1` rows are no longer fetchable.
 
-**E168's own closing check narrowed its own claim the same day: 20 of the 24
-threads' answer sets link out, `github.com` in 15 of 24.** The incumbent
-mechanism is *search the issue tracker with the exact error string and apply
-the linked fix* — minutes of human work, already done by hand. The attempt arm
-used **no retrieval**, this mission's standard instrument since E091, so G2
-measures what an assistant serves **without search**, and **nothing here
-establishes that the class is unserved by a retrieval-enabled assistant.**
-G3 as declared would test "add version grounding", which is what search already
-does, so **G3 must gain a third arm**: the same question put to the alternative
-**with** search. If it matches the grounded arm, the class is real, large and
-served — the thirteenth closure, with a sharper reason than the other twelve.
-The cheaper decisive version is measurable from `threads.json` alone: how often
-the top answer's linked source is reachable by the exact error string as a
-query. [`EXPERIMENTS/168-version-pinned-need/RESULT.md`](EXPERIMENTS/168-version-pinned-need/RESULT.md).
+**E170 completed (2026-10-16): the failure's vocabulary and the fix's vocabulary
+do not overlap, so neither lexical query reaches the fix on a live ranked
+index.** E169 left one question — does the mechanism work at all — and GitHub's
+issue search is reachable from this host, so it was measured with queries
+committed before any fetch and two capability controls. **Both surfaces rank a
+known-present document**: `in:title "<the target's own title>"` returns the target
+at **rank 1 on 11 of 13 through the API and 10 of 13 through
+`github.com/search?type=issues`**. On that web surface, the developer's **quoted
+error string reaches the fix on 1 of the 8 rows that have a literal** (1/13 =
+0.0769 over all 13) and **component + symptom keywords reach it on 2 of 13 =
+0.1538**, Wilson [0.0433, 0.4223], paired McNemar **p = 1.0**. The declared kill
+does not fire and the declared **0.30 bar for building anything is not met**, so
+the line closes — fifteenth served closure, second with the mechanism measured on
+a live index. **A failure report names the symptom and the environment; a fix
+states the cause and the change; and the thread serves the class because the
+responder writes answer-vocabulary inside the question's own document — that
+semantic bridge is the strongest accessible alternative.** No retriever is
+proposed, so no prior-art screen is run. Five reproducible index defects are
+recorded for reuse: a bare number is an issue-number qualifier, a `word/word`
+token is a repository qualifier and returns `http_422`, the API does not honour
+quotes, queries above 256 characters are rejected, and mining a document for its
+longest tokens selects URLs and image markup.
+[`EXPERIMENTS/170-fix-reachability-rank/RESULT.md`](EXPERIMENTS/170-fix-reachability-rank/RESULT.md).
 
-**E169 completed (2026-10-16): the error string is the wrong query, the thread
-already carries the fix, and thirteen closures were measured against an
-alternative that could not retrieve.** E168 named the incumbent mechanism for
-version-pinned failures — *search the issue tracker with the exact error
-string* — and named the cheap measurement of its ceiling. That measurement ran
-and was **withdrawn by its own control**: the treatment arm returned 1 of 13,
-and the control (feed each target its own title, require it at rank 1) failed
-on 3 of 13 and then 13 of 13. A target's own quoted title returns **17,033,706**
-hits, a quoted phrase containing a colon returns **8,041,878** against **532**
-unquoted, `OR` is not honoured, and `sort=best-match` is accepted and ignored.
-General web search is unavailable from this host, and **Bing answers HTTP 200
-with results unrelated to the query** (F130).
-
-Replaced by a deterministic instrument needing no search engine —
-**containment**, the necessary condition for any query to match a document. On
-13 rows whose thread points at a GitHub issue: **median term coverage 0.625,
-9 of 13 ≥ 0.5**, and **0 of 13 share a 3-word run with the fix**. The rows that
-match best are the ones with **no error message** (symptom-only 4 of 4 vs
-error-message 3 of 6): the more version-pinned a post is, the more its literal
-is environment-specific — an absolute path, an `@rpath` load path — and the less
-of it appears where the fix is written down. **Coverage against the whole thread
-is ≥ 0.8 on 12 of 13**, so the forum thread carries the fix and the tracker link
-is a citation, not the delivery mechanism. Fourteenth closure, first one with the
-mechanism measured rather than asserted. **D114**: every future service screen
-declares in its protocol whether its alternative can retrieve, from what index,
-and what its positive control is.
-
-Two record corrections ride with it: E168's "`github.com` in 15 of 24" **does
-not reproduce** from `threads.json` (12 by `href`, 13 counting gists), though
-"20 of 24 link out" does, under any URL occurrence in any answer; and **7 of the
-85 `vp=1` rows are no longer fetchable** at all. G1 was vacuous as declared —
-both columns were 1 on all 20 sampled rows — and is reported as such.
-[`EXPERIMENTS/169-version-pinned-reach/RESULT.md`](EXPERIMENTS/169-version-pinned-reach/RESULT.md).
-
-Named next action: **run the retrieval arm from a host with web search**, on
-these 13 rows and a fresh blinded sample, with the query built from symptom and
-component words rather than the error string. That is the last question standing
-on this line, and neither E168 nor E169 could close it from here. The fresh
-observation in an untouched domain stays superseded: D113 changed what to screen
-rather than where.
+Named next action: **E171 — the one experiment on this record where the
+surviving mechanism is not the incumbent.** E168's unrun G3 asks whether an
+attempt *grounded in the component's published version history* recovers rows the
+unaided attempt fails, declared bar ≥ 0.60. It has never run because it needs a
+fresh blinded `version_pinned` sample, and this host has **7 of 300 Stack Exchange
+requests remaining** today (E168 and E169 spent the rest), so the draw waits for
+the daily reset. **E172 — a fresh observation in a domain this mission has not
+touched, chosen by a stated rule** — needs no quota and can run in parallel. The
+line just closed is not reopened: E170's own replication gate is deliberately not
+run, because a replication of a near-zero effect teaches nothing this record
+lacks.
 
 ## Dashboard
 

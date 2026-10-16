@@ -106,11 +106,13 @@ E143 completed (2026-10-15): Cross Validated — the largest untouched venue —
 
 ## E168 completed (2026-10-16) — G1 and G2 pass; the class is a population
 
-**Superseded below.** The "fresh observation in an untouched domain" action
-this entry carried is no longer the next action: D113 changes *what* to
-screen rather than where, and twenty more venues cannot answer a question
-E168 answered on a pool already in the repository. Kept as the record of the
-attempted fresh observations it lists.
+**Closed by E169 and E170 on 2026-10-16.** Both remaining actions below were
+run: the search arm was withdrawn on its own control (F130) and replaced by
+containment, and the reachability of the fix was then measured on a live ranked
+index, where neither query form reaches it (E170: literal 1/8, symptom+component
+2/13). The "fresh observation in an untouched domain" this entry carried is
+still not the next action. Kept as the record of the attempted fresh
+observations it lists.
 
 **Named next action: run E168's G3 *with a third arm* on a fresh blinded
 `version_pinned` sample** — the third arm being the same question put to the
@@ -136,7 +138,8 @@ the search arm's ceiling with no assistant in the loop, and costs one script.
 > with the fix, ≥ 0.8 coverage against the whole thread on 12 of 13**. See
 > [`EXPERIMENTS/169-version-pinned-reach/RESULT.md`](EXPERIMENTS/169-version-pinned-reach/RESULT.md).
 
-**G3 on a fresh blinded sample, if that arm is run.** G1 sized the class (85 of 299 = 0.2843, Wilson [0.2361, 0.3379],
+**G3 on a fresh blinded sample — now the next action, with E170's verdict attached.**
+G1 sized the class (85 of 299 = 0.2843, Wilson [0.2361, 0.3379],
 14× E126's program-shaped residue) and G2 measured the alternative on it (11 of
 24 = 0.4583 against E126's pool-level 0.6750, Fisher p = 0.1168). Neither says
 the missing fact is *retrievable*, and a fact that exists only in the asker's
@@ -151,11 +154,30 @@ read the lockfile, ask the tool itself. **If it does not, the class closes as
 a population without a mechanism**, and that is the cheapest failure in this
 record to read because it would name a population that is genuinely unserved
 and still not servable.
-[`EXPERIMENTS/168-version-pinned-need/RESULT.md`](EXPERIMENTS/168-version-pinned-need/RESULT.md).
+
+> **E170 removed one of G3's arms on 2026-10-16, and it is the arm G3 would
+> otherwise have leaned on.** G3's third arm — "the same question put to the
+> alternative *with* search" — would have tested whether retrieval closes the
+> class. E170 measured that directly on 13 rows, on two instruments whose
+> capability controls pass (`in:title` returns the target at rank 1 on 11/13 by
+> API and 10/13 on the web surface): the developer's quoted error string
+> reaches the fix in the top 10 on **1 of the 8 rows that have a literal**, and
+> component+symptom keywords on **2 of 13**, paired McNemar p = 1.0. **A
+> lexical retrieval arm cannot close this class**, so G3's remaining question is
+> only the grounding question, and G3 is now the one experiment left on this
+> record where the candidate mechanism is not the incumbent.
+> [`EXPERIMENTS/170-fix-reachability-rank/RESULT.md`](EXPERIMENTS/170-fix-reachability-rank/RESULT.md).
 
 **Named next action: fresh observation in a domain this mission has not touched, chosen by a stated rule rather than by comfort.** Do not re-probe C1 Open LLM Leaderboard v2 or C3 Chatbot Arena: both failed G2 at probe time and nothing new has happened to either. E140's protocol stays reusable if P1 ever gains sourced support. Per D083, candidate domains must be truly untested by this mission's view-count principle. Documented attempted fresh observations: Reddit (E145: API accessibility boundary — network security block prevented data collection), crates.io (E146: classifier vocabulary mismatch — default listing crates lack need-indicator terms in names/descriptions), Physics SE (E147: fresh observation — view_count universally present (G4 PASS) but no differential activity between need-related and random content; G3 FAIL, no servable class distinction), GitHub code repositories (E148: view-count principle extends to code repos — need-related repos have systematically higher star counts than random repos, all gates PASS); E149 follow-up with improved classification and fork counts confirmed strong effect (98% need repos above random median, Cliff's delta ≈ 0.55); E162 — Mozilla Add-ons: view-count principle test on browser extension marketplace, G1-G4 all PASS on productivity and privacy keywords, 500 extensions fetched from AMO v4 API, need-related extensions have systematically higher average_daily_users than random. The view-count principle has been tested across 17+ domains: supported on PyPI, NPM, NuGet, CPAN, Hex.pm, Docker Hub, Packagist, RubyGems, GitHub repos, Mozilla Add-ons; does not generalize to CRAN, Maven Central, GitHub issues API, web search, automotive OBD2, PX4 drone faults, 3D printer fault codes, medical device fault codes, embedded/MCU fault codes, industrial SCADA, CFPB consumer complaints, Physics SE, crates.io, or GitLab (where classifier vocabulary mismatch prevents G1 gate passage even with larger samples). Boundary condition: principle works on platforms with per-request metadata (view_count/download_count/star_count/average_daily_users) where need-related content has systematic activity advantages, AND the classification vocabulary is platform-appropriate.
 
 ### Documented attempted fresh observations
+
+> **Updated 2026-10-16 (E170).** This is now **E172** in `STATE.md`'s named next
+> action, alongside **E171** — E168's unrun G3, the one experiment left where the
+> candidate mechanism is not the incumbent. E172 needs no Stack Exchange quota
+> and can run today; E171 needs the daily reset (7 of 300 requests remain). The
+> list below stays as the record of what has already been attempted, so E172's
+> stated rule must exclude every domain named in it.
 
 - **E145 — Reddit**: API accessibility boundary — network security block prevented data collection.
 - **E146 — crates.io**: Classifier vocabulary mismatch — default listing crates lack need-indicator terms in names/descriptions.
