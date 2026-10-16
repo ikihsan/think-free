@@ -10,10 +10,10 @@ last-verified: 2026-10-16
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-16T02:31:59+00:00
-- **Duration:** ?s
+- **Duration:** 3971.5s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Test whether need-type (stateless question vs stateful/verifiable task) predicts
 
 ## Summary
 
-_(none recorded)_
+E168: found the first positive structural reading of why the strongest alternative wins. E126's 13 unserved rows were never characterised; they all fail on version-pinned facts. Stratifying the same 299-row pool on that property gives 85/299 = 0.2843 version-pinned (Wilson 0.2361-0.3379), 14x E126's program-shaped residue; the assistant serves the high-arrival end at 11/24 = 0.4583 vs E126's pool-level 0.675 (Fisher p 0.1168, not significant). G1 and G2 pass as declared; G3 (does version-history grounding recover the failures) is unrun and is the gate that would license a build. D113 requires future service screens to stratify on version-dependence.
+
+## Next
+
+Run E168's G3 on a fresh blinded version_pinned sample, grounded arm allowed only the post plus the component's published release notes/migration guide; then the prior-art screen against the class before any product code. Two instrument defects this session were caught by arithmetic, not code: a str/int question_id collision that would have silently dropped the blinding for 20 rows, and filter=withbody not populating answers, which returned 0 answers for all 24 threads.
 
 ## Artifacts
 
@@ -64,11 +68,20 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 24 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | DECISIONS-RECORDS-2.md |
+|   undeclared | DECISIONS.md |
+|   undeclared | EXPERIMENTS/165-golang-viewcount/PROTOCOL.md |
+|   undeclared | EXPERIMENTS/165-golang-viewcount/RESULT.md |
+|   undeclared | EXPERIMENTS/165-golang-viewcount/classified.json |
+|   undeclared | EXPERIMENTS/165-golang-viewcount/classify.py |
+|   undeclared | EXPERIMENTS/165-golang-viewcount/gate_results.json |
+|   undeclared | EXPERIMENTS/165-golang-viewcount/harvest.py |
+|   undeclared | EXPERIMENTS/165-golang-viewcount/measure.py |
+|   undeclared | EXPERIMENTS/165-golang-viewcount/raw_harvest.json |
 
 ## Timeline
 
@@ -99,6 +112,33 @@ _(none recorded)_
 | 23 | 02:56:47 | command | $ tools/origin doc lint |
 | 24 | 03:15:22 | command | $ tools/origin doc lint |
 | 25 | 03:23:42 | command | $ tools/origin doc lint |
+| 26 | 03:38:10 | unlogged_change | changed but never declared as an artifact: DECISIONS-RECORDS-2.md |
+| 27 | 03:38:10 | unlogged_change | changed but never declared as an artifact: DECISIONS.md |
+| 28 | 03:38:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/165-golang-viewcount/PROTOCOL.md |
+| 29 | 03:38:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/165-golang-viewcount/RESULT.md |
+| 30 | 03:38:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/165-golang-viewcount/classified.json |
+| 31 | 03:38:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/165-golang-viewcount/classify.py |
+| 32 | 03:38:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/165-golang-viewcount/gate_results.json |
+| 33 | 03:38:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/165-golang-viewcount/harvest.py |
+| 34 | 03:38:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/165-golang-viewcount/measure.py |
+| 35 | 03:38:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/165-golang-viewcount/raw_harvest.json |
+| 36 | 03:38:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/165-golang-viewcount/run.py |
+| 37 | 03:38:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/165-vscode-marketplace-viewcount/RESULT.md |
+| 38 | 03:38:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/165-vscode-marketplace-viewcount/fetch_extensions.py |
+| 39 | 03:38:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/165-vscode-marketplace-viewcount/raw_data.json |
+| 40 | 03:38:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/168-version-pinned-need/attempts_written_before_fetch.json |
+| 45 | 03:38:11 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-15-028-fresh-observation-test-view-count-princi/commands.log |
+| 46 | 03:38:11 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-15-028-fresh-observation-test-view-count-princi/events.jsonl |
+| 47 | 03:38:11 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-15-029-fresh-observation-in-a-new-domain-test-t/commands.log |
+| 48 | 03:38:11 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-15-029-fresh-observation-in-a-new-domain-test-t/events.jsonl |
+| 49 | 03:38:11 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-15-030-log-remaining-artifacts-from-e165-experi/events.jsonl |
+| 50 | 03:38:11 | doc_update | updated DECISIONS-RECORDS-2.md |
+| 51 | 03:38:11 | doc_update | updated DECISIONS.md |
+| 52 | 03:38:11 | doc_update | updated FAILURES.md |
+| 53 | 03:38:11 | doc_update | updated STATE.md |
+| 54 | 03:38:11 | session_end | E168: found the first positive structural reading of why the strongest alternative wins. E126's 13 unserved rows were never characterised; they all fa |
+
+_4 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
