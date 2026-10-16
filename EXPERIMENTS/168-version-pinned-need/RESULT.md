@@ -161,3 +161,86 @@ would name a population that is genuinely unserved and still not servable.
 [`PROTOCOL.md`](PROTOCOL.md) ·
 [`grades.py`](grades.py) ·
 [`grades-unaided.jsonl`](grades-unaided.jsonl)
+## ADDENDUM (same day, after landing) — the baseline was weaker than the strongest alternative
+
+A closing check on the 24 threads that cost one regex: **20 of 24 answer
+sets link out to an external source**, and the destination is overwhelmingly
+an issue tracker — `github.com` in 15 of 24, plus `developer.android.com`,
+`tailwindcss.com`, `visualstudio.com`, `rubygems.org`, and in one case a fix
+shipped as a shell script on a gist that the top answer tells the reader to
+`curl | bash`.
+
+**This is the incumbent mechanism, and it is already served.** For a
+version-pinned failure the working resolution is: search the project's issue
+tracker with the exact error string, read the linked fix, apply it. Developers
+do it by hand today and it takes minutes.
+
+**It also bounds what E168's G2 measured.** The attempt arm is this mission's
+standard instrument — written from general knowledge, **with no retrieval**,
+the same instrument E091, E092, E126 and E143 used. That keeps the comparison
+internally consistent with 0.6750, and it is the correct comparison *within
+this record*. It is not a comparison against the strongest accessible
+alternative in the sense the brief requires, because an assistant that can
+search is a strictly stronger alternative than one that cannot, and the
+threads themselves show the answer is sitting in a searchable tracker.
+
+So the correct reading of E168's G2 is narrower than the gate's wording: a
+free general assistant **without retrieval** serves this class at 0.4583
+against 0.6750 on the pool at large. It does **not** establish that the class
+is unserved by a retrieval-enabled assistant, and it should not be quoted as
+though it did.
+
+**What this changes about the next action.** G3 as declared — a grounded arm
+allowed the post plus the component's published version history — would test
+"add version grounding", and grounding is what search already does. G3 is
+therefore not sufficient on its own and must gain a third arm: the same
+question put to the alternative **with** search over the issue tracker and
+release notes. If that arm matches the grounded arm, the class is real,
+large, and served, and this closes as the thirteenth service closure with a
+sharper reason than the other twelve: the alternative wins once it is allowed
+to look things up.
+
+**Cheap decisive alternative, if that arm is judged too expensive to run
+honestly:** compare on these same 24 rows how often the top answer's linked
+source is reachable by the exact error string as a query. That is measurable
+from `threads.json` alone, with no assistant in the loop, and it bounds the
+search arm's ceiling before anyone spends an attempt budget on it.
+
+Nothing else in this RESULT changes: G1 is a property of the population and
+does not depend on the baseline; the G2 numbers stand as written, with the
+scope of the claim narrowed to what the instrument actually was.
+
+## ADDENDUM 2 — how far the missing fact is from the post (13 unserved rows)
+
+Measured offline from `threads.json`, no assistant in the loop. For each of
+the 13 rows the unaided arm failed, the **top** answer was checked for three
+retrieval handles:
+
+| handle in the top answer | count |
+|---|---|
+| a URL (issue tracker or vendor doc) | **8 of 13** |
+| a literal configuration key or setting name | 5 of 13 |
+| a version token | 2 of 13 |
+
+**What it says.** In 8 of 13 the resolution is *a pointer to a document that
+exists somewhere other than the post* — the same figure as the 20-of-24
+link-out count above, restricted to the rows that matter. In 5 of 13 it is a
+literal key a tool could set. Only 2 of 13 name a version, which is the
+surprise: **the missing fact is usually not a version number**, it is a
+behaviour that changed and where it was written down.
+
+**What it does not say, and why this measurement is not G3.** It counts
+handles in an answer a human already found; it does not show that an
+alternative could find the same document from the post alone. That is the
+search-arm question, and **it could not be run here: web search returned
+`Web search cancelled` on every attempt from this VM.** So the third arm's
+ceiling is still unmeasured, and the cheapest way to measure it remains the one
+named above — take the exact error string from each post, query, and check
+whether the linked source surfaces. That needs a host with search, not a
+script, and it is the first thing the next session should attempt.
+
+The 5 rows with neither URL nor key nor version — 43, 60, 67 among them — are
+the ones where the resolution is an action on the asker's own machine
+(Rosetta installed, a manifest tag added, a NuGet package upgraded). Those are
+a third mechanism, not a retrieval failure, and a version-grounding tool would
+not serve them.

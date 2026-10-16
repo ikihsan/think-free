@@ -112,8 +112,19 @@ screen rather than where, and twenty more venues cannot answer a question
 E168 answered on a pool already in the repository. Kept as the record of the
 attempted fresh observations it lists.
 
-**Named next action: run E168's G3 on a fresh blinded `version_pinned`
-sample.** G1 sized the class (85 of 299 = 0.2843, Wilson [0.2361, 0.3379],
+**Named next action: run E168's G3 *with a third arm* on a fresh blinded
+`version_pinned` sample** — the third arm being the same question put to the
+alternative **with** search over the issue tracker and release notes. The
+closing check that added the arm: **20 of E168's 24 threads' answer sets link
+out, `github.com` in 15 of 24**, so the incumbent mechanism is *search the
+tracker with the exact error string and apply the linked fix*, already done by
+hand in minutes. G3 as first declared would test "add version grounding",
+which is what search already does, so it cannot pass on its own. Cheaper
+decisive version first: from `threads.json` alone, how often the top answer's
+linked source is reachable by the exact error string as a query. That bounds
+the search arm's ceiling with no assistant in the loop, and costs one script.
+
+**G3 on a fresh blinded sample, if that arm is run.** G1 sized the class (85 of 299 = 0.2843, Wilson [0.2361, 0.3379],
 14× E126's program-shaped residue) and G2 measured the alternative on it (11 of
 24 = 0.4583 against E126's pool-level 0.6750, Fisher p = 0.1168). Neither says
 the missing fact is *retrievable*, and a fact that exists only in the asker's
