@@ -199,13 +199,46 @@ The cheaper decisive version is measurable from `threads.json` alone: how often
 the top answer's linked source is reachable by the exact error string as a
 query. [`EXPERIMENTS/168-version-pinned-need/RESULT.md`](EXPERIMENTS/168-version-pinned-need/RESULT.md).
 
-Named next action: **run E168's G3 with that search arm** on a fresh blinded
-`version_pinned` sample, then the prior-art screen. The older named action, a
-fresh observation in an untouched domain, is **superseded**: D113 changes what
-to screen rather than where, and twenty more venues cannot answer a question
-this one did. Do not re-probe C1 Open LLM Leaderboard v2 or C3 Chatbot Arena:
-both failed G2 at probe time and nothing new has happened to either. E140's
-protocol stays reusable if P1 ever gains sourced support.
+**E169 completed (2026-10-16): the error string is the wrong query, the thread
+already carries the fix, and thirteen closures were measured against an
+alternative that could not retrieve.** E168 named the incumbent mechanism for
+version-pinned failures — *search the issue tracker with the exact error
+string* — and named the cheap measurement of its ceiling. That measurement ran
+and was **withdrawn by its own control**: the treatment arm returned 1 of 13,
+and the control (feed each target its own title, require it at rank 1) failed
+on 3 of 13 and then 13 of 13. A target's own quoted title returns **17,033,706**
+hits, a quoted phrase containing a colon returns **8,041,878** against **532**
+unquoted, `OR` is not honoured, and `sort=best-match` is accepted and ignored.
+General web search is unavailable from this host, and **Bing answers HTTP 200
+with results unrelated to the query** (F130).
+
+Replaced by a deterministic instrument needing no search engine —
+**containment**, the necessary condition for any query to match a document. On
+13 rows whose thread points at a GitHub issue: **median term coverage 0.625,
+9 of 13 ≥ 0.5**, and **0 of 13 share a 3-word run with the fix**. The rows that
+match best are the ones with **no error message** (symptom-only 4 of 4 vs
+error-message 3 of 6): the more version-pinned a post is, the more its literal
+is environment-specific — an absolute path, an `@rpath` load path — and the less
+of it appears where the fix is written down. **Coverage against the whole thread
+is ≥ 0.8 on 12 of 13**, so the forum thread carries the fix and the tracker link
+is a citation, not the delivery mechanism. Fourteenth closure, first one with the
+mechanism measured rather than asserted. **D114**: every future service screen
+declares in its protocol whether its alternative can retrieve, from what index,
+and what its positive control is.
+
+Two record corrections ride with it: E168's "`github.com` in 15 of 24" **does
+not reproduce** from `threads.json` (12 by `href`, 13 counting gists), though
+"20 of 24 link out" does, under any URL occurrence in any answer; and **7 of the
+85 `vp=1` rows are no longer fetchable** at all. G1 was vacuous as declared —
+both columns were 1 on all 20 sampled rows — and is reported as such.
+[`EXPERIMENTS/169-version-pinned-reach/RESULT.md`](EXPERIMENTS/169-version-pinned-reach/RESULT.md).
+
+Named next action: **run the retrieval arm from a host with web search**, on
+these 13 rows and a fresh blinded sample, with the query built from symptom and
+component words rather than the error string. That is the last question standing
+on this line, and neither E168 nor E169 could close it from here. The fresh
+observation in an untouched domain stays superseded: D113 changed what to screen
+rather than where.
 
 ## Dashboard
 

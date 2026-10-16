@@ -1,0 +1,227 @@
+{
+ "rows": 85,
+ "queries": 13,
+ "plan": [
+  {
+   "qid": "79344101",
+   "idx": 0,
+   "views": 99722,
+   "title": "How can I resolve the \"'Docker.app' will damage your computer\" warning on macOS?",
+   "state": "ok",
+   "n_answers": 16,
+   "literal": "s related to Zscaler, but I started to receive this warning about the Docker.app the same day that I installed and restarted Zscaler. Full warning:",
+   "weak_literal": "s related to Zscaler, but I started to receive this warning about the Docker.app the same day that I installed and restarted Zscaler. Full warning:",
+   "target": {
+    "owner": "docker",
+    "repo": "for-mac",
+    "number": 7520
+   },
+   "target_where": "accepted",
+   "in_e168_24": true
+  },
+  {
+   "qid": "79327621",
+   "idx": 16,
+   "views": 15627,
+   "title": "Why does pasting text into VS Code take several seconds to complete?",
+   "state": "ok",
+   "n_answers": 4,
+   "literal": "windows 11 with wsl",
+   "weak_literal": "",
+   "target": {
+    "owner": "microsoft",
+    "repo": "vscode",
+    "number": 235959
+   },
+   "target_where": "other_answer",
+   "in_e168_24": true
+  },
+  {
+   "qid": "79671399",
+   "idx": 20,
+   "views": 14852,
+   "title": "Why is VS Code prompting me with \"An update is ready to install. Code is trying to add a new helper tool.\"",
+   "state": "ok",
+   "n_answers": 2,
+   "literal": "2025-06-18 14:26:44.137 [error] UpdateService error: The operation couldn\u2019t be completed. (OSStatus error -60006.)",
+   "weak_literal": "2025-06-18 14:26:44.137 [error] UpdateService error: The operation couldn\u2019t be completed. (OSStatus error -60006.)",
+   "target": {
+    "owner": "microsoft",
+    "repo": "vscode",
+    "number": 7426
+   },
+   "target_where": "other_answer",
+   "in_e168_24": true
+  },
+  {
+   "qid": "79551968",
+   "idx": 32,
+   "views": 11572,
+   "title": "Xcode 16.3 : Facing issue with gRPC-Core pod. \"A template argument list is expected after a name prefixed by the template keyword\"",
+   "state": "ok",
+   "n_answers": 3,
+   "literal": "pods, which use the",
+   "weak_literal": "googleapis",
+   "target": {
+    "owner": "firebase",
+    "repo": "firebase-ios-sdk",
+    "number": 14643
+   },
+   "target_where": "other_answer",
+   "in_e168_24": true
+  },
+  {
+   "qid": "79642080",
+   "idx": 35,
+   "views": 11153,
+   "title": "Using Claude Sonnet 4 in Visual Studio Code",
+   "state": "ok",
+   "n_answers": 2,
+   "literal": "A list of checkable model versions shows up, but it only contains: Claude 3.5 Haiku , Claude 3.5 Sonnet and Claude 3.7 Sonnet . I expected to be able to choose the 4 versions, but I",
+   "weak_literal": "m using Visual Studio Code Copilot AI chat with my Anthropic API keys. I should be now able to choose Claude Sonnet 4 as an available model, but it doesn",
+   "target": {
+    "owner": "microsoft",
+    "repo": "vscode",
+    "number": 255783
+   },
+   "target_where": "accepted",
+   "in_e168_24": true
+  },
+  {
+   "qid": "79888998",
+   "idx": 38,
+   "views": 10137,
+   "title": "VS Code Copilot Chat not showing local Ollama models in selection menu despite being detected in \"Language Models\" tab",
+   "state": "ok",
+   "n_answers": 3,
+   "literal": "In the Manage Models section, all my Ollama models (like qwen2.5-coder:14b , glm-4.7-flash , etc.) are listed and active.",
+   "weak_literal": "t bring up the local ones. What I",
+   "target": {
+    "owner": "microsoft",
+    "repo": "vscode-copilot-chat",
+    "number": 3566
+   },
+   "target_where": "other_answer",
+   "in_e168_24": true
+  },
+  {
+   "qid": "79768764",
+   "idx": 43,
+   "views": 8191,
+   "title": "Flutter iOS build error after iOS 26 rollout: Unable to find destination specifier on both simulator and physical device",
+   "state": "ok",
+   "n_answers": 3,
+   "literal": "Tried running on different iPhone simulators, but they fail with the same \u201cdestination not found\u201d error.",
+   "weak_literal": "Tried running on different iPhone simulators, but they fail with the same \u201cdestination not found\u201d error.",
+   "target": {
+    "owner": "flutter",
+    "repo": "flutter",
+    "number": 163984
+   },
+   "target_where": "other_answer",
+   "in_e168_24": true
+  },
+  {
+   "qid": "79674579",
+   "idx": 63,
+   "views": 3938,
+   "title": "Visual Studio Angular + ASP.NET Core project fails with \"Could not find file app.component.ts\"",
+   "state": "ok",
+   "n_answers": 7,
+   "literal": "I'm trying to create a new ASP.NET Core project with Angular using Visual Studio 2022. I selected the Angular template during project creation. However, after the project is generated, I get the follo",
+   "weak_literal": "I'm trying to create a new ASP.NET Core project with Angular using Visual Studio 2022. I selected the Angular template during project creation. However, after the project is generated, I get the follo",
+   "target": {
+    "owner": "dotnet",
+    "repo": "aspnetcore",
+    "number": 62258
+   },
+   "target_where": "accepted",
+   "in_e168_24": true
+  },
+  {
+   "qid": "79826631",
+   "idx": 65,
+   "views": 3611,
+   "title": "Ruby SSL_connect certificate verify failed: unable to get certificate CRL on macOS",
+   "state": "ok",
+   "n_answers": 3,
+   "literal": "Manually tested CRL with openssl verify -crl_check (fails due to CRL not reachable from my network).",
+   "weak_literal": "Manually tested CRL with openssl verify -crl_check (fails due to CRL not reachable from my network).",
+   "target": {
+    "owner": "openssl",
+    "repo": "openssl",
+    "number": 28758
+   },
+   "target_where": "other_answer",
+   "in_e168_24": true
+  },
+  {
+   "qid": "79550279",
+   "idx": 66,
+   "views": 3466,
+   "title": "import numpy failed after upgrading MacOS to 15.4",
+   "state": "ok",
+   "n_answers": 8,
+   "literal": "Original error was: dlopen(/opt/miniconda3/envs/ho/lib/python3.12/site-packages/numpy/_core/_multiarray_umath.cpython-312-darwin.so, 0x0002): Library not loaded: @rpath/libgfortran.5.dylib",
+   "weak_literal": "Original error was: dlopen(/opt/miniconda3/envs/ho/lib/python3.12/site-packages/numpy/_core/_multiarray_umath.cpython-312-darwin.so, 0x0002): Library not loaded: @rpath/libgfortran.5.dylib",
+   "target": {
+    "owner": "conda-forge",
+    "repo": "numpy-feedstock",
+    "number": 347
+   },
+   "target_where": "other_answer",
+   "in_e168_24": true
+  },
+  {
+   "qid": "79429899",
+   "idx": 83,
+   "views": 2121,
+   "title": "Has IsNullOrEmpty been removed from Microsoft.Identity.Web?",
+   "state": "ok",
+   "n_answers": 1,
+   "literal": "Im upgrading my work project to .Net9 - we were using Microsoft.Identity.Web version 1.25.10 which supported the IsNullOrEmpty() method for JObjects, Ilists/Arrays/Ienumerables etc, but after updating",
+   "weak_literal": "Im upgrading my work project to .Net9 - we were using Microsoft.Identity.Web version 1.25.10 which supported the IsNullOrEmpty() method for JObjects, Ilists/Arrays/Ienumerables etc, but after updating",
+   "target": {
+    "owner": "AzureAD",
+    "repo": "azure-activedirectory-identitymodel-extensions-for-dotnet",
+    "number": 1722
+   },
+   "target_where": "accepted",
+   "in_e168_24": false
+  },
+  {
+   "qid": "79324837",
+   "idx": 97,
+   "views": 1519,
+   "title": "Rstudio up arrow key does not display the last run command on console",
+   "state": "ok",
+   "n_answers": 1,
+   "literal": ":platform_info()",
+   "weak_literal": "",
+   "target": {
+    "owner": "rstudio",
+    "repo": "rstudio",
+    "number": 7945
+   },
+   "target_where": "accepted",
+   "in_e168_24": false
+  },
+  {
+   "qid": "79821337",
+   "idx": 135,
+   "views": 819,
+   "title": "Not displaying DataFrame's name in Data Wrangler extension of VSCode, displaying \"Data grid\"",
+   "state": "ok",
+   "n_answers": 1,
+   "literal": "But now, it doesn't show the dataframe's name and just writes \"Data grid\", so when I open different dataframes, I can't remember which tab is which dataframe and it is really frustrating me. Has anyon",
+   "weak_literal": "But now, it doesn't show the dataframe's name and just writes \"Data grid\", so when I open different dataframes, I can't remember which tab is which dataframe and it is really frustrating me. Has anyon",
+   "target": {
+    "owner": "microsoft",
+    "repo": "vscode-data-wrangler",
+    "number": 586
+   },
+   "target_where": "accepted",
+   "in_e168_24": false
+  }
+ ]
+}

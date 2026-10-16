@@ -1,0 +1,723 @@
+{
+ "summary": {
+  "rows": 13,
+  "fetch_errors": [],
+  "median_term_coverage": 0.625,
+  "rows_term_coverage_ge_half": 9,
+  "rows_term_coverage_zero": 2,
+  "median_longest_shared_run": 0,
+  "rows_shared_run_ge_3": 0,
+  "rows_literal_fully_contained": 4,
+  "by_literal_type": {
+   "error_message": {
+    "n": 6,
+    "cov_ge_half": 3
+   },
+   "ui_string": {
+    "n": 2,
+    "cov_ge_half": 1
+   },
+   "code_token": {
+    "n": 1,
+    "cov_ge_half": 1
+   },
+   "symptom_only": {
+    "n": 4,
+    "cov_ge_half": 4
+   }
+  },
+  "detail": [
+   {
+    "qid": "79344101",
+    "lit": "ui_string",
+    "cov": 0.3333,
+    "run": 0,
+    "contained": false,
+    "terms": [
+     "Docker.app",
+     "computer",
+     "damage"
+    ],
+    "covered": [
+     "Docker.app"
+    ],
+    "fix_title": "[Workaround in description] Mac is detecting Docker as a malware and keeping it ",
+    "fix_words": 992
+   },
+   {
+    "qid": "79327621",
+    "lit": "symptom_only",
+    "cov": 0.5,
+    "run": 0,
+    "contained": false,
+    "terms": [
+     "studio",
+     "visual",
+     "delay",
+     "paste",
+     "code",
+     "slow"
+    ],
+    "covered": [
+     "paste",
+     "code",
+     "slow"
+    ],
+    "fix_title": "Paste slow",
+    "fix_words": 426
+   },
+   {
+    "qid": "79671399",
+    "lit": "error_message",
+    "cov": 0.0,
+    "run": 0,
+    "contained": false,
+    "terms": [
+     "UpdateService",
+     "completed.",
+     "operation",
+     "OSStatus",
+     "60006.",
+     "couldn"
+    ],
+    "covered": [],
+    "fix_title": "Code won't update on macOS",
+    "fix_words": 181
+   },
+   {
+    "qid": "79551968",
+    "lit": "error_message",
+    "cov": 1.0,
+    "run": 0,
+    "contained": true,
+    "terms": [
+     "argument",
+     "expected",
+     "prefixed",
+     "template",
+     "keyword",
+     "list",
+     "name"
+    ],
+    "covered": [
+     "argument",
+     "expected",
+     "prefixed",
+     "template",
+     "keyword",
+     "list",
+     "name"
+    ],
+    "fix_title": "Xcode 16.3 Compile issue with gRPC-c++ with iOS 18.4 SDK",
+    "fix_words": 290
+   },
+   {
+    "qid": "79642080",
+    "lit": "symptom_only",
+    "cov": 0.75,
+    "run": 0,
+    "contained": false,
+    "terms": [
+     "Anthropic",
+     "showing",
+     "Claude",
+     "Sonnet",
+     "bring",
+     "model",
+     "list",
+     "key"
+    ],
+    "covered": [
+     "Anthropic",
+     "Claude",
+     "Sonnet",
+     "bring",
+     "model",
+     "key"
+    ],
+    "fix_title": "Missing Anthropic Sonnet 4 model with Bring Your Own Key from Github Coilot Chat",
+    "fix_words": 117
+   },
+   {
+    "qid": "79888998",
+    "lit": "symptom_only",
+    "cov": 0.625,
+    "run": 0,
+    "contained": false,
+    "terms": [
+     "selection",
+     "Copilot",
+     "missing",
+     "models",
+     "Ollama",
+     "model",
+     "Chat",
+     "menu"
+    ],
+    "covered": [
+     "Copilot",
+     "models",
+     "Ollama",
+     "model",
+     "Chat"
+    ],
+    "fix_title": "Fix tool calling detection and support for Ollama models",
+    "fix_words": 1359
+   },
+   {
+    "qid": "79768764",
+    "lit": "error_message",
+    "cov": 0.0,
+    "run": 0,
+    "contained": false,
+    "terms": [
+     "destination",
+     "specifier",
+     "matching",
+     "provided",
+     "Unable",
+     "find"
+    ],
+    "covered": [],
+    "fix_title": "Debug mode and hot reload fail on iOS 26 due to JIT restriction `error: mprotect",
+    "fix_words": 2020
+   },
+   {
+    "qid": "79674579",
+    "lit": "error_message",
+    "cov": 0.3333,
+    "run": 0,
+    "contained": false,
+    "terms": [
+     "app.component.ts",
+     "file",
+     "find"
+    ],
+    "covered": [
+     "app.component.ts"
+    ],
+    "fix_title": "Angular and ASP.NET Core Template fails on creation",
+    "fix_words": 199
+   },
+   {
+    "qid": "79826631",
+    "lit": "error_message",
+    "cov": 1.0,
+    "run": 0,
+    "contained": true,
+    "terms": [
+     "certificate",
+     "unable",
+     "verify",
+     "CRL"
+    ],
+    "covered": [
+     "certificate",
+     "unable",
+     "verify",
+     "CRL"
+    ],
+    "fix_title": "OpenSSL 3.6.0 results in error: certificate verify failed (unable to get certifi",
+    "fix_words": 275
+   },
+   {
+    "qid": "79550279",
+    "lit": "error_message",
+    "cov": 1.0,
+    "run": 0,
+    "contained": true,
+    "terms": [
+     "libgfortran.5.dylib",
+     "Library",
+     "loaded",
+     "rpath"
+    ],
+    "covered": [
+     "libgfortran.5.dylib",
+     "Library",
+     "loaded",
+     "rpath"
+    ],
+    "fix_title": "Numpy import error when using conda-forge build of numpy 2.2.3 // no issue with ",
+    "fix_words": 3528
+   },
+   {
+    "qid": "79429899",
+    "lit": "code_token",
+    "cov": 0.5,
+    "run": 0,
+    "contained": false,
+    "terms": [
+     "Microsoft.Identity.Web",
+     "IsNullOrEmpty",
+     "removed",
+     "3.7.0"
+    ],
+    "covered": [
+     "Microsoft.Identity.Web",
+     "IsNullOrEmpty"
+    ],
+    "fix_title": "Conflict with Microsoft.IdentityModel.Tokens.CollectionUtilities.IsNullOrEmpty e",
+    "fix_words": 274
+   },
+   {
+    "qid": "79324837",
+    "lit": "symptom_only",
+    "cov": 1.0,
+    "run": 0,
+    "contained": false,
+    "terms": [
+     "console",
+     "history",
+     "rstudio",
+     "working",
+     "arrow"
+    ],
+    "covered": [
+     "console",
+     "history",
+     "rstudio",
+     "working",
+     "arrow"
+    ],
+    "fix_title": "Up and Down arrow keys in Console to navigate last commands don't work correctly",
+    "fix_words": 598
+   },
+   {
+    "qid": "79821337",
+    "lit": "ui_string",
+    "cov": 1.0,
+    "run": 0,
+    "contained": true,
+    "terms": [
+     "Data",
+     "grid"
+    ],
+    "covered": [
+     "Data",
+     "grid"
+    ],
+    "fix_title": "Data Wrangler Tab not showing variable name",
+    "fix_words": 649
+   }
+  ]
+ },
+ "rows": [
+  {
+   "qid": "79344101",
+   "target": {
+    "owner": "docker",
+    "repo": "for-mac",
+    "number": 7520
+   },
+   "state": "open",
+   "literal_type": "ui_string",
+   "post_literal": "Docker.app will damage your computer",
+   "post_terms": [
+    "Docker.app",
+    "computer",
+    "damage"
+   ],
+   "terms_covered": [
+    "Docker.app"
+   ],
+   "term_coverage": 0.3333,
+   "literal_words": 6,
+   "longest_shared_word_run": 0,
+   "literal_contained": false,
+   "fix_title": "[Workaround in description] Mac is detecting Docker as a malware and keeping it from starting",
+   "fix_text_words": 992,
+   "comments_fetched": 3,
+   "comments_error": null,
+   "thread_coverage": 1.0
+  },
+  {
+   "qid": "79327621",
+   "target": {
+    "owner": "microsoft",
+    "repo": "vscode",
+    "number": 235959
+   },
+   "state": "closed",
+   "literal_type": "symptom_only",
+   "post_literal": "paste slow delay visual studio code",
+   "post_terms": [
+    "studio",
+    "visual",
+    "delay",
+    "paste",
+    "code",
+    "slow"
+   ],
+   "terms_covered": [
+    "paste",
+    "code",
+    "slow"
+   ],
+   "term_coverage": 0.5,
+   "literal_words": 6,
+   "longest_shared_word_run": 0,
+   "literal_contained": false,
+   "fix_title": "Paste slow",
+   "fix_text_words": 426,
+   "comments_fetched": 3,
+   "comments_error": null,
+   "thread_coverage": 1.0
+  },
+  {
+   "qid": "79671399",
+   "target": {
+    "owner": "microsoft",
+    "repo": "vscode",
+    "number": 7426
+   },
+   "state": "closed",
+   "literal_type": "error_message",
+   "post_literal": "UpdateService error: The operation couldn't be completed. (OSStatus error -60006.)",
+   "post_terms": [
+    "UpdateService",
+    "completed.",
+    "operation",
+    "OSStatus",
+    "60006.",
+    "couldn"
+   ],
+   "terms_covered": [],
+   "term_coverage": 0.0,
+   "literal_words": 11,
+   "longest_shared_word_run": 0,
+   "literal_contained": false,
+   "fix_title": "Code won't update on macOS",
+   "fix_text_words": 181,
+   "comments_fetched": 3,
+   "comments_error": null,
+   "thread_coverage": 1.0
+  },
+  {
+   "qid": "79551968",
+   "target": {
+    "owner": "firebase",
+    "repo": "firebase-ios-sdk",
+    "number": 14643
+   },
+   "state": "closed",
+   "literal_type": "error_message",
+   "post_literal": "A template argument list is expected after a name prefixed by the template keyword",
+   "post_terms": [
+    "argument",
+    "expected",
+    "prefixed",
+    "template",
+    "keyword",
+    "list",
+    "name"
+   ],
+   "terms_covered": [
+    "argument",
+    "expected",
+    "prefixed",
+    "template",
+    "keyword",
+    "list",
+    "name"
+   ],
+   "term_coverage": 1.0,
+   "literal_words": 14,
+   "longest_shared_word_run": 0,
+   "literal_contained": true,
+   "fix_title": "Xcode 16.3 Compile issue with gRPC-c++ with iOS 18.4 SDK",
+   "fix_text_words": 290,
+   "comments_fetched": 3,
+   "comments_error": null,
+   "thread_coverage": 0.1429
+  },
+  {
+   "qid": "79642080",
+   "target": {
+    "owner": "microsoft",
+    "repo": "vscode",
+    "number": 255783
+   },
+   "state": "closed",
+   "literal_type": "symptom_only",
+   "post_literal": "Claude Sonnet 4 not showing up model list Anthropic bring your own key",
+   "post_terms": [
+    "Anthropic",
+    "showing",
+    "Claude",
+    "Sonnet",
+    "bring",
+    "model",
+    "list",
+    "key"
+   ],
+   "terms_covered": [
+    "Anthropic",
+    "Claude",
+    "Sonnet",
+    "bring",
+    "model",
+    "key"
+   ],
+   "term_coverage": 0.75,
+   "literal_words": 13,
+   "longest_shared_word_run": 0,
+   "literal_contained": false,
+   "fix_title": "Missing Anthropic Sonnet 4 model with Bring Your Own Key from Github Coilot Chat and Agentic mode",
+   "fix_text_words": 117,
+   "comments_fetched": 1,
+   "comments_error": null,
+   "thread_coverage": 0.875
+  },
+  {
+   "qid": "79888998",
+   "target": {
+    "owner": "microsoft",
+    "repo": "vscode-copilot-chat",
+    "number": 3566
+   },
+   "state": "closed",
+   "literal_type": "symptom_only",
+   "post_literal": "Ollama models missing from Copilot Chat model selection menu",
+   "post_terms": [
+    "selection",
+    "Copilot",
+    "missing",
+    "models",
+    "Ollama",
+    "model",
+    "Chat",
+    "menu"
+   ],
+   "terms_covered": [
+    "Copilot",
+    "models",
+    "Ollama",
+    "model",
+    "Chat"
+   ],
+   "term_coverage": 0.625,
+   "literal_words": 9,
+   "longest_shared_word_run": 0,
+   "literal_contained": false,
+   "fix_title": "Fix tool calling detection and support for Ollama models",
+   "fix_text_words": 1359,
+   "comments_fetched": 3,
+   "comments_error": null,
+   "thread_coverage": 1.0
+  },
+  {
+   "qid": "79768764",
+   "target": {
+    "owner": "flutter",
+    "repo": "flutter",
+    "number": 163984
+   },
+   "state": "closed",
+   "literal_type": "error_message",
+   "post_literal": "Unable to find a destination matching the provided destination specifier",
+   "post_terms": [
+    "destination",
+    "specifier",
+    "matching",
+    "provided",
+    "Unable",
+    "find"
+   ],
+   "terms_covered": [],
+   "term_coverage": 0.0,
+   "literal_words": 10,
+   "longest_shared_word_run": 0,
+   "literal_contained": false,
+   "fix_title": "Debug mode and hot reload fail on iOS 26 due to JIT restriction `error: mprotect failed: 13 (Permission denied)`",
+   "fix_text_words": 2020,
+   "comments_fetched": 3,
+   "comments_error": null,
+   "thread_coverage": 1.0
+  },
+  {
+   "qid": "79674579",
+   "target": {
+    "owner": "dotnet",
+    "repo": "aspnetcore",
+    "number": 62258
+   },
+   "state": "closed",
+   "literal_type": "error_message",
+   "post_literal": "Could not find file 'app.component.ts'",
+   "post_terms": [
+    "app.component.ts",
+    "file",
+    "find"
+   ],
+   "terms_covered": [
+    "app.component.ts"
+   ],
+   "term_coverage": 0.3333,
+   "literal_words": 7,
+   "longest_shared_word_run": 0,
+   "literal_contained": false,
+   "fix_title": "Angular and ASP.NET Core Template fails on creation",
+   "fix_text_words": 199,
+   "comments_fetched": 3,
+   "comments_error": null,
+   "thread_coverage": 1.0
+  },
+  {
+   "qid": "79826631",
+   "target": {
+    "owner": "openssl",
+    "repo": "openssl",
+    "number": 28758
+   },
+   "state": "closed",
+   "literal_type": "error_message",
+   "post_literal": "certificate verify failed (unable to get certificate CRL)",
+   "post_terms": [
+    "certificate",
+    "unable",
+    "verify",
+    "CRL"
+   ],
+   "terms_covered": [
+    "certificate",
+    "unable",
+    "verify",
+    "CRL"
+   ],
+   "term_coverage": 1.0,
+   "literal_words": 8,
+   "longest_shared_word_run": 0,
+   "literal_contained": true,
+   "fix_title": "OpenSSL 3.6.0 results in error: certificate verify failed (unable to get certificate CRL)",
+   "fix_text_words": 275,
+   "comments_fetched": 3,
+   "comments_error": null,
+   "thread_coverage": 1.0
+  },
+  {
+   "qid": "79550279",
+   "target": {
+    "owner": "conda-forge",
+    "repo": "numpy-feedstock",
+    "number": 347
+   },
+   "state": "open",
+   "literal_type": "error_message",
+   "post_literal": "Library not loaded: @rpath/libgfortran.5.dylib",
+   "post_terms": [
+    "libgfortran.5.dylib",
+    "Library",
+    "loaded",
+    "rpath"
+   ],
+   "terms_covered": [
+    "libgfortran.5.dylib",
+    "Library",
+    "loaded",
+    "rpath"
+   ],
+   "term_coverage": 1.0,
+   "literal_words": 7,
+   "longest_shared_word_run": 0,
+   "literal_contained": true,
+   "fix_title": "Numpy import error when using conda-forge build of numpy 2.2.3 // no issue with pip",
+   "fix_text_words": 3528,
+   "comments_fetched": 3,
+   "comments_error": null,
+   "thread_coverage": 1.0
+  },
+  {
+   "qid": "79429899",
+   "target": {
+    "owner": "AzureAD",
+    "repo": "azure-activedirectory-identitymodel-extensions-for-dotnet",
+    "number": 1722
+   },
+   "state": "closed",
+   "literal_type": "code_token",
+   "post_literal": "IsNullOrEmpty Microsoft.Identity.Web 3.7.0 removed",
+   "post_terms": [
+    "Microsoft.Identity.Web",
+    "IsNullOrEmpty",
+    "removed",
+    "3.7.0"
+   ],
+   "terms_covered": [
+    "Microsoft.Identity.Web",
+    "IsNullOrEmpty"
+   ],
+   "term_coverage": 0.5,
+   "literal_words": 8,
+   "longest_shared_word_run": 0,
+   "literal_contained": false,
+   "fix_title": "Conflict with Microsoft.IdentityModel.Tokens.CollectionUtilities.IsNullOrEmpty extension",
+   "fix_text_words": 274,
+   "comments_fetched": 3,
+   "comments_error": null,
+   "thread_coverage": 1.0
+  },
+  {
+   "qid": "79324837",
+   "target": {
+    "owner": "rstudio",
+    "repo": "rstudio",
+    "number": 7945
+   },
+   "state": "closed",
+   "literal_type": "symptom_only",
+   "post_literal": "rstudio console up arrow history not working",
+   "post_terms": [
+    "console",
+    "history",
+    "rstudio",
+    "working",
+    "arrow"
+   ],
+   "terms_covered": [
+    "console",
+    "history",
+    "rstudio",
+    "working",
+    "arrow"
+   ],
+   "term_coverage": 1.0,
+   "literal_words": 7,
+   "longest_shared_word_run": 0,
+   "literal_contained": false,
+   "fix_title": "Up and Down arrow keys in Console to navigate last commands don't work correctly anymore ",
+   "fix_text_words": 598,
+   "comments_fetched": 3,
+   "comments_error": null,
+   "thread_coverage": 0.8
+  },
+  {
+   "qid": "79821337",
+   "target": {
+    "owner": "microsoft",
+    "repo": "vscode-data-wrangler",
+    "number": 586
+   },
+   "state": "open",
+   "literal_type": "ui_string",
+   "post_literal": "Data grid",
+   "post_terms": [
+    "Data",
+    "grid"
+   ],
+   "terms_covered": [
+    "Data",
+    "grid"
+   ],
+   "term_coverage": 1.0,
+   "literal_words": 2,
+   "longest_shared_word_run": 0,
+   "literal_contained": true,
+   "fix_title": "Data Wrangler Tab not showing variable name",
+   "fix_text_words": 649,
+   "comments_fetched": 3,
+   "comments_error": null,
+   "thread_coverage": 1.0
+  }
+ ]
+}

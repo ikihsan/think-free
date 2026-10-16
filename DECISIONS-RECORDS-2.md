@@ -6,7 +6,7 @@ last-verified: 2026-10-14
 
 # Decisions — records (continued)
 
-Decisions **D110, D112, D113**. Each entry records a choice that was genuinely open, the
+Decisions **D110, D112, D113, D114**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
 
 The second half of [`DECISIONS-RECORDS.md`](DECISIONS-RECORDS.md), split on
@@ -146,3 +146,55 @@ headline rests on (13/13) and unmeasured over the other 72 `vp = 1` rows.
 The Jaccard of 0.4417 against E126's independent `answerable`/`specific`
 labels says the two screens see different rows at both edges; which edge is
 right is not established.
+
+## D114 — "the strongest accessible alternative" must state whether it can retrieve, and an instrument-limited rate is not a rate
+
+**Date:** 2026-10-16. Evidence: F130, and E169's instrument findings.
+
+**What this is about.** Thirteen service closures in this record read
+"the strongest accessible alternative serves it". The alternative in every one
+of them was a free general assistant **with no retrieval** — a fact stated once,
+in E091, and then carried silently through twelve venues, a classifier redesign
+and a candidate seat. E168's addendum named the problem on its own rows: 20 of
+24 threads point at an external fix, and the resolution is sitting in a
+searchable issue tracker.
+
+**The decision.** A service screen declares, in its protocol, three things
+before any population is read:
+
+1. **whether the alternative may retrieve**, and if so from what index;
+2. **the instrument that will be used to check whether the alternative reaches
+   the fix**, and its own positive control;
+3. **what the number is not**, when the index is narrower than the class.
+
+A pool-level rate from a narrower instrument is reported as a bound on that
+instrument, never as the class's serving rate. Two rates from different
+instruments are not compared, and a closure that rests on one is re-opened
+rather than generalised.
+
+**Why this is a decision and not a note.** The gates this repository already
+has did not catch it. A gate that reads its own environment checks the
+environment it recorded (F018, F019). E169 declared a reachability gate whose
+instrument could not fire, and **the instrument's own positive control is what
+proved it** — 3 of 13, then 13 of 13 — after the treatment arm had already
+produced a clean-looking 1 of 13. The general rule this adds: **a screen's
+baseline must be validated by feeding it a case the screen would be expected to
+find, and a control that cannot fail is a control that has not run.** E169's
+G1 is the degenerate version of the same thing — both columns were 1 on all 20
+rows, so its agreement statistic was 20 of 20 whatever the extractor did.
+
+**Rejected: re-running the twelve closures with a retrieval-enabled arm.**
+This host has no general web search (F130), so the re-run cannot happen here and
+a closure re-opened without a reachable instrument produces a number with no
+denominator. Rejected: **treating containment as a substitute for the
+search-enabled baseline.** Containment is the necessary condition for a match
+and says nothing about ranking, and it is recorded as an obstruction screen, not
+as a service rate. Rejected: **a standing "this host has no web search" rule.**
+The boundary is a property of the measurement's question, not of the machine;
+a protocol that needs search must say so and stop, and one that needs a single
+resource must fetch the resource.
+
+**Ceiling.** This decision constrains future screens and revokes the wording of
+thirteen closures; it does not re-open any of them, because no reachable
+instrument here could re-open them. What it does buy is that the next screen
+that *can* run will say which alternative it beat.

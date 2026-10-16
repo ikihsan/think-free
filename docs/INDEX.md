@@ -421,6 +421,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/166-devto-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | owner: docs/INDEX.md |
 | `EXPERIMENTS/167-wikipedia-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | owner: docs/INDEX.md |
 | `EXPERIMENTS/168-version-pinned-need/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 2 documents |
+| `EXPERIMENTS/169-version-pinned-reach/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 4 documents |
 | `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |

@@ -124,6 +124,18 @@ decisive version first: from `threads.json` alone, how often the top answer's
 linked source is reachable by the exact error string as a query. That bounds
 the search arm's ceiling with no assistant in the loop, and costs one script.
 
+> **RUN as E169 (2026-10-16) — both claims in this paragraph are corrected.**
+> That script ran, and its own positive control failed (3 of 13, then 13 of 13),
+> so the search arms were **withdrawn** rather than reported: a target's own quoted
+> title returns 17,033,706 hits from GitHub's unauthenticated issue search (F130).
+> And **"`github.com` in 15 of 24" does not reproduce** from `threads.json` — 12 by
+> `href`, 13 counting gists; "20 of 24 link out" does reproduce, under any URL
+> occurrence in any answer, which is a statement about the thread rather than about
+> the resolution. E169 replaced the instrument with containment and closed the class
+> as served by the thread: **9 of 13 ≥ 0.5 term coverage, 0 of 13 share a 3-word run
+> with the fix, ≥ 0.8 coverage against the whole thread on 12 of 13**. See
+> [`EXPERIMENTS/169-version-pinned-reach/RESULT.md`](EXPERIMENTS/169-version-pinned-reach/RESULT.md).
+
 **G3 on a fresh blinded sample, if that arm is run.** G1 sized the class (85 of 299 = 0.2843, Wilson [0.2361, 0.3379],
 14× E126's program-shaped residue) and G2 measured the alternative on it (11 of
 24 = 0.4583 against E126's pool-level 0.6750, Fisher p = 0.1168). Neither says
