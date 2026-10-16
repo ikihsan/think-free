@@ -31,12 +31,17 @@ out up down off on at by as is are was were were be been to in on of""".split())
 
 
 def norm_target(owner, repo, number):
-    return "%s/%s#%d" % (owner.lower(), repo.lower(), number)
+    return "%s/%s#%d" % (owner.lower(), repo.lower(), int(number))
+
+
+def target_key(target):
+    """`owner/repo#number` from a target dict (`*target` would unpack its keys)."""
+    return norm_target(target["owner"], target["repo"], target["number"])
 
 
 def rank_of(items, target):
     """1-based position of the target among returned items, else None."""
-    want = norm_target(*target)
+    want = target_key(target)
     for i, it in enumerate(items, start=1):
         m = _TRACK.search(it.get("html_url") or "")
         if m and norm_target(m.group(1), m.group(2), int(m.group(3))) == want:
@@ -96,13 +101,14 @@ def control_phrase(body):
     Deterministic and offline: it never consults the index, so it cannot be
     tuned toward whatever the index happens to like.
     """
-    toks = [t for t in re.split(r"\s+", body or "")
-            if len(t) >= 3 and not _STOP.match(t.lower().strip(".,;:()[]<>"))
+    stripped = [t.strip(".,;:()[]<>`\"'") for t in re.split(r"\s+", body or "")]
+    toks = [t for t in stripped
+            if len(t) >= 3 and t.lower() not in _STOP
             and re.search(r"[A-Za-z0-9]", t)]
     for n in (3, 2):
         if len(toks) >= n:
             return " ".join(toks[:n])
-    return " ".join(toks)
+    return " ".join(toks) if toks else ""
 
 
 def arms(row, target):

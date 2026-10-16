@@ -83,15 +83,23 @@ def main():
     save("verify.json", verify)
 
     # ---- fetch targets, then build the control phrase ---------------------
-    targets = {}
-    for r in rows:
-        t = r["target"]
-        doc, err = gs.fetch_target(t["owner"], t["repo"], t["number"])
-        targets[r["qid"]] = doc
-        r["target_error"] = err
-        print("fetched %s/%s#%d %s" % (t["owner"], t["repo"], t["number"],
-                                       "ok" if doc else err))
-    save("targets.json", targets)
+    # Cached on disk: the core API allows 60 requests/hour unauthenticated and a
+    # re-run must not spend the budget twice.
+    tpath = os.path.join(RAW, "targets.json")
+    if os.path.exists(tpath):
+        with open(tpath) as fh:
+            targets = json.load(fh)
+        print("reusing %d cached target documents" % len(targets))
+    else:
+        targets = {}
+        for r in rows:
+            t = r["target"]
+            doc, err = gs.fetch_target(t["owner"], t["repo"], t["number"])
+            targets[r["qid"]] = doc
+            r["target_error"] = err
+            print("fetched %s/%s#%d %s" % (t["owner"], t["repo"], t["number"],
+                                           "ok" if doc else err))
+        save("targets.json", targets)
 
     # ---- G0 positive control, G5 placebo, then the arms --------------------
     for r in rows:
