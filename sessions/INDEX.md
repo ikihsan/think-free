@@ -8,13 +8,14 @@ last-verified: 2026-10-16
 
 <!-- generated-by: origin; do not edit by hand -->
 
-410 recorded session(s). One `events.jsonl` per session, so concurrent
+411 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 385 older session(s) are in the directory listing.
+Showing the 25 most recent. 386 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-16-005-e170-measure-ranked-reachability-of-a-pu](2026-10-16-005-e170-measure-ranked-reachability-of-a-pu/README.md) | unknown-agent | worked | E170: measure ranked reachability of a published fix on a live index — | 2026-10-16T06:21 |
 | [2026-10-16-004-e169-measure-whether-the-error-string-in](2026-10-16-004-e169-measure-whether-the-error-string-in/README.md) | unknown-agent | worked | E169: measure whether the error string in each version-pinned failure  | 2026-10-16T05:23 |
 | [2026-10-16-003-record-the-e168-addendum-checks-link-out](2026-10-16-003-record-the-e168-addendum-checks-link-out/README.md) | unknown-agent | worked | Record the E168 addendum checks (link-out count, retrieval handles) an | 2026-10-16T03:47 |
 | [2026-10-16-002-log-the-e168-artifacts-the-finish-report](2026-10-16-002-log-the-e168-artifacts-the-finish-report/README.md) | unknown-agent | worked | Log the E168 artifacts the finish report named as unlogged, and record | 2026-10-16T03:38 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 385 older session(s) are in the directory listing.
 | [2026-10-15-013-run-e160-github-devops-repos-view-count](2026-10-15-013-run-e160-github-devops-repos-view-count/README.md) | unknown-agent | worked | Run E160: GitHub devops repos view-count principle fresh observation | 2026-10-15T15:40 |
 | [2026-10-15-012-document-view-count-principle-topic-depe](2026-10-15-012-document-view-count-principle-topic-depe/README.md) | unknown-agent | worked | Document view-count principle topic-dependent boundary condition and d | 2026-10-15T15:33 |
 | [2026-10-15-011-finalize-and-summarize-e150-e151-results](2026-10-15-011-finalize-and-summarize-e150-e151-results/README.md) | unknown-agent | worked | Finalize and summarize E150/E151 results | 2026-10-15T14:32 |
-| [2026-10-15-010-finalize-decision-and-continuation-for-e](2026-10-15-010-finalize-decision-and-continuation-for-e/README.md) | unknown-agent | worked | Finalize decision and continuation for E150/E151 view-count principle  | 2026-10-15T14:31 |
 
 
 ## Reading a session

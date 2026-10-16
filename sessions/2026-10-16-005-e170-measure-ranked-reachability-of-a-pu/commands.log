@@ -1,0 +1,635 @@
+==============================================================================
+[seq 2] 2026-10-16T05:24:56+00:00
+$ python3 -c 
+import json, urllib.parse, urllib.request, time
+def q(s, **kw):
+    p = {'q': s, 'per_page': 10}
+    p.update(kw)
+    url = 'https://api.github.com/search/issues?' + urllib.parse.urlencode(p)
+    r = urllib.request.Request(url, headers={'User-Agent':'think-free-e170/0.1','Accept':'application/vnd.github+json'})
+    try:
+        with urllib.request.urlopen(r, timeout=45) as fh:
+            d = json.loads(fh.read().decode())
+            return d.get('total_count'), len(d.get('items',[])), [i.get('html_url') for i in d.get('items',[])[:3]]
+    except Exception as e:
+        return 'ERR', type(e).__name__, str(e)[:120]
+print('nonsense:', q('zzqxvbnmklpwrts fhjkqvwxz 9987'))
+time.sleep(7)
+print('rare phrase from a known issue body:')
+print(' past slow:', q('"pasting text" "several seconds"'))
+time.sleep(7)
+print('common phrase:', q('"does not work"'))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+nonsense: (2436, 10, ['https://github.com/elastic/elasticsearch/issues/9987', 'https://github.com/openshift/origin/issues/9987', 'https://github.com/TryGhost/Ghost/issues/9987'])
+rare phrase from a known issue body:
+ past slow: (168, 10, ['https://github.com/atom/spell-check/issues/242', 'https://github.com/microsoft/vscode/issues/299786', 'https://github.com/clearlinux/distribution/issues/1661'])
+common phrase: (3750900, 10, ['https://github.com/Redth/MAUI.Sherpa/pull/277', 'https://github.com/manhgdev/Block-OTA-Update/issues/1', 'https://github.com/WebKit/WebKit/pull/77127'])
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 19138  redactions: none
+==============================================================================
+[seq 3] 2026-10-16T05:25:37+00:00
+$ python3 -c 
+import json, urllib.parse, urllib.request, time
+def q(s, **kw):
+    p = {'q': s, 'per_page': 5}
+    p.update(kw)
+    url = 'https://api.github.com/search/issues?' + urllib.parse.urlencode(p)
+    r = urllib.request.Request(url, headers={'User-Agent':'think-free-e170/0.1','Accept':'application/vnd.github+json'})
+    try:
+        with urllib.request.urlopen(r, timeout=45) as fh:
+            d = json.loads(fh.read().decode())
+            return d.get('total_count'), [i.get('html_url') for i in d.get('items',[])[:5]]
+    except Exception as e:
+        return 'ERR', type(e).__name__ + ':' + str(e)[:100]
+tests = [
+  ('nonsense, no digits', 'zzqxvbnmklpwrts fhjkqvwxz'),
+  ('phrase in title, repo-scoped', '"pasting text" in:title repo:microsoft/vscode'),
+  ('words in title, repo-scoped', 'paste slow in:title repo:microsoft/vscode'),
+  ('words in body, repo-scoped', 'paste slow in:body repo:microsoft/vscode'),
+]
+for label, s in tests:
+    print(label, '|', repr(s), '->', q(s))
+    time.sleep(7)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+nonsense, no digits | 'zzqxvbnmklpwrts fhjkqvwxz' -> (0, [])
+phrase in title, repo-scoped | '"pasting text" in:title repo:microsoft/vscode' -> (80, ['https://github.com/microsoft/vscode/issues/336429', 'https://github.com/microsoft/vscode/issues/311311', 'https://github.com/microsoft/vscode/issues/244271', 'https://github.com/microsoft/vscode/issues/320220', 'https://github.com/microsoft/vscode/issues/77492'])
+words in title, repo-scoped | 'paste slow in:title repo:microsoft/vscode' -> (13, ['https://github.com/microsoft/vscode/issues/299786', 'https://github.com/microsoft/vscode/issues/259394', 'https://github.com/microsoft/vscode/issues/268480', 'https://github.com/microsoft/vscode/issues/262812', 'https://github.com/microsoft/vscode/issues/240126'])
+words in body, repo-scoped | 'paste slow in:body repo:microsoft/vscode' -> (130, ['https://github.com/microsoft/vscode/issues/239897', 'https://github.com/microsoft/vscode/issues/299786', 'https://github.com/microsoft/vscode/pull/325609', 'https://github.com/microsoft/vscode/issues/267703', 'https://github.com/microsoft/vscode/issues/129607'])
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 31166  redactions: none
+==============================================================================
+[seq 4] 2026-10-16T05:28:16+00:00
+$ python3 EXPERIMENTS/170-fix-reachability-rank/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+fetched rstudio/rstudio#7945 ok
+fetched microsoft/vscode#235959 ok
+fetched docker/for-mac#7520 ok
+fetched AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet#1722 ok
+fetched conda-forge/numpy-feedstock#347 ok
+fetched firebase/firebase-ios-sdk#14643 ok
+fetched microsoft/vscode#255783 ok
+fetched microsoft/vscode#7426 ok
+fetched dotnet/aspnetcore#62258 ok
+fetched flutter/flutter#163984 ok
+fetched microsoft/vscode-data-wrangler#586 ok
+fetched openssl/openssl#28758 ok
+fetched microsoft/vscode-copilot-chat#3566 ok
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/170-fix-reachability-rank/run.py", line 131, in <module>
+    main()
+  File "EXPERIMENTS/170-fix-reachability-rank/run.py", line 100, in main
+    phrase = gs.control_phrase(doc.get("body", ""))
+  File "/home/ubuntu/think-free/EXPERIMENTS/170-fix-reachability-rank/ghsearch.py", line 99, in control_phrase
+    toks = [t for t in re.split(r"\s+", body or "")
+  File "/home/ubuntu/think-free/EXPERIMENTS/170-fix-reachability-rank/ghsearch.py", line 100, in <listcomp>
+    if len(t) >= 3 and not _STOP.match(t.lower().strip(".,;:()[]<>"))
+AttributeError: 'set' object has no attribute 'match'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 61498  redactions: none
+==============================================================================
+[seq 5] 2026-10-16T05:29:16+00:00
+$ python3 EXPERIMENTS/170-fix-reachability-rank/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+reusing 13 cached target documents
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/170-fix-reachability-rank/run.py", line 139, in <module>
+    main()
+  File "EXPERIMENTS/170-fix-reachability-rank/run.py", line 112, in main
+    r["control_rank"] = gs.rank_of(items, tgt)
+  File "/home/ubuntu/think-free/EXPERIMENTS/170-fix-reachability-rank/ghsearch.py", line 39, in rank_of
+    want = norm_target(*target)
+  File "/home/ubuntu/think-free/EXPERIMENTS/170-fix-reachability-rank/ghsearch.py", line 34, in norm_target
+    return "%s/%s#%d" % (owner.lower(), repo.lower(), number)
+TypeError: %d format: a number is required, not str
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 45297  redactions: none
+==============================================================================
+[seq 6] 2026-10-16T05:30:33+00:00
+$ python3 EXPERIMENTS/170-fix-reachability-rank/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+reusing 13 cached target documents
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/170-fix-reachability-rank/run.py", line 139, in <module>
+    main()
+  File "EXPERIMENTS/170-fix-reachability-rank/run.py", line 112, in main
+    r["control_rank"] = gs.rank_of(items, tgt)
+  File "/home/ubuntu/think-free/EXPERIMENTS/170-fix-reachability-rank/ghsearch.py", line 39, in rank_of
+    want = norm_target(*target)
+  File "/home/ubuntu/think-free/EXPERIMENTS/170-fix-reachability-rank/ghsearch.py", line 34, in norm_target
+    return "%s/%s#%d" % (owner.lower(), repo.lower(), number)
+TypeError: %d format: a number is required, not str
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 44294  redactions: none
+==============================================================================
+[seq 7] 2026-10-16T05:44:17+00:00
+$ python3 EXPERIMENTS/170-fix-reachability-rank/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+reusing 13 cached target documents
+control 79324837 rank=None total=718258 ['https://github.com/thorvg/thorvg/pull/4920', 'https://github.com/react/metro/issues/1928']
+placebo 79324837 rank=None total=64744
+arms done 79324837
+control 79327621 rank=None total=64744 ['https://github.com/Alamofire/Foundation/issues/93', 'https://github.com/Alamofire/Foundation/issues/92']
+placebo 79327621 rank=None total=265126
+arms done 79327621
+control 79344101 rank=None total=265126 ['https://github.com/google/gvisor/issues/14961', 'https://github.com/wader/postfix-relay/issues/377']
+placebo 79344101 rank=None total=None
+arms done 79344101
+control 79429899 rank=None total=None []
+placebo 79429899 rank=None total=1966131
+arms done 79429899
+control 79550279 rank=None total=1966131 ['https://github.com/mate-academy/py-fastapi-library-management-api/pull/763', 'https://github.com/mate-academy/devops_todolist_docker_core_task_2_volumes/pull/342']
+placebo 79550279 rank=None total=8106064
+arms done 79550279
+control 79551968 rank=None total=8106064 ['https://github.com/nl-design-system/candidate/pull/1576', 'https://github.com/Matthias2703/ha-calendar-bridge/issues/28']
+placebo 79551968 rank=None total=9044329
+arms done 79551968
+control 79642080 rank=None total=9044354 ['https://github.com/azerty9971/xtend_tuya/issues/1068', 'https://github.com/ryfineZ/carrier-ims-for-pixel/issues/164']
+placebo 79642080 rank=None total=1717656
+arms done 79642080
+control 79671399 rank=None total=1717657 ['https://github.com/ajfitzh/kingdom-baptist-v2/pull/1', 'https://github.com/DeepinkApp/deepink/issues/369']
+placebo 79671399 rank=None total=353
+arms done 79671399
+control 79674579 rank=None total=353 ['https://github.com/aberus/ImageVisualizer/issues/16', 'https://github.com/Webeleon/typecript-npm-package-starter/pull/480']
+placebo 79674579 rank=None total=12957
+arms done 79674579
+control 79768764 rank=None total=12957 ['https://github.com/getheca/heca-issues/issues/219', 'https://github.com/geastack/examples/pull/2']
+placebo 79768764 rank=None total=190
+arms done 79768764
+control 79821337 rank=None total=190 ['https://github.com/Yarl-IT/yarlit-rukhsan-java/issues/50', 'https://github.com/Yarl-IT/yarlit-nigash-java/issues/180']
+placebo 79821337 rank=None total=17761
+arms done 79821337
+control 79826631 rank=None total=17761 ['https://github.com/OutlineFoundation/outline-server/issues/1110', 'https://github.com/Musheer360/aws-calculator-mcp/issues/4']
+placebo 79826631 rank=None total=55863260
+arms done 79826631
+control 79888998 rank=None total=55863278 ['https://github.com/tronprotocol/java-tron/issues/6969', 'https://github.com/federicomariacalato/management-software/issues/15']
+placebo 79888998 rank=None total=718269
+arms done 79888998
+E170 fetch and arms complete
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 797088  redactions: none
+==============================================================================
+[seq 8] 2026-10-16T05:44:41+00:00
+$ python3 EXPERIMENTS/170-fix-reachability-rank/summarize.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/170-fix-reachability-rank/summarize.py", line 107, in <module>
+    main()
+  File "EXPERIMENTS/170-fix-reachability-rank/summarize.py", line 52, in main
+    "median_total_count": sorted(r["control_total"] for r in rows)[n // 2],
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 575  redactions: none
+==============================================================================
+[seq 9] 2026-10-16T05:44:57+00:00
+$ python3 EXPERIMENTS/170-fix-reachability-rank/summarize.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "arms": {
+  "A0_bare_global": {
+   "ci95": [
+    0.0137,
+    0.3331
+   ],
+   "errors": 1,
+   "hits_top10": 1,
+   "median_total": 2167,
+   "of": 13,
+   "ranks": [
+    null,
+    null,
+    1,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "rate": 0.0769
+  },
+  "A0_bare_repo": {
+   "ci95": [
+    0.1268,
+    0.5763
+   ],
+   "errors": 0,
+   "hits_top10": 4,
+   "median_total": 12,
+   "of": 13,
+   "ranks": [
+    null,
+    null,
+    1,
+    null,
+    1,
+    1,
+    null,
+    null,
+    null,
+    null,
+    7,
+    null,
+    null
+   ],
+   "rate": 0.3077
+  },
+  "A0_quoted_global": {
+   "ci95": [
+    0.0137,
+    0.3331
+   ],
+   "errors": 0,
+   "hits_top10": 1,
+   "median_total": 99,
+   "of": 13,
+   "ranks": [
+    null,
+    null,
+    1,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "rate": 0.0769
+  },
+  "A0_quoted_repo": {
+   "ci95": [
+    0.1771,
+    0.6448
+   ],
+   "errors": 0,
+   "hits_top10": 5,
+   "median_total": 1,
+   "of": 13,
+   "ranks": [
+    null,
+    null,
+    1,
+    null,
+    1,
+    1,
+    null,
+    null,
+    null,
+    null,
+    6,
+    1,
+    null
+   ],
+   "rate": 0.3846
+  },
+  "A1_global": {
+   "ci95": [
+    0.0433,
+    0.4223
+   ],
+   "errors": 1,
+   "hits_top10": 2,
+   "median_total": 70,
+   "of": 13,
+   "ranks": [
+    null,
+    null,
+    1,
+    null,
+    null,
+    5,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "rate": 0.1538
+  },
+  "A1_repo": {
+   "ci95": [
+    0.1771,
+    0.6448
+   ],
+   "errors": 0,
+   "hits_top10": 5,
+   "median_total": 3,
+   "of": 13,
+   "ranks": [
+    6,
+    null,
+    1,
+    null,
+    1,
+    1,
+    null,
+    null,
+    null,
+    null,
+    null,
+    1,
+    null
+   ],
+   "rate": 0.3846
+  },
+  "A2_global": {
+   "ci95": [
+    0.0137,
+    0.3331
+   ],
+   "errors": 1,
+   "hits_top10": 1,
+   "median_total": 1014,
+   "of": 13,
+   "ranks": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    5,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "rate": 0.0769
+  }
+ },
+ "compare": {
+  "A1_global_vs_A0_quoted_global": {
+   "a_only": 1,
+   "b_only": 0,
+   "mcnemar_p": 1.0,
+   "pairs": [
+    "-/-",
+    "-/-",
+    "A/B",
+    "-/-",
+    "-/-",
+    "A/-",
+    "-/-",
+    "-/-",
+    "-/-",
+    "-/-",
+    "-/-",
+    "-/-",
+    "-/-"
+   ]
+  },
+  "A1_global_vs_A2_global": {
+   "a_only": 1,
+   "b_only": 0,
+   "mcnemar_p": 1.0,
+   "pairs": [
+    "-/-",
+    "-/-",
+    "A/-",
+    "-/-",
+    "-/-",
+    "A/B",
+    "-/-",
+    "-/-",
+    "-/-",
+    "-/-",
+    "-/-",
+    "-/-",
+    "-/-"
+   ]
+  },
+  "A1_repo_vs_A0_quoted_repo": {
+   "a_only": 1,
+   "b_only": 1,
+   "mcnemar_p": 1.0,
+   "pairs": [
+    "A/-",
+    "-/-",
+    "A/B",
+    "-/-",
+    "A/B",
+    "A/B",
+    "-/-",
+    "-/-",
+    "-/-",
+    "-/-",
+    "-/B",
+    "A/B",
+    "-/-"
+   ]
+  }
+ },
+ "control": {
+  "hit_any": 0,
+  "hit_top10": 0,
+  "kill_fired": true,
+  "median_total_count": 718258,
+  "min_total_count": 190,
+  "queries_with_no_total": 1
+ },
+ "placebo": {
+  "hit_top10": 0,
+  "kill_fired": false
+ },
+ "rows": 13,
+ "verify": {
+  "V1_error": null,
+  "V1_nonsense_terms_count": 0,
+  "V1_pass": true,
+  "V2_counts": {
+   "in:body": 130,
+   "in:title": 13,
+   "unqualified": 683
+  },
+  "V2_pass": true,
+  "V3_error": null,
+  "V3_nonsense_plus_number_count": 2436,
+  "V3_pass": true
+ }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 98  redactions: none
+==============================================================================
+[seq 10] 2026-10-16T05:48:44+00:00
+$ python3 EXPERIMENTS/170-fix-reachability-rank/controls.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+79324837 G0r rank=None total=21 phrase='![not-working-1 4](https://user-images.githubusercontent.com' | G0t rank=1 total=1
+79327621 G0r rank=None total=25726 phrase='issues: https://github.com/microsoft/vscode/wiki/Submitting-' | G0t rank=None total=220
+79344101 G0r rank=1 total=2 phrase='Labels: com.docker.desktop.address=unix:///Users/lorenzo/Lib' | G0t rank=1 total=1
+79429899 G0r rank=None total=0 phrase='extension [introduced](https://github.com/AzureAD/azure-acti' | G0t rank=1 total=1
+79550279 G0r rank=1 total=1 phrase='ImportError: dlopen(/Users/jeffreybaker/miniforge3/envs/test' | G0t rank=1 total=2
+79551968 G0r rank=None total=1251 phrase='summary>Expand <code>Package.resolved</code> snippet</summar' | G0t rank=1 total=1
+79642080 G0r rank=2 total=2 phrase='4. https://www.reddit.com/r/GithubCopilot/comments/1lwuhtj/c' | G0t rank=1 total=1
+79671399 G0r rank=1 total=4 phrase='1.3.0-insider) 6bc81df453ab2156d2630fbb89ad7d0c80620420 -' | G0t rank=4 total=5
+79674579 G0r rank=None total=0 phrase='in [#52049](https://github.com/dotnet/aspnetcore/issues/5204' | G0t rank=1 total=2
+79768764 G0r rank=1 total=1 phrase='0x000000016eee91c0 _UISceneSettingsDiffActionPerformChangesW' | G0t rank=1 total=1
+79821337 G0r rank=1 total=1 phrase='alt="Image" src="https://github.com/user-attachments/assets/' | G0t rank=1 total=1
+79826631 G0r rank=1 total=1 phrase='errno=0 peeraddr=54.208.14.64:443 state=error' | G0t rank=1 total=1
+79888998 G0r rank=None total=7 phrase='to `byokKnownModelsToAPIInfo`](https://github.com/microsoft/' | G0t rank=1 total=1
+{"G0r_hits_top10": 7, "G0r_median_total": 2, "G0r_pass": false, "G0t_hits_top10": 12, "G0t_pass": true, "G0t_rank1": 11, "rows": 13}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 186608  redactions: none
+==============================================================================
+[seq 11] 2026-10-16T05:49:53+00:00
+$ python3 -c 
+import urllib.request, re
+def get(url):
+    r = urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) think-free-e170','Accept':'text/html'})
+    try:
+        with urllib.request.urlopen(r, timeout=40) as fh:
+            return fh.getcode(), fh.read().decode('utf-8','replace')
+    except Exception as e:
+        return 'ERR', '%s: %s' % (type(e).__name__, str(e)[:100])
+c, h = get('https://github.com/search?q=%22Docker.app+will+damage+your+computer%22&type=issues')
+print('code', c, 'len', len(h))
+print('login wall:', 'Sign in' in h and 'search results' not in h)
+print('issue links found:', len(set(re.findall(r'/([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)/(?:issues|pull)/(\d+))', h))))
+m = re.findall(r'([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/(?:issues|pull)/\d+)', h)
+print('sample:', list(dict.fromkeys(m))[:8])
+print('total-ish text:', re.sub(r'<[^>]+>',' ', h[h.find('search-title') if 'search-title' in h else 0:])[:200].strip()[:200])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+code 200 len 206464
+login wall: False
+
+
+[stderr]
+Traceback (most recent call last):
+  File "<string>", line 13, in <module>
+  File "/usr/lib/python3.8/re.py", line 241, in findall
+    return _compile(pattern, flags).findall(string)
+  File "/usr/lib/python3.8/re.py", line 304, in _compile
+    p = sre_compile.compile(pattern, flags)
+  File "/usr/lib/python3.8/sre_compile.py", line 764, in compile
+    p = sre_parse.parse(p, flags)
+  File "/usr/lib/python3.8/sre_parse.py", line 962, in parse
+    raise source.error("unbalanced parenthesis")
+re.error: unbalanced parenthesis at position 56
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1106  redactions: none
+==============================================================================
+[seq 12] 2026-10-16T05:50:08+00:00
+$ python3 EXPERIMENTS/170-fix-reachability-rank/html_probe.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+literal                code=200 len=206464 hits=1 target_present=False counts=['1', '1']
+   first hits: ['docker/for-mac/issues/7520/7520']
+target title           code=200 len=207588 hits=1 target_present=False counts=['1', '1']
+   first hits: ['docker/for-mac/issues/7520/7520']
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 929  redactions: none
+==============================================================================
+[seq 13] 2026-10-16T05:50:32+00:00
+$ python3 EXPERIMENTS/170-fix-reachability-rank/html_probe.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+PATTERN class="search results-count"[^>]*>([^<]*)<         -> 0 : []
+PATTERN ([\d,]+)\s+results?                                -> 2 : ['1']
+PATTERN data-testid="results-list"                         -> 1 : ['data-testid="results-list"']
+PATTERN issue-list-item                                    -> 0 : []
+PATTERN href="(/[^"]*?/(?:issues|pull)/\d+)"               -> 2 : ['/docker/for-mac/issues/7520']
+SNIPPET: n/a
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 353  redactions: none
+==============================================================================
+[seq 14] 2026-10-16T05:57:37+00:00
+$ python3 EXPERIMENTS/170-fix-reachability-rank/html_run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+79324837 G-A1  rank=None n=10 rstudio console up arrow history not working
+79324837 G-C1  rank=None n=0 ![not-working-1 4](https://user-images.githubusercontent.com
+79324837 G-C2  rank=1 n=1 in:title "Up and Down arrow keys in Console to navigate last
+79327621 G-A1  rank=None n=10 paste slow delay visual studio code
+79327621 G-C1  rank=None n=10 issues: https://github.com/microsoft/vscode/wiki/Submitting-
+79327621 G-C2  rank=None n=10 in:title "Paste slow"
+79344101 G-A0  rank=1 n=1 "Docker.app will damage your computer"
+79344101 G-A1  rank=1 n=10 Docker.app will damage your computer
+79344101 G-C1  rank=1 n=2 Labels: com.docker.desktop.address=unix:///Users/lorenzo/Lib
+79344101 G-C2  rank=1 n=1 in:title "[Workaround in description] Mac is detecting Docke
+79429899 G-A1  rank=None n=0 IsNullOrEmpty Microsoft.Identity.Web 3.7.0 removed
+79429899 G-C1  rank=None n=0 extension [introduced](https://github.com/AzureAD/azure-acti
+79429899 G-C2  rank=1 n=1 in:title "Conflict with Microsoft.IdentityModel.Tokens.Colle
+79550279 G-A0  rank=None n=10 "Library not loaded: @rpath/libgfortran.5.dylib"
+79550279 G-A1  rank=None n=0 Library not loaded @rpath/libgfortran.5.dylib numpy macOS
+79550279 G-C1  rank=1 n=1 ImportError: dlopen(/Users/jeffreybaker/miniforge3/envs/test
+79550279 G-C2  rank=1 n=2 in:title "Numpy import error when using conda-forge build of
+79551968 G-A0  rank=None n=10 "A template argument list is expected after a name prefixed 
+79551968 G-A1  rank=5 n=7 gRPC-Core Xcode 16.3 template keyword argument list
+79551968 G-C1  rank=None n=10 summary>Expand <code>Package.resolved</code> snippet</summar
+79551968 G-C2  rank=1 n=1 in:title "Xcode 16.3 Compile issue with gRPC-c++ with iOS 18
+79642080 G-A1  rank=None n=10 Claude Sonnet 4 not showing up model list Anthropic bring yo
+79642080 G-C1  rank=2 n=2 4. https://www.reddit.com/r/GithubCopilot/comments/1lwuhtj/c
+79642080 G-C2  rank=1 n=1 in:title "Missing Anthropic Sonnet 4 model with Bring Your O
+79671399 G-A0  rank=None n=0 "UpdateService error: The operation couldn't be completed. (
+79671399 G-A1  rank=None n=0 UpdateService error OSStatus -60006
+79671399 G-C1  rank=1 n=4 1.3.0-insider) 6bc81df453ab2156d2630fbb89ad7d0c80620420 -
+79671399 G-C2  rank=4 n=5 in:title "Code won't update on macOS"
+79674579 G-A0  rank=None n=4 "Could not find file 'app.component.ts'"
+79674579 G-A1  rank=None n=10 Could not find file app.component.ts Angular visual studio p
+79674579 G-C1  rank=None n=0 in [#52049](https://github.com/dotnet/aspnetcore/issues/5204
+79674579 G-C2  rank=1 n=2 in:title "Angular and ASP.NET Core Template fails on creatio
+79768764 G-A0  rank=None n=10 "Unable to find a destination matching the provided destinat
+79768764 G-A1  rank=None n=10 Unable to find a destination matching the provided destinati
+79768764 G-C1  rank=1 n=1 0x000000016eee91c0 _UISceneSettingsDiffActionPerformChangesW
+79768764 G-C2  rank=1 n=1 in:title "Debug mode and hot reload fail on iOS 26 due to JI
+79821337 G-A0  rank=None n=10 "Data grid"
+79821337 G-A1  rank=None n=5 Data Wrangler shows "Data grid" instead of dataframe name
+79821337 G-C1  rank=1 n=1 alt="Image" src="https://github.com/user-attachments/assets/
+79821337 G-C2  rank=1 n=1 in:title "Data Wrangler Tab not showing variable name"
+79826631 G-A0  rank=None n=10 "certificate verify failed (unable to get certificate CRL)"
+79826631 G-A1  rank=None n=10 ruby OpenSSL certificate verify failed unable to get certifi
+79826631 G-C1  rank=1 n=1 errno=0 peeraddr=54.208.14.64:443 state=error
+79826631 G-C2  rank=1 n=1 in:title "OpenSSL 3.6.0 results in error: certificate verify
+79888998 G-A1  rank=None n=10 Ollama models missing from Copilot Chat model selection menu
+79888998 G-C1  rank=None n=0 to `byokKnownModelsToAPIInfo`](https://github.com/microsoft/
+79888998 G-C2  rank=None n=0 in:title "Fix tool calling detection and support for Ollama 
+{
+ "C1_pass": false,
+ "C2_pass": true,
+ "G_A0_hits_top10": 1,
+ "G_A1_hits_top10": 2,
+ "G_C1_hits_top10": 7,
+ "G_C2_hits_top10": 11,
+ "G_C2_rank1": 10,
+ "errors": 0,
+ "paired": {
+  "A0_only": 0,
+  "A1_only": 1
+ },
+ "rows": 13
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 386708  redactions: none
