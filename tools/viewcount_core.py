@@ -52,6 +52,9 @@ NEED_INDICATORS = {
     "queue", "rabbit", "kafka", "mqtt",
     "container", "docker", "kubernetes", "orchestration",
     "micro service", "distributed", "cluster",
+    # Extended vocabulary (E172 experiment): additional need indicators
+    # observed in Python package descriptions beyond the original 55-term set.
+    "crud", "rest", "sdk", "cli",
 }
 
 # Generic terms that classify as "random" (not need-related)
