@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-15
+last-verified: 2026-10-16
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -414,10 +414,13 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/146-viewcount-crates/` | `docs/INDEX.md` | active | 2026-10-15 | Result: GATECLOSED — classifier vocabulary mismatch |
 | `EXPERIMENTS/150-huggingface-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 3 documents |
 | `EXPERIMENTS/151-vscode-marketplace-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 3 documents |
+| `EXPERIMENTS/165-golang-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 2 documents |
 | `EXPERIMENTS/165-hn-ask-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | owner: docs/INDEX.md |
 | `EXPERIMENTS/165-pypi-tier-analysis/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/165-vscode-marketplace-viewcount/` | `docs/INDEX.md` | active | 2026-10-16 | 1 documents |
 | `EXPERIMENTS/166-devto-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | owner: docs/INDEX.md |
 | `EXPERIMENTS/167-wikipedia-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | owner: docs/INDEX.md |
+| `EXPERIMENTS/168-version-pinned-need/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 2 documents |
 | `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |

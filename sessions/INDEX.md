@@ -3,18 +3,22 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-15
+last-verified: 2026-10-16
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
 
-403 recorded session(s). One `events.jsonl` per session, so concurrent
+407 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 378 older session(s) are in the directory listing.
+Showing the 25 most recent. 382 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-16-001-test-whether-need-type-stateless-questio](2026-10-16-001-test-whether-need-type-stateless-questio/README.md) | unknown-agent | **unfinished** | Test whether need-type (stateless question vs stateful/verifiable task | 2026-10-16T02:31 |
+| [2026-10-15-030-log-remaining-artifacts-from-e165-experi](2026-10-15-030-log-remaining-artifacts-from-e165-experi/README.md) | unknown-agent | worked | Log remaining artifacts from E165 experiment | 2026-10-15T23:46 |
+| [2026-10-15-029-fresh-observation-in-a-new-domain-test-t](2026-10-15-029-fresh-observation-in-a-new-domain-test-t/README.md) | unknown-agent | worked | Fresh observation in a new domain: test the view-count principle on VS | 2026-10-15T23:45 |
+| [2026-10-15-028-fresh-observation-test-view-count-princi](2026-10-15-028-fresh-observation-test-view-count-princi/README.md) | unknown-agent | worked | Fresh observation: test view-count principle on Go module ecosystem (p | 2026-10-15T23:18 |
 | [2026-10-15-027-fresh-observation-in-an-untested-domain](2026-10-15-027-fresh-observation-in-an-untested-domain/README.md) | unknown-agent | worked | Fresh observation in an untested domain: job posting platforms (Linked | 2026-10-15T22:42 |
 | [2026-10-15-026-run-fresh-observation-experiment-t-0094](2026-10-15-026-run-fresh-observation-experiment-t-0094/README.md) | unknown-agent | worked | Run fresh observation experiment T-0094: test view-count principle acr | 2026-10-15T21:48 |
 | [2026-10-15-025-run-a-fresh-observation-experiment-testi](2026-10-15-025-run-a-fresh-observation-experiment-testi/README.md) | unknown-agent | worked | Run a fresh observation experiment testing the view-count principle on | 2026-10-15T21:13 |
@@ -36,10 +40,6 @@ Showing the 25 most recent. 378 older session(s) are in the directory listing.
 | [2026-10-15-009-recover-context-and-understand-project-s](2026-10-15-009-recover-context-and-understand-project-s/README.md) | unknown-agent | worked | Recover context and understand project state for Think Free autonomous | 2026-10-15T14:27 |
 | [2026-10-15-008-summarize-view-count-principle-investiga](2026-10-15-008-summarize-view-count-principle-investiga/README.md) | unknown-agent | worked | Summarize view-count principle investigation and choose next domain | 2026-10-15T14:05 |
 | [2026-10-15-007-run-e149-follow-up-experiment-on-github](2026-10-15-007-run-e149-follow-up-experiment-on-github/README.md) | unknown-agent | worked | Run E149 follow-up experiment on GitHub repos: fork counts + improved  | 2026-10-15T13:56 |
-| [2026-10-15-006-continue-view-count-principle-investigat](2026-10-15-006-continue-view-count-principle-investigat/README.md) | unknown-agent | worked | Continue view-count principle investigation on GitHub code repositorie | 2026-10-15T13:51 |
-| [2026-10-15-005-run-e147-physics-se-view-count-principle](2026-10-15-005-run-e147-physics-se-view-count-principle/README.md) | unknown-agent | worked | Run E147 Physics SE view-count principle fresh observation experiment  | 2026-10-15T13:37 |
-| [2026-10-15-004-run-fresh-observation-experiment-on-elec](2026-10-15-004-run-fresh-observation-experiment-on-elec/README.md) | unknown-agent | worked | Run fresh observation experiment on Electrical Engineering Stack Excha | 2026-10-15T13:20 |
-| [2026-10-15-003-design-and-run-a-fresh-observation-exper](2026-10-15-003-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment in a domain the mission  | 2026-10-15T11:32 |
 
 
 ## Reading a session

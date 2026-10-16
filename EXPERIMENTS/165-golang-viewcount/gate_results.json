@@ -1,0 +1,29 @@
+{
+  "g1": {
+    "need_count": 150,
+    "general_count": 19,
+    "threshold": 30,
+    "pass": false
+  },
+  "g2": {
+    "cliffs_delta": 0.07438596491228071,
+    "threshold": 0.147,
+    "pass": false,
+    "need_median": 3705,
+    "general_median": 3003,
+    "need_mean": 39313.32,
+    "general_mean": 15311.0
+  },
+  "g3": {
+    "need_arrival_rate": 1.0,
+    "general_arrival_rate": 1.0,
+    "threshold": 0.8,
+    "pass": false
+  },
+  "g4": {
+    "coverage": 1.0,
+    "threshold": 0.95,
+    "pass": true
+  },
+  "overall_pass": false
+}

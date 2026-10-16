@@ -224,11 +224,41 @@ harvest ran.
 
 **E150 completed (2026-10-15): Hugging Face Hub view-count principle test fails — the principle does not extend to model hubs.** 1,900 models sampled via multiple sort strategies, classified by pre-declared rules into 1,151 need-related (derivatives, fine-tunes, quantized, task-adapted) and 170 general (base foundation models from major labs). Cliff's delta: likes=0.094, downloads=-0.085 (general higher), trendingScore=0.122 — all <0.147 kill gate threshold. Base models are infrastructure downloaded massively as dependencies for fine-tuning; fine-tuned models get more likes but far fewer downloads. The view-count principle works on package registries (leaf consumption) but not model hubs (infrastructure layer). Kill gate fired; principle boundary extended. See [`EXPERIMENTS/150-huggingface-viewcount/RESULT.md`](EXPERIMENTS/150-huggingface-viewcount/RESULT.md).
 
-Named next action: **fresh observation in a domain this mission has not
-touched**, chosen by a stated rule rather than by comfort. Do not re-probe C1
-Open LLM Leaderboard v2 or C3 Chatbot Arena: both failed G2 at probe time and
-nothing new has happened to either. E140's protocol stays reusable if P1 ever
-gains sourced support.
+**E165 completed (2026-10-15): VS Code Marketplace view-count principle test fails — the principle does not extend to this extension marketplace with broad keyword classification.** 1,884 extensions fetched from 28 categories via the VS Code Marketplace API (v7.1-preview.1); 1,706 (90.5%) classified as "need-related" (keywords: fix, debug, lint, test, deploy, tool, utility, helper, etc.), 105 (5.6%) as "general" (theme, keymap, snippet, pack), 73 (3.9%) other. Cliff's delta (install count, need-related vs general): **-0.0266**, below 0.147 kill gate. The classifier was too broad — 90% of extensions captured as "need-related". General category (themes, keymaps, snippets) has marginally higher median installs (1,033 vs 955). Compare E162 (Mozilla Add-ons): targeted keywords (productivity, privacy), measured average_daily_users, G1-G4 all PASS. The view-count principle's domain of validity remains package registries (PyPI, NPM, NuGet, CPAN, Hex.pm, Docker Hub, Packagist, RubyGems, GitHub repos) and Mozilla Add-ons with targeted classification. Kill gate fired; principle boundary extended. See [`EXPERIMENTS/165-vscode-marketplace-viewcount/RESULT.md`](EXPERIMENTS/165-vscode-marketplace-viewcount/RESULT.md).
+
+**E168 completed (2026-10-16): the first positive structural reading of why the
+strongest alternative wins — version-pinned needs are 28% of a high-arrival
+pool, and the assistant serves them materially worse.** E126 graded 13 Stack
+Overflow attempts unserved and never characterised them; reading those reasons
+on 2026-10-16, every one of the software rows fails for the same reason — the
+attempt named the fault category and got the **version-pinned fact** wrong
+("I do not know the exact new package"; the JetBrains plugin *does* read
+`.github/copilot-instructions.md` from build 722431). Stratifying the same
+299-row pool on that property: **85 of 299 = 0.2843** version-pinned, Wilson
+95% [0.2361, 0.3379], **14× the 2.0% program-shaped residue** E126 called too
+small to be a population. The classifier agrees with E126's independent
+`answerable`/`specific` labels on only 53 of 85 (Jaccard 0.4417) — the two
+screens see different rows at both edges, and that is the finding. **G2: the
+assistant serves the high-arrival end of the class at 11 of 24 = 0.4583
+against E126's pool-level 0.6750 on the same rows with the same instrument
+(Fisher p = 0.1168, four near-miss grades, so the stratum difference is a
+point estimate and not established).** **G1 and G2 pass as declared; G3 — does
+grounding on the component's published version history recover the failures —
+is NOT RUN**, because this session had already read every thread, so a
+grounded attempt would be contaminated. G3 is the only gate whose failure
+would close a product rather than a population. D113 requires every future
+service screen to stratify on version-dependence instead of reporting one
+pool-level rate. [`EXPERIMENTS/168-version-pinned-need/RESULT.md`](EXPERIMENTS/168-version-pinned-need/RESULT.md).
+
+Named next action: **run E168's G3 on a fresh blinded `version_pinned`
+sample**, then the prior-art screen against it. The class is not a candidate
+until a tool is compared with what developers already do — read the
+changelog, paste the error into a search engine, read the lockfile. The older
+named action, a fresh observation in an untouched domain, is **superseded**:
+D113 changes what to screen rather than where, and twenty more venues cannot
+answer a question this one did. Do not re-probe C1 Open LLM Leaderboard v2 or
+C3 Chatbot Arena: both failed G2 at probe time and nothing new has happened to
+either. E140's protocol stays reusable if P1 ever gains sourced support.
 
 ## Dashboard
 

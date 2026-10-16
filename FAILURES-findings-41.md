@@ -187,3 +187,34 @@ This extends the boundary of the view-count principle: it works on **package reg
 ### What this does not establish
 
 That no view-count signal exists on Hugging Face. The trendingScore signal (delta=0.122, p<0.001) suggests recent activity favors need-related models, but the effect is too small to justify a candidate. A different classification (e.g., spaces/demos vs. models) might yield different results.
+
+## F129 — VS Code Marketplace: a broad keyword classifier returns no activity advantage, and the failure is the classifier, not the platform
+
+**Where.** [`EXPERIMENTS/165-vscode-marketplace-viewcount/RESULT.md`](EXPERIMENTS/165-vscode-marketplace-viewcount/RESULT.md).
+
+**What was measured.** 1,884 extensions fetched from 28 categories through
+the VS Code Marketplace API (v7.1-preview.1), classified by keyword into
+need-related / general / other, and compared on install count. Cliff's delta
+**−0.0266**, below the 0.147 kill gate; the kill gate fired.
+
+**Why it is recorded as a classifier failure and a boundary result at once.**
+The need arm captured **1,706 of 1,884 extensions = 90.5%**. A contrast whose
+treatment arm is nine tenths of the population measures the keyword list, not
+the platform — the same failure E146 and E157–E164 recorded on crates.io and
+GitLab. The contrast is also directionally null: the general arm's median
+installs (1,033) slightly exceed the need arm's (955), which is what a
+near-degenerate split looks like.
+
+E162 on Mozilla Add-ons passed all four gates **with targeted vocabulary**
+(`productivity`, `privacy`) against `average_daily_users`. So this record now
+holds two results on extension marketplaces that differ only in classifier
+specificity, and the honest reading is that **specificity decides the result
+and the platform has not been shown either way** for this class.
+
+**What it does not establish.** That the principle fails on the VS Code
+Marketplace. A targeted two-arm classification on the same API would be needed
+for that, and this run does not license one: five classifier-breadth failures
+(E146, E157, E162–E164, E165) mean the next attempt must pre-declare its
+vocabulary size or the screen is not informative. It also does not disturb
+D105's withdrawal of the sweep on its own terms — E113's matched-harvest
+control already retired the registry passes, and E165 was run afterwards.

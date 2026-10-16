@@ -6,7 +6,7 @@ last-verified: 2026-10-14
 
 # Decisions — records (continued)
 
-Decisions **D110, D112**. Each entry records a choice that was genuinely open, the
+Decisions **D110, D112, D113**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
 
 The second half of [`DECISIONS-RECORDS.md`](DECISIONS-RECORDS.md), split on
@@ -97,3 +97,52 @@ repository-wide rule — the adapter tax D046 and F124 both record.
 so the exemption list has more reach than it did when it governed one rule. Every
 entry is a class with a reason and a count; a future entry that is a single file
 is the shape to refuse.
+
+## D113 — a service screen must stratify on version-dependence, not report one pool rate
+
+**Decision.** Any screen that measures whether the strongest accessible
+alternative serves a population must classify each row as **version-pinned**
+or not, and report the alternative's served share **per stratum**. A single
+pool-level rate is not an admissible result. E168 is the template for the
+classification; [`EXPERIMENTS/168-version-pinned-need/PROTOCOL.md`](EXPERIMENTS/168-version-pinned-need/PROTOCOL.md)
+is the rubric.
+
+**Why.** Seven service closures in this record (E062, E077, E082, E091,
+E092, E126, E143) ended with the same sentence — the free general assistant
+serves it, 0.25 to 1.00 — and that sentence was read as "no population here
+is unserved". It was never tested per stratum, because every one of those
+screens drew from **public questions**, which are the most-served class of
+human information need that exists. E168 read the 13 failures E126 graded
+`unserved` and never characterised, and found all eight of its software rows
+fail for one reason: the answer depends on what is true in a specific version
+of a specific component. Stratified on that, the same pool gives
+**85 of 299 = 0.2843** version-pinned (Wilson [0.2361, 0.3379]) against a
+2.0% program-shaped residue, and the assistant's served share on the
+high-arrival end of that class is **11 of 24 = 0.4583** against E126's own
+pool-level 0.6750 on the same rows with the same instrument.
+
+**The evidence is one experiment and it is thin.** Fisher p = 0.1168 on the
+stratum comparison; four of the 24 grades are near misses and the served share
+moves between 0.3750 and 0.5417 with their treatment. This decision costs a
+classifier, not a new instrument, and the classifier is cheap. What it is *not*
+is a licence to build: E168's mechanism gate (does grounding on the
+component's published version history recover the failures?) is **unrun**,
+because the session that ran G1 and G2 had already read every thread.
+
+Rejected: **re-running the seven venues with the new classifier.** The
+decision is about the next screen, not about re-reading closed populations;
+E126's pool is re-analysed in place instead. Rejected: **treating
+version-pinnedness as the only unserved class**, which F096 and E091 both
+warn against — E091's vendor-bound composition is a different mechanism and
+E168 does not speak to it. Rejected: **a `version_pinned` requirement as a
+condition on candidates**, which would be the mirror-image error: it would
+exclude the vendor-bound and private-code classes that are genuinely
+unserved for other reasons. Rejected: **using E168's 0.4583 as a venue
+serving rate**, which is 24 rows of the high-arrival end of one class on one
+day.
+
+**Ceiling.** The classifier's precision is measured on the 13 rows the
+headline rests on (13/13) and unmeasured over the other 72 `vp = 1` rows.
+The Jaccard of 0.4417 against E126's independent `answerable`/`specific`
+labels says the two screens see different rows at both edges; which edge is
+right is not established.
