@@ -8,13 +8,14 @@ last-verified: 2026-10-16
 
 <!-- generated-by: origin; do not edit by hand -->
 
-408 recorded session(s). One `events.jsonl` per session, so concurrent
+409 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 383 older session(s) are in the directory listing.
+Showing the 25 most recent. 384 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-16-003-record-the-e168-addendum-checks-link-out](2026-10-16-003-record-the-e168-addendum-checks-link-out/README.md) | unknown-agent | worked | Record the E168 addendum checks (link-out count, retrieval handles) an | 2026-10-16T03:47 |
 | [2026-10-16-002-log-the-e168-artifacts-the-finish-report](2026-10-16-002-log-the-e168-artifacts-the-finish-report/README.md) | unknown-agent | worked | Log the E168 artifacts the finish report named as unlogged, and record | 2026-10-16T03:38 |
 | [2026-10-16-001-test-whether-need-type-stateless-questio](2026-10-16-001-test-whether-need-type-stateless-questio/README.md) | unknown-agent | worked | Test whether need-type (stateless question vs stateful/verifiable task | 2026-10-16T03:38 |
 | [2026-10-15-030-log-remaining-artifacts-from-e165-experi](2026-10-15-030-log-remaining-artifacts-from-e165-experi/README.md) | unknown-agent | worked | Log remaining artifacts from E165 experiment | 2026-10-15T23:46 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 383 older session(s) are in the directory listing.
 | [2026-10-15-011-finalize-and-summarize-e150-e151-results](2026-10-15-011-finalize-and-summarize-e150-e151-results/README.md) | unknown-agent | worked | Finalize and summarize E150/E151 results | 2026-10-15T14:32 |
 | [2026-10-15-010-finalize-decision-and-continuation-for-e](2026-10-15-010-finalize-decision-and-continuation-for-e/README.md) | unknown-agent | worked | Finalize decision and continuation for E150/E151 view-count principle  | 2026-10-15T14:31 |
 | [2026-10-15-009-recover-context-and-understand-project-s](2026-10-15-009-recover-context-and-understand-project-s/README.md) | unknown-agent | worked | Recover context and understand project state for Think Free autonomous | 2026-10-15T14:27 |
-| [2026-10-15-008-summarize-view-count-principle-investiga](2026-10-15-008-summarize-view-count-principle-investiga/README.md) | unknown-agent | worked | Summarize view-count principle investigation and choose next domain | 2026-10-15T14:05 |
 
 
 ## Reading a session
