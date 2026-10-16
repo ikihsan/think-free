@@ -10,10 +10,10 @@ last-verified: 2026-10-16
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-16T03:49:55+00:00
-- **Duration:** ?s
+- **Duration:** 5636.9s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ E169: measure whether the error string in each version-pinned failure reaches th
 
 ## Summary
 
-_(none recorded)_
+E169 ran E168's named cheap measurement of the incumbent's ceiling and withdrew it: the search arms' own positive control failed (treatment 1/13, control 3/13 then 13/13; a target's own quoted title returns 17,033,706 hits). Replaced by containment, a deterministic instrument needing no search engine: median term coverage 0.625, 9 of 13 at >= 0.5, 0 of 13 sharing a 3-word run with the fix, and >= 0.8 coverage against the whole thread on 12 of 13. The thread is the delivery mechanism; the tracker link is a citation. Fourteenth served closure, first with the mechanism measured. Corrects two E168 figures that do not reproduce and reports G1 as vacuous as declared.
+
+## Next
+
+E170: test ranked reachability on an index that is reachable from this host. GitHub issue search is live here (api.github.com 200, unauthenticated 10 req/min), so the ceiling E169 could not measure is measurable as a top-10 hit rate, with a positive control designed so it can pass (a verbatim run from the target's own text) and a query-syntax verification suite, because E169 recorded that quoted phrases, OR and sort=best-match are not honoured. Arms: the error string (E168's incumbent) against symptom+component (E169's design rule). Queries committed before any fetch. Replication on a fresh blinded sample is blocked by the Stack Exchange daily quota (7 of 300 remaining).
 
 ## Artifacts
 
@@ -49,6 +53,21 @@ _(none recorded)_
 | DECISIONS.md | cc78cc6e3700 | 25846 |
 | FAILURES.md | f812a7a239cd | 85844 |
 | EXPERIMENTS/README.md | 16705fde926b | 9917 |
+| EXPERIMENTS/169-version-pinned-reach/raw/containment.json | 283ffe873005 | 15280 |
+| RELEASE-MANIFEST.md | c506cdb54845 | 7825 |
+| STATE.md | 711fcb04f39a | 20257 |
+| STATE-dashboard.md | 53a640241437 | 17611 |
+| docs/INDEX.md | f5dda15def1a | 56004 |
+| EXPERIMENTS/169-version-pinned-reach/raw/g0-recount.json | 000f8a451554 | 2664 |
+| EXPERIMENTS/169-version-pinned-reach/raw/arms-summary.json | cf883da32208 | 982 |
+| EXPERIMENTS/169-version-pinned-reach/raw/controls-summary.json | 46240545fd84 | 524 |
+| EXPERIMENTS/169-version-pinned-reach/raw/fetch.json | 502ab07669cb | 384 |
+| EXPERIMENTS/169-version-pinned-reach/raw/target-titles.json | 9306696465dc | 3208 |
+| EXPERIMENTS/169-version-pinned-reach/raw/controls.json | 9b286bf448f9 | 5835 |
+| EXPERIMENTS/169-version-pinned-reach/raw/query-results.json | 8e990f395a1b | 20988 |
+| EXPERIMENTS/169-version-pinned-reach/RESULT.md | 3c5ce876e059 | 9176 |
+| STATE.md | 0780aad8818a | 20257 |
+| STATE-next-actions.md | 2d369c2ead61 | 17085 |
 
 ## Commands
 
@@ -70,11 +89,16 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 6 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | EXPERIMENTS/169-version-pinned-reach/raw/arms-progress.txt |
+|   undeclared | EXPERIMENTS/169-version-pinned-reach/raw/containment-progress.txt |
+|   undeclared | EXPERIMENTS/169-version-pinned-reach/raw/containment-summary.json |
+|   undeclared | EXPERIMENTS/169-version-pinned-reach/raw/controls-progress.txt |
+|   undeclared | EXPERIMENTS/169-version-pinned-reach/raw/g1-sample.json |
+|   undeclared | EXPERIMENTS/169-version-pinned-reach/raw/query-plan.json |
 
 ## Timeline
 
@@ -111,6 +135,27 @@ _(none recorded)_
 | 29 | 04:33:12 | artifact | wrote DECISIONS.md |
 | 30 | 04:33:13 | artifact | wrote FAILURES.md |
 | 31 | 04:33:14 | artifact | wrote EXPERIMENTS/README.md |
+| 32 | 04:53:29 | artifact | wrote EXPERIMENTS/169-version-pinned-reach/raw/containment.json |
+| 33 | 04:53:34 | artifact | wrote RELEASE-MANIFEST.md |
+| 34 | 04:53:38 | artifact | wrote STATE.md |
+| 35 | 04:53:44 | artifact | wrote STATE-dashboard.md |
+| 36 | 04:53:50 | artifact | wrote docs/INDEX.md |
+| 37 | 04:54:10 | artifact | wrote EXPERIMENTS/169-version-pinned-reach/raw/g0-recount.json |
+| 38 | 04:54:19 | artifact | wrote EXPERIMENTS/169-version-pinned-reach/raw/arms-summary.json |
+| 39 | 04:54:28 | artifact | wrote EXPERIMENTS/169-version-pinned-reach/raw/controls-summary.json |
+| 40 | 04:54:33 | artifact | wrote EXPERIMENTS/169-version-pinned-reach/raw/fetch.json |
+| 48 | 05:23:52 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/169-version-pinned-reach/raw/containment-progress.txt |
+| 49 | 05:23:52 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/169-version-pinned-reach/raw/containment-summary.json |
+| 50 | 05:23:52 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/169-version-pinned-reach/raw/controls-progress.txt |
+| 51 | 05:23:52 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/169-version-pinned-reach/raw/g1-sample.json |
+| 52 | 05:23:52 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/169-version-pinned-reach/raw/query-plan.json |
+| 53 | 05:23:52 | doc_update | updated DECISIONS-RECORDS-2.md |
+| 54 | 05:23:52 | doc_update | updated DECISIONS.md |
+| 55 | 05:23:52 | doc_update | updated FAILURES.md |
+| 56 | 05:23:52 | doc_update | updated STATE.md |
+| 57 | 05:23:52 | session_end | E169 ran E168's named cheap measurement of the incumbent's ceiling and withdrew it: the search arms' own positive control failed (treatment 1/13, cont |
+
+_7 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
