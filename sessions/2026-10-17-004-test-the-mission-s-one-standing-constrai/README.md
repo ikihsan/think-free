@@ -34,7 +34,7 @@ _(none recorded)_
 
 ## Commands
 
-20 captured, 5 non-zero exit.
+21 captured, 6 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -58,6 +58,7 @@ _(none recorded)_
 | 22 | ['./tools/origin', 'doc', 'index'] | 0 | 12799 |
 | 23 | ['./tools/origin', 'doc', 'lint'] | 2 | 156738 |
 | 24 | ['./tools/origin', 'doc', 'index'] | 0 | 10618 |
+| 25 | ['./tools/origin', 'doc', 'lint'] | 2 | 157116 |
 
 ## Integrity
 
@@ -97,6 +98,7 @@ _(none recorded)_
 | 22 | 07:23:02 | command | $ ./tools/origin doc index |
 | 23 | 07:25:47 | command | $ ./tools/origin doc lint |
 | 24 | 07:26:50 | command | $ ./tools/origin doc index |
+| 25 | 07:29:30 | command | $ ./tools/origin doc lint |
 
 ## Reproduce this record
 

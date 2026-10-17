@@ -179,7 +179,13 @@ exempt: EXPERIMENTS/**/corpus/synthetic/*.csv
 # `ans/answers.jsonl`, `score/verdicts.jsonl`), all of which are `.jsonl` and
 # exempt already.
 exempt: EXPERIMENTS/**/clf/*/*.txt
+exempt: EXPERIMENTS/**/ans/*.txt
 exempt: EXPERIMENTS/**/score/pairs/*.txt
+
+# `ans/questions.txt` is the same class and is the 60-question treatment input
+# in one shuffled file (3 805 lines at 90 columns). Splitting it per question
+# would restore the arm to the reader, because the per-arm files' names are the
+# arm - see `arms.py`, which merges them for exactly that reason.
 exempt: EXPERIMENTS/**/grading-sheet.txt
 exempt: EXPERIMENTS/**/screening-sheet.txt
 
