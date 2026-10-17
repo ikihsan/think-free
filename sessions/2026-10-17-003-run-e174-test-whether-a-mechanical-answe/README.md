@@ -10,10 +10,10 @@ last-verified: 2026-10-17
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-17T05:42:13+00:00
-- **Duration:** ?s
+- **Duration:** 3701.1s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Run E174: test whether a mechanical answer-vocabulary query bridge retrieves a f
 
 ## Summary
 
-_(none recorded)_
+E175 completed and its kill fired (0 of 21 correct repositories, 20 confident wrong); D117 and F135 recorded. Session was cut mid-doc-lint: lint was red on 6 violations (3 missing origin-meta blocks on other sessions' files, 3 root-level ../ links), the repair was made but never committed. That repair is now committed as e1613583 so the gate every commit runs is green.
+
+## Next
+
+Lint has not been re-run since the repair; re-run doc lint before any commit that depends on it. Next action is E176 or a fresh observation, per STATE-next-actions.md.
 
 ## Artifacts
 
@@ -86,11 +90,20 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 19 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | CLASSIFICATION-PROTOTYPE.md |
+|   undeclared | EXPERIMENTS/171-resolution-fact-locus/RESULT.md |
+|   undeclared | EXPERIMENTS/175-repo-from-report/PROTOCOL.md |
+|   undeclared | EXPERIMENTS/E172-discourse-viewcount/PROTOCOL.md |
+|   undeclared | EXPERIMENTS/E173-github-discussions-viewcount/PROTOCOL-E173.md |
+|   undeclared | PROTOCOL-E172.md |
+|   undeclared | sessions/2026-10-16-006-e171-test-whether-the-component-s-publis/commands.log |
+|   undeclared | sessions/2026-10-16-006-e171-test-whether-the-component-s-publis/events.jsonl |
+|   undeclared | sessions/2026-10-16-007-e171-finish-the-pre-condition-screen-on/commands.log |
+|   undeclared | sessions/2026-10-16-007-e171-finish-the-pre-condition-screen-on/events.jsonl |
 
 ## Timeline
 
@@ -136,15 +149,18 @@ _(none recorded)_
 | 38 | 05:59:07 | artifact | wrote EXPERIMENTS/175-repo-from-report/derivation.json |
 | 39 | 05:59:08 | artifact | wrote EXPERIMENTS/175-repo-from-report/RESULT.md |
 | 40 | 05:59:11 | artifact | wrote FAILURES-findings-43.md |
-| 41 | 05:59:12 | artifact | wrote HYPOTHESES.md |
-| 42 | 05:59:13 | artifact | wrote STATE.md |
-| 43 | 05:59:15 | milestone | E174 recomputed all seven E170 arms from committed raw data: the repo-scoped arms reach 5/13 = 0.3846 against the global arms' 0.0769 and 0.1538, and  |
-| 44 | 05:59:16 | milestone | E175 killed the registry route at its own declared gate: G1 = 0 of 21 with 20 confidently wrong repositories, after four declared instrument repairs |
-| 45 | 06:00:55 | command | $ ./tools/origin doc index |
-| 46 | 06:06:11 | artifact | wrote DECISIONS-RECORDS-3.md |
-| 47 | 06:06:20 | artifact | wrote DECISIONS.md |
-| 48 | 06:06:27 | artifact | wrote STATE-next-actions.md |
-| 49 | 06:16:07 | command | $ ./tools/origin doc lint |
+| 64 | 06:43:54 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-17-002-continue-think-free-mission-design-and-r/events.jsonl |
+| 65 | 06:43:54 | unlogged_change | changed but never declared as an artifact: tasks/CLAIMS.jsonl |
+| 66 | 06:43:54 | unlogged_change | changed but never declared as an artifact: tasks/T-0095-e172-fresh-observation-view-count-principle-and.md |
+| 67 | 06:43:54 | unlogged_change | changed but never declared as an artifact: test_prototype.py |
+| 68 | 06:43:54 | unlogged_change | changed but never declared as an artifact: tools/viewcount_framework.py |
+| 69 | 06:43:55 | doc_update | updated DECISIONS.md |
+| 70 | 06:43:55 | doc_update | updated FAILURES.md |
+| 71 | 06:43:55 | doc_update | updated HYPOTHESES.md |
+| 72 | 06:43:55 | doc_update | updated STATE.md |
+| 73 | 06:43:55 | session_end | E175 completed and its kill fired (0 of 21 correct repositories, 20 confident wrong); D117 and F135 recorded. Session was cut mid-doc-lint: lint was r |
+
+_23 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

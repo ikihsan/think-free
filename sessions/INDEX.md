@@ -15,7 +15,7 @@ Showing the 25 most recent. 394 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-17-003-run-e174-test-whether-a-mechanical-answe](2026-10-17-003-run-e174-test-whether-a-mechanical-answe/README.md) | unknown-agent | **unfinished** | Run E174: test whether a mechanical answer-vocabulary query bridge ret | 2026-10-17T05:42 |
+| [2026-10-17-003-run-e174-test-whether-a-mechanical-answe](2026-10-17-003-run-e174-test-whether-a-mechanical-answe/README.md) | unknown-agent | worked | Run E174: test whether a mechanical answer-vocabulary query bridge ret | 2026-10-17T06:43 |
 | [2026-10-17-002-continue-think-free-mission-design-and-r](2026-10-17-002-continue-think-free-mission-design-and-r/README.md) | unknown-agent | worked | Continue Think Free mission: design and run E173 view-count principle  | 2026-10-17T00:24 |
 | [2026-10-17-001-continue-think-free-mission-design-and-r](2026-10-17-001-continue-think-free-mission-design-and-r/README.md) | unknown-agent | worked | Continue Think Free mission: design and run E173 view-count principle  | 2026-10-17T00:21 |
 | [2026-10-16-010-explore-view-count-principle-bottleneck](2026-10-16-010-explore-view-count-principle-bottleneck/README.md) | unknown-agent | worked | Explore view-count principle bottleneck and decide on E172 next action | 2026-10-16T22:58 |
