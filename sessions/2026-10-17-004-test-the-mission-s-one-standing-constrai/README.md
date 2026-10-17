@@ -31,6 +31,7 @@ _(none recorded)_
 |---|---|---|
 | EXPERIMENTS/177-evidence-gated-need/PROTOCOL.md | 8604eaf35d3c | 11479 |
 | EXPERIMENTS/177-evidence-gated-need/RESULT.md | 174f86d3be48 | 9053 |
+| EXPERIMENTS/177-evidence-gated-need/RESULT.md | d2ddcbdea276 | 13642 |
 
 ## Commands
 
@@ -103,6 +104,8 @@ _(none recorded)_
 | 25 | 07:29:30 | command | $ ./tools/origin doc lint |
 | 26 | 07:43:30 | command | $ ./tools/origin doc lint |
 | 27 | 07:45:48 | command | $ ./tools/origin doc lint |
+| 28 | 07:54:16 | artifact | wrote EXPERIMENTS/177-evidence-gated-need/RESULT.md |
+| 29 | 07:54:25 | milestone | RESULT, F136, D118, STATE.md, STATE-next-actions.md and the addendum all committed; doc lint green on a single run |
 
 ## Reproduce this record
 
