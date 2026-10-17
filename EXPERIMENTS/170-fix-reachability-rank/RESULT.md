@@ -6,6 +6,19 @@ last-verified: 2026-10-16
 
 # E170 RESULT — the vocabulary of the failure and of the fix do not overlap; the responder's prose is the bridge
 
+> **Corrected 2026-10-17 (E174).** This write-up reports **2 of the 7 arms** its
+> own `raw/summary.json` contains. The five omitted arms are the **repo-scoped**
+> form of the same queries, at **5/13 = 0.3846** against the global arms' 0.0769
+> and 0.1538, and this experiment's own **G3** declared in advance that exactly
+> that outcome "is recorded as one" — a product constraint. It was not recorded.
+> The recomputation is
+> [`EXPERIMENTS/174-scoped-reach-recompute/RESULT.md`](../174-scoped-reach-recompute/RESULT.md).
+> What survives unchanged is the vocabulary measurement below (0 of 13 rows share
+> a three-word run with their fix; containment in the thread ≥ 0.8 on 12 of 13).
+> What does **not** survive: "neither lexical query reaches the fix", "lexical
+> retrieval of this class is not a tuning problem", and "no retriever is
+> proposed".
+
 **Date:** 2026-10-16. **V1–V3 pass. G0 fired as declared (0/13); the repaired
 control G0r fails on both surfaces (7/13). The capability controls pass on both
 (API 11/13 at rank 1, web 10/13 at rank 1), so the arms are read.**
@@ -93,6 +106,27 @@ E168 0.4583 on this stratum, E092 0.8108) while neither lexical form reaches 2 i
   problem.
 - **No prior-art screen is run**, deliberately: the surviving mechanism is the
   strongest alternative, so there is no differentiation to defend.
+
+### The three bullets above are corrected by E174; this is what it found instead
+
+- **The scope, not the vocabulary, was the whole difference.** `A0_quoted_repo` is
+  the developer's verbatim error string with the repository qualifier added: it
+  reaches the fix on **5 of the 13 rows** and on **5 of the 8 rows that have a
+  literal** (0.625, Wilson [0.306, 0.863]), at a median of **one matching
+  document in the entire repository**. Paired, the union of the three scoped arms
+  reaches **6/13 = 0.4615** against the global arms' **2/13 = 0.1538**, with
+  **4 rows scoped-only and 0 global-only**, McNemar exact **p = 0.125**. The
+  point estimate clears this protocol's own **0.30** build bar; the Wilson lower
+  bound (0.177) does not, so it is a point estimate at n = 13, not an effect.
+- **The incumbent was never falsified.** E169 withdrew "search the project's
+  issue tracker with the exact error string" because a *global* query with the
+  target's own quoted title returns 17 033 706 hits. Repo scoping is what removes
+  that failure, and this experiment ran it.
+- **The product constraint G3 predicted is the open question.** The mechanism
+  needs the developer to already know the repository. Everything else — the
+  literal, the ranking, the surface — works. Whether the repository can be
+  derived from a failure report is **E175**, declared with its gates before any
+  fetch.
 
 ## What this does not establish
 

@@ -53,17 +53,19 @@ def replay(rawlog, rows):
     aligned, mismatches = [], []
     for r in rows:
         rec = {"qid": r["qid"], "control": next(it), "placebo": next(it)}
-        for name in gs.arms(r, r["target"]):
-            rec[name] = next(it)
+        for name, query in gs.arms(r, r["target"]):
+            got = next(it)
+            rec[name] = got
+            # Two-sided proof of alignment: the query this driver would send now
+            # must equal the query the raw log recorded, and the raw log's own
+            # arm label must equal the arm name this driver expected.
+            if got.get("query") != query:
+                mismatches.append({"qid": r["qid"], "arm": name,
+                                   "replayed": query, "logged": got.get("query")})
+            if got.get("arm") != name:
+                mismatches.append({"qid": r["qid"], "arm": name,
+                                   "logged_arm": got.get("arm")})
         aligned.append(rec)
-        for name in ALL_ARMS + ("control", "placebo"):
-            got = rec.get(name)
-            if got is None:
-                continue
-            played = rec["control"]["query"] if name == "control" else (
-                rec["placebo"]["query"] if name == "placebo" else got["query"])
-            if played != got["query"]:
-                mismatches.append((r["qid"], name, played, got["query"]))
     return aligned, mismatches, list(it)
 
 
@@ -97,9 +99,9 @@ def main():
     for name in ALL_ARMS:
         h = q = 0
         ranks[name] = []
-        for rec in aligned:
+        for i, rec in enumerate(aligned):
             got = rec.get(name)
-            rk = rank_from_urls((got or {}).get("urls"), rows[aligned.index(rec)]["target"])
+            rk = rank_from_urls((got or {}).get("urls"), rows[i]["target"])
             ranks[name].append(rk)
             if got is None:
                 continue
@@ -160,6 +162,16 @@ def main():
     union["global_only"] = sum(1 for i in range(len(aligned))
                                if any(ranks[a][i] is not None for a in GLOBAL_ARMS)
                                and not any(ranks[a][i] is not None for a in SCOPED_FAMILY))
+    # The union comparison is the one clean statement of the omitted finding:
+    # same 13 rows, any of the three scoped query forms against any of the four
+    # global ones.  both = |scoped ∩ global|, computed from the two hit sets.
+    both = union["scoped_union"]["hits"] - union["scoped_only"]
+    union["paired"] = {"both": both, "scoped_only": union["scoped_only"],
+                       "global_only": union["global_only"],
+                       "neither": len(aligned) - both - union["scoped_only"]
+                                  - union["global_only"],
+                       "mcnemar_exact_p": mcnemar_exact(union["scoped_only"],
+                                                       union["global_only"])}
 
     # ---- the bar E170 declared --------------------------------------------
     best_scoped = max(((hits[a] / of_all[a], a) for a in SCOPED_FAMILY))
@@ -167,7 +179,16 @@ def main():
            "best_scoped_rate": round(best_scoped[0], 4),
            "best_scoped_ci95": wilson(hits[best_scoped[1]], of_all[best_scoped[1]]),
            "point_estimate_clears_bar": best_scoped[0] >= 0.30,
-           "lower_bound_clears_bar": wilson(hits[best_scoped[1]], of_all[best_scoped[1]])[0] >= 0.30}
+           "lower_bound_clears_bar": wilson(hits[best_scoped[1]], of_all[best_scoped[1]])[0] >= 0.30,
+           "note": "primary denominator is all 13 rows, the conservative choice E170 "
+                   "itself made when it reported A0_global as 1/13; the arm's own "
+                   "denominator is reported beside it because the literal arms only "
+                   "produce a query for rows that have a quoted literal",
+           "per_arm_own_denominator": {
+               a: {"hits": hits[a], "of": of_queried[a],
+                   "rate": round(hits[a] / of_queried[a], 4) if of_queried[a] else None,
+                   "ci95": wilson(hits[a], of_queried[a])}
+               for a in ALL_ARMS}}
 
     out = {"experiment": "E174", "source": "E170 committed raw responses",
            "rows": len(aligned), "G1": g1, "G2": g2, "G3": comparisons,

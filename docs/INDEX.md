@@ -182,6 +182,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0091-run-a-fresh-observation-experiment-testing-the-v.md`](../tasks/T-0091-run-a-fresh-observation-experiment-testing-the-v.md) | `tasks/INDEX.md` | active | 2026-10-11 | ## Goal |
 | [`tasks/T-0093-test-whether-a-discriminating-observation-proced.md`](../tasks/T-0093-test-whether-a-discriminating-observation-proced.md) | `tasks/INDEX.md` | active | 2026-10-12 | ## Goal |
 | [`tasks/T-0094-run-a-fresh-observation-experiment-testing-the-view-count-principle.md`](../tasks/T-0094-run-a-fresh-observation-experiment-testing-the-view-count-principle.md) | `docs/INDEX.md` | active | 2026-10-15 | ## Goal |
+| [`tasks/T-0095-e172-fresh-observation-view-count-principle-and.md`](../tasks/T-0095-e172-fresh-observation-view-count-principle-and.md) | `tasks/INDEX.md` | active | 2026-10-16 | ## Goal |
 
 ## RESEARCH
 
@@ -423,6 +424,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/168-version-pinned-need/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 2 documents |
 | `EXPERIMENTS/169-version-pinned-reach/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 4 documents |
 | `EXPERIMENTS/170-fix-reachability-rank/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 4 documents |
+| `EXPERIMENTS/171-resolution-fact-locus/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 3 documents |
 | `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
@@ -431,6 +433,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/E151-se-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E161-vscode-extension-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E162-mozilla-addons-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/E172-discourse-viewcount/` | `docs/INDEX.md` | active | 2026-10-16 | 2 documents |
+| `EXPERIMENTS/E173-github-discussions-viewcount/` | `docs/INDEX.md` | active | 2026-10-16 | 2 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/e138-viewcount-discrimination/` | `docs/INDEX.md` | active | 2026-10-14 | 1 documents |

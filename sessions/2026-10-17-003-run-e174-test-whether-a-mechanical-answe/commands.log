@@ -1,0 +1,1911 @@
+==============================================================================
+[seq 9] 2026-10-17T05:44:46+00:00
+$ git commit -q -m F133: two identifiers, four contradictory records, none reproducible
+
+E172 and E173 were written twice each, on different venues, with different
+samples and different verdicts; all four ran with 0 captured commands and kept
+no raw harvest. The RubyGems record would have re-added a pass to the screen
+D105 withdrew, on a venue E104/E109/E110 already measured, and contradicts
+itself in the same object. Both are marked untested; the root JSONs are marked
+withdrawn-unverified in place. One false novelty claim corrected in place.
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 397  redactions: none
+==============================================================================
+[seq 10] 2026-10-17T05:45:45+00:00
+$ python3 EXPERIMENTS/174-scoped-reach-recompute/recompute.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "experiment": "E174",
+ "source": "E170 committed raw responses",
+ "rows": 13,
+ "G1": {
+  "pass": false,
+  "arms": [
+   {
+    "arm": "A0_bare_global",
+    "stored_hits": 1,
+    "stored_of": 13,
+    "stored_rate": 0.0769,
+    "recomputed_hits": 0,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.0,
+    "of_rows_with_a_query": 0,
+    "median_total": 2167,
+    "equal": false
+   },
+   {
+    "arm": "A0_quoted_repo",
+    "stored_hits": 5,
+    "stored_of": 13,
+    "stored_rate": 0.3846,
+    "recomputed_hits": 0,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.0,
+    "of_rows_with_a_query": 0,
+    "median_total": 1,
+    "equal": false
+   },
+   {
+    "arm": "A0_quoted_global",
+    "stored_hits": 1,
+    "stored_of": 13,
+    "stored_rate": 0.0769,
+    "recomputed_hits": 0,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.0,
+    "of_rows_with_a_query": 0,
+    "median_total": 99,
+    "equal": false
+   },
+   {
+    "arm": "A0_bare_repo",
+    "stored_hits": 4,
+    "stored_of": 13,
+    "stored_rate": 0.3077,
+    "recomputed_hits": 0,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.0,
+    "of_rows_with_a_query": 0,
+    "median_total": 12,
+    "equal": false
+   },
+   {
+    "arm": "A1_global",
+    "stored_hits": 2,
+    "stored_of": 13,
+    "stored_rate": 0.1538,
+    "recomputed_hits": 0,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.0,
+    "of_rows_with_a_query": 0,
+    "median_total": 70,
+    "equal": false
+   },
+   {
+    "arm": "A1_repo",
+    "stored_hits": 5,
+    "stored_of": 13,
+    "stored_rate": 0.3846,
+    "recomputed_hits": 0,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.0,
+    "of_rows_with_a_query": 0,
+    "median_total": 3,
+    "equal": false
+   },
+   {
+    "arm": "A2_global",
+    "stored_hits": 1,
+    "stored_of": 13,
+    "stored_rate": 0.0769,
+    "recomputed_hits": 0,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.0,
+    "of_rows_with_a_query": 0,
+    "median_total": 1014,
+    "equal": false
+   }
+  ]
+ },
+ "G2": {
+  "records": 97,
+  "consumed": 97,
+  "leftover": 0,
+  "query_string_mismatches": 0,
+  "pass": true
+ },
+ "G3": [
+  {
+   "a": "A1_repo",
+   "b": "A1_global",
+   "both": 0,
+   "a_only": 0,
+   "b_only": 0,
+   "neither": 13,
+   "a_rate": 0.0,
+   "b_rate": 0.0,
+   "mcnemar_exact_p": 1.0,
+   "a_ci95": [
+    0.0,
+    0.2281
+   ],
+   "b_ci95": [
+    0.0,
+    0.2281
+   ]
+  },
+  {
+   "a": "A0_quoted_repo",
+   "b": "A0_quoted_global",
+   "both": 0,
+   "a_only": 0,
+   "b_only": 0,
+   "neither": 13,
+   "a_rate": 0.0,
+   "b_rate": 0.0,
+   "mcnemar_exact_p": 1.0,
+   "a_ci95": [
+    0.0,
+    0.2281
+   ],
+   "b_ci95": [
+    0.0,
+    0.2281
+   ]
+  },
+  {
+   "a": "A0_bare_repo",
+   "b": "A0_bare_global",
+   "both": 0,
+   "a_only": 0,
+   "b_only": 0,
+   "neither": 13,
+   "a_rate": 0.0,
+   "b_rate": 0.0,
+   "mcnemar_exact_p": 1.0,
+   "a_ci95": [
+    0.0,
+    0.2281
+   ],
+   "b_ci95": [
+    0.0,
+    0.2281
+   ]
+  }
+ ],
+ "union": {
+  "scoped_union": {
+   "hits": 0,
+   "of": 13,
+   "rate": 0.0,
+   "ci95": [
+    0.0,
+    0.2281
+   ]
+  },
+  "global_union": {
+   "hits": 0,
+   "of": 13,
+   "rate": 0.0,
+   "ci95": [
+    0.0,
+    0.2281
+   ]
+  },
+  "scoped_only": 0,
+  "global_only": 0
+ },
+ "bar": {
+  "declared_bar": 0.3,
+  "best_scoped_arm": "A1_repo",
+  "best_scoped_rate": 0.0,
+  "best_scoped_ci95": [
+   0.0,
+   0.2281
+  ],
+  "point_estimate_clears_bar": false,
+  "lower_bound_clears_bar": false
+ },
+ "scoped_arms": [
+  "A0_bare_repo",
+  "A0_quoted_repo",
+  "A1_repo"
+ ],
+ "global_arms": [
+  "A0_bare_global",
+  "A0_quoted_global",
+  "A1_global",
+  "A2_global"
+ ]
+}
+wrote /home/ubuntu/think-free/EXPERIMENTS/174-scoped-reach-recompute/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 479  redactions: none
+==============================================================================
+[seq 11] 2026-10-17T05:46:26+00:00
+$ python3 EXPERIMENTS/174-scoped-reach-recompute/recompute.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "experiment": "E174",
+ "source": "E170 committed raw responses",
+ "rows": 13,
+ "G1": {
+  "pass": true,
+  "arms": [
+   {
+    "arm": "A0_bare_global",
+    "stored_hits": 1,
+    "stored_of": 13,
+    "stored_rate": 0.0769,
+    "recomputed_hits": 1,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.0769,
+    "of_rows_with_a_query": 8,
+    "median_total": 2167,
+    "equal": true
+   },
+   {
+    "arm": "A0_quoted_repo",
+    "stored_hits": 5,
+    "stored_of": 13,
+    "stored_rate": 0.3846,
+    "recomputed_hits": 5,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.3846,
+    "of_rows_with_a_query": 8,
+    "median_total": 1,
+    "equal": true
+   },
+   {
+    "arm": "A0_quoted_global",
+    "stored_hits": 1,
+    "stored_of": 13,
+    "stored_rate": 0.0769,
+    "recomputed_hits": 1,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.0769,
+    "of_rows_with_a_query": 8,
+    "median_total": 99,
+    "equal": true
+   },
+   {
+    "arm": "A0_bare_repo",
+    "stored_hits": 4,
+    "stored_of": 13,
+    "stored_rate": 0.3077,
+    "recomputed_hits": 4,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.3077,
+    "of_rows_with_a_query": 8,
+    "median_total": 12,
+    "equal": true
+   },
+   {
+    "arm": "A1_global",
+    "stored_hits": 2,
+    "stored_of": 13,
+    "stored_rate": 0.1538,
+    "recomputed_hits": 2,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.1538,
+    "of_rows_with_a_query": 13,
+    "median_total": 70,
+    "equal": true
+   },
+   {
+    "arm": "A1_repo",
+    "stored_hits": 5,
+    "stored_of": 13,
+    "stored_rate": 0.3846,
+    "recomputed_hits": 5,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.3846,
+    "of_rows_with_a_query": 13,
+    "median_total": 3,
+    "equal": true
+   },
+   {
+    "arm": "A2_global",
+    "stored_hits": 1,
+    "stored_of": 13,
+    "stored_rate": 0.0769,
+    "recomputed_hits": 1,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.0769,
+    "of_rows_with_a_query": 13,
+    "median_total": 1014,
+    "equal": true
+   }
+  ]
+ },
+ "G2": {
+  "records": 97,
+  "consumed": 97,
+  "leftover": 0,
+  "query_string_mismatches": 0,
+  "pass": true
+ },
+ "G3": [
+  {
+   "a": "A1_repo",
+   "b": "A1_global",
+   "both": 2,
+   "a_only": 3,
+   "b_only": 0,
+   "neither": 8,
+   "a_rate": 0.3846,
+   "b_rate": 0.1538,
+   "mcnemar_exact_p": 0.25,
+   "a_ci95": [
+    0.1771,
+    0.6448
+   ],
+   "b_ci95": [
+    0.0433,
+    0.4223
+   ]
+  },
+  {
+   "a": "A0_quoted_repo",
+   "b": "A0_quoted_global",
+   "both": 1,
+   "a_only": 4,
+   "b_only": 0,
+   "neither": 8,
+   "a_rate": 0.3846,
+   "b_rate": 0.0769,
+   "mcnemar_exact_p": 0.125,
+   "a_ci95": [
+    0.1771,
+    0.6448
+   ],
+   "b_ci95": [
+    0.0137,
+    0.3331
+   ]
+  },
+  {
+   "a": "A0_bare_repo",
+   "b": "A0_bare_global",
+   "both": 1,
+   "a_only": 3,
+   "b_only": 0,
+   "neither": 9,
+   "a_rate": 0.3077,
+   "b_rate": 0.0769,
+   "mcnemar_exact_p": 0.25,
+   "a_ci95": [
+    0.1268,
+    0.5763
+   ],
+   "b_ci95": [
+    0.0137,
+    0.3331
+   ]
+  }
+ ],
+ "union": {
+  "scoped_union": {
+   "hits": 6,
+   "of": 13,
+   "rate": 0.4615,
+   "ci95": [
+    0.2321,
+    0.7086
+   ]
+  },
+  "global_union": {
+   "hits": 2,
+   "of": 13,
+   "rate": 0.1538,
+   "ci95": [
+    0.0433,
+    0.4223
+   ]
+  },
+  "scoped_only": 4,
+  "global_only": 0
+ },
+ "bar": {
+  "declared_bar": 0.3,
+  "best_scoped_arm": "A1_repo",
+  "best_scoped_rate": 0.3846,
+  "best_scoped_ci95": [
+   0.1771,
+   0.6448
+  ],
+  "point_estimate_clears_bar": true,
+  "lower_bound_clears_bar": false
+ },
+ "scoped_arms": [
+  "A0_bare_repo",
+  "A0_quoted_repo",
+  "A1_repo"
+ ],
+ "global_arms": [
+  "A0_bare_global",
+  "A0_quoted_global",
+  "A1_global",
+  "A2_global"
+ ]
+}
+wrote /home/ubuntu/think-free/EXPERIMENTS/174-scoped-reach-recompute/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 200  redactions: none
+==============================================================================
+[seq 12] 2026-10-17T05:46:53+00:00
+$ python3 EXPERIMENTS/174-scoped-reach-recompute/recompute.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "experiment": "E174",
+ "source": "E170 committed raw responses",
+ "rows": 13,
+ "G1": {
+  "pass": true,
+  "arms": [
+   {
+    "arm": "A0_bare_global",
+    "stored_hits": 1,
+    "stored_of": 13,
+    "stored_rate": 0.0769,
+    "recomputed_hits": 1,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.0769,
+    "of_rows_with_a_query": 8,
+    "median_total": 2167,
+    "equal": true
+   },
+   {
+    "arm": "A0_quoted_repo",
+    "stored_hits": 5,
+    "stored_of": 13,
+    "stored_rate": 0.3846,
+    "recomputed_hits": 5,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.3846,
+    "of_rows_with_a_query": 8,
+    "median_total": 1,
+    "equal": true
+   },
+   {
+    "arm": "A0_quoted_global",
+    "stored_hits": 1,
+    "stored_of": 13,
+    "stored_rate": 0.0769,
+    "recomputed_hits": 1,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.0769,
+    "of_rows_with_a_query": 8,
+    "median_total": 99,
+    "equal": true
+   },
+   {
+    "arm": "A0_bare_repo",
+    "stored_hits": 4,
+    "stored_of": 13,
+    "stored_rate": 0.3077,
+    "recomputed_hits": 4,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.3077,
+    "of_rows_with_a_query": 8,
+    "median_total": 12,
+    "equal": true
+   },
+   {
+    "arm": "A1_global",
+    "stored_hits": 2,
+    "stored_of": 13,
+    "stored_rate": 0.1538,
+    "recomputed_hits": 2,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.1538,
+    "of_rows_with_a_query": 13,
+    "median_total": 70,
+    "equal": true
+   },
+   {
+    "arm": "A1_repo",
+    "stored_hits": 5,
+    "stored_of": 13,
+    "stored_rate": 0.3846,
+    "recomputed_hits": 5,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.3846,
+    "of_rows_with_a_query": 13,
+    "median_total": 3,
+    "equal": true
+   },
+   {
+    "arm": "A2_global",
+    "stored_hits": 1,
+    "stored_of": 13,
+    "stored_rate": 0.0769,
+    "recomputed_hits": 1,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.0769,
+    "of_rows_with_a_query": 13,
+    "median_total": 1014,
+    "equal": true
+   }
+  ]
+ },
+ "G2": {
+  "records": 97,
+  "consumed": 97,
+  "leftover": 0,
+  "query_string_mismatches": 0,
+  "pass": true
+ },
+ "G3": [
+  {
+   "a": "A1_repo",
+   "b": "A1_global",
+   "both": 2,
+   "a_only": 3,
+   "b_only": 0,
+   "neither": 8,
+   "a_rate": 0.3846,
+   "b_rate": 0.1538,
+   "mcnemar_exact_p": 0.25,
+   "a_ci95": [
+    0.1771,
+    0.6448
+   ],
+   "b_ci95": [
+    0.0433,
+    0.4223
+   ]
+  },
+  {
+   "a": "A0_quoted_repo",
+   "b": "A0_quoted_global",
+   "both": 1,
+   "a_only": 4,
+   "b_only": 0,
+   "neither": 8,
+   "a_rate": 0.3846,
+   "b_rate": 0.0769,
+   "mcnemar_exact_p": 0.125,
+   "a_ci95": [
+    0.1771,
+    0.6448
+   ],
+   "b_ci95": [
+    0.0137,
+    0.3331
+   ]
+  },
+  {
+   "a": "A0_bare_repo",
+   "b": "A0_bare_global",
+   "both": 1,
+   "a_only": 3,
+   "b_only": 0,
+   "neither": 9,
+   "a_rate": 0.3077,
+   "b_rate": 0.0769,
+   "mcnemar_exact_p": 0.25,
+   "a_ci95": [
+    0.1268,
+    0.5763
+   ],
+   "b_ci95": [
+    0.0137,
+    0.3331
+   ]
+  }
+ ],
+ "union": {
+  "scoped_union": {
+   "hits": 6,
+   "of": 13,
+   "rate": 0.4615,
+   "ci95": [
+    0.2321,
+    0.7086
+   ]
+  },
+  "global_union": {
+   "hits": 2,
+   "of": 13,
+   "rate": 0.1538,
+   "ci95": [
+    0.0433,
+    0.4223
+   ]
+  },
+  "scoped_only": 4,
+  "global_only": 0,
+  "paired": {
+   "both": -1,
+   "scoped_only": 4,
+   "global_only": 0,
+   "mcnemar_exact_p": 0.125
+  }
+ },
+ "bar": {
+  "declared_bar": 0.3,
+  "best_scoped_arm": "A1_repo",
+  "best_scoped_rate": 0.3846,
+  "best_scoped_ci95": [
+   0.1771,
+   0.6448
+  ],
+  "point_estimate_clears_bar": true,
+  "lower_bound_clears_bar": false,
+  "note": "primary denominator is all 13 rows, the conservative choice E170 itself made when it reported A0_global as 1/13; the arm's own denominator is reported beside it because the literal arms only produce a query for rows that have a quoted literal",
+  "per_arm_own_denominator": {
+   "A0_bare_global": {
+    "hits": 1,
+    "of": 8,
+    "rate": 0.125,
+    "ci95": [
+     0.0224,
+     0.4709
+    ]
+   },
+   "A0_quoted_repo": {
+    "hits": 5,
+    "of": 8,
+    "rate": 0.625,
+    "ci95": [
+     0.3057,
+     0.8632
+    ]
+   },
+   "A0_quoted_global": {
+    "hits": 1,
+    "of": 8,
+    "rate": 0.125,
+    "ci95": [
+     0.0224,
+     0.4709
+    ]
+   },
+   "A0_bare_repo": {
+    "hits": 4,
+    "of": 8,
+    "rate": 0.5,
+    "ci95": [
+     0.2152,
+     0.7848
+    ]
+   },
+   "A1_global": {
+    "hits": 2,
+    "of": 13,
+    "rate": 0.1538,
+    "ci95": [
+     0.0433,
+     0.4223
+    ]
+   },
+   "A1_repo": {
+    "hits": 5,
+    "of": 13,
+    "rate": 0.3846,
+    "ci95": [
+     0.1771,
+     0.6448
+    ]
+   },
+   "A2_global": {
+    "hits": 1,
+    "of": 13,
+    "rate": 0.0769,
+    "ci95": [
+     0.0137,
+     0.3331
+    ]
+   }
+  }
+ },
+ "scoped_arms": [
+  "A0_bare_repo",
+  "A0_quoted_repo",
+  "A1_repo"
+ ],
+ "global_arms": [
+  "A0_bare_global",
+  "A0_quoted_global",
+  "A1_global",
+  "A2_global"
+ ]
+}
+wrote /home/ubuntu/think-free/EXPERIMENTS/174-scoped-reach-recompute/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 297  redactions: none
+==============================================================================
+[seq 13] 2026-10-17T05:47:04+00:00
+$ python3 EXPERIMENTS/174-scoped-reach-recompute/recompute.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "experiment": "E174",
+ "source": "E170 committed raw responses",
+ "rows": 13,
+ "G1": {
+  "pass": true,
+  "arms": [
+   {
+    "arm": "A0_bare_global",
+    "stored_hits": 1,
+    "stored_of": 13,
+    "stored_rate": 0.0769,
+    "recomputed_hits": 1,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.0769,
+    "of_rows_with_a_query": 8,
+    "median_total": 2167,
+    "equal": true
+   },
+   {
+    "arm": "A0_quoted_repo",
+    "stored_hits": 5,
+    "stored_of": 13,
+    "stored_rate": 0.3846,
+    "recomputed_hits": 5,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.3846,
+    "of_rows_with_a_query": 8,
+    "median_total": 1,
+    "equal": true
+   },
+   {
+    "arm": "A0_quoted_global",
+    "stored_hits": 1,
+    "stored_of": 13,
+    "stored_rate": 0.0769,
+    "recomputed_hits": 1,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.0769,
+    "of_rows_with_a_query": 8,
+    "median_total": 99,
+    "equal": true
+   },
+   {
+    "arm": "A0_bare_repo",
+    "stored_hits": 4,
+    "stored_of": 13,
+    "stored_rate": 0.3077,
+    "recomputed_hits": 4,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.3077,
+    "of_rows_with_a_query": 8,
+    "median_total": 12,
+    "equal": true
+   },
+   {
+    "arm": "A1_global",
+    "stored_hits": 2,
+    "stored_of": 13,
+    "stored_rate": 0.1538,
+    "recomputed_hits": 2,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.1538,
+    "of_rows_with_a_query": 13,
+    "median_total": 70,
+    "equal": true
+   },
+   {
+    "arm": "A1_repo",
+    "stored_hits": 5,
+    "stored_of": 13,
+    "stored_rate": 0.3846,
+    "recomputed_hits": 5,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.3846,
+    "of_rows_with_a_query": 13,
+    "median_total": 3,
+    "equal": true
+   },
+   {
+    "arm": "A2_global",
+    "stored_hits": 1,
+    "stored_of": 13,
+    "stored_rate": 0.0769,
+    "recomputed_hits": 1,
+    "recomputed_of": 13,
+    "recomputed_rate": 0.0769,
+    "of_rows_with_a_query": 13,
+    "median_total": 1014,
+    "equal": true
+   }
+  ]
+ },
+ "G2": {
+  "records": 97,
+  "consumed": 97,
+  "leftover": 0,
+  "query_string_mismatches": 0,
+  "pass": true
+ },
+ "G3": [
+  {
+   "a": "A1_repo",
+   "b": "A1_global",
+   "both": 2,
+   "a_only": 3,
+   "b_only": 0,
+   "neither": 8,
+   "a_rate": 0.3846,
+   "b_rate": 0.1538,
+   "mcnemar_exact_p": 0.25,
+   "a_ci95": [
+    0.1771,
+    0.6448
+   ],
+   "b_ci95": [
+    0.0433,
+    0.4223
+   ]
+  },
+  {
+   "a": "A0_quoted_repo",
+   "b": "A0_quoted_global",
+   "both": 1,
+   "a_only": 4,
+   "b_only": 0,
+   "neither": 8,
+   "a_rate": 0.3846,
+   "b_rate": 0.0769,
+   "mcnemar_exact_p": 0.125,
+   "a_ci95": [
+    0.1771,
+    0.6448
+   ],
+   "b_ci95": [
+    0.0137,
+    0.3331
+   ]
+  },
+  {
+   "a": "A0_bare_repo",
+   "b": "A0_bare_global",
+   "both": 1,
+   "a_only": 3,
+   "b_only": 0,
+   "neither": 9,
+   "a_rate": 0.3077,
+   "b_rate": 0.0769,
+   "mcnemar_exact_p": 0.25,
+   "a_ci95": [
+    0.1268,
+    0.5763
+   ],
+   "b_ci95": [
+    0.0137,
+    0.3331
+   ]
+  }
+ ],
+ "union": {
+  "scoped_union": {
+   "hits": 6,
+   "of": 13,
+   "rate": 0.4615,
+   "ci95": [
+    0.2321,
+    0.7086
+   ]
+  },
+  "global_union": {
+   "hits": 2,
+   "of": 13,
+   "rate": 0.1538,
+   "ci95": [
+    0.0433,
+    0.4223
+   ]
+  },
+  "scoped_only": 4,
+  "global_only": 0,
+  "paired": {
+   "both": 2,
+   "scoped_only": 4,
+   "global_only": 0,
+   "neither": 7,
+   "mcnemar_exact_p": 0.125
+  }
+ },
+ "bar": {
+  "declared_bar": 0.3,
+  "best_scoped_arm": "A1_repo",
+  "best_scoped_rate": 0.3846,
+  "best_scoped_ci95": [
+   0.1771,
+   0.6448
+  ],
+  "point_estimate_clears_bar": true,
+  "lower_bound_clears_bar": false,
+  "note": "primary denominator is all 13 rows, the conservative choice E170 itself made when it reported A0_global as 1/13; the arm's own denominator is reported beside it because the literal arms only produce a query for rows that have a quoted literal",
+  "per_arm_own_denominator": {
+   "A0_bare_global": {
+    "hits": 1,
+    "of": 8,
+    "rate": 0.125,
+    "ci95": [
+     0.0224,
+     0.4709
+    ]
+   },
+   "A0_quoted_repo": {
+    "hits": 5,
+    "of": 8,
+    "rate": 0.625,
+    "ci95": [
+     0.3057,
+     0.8632
+    ]
+   },
+   "A0_quoted_global": {
+    "hits": 1,
+    "of": 8,
+    "rate": 0.125,
+    "ci95": [
+     0.0224,
+     0.4709
+    ]
+   },
+   "A0_bare_repo": {
+    "hits": 4,
+    "of": 8,
+    "rate": 0.5,
+    "ci95": [
+     0.2152,
+     0.7848
+    ]
+   },
+   "A1_global": {
+    "hits": 2,
+    "of": 13,
+    "rate": 0.1538,
+    "ci95": [
+     0.0433,
+     0.4223
+    ]
+   },
+   "A1_repo": {
+    "hits": 5,
+    "of": 13,
+    "rate": 0.3846,
+    "ci95": [
+     0.1771,
+     0.6448
+    ]
+   },
+   "A2_global": {
+    "hits": 1,
+    "of": 13,
+    "rate": 0.0769,
+    "ci95": [
+     0.0137,
+     0.3331
+    ]
+   }
+  }
+ },
+ "scoped_arms": [
+  "A0_bare_repo",
+  "A0_quoted_repo",
+  "A1_repo"
+ ],
+ "global_arms": [
+  "A0_bare_global",
+  "A0_quoted_global",
+  "A1_global",
+  "A2_global"
+ ]
+}
+wrote /home/ubuntu/think-free/EXPERIMENTS/174-scoped-reach-recompute/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 215  redactions: none
+==============================================================================
+[seq 14] 2026-10-17T05:50:09+00:00
+$ python3 EXPERIMENTS/175-repo-from-report/sample.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+excluded 40 graded, 13 read in full; free=287; drew 40 rows
+questions: 37 items, quota left None
+answers for 33 of 40 questions; quota left None
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/175-repo-from-report/sample.py", line 147, in <module>
+    main()
+  File "EXPERIMENTS/175-repo-from-report/sample.py", line 114, in main
+    sys.path.insert(0, HERE)
+NameError: name 'sys' is not defined
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 4108  redactions: none
+==============================================================================
+[seq 15] 2026-10-17T05:50:20+00:00
+$ python3 EXPERIMENTS/175-repo-from-report/sample.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+excluded 40 graded, 13 read in full; free=287; drew 40 rows
+questions: 37 items, quota left None
+answers for 33 of 40 questions; quota left None
+question ids the API did not return: [80008957, 80009342, 80009075]
+rows with no gold: [79831573, 80009365, 80000170, 79557242, 79653647, 79835432, 79767311, 79818917, 79868298, 80009062, 79935258, 79873559, 79805098, 80008997, 79810849, 79824381, 80008957, 79754247, 79768581, 80009342, 79585153, 79665976, 79871713, 79945712, 79978180, 79589468, 80008925, 79635270, 80009075, 79817405, 79753701, 79848893, 79533324, 79818015]
+gold repository named for 6 of 40 drawn rows
+  79831573 -                            -
+  80009365 -                            -
+  80000170 -                            -
+  79557242 -                            -
+  79653647 -                            -
+  79428308 coreybutler/nvm-windows      top_voted
+  79835432 -                            -
+  79767311 -                            -
+  79818917 -                            -
+  79380514 tailwindlabs/tailwindcss     top_voted
+  79868298 -                            -
+  80009062 -                            -
+  79935258 -                            -
+  79873559 -                            -
+  79805098 -                            -
+  80008997 -                            -
+  79567126 git-for-windows/git          top_voted
+  79810849 -                            -
+  79824381 -                            -
+  80008957 -                            -
+  80009095 baldurk/renderdoc            top_voted
+  79754247 -                            -
+  79768581 -                            -
+  80009342 -                            -
+  79585153 -                            -
+  79665976 -                            -
+  79871713 -                            -
+  79945712 -                            -
+  79600161 duclq92/ffmpeg-kit-audio     top_voted
+  79978180 -                            -
+  79589468 -                            -
+  80008925 -                            -
+  79635270 -                            -
+  80009075 -                            -
+  79817405 -                            -
+  79753701 -                            -
+  79848893 -                            -
+  79363302 microsoft/vscode             top_voted
+  79533324 -                            -
+  79818015 -                            -
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3283  redactions: none
+==============================================================================
+[seq 16] 2026-10-17T05:51:06+00:00
+$ python3 EXPERIMENTS/175-repo-from-report/sample.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+excluded 40 graded, 13 read in full; free=287; drew 200 rows
+questions returned for 181 of 200 ids
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/175-repo-from-report/sample.py", line 172, in <module>
+    main()
+  File "EXPERIMENTS/175-repo-from-report/sample.py", line 132, in main
+    % (len(answers), len(ids), (rec2 or {}).get("quota_remaining")))
+AttributeError: 'list' object has no attribute 'get'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 18293  redactions: none
+==============================================================================
+[seq 17] 2026-10-17T05:51:29+00:00
+$ python3 EXPERIMENTS/175-repo-from-report/sample.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+excluded 40 graded, 13 read in full; free=287; drew 200 rows
+questions returned for 181 of 200 ids
+answers for 145 of 200 questions; quota left unknown
+question ids the API did not return: [80008957, 80009342, 80009075, 80009443, 80009312, 80008968, 80009047, 80009585, 80009182, 80009194, 80009518, 80009340, 80009451, 80009401, 80009024, 80009501, 80009172, 80009170, 80009197]
+rows with no gold: [79831573, 80009365, 80000170, 79557242, 79653647, 79835432, 79767311, 79818917, 79868298, 80009062, 79935258, 79873559, 79805098, 80008997, 79810849, 79824381, 80008957, 79754247, 79768581, 80009342, 79585153, 79665976, 79871713, 79945712, 79978180, 79589468, 80008925, 79635270, 80009075, 79817405, 79753701, 79848893, 79533324, 79818015, 79769322, 80007784, 80009506, 79639474, 80009100, 79806553, 79468329, 79358893, 80009038, 80009443, 80008972, 79400684, 79556333, 80009312, 80008968, 79753103, 79558090, 80009047, 80009585, 79896261, 80009012, 79723342, 80009143, 79760145, 80009182, 80008952, 79733841, 80009097, 79686889, 80009516, 79779187, 79457269, 79663905, 80001437, 79760365, 80009522, 79885892, 80009390, 79368095, 79986340, 80009194, 80009429, 79843062, 80009126, 80009030, 79668364, 79402567, 79602687, 79686551, 79781845, 79592958, 79990062, 80009343, 80009583, 80009507, 80009419, 79850519, 79747651, 79639673, 79434372, 79708412, 79537353, 80009465, 80009157, 80009518, 79802282, 80009278, 79999095, 79582964, 80009480, 79996927, 80009296, 80009340, 80009121, 79929448, 79893839, 80009451, 79607696, 79865748, 79527331, 79927761, 79718097, 80009401, 80009496, 79776559, 80009122, 79743460, 80009535, 79696822, 79788851, 79340949, 79673093, 80009171, 80009024, 80009501, 79663318, 80009004, 79598477, 79404124, 79761108, 79937561, 79906660, 79796450, 79745946, 79335513, 80009138, 80009093, 79730713, 79990816, 80009172, 79561689, 80009109, 80008985, 79672408, 80009302, 79385315, 80009170, 80009014, 80009582, 79779696, 79704522, 79999417, 79912729, 79442076, 79792501, 80009197, 79820806, 79715742, 79583661, 79666817, 79889909, 80009310, 79558008, 80009009, 79847613, 80009540, 80009140, 80009283, 80009348, 79581901, 80009520, 79721071, 79614593, 79452303, 79754852]
+gold repository named for 21 of 200 drawn rows
+  79831573 -                            -
+  80009365 -                            -
+  80000170 -                            -
+  79557242 -                            -
+  79653647 -                            -
+  79428308 coreybutler/nvm-windows      top_voted
+  79835432 -                            -
+  79767311 -                            -
+  79818917 -                            -
+  79380514 tailwindlabs/tailwindcss     top_voted
+  79868298 -                            -
+  80009062 -                            -
+  79935258 -                            -
+  79873559 -                            -
+  79805098 -                            -
+  80008997 -                            -
+  79567126 git-for-windows/git          top_voted
+  79810849 -                            -
+  79824381 -                            -
+  80008957 -                            -
+  80009095 baldurk/renderdoc            top_voted
+  79754247 -                            -
+  79768581 -                            -
+  80009342 -                            -
+  79585153 -                            -
+  79665976 -                            -
+  79871713 -                            -
+  79945712 -                            -
+  79600161 duclq92/ffmpeg-kit-audio     top_voted
+  79978180 -                            -
+  79589468 -                            -
+  80008925 -                            -
+  79635270 -                            -
+  80009075 -                            -
+  79817405 -                            -
+  79753701 -                            -
+  79848893 -                            -
+  79363302 microsoft/vscode             top_voted
+  79533324 -                            -
+  79818015 -                            -
+  79769322 -                            -
+  80007784 -                            -
+  79383758 tailwindlabs/tailwindcss     top_voted
+  80009506 -                            -
+  79639474 -                            -
+  80009100 -                            -
+  79806553 -                            -
+  79468329 -                            -
+  79358893 -                            -
+  80009038 -                            -
+  80009443 -                            -
+  80008972 -                            -
+  79400684 -                            -
+  79556333 -                            -
+  80009312 -                            -
+  80008968 -                            -
+  79753103 -                            -
+  79558090 -                            -
+  80009047 -                            -
+  80009585 -                            -
+  79896261 -                            -
+  80009012 -                            -
+  79723342 -                            -
+  80009143 -                            -
+  79760145 -                            -
+  80009182 -                            -
+  80008952 -                            -
+  79733841 -                            -
+  80009097 -                            -
+  79513015 tailwindlabs/tailwindcss-intellisense top_voted
+  79686889 -                            -
+  80009516 -                            -
+  79779187 -                            -
+  79457269 -                            -
+  79663905 -                            -
+  80001437 -                            -
+  79760365 -                            -
+  80009522 -                            -
+  79885892 -                            -
+  80009390 -                            -
+  79368095 -                            -
+  79986340 -                            -
+  80009194 -                            -
+  80009429 -                            -
+  79904504 itanium-cxx-abi/cxx-abi      top_voted
+  79843062 -                            -
+  79339258 coreybutler/nvm-windows      top_voted
+  80009126 -                            -
+  80009030 -                            -
+  79668364 -                            -
+  79402567 -                            -
+  79602687 -                            -
+  79686551 -                            -
+  79781845 -                            -
+  79716280 more-itertools/more-itertools top_voted
+  79592958 -                            -
+  79990062 -                            -
+  80009343 -                            -
+  80009583 -                            -
+  80009507 -                            -
+  80009419 -                            -
+  79850519 -                            -
+  79747651 -                            -
+  79639673 -                            -
+  79434372 -                            -
+  79708412 -                            -
+  79537353 -                            -
+  80009465 -                            -
+  79408101 pypi/warehouse               top_voted
+  79775796 vercel/next.js               top_voted
+  80009157 -                            -
+  80009518 -                            -
+  79606837 microsoft/vs-solutionpersistence top_voted
+  79802282 -                            -
+  80009278 -                            -
+  79999095 -                            -
+  79846974 cplusplus/draft              top_voted
+  79582964 -                            -
+  80009480 -                            -
+  79996927 -                            -
+  79442978 tailwindlabs/tailwindcss     top_voted
+  80009296 -                            -
+  80009340 -                            -
+  80009121 -                            -
+  79929448 -                            -
+  79893839 -                            -
+  80009451 -                            -
+  80002935 fmtlib/fmt                   top_voted
+  79607696 -                            -
+  79865748 -                            -
+  79527331 -                            -
+  79927761 -                            -
+  79718097 -                            -
+  80009401 -                            -
+  80009496 -                            -
+  79776559 -                            -
+  80009122 -                            -
+  79743460 -                            -
+  80009535 -                            -
+  79696822 -                            -
+  79788851 -                            -
+  79340949 -                            -
+  79673093 -                            -
+  80009171 -                            -
+  80009024 -                            -
+  80009501 -                            -
+  79663318 -                            -
+  80009004 -                            -
+  79598477 -                            -
+  79404124 -                            -
+  79761108 -                            -
+  79937561 -                            -
+  79906660 -                            -
+  79796450 -                            -
+  79745946 -                            -
+  79335513 -                            -
+  80009138 -                            -
+  80009093 -                            -
+  79730713 -                            -
+  79990816 -                            -
+  80009172 -                            -
+  79561689 -                            -
+  80009109 -                            -
+  80008985 -                            -
+  79672408 -                            -
+  80009302 -                            -
+  79385315 -                            -
+  80009170 -                            -
+  80009014 -                            -
+  80009582 -                            -
+  79786682 rust-lang/libs-team          top_voted
+  79779696 -                            -
+  79704522 -                            -
+  79999417 -                            -
+  79912729 -                            -
+  79442076 -                            -
+  79792501 -                            -
+  80009197 -                            -
+  79820806 -                            -
+  79715742 -                            -
+  79583661 -                            -
+  79666817 -                            -
+  79889909 -                            -
+  80009310 -                            -
+  79836280 powershell/powershell        top_voted
+  79791886 lemire/fastrange             top_voted
+  79558008 -                            -
+  80009009 -                            -
+  79847613 -                            -
+  80009540 -                            -
+  79865375 powershell/powershell        top_voted
+  80009140 -                            -
+  80009283 -                            -
+  80009348 -                            -
+  79581901 -                            -
+  80009520 -                            -
+  79721071 -                            -
+  79614593 -                            -
+  79452303 -                            -
+  79754852 -                            -
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 17690  redactions: none
+==============================================================================
+[seq 18] 2026-10-17T05:52:04+00:00
+$ python3 EXPERIMENTS/175-repo-from-report/sample.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+excluded 40 graded, 13 read in full; free=287; drew 200 rows
+questions returned for 181 of 200 ids
+answers for 145 of 200 questions; quota left unknown
+question ids the API did not return: [80008957, 80009342, 80009075, 80009443, 80009312, 80008968, 80009047, 80009585, 80009182, 80009194, 80009518, 80009340, 80009451, 80009401, 80009024, 80009501, 80009172, 80009170, 80009197]
+rows with no gold: [79831573, 80009365, 80000170, 79557242, 79653647, 79428308, 79835432, 79767311, 79818917, 79380514, 79868298, 80009062, 79935258, 79873559, 79805098, 80008997, 79810849, 79824381, 80008957, 80009095, 79754247, 79768581, 80009342, 79585153, 79665976, 79871713, 79945712, 79600161, 79978180, 79589468, 80008925, 79635270, 80009075, 79817405, 79753701, 79848893, 79533324, 79818015, 79769322, 80007784, 79383758, 80009506, 79639474, 80009100, 79806553, 79468329, 79358893, 80009038, 80009443, 80008972, 79400684, 79556333, 80009312, 80008968, 79753103, 79558090, 80009047, 80009585, 79896261, 80009012, 79723342, 80009143, 79760145, 80009182, 80008952, 79733841, 80009097, 79686889, 80009516, 79779187, 79457269, 79663905, 80001437, 79760365, 80009522, 79885892, 80009390, 79368095, 79986340, 80009194, 80009429, 79843062, 80009126, 80009030, 79668364, 79402567, 79602687, 79686551, 79781845, 79592958, 79990062, 80009343, 80009583, 80009507, 80009419, 79850519, 79747651, 79639673, 79434372, 79708412, 79537353, 80009465, 79775796, 80009157, 80009518, 79606837, 79802282, 80009278, 79999095, 79582964, 80009480, 79996927, 79442978, 80009296, 80009340, 80009121, 79929448, 79893839, 80009451, 80002935, 79607696, 79865748, 79527331, 79927761, 79718097, 80009401, 80009496, 79776559, 80009122, 79743460, 80009535, 79696822, 79788851, 79340949, 79673093, 80009171, 80009024, 80009501, 79663318, 80009004, 79598477, 79404124, 79761108, 79937561, 79906660, 79796450, 79745946, 79335513, 80009138, 80009093, 79730713, 79990816, 80009172, 79561689, 80009109, 80008985, 79672408, 80009302, 79385315, 80009170, 80009014, 80009582, 79779696, 79704522, 79999417, 79912729, 79442076, 79792501, 80009197, 79820806, 79715742, 79583661, 79666817, 79889909, 80009310, 79791886, 79558008, 80009009, 79847613, 80009540, 79865375, 80009140, 80009283, 80009348, 79581901, 80009520, 79721071, 79614593, 79452303, 79754852]
+gold repository named for 10 of 200 drawn rows
+  79831573 -                                  #-      -
+  80009365 -                                  #-      -
+  80000170 -                                  #-      -
+  79557242 -                                  #-      -
+  79653647 -                                  #-      -
+  79428308 -                                  #-      -
+  79835432 -                                  #-      -
+  79767311 -                                  #-      -
+  79818917 -                                  #-      -
+  79380514 -                                  #-      -
+  79868298 -                                  #-      -
+  80009062 -                                  #-      -
+  79935258 -                                  #-      -
+  79873559 -                                  #-      -
+  79805098 -                                  #-      -
+  80008997 -                                  #-      -
+  79567126 git-for-windows/git                #5378   top_voted
+  79810849 -                                  #-      -
+  79824381 -                                  #-      -
+  80008957 -                                  #-      -
+  80009095 -                                  #-      -
+  79754247 -                                  #-      -
+  79768581 -                                  #-      -
+  80009342 -                                  #-      -
+  79585153 -                                  #-      -
+  79665976 -                                  #-      -
+  79871713 -                                  #-      -
+  79945712 -                                  #-      -
+  79600161 -                                  #-      -
+  79978180 -                                  #-      -
+  79589468 -                                  #-      -
+  80008925 -                                  #-      -
+  79635270 -                                  #-      -
+  80009075 -                                  #-      -
+  79817405 -                                  #-      -
+  79753701 -                                  #-      -
+  79848893 -                                  #-      -
+  79363302 microsoft/vscode                   #239844 top_voted
+  79533324 -                                  #-      -
+  79818015 -                                  #-      -
+  79769322 -                                  #-      -
+  80007784 -                                  #-      -
+  79383758 -                                  #-      -
+  80009506 -                                  #-      -
+  79639474 -                                  #-      -
+  80009100 -                                  #-      -
+  79806553 -                                  #-      -
+  79468329 -                                  #-      -
+  79358893 -                                  #-      -
+  80009038 -                                  #-      -
+  80009443 -                                  #-      -
+  80008972 -                                  #-      -
+  79400684 -                                  #-      -
+  79556333 -                                  #-      -
+  80009312 -                                  #-      -
+  80008968 -                                  #-      -
+  79753103 -                                  #-      -
+  79558090 -                                  #-      -
+  80009047 -                                  #-      -
+  80009585 -                                  #-      -
+  79896261 -                                  #-      -
+  80009012 -                                  #-      -
+  79723342 -                                  #-      -
+  80009143 -                                  #-      -
+  79760145 -                                  #-      -
+  80009182 -                                  #-      -
+  80008952 -                                  #-      -
+  79733841 -                                  #-      -
+  80009097 -                                  #-      -
+  79513015 tailwindlabs/tailwindcss-intellisense #1250   top_voted
+  79686889 -                                  #-      -
+  80009516 -                                  #-      -
+  79779187 -                                  #-      -
+  79457269 -                                  #-      -
+  79663905 -                                  #-      -
+  80001437 -                                  #-      -
+  79760365 -                                  #-      -
+  80009522 -                                  #-      -
+  79885892 -                                  #-      -
+  80009390 -                                  #-      -
+  79368095 -                                  #-      -
+  79986340 -                                  #-      -
+  80009194 -                                  #-      -
+  80009429 -                                  #-      -
+  79904504 itanium-cxx-abi/cxx-abi            #144    top_voted
+  79843062 -                                  #-      -
+  79339258 coreybutler/nvm-windows            #1209   top_voted
+  80009126 -                                  #-      -
+  80009030 -                                  #-      -
+  79668364 -                                  #-      -
+  79402567 -                                  #-      -
+  79602687 -                                  #-      -
+  79686551 -                                  #-      -
+  79781845 -                                  #-      -
+  79716280 more-itertools/more-itertools      #754    top_voted
+  79592958 -                                  #-      -
+  79990062 -                                  #-      -
+  80009343 -                                  #-      -
+  80009583 -                                  #-      -
+  80009507 -                                  #-      -
+  80009419 -                                  #-      -
+  79850519 -                                  #-      -
+  79747651 -                                  #-      -
+  79639673 -                                  #-      -
+  79434372 -                                  #-      -
+  79708412 -                                  #-      -
+  79537353 -                                  #-      -
+  80009465 -                                  #-      -
+  79408101 pypi/warehouse                     #15611  top_voted
+  79775796 -                                  #-      -
+  80009157 -                                  #-      -
+  80009518 -                                  #-      -
+  79606837 -                                  #-      -
+  79802282 -                                  #-      -
+  80009278 -                                  #-      -
+  79999095 -                                  #-      -
+  79846974 cplusplus/draft                    #5302   top_voted
+  79582964 -                                  #-      -
+  80009480 -                                  #-      -
+  79996927 -                                  #-      -
+  79442978 -                                  #-      -
+  80009296 -                                  #-      -
+  80009340 -                                  #-      -
+  80009121 -                                  #-      -
+  79929448 -                                  #-      -
+  79893839 -                                  #-      -
+  80009451 -                                  #-      -
+  80002935 -                                  #-      -
+  79607696 -                                  #-      -
+  79865748 -                                  #-      -
+  79527331 -                                  #-      -
+  79927761 -                                  #-      -
+  79718097 -                                  #-      -
+  80009401 -                                  #-      -
+  80009496 -                                  #-      -
+  79776559 -                                  #-      -
+  80009122 -                                  #-      -
+  79743460 -                                  #-      -
+  80009535 -                                  #-      -
+  79696822 -                                  #-      -
+  79788851 -                                  #-      -
+  79340949 -                                  #-      -
+  79673093 -                                  #-      -
+  80009171 -                                  #-      -
+  80009024 -                                  #-      -
+  80009501 -                                  #-      -
+  79663318 -                                  #-      -
+  80009004 -                                  #-      -
+  79598477 -                                  #-      -
+  79404124 -                                  #-      -
+  79761108 -                                  #-      -
+  79937561 -                                  #-      -
+  79906660 -                                  #-      -
+  79796450 -                                  #-      -
+  79745946 -                                  #-      -
+  79335513 -                                  #-      -
+  80009138 -                                  #-      -
+  80009093 -                                  #-      -
+  79730713 -                                  #-      -
+  79990816 -                                  #-      -
+  80009172 -                                  #-      -
+  79561689 -                                  #-      -
+  80009109 -                                  #-      -
+  80008985 -                                  #-      -
+  79672408 -                                  #-      -
+  80009302 -                                  #-      -
+  79385315 -                                  #-      -
+  80009170 -                                  #-      -
+  80009014 -                                  #-      -
+  80009582 -                                  #-      -
+  79786682 rust-lang/libs-team                #674    top_voted
+  79779696 -                                  #-      -
+  79704522 -                                  #-      -
+  79999417 -                                  #-      -
+  79912729 -                                  #-      -
+  79442076 -                                  #-      -
+  79792501 -                                  #-      -
+  80009197 -                                  #-      -
+  79820806 -                                  #-      -
+  79715742 -                                  #-      -
+  79583661 -                                  #-      -
+  79666817 -                                  #-      -
+  79889909 -                                  #-      -
+  80009310 -                                  #-      -
+  79836280 powershell/powershell              #3223   top_voted
+  79791886 -                                  #-      -
+  79558008 -                                  #-      -
+  80009009 -                                  #-      -
+  79847613 -                                  #-      -
+  80009540 -                                  #-      -
+  79865375 -                                  #-      -
+  80009140 -                                  #-      -
+  80009283 -                                  #-      -
+  80009348 -                                  #-      -
+  79581901 -                                  #-      -
+  80009520 -                                  #-      -
+  79721071 -                                  #-      -
+  79614593 -                                  #-      -
+  79452303 -                                  #-      -
+  79754852 -                                  #-      -
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 16574  redactions: none
+==============================================================================
+[seq 19] 2026-10-17T05:52:36+00:00
+$ python3 EXPERIMENTS/175-repo-from-report/sample.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+excluded 40 graded, 13 read in full; free=287; drew 200 rows
+questions returned for 181 of 200 ids
+answers for 145 of 200 questions; quota left unknown
+question ids the API did not return: [80008957, 80009342, 80009075, 80009443, 80009312, 80008968, 80009047, 80009585, 80009182, 80009194, 80009518, 80009340, 80009451, 80009401, 80009024, 80009501, 80009172, 80009170, 80009197]
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/175-repo-from-report/sample.py", line 194, in <module>
+    main()
+  File "EXPERIMENTS/175-repo-from-report/sample.py", line 169, in main
+    rows.append({"qid": qid, "title": r["title"], "body": r["body"],
+TypeError: 'NoneType' object is not subscriptable
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 15614  redactions: none
+==============================================================================
+[seq 20] 2026-10-17T05:52:57+00:00
+$ python3 EXPERIMENTS/175-repo-from-report/sample.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+excluded 40 graded, 13 read in full; free=287; drew 200 rows
+questions returned for 181 of 200 ids
+answers for 145 of 200 questions; quota left unknown
+question ids the API did not return: [80008957, 80009342, 80009075, 80009443, 80009312, 80008968, 80009047, 80009585, 80009182, 80009194, 80009518, 80009340, 80009451, 80009401, 80009024, 80009501, 80009172, 80009170, 80009197]
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/175-repo-from-report/sample.py", line 194, in <module>
+    main()
+  File "EXPERIMENTS/175-repo-from-report/sample.py", line 169, in main
+    rows.append({"qid": qid, "title": r["title"], "body": r["body"],
+TypeError: 'NoneType' object is not subscriptable
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 16786  redactions: none
+==============================================================================
+[seq 21] 2026-10-17T05:53:21+00:00
+$ python3 EXPERIMENTS/175-repo-from-report/sample.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+excluded 40 graded, 13 read in full; free=287; drew 200 rows
+questions returned for 181 of 200 ids
+answers for 145 of 200 questions; quota left unknown
+question ids the API did not return: [80008957, 80009342, 80009075, 80009443, 80009312, 80008968, 80009047, 80009585, 80009182, 80009194, 80009518, 80009340, 80009451, 80009401, 80009024, 80009501, 80009172, 80009170, 80009197]
+rows with no gold: [79831573, 80009365, 80000170, 79557242, 79653647, 79428308, 79835432, 79767311, 79818917, 79380514, 79868298, 80009062, 79935258, 79873559, 79805098, 80008997, 79810849, 79824381, 80008957, 80009095, 79754247, 79768581, 80009342, 79585153, 79665976, 79871713, 79945712, 79600161, 79978180, 79589468, 80008925, 79635270, 80009075, 79817405, 79753701, 79848893, 79533324, 79818015, 79769322, 80007784, 79383758, 80009506, 79639474, 80009100, 79806553, 79468329, 79358893, 80009038, 80009443, 80008972, 79400684, 79556333, 80009312, 80008968, 79753103, 79558090, 80009047, 80009585, 79896261, 80009012, 79723342, 80009143, 79760145, 80009182, 80008952, 79733841, 80009097, 79686889, 80009516, 79779187, 79457269, 79663905, 80001437, 79760365, 80009522, 79885892, 80009390, 79368095, 79986340, 80009194, 80009429, 79843062, 80009126, 80009030, 79668364, 79402567, 79602687, 79686551, 79781845, 79592958, 79990062, 80009343, 80009583, 80009507, 80009419, 79850519, 79747651, 79639673, 79434372, 79708412, 79537353, 80009465, 79775796, 80009157, 80009518, 79606837, 79802282, 80009278, 79999095, 79582964, 80009480, 79996927, 79442978, 80009296, 80009340, 80009121, 79929448, 79893839, 80009451, 80002935, 79607696, 79865748, 79527331, 79927761, 79718097, 80009401, 80009496, 79776559, 80009122, 79743460, 80009535, 79696822, 79788851, 79340949, 79673093, 80009171, 80009024, 80009501, 79663318, 80009004, 79598477, 79404124, 79761108, 79937561, 79906660, 79796450, 79745946, 79335513, 80009138, 80009093, 79730713, 79990816, 80009172, 79561689, 80009109, 80008985, 79672408, 80009302, 79385315, 80009170, 80009014, 80009582, 79779696, 79704522, 79999417, 79912729, 79442076, 79792501, 80009197, 79820806, 79715742, 79583661, 79666817, 79889909, 80009310, 79791886, 79558008, 80009009, 79847613, 80009540, 79865375, 80009140, 80009283, 80009348, 79581901, 80009520, 79721071, 79614593, 79452303, 79754852]
+gold document (owner/repo/number) for 10 rows; gold repository for 21 of 200
+  79831573 -                                  #-      -
+  80009365 -                                  #-      -
+  80000170 -                                  #-      -
+  79557242 -                                  #-      -
+  79653647 -                                  #-      -
+  79428308 -                                  #-      -
+  79835432 -                                  #-      -
+  79767311 -                                  #-      -
+  79818917 -                                  #-      -
+  79380514 -                                  #-      -
+  79868298 -                                  #-      -
+  80009062 -                                  #-      -
+  79935258 -                                  #-      -
+  79873559 -                                  #-      -
+  79805098 -                                  #-      -
+  80008997 -                                  #-      -
+  79567126 git-for-windows/git                #5378   top_voted
+  79810849 -                                  #-      -
+  79824381 -                                  #-      -
+  80008957 -                                  #-      -
+  80009095 -                                  #-      -
+  79754247 -                                  #-      -
+  79768581 -                                  #-      -
+  80009342 -                                  #-      -
+  79585153 -                                  #-      -
+  79665976 -                                  #-      -
+  79871713 -                                  #-      -
+  79945712 -                                  #-      -
+  79600161 -                                  #-      -
+  79978180 -                                  #-      -
+  79589468 -                                  #-      -
+  80008925 -                                  #-      -
+  79635270 -                                  #-      -
+  80009075 -                                  #-      -
+  79817405 -                                  #-      -
+  79753701 -                                  #-      -
+  79848893 -                                  #-      -
+  79363302 microsoft/vscode                   #239844 top_voted
+  79533324 -                                  #-      -
+  79818015 -                                  #-      -
+  79769322 -                                  #-      -
+  80007784 -                                  #-      -
+  79383758 -                                  #-      -
+  80009506 -                                  #-      -
+  79639474 -                                  #-      -
+  80009100 -                                  #-      -
+  79806553 -                                  #-      -
+  79468329 -                                  #-      -
+  79358893 -                                  #-      -
+  80009038 -                                  #-      -
+  80009443 -                                  #-      -
+  80008972 -                                  #-      -
+  79400684 -                                  #-      -
+  79556333 -                                  #-      -
+  80009312 -                                  #-      -
+  80008968 -                                  #-      -
+  79753103 -                                  #-      -
+  79558090 -                                  #-      -
+  80009047 -                                  #-      -
+  80009585 -                                  #-      -
+  79896261 -                                  #-      -
+  80009012 -                                  #-      -
+  79723342 -                                  #-      -
+  80009143 -                                  #-      -
+  79760145 -                                  #-      -
+  80009182 -                                  #-      -
+  80008952 -                                  #-      -
+  79733841 -                                  #-      -
+  80009097 -                                  #-      -
+  79513015 tailwindlabs/tailwindcss-intellisense #1250   top_voted
+  79686889 -                                  #-      -
+  80009516 -                                  #-      -
+  79779187 -                                  #-      -
+  79457269 -                                  #-      -
+  79663905 -                                  #-      -
+  80001437 -                                  #-      -
+  79760365 -                                  #-      -
+  80009522 -                                  #-      -
+  79885892 -                                  #-      -
+  80009390 -                                  #-      -
+  79368095 -                                  #-      -
+  79986340 -                                  #-      -
+  80009194 -                                  #-      -
+  80009429 -                                  #-      -
+  79904504 itanium-cxx-abi/cxx-abi            #144    top_voted
+  79843062 -                                  #-      -
+  79339258 coreybutler/nvm-windows            #1209   top_voted
+  80009126 -                                  #-      -
+  80009030 -                                  #-      -
+  79668364 -                                  #-      -
+  79402567 -                                  #-      -
+  79602687 -                                  #-      -
+  79686551 -                                  #-      -
+  79781845 -                                  #-      -
+  79716280 more-itertools/more-itertools      #754    top_voted
+  79592958 -                                  #-      -
+  79990062 -                                  #-      -
+  80009343 -                                  #-      -
+  80009583 -                                  #-      -
+  80009507 -                                  #-      -
+  80009419 -                                  #-      -
+  79850519 -                                  #-      -
+  79747651 -                                  #-      -
+  79639673 -                                  #-      -
+  79434372 -                                  #-      -
+  79708412 -                                  #-      -
+  79537353 -                                  #-      -
+  80009465 -                                  #-      -
+  79408101 pypi/warehouse                     #15611  top_voted
+  79775796 -                                  #-      -
+  80009157 -                                  #-      -
+  80009518 -                                  #-      -
+  79606837 -                                  #-      -
+  79802282 -                                  #-      -
+  80009278 -                                  #-      -
+  79999095 -                                  #-      -
+  79846974 cplusplus/draft                    #5302   top_voted
+  79582964 -                                  #-      -
+  80009480 -                                  #-      -
+  79996927 -                                  #-      -
+  79442978 -                                  #-      -
+  80009296 -                                  #-      -
+  80009340 -                                  #-      -
+  80009121 -                                  #-      -
+  79929448 -                                  #-      -
+  79893839 -                                  #-      -
+  80009451 -                                  #-      -
+  80002935 -                                  #-      -
+  79607696 -                                  #-      -
+  79865748 -                                  #-      -
+  79527331 -                                  #-      -
+  79927761 -                                  #-      -
+  79718097 -                                  #-      -
+  80009401 -                                  #-      -
+  80009496 -                                  #-      -
+  79776559 -                                  #-      -
+  80009122 -                                  #-      -
+  79743460 -                                  #-      -
+  80009535 -                                  #-      -
+  79696822 -                                  #-      -
+  79788851 -                                  #-      -
+  79340949 -                                  #-      -
+  79673093 -                                  #-      -
+  80009171 -                                  #-      -
+  80009024 -                                  #-      -
+  80009501 -                                  #-      -
+  79663318 -                                  #-      -
+  80009004 -                                  #-      -
+  79598477 -                                  #-      -
+  79404124 -                                  #-      -
+  79761108 -                                  #-      -
+  79937561 -                                  #-      -
+  79906660 -                                  #-      -
+  79796450 -                                  #-      -
+  79745946 -                                  #-      -
+  79335513 -                                  #-      -
+  80009138 -                                  #-      -
+  80009093 -                                  #-      -
+  79730713 -                                  #-      -
+  79990816 -                                  #-      -
+  80009172 -                                  #-      -
+  79561689 -                                  #-      -
+  80009109 -                                  #-      -
+  80008985 -                                  #-      -
+  79672408 -                                  #-      -
+  80009302 -                                  #-      -
+  79385315 -                                  #-      -
+  80009170 -                                  #-      -
+  80009014 -                                  #-      -
+  80009582 -                                  #-      -
+  79786682 rust-lang/libs-team                #674    top_voted
+  79779696 -                                  #-      -
+  79704522 -                                  #-      -
+  79999417 -                                  #-      -
+  79912729 -                                  #-      -
+  79442076 -                                  #-      -
+  79792501 -                                  #-      -
+  80009197 -                                  #-      -
+  79820806 -                                  #-      -
+  79715742 -                                  #-      -
+  79583661 -                                  #-      -
+  79666817 -                                  #-      -
+  79889909 -                                  #-      -
+  80009310 -                                  #-      -
+  79836280 powershell/powershell              #3223   top_voted
+  79791886 -                                  #-      -
+  79558008 -                                  #-      -
+  80009009 -                                  #-      -
+  79847613 -                                  #-      -
+  80009540 -                                  #-      -
+  79865375 -                                  #-      -
+  80009140 -                                  #-      -
+  80009283 -                                  #-      -
+  80009348 -                                  #-      -
+  79581901 -                                  #-      -
+  80009520 -                                  #-      -
+  79721071 -                                  #-      -
+  79614593 -                                  #-      -
+  79452303 -                                  #-      -
+  79754852 -                                  #-      -
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 17377  redactions: none
+==============================================================================
+[seq 22] 2026-10-17T05:54:25+00:00
+$ python3 EXPERIMENTS/175-repo-from-report/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rows with a gold repository: 21 (17 distinct repos)
+G0: 17 of 17 gold repositories confirmed present
+  79428308 gold=coreybutler/nvm-windows      derived=aredridel/node-bin-gen       miss (1 lookups, 9 candidates)
+  79380514 gold=tailwindlabs/tailwindcss     derived=npm/cli                      miss (1 lookups, 6 candidates)
+  79567126 gold=git-for-windows/git          derived=-                            miss (0 lookups, 2 candidates)
+  80009095 gold=baldurk/renderdoc            derived=-                            miss (0 lookups, 1 candidates)
+  79600161 gold=duclq92/ffmpeg-kit-audio     derived=-                            miss (0 lookups, 5 candidates)
+  79363302 gold=microsoft/vscode             derived=-                            miss (0 lookups, 3 candidates)
+  79383758 gold=tailwindlabs/tailwindcss     derived=-                            miss (0 lookups, 6 candidates)
+  79513015 gold=tailwindlabs/tailwindcss-intellisense derived=-                            miss (0 lookups, 5 candidates)
+  79904504 gold=itanium-cxx-abi/cxx-abi      derived=-                            miss (0 lookups, 4 candidates)
+  79339258 gold=coreybutler/nvm-windows      derived=npm/cli                      miss (1 lookups, 9 candidates)
+  79716280 gold=more-itertools/more-itertools derived=-                            miss (1 lookups, 5 candidates)
+  79408101 gold=pypi/warehouse               derived=pypa/setuptools              miss (2 lookups, 5 candidates)
+  79775796 gold=vercel/next.js               derived=microsoft/typescript         miss (1 lookups, 5 candidates)
+  79606837 gold=microsoft/vs-solutionpersistence derived=-                            miss (0 lookups, 5 candidates)
+  79846974 gold=cplusplus/draft              derived=-                            miss (0 lookups, 7 candidates)
+  79442978 gold=tailwindlabs/tailwindcss     derived=-                            miss (0 lookups, 12 candidates)
+  80002935 gold=fmtlib/fmt                   derived=-                            miss (0 lookups, 5 candidates)
+  79786682 gold=rust-lang/libs-team          derived=-                            miss (0 lookups, 5 candidates)
+  79836280 gold=powershell/powershell        derived=-                            miss (0 lookups, 5 candidates)
+  79791886 gold=lemire/fastrange             derived=-                            miss (0 lookups, 4 candidates)
+  79865375 gold=powershell/powershell        derived=-                            miss (0 lookups, 2 candidates)
+G1: derived == gold on 0 of 21 = 0.0, CI95 [0.0, 0.1546]; kill(<0.20) fires: True
+wrote /home/ubuntu/think-free/EXPERIMENTS/175-repo-from-report/derivation.json with 21 planned rows; commit it, then run with --search
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 40526  redactions: none
+==============================================================================
+[seq 23] 2026-10-17T05:55:59+00:00
+$ python3 EXPERIMENTS/175-repo-from-report/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rows with a gold repository: 21 (17 distinct repos)
+G0: 17 of 17 gold repositories confirmed present
+  79428308 gold=coreybutler/nvm-windows      derived=aredridel/node-bin-gen       miss (1 lookups, 9 candidates)
+  79380514 gold=tailwindlabs/tailwindcss     derived=npm/cli                      miss (1 lookups, 8 candidates)
+  79567126 gold=git-for-windows/git          derived=-                            miss (0 lookups, 2 candidates)
+  80009095 gold=baldurk/renderdoc            derived=-                            miss (0 lookups, 1 candidates)
+  79600161 gold=duclq92/ffmpeg-kit-audio     derived=-                            miss (0 lookups, 6 candidates)
+  79363302 gold=microsoft/vscode             derived=-                            miss (0 lookups, 4 candidates)
+  79383758 gold=tailwindlabs/tailwindcss     derived=-                            miss (0 lookups, 8 candidates)
+  79513015 gold=tailwindlabs/tailwindcss-intellisense derived=-                            miss (0 lookups, 9 candidates)
+  79904504 gold=itanium-cxx-abi/cxx-abi      derived=-                            miss (0 lookups, 6 candidates)
+  79339258 gold=coreybutler/nvm-windows      derived=npm/cli                      miss (1 lookups, 9 candidates)
+  79716280 gold=more-itertools/more-itertools derived=-                            miss (1 lookups, 6 candidates)
+  79408101 gold=pypi/warehouse               derived=pypa/setuptools              miss (1 lookups, 5 candidates)
+  79775796 gold=vercel/next.js               derived=microsoft/typescript         miss (1 lookups, 6 candidates)
+  79606837 gold=microsoft/vs-solutionpersistence derived=-                            miss (0 lookups, 6 candidates)
+  79846974 gold=cplusplus/draft              derived=-                            miss (0 lookups, 9 candidates)
+  79442978 gold=tailwindlabs/tailwindcss     derived=-                            miss (0 lookups, 16 candidates)
+  80002935 gold=fmtlib/fmt                   derived=-                            miss (0 lookups, 6 candidates)
+  79786682 gold=rust-lang/libs-team          derived=-                            miss (0 lookups, 6 candidates)
+  79836280 gold=powershell/powershell        derived=-                            miss (0 lookups, 6 candidates)
+  79791886 gold=lemire/fastrange             derived=-                            miss (0 lookups, 4 candidates)
+  79865375 gold=powershell/powershell        derived=-                            miss (0 lookups, 2 candidates)
+failure classes: {"no_candidate": 15, "not_in_registry": 1, "wrong_repo": 5}
+gold repositories that are forks: 1 of 17 ['git-for-windows/git']
+G1: derived == gold on 0 of 21 = 0.0, CI95 [0.0, 0.1546]; kill(<0.20) fires: True
+wrote /home/ubuntu/think-free/EXPERIMENTS/175-repo-from-report/derivation.json with 21 planned rows; commit it, then run with --search
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 41295  redactions: none
+==============================================================================
+[seq 24] 2026-10-17T05:57:13+00:00
+$ python3 EXPERIMENTS/175-repo-from-report/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rows with a gold repository: 21 (17 distinct repos)
+G0: 17 of 17 gold repositories confirmed present
+  79428308 gold=coreybutler/nvm-windows      derived=halst/version                miss (1 lookups, 9 candidates)
+  79380514 gold=tailwindlabs/tailwindcss     derived=extremeheat/jspybridge       miss (1 lookups, 8 candidates)
+  79567126 gold=git-for-windows/git          derived=christkv/node-git            miss (2 lookups, 2 candidates)
+  80009095 gold=baldurk/renderdoc            derived=ebkalderon/renderdoc-rs      miss (3 lookups, 1 candidates)
+  79600161 gold=duclq92/ffmpeg-kit-audio     derived=benmonro/android             miss (2 lookups, 6 candidates)
+  79363302 gold=microsoft/vscode             derived=hapijs/code                  miss (2 lookups, 4 candidates)
+  79383758 gold=tailwindlabs/tailwindcss     derived=halst/version                miss (1 lookups, 8 candidates)
+  79513015 gold=tailwindlabs/tailwindcss-intellisense derived=oovm/tailwind-rs             miss (6 lookups, 9 candidates)
+  79904504 gold=itanium-cxx-abi/cxx-abi      derived=-                            miss (9 lookups, 6 candidates)
+  79339258 gold=coreybutler/nvm-windows      derived=benjamn/install              miss (2 lookups, 9 candidates)
+  79716280 gold=more-itertools/more-itertools derived=alexfernandez/performance    miss (2 lookups, 6 candidates)
+  79408101 gold=pypi/warehouse               derived=pypa/setuptools              miss (1 lookups, 5 candidates)
+  79775796 gold=vercel/next.js               derived=ian-sawyer/typescript-for-python miss (1 lookups, 6 candidates)
+  79606837 gold=microsoft/vs-solutionpersistence derived=rumpl/c                      miss (2 lookups, 6 candidates)
+  79846974 gold=cplusplus/draft              derived=pcattori/namespaces          miss (4 lookups, 9 candidates)
+  79442978 gold=tailwindlabs/tailwindcss     derived=oovm/tailwind-rs             miss (3 lookups, 16 candidates)
+  80002935 gold=fmtlib/fmt                   derived=orsinium/advice              miss (1 lookups, 6 candidates)
+  79786682 gold=rust-lang/libs-team          derived=jackcurragh/rust             miss (1 lookups, 6 candidates)
+  79836280 gold=powershell/powershell        derived=christkv/node-git            miss (2 lookups, 6 candidates)
+  79791886 gold=lemire/fastrange             derived=evanmoran/around             miss (2 lookups, 4 candidates)
+  79865375 gold=powershell/powershell        derived=ionicabizau/powershell       miss (2 lookups, 2 candidates)
+failure classes: {"not_in_registry": 1, "wrong_repo": 20}
+gold repositories that are forks: 1 of 17 ['git-for-windows/git']
+G1: derived == gold on 0 of 21 = 0.0, CI95 [0.0, 0.1546]; kill(<0.20) fires: True
+wrote /home/ubuntu/think-free/EXPERIMENTS/175-repo-from-report/derivation.json with 21 planned rows; commit it, then run with --search
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 52310  redactions: none
+==============================================================================
+[seq 25] 2026-10-17T05:58:12+00:00
+$ python3 EXPERIMENTS/175-repo-from-report/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rows with a gold repository: 21 (17 distinct repos)
+G0: 5 of 17 gold repositories confirmed present; absent: ['git-for-windows/git', 'itanium-cxx-abi/cxx-abi', 'lemire/fastrange', 'microsoft/vs-solutionpersistence', 'microsoft/vscode', 'more-itertools/more-itertools', 'powershell/powershell', 'pypi/warehouse', 'rust-lang/libs-team', 'tailwindlabs/tailwindcss', 'tailwindlabs/tailwindcss-intellisense', 'vercel/next.js']
+  79428308 gold=coreybutler/nvm-windows      derived=halst/version                miss (1 lookups, 8 candidates)
+  79380514 gold=tailwindlabs/tailwindcss     derived=extremeheat/jspybridge       miss (1 lookups, 8 candidates)
+  79567126 gold=git-for-windows/git          derived=christkv/node-git            miss (2 lookups, 2 candidates)
+  80009095 gold=baldurk/renderdoc            derived=ebkalderon/renderdoc-rs      miss (3 lookups, 1 candidates)
+  79600161 gold=duclq92/ffmpeg-kit-audio     derived=benmonro/android             miss (2 lookups, 4 candidates)
+  79363302 gold=microsoft/vscode             derived=hapijs/code                  miss (2 lookups, 4 candidates)
+  79383758 gold=tailwindlabs/tailwindcss     derived=halst/version                miss (1 lookups, 7 candidates)
+  79513015 gold=tailwindlabs/tailwindcss-intellisense derived=oovm/tailwind-rs             miss (6 lookups, 8 candidates)
+  79904504 gold=itanium-cxx-abi/cxx-abi      derived=-                            miss (12 lookups, 5 candidates)
+  79339258 gold=coreybutler/nvm-windows      derived=benjamn/install              miss (2 lookups, 8 candidates)
+  79716280 gold=more-itertools/more-itertools derived=alexfernandez/performance    miss (2 lookups, 6 candidates)
+  79408101 gold=pypi/warehouse               derived=pypa/setuptools              miss (1 lookups, 3 candidates)
+  79775796 gold=vercel/next.js               derived=ian-sawyer/typescript-for-python miss (1 lookups, 4 candidates)
+  79606837 gold=microsoft/vs-solutionpersistence derived=rumpl/c                      miss (2 lookups, 6 candidates)
+  79846974 gold=cplusplus/draft              derived=pcattori/namespaces          miss (4 lookups, 8 candidates)
+  79442978 gold=tailwindlabs/tailwindcss     derived=oovm/tailwind-rs             miss (3 lookups, 8 candidates)
+  80002935 gold=fmtlib/fmt                   derived=orsinium/advice              miss (1 lookups, 6 candidates)
+  79786682 gold=rust-lang/libs-team          derived=jackcurragh/rust             miss (1 lookups, 4 candidates)
+  79836280 gold=powershell/powershell        derived=christkv/node-git            miss (2 lookups, 6 candidates)
+  79791886 gold=lemire/fastrange             derived=evanmoran/around             miss (2 lookups, 4 candidates)
+  79865375 gold=powershell/powershell        derived=ionicabizau/powershell       miss (2 lookups, 2 candidates)
+failure classes: {"not_in_registry": 1, "wrong_repo": 20}
+gold repositories that are forks: 0 of 17 []
+G1: derived == gold on 0 of 21 = 0.0, CI95 [0.0, 0.1546]; kill(<0.20) fires: True
+wrote /home/ubuntu/think-free/EXPERIMENTS/175-repo-from-report/derivation.json with 21 planned rows; commit it, then run with --search
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 43425  redactions: none

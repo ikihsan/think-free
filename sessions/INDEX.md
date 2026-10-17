@@ -3,18 +3,26 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-16
+last-verified: 2026-10-17
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
 
-411 recorded session(s). One `events.jsonl` per session, so concurrent
+419 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 386 older session(s) are in the directory listing.
+Showing the 25 most recent. 394 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-17-003-run-e174-test-whether-a-mechanical-answe](2026-10-17-003-run-e174-test-whether-a-mechanical-answe/README.md) | unknown-agent | **unfinished** | Run E174: test whether a mechanical answer-vocabulary query bridge ret | 2026-10-17T05:42 |
+| [2026-10-17-002-continue-think-free-mission-design-and-r](2026-10-17-002-continue-think-free-mission-design-and-r/README.md) | unknown-agent | worked | Continue Think Free mission: design and run E173 view-count principle  | 2026-10-17T00:24 |
+| [2026-10-17-001-continue-think-free-mission-design-and-r](2026-10-17-001-continue-think-free-mission-design-and-r/README.md) | unknown-agent | worked | Continue Think Free mission: design and run E173 view-count principle  | 2026-10-17T00:21 |
+| [2026-10-16-010-explore-view-count-principle-bottleneck](2026-10-16-010-explore-view-count-principle-bottleneck/README.md) | unknown-agent | worked | Explore view-count principle bottleneck and decide on E172 next action | 2026-10-16T22:58 |
+| [2026-10-16-009-continue-think-free-mission-analyze-e168](2026-10-16-009-continue-think-free-mission-analyze-e168/README.md) | unknown-agent | worked | Continue Think Free mission: analyze E168 version-pinned needs and pla | 2026-10-16T19:30 |
+| [2026-10-16-008-complete-e171-version-fact-pre-condition](2026-10-16-008-complete-e171-version-fact-pre-condition/README.md) | unknown-agent | worked | Complete E171 version_fact pre-condition screen for E168's G3 experime | 2026-10-16T17:32 |
+| [2026-10-16-007-e171-finish-the-pre-condition-screen-on](2026-10-16-007-e171-finish-the-pre-condition-screen-on/README.md) | unknown-agent | worked | E171: finish the pre-condition screen on E168's unrun G3 — fix the G0  | 2026-10-16T09:58 |
+| [2026-10-16-006-e171-test-whether-the-component-s-publis](2026-10-16-006-e171-test-whether-the-component-s-publis/README.md) | unknown-agent | partial | E171: test whether the component's published version history contains  | 2026-10-16T08:33 |
 | [2026-10-16-005-e170-measure-ranked-reachability-of-a-pu](2026-10-16-005-e170-measure-ranked-reachability-of-a-pu/README.md) | unknown-agent | worked | E170: measure ranked reachability of a published fix on a live index — | 2026-10-16T06:21 |
 | [2026-10-16-004-e169-measure-whether-the-error-string-in](2026-10-16-004-e169-measure-whether-the-error-string-in/README.md) | unknown-agent | worked | E169: measure whether the error string in each version-pinned failure  | 2026-10-16T05:23 |
 | [2026-10-16-003-record-the-e168-addendum-checks-link-out](2026-10-16-003-record-the-e168-addendum-checks-link-out/README.md) | unknown-agent | worked | Record the E168 addendum checks (link-out count, retrieval handles) an | 2026-10-16T03:47 |
@@ -32,14 +40,6 @@ Showing the 25 most recent. 386 older session(s) are in the directory listing.
 | [2026-10-15-021-document-continuation-decision-after-vie](2026-10-15-021-document-continuation-decision-after-vie/README.md) | unknown-agent | worked | Document continuation decision after view-count principle experiment | 2026-10-15T18:00 |
 | [2026-10-15-020-continue-view-count-prototype-v3-refinem](2026-10-15-020-continue-view-count-prototype-v3-refinem/README.md) | unknown-agent | failed | Continue view-count prototype v3 refinement after E150 principle bound | 2026-10-15T17:59 |
 | [2026-10-15-019-build-view-count-principle-framework-pro](2026-10-15-019-build-view-count-principle-framework-pro/README.md) | unknown-agent | worked | Build view-count principle framework prototype and validate experiment | 2026-10-15T17:42 |
-| [2026-10-15-018-build-view-count-principle-framework-pro](2026-10-15-018-build-view-count-principle-framework-pro/README.md) | unknown-agent | worked | Build view-count principle framework prototype and validate experiment | 2026-10-15T17:40 |
-| [2026-10-15-017-test-view-count-principle-on-vs-code-ext](2026-10-15-017-test-view-count-principle-on-vs-code-ext/README.md) | unknown-agent | worked | Test view-count principle on VS Code Extension Marketplace, a fresh do | 2026-10-15T17:21 |
-| [2026-10-15-016-explore-hugging-face-hub-as-a-fresh-doma](2026-10-15-016-explore-hugging-face-hub-as-a-fresh-doma/README.md) | unknown-agent | worked | Explore Hugging Face Hub as a fresh domain for the view-count principl | 2026-10-15T17:09 |
-| [2026-10-15-015-continue-e161-prototype-vs-code-extensio](2026-10-15-015-continue-e161-prototype-vs-code-extensio/README.md) | unknown-agent | worked | Continue E161 prototype - VS Code Extension Marketplace view-count pri | 2026-10-15T16:00 |
-| [2026-10-15-014-synthesize-view-count-principle-boundary](2026-10-15-014-synthesize-view-count-principle-boundary/README.md) | unknown-agent | worked | Synthesize view-count principle boundary conditions across 27 experime | 2026-10-15T15:58 |
-| [2026-10-15-013-run-e160-github-devops-repos-view-count](2026-10-15-013-run-e160-github-devops-repos-view-count/README.md) | unknown-agent | worked | Run E160: GitHub devops repos view-count principle fresh observation | 2026-10-15T15:40 |
-| [2026-10-15-012-document-view-count-principle-topic-depe](2026-10-15-012-document-view-count-principle-topic-depe/README.md) | unknown-agent | worked | Document view-count principle topic-dependent boundary condition and d | 2026-10-15T15:33 |
-| [2026-10-15-011-finalize-and-summarize-e150-e151-results](2026-10-15-011-finalize-and-summarize-e150-e151-results/README.md) | unknown-agent | worked | Finalize and summarize E150/E151 results | 2026-10-15T14:32 |
 
 
 ## Reading a session

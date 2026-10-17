@@ -110,6 +110,18 @@ the budget twice.
 **Fifteenth served closure in this record, and the second with the mechanism
 measured on a live ranked index rather than asserted.**
 
+> **Corrected 2026-10-17 by E174.** The closure below was decided on **2 of the
+> 7 arms** E170 ran, at an **undeclared choice of primary scope**. The five
+> omitted arms are the repo-scoped form of the same queries: **5/13 = 0.3846**
+> against the global arms' 0.0769 and 0.1538, with **4 rows scoped-only and 0
+> global-only** on the union comparison (McNemar exact p = 0.125). E170's own
+> **G3** declared in advance that this outcome "is recorded as one" — a product
+> constraint — and it was recorded nowhere. The incumbent E169 withdrew is
+> therefore **not falsified**: repo scoping is what removes the global-search
+> failure E169 hit. See
+> [`EXPERIMENTS/174-scoped-reach-recompute/RESULT.md`](../EXPERIMENTS/174-scoped-reach-recompute/RESULT.md)
+> and **F134**. The vocabulary finding (0 of 13 shared a three-word run) stands.
+
 ### What was asked
 
 E169 measured the incumbent mechanism E168 had named — *search the project's

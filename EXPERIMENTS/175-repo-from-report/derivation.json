@@ -192,7 +192,7 @@
  ],
  "derivation": [
   {
-   "candidates": 9,
+   "candidates": 8,
    "correct": false,
    "derived_repo": "halst/version",
    "failure": "wrong_repo",
@@ -224,7 +224,7 @@
    "derived_repo": "extremeheat/jspybridge",
    "failure": "wrong_repo",
    "first_hit": "javascript",
-   "gold_is_fork": false,
+   "gold_is_fork": null,
    "gold_number": null,
    "gold_parent": null,
    "gold_repo": null,
@@ -251,9 +251,9 @@
    "derived_repo": "christkv/node-git",
    "failure": "wrong_repo",
    "first_hit": "git",
-   "gold_is_fork": true,
+   "gold_is_fork": null,
    "gold_number": 5378,
-   "gold_parent": "git/git",
+   "gold_parent": null,
    "gold_repo": "git-for-windows/git",
    "gold_repo_r": "git-for-windows/git",
    "keywords": "git debugging error could delete references",
@@ -318,7 +318,7 @@
    ]
   },
   {
-   "candidates": 6,
+   "candidates": 4,
    "correct": false,
    "derived_repo": "benmonro/android",
    "failure": "wrong_repo",
@@ -356,7 +356,7 @@
    "derived_repo": "hapijs/code",
    "failure": "wrong_repo",
    "first_hit": "code",
-   "gold_is_fork": false,
+   "gold_is_fork": null,
    "gold_number": 239844,
    "gold_parent": null,
    "gold_repo": "microsoft/vscode",
@@ -384,12 +384,12 @@
    ]
   },
   {
-   "candidates": 8,
+   "candidates": 7,
    "correct": false,
    "derived_repo": "halst/version",
    "failure": "wrong_repo",
    "first_hit": "version",
-   "gold_is_fork": false,
+   "gold_is_fork": null,
    "gold_number": null,
    "gold_parent": null,
    "gold_repo": null,
@@ -411,12 +411,12 @@
    ]
   },
   {
-   "candidates": 9,
+   "candidates": 8,
    "correct": false,
    "derived_repo": "oovm/tailwind-rs",
    "failure": "wrong_repo",
    "first_hit": "tailwind-css",
-   "gold_is_fork": false,
+   "gold_is_fork": null,
    "gold_number": 1250,
    "gold_parent": null,
    "gold_repo": "tailwindlabs/tailwindcss-intellisense",
@@ -468,23 +468,23 @@
    ]
   },
   {
-   "candidates": 6,
+   "candidates": 5,
    "correct": false,
    "derived_repo": null,
    "failure": "not_in_registry",
    "first_hit": null,
-   "gold_is_fork": false,
+   "gold_is_fork": null,
    "gold_number": 144,
    "gold_parent": null,
    "gold_repo": "itanium-cxx-abi/cxx-abi",
    "gold_repo_r": "itanium-cxx-abi/cxx-abi",
    "keywords": "module name part mangled functions exported",
    "literal": "",
-   "lookups": 9,
+   "lookups": 12,
    "qform": "keywords",
    "qid": 79904504,
    "qtext": "module name part mangled functions exported",
-   "skipped_over_cap": 3,
+   "skipped_over_cap": 1,
    "tried": [
     {
      "error": "http_404",
@@ -539,11 +539,29 @@
      "name": "c++modules",
      "registry": "crates",
      "repo": null
+    },
+    {
+     "error": "http_404",
+     "name": "name-mangling",
+     "registry": "pypi",
+     "repo": null
+    },
+    {
+     "error": "no_github_url",
+     "name": "name-mangling",
+     "registry": "npm",
+     "repo": null
+    },
+    {
+     "error": "http_404",
+     "name": "name-mangling",
+     "registry": "crates",
+     "repo": null
     }
    ]
   },
   {
-   "candidates": 9,
+   "candidates": 8,
    "correct": false,
    "derived_repo": "benjamn/install",
    "failure": "wrong_repo",
@@ -581,7 +599,7 @@
    "derived_repo": "alexfernandez/performance",
    "failure": "wrong_repo",
    "first_hit": "performance",
-   "gold_is_fork": false,
+   "gold_is_fork": null,
    "gold_number": 754,
    "gold_parent": null,
    "gold_repo": "more-itertools/more-itertools",
@@ -609,12 +627,12 @@
    ]
   },
   {
-   "candidates": 5,
+   "candidates": 3,
    "correct": false,
    "derived_repo": "pypa/setuptools",
    "failure": "wrong_repo",
    "first_hit": "setuptools",
-   "gold_is_fork": false,
+   "gold_is_fork": null,
    "gold_number": 15611,
    "gold_parent": null,
    "gold_repo": "pypi/warehouse",
@@ -636,12 +654,12 @@
    ]
   },
   {
-   "candidates": 6,
+   "candidates": 4,
    "correct": false,
    "derived_repo": "ian-sawyer/typescript-for-python",
    "failure": "wrong_repo",
    "first_hit": "typescript",
-   "gold_is_fork": false,
+   "gold_is_fork": null,
    "gold_number": null,
    "gold_parent": null,
    "gold_repo": null,
@@ -668,7 +686,7 @@
    "derived_repo": "rumpl/c",
    "failure": "wrong_repo",
    "first_hit": "c#",
-   "gold_is_fork": false,
+   "gold_is_fork": null,
    "gold_number": null,
    "gold_parent": null,
    "gold_repo": null,
@@ -696,7 +714,7 @@
    ]
   },
   {
-   "candidates": 9,
+   "candidates": 8,
    "correct": false,
    "derived_repo": "pcattori/namespaces",
    "failure": "wrong_repo",
@@ -741,12 +759,12 @@
    ]
   },
   {
-   "candidates": 16,
+   "candidates": 8,
    "correct": false,
    "derived_repo": "oovm/tailwind-rs",
    "failure": "wrong_repo",
    "first_hit": "tailwind-css",
-   "gold_is_fork": false,
+   "gold_is_fork": null,
    "gold_number": null,
    "gold_parent": null,
    "gold_repo": null,
@@ -807,12 +825,12 @@
    ]
   },
   {
-   "candidates": 6,
+   "candidates": 4,
    "correct": false,
    "derived_repo": "jackcurragh/rust",
    "failure": "wrong_repo",
    "first_hit": "rust",
-   "gold_is_fork": false,
+   "gold_is_fork": null,
    "gold_number": 674,
    "gold_parent": null,
    "gold_repo": "rust-lang/libs-team",
@@ -839,7 +857,7 @@
    "derived_repo": "christkv/node-git",
    "failure": "wrong_repo",
    "first_hit": "git",
-   "gold_is_fork": false,
+   "gold_is_fork": null,
    "gold_number": 3223,
    "gold_parent": null,
    "gold_repo": "powershell/powershell",
@@ -872,7 +890,7 @@
    "derived_repo": "evanmoran/around",
    "failure": "wrong_repo",
    "first_hit": "around",
-   "gold_is_fork": false,
+   "gold_is_fork": null,
    "gold_number": null,
    "gold_parent": null,
    "gold_repo": null,
@@ -905,7 +923,7 @@
    "derived_repo": "ionicabizau/powershell",
    "failure": "wrong_repo",
    "first_hit": "powershell",
-   "gold_is_fork": false,
+   "gold_is_fork": null,
    "gold_number": null,
    "gold_parent": null,
    "gold_repo": null,
@@ -976,100 +994,40 @@
    "status": 200
   },
   "git-for-windows/git": {
-   "archived": false,
-   "fork": true,
-   "full_name": "git-for-windows/git",
-   "open_issues": 254,
-   "parent": "git/git",
-   "status": 200
+   "error": "HTTPError: HTTP Error 403: rate limit exceeded"
   },
   "itanium-cxx-abi/cxx-abi": {
-   "archived": false,
-   "fork": false,
-   "full_name": "itanium-cxx-abi/cxx-abi",
-   "open_issues": 92,
-   "parent": null,
-   "status": 200
+   "error": "HTTPError: HTTP Error 403: rate limit exceeded"
   },
   "lemire/fastrange": {
-   "archived": false,
-   "fork": false,
-   "full_name": "lemire/fastrange",
-   "open_issues": 0,
-   "parent": null,
-   "status": 200
+   "error": "HTTPError: HTTP Error 403: rate limit exceeded"
   },
   "microsoft/vs-solutionpersistence": {
-   "archived": false,
-   "fork": false,
-   "full_name": "microsoft/vs-solutionpersistence",
-   "open_issues": 31,
-   "parent": null,
-   "status": 200
+   "error": "HTTPError: HTTP Error 403: rate limit exceeded"
   },
   "microsoft/vscode": {
-   "archived": false,
-   "fork": false,
-   "full_name": "microsoft/vscode",
-   "open_issues": 21844,
-   "parent": null,
-   "status": 200
+   "error": "HTTPError: HTTP Error 403: rate limit exceeded"
   },
   "more-itertools/more-itertools": {
-   "archived": false,
-   "fork": false,
-   "full_name": "more-itertools/more-itertools",
-   "open_issues": 18,
-   "parent": null,
-   "status": 200
+   "error": "HTTPError: HTTP Error 403: rate limit exceeded"
   },
   "powershell/powershell": {
-   "archived": false,
-   "fork": false,
-   "full_name": "PowerShell/PowerShell",
-   "open_issues": 1628,
-   "parent": null,
-   "status": 200
+   "error": "HTTPError: HTTP Error 403: rate limit exceeded"
   },
   "pypi/warehouse": {
-   "archived": false,
-   "fork": false,
-   "full_name": "pypi/warehouse",
-   "open_issues": 591,
-   "parent": null,
-   "status": 200
+   "error": "HTTPError: HTTP Error 403: rate limit exceeded"
   },
   "rust-lang/libs-team": {
-   "archived": false,
-   "fork": false,
-   "full_name": "rust-lang/libs-team",
-   "open_issues": 173,
-   "parent": null,
-   "status": 200
+   "error": "HTTPError: HTTP Error 403: rate limit exceeded"
   },
   "tailwindlabs/tailwindcss": {
-   "archived": false,
-   "fork": false,
-   "full_name": "tailwindlabs/tailwindcss",
-   "open_issues": 85,
-   "parent": null,
-   "status": 200
+   "error": "HTTPError: HTTP Error 403: rate limit exceeded"
   },
   "tailwindlabs/tailwindcss-intellisense": {
-   "archived": false,
-   "fork": false,
-   "full_name": "tailwindlabs/tailwindcss-intellisense",
-   "open_issues": 67,
-   "parent": null,
-   "status": 200
+   "error": "HTTPError: HTTP Error 403: rate limit exceeded"
   },
   "vercel/next.js": {
-   "archived": false,
-   "fork": false,
-   "full_name": "vercel/next.js",
-   "open_issues": 3681,
-   "parent": null,
-   "status": 200
+   "error": "HTTPError: HTTP Error 403: rate limit exceeded"
   }
  },
  "g1": {
@@ -1082,7 +1040,7 @@
    "not_in_registry": 1,
    "wrong_repo": 20
   },
-  "gold_repos_that_are_forks": 1,
+  "gold_repos_that_are_forks": 0,
   "hits": 0,
   "kill_below": 0.2,
   "kill_fires": true,

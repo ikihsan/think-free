@@ -179,9 +179,8 @@ mechanism and the tracker link is a citation. Two record corrections ride with
 it: E168's "`github.com` in 15 of 24" does not reproduce (12 by `href`, 13
 counting gists), and 7 of the 85 `vp=1` rows are no longer fetchable.
 
-**E170 completed (2026-10-16): the failure's vocabulary and the fix's vocabulary
-do not overlap, so neither lexical query reaches the fix on a live ranked
-index.** E169 left one question — does the mechanism work at all — and GitHub's
+**E170 completed (2026-10-16) — and its closure was withdrawn 2026-10-17 by
+E174.** E169 left one question — does the mechanism work at all — and GitHub's
 issue search is reachable from this host, so it was measured with queries
 committed before any fetch and two capability controls. **Both surfaces rank a
 known-present document**: `in:title "<the target's own title>"` returns the target
@@ -189,31 +188,70 @@ at **rank 1 on 11 of 13 through the API and 10 of 13 through
 `github.com/search?type=issues`**. On that web surface, the developer's **quoted
 error string reaches the fix on 1 of the 8 rows that have a literal** (1/13 =
 0.0769 over all 13) and **component + symptom keywords reach it on 2 of 13 =
-0.1538**, Wilson [0.0433, 0.4223], paired McNemar **p = 1.0**. The declared kill
-does not fire and the declared **0.30 bar for building anything is not met**, so
-the line closes — fifteenth served closure, second with the mechanism measured on
-a live index. **A failure report names the symptom and the environment; a fix
-states the cause and the change; and the thread serves the class because the
-responder writes answer-vocabulary inside the question's own document — that
-semantic bridge is the strongest accessible alternative.** No retriever is
-proposed, so no prior-art screen is run. Five reproducible index defects are
-recorded for reuse: a bare number is an issue-number qualifier, a `word/word`
-token is a repository qualifier and returns `http_422`, the API does not honour
-quotes, queries above 256 characters are rejected, and mining a document for its
-longest tokens selects URLs and image markup.
-[`EXPERIMENTS/170-fix-reachability-rank/RESULT.md`](EXPERIMENTS/170-fix-reachability-rank/RESULT.md).
+0.1538**, Wilson [0.0433, 0.4223], paired McNemar **p = 1.0**, and this file
+recorded the line closed on those two arms. **E174 recomputed all seven arms from
+E170's own committed responses** (rank re-derived from the returned URL lists,
+never read from a stored rank; all seven reproduce, G1 pass; alignment proven
+from both sides — 97 of 97 records consumed, 0 leftover, 0 query-string or
+arm-label mismatches, G2 pass) and **the five arms E170 stored and did not report
+are the repo-scoped form of the same queries: 5/13 = 0.3846 each, union 6/13 =
+0.4615 [0.2321, 0.7086] against the global arms' 2/13 = 0.1538, with 4 rows
+scoped-only and 0 global-only, McNemar exact p = 0.125.** The best scoped point
+estimate clears E170's own declared **0.30** build bar; the Wilson lower bound
+(0.1771) does not, so it is a point estimate at n = 13, not an established
+effect. **E170's own G3 had declared in advance** that "if repo-scoped succeeds
+where global fails for both arms, the mechanism needs the developer to already
+know the repository, which is a product constraint and is recorded as one" — it
+did succeed for both arms and was recorded nowhere (F134). **E170's `RESULT.md`,
+F132, the `HYPOTHESES.md` status row and this file's claim are corrected in
+place.** What survives is the vocabulary measurement: **a failure report names
+the symptom and the environment; a fix states the cause and the change**; 0 of 13
+rows share a three-word run, and the forum thread serves the class because the
+responder writes answer-vocabulary inside the question's own document. What
+survives *with a number attached* is E169's own named incumbent — search the
+project's issue tracker with the error string — at a **median of one matching
+document in the whole repository**. **The line is `unresolved`, not closed**, and
+the incumbent is not falsified: E169 withdrew it on a *global*-search control
+failure (a target's own quoted title returns 17,033,706 hits), which is exactly
+what repo scoping removes. Five reproducible index defects stand for reuse: a
+bare number is an issue-number qualifier, a `word/word` token is a repository
+qualifier and returns `http_422`, the API does not honour quotes, queries above
+256 characters are rejected, and mining a document for its longest tokens selects
+URLs and image markup.
+[`EXPERIMENTS/170-fix-reachability-rank/RESULT.md`](EXPERIMENTS/170-fix-reachability-rank/RESULT.md) ·
+[`EXPERIMENTS/174-scoped-reach-recompute/RESULT.md`](EXPERIMENTS/174-scoped-reach-recompute/RESULT.md).
 
-Named next action: **E171 — the one experiment on this record where the
-surviving mechanism is not the incumbent.** E168's unrun G3 asks whether an
-attempt *grounded in the component's published version history* recovers rows the
-unaided attempt fails, declared bar ≥ 0.60. It has never run because it needs a
-fresh blinded `version_pinned` sample, and this host has **7 of 300 Stack Exchange
-requests remaining** today (E168 and E169 spent the rest), so the draw waits for
-the daily reset. **E172 — a fresh observation in a domain this mission has not
-touched, chosen by a stated rule** — needs no quota and can run in parallel. The
-line just closed is not reopened: E170's own replication gate is deliberately not
-run, because a replication of a near-zero effect teaches nothing this record
-lacks.
+**E174 completed (2026-10-17): the whole session's work was to check whether the
+record's fifteenth closure followed from its own evidence, and it did not.**
+`tools/x -- python3 EXPERIMENTS/174-scoped-reach-recompute/recompute.py` reads
+only files E170 committed; it prints G1/G2/G3 and writes the row-level rank table.
+The rule earned: **an arm present in `summary.json` and absent from the write-up
+is a defect in the write-up, and the check is a count** — declare the number of
+arms in the protocol and reconcile it against the number reported *before* the
+conclusion sentence is written. The same session also reconciled five sessions'
+unlogged work and found **two identifiers carrying four mutually contradictory
+records with no raw data behind any of them**, one of them reporting a *pass* for
+a screen D105 had already withdrawn (F133); both are `untested` and add no venue
+to any tally.
+
+Named next action: **E175 - can the repository be derived from the failure report
+alone?** It is the one open question E170's G3 predicted and nobody recorded, and
+the only part of the mechanism that is not already the incumbent's. It is
+mechanical and needs no search engine: error reports name artifacts - a module
+path, a package name, a stack frame, an OS component - and registries publish
+where each artifact's tracker lives (PyPI `project_urls` and `home_page`, npm
+`repository`, crates.io, Maven). Declared in
+[`EXPERIMENTS/175-repo-from-report/PROTOCOL.md`](EXPERIMENTS/175-repo-from-report/PROTOCOL.md):
+**oracle-repo** (E170's scoped arm, the ceiling), **derived-repo** (the candidate:
+report -> artifact -> registry -> tracker, no human input), and **artifact-only**,
+on a fresh blinded draw of `version_pinned` rows, with the strongest alternative -
+a person who already knows the repository - stated as the ceiling rather than as a
+rival. Kill gate and the 0.30 build bar are in the protocol, committed before any
+fetch. **E171 is withdrawn, not deferred**: its pre-condition screen (2/13 = 0.1538
+against a declared 0.40) closed version-history grounding as a mechanism, so its
+G3 cannot pass in principle. **E172/E173 are not to be resumed** (F133).
+**E170's replication gate stays deliberately unrun** - replicating a near-zero
+global-arm effect teaches nothing this record lacks.
 
 ## Dashboard
 
