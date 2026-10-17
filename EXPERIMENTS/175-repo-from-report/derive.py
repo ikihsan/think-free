@@ -96,15 +96,24 @@ def gh_repo(text):
 
 
 def artifacts(row):
-    """Ordered, de-duplicated candidate artifact names from the report only."""
+    """Candidate artifact names from the report only.
+
+    Returns (specific, generic): AMENDMENT 2 orders the two groups, because a
+    generic ecosystem word must never outrank the project's own name.
+    """
     text = "\n".join([row.get("title") or "", row.get("body") or ""])
-    tags = [t.lower().replace("-", "") for t in (row.get("tags") or [])]
-    out = []
+    tags = [t.lower() for t in (row.get("tags") or [])]
+    specific, generic = [], []
 
     def add(name):
         n = (name or "").strip().lower()
-        if 1 < len(n) <= 60 and n not in out and n not in _STOP:
-            out.append(n)
+        if not (1 < len(n) <= 60) or n in _STOP:
+            return
+        if n in ECOSYSTEMS:
+            if n not in generic:
+                generic.append(n)
+        elif n not in specific:
+            specific.append(n)
 
     for m in _NODE_MODULES.finditer(text):
         add(m.group(1).split("/")[-1])
@@ -114,10 +123,11 @@ def artifacts(row):
         tail = os.path.basename(m.group(1))[:-3]
         add(tail)
     for t in tags:
-        add(t)
+        add(t)                                   # the raw tag
+        add(t.replace("-", ""))                 # and the de-dashed form
         for e in ECOSYSTEMS:
-            if e in t and e not in out:
-                out.append(e)
+            if e in t.replace("-", ""):
+                add(e)
     for m in _BACKTICK.finditer(text):
         tok = m.group(1).strip()
         if re.fullmatch(r"[A-Za-z][A-Za-z0-9_.-]{1,40}", tok):
@@ -127,7 +137,7 @@ def artifacts(row):
                 add(d.split(".")[0])
     for m in _PYPI_NAME.finditer(text):
         add(m.group(1))
-    return out
+    return specific, generic
 
 
 def pypi_repo(name):
@@ -184,10 +194,14 @@ LOOKUP = {"pypi": pypi_repo, "npm": npm_repo, "crates": crates_repo}
 
 
 def derive(row, log=None):
-    """The derived repository for one report, or None. No guessing."""
-    names = artifacts(row)
+    """The derived repository for one report, or None. No guessing.
+
+    AMENDMENT 2: specific candidates before generic ones, and the failure is
+    classified so a miss is never pooled with a wrong answer.
+    """
+    specific, generic = artifacts(row)
     tried, skipped = [], 0
-    for name in names:
+    for name in specific + generic:
         reg = REGISTRY.get(name)
         if not reg:
             continue
@@ -199,7 +213,7 @@ def derive(row, log=None):
         if log is not None:
             log.append(tried[-1])
         if repo:
-            return repo, {"tried": tried, "candidates": len(names),
-                          "skipped_over_cap": skipped}
-    return None, {"tried": tried, "candidates": len(names),
-                  "skipped_over_cap": skipped}
+            return repo, {"tried": tried, "candidates": len(specific) + len(generic),
+                          "skipped_over_cap": skipped, "first_hit": name}
+    return None, {"tried": tried, "candidates": len(specific) + len(generic),
+                  "skipped_over_cap": skipped, "first_hit": None}

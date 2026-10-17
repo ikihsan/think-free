@@ -48,7 +48,9 @@ def repo_exists(owner_repo):
         with urllib.request.urlopen(req, timeout=25) as fh:
             data = json.loads(fh.read().decode("utf-8"))
             ok = {"full_name": data.get("full_name"), "status": fh.status,
-                  "archived": data.get("archived"), "open_issues": data.get("open_issues_count")}
+                  "archived": data.get("archived"), "open_issues": data.get("open_issues_count"),
+                  "fork": data.get("fork"),
+                  "parent": (data.get("parent") or {}).get("full_name")}
     except Exception as exc:                                   # noqa: BLE001
         ok = {"error": "%s: %s" % (type(exc).__name__, exc)}
     os.makedirs(RAW, exist_ok=True)
@@ -84,6 +86,12 @@ def stage_a():
             "qid": r["qid"], "gold_repo_r": r["gold_repo_r"],
             "gold_repo": r["gold_repo"], "gold_number": r["gold_number"],
             "derived_repo": repo, "correct": repo == r["gold_repo_r"],
+            "failure": ("correct" if repo == r["gold_repo_r"]
+                        else "wrong_repo" if repo
+                        else "not_in_registry" if info["tried"] else "no_candidate"),
+            "first_hit": info["first_hit"],
+            "gold_is_fork": g0.get(r["gold_repo_r"], {}).get("fork"),
+            "gold_parent": g0.get(r["gold_repo_r"], {}).get("parent"),
             "candidates": info["candidates"], "lookups": len(info["tried"]),
             "skipped_over_cap": info["skipped_over_cap"], "tried": log,
             "literal": lit, "keywords": kw,
@@ -93,10 +101,20 @@ def stage_a():
               % (r["qid"], r["gold_repo_r"], repo or "-",
                  "OK" if repo == r["gold_repo_r"] else "miss",
                  len(info["tried"]), info["candidates"]))
+    classes = {}
+    for o in out:
+        classes[o["failure"]] = classes.get(o["failure"], 0) + 1
+    print("failure classes: %s" % json.dumps(classes, sort_keys=True))
+    forks = [o["gold_repo_r"] for o in out if o["gold_is_fork"]]
+    print("gold repositories that are forks: %d of %d %s"
+          % (len(forks), len({o["gold_repo_r"] for o in out}), sorted(set(forks))))
     k = sum(1 for o in out if o["correct"])
     g1 = {"hits": k, "of": len(out), "rate": round(k / len(out), 4) if out else None,
           "ci95": wilson(k, len(out)), "kill_below": 0.20,
-          "kill_fires": (k / len(out) < 0.20) if out else None}
+          "kill_fires": (k / len(out) < 0.20) if out else None,
+          "failure_classes": classes,
+          "gold_repos_that_are_forks": len(set(forks)),
+          "distinct_gold_repos": len({o["gold_repo_r"] for o in out})}
     print("G1: derived == gold on %d of %d = %s, CI95 %s; kill(<0.20) fires: %s"
           % (k, len(out), g1["rate"], g1["ci95"], g1["kill_fires"]))
 
