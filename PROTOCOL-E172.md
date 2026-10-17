@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-17
+-->
+
 # E172 Protocol — View-count Principle on Discourse Forum (community.home-assistant.io)
 
 ## Arms

@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-17
+-->
+
 # E171 Result — version_fact pre-condition for E168's G3
 
 **Experiment**: E171 — Pre-condition screen on E168's G3: are the unaided-failed resolutions version facts?

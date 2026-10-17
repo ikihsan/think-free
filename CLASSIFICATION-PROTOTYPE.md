@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-17
+-->
+
 # View-Count Classification Prototype
 
 **Status**: exploratory prototype (evidence-gathering, not product validation)

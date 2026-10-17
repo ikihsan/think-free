@@ -58,7 +58,7 @@ _(none recorded)_
 
 ## Commands
 
-18 captured, 4 non-zero exit.
+19 captured, 5 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -80,6 +80,7 @@ _(none recorded)_
 | 24 | ['python3', 'EXPERIMENTS/175-repo-from-report/run.py'] | 0 | 52310 |
 | 25 | ['python3', 'EXPERIMENTS/175-repo-from-report/run.py'] | 0 | 43425 |
 | 45 | ['./tools/origin', 'doc', 'index'] | 0 | 11711 |
+| 49 | ['./tools/origin', 'doc', 'lint'] | 2 | 908866 |
 
 ## Integrity
 
@@ -143,6 +144,7 @@ _(none recorded)_
 | 46 | 06:06:11 | artifact | wrote DECISIONS-RECORDS-3.md |
 | 47 | 06:06:20 | artifact | wrote DECISIONS.md |
 | 48 | 06:06:27 | artifact | wrote STATE-next-actions.md |
+| 49 | 06:16:07 | command | $ ./tools/origin doc lint |
 
 ## Reproduce this record
 

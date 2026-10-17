@@ -79,8 +79,8 @@ to any reader of both files, which is the cheapest possible check.
 ## F135 — a package registry is keyed by distributable name and a failure report carries a symptom name, so the pipeline returns a plausible wrong repository instead of abstaining (E175)
 
 **Date:** 2026-10-17. `EXPERIMENTS/175-repo-from-report/`. Raw:
-[`derivation.json`](../EXPERIMENTS/175-repo-from-report/derivation.json) and
-[`raw/http.jsonl`](../EXPERIMENTS/175-repo-from-report/raw/http.jsonl).
+[`derivation.json`](EXPERIMENTS/175-repo-from-report/derivation.json) and
+[`raw/http.jsonl`](EXPERIMENTS/175-repo-from-report/raw/http.jsonl).
 
 ### What was asked
 
@@ -146,3 +146,11 @@ the first run's 17 of 17 stands.
 - **The next candidate may not be a retriever or an extractor over tracker
   documents** (D117): the population is 7% of high-arrival questions and the
   reachable share of it is 0.
+
+### Lint note (2026-10-17)
+
+Landing F133's unlogged work cost three `origin-meta` blocks, added here rather
+than invented for them: `CLASSIFICATION-PROTOTYPE.md`, `PROTOCOL-E172.md` and
+`EXPERIMENTS/171-resolution-fact-locus/RESULT.md` were written by other sessions
+and had none, so `doc lint` was red on all three the moment they were committed.
+The blocks record what those files already were, and change nothing in them.

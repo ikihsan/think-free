@@ -119,7 +119,7 @@ measured on a live ranked index rather than asserted.**
 > constraint — and it was recorded nowhere. The incumbent E169 withdrew is
 > therefore **not falsified**: repo scoping is what removes the global-search
 > failure E169 hit. See
-> [`EXPERIMENTS/174-scoped-reach-recompute/RESULT.md`](../EXPERIMENTS/174-scoped-reach-recompute/RESULT.md)
+> [`EXPERIMENTS/174-scoped-reach-recompute/RESULT.md`](EXPERIMENTS/174-scoped-reach-recompute/RESULT.md)
 > and **F134**. The vocabulary finding (0 of 13 shared a three-word run) stands.
 
 ### What was asked
