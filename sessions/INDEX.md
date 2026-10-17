@@ -8,13 +8,15 @@ last-verified: 2026-10-17
 
 <!-- generated-by: origin; do not edit by hand -->
 
-420 recorded session(s). One `events.jsonl` per session, so concurrent
+422 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 395 older session(s) are in the directory listing.
+Showing the 25 most recent. 397 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-17-006-complete-the-evid-class-picture-via-cros](2026-10-17-006-complete-the-evid-class-picture-via-cros/README.md) | unknown-agent | worked | Complete the EVID class picture via cross-tab analysis, record the exp | 2026-10-17T10:47 |
+| [2026-10-17-005-e178-for-the-46-evidence-gated-rows-of-e](2026-10-17-005-e178-for-the-46-evidence-gated-rows-of-e/README.md) | unknown-agent | worked | E178: for the 46 evidence-gated rows of E177, decide where the missing | 2026-10-17T08:58 |
 | [2026-10-17-004-test-the-mission-s-one-standing-constrai](2026-10-17-004-test-the-mission-s-one-standing-constrai/README.md) | unknown-agent | worked | Test the mission's one standing constraint head-on: is a free general  | 2026-10-17T07:54 |
 | [2026-10-17-003-run-e174-test-whether-a-mechanical-answe](2026-10-17-003-run-e174-test-whether-a-mechanical-answe/README.md) | unknown-agent | worked | Run E174: test whether a mechanical answer-vocabulary query bridge ret | 2026-10-17T06:43 |
 | [2026-10-17-002-continue-think-free-mission-design-and-r](2026-10-17-002-continue-think-free-mission-design-and-r/README.md) | unknown-agent | worked | Continue Think Free mission: design and run E173 view-count principle  | 2026-10-17T00:24 |
@@ -38,8 +40,6 @@ Showing the 25 most recent. 395 older session(s) are in the directory listing.
 | [2026-10-15-024-finalize-e162-experiment-and-update-miss](2026-10-15-024-finalize-e162-experiment-and-update-miss/README.md) | unknown-agent | worked | Finalize E162 experiment and update mission state | 2026-10-15T20:10 |
 | [2026-10-15-023-declare-e162-experiment-artifacts-and-up](2026-10-15-023-declare-e162-experiment-artifacts-and-up/README.md) | unknown-agent | worked | Declare E162 experiment artifacts and update state documents | 2026-10-15T20:00 |
 | [2026-10-15-022-run-view-count-principle-fresh-observati](2026-10-15-022-run-view-count-principle-fresh-observati/README.md) | unknown-agent | worked | Run view-count principle fresh observation on Mozilla Add-ons, a domai | 2026-10-15T19:59 |
-| [2026-10-15-021-document-continuation-decision-after-vie](2026-10-15-021-document-continuation-decision-after-vie/README.md) | unknown-agent | worked | Document continuation decision after view-count principle experiment | 2026-10-15T18:00 |
-| [2026-10-15-020-continue-view-count-prototype-v3-refinem](2026-10-15-020-continue-view-count-prototype-v3-refinem/README.md) | unknown-agent | failed | Continue view-count prototype v3 refinement after E150 principle bound | 2026-10-15T17:59 |
 
 
 ## Reading a session
