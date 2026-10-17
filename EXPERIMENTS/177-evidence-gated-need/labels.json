@@ -1,0 +1,718 @@
+{
+ "counts": {
+  "EVID": 46,
+  "SELF": 52,
+  "UNCLEAR": 2
+ },
+ "kinds": {
+  "configuration": 6,
+  "data_value": 4,
+  "other": 8,
+  "platform": 2,
+  "upstream_source": 19,
+  "version": 7
+ },
+ "labels": [
+  {
+   "arm": "EVID",
+   "kind": "version",
+   "missing_evidence": "the installed nvm-windows version, and that 1.1.12 installs node 14 cleanly",
+   "qid": 79339258,
+   "why": "Rollback target is an nvm version the question never states; the node version alone does not identify it."
+  },
+  {
+   "arm": "UNCLEAR",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79753701,
+   "why": "Answer lists other Safari 26 symptoms but proposes no fix; nothing resolvable here to classify."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "the current Gemini model list after gemini-1.5-flash was retired",
+   "qid": 79779187,
+   "why": "Answer's fix depends on which model IDs currently exist upstream, which the question cannot supply."
+  },
+  {
+   "arm": "EVID",
+   "kind": "version",
+   "missing_evidence": "the installed tailwindcss major version; v4 dropped the tailwindcss binary and init",
+   "qid": 79380514,
+   "why": "Whole diagnosis is \"you are on v4\"; the question never reports which version npm resolved."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79383758,
+   "why": "Question states v4.0; @theme CSS-first configuration is documented behaviour for that stated version."
+  },
+  {
+   "arm": "EVID",
+   "kind": "configuration",
+   "missing_evidence": "that the DBeaver process ran without Windows administrator rights",
+   "qid": 79335513,
+   "why": "Answer presumes a permissions or elevation fault; nothing in the question reports the asker's account or process rights."
+  },
+  {
+   "arm": "EVID",
+   "kind": "version",
+   "missing_evidence": "that the reporter uses Expo React Native and its SDK version",
+   "qid": 79686551,
+   "why": "Answer targets Expo, not the Kivy/Buildozer stack the question describes; nothing in the text links them."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79775796,
+   "why": "Fix is a VS Code command; the question names the editor and TypeScript, nothing unreported is needed."
+  },
+  {
+   "arm": "EVID",
+   "kind": "other",
+   "missing_evidence": "that the editor is VS Code and the Tailwind IntelliSense extension handles these directives",
+   "qid": 79513015,
+   "why": "Question never names the editor; the fix presumes the Tailwind IntelliSense extension and its settings."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79533324,
+   "why": "Correction applies to the asker's own pyproject and directory tree, both pasted in the question."
+  },
+  {
+   "arm": "EVID",
+   "kind": "configuration",
+   "missing_evidence": "how uv was installed there: pip-installed versus the standalone installer",
+   "qid": 79665976,
+   "why": "Diagnosis is uv pinned to system Python; the install method is never reported in the question."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79363302,
+   "why": "Title names VS Code 1.97+; fix is a settings key overriding the new default, no unreported input needed."
+  },
+  {
+   "arm": "EVID",
+   "kind": "version",
+   "missing_evidence": "the bcrypt version deployed on Render and its 5.0.0 behaviour change",
+   "qid": 79776559,
+   "why": "Resolution is pin bcrypt 4.3.0; the deployed version and release date are not in the question."
+  },
+  {
+   "arm": "EVID",
+   "kind": "platform",
+   "missing_evidence": "the OS and keyboard layout whose default Toggle Secondary Side Bar binding is Ctrl+Alt+B",
+   "qid": 79368095,
+   "why": "Answer's key combo is layout-specific and it flags (Windows/English); the question states no platform."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "an external mirror serving the ffmpeg-kit 6.0-2 LTS aar",
+   "qid": 79600161,
+   "why": "Fix requires downloading an artefact from a third-party repository not named anywhere in the question."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "the langchain v1.0 release notes moving chains to langchain-classic",
+   "qid": 79818917,
+   "why": "Resolution is an upstream release change; the question gives versions but not what v1.0 moved."
+  },
+  {
+   "arm": "EVID",
+   "kind": "configuration",
+   "missing_evidence": "Metro's package-exports resolver breaking firebase/auth under Expo SDK 53",
+   "qid": 79602687,
+   "why": "Fix is a metro resolver flag whose relevance no fact reported in the question establishes."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79404124,
+   "why": "Logs live in the app's dev-tools panel; the question supplies product and symptom, no hidden input needed."
+  },
+  {
+   "arm": "EVID",
+   "kind": "version",
+   "missing_evidence": "the installed .NET SDK version, from dotnet --list-sdks",
+   "qid": 79817405,
+   "why": "Fix pins the tool to the SDK major; the asker never reports which SDK is installed."
+  },
+  {
+   "arm": "EVID",
+   "kind": "version",
+   "missing_evidence": "the Android Studio version and the Narwhal 2025.1.3 Canary 2 fix for it",
+   "qid": 79754247,
+   "why": "Diagnosis is an IDE bug fixed in a named build; the question reports no IDE version."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79442978,
+   "why": "The answer's cause, the author's own universal reset, is visible in the question's own CSS."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79468329,
+   "why": "The error text itself names require and ESM; renaming to .mjs follows from the question's own config."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "that setuptools adopted PEP 639: SPDX string plus a license-files list",
+   "qid": 79408101,
+   "why": "Fix hinges on a recent upstream packaging change that the question's vague 'latest versions' does not pin."
+  },
+  {
+   "arm": "EVID",
+   "kind": "version",
+   "missing_evidence": "the installed nvm-windows version and its 1.2.2 temp-directory rename",
+   "qid": 79428308,
+   "why": "Diagnosis names NVM 1.2.2's tmp/temp change; the question reports only node versions."
+  },
+  {
+   "arm": "EVID",
+   "kind": "other",
+   "missing_evidence": "that Google's element renders a closed shadow root and its internal class names",
+   "qid": 79556333,
+   "why": "Workaround targets shadow-DOM internals visible only by inspecting Google's live component."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "AGP 8.12's actual deprecation state for compileSdk and that '=' silences it",
+   "qid": 79723342,
+   "why": "Question says this is undocumented; the resolution rests on upstream DSL behaviour found by trial."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79635270,
+   "why": "Uninstalling the VS component through the installer is the documented path; no unreported version or config needed."
+  },
+  {
+   "arm": "EVID",
+   "kind": "data_value",
+   "missing_evidence": "the remote's actual refs, showing two branches differing only in letter case",
+   "qid": 79567126,
+   "why": "Root cause came from ls-remote output the asker never reported; the question's error text is misleading."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79434372,
+   "why": "Question supplies both Sentry errors; ignoreErrors is the documented filter, no case-specific input missing."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "Slnx.xsd inside microsoft/vs-solutionpersistence, the only schema artefact",
+   "qid": 79606837,
+   "why": "Question asks where the docs are; the resolution is an artefact the answerer had to go and find."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "the upstream tracker issue for this GoogleApiManager SecurityException and its status",
+   "qid": 79385315,
+   "why": "Answer's resolution is the existence and status of an upstream issue; the question contains no such reference."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79747651,
+   "why": "C++98-to-C++11 copy elision and move history explains the asker's premise from general semantics."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "the AOSP source line showing the searched attributionTag was an empty string",
+   "qid": 79721071,
+   "why": "Fix came from reading platform source the asker did not have; the question shows only log lines."
+  },
+  {
+   "arm": "EVID",
+   "kind": "other",
+   "missing_evidence": "the stack-engine microarchitecture fact that makes push single-uop without an RSP chain",
+   "qid": 79718097,
+   "why": "Resolution is that llvm-mca's model is wrong, a hardware and tool fact the question lacks and asks about."
+  },
+  {
+   "arm": "EVID",
+   "kind": "other",
+   "missing_evidence": "iOS 26 bar-item tinting behaviour for glass configurations and image rendering modes",
+   "qid": 79663905,
+   "why": "Which colour API works is an observed UIKit 26 fact absent from the question's own code."
+  },
+  {
+   "arm": "EVID",
+   "kind": "configuration",
+   "missing_evidence": "that the projects reference the EntityFrameworkCore.Design NuGet package",
+   "qid": 79843062,
+   "why": "Question never mentions EF Core; the answer attributes the folders to that package's content items."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79733841,
+   "why": "Refactor reasons only over the pasted if-else chain and its byte comparisons."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79806553,
+   "why": "The question's code is valid Python; concluding the IDE warning is a false positive needs nothing extra."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79527331,
+   "why": "Question already asserts the broad-query equivalence; answer confirms it from the question's own manifest snippet."
+  },
+  {
+   "arm": "UNCLEAR",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79704522,
+   "why": "Key answer never addresses the asker's question, so there is no resolution to classify."
+  },
+  {
+   "arm": "EVID",
+   "kind": "configuration",
+   "missing_evidence": "that the real Menu sits in a GlassEffectContainer with .buttonStyle(.glass)",
+   "qid": 79871713,
+   "why": "Fix is derived from the answerer's own glass-effect hierarchy, absent from the question's MRE."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79779696,
+   "why": "Question supplies code, observed output and the 32-bit target; the slot-splitting explanation follows from them."
+  },
+  {
+   "arm": "EVID",
+   "kind": "data_value",
+   "missing_evidence": "the RAND_MAX value of the asker's C library implementation",
+   "qid": 79791886,
+   "why": "Modulo bias only explains 3.25 if RAND_MAX is small; that value is never reported."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79865748,
+   "why": "Const-qualifier meanings are language semantics applied to the question's two struct declarations."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79760145,
+   "why": "Answer explains set's ordering contract, derivable from the asker's own code and container semantics."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79583661,
+   "why": "The question's own compiler error states std::format is not constexpr; answer names that and runtime_format."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79537353,
+   "why": "Standard citations support an explanation derivable from the question's own snippet and assignment semantics."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79802282,
+   "why": "Both programs and the Windows console setup are in the question; UTF-8 versus UTF-16 mismatch explains it."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79653647,
+   "why": "Error text names the phantomjs download; the knob to skip it is RSelenium's own documented argument."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "Google's upstream issue thread showing a server-side fix already rolling out",
+   "qid": 79358893,
+   "why": "Resolution is Google's own fix status from an upstream tracker, absent from the question's text."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79400684,
+   "why": "Frame teardown via rbp/leave, and size living wherever the size expression left it, follow from the question's own C and x86 premise."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79868298,
+   "why": "Posted um.s shows mov eax then mov ax,0x23 clobbering the entry point; the absent TSS is equally visible."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79796450,
+   "why": "Question supplies the vectors and struct; zip_transform with ranges::to is a standard facility, not case-specific evidence."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79589468,
+   "why": "Question supplies the shift/or code and the aliasing goal; plain half-extractor accessors are the reachable fix."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "Apple UIInputView documentation and the iOS 26 keyboard appearance",
+   "qid": 79818015,
+   "why": "Explanation quotes vendor documentation about avoiding input-view backgrounds, not present in the question."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79442076,
+   "why": "Question supplies the failed enum attempt and the Java target; enums-are-integers and the struct/class bridge follow from it."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79824381,
+   "why": "Opaque byte-buffer bridge is derivable; the 48 and 24 byte sizes follow from the asker's own struct under LP64."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79847613,
+   "why": "Question quotes the prohibition; the subsumption-versus-override rationale is reasoning over its own example."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "current WG21 status of safety profiles and whether C++26 was finalized with them",
+   "qid": 79666817,
+   "why": "Question asks committee status; the answer's 'C++26 finalized, no safety features' needs external records."
+  },
+  {
+   "arm": "EVID",
+   "kind": "other",
+   "missing_evidence": "the committee's historical rationale or old library docs for omitting binary output",
+   "qid": 80002935,
+   "why": "Question explicitly asks historical reasons; the iostream/printf lineage narrative is external history."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "GCC docs statement that noreturn calls are never tail-called to preserve backtraces",
+   "qid": 79715742,
+   "why": "Load-bearing rationale is quoted from upstream GCC documentation, absent from the question."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79990062,
+   "why": "Question supplies the call and warning; NULL's possible integer type and char* literals are standard facts."
+  },
+  {
+   "arm": "EVID",
+   "kind": "configuration",
+   "missing_evidence": "the transitive System.Linq.Async 6.0.1 reference from the project's dependency graph",
+   "qid": 79848893,
+   "why": "Diagnosis comes from running dotnet nuget why; the csproj files do not reveal the transitive reference."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79557242,
+   "why": "Question gives the input vector, the wanted order and the failed attempt; rep with make.unique follows from those three."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 80000170,
+   "why": "Question hypothesises a compile-time deadlock; constant-evaluation and forward-progress rules confirm it, no case-specific artefact."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "the Android Studio build that fixed the freeze, issuetracker 465165108",
+   "qid": 79873559,
+   "why": "Resolution is 'downgrade to 2025.2.2', which needs knowledge of other builds' behaviour."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79929448,
+   "why": "Question supplies the prototype and its own restrict analysis; qualifier and function-type rules settle it."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79935258,
+   "why": "Question contains both programs and its ordering proof; the answer only qualifies the scope of the equivalence."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79716280,
+   "why": "Question supplies both variants and the timings; for-loop avoids two global calls, readable from its own code."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79996927,
+   "why": "Question's own output (sizeof 2, prints 2048, casts give 2049) already exhibits excess precision."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79835432,
+   "why": "Question's own error text exposes the pointer member; constant-expression pointer rules then explain the static-only case."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "Itanium ABI PR 144 and the GCC/LLVM commit rationale for strong ownership",
+   "qid": 79904504,
+   "why": "Question already names strong ownership; the why comes from quoted commit and ABI documents."
+  },
+  {
+   "arm": "EVID",
+   "kind": "platform",
+   "missing_evidence": "Windows PowerShell's external-output and > redirection encoding behaviour",
+   "qid": 79865375,
+   "why": "Answer attributes the newline to shell design and to OutputEncoding/Out-File defaults absent from the question."
+  },
+  {
+   "arm": "EVID",
+   "kind": "other",
+   "missing_evidence": "iOS 26 versus iOS 18 SwiftUI NavigationStack source-view removal behaviour",
+   "qid": 79760365,
+   "why": "Workaround rests on Apple's framework behaviour across versions, which the question never reports."
+  },
+  {
+   "arm": "EVID",
+   "kind": "other",
+   "missing_evidence": "gcc version used and an objdump section-size breakdown of the asker's own binary",
+   "qid": 79639474,
+   "why": "Verdict that 887 KiB is .debug sections rests on the answerer's separate GCC 14.2 builds."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "the current C++ draft's definition of side effects (volatile reads) and the analyzer's UB rule",
+   "qid": 79598477,
+   "why": "Fix is to add a side effect 'according to the latest draft'; that wording is not in the question."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 80007784,
+   "why": "Question asks about precedence; answer reasons from the grammar (postfix versus infix) it already states."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "the existing GCC bug report / PR 95596 documenting the decay bug",
+   "qid": 79885892,
+   "why": "Load-bearing claim is that this is a known old GCC bug, established by looking it up upstream."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79836280,
+   "why": "Question names the pre-commit trigger and Windows with PowerShell; a pre-commit hook script follows from that."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79889909,
+   "why": "Question supplies the parameter list; deduction, template aliases and CTAD are standard techniques."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79561689,
+   "why": "Question names SIGINT, join and _Exit; signals being unsafe with threads is derivable from POSIX semantics."
+  },
+  {
+   "arm": "EVID",
+   "kind": "other",
+   "missing_evidence": "CPython 3.14.2 bytecode disassembly of the compiled match block",
+   "qid": 79999095,
+   "why": "Answer's 'sequential comparisons, no jump table' rests on the answerer's own dis output."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "the standard's copy_elision note on elision in constant expressions",
+   "qid": 79831573,
+   "why": "The 'gcc bug' verdict rests on that note plus the answerer's demo of which variants pass."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79452303,
+   "why": "Question supplies the code and node version; the unhandled rejection arises because await ok_p suspends before await fail_p runs."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79937561,
+   "why": "Question shows the attempt; fix is the extension-member syntax plus a struct, Enum constraint."
+  },
+  {
+   "arm": "EVID",
+   "kind": "data_value",
+   "missing_evidence": "branch-taken statistics and alternate timings from instrumented builds on the answerer's M4",
+   "qid": 80008925,
+   "why": "Explanation rests on measurements the asker did not report, taken on different hardware and compiler."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79792501,
+   "why": "The answer refutes the question's own namespace objection using namespace-scope templates; no external evidence needed."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "N4950 versus N4659 [basic.lookup.argdep] wording and CWG 143 / issue 5302",
+   "qid": 79846974,
+   "why": "Whole answer contrasts two standard drafts and committee issues; question carries only a godbolt link."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79850519,
+   "why": "Question quotes the standard rule and already nears the answer; token pasting avoids passing the identifier."
+  },
+  {
+   "arm": "EVID",
+   "kind": "data_value",
+   "missing_evidence": "newly computed optima for n=13..22 from the answerer's own brute-force runs",
+   "qid": 79810849,
+   "why": "The divide-and-conquer claim rests on score values the question does not contain."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 80001437,
+   "why": "Question supplies the overloads; collapsing them into an overlapping pair with an ignore comment is derivable."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79927761,
+   "why": "Question states that Firefox copies only text nodes; mirroring values beside inputs is reachable from that."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79769322,
+   "why": "Question enumerates all four scenarios; linkage and ODR rules settle legality without any further artefact."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79663318,
+   "why": "Question already reports the GCC/MSVC/clang divergence; answer only restates that the concept means obj.print() is callable."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79786682,
+   "why": "Question supplies the code and the borrow-check error; passing the split iterator straight through is derivable."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79999417,
+   "why": "Question already lays out odr-use and dynamic-init reasoning; the answer confirms it with one cited clause."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79990816,
+   "why": "Question quotes the snippet and asks why the dereference creates lifetime; implicit object creation is background knowledge."
+  },
+  {
+   "arm": "EVID",
+   "kind": "upstream_source",
+   "missing_evidence": "JDK-8348760 and JDK-8370945 records plus Windows native menu rendering",
+   "qid": 79820806,
+   "why": "Verdict that the gutter is intended behaviour comes from upstream bug records."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79672408,
+   "why": "Question quotes both prototypes; pthread_t versus pid_t and the pthreads layering justify preferring the pthread call."
+  },
+  {
+   "arm": "SELF",
+   "kind": "",
+   "missing_evidence": "",
+   "qid": 79743460,
+   "why": "Question supplies the code and already states why optional's constructor wins; 'impossible' follows from overload resolution."
+  }
+ ],
+ "population_sha256": "d1bbc7111fd7c354926ded86d4d6c26e42eda36b7b0fe4686416c943b4405ccc"
+}
