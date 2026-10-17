@@ -17,6 +17,8 @@ RAW = os.path.join(HERE, "raw")
 UA = "think-free-e175/1.0"
 
 # --- ecosystem list: fixed before the draw, 40 names (PROTOCOL.md step 1) ---
+MAX_LOOKUPS = 8            # declared in AMENDMENT 1
+
 ECOSYSTEMS = [
     "python", "pypi", "pip", "conda", "node", "npm", "nodejs", "django",
     "flask", "react", "vue", "angular", "docker", "kubernetes", "postgres",
@@ -181,15 +183,20 @@ LOOKUP = {"pypi": pypi_repo, "npm": npm_repo, "crates": crates_repo}
 def derive(row, log=None):
     """The derived repository for one report, or None. No guessing."""
     names = artifacts(row)
-    tried = []
+    tried, skipped = [], 0
     for name in names:
         reg = REGISTRY.get(name)
         if not reg:
+            continue
+        if len(tried) >= MAX_LOOKUPS:
+            skipped += 1
             continue
         repo, err = LOOKUP[reg](name)
         tried.append({"name": name, "registry": reg, "repo": repo, "error": err})
         if log is not None:
             log.append(tried[-1])
         if repo:
-            return repo, tried
-    return None, tried
+            return repo, {"tried": tried, "candidates": len(names),
+                          "skipped_over_cap": skipped}
+    return None, {"tried": tried, "candidates": len(names),
+                  "skipped_over_cap": skipped}

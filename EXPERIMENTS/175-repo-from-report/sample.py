@@ -12,6 +12,7 @@ import hashlib
 import json
 import os
 import random
+import sys
 import time
 import urllib.parse
 import urllib.request
@@ -27,7 +28,7 @@ READ13 = os.path.join(REPO, "EXPERIMENTS", "169-version-pinned-reach",
                       "raw", "containment.json")
 SE = "https://api.stackexchange.com/2.3"
 UA = "think-free-e175/1.0"
-DRAW = 40
+DRAW = 200
 SEED = 17520261017
 
 
@@ -83,37 +84,58 @@ def main():
           % (len(graded), len(read), len(free), len(ids)))
 
     # --- threads: questions (bodies + accepted_answer_id) then answers -------
-    qs, rec1 = se("questions/%s" % ";".join(str(i) for i in ids),
-                  {"site": "stackoverflow", "filter": "withbody",
-                   "pagesize": 100})
-    print("questions: %d items, quota left %s" % (len(qs["items"]), rec1["quota_remaining"]))
-    accepted = {i["question_id"]: i.get("accepted_answer_id") for i in qs["items"]}
+    accepted = {}
+    for i in range(0, len(ids), 100):
+        part = ids[i:i + 100]
+        try:
+            qs, rec1 = se("questions/%s" % ";".join(str(i) for i in part),
+                          {"site": "stackoverflow", "filter": "withbody",
+                           "pagesize": 100})
+            for it in qs["items"]:
+                accepted[it["question_id"]] = it.get("accepted_answer_id")
+        except Exception as exc:                               # noqa: BLE001
+            print("questions chunk %d-%d failed: %s" % (i, i + 100, exc))
+            for qid in part:
+                try:
+                    qs, rec1 = se("questions/%d" % qid,
+                                  {"site": "stackoverflow", "filter": "withbody",
+                                   "pagesize": 100})
+                    for it in qs["items"]:
+                        accepted[it["question_id"]] = it.get("accepted_answer_id")
+                except Exception as exc2:                      # noqa: BLE001
+                    print("  %d failed: %s" % (qid, exc2))
+    print("questions returned for %d of %d ids" % (len(accepted), len(ids)))
 
-    answers, rec2 = {}, None
-    try:
-        ans, rec2 = se("questions/%s/answers" % ";".join(str(i) for i in ids),
-                       {"site": "stackoverflow", "filter": "withbody",
-                        "pagesize": 100, "sort": "votes"})
-        for a in ans["items"]:
-            answers.setdefault(a["question_id"], []).append(a)
-    except Exception as exc:                                   # noqa: BLE001
-        print("batched answers failed (%s); falling back per question" % exc)
-    if not answers:
-        for qid in ids:
-            try:
-                ans, rec = se("questions/%d/answers" % qid,
-                              {"site": "stackoverflow", "filter": "withbody",
-                               "pagesize": 100, "sort": "votes"})
-                for a in ans["items"]:
-                    answers.setdefault(qid, []).append(a)
-            except Exception as exc:                           # noqa: BLE001
-                print("  %d answers failed: %s" % (qid, exc))
+    answers, rec2, chunk = {}, [], 25
+    for i in range(0, len(ids), chunk):
+        part = ids[i:i + chunk]
+        try:
+            ans, rec = se("questions/%s/answers" % ";".join(str(i) for i in part),
+                          {"site": "stackoverflow", "filter": "withbody",
+                           "pagesize": 100, "sort": "votes"})
+            rec2.append(rec)
+            for a in ans["items"]:
+                answers.setdefault(a["question_id"], []).append(a)
+        except Exception as exc:                               # noqa: BLE001
+            print("answers chunk %d-%d failed: %s" % (i, i + chunk, exc))
+            for qid in part:
+                try:
+                    ans, rec = se("questions/%d/answers" % qid,
+                                  {"site": "stackoverflow", "filter": "withbody",
+                                   "pagesize": 100, "sort": "votes"})
+                    rec2.append(rec)
+                    for a in ans["items"]:
+                        answers.setdefault(qid, []).append(a)
+                except Exception as exc2:                      # noqa: BLE001
+                    print("  %d answers failed: %s" % (qid, exc2))
     print("answers for %d of %d questions; quota left %s"
           % (len(answers), len(ids), (rec2 or {}).get("quota_remaining")))
 
     sys.path.insert(0, HERE)
     from derive import gh_repo                                     # noqa: E402
 
+    missing = [i for i in ids if i not in accepted]
+    print("question ids the API did not return: %s" % (missing or "none"))
     rows = []
     for r in drawn:
         qid = r["question_id"]
@@ -131,8 +153,11 @@ def main():
                      "tags": r["tags"], "view_count": r["view_count"],
                      "answer_count": r["answer_count"],
                      "gold_repo": gold, "gold_from": gold_from,
-                     "answers_fetched": len(ans)})
+                     "answers_fetched": len(ans),
+                     "question_returned": qid in accepted})
     have = sum(1 for r in rows if r["gold_repo"])
+    print("rows with no gold: %s"
+          % [r["qid"] for r in rows if not r["gold_repo"]])
     with open(os.path.join(HERE, "sample.json"), "w") as fh:
         json.dump({"manifest": manifest, "quota": [rec1, rec2], "rows": rows},
                   fh, indent=1, sort_keys=True)

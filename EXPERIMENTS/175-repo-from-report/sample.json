@@ -1,0 +1,721 @@
+{
+ "manifest": {
+  "candidate_rows": 287,
+  "draw": 40,
+  "drawn_ids": [
+   79831573,
+   80009365,
+   80000170,
+   79557242,
+   79653647,
+   79428308,
+   79835432,
+   79767311,
+   79818917,
+   79380514,
+   79868298,
+   80009062,
+   79935258,
+   79873559,
+   79805098,
+   80008997,
+   79567126,
+   79810849,
+   79824381,
+   80008957,
+   80009095,
+   79754247,
+   79768581,
+   80009342,
+   79585153,
+   79665976,
+   79871713,
+   79945712,
+   79600161,
+   79978180,
+   79589468,
+   80008925,
+   79635270,
+   80009075,
+   79817405,
+   79753701,
+   79848893,
+   79363302,
+   79533324,
+   79818015
+  ],
+  "drawn_sha256": "566f4c060b82e40eb997b80e1c6b0ab99713a70e1f8f7a68d355b763b1109d52",
+  "excluded_e126_graded": 40,
+  "excluded_e169_read": 13,
+  "note": "committed before any request; the draw cannot have been tuned",
+  "pool_rows": 300,
+  "seed": 17520261017
+ },
+ "quota": [
+  {
+   "has_more": false,
+   "items": 37,
+   "quota_remaining": null,
+   "quota_reset_epoch": null,
+   "url": "https://api.stackexchange.com/2.3/questions/79831573;80009365;80000170;79557242;79653647;79428308;79835432;79767311;79818917;79380514;79868298;80009062;79935258;79873559;79805098;80008997;79567126;79810849;79824381;80008957;80009095;79754247;79768581;80009342;79585153;79665976;79871713;79945712;79600161;79978180;79589468;80008925;79635270;80009075;79817405;79753701;79848893;79363302;79533324;79818015?site=stackoverflow&filter=withbody&pagesize=100"
+  },
+  {
+   "has_more": false,
+   "items": 94,
+   "quota_remaining": null,
+   "quota_reset_epoch": null,
+   "url": "https://api.stackexchange.com/2.3/questions/79831573;80009365;80000170;79557242;79653647;79428308;79835432;79767311;79818917;79380514;79868298;80009062;79935258;79873559;79805098;80008997;79567126;79810849;79824381;80008957;80009095;79754247;79768581;80009342;79585153;79665976;79871713;79945712;79600161;79978180;79589468;80008925;79635270;80009075;79817405;79753701;79848893;79363302;79533324;79818015/answers?site=stackoverflow&filter=withbody&pagesize=100&sort=votes"
+  }
+ ],
+ "rows": [
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "Consider the following simplified code: template <class T> class Foo { T t; const T* t_ptr; public: constexpr Foo(T t): t(t), t_ptr(&this->t) {} constexpr Foo(const Foo& foo): t(foo.t), t_ptr(&this->t) {} constexpr T get_t() const { return *t_ptr; } }; template <class T> constexpr Foo<T> foo(T t) { return Foo<T>(t); } constexpr auto f = foo(1); static_assert(f.get_t() == 1); It successfully compiles with Clang and MSVC but GCC 15 reports an error : <source>:16:25: error: non-constant condition f",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79831573,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "gcc",
+    "constexpr"
+   ],
+   "title": "constexpr self-referencing struct",
+   "view_count": 861
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "I've done an experimental program able to handle speed, length, time, their units of measure and do few calculations with them ( here , in fr.sympathique.explicite package, and here for the tests). It gives average speeds in km/h from various length and time units. // Runner A : 1.6 km in 4 minutes Speed averageSpeedA = new Speed(1.6, KILOMETRE, 4.0, MINUTE); averageSpeedA.convert(HOUR); LOGGER.info(\"Runner A : {}\", averageSpeedA); // 24 km/h assertEquals(24.0, averageSpeedA.speed(), 0.001); // ",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 80009365,
+   "question_returned": true,
+   "tags": [
+    "advice",
+    "java",
+    "compilation",
+    "antlr"
+   ],
+   "title": "Do you think that creating a Java Compiler Plugin and using AntLR to handle operations on values having units of measure could be a correct choice?",
+   "view_count": 142
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "What does constexpr void wait(T old, /*...*/) const noexcept; do during constant evaluation, now that it's constexpr in C++26? The description says that it in a loop: Blocks until it is unblocked by an atomic notifying operation or is unblocked spuriously. But since there is no multithreading at compile time, it seems like blocking the main thread means deadlocking the compiler.",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 80000170,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "language-lawyer",
+    "atomic",
+    "deadlock",
+    "c++26"
+   ],
+   "title": "What does constexpr atomic<T>::wait() do at compile time?",
+   "view_count": 1245
+  },
+  {
+   "answer_count": 9,
+   "answers_fetched": 9,
+   "body": "I have a vector in R vec <- c(\"x\", \"y\", \"z\") I want to generate a new vector with elements, in order, based off the elements of vec. I want the result to be: \"x\" \"x.1\" \"y\" \"y.1\" \"z\" \"z.1\" Now, I know that I could do the following: vec <- c(vec, paste0(vec,\".1\")) But this yields \"x\" \"y\" \"z\" \"x.1\" \"y.1\" \"z.1\" ... which is not what I want.",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79557242,
+   "question_returned": true,
+   "tags": [
+    "r",
+    "string",
+    "vector"
+   ],
+   "title": "How do I create a new vector from a previous vector with elements in a specific order in R?",
+   "view_count": 1295
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I'm using RSelenium to scrape some data. It was working for me no problem yesterday but when I got back to it today I'm getting an error I don't understand. Here's what I'm doing: library(rJava) library(rvest) library(RSelenium) library(netstat) library(wdman) library(data.table) library(berryFunctions) url <- \"https://signon.thomsonreuters.com/\" remote_driver <- rsDriver(browser = \"chrome\", chromever = \"114.0.5735.90\", verbose = FALSE, port = free_port()) But I end up getting this error remote_",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79653647,
+   "question_returned": true,
+   "tags": [
+    "r",
+    "rselenium"
+   ],
+   "title": "RSelenium error in open.connection(con, \"rb\") with rsDriver()",
+   "view_count": 2071
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "I want to install version 14 for an old project that uses that version. I use nvm and all installations from 16 onwards work perfectly. But, in version 14.20.0 and 14.21.3, it fails and gives me this error: Usuario@DESKTOP-VMRUVSP MINGW64 ~ $ nvm install 14.21.3 Downloading node.js version 14.21.3 (64-bit)... Complete Downloading npm... Creating C:\\Users\\Usuario\\AppData\\Local\\Temp\\nvm-install-11959995\\temp Downloading npm version 6.14.18... Complete Installing npm v6.14.18... error installing 14",
+   "gold_from": "top_voted",
+   "gold_repo": "coreybutler/nvm-windows",
+   "qid": 79428308,
+   "question_returned": true,
+   "tags": [
+    "javascript",
+    "laravel",
+    "npm",
+    "nvm"
+   ],
+   "title": "Error downloading node 14.21.3/14.20.0 with NVM. The system cannot find the file specified",
+   "view_count": 9114
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "I'm wondering why std::string can't be constexpr if it's a stack variable: #include <string> #include <iostream> #include <cstring> constexpr std::string str15 {\"123456789012345\"}; // This compiles! struct Foo { constexpr Foo() : a(6) { for (int i = 0; i < 8; ++i) buff[i] = 0; } int a; char buff[8]; }; constexpr void func() { constexpr Foo f{}; // This compiles constexpr std::string str15 {\"123456789012345\"}; // This doesn't compile } int main() { func(); return 0; } Error: 'std::string{std::__c",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79835432,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "compiler-errors",
+    "constexpr"
+   ],
+   "title": "Why can std::string create a constexpr object only if it's a static variable?",
+   "view_count": 1105
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I wonder whether this piece of code should compile and what function it should call. The situation is that there is a struct whose name matches that of a template parameter. My question is, inside the definition of the f<U> specialization (where U derives from T ), does T mean the template parameter or the base class? template<typename T> void f(T t) { t.T::~T(); // #1 should this compile? t.T::m(); // #2 should this compile? } struct T { ~T() {} void m(){}}; // note named like the typename para",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79767311,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "gcc",
+    "visual-c++",
+    "clang",
+    "language-lawyer"
+   ],
+   "title": "typename in qualified member access",
+   "view_count": 330
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I am trying to code a FastAPI RAG application with Google Cloud and Vertex AI with python3.12 using the LangChain library. However, when I try to import the LangChain library into my project, I keep receiving the same error repeatedly: from langchain.chains import create_retrieval_chain ModuleNotFoundError: No module named 'langchain.chains' Here is my import code: from langchain.chains import create_retrieval_chain Here are the LangChain libraries I have installed: langchain==1.0.5 langchain-co",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79818917,
+   "question_returned": true,
+   "tags": [
+    "python",
+    "langchain",
+    "modulenotfounderror"
+   ],
+   "title": "Error importing langchain modules: No module named 'langchain.chains'",
+   "view_count": 14388
+  },
+  {
+   "answer_count": 8,
+   "answers_fetched": 8,
+   "body": "I've been using Tailwind CSS for my projects for a long time. Starting my new project, I installed the package and created the tailwind.config.js file via the command npx tailwindcss init -p , as I'm used to. But then I ran into an unexpected error \u2013 npm can't find the executable called by npx tailwindcss , even though I installed it. Reproducing the error message is as simple as running the following two commands from the root of the project : $ npm install -D tailwindcss $ npx tailwindcss init",
+   "gold_from": "top_voted",
+   "gold_repo": "tailwindlabs/tailwindcss",
+   "qid": 79380514,
+   "question_returned": true,
+   "tags": [
+    "javascript",
+    "npm",
+    "tailwind-css",
+    "vite",
+    "tailwind-css-4"
+   ],
+   "title": "Tailwind CSS: \"npm error could not determine executable to run\"",
+   "view_count": 44608
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I was following \"The little book about OS development\" . I've \"completed\" the basic idt, gdt and segmentation, but I believe there are errors, but I already tested running without them and it still returns these errors. I'm using Bochs to emulate a 32-bit system, but when I enter user mode and run a basic 32-bit program that just moves 0xDEADBEEF to EAX, in user mode, my Bochs instantly reloads and reruns. In the ideal circumstances, there wouldn't be any interrupts and exception. In addition, i",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79868298,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "assembly",
+    "x86",
+    "osdev",
+    "gdt"
+   ],
+   "title": "Why is my kernel logging an exception and interrupt when I run it, attempting to enter user mode?",
+   "view_count": 1911
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "My custom OAuth2AuthorizationFailureHandler can load the current cached token, but I need the token used by the request that failed so that invalidation does not remove its replacement. These can differ when a replacement is stored while a request is in flight. In a non-servlet client_credentials application, concurrent callers share an OAuth2ClientHttpRequestInterceptor , a client registration and a principal. The ordering I need to handle is: A resource request is sent with T1. Another caller ",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 80009062,
+   "question_returned": true,
+   "tags": [
+    "java",
+    "spring-security",
+    "oauth-2.0",
+    "concurrency"
+   ],
+   "title": "How can a Spring Security OAuth2 failure handler access the token used by the failed request?",
+   "view_count": 137
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "Consider this example: #include <atomic> #include <thread> int main(){ std::atomic<int> epoch = {0}; std::atomic<int> value = {1}; std::jthread t1([&](){ epoch.store(1,std::memory_order::seq_cst); // #1 value.load(std::memory_order::seq_cst); // #2 }); std::jthread t2([&](){ value.exchange(2,std::memory_order::seq_cst); // #3 epoch.load(std::memory_order::seq_cst); // #4 }); } In this example, if #2 read 1 , then #4 must read #1 , because it's guaranteed by the single total order #1 < #2 < #3 < ",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79935258,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "language-lawyer",
+    "atomic"
+   ],
+   "title": "Is correctness of EBR algorithm guaranteed by `seq_cst` also guaranteed by changing them to RMW operations with `acq_rel` that write the same value?",
+   "view_count": 1168
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "Recently, in the latest stable feature drop version of Android Studio. When switching branches using the plugin within the IDE, the application freezes strangely. Problems occur during synchronisation. I couldn't find any known issues regarding this matter in the official Android Studio documentation. Any workaround solutions you may have would be greatly appreciated. Version - Build Info; Android Studio Otter 3 Feature Drop | 2025.2.3 Build #AI-252.28238.7.2523.14688667, built on January 9, 202",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79873559,
+   "question_returned": true,
+   "tags": [
+    "android-studio",
+    "intellij-idea"
+   ],
+   "title": "Android Studio 2025.2.3 - Freezing issue when switching branches",
+   "view_count": 1239
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I recently installed LazyVim, and I was trying to use the :Tutor command. Everything works well in Tutor, but the check and cross marks. In Tutor, in most lessons, there are some lines that needs to be modified, and until the line isn't what is expected of me, there is a red cross mark at the beginning of the line, which will turn into a green check once the modifications are correct. Here, with launching :Tutor in LazyVim, I don't see any of those marks on the lines I'm supposed to modify, but ",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79805098,
+   "question_returned": true,
+   "tags": [
+    "neovim",
+    "lazyvim"
+   ],
+   "title": "Restore Tutor Marks in LazyVim",
+   "view_count": 475
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I have a really large codebase and i want to implement uber/goleak into it. The problem is that i have multiple go packages in my project and now adding a new goleak_test.go file into each package does not look the best approach because adding same file into each package looks redundant. Any help on what could be the best approach here?",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 80008997,
+   "question_returned": true,
+   "tags": [
+    "best-practices",
+    "go"
+   ],
+   "title": "Best practice to implement goleak for large codebase",
+   "view_count": 82
+  },
+  {
+   "answer_count": 3,
+   "answers_fetched": 3,
+   "body": "Different from other answers, I could find no results anywhere for this specific error: git pull --prune error: could not delete references: cannot lock ref 'refs/remotes/origin/branchname': Unable to create 'C:/develop/repo/.git/refs/remotes/origin/branchname.lock': File exists. Another git process seems to be running in this repository, e.g. an editor opened by 'git commit'. Please make sure all processes are terminated then try again. If it still fails, a git process may have crashed in this ",
+   "gold_from": "top_voted",
+   "gold_repo": "git-for-windows/git",
+   "qid": 79567126,
+   "question_returned": true,
+   "tags": [
+    "windows",
+    "git"
+   ],
+   "title": "Git debugging - \"error: could not delete references: cannot lock ref\" \"File exists\"",
+   "view_count": 5979
+  },
+  {
+   "answer_count": 3,
+   "answers_fetched": 3,
+   "body": "Consider an array of a permutation P of length n (n > 2), namely some order of the integers 1 through n. Example of P with length n = 7, [6,5,2,3,7,1,4] A \"score\" of a permutation is measured by the amount of indices i (0 <= i <= n-3) that satisfy the condition, P[i] >= P[i+1] + P[i+2] . The score of the example P is 2 at i = 1, 5 (5 >= 2 + 3, 7 >= 1 + 4) Could we find the maximum score among all possible permutation of length n? Here are some bruteforce solutions: n = 3; max = 1 (3 2 1) n = 4; ",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79810849,
+   "question_returned": true,
+   "tags": [
+    "algorithm",
+    "math",
+    "permutation"
+   ],
+   "title": "Finding a maximum \"score\" of a permutation",
+   "view_count": 710
+  },
+  {
+   "answer_count": 7,
+   "answers_fetched": 7,
+   "body": "I want to use circular queue with different types and lengths in a project which mainly consists of C code. I'm thinking about implementing the circular queue as a C++ template struct. How to expose the fully specialized C++ template struct to C? // C++ implementation // queue.hpp template <typename T, size_t MAX_LEN> struct Queue { T data[MAX_LEN]; size_t readIdx = 0; size_t writeIdx = 0; bool PushBack(T); bool PopFront(T *); }; // expected C API typedef struct { int data[8]; size_t readIdx; si",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79824381,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "c"
+   ],
+   "title": "Is it possible to expose C++ template struct (fully specialized) to C?",
+   "view_count": 1629
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 0,
+   "body": "A PostgreSQL 12 database contains a schema with multiple related tables. Data was accidentally removed by executing TRUNCATE ... CASCADE . The schema and table definitions still exist, including their columns, data types, indexes, and relationships. However, the rows in the affected tables are gone, and queries such as SELECT COUNT(*) return zero. No usable backup from before the incident is available, and WAL archiving was disabled. However, the underlying disk may still contain remnants of old",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 80008957,
+   "question_returned": false,
+   "tags": [
+    "postgresql",
+    "data-recovery"
+   ],
+   "title": "Is PostgreSQL data recoverable after an accidental TRUNCATE CASCADE when the schema and tables still exist but are empty?",
+   "view_count": 135
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I'm trying to launch my OpenGL application using RenderDoc, but I keep getting the following error: [error] A debug OpenGL context was requested but not provided by the driver The application runs perfectly fine when launched directly from Visual Studio. However, when I try to launch the same executable through RenderDoc, it fails. I'm using GLFW, and the debug context is requested using the following line: glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, result->debugContextRequested_ ? GLFW_TRUE : GL",
+   "gold_from": "top_voted",
+   "gold_repo": "baldurk/renderdoc",
+   "qid": 80009095,
+   "question_returned": true,
+   "tags": [
+    "renderdoc"
+   ],
+   "title": "\"A debug OpenGL context was requested but not provided by the driver\" when launching an application that works in Visual Studio",
+   "view_count": 61
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "My project is using some external libraries which have native code. I've got warning from Google, about migrating my app to support 16 Kb pages. In apk analyser I noticed, that .so libraries were not compiled to support 16 kb. I have updated external libraries with latest versions with 16 Kb pages support. Warnings about those libraries disappeared, but I still see warning \"Apk does not support 16 kb devices\". Maybe this happens because I am analyzing apk, that was built under processor architec",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79754247,
+   "question_returned": true,
+   "tags": [
+    "android",
+    "kotlin",
+    "native-code"
+   ],
+   "title": "How to fix warning \"APK does not support 16 Kb devices\"",
+   "view_count": 11089
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "Consider this simple code. struct Foo { template <typename T> struct Bar { ~Bar(); }; }; with the out-of-line implementation template <typename T> Foo::Bar<T>::~Bar() { // dtor implementation } Using clang (up to current trunk), with -std=c++20 and -Wdtor-name issues a warning: warning: ISO C++ requires the name after '::~' to be found in the same scope as the name before '::~' [-Wdtor-name] , and requires the implementation be changed to this. template <typename T> Foo::Bar<T>::~Bar<T>() { // d",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79768581,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "language-lawyer",
+    "c++20",
+    "clang++"
+   ],
+   "title": "Is clang broken with `-std=c++20` and `-Wdtor-name`",
+   "view_count": 378
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "has anyone faced the challenge of offering alternative payment methods in Android and iOS apps for digital products? For example, in my app, premium users can create channels that other users pay to join, similar to YouTube memberships, or purchase digital gifts. How did you handle Google Play and Apple\u2019s in-app purchase policies while also offering payment options. I\u2019d appreciate hearing how you solved it. Thanks!",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 80009342,
+   "question_returned": false,
+   "tags": [
+    "in-app-purchase",
+    "payment",
+    "in-app-billing",
+    "google-developers-console",
+    "in-app-subscription"
+   ],
+   "title": "Alternative Payments for Digital Products on Android and iOS",
+   "view_count": 61
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I would like to make a class that satisfies std::copy_constructible concept and in addition can be constructed from an arbitrary copy constructible value much like std::any does: #include <concepts> struct B { B(std::copy_constructible auto); }; static_assert(std::copy_constructible<B>); But unlike std::any the constructor template B(std::copy_constructible auto) receives its argument by value and not by reference . I expected that based on class.copy.ctor#5 , such constructor is never instantia",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79585153,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "constructor",
+    "language-lawyer",
+    "c++20",
+    "c++-concepts"
+   ],
+   "title": "What constructors must be defined to satisfy copy constructible concept for any-like class?",
+   "view_count": 243
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "At work, I am running 3.9.21. At home, I am running Python 3.13.2 on Linux, but also use uv install Python 3.9.21 to be in sync with work. In my home machine, I created a new project: uv init --package --python \"python==3.9.21\" sandbox cd sandbox uv sync At this time, I got the following error: Using CPython 3.13.2 error: The requested interpreter resolved to Python 3.13.2, which is incompatible with the project's Python requirement: `==3.9.21` How can I create a project with this specific versi",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79665976,
+   "question_returned": true,
+   "tags": [
+    "python",
+    "uv"
+   ],
+   "title": "Create project with specific (downgraded) Python version",
+   "view_count": 19965
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "I am getting the message: Adding '_UIReparentingView' as a subview of UIHostingController.view is not supported and may result in a broken view hierarchy. Add your view above UIHostingController.view in a common superview or insert it into your SwiftUI content in a UIViewRepresentable instead. When opening and closing my Menu and the drop down animation of the Menu is kind of glitchy now. This didn't happen before in iOS 18, so wondering if my code is inherently wrong or if this is a bug. Here i",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79871713,
+   "question_returned": true,
+   "tags": [
+    "ios",
+    "swiftui",
+    "view",
+    "menu"
+   ],
+   "title": "iOS 26 broken view hierarchy on Menu",
+   "view_count": 2462
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I'm using CUDA 13.1. Whatever CUDA program I run, NSight Systems refuses to profile it, telling me that \"No CUDA events collected. Does the process use CUDA?\". To give a concrete example, I can successfully build and run the vectorAdd program (from the CUDA samples repository; see below for a copy of it). With that done, I fire up nsys-ui , put in the program path and start profiling. The profiling concludes, and a timeline is visible, including CUDA API calls, but - there are several errors: Ki",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79945712,
+   "question_returned": true,
+   "tags": [
+    "cuda",
+    "profiling",
+    "nsight-systems"
+   ],
+   "title": "NSight Systems fails to profile GPU activity: \"No CUDA events collected. Does the process use CUDA?\"",
+   "view_count": 392
+  },
+  {
+   "answer_count": 7,
+   "answers_fetched": 7,
+   "body": "I started receiving this message when I build my project > Could not find com.arthenica:ffmpeg-kit-full:6.0-2. Searched in the following locations: - https://dl.google.com/dl/android/maven2/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom - https://repo.maven.apache.org/maven2/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom - https://jcenter.bintray.com/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom - https://jitpack.io/com/arthenica/ffmpeg-kit-full/6.0-",
+   "gold_from": "top_voted",
+   "gold_repo": "duclq92/ffmpeg-kit-audio",
+   "qid": 79600161,
+   "question_returned": true,
+   "tags": [
+    "android",
+    "ffmpeg",
+    "android-ffmpeg"
+   ],
+   "title": "Could not find com.arthenica:ffmpeg-kit-full:6.0-2",
+   "view_count": 14852
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I'm trying to reproduce the \"Improved code generation for struct arguments\" optimization (physical promotion) described in the official .NET 10 Runtime what's new . According to the article, for this code: using System; using System.Runtime.CompilerServices; struct Point { public long X; public long Y; public Point(long x, long y) { X = x; Y = y; } } public class Program { [MethodImpl(MethodImplOptions.NoInlining)] private static void Consume(Point p) { Console.WriteLine(p.X + p.Y); } private st",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79978180,
+   "question_returned": true,
+   "tags": [
+    "c#",
+    "clr",
+    "jit",
+    "cil",
+    ".net-10.0"
+   ],
+   "title": "Why does .NET 10 JIT not pass struct fields in registers despite physical promotion documentation?",
+   "view_count": 458
+  },
+  {
+   "answer_count": 3,
+   "answers_fetched": 3,
+   "body": "auto lo = 0u; auto hi = 1u; auto combined = (((std::uint64_t)hi) << 32) | lo; But if I do combined++ then lo and hi are not changed, because combined is a copy. How do I make the lower bits of combined reference lo , and the upper bits reference hi , so when I do arithmetic on combined , lo and hi are also updated?",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79589468,
+   "question_returned": true,
+   "tags": [
+    "c++"
+   ],
+   "title": "How to create a uint64 whose lower and upper bits reference uint32s?",
+   "view_count": 1750
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "A debug print line seems to make code execution unexpectedly faster. Commenting out a printf that is conditional on n<100 slows things down when n is much larger. How is the conditional print that never executes for n>100 speeding things up? This toy code arises from a question on Math SE What is the most efficient way to determine if a natural number N can be written as the sum of two squares? . It is a surprisingly tough problem with a single thread unvectorised solution taking around 4 hours ",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 80008925,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "algorithm",
+    "visual-c++",
+    "benchmarking",
+    "icx"
+   ],
+   "title": "Conditional debug print speeds up code execution in sum of two squares problem",
+   "view_count": 597
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "The regular code completion in Visual Studio somehow turned into Copilot code completion: It does not work though, replaces contents of the whole document with single-line proposed completion. How can I return to the regular refactorings? These are my Copilot options: Bonus question: How to turn off Github Copilot completely?",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79635270,
+   "question_returned": true,
+   "tags": [
+    "visual-studio",
+    "github-copilot"
+   ],
+   "title": "How to disable Copilot code completion in Visual Studio?",
+   "view_count": 6170
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I am planning to begin my programming journey and am highly interested in learning Rust . However, I am a complete beginner with no prior background in computer science or software development. Most online resources and documentation define Rust in terms of low-level concepts (e.g., memory safety without a garbage collector, zero-cost abstractions, data races), which are difficult to grasp without foundational programming knowledge. To help me understand if this is a viable starting point, could",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 80009075,
+   "question_returned": false,
+   "tags": [
+    "tooling-recommendation"
+   ],
+   "title": "Learning Rust as a first programming language: Conceptual overview and beginner viability",
+   "view_count": 135
+  },
+  {
+   "answer_count": 5,
+   "answers_fetched": 5,
+   "body": "I\u2019m trying to install the Entity Framework Core CLI tools globally using the .NET CLI command: dotnet tool install --global dotnet-ef However, the installation fails with the following error message: Tool 'dotnet-ef' failed to update due to the following: The settings file in the tool's NuGet package is invalid: Settings file 'DotnetToolSettings.xml' was not found in the package. Tool 'dotnet-ef' failed to install. Contact the tool author for assistance. To reproduce, run dotnet tool install --g",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79817405,
+   "question_returned": true,
+   "tags": [
+    ".net",
+    ".net-core",
+    "entity-framework-core",
+    "dotnet-tool"
+   ],
+   "title": "installing dotnet-ef dotnet tool throws error",
+   "view_count": 12068
+  },
+  {
+   "answer_count": 10,
+   "answers_fetched": 10,
+   "body": "In Safari on iOS 26, when the page is scrolled down and the address bar shrinks at the bottom, the viewport appears to get displaced vertically, which in turn shifts the position of elements with position \"fixed\" or \"sticky.\" Code example: https://codesandbox.io/p/sandbox/reactjs-playground-forked-6zmgr4 Note the relevant div serving as a fixed footer, with inline styles as follows: style={{ position: \"fixed\", bottom: 0, }} Navigate to the code sandbox URL on iPhone with iOS 26 to reproduce the ",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79753701,
+   "question_returned": true,
+   "tags": [
+    "css",
+    "ios",
+    "safari",
+    "mobile-safari",
+    "viewport"
+   ],
+   "title": "iOS 26 Safari - Web layouts are breaking due to fixed/sticky position elements getting shifted vertically",
+   "view_count": 52181
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I am in the process of upgrading our codebase from .NET 9 to .NET 10. All of the libraries of all of our packages were upgraded to the most recent version when I last upgraded to .NET 9. I did the same thing this go around and brought everything up to the most recent code versions. I have not done any code changes whatsoever and all of this code compiled and ran before the version update. However, I am stuck on this error, and it doesn't make any sense to me. The two methods it is referring to a",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79848893,
+   "question_returned": true,
+   "tags": [
+    "c#",
+    ".net",
+    ".net-10.0"
+   ],
+   "title": "The call is ambiguous between identical methods",
+   "view_count": 1293
+  },
+  {
+   "answer_count": 5,
+   "answers_fetched": 5,
+   "body": "SVGs have begun to open as image previews, which I do not need, I would like to view them as HTML text. I do not know how this has happened. I haven't made any changes to my VS Code, I haven't installed any extensions recently and the day before yesterday this working was fine.",
+   "gold_from": "top_voted",
+   "gold_repo": "microsoft/vscode",
+   "qid": 79363302,
+   "question_returned": true,
+   "tags": [
+    "vs-code",
+    "svg"
+   ],
+   "title": "How to disable svg preview in VS Code 1.97+",
+   "view_count": 17828
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I\u2019m working on a Python project using uv as my package manager and struggling with ModuleNotFoundError when importing local packages. My goal is to make config/ and packages/src/ available throughout the project (e.g., from config.connection_config import database_config ) after an editable install with uv pip install -e . . Here\u2019s my project structure: dashboard/ \u251c\u2500\u2500 config/ \u2502 \u251c\u2500\u2500 __init__.py \u2502 \u2514\u2500\u2500 connection_config.py \u2502 \u2514\u2500\u2500 env/ \u251c\u2500\u2500 packages/ \u2502 \u2514\u2500\u2500 src/ \u2502 \u2514\u2500\u2500 (other packages/modules with __ini",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79533324,
+   "question_returned": true,
+   "tags": [
+    "python",
+    "toml",
+    "uv"
+   ],
+   "title": "How can I install a local package with UV?",
+   "view_count": 20190
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I'm trying to use UIPickerView as the textfield's inputView and also add UIToolBar as the textfield's inputAccessoryView . In iOS 26, it adds some weird transparent background (like a liquid glass effect, I guess) under the toolbar. I want to preserve the same look as it had previously. Please see the example code below with attached images: let keyboardToolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 44.0))) let doneBarButton = UIBarButtonItem() doneBarButton.ti",
+   "gold_from": null,
+   "gold_repo": null,
+   "qid": 79818015,
+   "question_returned": true,
+   "tags": [
+    "ios",
+    "swift",
+    "uitextfield",
+    "ios26"
+   ],
+   "title": "UITextField custom inputAccessoryView with custom inputView in iOS 26",
+   "view_count": 1689
+  }
+ ]
+}
