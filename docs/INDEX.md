@@ -427,6 +427,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/171-resolution-fact-locus/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 4 documents |
 | `EXPERIMENTS/174-scoped-reach-recompute/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 2 documents |
 | `EXPERIMENTS/175-repo-from-report/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 4 documents |
+| `EXPERIMENTS/177-evidence-gated-need/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 8 documents |
 | `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |

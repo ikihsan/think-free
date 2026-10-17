@@ -34,7 +34,7 @@ _(none recorded)_
 
 ## Commands
 
-17 captured, 4 non-zero exit.
+18 captured, 4 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -55,6 +55,7 @@ _(none recorded)_
 | 18 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/score_inputs.py'] | 0 | 137 |
 | 19 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/score.py'] | 0 | 109 |
 | 20 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/score.py'] | 0 | 199 |
+| 22 | ['./tools/origin', 'doc', 'index'] | 0 | 12799 |
 
 ## Integrity
 
@@ -91,6 +92,7 @@ _(none recorded)_
 | 19 | 07:19:33 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/score.py |
 | 20 | 07:20:05 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/score.py |
 | 21 | 07:20:40 | artifact | wrote EXPERIMENTS/177-evidence-gated-need/RESULT.md |
+| 22 | 07:23:02 | command | $ ./tools/origin doc index |
 
 ## Reproduce this record
 
