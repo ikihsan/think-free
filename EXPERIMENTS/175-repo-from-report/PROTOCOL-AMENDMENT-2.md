@@ -50,3 +50,23 @@ about the package the asker named, not by writing down the answer.
 If G1 still fires after the repair, the kill stands and the classification above
 is the finding: the mechanism fails because **the repository that owns a fix is
 often not a package registry entry**.
+## Amendment 3 (same date, same hour) — a whitelist of 20 package names was this author's invention and it contradicted the protocol
+
+Reading the 15 `no_candidate` failures showed the ordering repair could not have
+helped: `derive.py` held a table `REGISTRY = {"django": "pypi", "react": "npm",
+…}` and **only consulted a registry for a name in that table**. Every package the
+author had not thought of — including `tailwindcss`, named in the report — was
+silently excluded before any request was made. PROTOCOL.md declares the opposite:
+
+> **Registry lookup, in this fixed order:** PyPI … npm … crates.io … The first
+> `github.com/<o>/<r>` found is the candidate repository.
+
+The order is over **registries, applied to every candidate**, not over a package
+whitelist. The repair restores the protocol: each candidate, specific ones first,
+is tried against PyPI, then npm, then crates, and the first hit wins. The
+whitelist is deleted.
+
+This is the **second** defect in the same function, and the honest reading is
+that the instrument, not the mechanism, produced the 0. Both repairs are logged
+rather than folded into a "fixed extractor", because a reader needs to know how
+many times this number was wrong before it was right.

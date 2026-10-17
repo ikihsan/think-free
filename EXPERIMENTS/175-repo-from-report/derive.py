@@ -27,15 +27,13 @@ ECOSYSTEMS = [
     "debian", "chrome", "firefox", "safari", "vscode", "vim", "emacs", "gcc",
     "clang", "maven", "gradle",
 ]
-# Ecosystem -> the registry to ask. None means "no registry publishes a tracker
-# for this name", so the row cannot be resolved mechanically.
-REGISTRY = {
-    "python": "pypi", "pypi": "pypi", "pip": "pypi", "conda": "pypi",
-    "django": "pypi", "flask": "pypi", "numpy": "pypi", "pandas": "pypi",
-    "requests": "pypi", "setuptools": "pypi", "matplotlib": "pypi",
-    "node": "npm", "npm": "npm", "nodejs": "npm", "react": "npm", "vue": "npm",
-    "angular": "npm", "typescript": "npm", "webpack": "npm", "eslint": "npm",
-}
+# AMENDMENT 3: the first implementation carried a whitelist of ~20 package
+# names, which contradicted PROTOCOL.md's declared order ("PyPI ... npm ...
+# crates.io" *for each candidate*).  The whitelist was this author's invention
+# and it silently excluded every package it had not thought of -- including the
+# ones the reports actually name.  Every candidate is now tried against every
+# registry, in the protocol's order, and the first hit wins.
+REGISTRY_ORDER = ("pypi", "npm", "crates")
 
 _STOP = set("""a an the and or but if then than that this these those it its is are
 was were be been being do does did have has had i me my we our you your he him his
@@ -202,18 +200,19 @@ def derive(row, log=None):
     specific, generic = artifacts(row)
     tried, skipped = [], 0
     for name in specific + generic:
-        reg = REGISTRY.get(name)
-        if not reg:
-            continue
         if len(tried) >= MAX_LOOKUPS:
             skipped += 1
             continue
-        repo, err = LOOKUP[reg](name)
-        tried.append({"name": name, "registry": reg, "repo": repo, "error": err})
-        if log is not None:
-            log.append(tried[-1])
-        if repo:
-            return repo, {"tried": tried, "candidates": len(specific) + len(generic),
-                          "skipped_over_cap": skipped, "first_hit": name}
+        for reg in REGISTRY_ORDER:
+            repo, err = LOOKUP[reg](name)
+            tried.append({"name": name, "registry": reg, "repo": repo,
+                          "error": err})
+            if log is not None:
+                log.append(tried[-1])
+            if repo:
+                return repo, {"tried": tried,
+                              "candidates": len(specific) + len(generic),
+                              "skipped_over_cap": skipped, "first_hit": name,
+                              "first_registry": reg}
     return None, {"tried": tried, "candidates": len(specific) + len(generic),
                   "skipped_over_cap": skipped, "first_hit": None}
