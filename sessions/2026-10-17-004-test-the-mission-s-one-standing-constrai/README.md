@@ -33,7 +33,7 @@ _(none recorded)_
 
 ## Commands
 
-4 captured, 2 non-zero exit.
+5 captured, 2 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -41,6 +41,7 @@ _(none recorded)_
 | 3 | ['git', 'commit', '-q', '-am', 'E177 PROTOCOL + fetch + census: measure the standing constraint D107 rests on'] | 0 | 399 |
 | 5 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/fetch.py'] | 1 | 17515 |
 | 6 | ['git', 'commit', '-q', '-am', 'E177 AMENDMENT 1: accept both tag shapes; the withbody filter returns strings'] | 1 | 295 |
+| 7 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/fetch.py'] | 0 | 18302 |
 
 ## Integrity
 
@@ -62,6 +63,7 @@ _(none recorded)_
 | 4 | 06:50:58 | artifact | wrote EXPERIMENTS/177-evidence-gated-need/PROTOCOL.md |
 | 5 | 06:51:20 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/fetch.py |
 | 6 | 06:51:34 | command | $ git commit -q -am E177 AMENDMENT 1: accept both tag shapes; the withbody filter returns strings |
+| 7 | 06:51:59 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/fetch.py |
 
 ## Reproduce this record
 

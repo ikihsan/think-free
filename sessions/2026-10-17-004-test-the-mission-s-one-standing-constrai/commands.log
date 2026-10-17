@@ -654,3 +654,15 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ------------------------------------------------------------------------------
 exit: 1  duration_ms: 295  redactions: none
+==============================================================================
+[seq 7] 2026-10-17T06:51:59+00:00
+$ python3 EXPERIMENTS/177-evidence-gated-need/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+reusing E175's committed draw of 200 ids (seed 17520261017)
+question bodies: 181 of 200
+answer bodies for 145 of 200 questions
+rows.json: 181 rows, accepted body present on 3, ids digest 5cf1933332c815d8
+quota remaining: None
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 18302  redactions: none

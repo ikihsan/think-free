@@ -63,15 +63,25 @@ def main():
             questions[it["question_id"]] = it
     print("question bodies: %d of %d" % (len(questions), len(ids)))
 
-    for part in chunks(ids, 25):
-        try:
-            ans, last = se("questions/%s/answers" % ";".join(str(i) for i in part),
-                           {"site": "stackoverflow", "filter": "withbody",
-                            "pagesize": 100, "sort": "votes"})
+    for part in chunks(ids, 20):
+        if not any((questions.get(i) or {}).get("answer_count") for i in part):
+            continue
+        page, more = 1, True
+        while more:
+            try:
+                ans, last = se("questions/%s/answers"
+                               % ";".join(str(i) for i in part),
+                               {"site": "stackoverflow", "filter": "withbody",
+                                "pagesize": 100, "sort": "votes", "page": page})
+            except Exception as exc:                            # noqa: BLE001
+                print("answers chunk %s page %d failed: %s"
+                      % (part[:3], page, exc))
+                break
             for a in ans["items"]:
                 answers.setdefault(a["question_id"], []).append(a)
-        except Exception as exc:                                # noqa: BLE001
-            print("answers chunk %s failed: %s" % (part[:3], exc))
+            more = bool(ans.get("has_more"))
+            if more:
+                page += 1
     print("answer bodies for %d of %d questions"
           % (len(answers), len(ids)))
 
@@ -82,8 +92,15 @@ def main():
             continue
         acc = q.get("accepted_answer_id")
         pool = answers.get(qid) or []
-        accepted = next((a for a in pool if a.get("answer_id") == acc), None)
-        base = src.get(qid) or {}
+        # AMENDMENT 2: the key is the highest-scoring answer, ties broken by the
+        # earliest creation_date then the lowest answer_id. This pool carries an
+        # accepted answer on 6 rows, which cannot key the declared n of 60.
+        best = None
+        for a in pool:
+            k = (-(a.get("score") or 0), a.get("creation_date") or 0,
+                 a.get("answer_id") or 0)
+            if best is None or k < best[0]:
+                best = (k, a)
         # `filter=withbody` returns tags as bare strings; the default filter
         # returns objects. First run crashed here; declared and committed
         # before the re-run (AMENDMENT-1).
@@ -96,17 +113,22 @@ def main():
             "view_count": q.get("view_count"),
             "answer_count": q.get("answer_count"),
             "accepted_answer_id": acc,
-            "accepted_body": (accepted or {}).get("body"),
+            "key_answer_id": (best[1].get("answer_id") if best else None),
+            "key_score": (best[1].get("score") if best else None),
+            "key_is_accepted": bool(best and best[1].get("answer_id") == acc),
+            "key_body": (best[1].get("body") if best else None),
             "answers_fetched": len(pool),
         })
-    have = sum(1 for r in rows if r["accepted_body"])
+    have = sum(1 for r in rows if r["key_body"])
     payload = {"rows": rows, "sha256": hashlib.sha256(
         json.dumps([r["qid"] for r in rows]).encode()).hexdigest()}
     with open(os.path.join(HERE, "rows.json"), "w") as fh:
         json.dump(payload, fh, indent=1, sort_keys=True)
         fh.write("\n")
-    print("rows.json: %d rows, accepted body present on %d, ids digest %s"
-          % (len(rows), have, payload["sha256"][:16]))
+    print("rows.json: %d rows, key answer present on %d (accepted on %d), "
+          "ids digest %s"
+          % (len(rows), have, sum(1 for r in rows if r["key_is_accepted"]),
+             payload["sha256"][:16]))
     print("quota remaining: %s" % (last or {}).get("quota_remaining"))
 
 
