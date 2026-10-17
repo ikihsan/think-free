@@ -10,10 +10,10 @@ last-verified: 2026-10-17
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-17T06:45:42+00:00
-- **Duration:** ?s
+- **Duration:** 4135.3s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Test the mission's one standing constraint head-on: is a free general assistant 
 
 ## Summary
 
-_(none recorded)_
+E177 measured the mission's only standing constraint and it is supported. Same venue, key, treatment and blinded readers, with the only difference being whether the question contained the fact its own resolution depends on: SELF 26/30 = 0.8667 [0.7032, 0.9469] against EVID 12/30 = 0.4000 [0.2459, 0.5768], gap +0.4667, Fisher p = 0.000368, on a bar of gap>=0.25 and p<0.05 declared before any answer body was read. Four controls green. 0.4000 is the lowest rate a free general assistant has scored on a real question population in this record and it was inside all six closure pools, unmeasured. Six instrument defects declared (four before measurement); the Fisher tail summed ratios and left every control green while the p-value was wrong by 2,700x. A post-hoc pass flagged 7 of 30 EVID labels, so CLF precision is ~0.77-0.87 and the headline is not recomputed.
+
+## Next
+
+Run E178: of the 46 evidence-gated rows, is the missing evidence obtainable from something the asker already has. Two post-hoc leads move its centre of gravity - publishable drew 0 of 30 on one reader's guess, and in 18 of 18 misses the missing fact was load-bearing rather than absent. E178 should re-key its rows with its own rule and must not inherit E177's labels. Also: do not run two origin doc lint processes concurrently; they disagreed on unchanged bytes and the reported files were days old.
 
 ## Artifacts
 
@@ -67,11 +71,20 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 36 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | DECISIONS-RECORDS-3.md |
+|   undeclared | DECISIONS.md |
+|   undeclared | EXPERIMENTS/177-evidence-gated-need/AMENDMENT-1.md |
+|   undeclared | EXPERIMENTS/177-evidence-gated-need/AMENDMENT-2.md |
+|   undeclared | EXPERIMENTS/177-evidence-gated-need/AMENDMENT-3.md |
+|   undeclared | EXPERIMENTS/177-evidence-gated-need/AMENDMENT-4.md |
+|   undeclared | EXPERIMENTS/177-evidence-gated-need/AMENDMENT-5.md |
+|   undeclared | EXPERIMENTS/177-evidence-gated-need/AMENDMENT-6.md |
+|   undeclared | EXPERIMENTS/177-evidence-gated-need/ans/answers.jsonl |
+|   undeclared | EXPERIMENTS/177-evidence-gated-need/ans/order.json |
 
 ## Timeline
 
@@ -106,6 +119,29 @@ _(none recorded)_
 | 27 | 07:45:48 | command | $ ./tools/origin doc lint |
 | 28 | 07:54:16 | artifact | wrote EXPERIMENTS/177-evidence-gated-need/RESULT.md |
 | 29 | 07:54:25 | milestone | RESULT, F136, D118, STATE.md, STATE-next-actions.md and the addendum all committed; doc lint green on a single run |
+| 30 | 07:54:37 | unlogged_change | changed but never declared as an artifact: DECISIONS-RECORDS-3.md |
+| 31 | 07:54:37 | unlogged_change | changed but never declared as an artifact: DECISIONS.md |
+| 32 | 07:54:37 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/177-evidence-gated-need/AMENDMENT-1.md |
+| 33 | 07:54:37 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/177-evidence-gated-need/AMENDMENT-2.md |
+| 34 | 07:54:37 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/177-evidence-gated-need/AMENDMENT-3.md |
+| 35 | 07:54:37 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/177-evidence-gated-need/AMENDMENT-4.md |
+| 36 | 07:54:37 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/177-evidence-gated-need/AMENDMENT-5.md |
+| 37 | 07:54:37 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/177-evidence-gated-need/AMENDMENT-6.md |
+| 38 | 07:54:37 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/177-evidence-gated-need/ans/answers.jsonl |
+| 39 | 07:54:37 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/177-evidence-gated-need/ans/order.json |
+| 40 | 07:54:37 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/177-evidence-gated-need/arms.json |
+| 60 | 07:54:37 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/177-evidence-gated-need/score_inputs.py |
+| 61 | 07:54:37 | unlogged_change | changed but never declared as an artifact: FAILURES-findings-43.md |
+| 62 | 07:54:37 | unlogged_change | changed but never declared as an artifact: FAILURES.md |
+| 63 | 07:54:37 | unlogged_change | changed but never declared as an artifact: STATE-next-actions.md |
+| 64 | 07:54:37 | unlogged_change | changed but never declared as an artifact: STATE.md |
+| 65 | 07:54:37 | unlogged_change | changed but never declared as an artifact: vendor/MANIFEST.md |
+| 66 | 07:54:37 | doc_update | updated DECISIONS.md |
+| 67 | 07:54:37 | doc_update | updated FAILURES.md |
+| 68 | 07:54:37 | doc_update | updated STATE.md |
+| 69 | 07:54:37 | session_end | E177 measured the mission's only standing constraint and it is supported. Same venue, key, treatment and blinded readers, with the only difference bei |
+
+_19 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

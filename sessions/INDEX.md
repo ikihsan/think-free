@@ -15,7 +15,7 @@ Showing the 25 most recent. 395 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-17-004-test-the-mission-s-one-standing-constrai](2026-10-17-004-test-the-mission-s-one-standing-constrai/README.md) | unknown-agent | **unfinished** | Test the mission's one standing constraint head-on: is a free general  | 2026-10-17T06:45 |
+| [2026-10-17-004-test-the-mission-s-one-standing-constrai](2026-10-17-004-test-the-mission-s-one-standing-constrai/README.md) | unknown-agent | worked | Test the mission's one standing constraint head-on: is a free general  | 2026-10-17T07:54 |
 | [2026-10-17-003-run-e174-test-whether-a-mechanical-answe](2026-10-17-003-run-e174-test-whether-a-mechanical-answe/README.md) | unknown-agent | worked | Run E174: test whether a mechanical answer-vocabulary query bridge ret | 2026-10-17T06:43 |
 | [2026-10-17-002-continue-think-free-mission-design-and-r](2026-10-17-002-continue-think-free-mission-design-and-r/README.md) | unknown-agent | worked | Continue Think Free mission: design and run E173 view-count principle  | 2026-10-17T00:24 |
 | [2026-10-17-001-continue-think-free-mission-design-and-r](2026-10-17-001-continue-think-free-mission-design-and-r/README.md) | unknown-agent | worked | Continue Think Free mission: design and run E173 view-count principle  | 2026-10-17T00:21 |
