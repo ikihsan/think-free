@@ -14,7 +14,7 @@ last-verified: 2026-10-17
 > harvest, not confirmed**. Do not run another registry sweep. See
 > [`EXPERIMENTS/113-viewcount-matched-harvest/`](EXPERIMENTS/113-viewcount-matched-harvest/README.md).
 
-## E178 — of the 46, how much of the missing evidence is obtainable (2026-10-17)
+## E178 completed (2026-10-17) — the missing evidence is not in anything the project publishes; the venue's own round trip already supplies it
 
 **The gap E177's own measurement opened.** E177 found a class of **46 of the
 100 highest-arrival rows that carry a key answer** whose resolution depends on a
@@ -25,51 +25,29 @@ D118). The class is real and large and the rate on it is the lowest this mission
 has measured. **None of that says the population is buildable**, which is what
 this experiment asks.
 
-**The question.** For each of the 46, **where does the missing evidence live**,
-and is it obtainable without the person going to fetch it?
+**The result.** Blind re-key of all 46: **publishable 0/46 = 0.0000, asker_only
+21/46 = 0.4565, third_party 20/46 = 0.4348, none 5/46 = 0.1087**. **G1 FIRED**
+(publishable < 0.50): the FETCH route closes. **G4 FIRED** (has_ask 31/46 =
+0.6739 >= 0.50, ask_then_asker 31/46 = 0.6739 >= 0.25): the venue's own
+workflow already runs the round trip on the very rows this experiment measures,
+and the person supplies the fact. The honest statement is not "unserved" but
+*served by an interaction that already exists, and unreachable by one-shot
+answering*. **G5 NOT fired** (none = 5, not > 9): EVID precision is above 0.80.
+M1: has_comment 37/46 = 0.8043, has_ask 31/46 = 0.6739, ask_then_asker 31/46 =
+0.6739, answer_asks 20/46 = 0.4348, evidence_in_comments 39/46 = 0.8478,
+discriminating_and_asked 28/46 = 0.6087. M3: already_present 7/46 = 0.1522 (a
+ceiling on E177's labels), used 37/46 = 0.8043. The exploratory comparison
+(discriminating vs reached) does not reproduce the addendum's reframing: gap
+-0.0741, p = 0.52. **E177's population closes with no candidate.**
 
-| bucket | what it means | the experiment's job |
-|---|---|---|
-| `publishable` | it is in something the project publishes — a changelog, a release note, a spec, a commit | can the project's own published corpus answer this question *without* a search engine? |
-| `asker_only` | it is a value or fact only the asker has — their version output, their config, their libc | not fetchable by any tool; it has to be **asked for**, and the cost is one round trip |
-| `third_party` | it lives in another organisation's system | not fetchable; the ceiling is the third party's own reporting |
+**What this decides.** The missing evidence is a version, a config value, or a
+data value the asker holds. The venue's own round trip already supplies it. The
+class is not "unserved" but *served by an interaction that already exists*. The
+next step is fresh exploration.
 
-**Why this rather than E176 as written.** E176 classifies the same 200 rows by
-the same instrument as E175 and E168 — a third consecutive session on that pool
-— and it cannot decide anything the arms have now decided. **This can**, because
-it is the first question in this line whose answer is a build decision rather
-than a bucket count.
-
-**Two leads from E177's post-hoc pass, which change this experiment's centre of
-gravity and are the reason to run it (`speculative`, one reader, 30 rows, run
-after the verdicts existed).** On this reader's bucket guesses **`publishable`
-drew 0 of 30** — not one resolution needed a fact the project already publishes,
-which would remove the changelog route entirely and leave only evidence the asker
-holds. And the split looks like **one mechanism: in 18 of 18 misses the missing
-fact was load-bearing**, selecting among several causes compatible with the
-posted symptoms, against 8 of 12 reaches where the fix is the same with or
-without it. So the class may be **not "questions missing a fact" but "questions
-whose posted symptoms underdetermine the cause"**, and the missing evidence is
-the thing that *discriminates between hypotheses*. **E178 should be written
-against that framing, and the same pass also says CLF's labelling precision on
-this population is ~0.77–0.87 rather than 1.0** — so E178 re-keys its own rows
-with a stated rule and does not inherit these labels.
-
-**Declared kill.** If `publishable` is below **0.50 of the 46**, the class is
-mostly evidence only the asker holds, the ceiling is a round trip rather than a
-tool, and **E177's population closes with no candidate** — which is a real
-answer and a cheap one.
-
-**Declared ending condition.** If `publishable` clears 0.50, the next experiment
-is the one that measures whether a specific published artefact answers the
-question, on a **fresh draw**, and it may not be a retriever over tracker
-documents (D117) — the 7% ceiling there is measured. What it may be is decided
-by what `publishable` turns out to consist of, not chosen in advance.
-
-**Do not run:** E176 as written (above), E170's global arm, another view-count
-domain (D105, F133), or a fresh draw of E177's comparison before this one —
-the reused draw means the composition of the 46, not its rate, is the number a
-fresh draw would add.
+**Do not run:** E176 as written (a third classification of the same rows by the
+same instrument), E170's global arm, another view-count domain (D105, F133), or
+a fresh draw of E177's comparison.
 
 ## E137 completed (2026-10-14) — cross-model agreement: third exact AGREE
 
