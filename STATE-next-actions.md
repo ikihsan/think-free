@@ -40,6 +40,21 @@ the same instrument as E175 and E168 — a third consecutive session on that poo
 it is the first question in this line whose answer is a build decision rather
 than a bucket count.
 
+**Two leads from E177's post-hoc pass, which change this experiment's centre of
+gravity and are the reason to run it (`speculative`, one reader, 30 rows, run
+after the verdicts existed).** On this reader's bucket guesses **`publishable`
+drew 0 of 30** — not one resolution needed a fact the project already publishes,
+which would remove the changelog route entirely and leave only evidence the asker
+holds. And the split looks like **one mechanism: in 18 of 18 misses the missing
+fact was load-bearing**, selecting among several causes compatible with the
+posted symptoms, against 8 of 12 reaches where the fix is the same with or
+without it. So the class may be **not "questions missing a fact" but "questions
+whose posted symptoms underdetermine the cause"**, and the missing evidence is
+the thing that *discriminates between hypotheses*. **E178 should be written
+against that framing, and the same pass also says CLF's labelling precision on
+this population is ~0.77–0.87 rather than 1.0** — so E178 re-keys its own rows
+with a stated rule and does not inherit these labels.
+
 **Declared kill.** If `publishable` is below **0.50 of the 46**, the class is
 mostly evidence only the asker holds, the ceiling is a round trip rather than a
 tool, and **E177's population closes with no candidate** — which is a real

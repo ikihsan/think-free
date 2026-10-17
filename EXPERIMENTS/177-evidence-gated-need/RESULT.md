@@ -163,3 +163,57 @@ arms have now decided), a replication of E170's global arm, another view-count
 domain, or a fresh draw of the same comparison before the composition of the 46
 is examined (the reused draw means the 46's composition, not its rate, is the
 number a fresh draw would add).
+---
+
+## Addendum (post-hoc, exploratory — not a finding and not a gate)
+
+Run **after** `score.py` and after all verdicts existed, on committed data, with a
+reader that could see both the labels and the verdicts. Everything here is
+`speculative`, is contaminated by that ordering, and **must not be read as a
+measurement**. It is recorded because it changed what the next experiment should
+ask, and because it found defects in this experiment's own labelling.
+
+**What it says about E178's framing.** E178's declared buckets are
+`publishable` / `asker_only` / `third_party`. On this reader's guesses over the
+30 EVID rows, **`publishable` drew 0 of 30** — not one resolution needed a fact
+the project already publishes. Misses skewed `asker_only` (11 of 18) against
+reaches (4 of 12); reaches skewed `third_party` (8 of 12).
+
+If that holds, it says the missing evidence is **not in changelogs and release
+notes at all**, which would remove the last route the version-pinned line had
+available and would leave the class as *values the asker holds and did not
+report*. That is a materially different candidate from "a published artefact the
+tool can fetch", and it is the reason E178's framing is worth keeping. **It is
+one reader's guess on 30 rows, made knowing which rows were missed. It is a lead,
+not a count.**
+
+**What it says about CLF.** The same pass flagged **7 of the 30 EVID rows** as
+labels this reader would not defend:
+
+| qid | the objection |
+|---|---|
+| 79686551 | the treatment contradicted the question rather than lacking evidence — a wrong answer, not an absent-evidence failure |
+| 79385315 | the resolution is "open upstream issue, no fix yet" — no fact exists to withhold, so the gate is untestable on it |
+| 79600161 | `missing_evidence` is a mirror URL — resource-finding, not evidence-gating |
+| 79791886 | the label names a plausible but wrong fact (`RAND_MAX` cannot establish modulo bias; glibc's Mersenne `RAND_MAX` makes it impossible) |
+| 79818015, 79335513, 79843062 | the label may have picked a symptom-compatible cause rather than the load-bearing one |
+| 79665976 | labelled EVID and reached; agreement appears to contradict the label |
+
+So **CLF's precision on this population is somewhere around 0.77–0.87 by an
+audit that saw the answers, not 1.0.** The headline is **not** recomputed with
+those rows removed: choosing which labels to drop *after* seeing which arms
+scored is the fitting this record has been burned by twice, and it is the same
+move as declaring a kill's scope after the arms. **This is a ceiling on G3, not
+a correction to it** — and it is a ceiling on the *arms*, so the honest statement
+is that the comparison is between two classes defined by a single reader whose
+precision on 30 rows is not established.
+
+**What it says about mechanism.** One pattern accounts for the whole split: in
+**18 of 18 misses the missing fact was load-bearing** — it selected among several
+causes compatible with the symptoms the asker posted, so the treatment's
+alternative was equally consistent with the text. In **8 of 12 reaches the fix is
+the same with or without the missing fact.** If that is the mechanism, then the
+class is not "questions missing a fact" but **questions whose posted symptoms
+underdetermine the cause**, and the missing evidence is the thing that
+*discriminates* between hypotheses. That is a sharper target than E178's three
+buckets, and it is what the next experiment should be written against.
