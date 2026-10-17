@@ -128,11 +128,12 @@ def main():
                         answers.setdefault(qid, []).append(a)
                 except Exception as exc2:                      # noqa: BLE001
                     print("  %d answers failed: %s" % (qid, exc2))
+    left = [r.get("quota_remaining") for r in rec2 if r.get("quota_remaining")]
     print("answers for %d of %d questions; quota left %s"
-          % (len(answers), len(ids), (rec2 or {}).get("quota_remaining")))
+          % (len(answers), len(ids), left[-1] if left else "unknown"))
 
     sys.path.insert(0, HERE)
-    from derive import gh_repo                                     # noqa: E402
+    from derive import TRACK, gh_repo                              # noqa: E402
 
     missing = [i for i in ids if i not in accepted]
     print("question ids the API did not return: %s" % (missing or "none"))
@@ -143,29 +144,50 @@ def main():
         acc = accepted.get(qid)
         order = ([a for a in ans if a.get("answer_id") == acc]
                  + [a for a in ans if a.get("answer_id") != acc])
-        gold, gold_from = None, None
+        # Two golds, kept separate because they answer different questions.
+        # Gold-D is a tracker *document* (owner/repo/number): what "reaches the
+        # fix" is graded against, comparable with E170/E174.  Gold-R is the
+        # *repository* the answer points at, including a repo-root link with no
+        # issue number: what the pipeline must derive.
+        gold, gold_from, gold_number = None, None, None
+        repo_gold, repo_gold_from = None, None
         for a in order:
-            gold = gh_repo(a.get("body") or "")
-            if gold:
-                gold_from = "accepted" if a.get("answer_id") == acc else "top_voted"
+            src = "accepted" if a.get("answer_id") == acc else "top_voted"
+            body = a.get("body") or ""
+            if gold is None:
+                m = TRACK.search(body)
+                if m:
+                    gold = "%s/%s" % (m.group(1).lower(), m.group(2).lower())
+                    gold_number = int(m.group(3))
+                    gold_from = src
+            if repo_gold is None:
+                rg = gh_repo(body)
+                if rg:
+                    repo_gold, repo_gold_from = rg, src
+            if gold and repo_gold:
                 break
         rows.append({"qid": qid, "title": r["title"], "body": r["body"],
                      "tags": r["tags"], "view_count": r["view_count"],
                      "answer_count": r["answer_count"],
-                     "gold_repo": gold, "gold_from": gold_from,
+                     "gold_repo": gold, "gold_number": gold_number,
+                     "gold_from": gold_from,
+                     "gold_repo_r": repo_gold, "gold_from_r": repo_gold_from,
                      "answers_fetched": len(ans),
                      "question_returned": qid in accepted})
     have = sum(1 for r in rows if r["gold_repo"])
+    have_r = sum(1 for r in rows if r["gold_repo_r"])
     print("rows with no gold: %s"
           % [r["qid"] for r in rows if not r["gold_repo"]])
     with open(os.path.join(HERE, "sample.json"), "w") as fh:
         json.dump({"manifest": manifest, "quota": [rec1, rec2], "rows": rows},
                   fh, indent=1, sort_keys=True)
         fh.write("\n")
-    print("gold repository named for %d of %d drawn rows" % (have, len(rows)))
+    print("gold document (owner/repo/number) for %d rows; gold repository for %d of %d"
+          % (have, have_r, len(rows)))
     for r in rows:
-        print("  %d %-28s %s" % (r["qid"], (r["gold_repo"] or "-"),
-                                  (r["gold_from"] or "-")))
+        print("  %d %-34s #%-6s %s" % (r["qid"], (r["gold_repo"] or "-"),
+                                       r["gold_number"] or "-",
+                                       (r["gold_from"] or "-")))
 
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 {
  "manifest": {
   "candidate_rows": 287,
-  "draw": 40,
+  "draw": 200,
   "drawn_ids": [
    79831573,
    80009365,
@@ -42,9 +42,169 @@
    79848893,
    79363302,
    79533324,
-   79818015
+   79818015,
+   79769322,
+   80007784,
+   79383758,
+   80009506,
+   79639474,
+   80009100,
+   79806553,
+   79468329,
+   79358893,
+   80009038,
+   80009443,
+   80008972,
+   79400684,
+   79556333,
+   80009312,
+   80008968,
+   79753103,
+   79558090,
+   80009047,
+   80009585,
+   79896261,
+   80009012,
+   79723342,
+   80009143,
+   79760145,
+   80009182,
+   80008952,
+   79733841,
+   80009097,
+   79513015,
+   79686889,
+   80009516,
+   79779187,
+   79457269,
+   79663905,
+   80001437,
+   79760365,
+   80009522,
+   79885892,
+   80009390,
+   79368095,
+   79986340,
+   80009194,
+   80009429,
+   79904504,
+   79843062,
+   79339258,
+   80009126,
+   80009030,
+   79668364,
+   79402567,
+   79602687,
+   79686551,
+   79781845,
+   79716280,
+   79592958,
+   79990062,
+   80009343,
+   80009583,
+   80009507,
+   80009419,
+   79850519,
+   79747651,
+   79639673,
+   79434372,
+   79708412,
+   79537353,
+   80009465,
+   79408101,
+   79775796,
+   80009157,
+   80009518,
+   79606837,
+   79802282,
+   80009278,
+   79999095,
+   79846974,
+   79582964,
+   80009480,
+   79996927,
+   79442978,
+   80009296,
+   80009340,
+   80009121,
+   79929448,
+   79893839,
+   80009451,
+   80002935,
+   79607696,
+   79865748,
+   79527331,
+   79927761,
+   79718097,
+   80009401,
+   80009496,
+   79776559,
+   80009122,
+   79743460,
+   80009535,
+   79696822,
+   79788851,
+   79340949,
+   79673093,
+   80009171,
+   80009024,
+   80009501,
+   79663318,
+   80009004,
+   79598477,
+   79404124,
+   79761108,
+   79937561,
+   79906660,
+   79796450,
+   79745946,
+   79335513,
+   80009138,
+   80009093,
+   79730713,
+   79990816,
+   80009172,
+   79561689,
+   80009109,
+   80008985,
+   79672408,
+   80009302,
+   79385315,
+   80009170,
+   80009014,
+   80009582,
+   79786682,
+   79779696,
+   79704522,
+   79999417,
+   79912729,
+   79442076,
+   79792501,
+   80009197,
+   79820806,
+   79715742,
+   79583661,
+   79666817,
+   79889909,
+   80009310,
+   79836280,
+   79791886,
+   79558008,
+   80009009,
+   79847613,
+   80009540,
+   79865375,
+   80009140,
+   80009283,
+   80009348,
+   79581901,
+   80009520,
+   79721071,
+   79614593,
+   79452303,
+   79754852
   ],
-  "drawn_sha256": "566f4c060b82e40eb997b80e1c6b0ab99713a70e1f8f7a68d355b763b1109d52",
+  "drawn_sha256": "e75f13140bc22dca5998eebd70d943368becb7f3c52cee9eeacf30105afd55eb",
   "excluded_e126_graded": 40,
   "excluded_e169_read": 13,
   "note": "committed before any request; the draw cannot have been tuned",
@@ -54,18 +214,69 @@
  "quota": [
   {
    "has_more": false,
-   "items": 37,
+   "items": 91,
    "quota_remaining": null,
    "quota_reset_epoch": null,
-   "url": "https://api.stackexchange.com/2.3/questions/79831573;80009365;80000170;79557242;79653647;79428308;79835432;79767311;79818917;79380514;79868298;80009062;79935258;79873559;79805098;80008997;79567126;79810849;79824381;80008957;80009095;79754247;79768581;80009342;79585153;79665976;79871713;79945712;79600161;79978180;79589468;80008925;79635270;80009075;79817405;79753701;79848893;79363302;79533324;79818015?site=stackoverflow&filter=withbody&pagesize=100"
+   "url": "https://api.stackexchange.com/2.3/questions/80009419;79850519;79747651;79639673;79434372;79708412;79537353;80009465;79408101;79775796;80009157;80009518;79606837;79802282;80009278;79999095;79846974;79582964;80009480;79996927;79442978;80009296;80009340;80009121;79929448;79893839;80009451;80002935;79607696;79865748;79527331;79927761;79718097;80009401;80009496;79776559;80009122;79743460;80009535;79696822;79788851;79340949;79673093;80009171;80009024;80009501;79663318;80009004;79598477;79404124;79761108;79937561;79906660;79796450;79745946;79335513;80009138;80009093;79730713;79990816;80009172;79561689;80009109;80008985;79672408;80009302;79385315;80009170;80009014;80009582;79786682;79779696;79704522;79999417;79912729;79442076;79792501;80009197;79820806;79715742;79583661;79666817;79889909;80009310;79836280;79791886;79558008;80009009;79847613;80009540;79865375;80009140;80009283;80009348;79581901;80009520;79721071;79614593;79452303;79754852?site=stackoverflow&filter=withbody&pagesize=100"
   },
-  {
-   "has_more": false,
-   "items": 94,
-   "quota_remaining": null,
-   "quota_reset_epoch": null,
-   "url": "https://api.stackexchange.com/2.3/questions/79831573;80009365;80000170;79557242;79653647;79428308;79835432;79767311;79818917;79380514;79868298;80009062;79935258;79873559;79805098;80008997;79567126;79810849;79824381;80008957;80009095;79754247;79768581;80009342;79585153;79665976;79871713;79945712;79600161;79978180;79589468;80008925;79635270;80009075;79817405;79753701;79848893;79363302;79533324;79818015/answers?site=stackoverflow&filter=withbody&pagesize=100&sort=votes"
-  }
+  [
+   {
+    "has_more": false,
+    "items": 53,
+    "quota_remaining": null,
+    "quota_reset_epoch": null,
+    "url": "https://api.stackexchange.com/2.3/questions/79831573;80009365;80000170;79557242;79653647;79428308;79835432;79767311;79818917;79380514;79868298;80009062;79935258;79873559;79805098;80008997;79567126;79810849;79824381;80008957;80009095;79754247;79768581;80009342;79585153/answers?site=stackoverflow&filter=withbody&pagesize=100&sort=votes"
+   },
+   {
+    "has_more": false,
+    "items": 53,
+    "quota_remaining": null,
+    "quota_reset_epoch": null,
+    "url": "https://api.stackexchange.com/2.3/questions/79665976;79871713;79945712;79600161;79978180;79589468;80008925;79635270;80009075;79817405;79753701;79848893;79363302;79533324;79818015;79769322;80007784;79383758;80009506;79639474;80009100;79806553;79468329;79358893;80009038/answers?site=stackoverflow&filter=withbody&pagesize=100&sort=votes"
+   },
+   {
+    "has_more": false,
+    "items": 45,
+    "quota_remaining": null,
+    "quota_reset_epoch": null,
+    "url": "https://api.stackexchange.com/2.3/questions/80009443;80008972;79400684;79556333;80009312;80008968;79753103;79558090;80009047;80009585;79896261;80009012;79723342;80009143;79760145;80009182;80008952;79733841;80009097;79513015;79686889;80009516;79779187;79457269;79663905/answers?site=stackoverflow&filter=withbody&pagesize=100&sort=votes"
+   },
+   {
+    "has_more": false,
+    "items": 51,
+    "quota_remaining": null,
+    "quota_reset_epoch": null,
+    "url": "https://api.stackexchange.com/2.3/questions/80001437;79760365;80009522;79885892;80009390;79368095;79986340;80009194;80009429;79904504;79843062;79339258;80009126;80009030;79668364;79402567;79602687;79686551;79781845;79716280;79592958;79990062;80009343;80009583;80009507/answers?site=stackoverflow&filter=withbody&pagesize=100&sort=votes"
+   },
+   {
+    "has_more": false,
+    "items": 44,
+    "quota_remaining": null,
+    "quota_reset_epoch": null,
+    "url": "https://api.stackexchange.com/2.3/questions/80009419;79850519;79747651;79639673;79434372;79708412;79537353;80009465;79408101;79775796;80009157;80009518;79606837;79802282;80009278;79999095;79846974;79582964;80009480;79996927;79442978;80009296;80009340;80009121;79929448/answers?site=stackoverflow&filter=withbody&pagesize=100&sort=votes"
+   },
+   {
+    "has_more": false,
+    "items": 28,
+    "quota_remaining": null,
+    "quota_reset_epoch": null,
+    "url": "https://api.stackexchange.com/2.3/questions/79893839;80009451;80002935;79607696;79865748;79527331;79927761;79718097;80009401;80009496;79776559;80009122;79743460;80009535;79696822;79788851;79340949;79673093;80009171;80009024;80009501;79663318;80009004;79598477;79404124/answers?site=stackoverflow&filter=withbody&pagesize=100&sort=votes"
+   },
+   {
+    "has_more": false,
+    "items": 34,
+    "quota_remaining": null,
+    "quota_reset_epoch": null,
+    "url": "https://api.stackexchange.com/2.3/questions/79761108;79937561;79906660;79796450;79745946;79335513;80009138;80009093;79730713;79990816;80009172;79561689;80009109;80008985;79672408;80009302;79385315;80009170;80009014;80009582;79786682;79779696;79704522;79999417;79912729/answers?site=stackoverflow&filter=withbody&pagesize=100&sort=votes"
+   },
+   {
+    "has_more": false,
+    "items": 42,
+    "quota_remaining": null,
+    "quota_reset_epoch": null,
+    "url": "https://api.stackexchange.com/2.3/questions/79442076;79792501;80009197;79820806;79715742;79583661;79666817;79889909;80009310;79836280;79791886;79558008;80009009;79847613;80009540;79865375;80009140;80009283;80009348;79581901;80009520;79721071;79614593;79452303;79754852/answers?site=stackoverflow&filter=withbody&pagesize=100&sort=votes"
+   }
+  ]
  ],
  "rows": [
   {
@@ -73,7 +284,10 @@
    "answers_fetched": 1,
    "body": "Consider the following simplified code: template <class T> class Foo { T t; const T* t_ptr; public: constexpr Foo(T t): t(t), t_ptr(&this->t) {} constexpr Foo(const Foo& foo): t(foo.t), t_ptr(&this->t) {} constexpr T get_t() const { return *t_ptr; } }; template <class T> constexpr Foo<T> foo(T t) { return Foo<T>(t); } constexpr auto f = foo(1); static_assert(f.get_t() == 1); It successfully compiles with Clang and MSVC but GCC 15 reports an error : <source>:16:25: error: non-constant condition f",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79831573,
    "question_returned": true,
    "tags": [
@@ -89,7 +303,10 @@
    "answers_fetched": 2,
    "body": "I've done an experimental program able to handle speed, length, time, their units of measure and do few calculations with them ( here , in fr.sympathique.explicite package, and here for the tests). It gives average speeds in km/h from various length and time units. // Runner A : 1.6 km in 4 minutes Speed averageSpeedA = new Speed(1.6, KILOMETRE, 4.0, MINUTE); averageSpeedA.convert(HOUR); LOGGER.info(\"Runner A : {}\", averageSpeedA); // 24 km/h assertEquals(24.0, averageSpeedA.speed(), 0.001); // ",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 80009365,
    "question_returned": true,
    "tags": [
@@ -106,7 +323,10 @@
    "answers_fetched": 2,
    "body": "What does constexpr void wait(T old, /*...*/) const noexcept; do during constant evaluation, now that it's constexpr in C++26? The description says that it in a loop: Blocks until it is unblocked by an atomic notifying operation or is unblocked spuriously. But since there is no multithreading at compile time, it seems like blocking the main thread means deadlocking the compiler.",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 80000170,
    "question_returned": true,
    "tags": [
@@ -124,7 +344,10 @@
    "answers_fetched": 9,
    "body": "I have a vector in R vec <- c(\"x\", \"y\", \"z\") I want to generate a new vector with elements, in order, based off the elements of vec. I want the result to be: \"x\" \"x.1\" \"y\" \"y.1\" \"z\" \"z.1\" Now, I know that I could do the following: vec <- c(vec, paste0(vec,\".1\")) But this yields \"x\" \"y\" \"z\" \"x.1\" \"y.1\" \"z.1\" ... which is not what I want.",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79557242,
    "question_returned": true,
    "tags": [
@@ -140,7 +363,10 @@
    "answers_fetched": 1,
    "body": "I'm using RSelenium to scrape some data. It was working for me no problem yesterday but when I got back to it today I'm getting an error I don't understand. Here's what I'm doing: library(rJava) library(rvest) library(RSelenium) library(netstat) library(wdman) library(data.table) library(berryFunctions) url <- \"https://signon.thomsonreuters.com/\" remote_driver <- rsDriver(browser = \"chrome\", chromever = \"114.0.5735.90\", verbose = FALSE, port = free_port()) But I end up getting this error remote_",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79653647,
    "question_returned": true,
    "tags": [
@@ -154,8 +380,11 @@
    "answer_count": 2,
    "answers_fetched": 2,
    "body": "I want to install version 14 for an old project that uses that version. I use nvm and all installations from 16 onwards work perfectly. But, in version 14.20.0 and 14.21.3, it fails and gives me this error: Usuario@DESKTOP-VMRUVSP MINGW64 ~ $ nvm install 14.21.3 Downloading node.js version 14.21.3 (64-bit)... Complete Downloading npm... Creating C:\\Users\\Usuario\\AppData\\Local\\Temp\\nvm-install-11959995\\temp Downloading npm version 6.14.18... Complete Installing npm v6.14.18... error installing 14",
-   "gold_from": "top_voted",
-   "gold_repo": "coreybutler/nvm-windows",
+   "gold_from": null,
+   "gold_from_r": "top_voted",
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": "coreybutler/nvm-windows",
    "qid": 79428308,
    "question_returned": true,
    "tags": [
@@ -172,7 +401,10 @@
    "answers_fetched": 2,
    "body": "I'm wondering why std::string can't be constexpr if it's a stack variable: #include <string> #include <iostream> #include <cstring> constexpr std::string str15 {\"123456789012345\"}; // This compiles! struct Foo { constexpr Foo() : a(6) { for (int i = 0; i < 8; ++i) buff[i] = 0; } int a; char buff[8]; }; constexpr void func() { constexpr Foo f{}; // This compiles constexpr std::string str15 {\"123456789012345\"}; // This doesn't compile } int main() { func(); return 0; } Error: 'std::string{std::__c",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79835432,
    "question_returned": true,
    "tags": [
@@ -188,7 +420,10 @@
    "answers_fetched": 1,
    "body": "I wonder whether this piece of code should compile and what function it should call. The situation is that there is a struct whose name matches that of a template parameter. My question is, inside the definition of the f<U> specialization (where U derives from T ), does T mean the template parameter or the base class? template<typename T> void f(T t) { t.T::~T(); // #1 should this compile? t.T::m(); // #2 should this compile? } struct T { ~T() {} void m(){}}; // note named like the typename para",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79767311,
    "question_returned": true,
    "tags": [
@@ -206,7 +441,10 @@
    "answers_fetched": 1,
    "body": "I am trying to code a FastAPI RAG application with Google Cloud and Vertex AI with python3.12 using the LangChain library. However, when I try to import the LangChain library into my project, I keep receiving the same error repeatedly: from langchain.chains import create_retrieval_chain ModuleNotFoundError: No module named 'langchain.chains' Here is my import code: from langchain.chains import create_retrieval_chain Here are the LangChain libraries I have installed: langchain==1.0.5 langchain-co",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79818917,
    "question_returned": true,
    "tags": [
@@ -221,8 +459,11 @@
    "answer_count": 8,
    "answers_fetched": 8,
    "body": "I've been using Tailwind CSS for my projects for a long time. Starting my new project, I installed the package and created the tailwind.config.js file via the command npx tailwindcss init -p , as I'm used to. But then I ran into an unexpected error \u2013 npm can't find the executable called by npx tailwindcss , even though I installed it. Reproducing the error message is as simple as running the following two commands from the root of the project : $ npm install -D tailwindcss $ npx tailwindcss init",
-   "gold_from": "top_voted",
-   "gold_repo": "tailwindlabs/tailwindcss",
+   "gold_from": null,
+   "gold_from_r": "top_voted",
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": "tailwindlabs/tailwindcss",
    "qid": 79380514,
    "question_returned": true,
    "tags": [
@@ -240,7 +481,10 @@
    "answers_fetched": 1,
    "body": "I was following \"The little book about OS development\" . I've \"completed\" the basic idt, gdt and segmentation, but I believe there are errors, but I already tested running without them and it still returns these errors. I'm using Bochs to emulate a 32-bit system, but when I enter user mode and run a basic 32-bit program that just moves 0xDEADBEEF to EAX, in user mode, my Bochs instantly reloads and reruns. In the ideal circumstances, there wouldn't be any interrupts and exception. In addition, i",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79868298,
    "question_returned": true,
    "tags": [
@@ -258,7 +502,10 @@
    "answers_fetched": 1,
    "body": "My custom OAuth2AuthorizationFailureHandler can load the current cached token, but I need the token used by the request that failed so that invalidation does not remove its replacement. These can differ when a replacement is stored while a request is in flight. In a non-servlet client_credentials application, concurrent callers share an OAuth2ClientHttpRequestInterceptor , a client registration and a principal. The ordering I need to handle is: A resource request is sent with T1. Another caller ",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 80009062,
    "question_returned": true,
    "tags": [
@@ -275,7 +522,10 @@
    "answers_fetched": 2,
    "body": "Consider this example: #include <atomic> #include <thread> int main(){ std::atomic<int> epoch = {0}; std::atomic<int> value = {1}; std::jthread t1([&](){ epoch.store(1,std::memory_order::seq_cst); // #1 value.load(std::memory_order::seq_cst); // #2 }); std::jthread t2([&](){ value.exchange(2,std::memory_order::seq_cst); // #3 epoch.load(std::memory_order::seq_cst); // #4 }); } In this example, if #2 read 1 , then #4 must read #1 , because it's guaranteed by the single total order #1 < #2 < #3 < ",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79935258,
    "question_returned": true,
    "tags": [
@@ -291,7 +541,10 @@
    "answers_fetched": 2,
    "body": "Recently, in the latest stable feature drop version of Android Studio. When switching branches using the plugin within the IDE, the application freezes strangely. Problems occur during synchronisation. I couldn't find any known issues regarding this matter in the official Android Studio documentation. Any workaround solutions you may have would be greatly appreciated. Version - Build Info; Android Studio Otter 3 Feature Drop | 2025.2.3 Build #AI-252.28238.7.2523.14688667, built on January 9, 202",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79873559,
    "question_returned": true,
    "tags": [
@@ -306,7 +559,10 @@
    "answers_fetched": 0,
    "body": "I recently installed LazyVim, and I was trying to use the :Tutor command. Everything works well in Tutor, but the check and cross marks. In Tutor, in most lessons, there are some lines that needs to be modified, and until the line isn't what is expected of me, there is a red cross mark at the beginning of the line, which will turn into a green check once the modifications are correct. Here, with launching :Tutor in LazyVim, I don't see any of those marks on the lines I'm supposed to modify, but ",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79805098,
    "question_returned": true,
    "tags": [
@@ -321,7 +577,10 @@
    "answers_fetched": 0,
    "body": "I have a really large codebase and i want to implement uber/goleak into it. The problem is that i have multiple go packages in my project and now adding a new goleak_test.go file into each package does not look the best approach because adding same file into each package looks redundant. Any help on what could be the best approach here?",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 80008997,
    "question_returned": true,
    "tags": [
@@ -336,7 +595,10 @@
    "answers_fetched": 3,
    "body": "Different from other answers, I could find no results anywhere for this specific error: git pull --prune error: could not delete references: cannot lock ref 'refs/remotes/origin/branchname': Unable to create 'C:/develop/repo/.git/refs/remotes/origin/branchname.lock': File exists. Another git process seems to be running in this repository, e.g. an editor opened by 'git commit'. Please make sure all processes are terminated then try again. If it still fails, a git process may have crashed in this ",
    "gold_from": "top_voted",
+   "gold_from_r": "top_voted",
+   "gold_number": 5378,
    "gold_repo": "git-for-windows/git",
+   "gold_repo_r": "git-for-windows/git",
    "qid": 79567126,
    "question_returned": true,
    "tags": [
@@ -351,7 +613,10 @@
    "answers_fetched": 3,
    "body": "Consider an array of a permutation P of length n (n > 2), namely some order of the integers 1 through n. Example of P with length n = 7, [6,5,2,3,7,1,4] A \"score\" of a permutation is measured by the amount of indices i (0 <= i <= n-3) that satisfy the condition, P[i] >= P[i+1] + P[i+2] . The score of the example P is 2 at i = 1, 5 (5 >= 2 + 3, 7 >= 1 + 4) Could we find the maximum score among all possible permutation of length n? Here are some bruteforce solutions: n = 3; max = 1 (3 2 1) n = 4; ",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79810849,
    "question_returned": true,
    "tags": [
@@ -367,7 +632,10 @@
    "answers_fetched": 7,
    "body": "I want to use circular queue with different types and lengths in a project which mainly consists of C code. I'm thinking about implementing the circular queue as a C++ template struct. How to expose the fully specialized C++ template struct to C? // C++ implementation // queue.hpp template <typename T, size_t MAX_LEN> struct Queue { T data[MAX_LEN]; size_t readIdx = 0; size_t writeIdx = 0; bool PushBack(T); bool PopFront(T *); }; // expected C API typedef struct { int data[8]; size_t readIdx; si",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79824381,
    "question_returned": true,
    "tags": [
@@ -382,7 +650,10 @@
    "answers_fetched": 0,
    "body": "A PostgreSQL 12 database contains a schema with multiple related tables. Data was accidentally removed by executing TRUNCATE ... CASCADE . The schema and table definitions still exist, including their columns, data types, indexes, and relationships. However, the rows in the affected tables are gone, and queries such as SELECT COUNT(*) return zero. No usable backup from before the incident is available, and WAL archiving was disabled. However, the underlying disk may still contain remnants of old",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 80008957,
    "question_returned": false,
    "tags": [
@@ -396,8 +667,11 @@
    "answer_count": 1,
    "answers_fetched": 1,
    "body": "I'm trying to launch my OpenGL application using RenderDoc, but I keep getting the following error: [error] A debug OpenGL context was requested but not provided by the driver The application runs perfectly fine when launched directly from Visual Studio. However, when I try to launch the same executable through RenderDoc, it fails. I'm using GLFW, and the debug context is requested using the following line: glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, result->debugContextRequested_ ? GLFW_TRUE : GL",
-   "gold_from": "top_voted",
-   "gold_repo": "baldurk/renderdoc",
+   "gold_from": null,
+   "gold_from_r": "top_voted",
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": "baldurk/renderdoc",
    "qid": 80009095,
    "question_returned": true,
    "tags": [
@@ -411,7 +685,10 @@
    "answers_fetched": 1,
    "body": "My project is using some external libraries which have native code. I've got warning from Google, about migrating my app to support 16 Kb pages. In apk analyser I noticed, that .so libraries were not compiled to support 16 kb. I have updated external libraries with latest versions with 16 Kb pages support. Warnings about those libraries disappeared, but I still see warning \"Apk does not support 16 kb devices\". Maybe this happens because I am analyzing apk, that was built under processor architec",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79754247,
    "question_returned": true,
    "tags": [
@@ -427,7 +704,10 @@
    "answers_fetched": 2,
    "body": "Consider this simple code. struct Foo { template <typename T> struct Bar { ~Bar(); }; }; with the out-of-line implementation template <typename T> Foo::Bar<T>::~Bar() { // dtor implementation } Using clang (up to current trunk), with -std=c++20 and -Wdtor-name issues a warning: warning: ISO C++ requires the name after '::~' to be found in the same scope as the name before '::~' [-Wdtor-name] , and requires the implementation be changed to this. template <typename T> Foo::Bar<T>::~Bar<T>() { // d",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79768581,
    "question_returned": true,
    "tags": [
@@ -444,7 +724,10 @@
    "answers_fetched": 0,
    "body": "has anyone faced the challenge of offering alternative payment methods in Android and iOS apps for digital products? For example, in my app, premium users can create channels that other users pay to join, similar to YouTube memberships, or purchase digital gifts. How did you handle Google Play and Apple\u2019s in-app purchase policies while also offering payment options. I\u2019d appreciate hearing how you solved it. Thanks!",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 80009342,
    "question_returned": false,
    "tags": [
@@ -462,7 +745,10 @@
    "answers_fetched": 1,
    "body": "I would like to make a class that satisfies std::copy_constructible concept and in addition can be constructed from an arbitrary copy constructible value much like std::any does: #include <concepts> struct B { B(std::copy_constructible auto); }; static_assert(std::copy_constructible<B>); But unlike std::any the constructor template B(std::copy_constructible auto) receives its argument by value and not by reference . I expected that based on class.copy.ctor#5 , such constructor is never instantia",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79585153,
    "question_returned": true,
    "tags": [
@@ -480,7 +766,10 @@
    "answers_fetched": 2,
    "body": "At work, I am running 3.9.21. At home, I am running Python 3.13.2 on Linux, but also use uv install Python 3.9.21 to be in sync with work. In my home machine, I created a new project: uv init --package --python \"python==3.9.21\" sandbox cd sandbox uv sync At this time, I got the following error: Using CPython 3.13.2 error: The requested interpreter resolved to Python 3.13.2, which is incompatible with the project's Python requirement: `==3.9.21` How can I create a project with this specific versi",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79665976,
    "question_returned": true,
    "tags": [
@@ -495,7 +784,10 @@
    "answers_fetched": 2,
    "body": "I am getting the message: Adding '_UIReparentingView' as a subview of UIHostingController.view is not supported and may result in a broken view hierarchy. Add your view above UIHostingController.view in a common superview or insert it into your SwiftUI content in a UIViewRepresentable instead. When opening and closing my Menu and the drop down animation of the Menu is kind of glitchy now. This didn't happen before in iOS 18, so wondering if my code is inherently wrong or if this is a bug. Here i",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79871713,
    "question_returned": true,
    "tags": [
@@ -512,7 +804,10 @@
    "answers_fetched": 0,
    "body": "I'm using CUDA 13.1. Whatever CUDA program I run, NSight Systems refuses to profile it, telling me that \"No CUDA events collected. Does the process use CUDA?\". To give a concrete example, I can successfully build and run the vectorAdd program (from the CUDA samples repository; see below for a copy of it). With that done, I fire up nsys-ui , put in the program path and start profiling. The profiling concludes, and a timeline is visible, including CUDA API calls, but - there are several errors: Ki",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79945712,
    "question_returned": true,
    "tags": [
@@ -527,8 +822,11 @@
    "answer_count": 7,
    "answers_fetched": 7,
    "body": "I started receiving this message when I build my project > Could not find com.arthenica:ffmpeg-kit-full:6.0-2. Searched in the following locations: - https://dl.google.com/dl/android/maven2/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom - https://repo.maven.apache.org/maven2/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom - https://jcenter.bintray.com/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom - https://jitpack.io/com/arthenica/ffmpeg-kit-full/6.0-",
-   "gold_from": "top_voted",
-   "gold_repo": "duclq92/ffmpeg-kit-audio",
+   "gold_from": null,
+   "gold_from_r": "top_voted",
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": "duclq92/ffmpeg-kit-audio",
    "qid": 79600161,
    "question_returned": true,
    "tags": [
@@ -544,7 +842,10 @@
    "answers_fetched": 0,
    "body": "I'm trying to reproduce the \"Improved code generation for struct arguments\" optimization (physical promotion) described in the official .NET 10 Runtime what's new . According to the article, for this code: using System; using System.Runtime.CompilerServices; struct Point { public long X; public long Y; public Point(long x, long y) { X = x; Y = y; } } public class Program { [MethodImpl(MethodImplOptions.NoInlining)] private static void Consume(Point p) { Console.WriteLine(p.X + p.Y); } private st",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79978180,
    "question_returned": true,
    "tags": [
@@ -562,7 +863,10 @@
    "answers_fetched": 3,
    "body": "auto lo = 0u; auto hi = 1u; auto combined = (((std::uint64_t)hi) << 32) | lo; But if I do combined++ then lo and hi are not changed, because combined is a copy. How do I make the lower bits of combined reference lo , and the upper bits reference hi , so when I do arithmetic on combined , lo and hi are also updated?",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79589468,
    "question_returned": true,
    "tags": [
@@ -576,7 +880,10 @@
    "answers_fetched": 2,
    "body": "A debug print line seems to make code execution unexpectedly faster. Commenting out a printf that is conditional on n<100 slows things down when n is much larger. How is the conditional print that never executes for n>100 speeding things up? This toy code arises from a question on Math SE What is the most efficient way to determine if a natural number N can be written as the sum of two squares? . It is a surprisingly tough problem with a single thread unvectorised solution taking around 4 hours ",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 80008925,
    "question_returned": true,
    "tags": [
@@ -594,7 +901,10 @@
    "answers_fetched": 2,
    "body": "The regular code completion in Visual Studio somehow turned into Copilot code completion: It does not work though, replaces contents of the whole document with single-line proposed completion. How can I return to the regular refactorings? These are my Copilot options: Bonus question: How to turn off Github Copilot completely?",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79635270,
    "question_returned": true,
    "tags": [
@@ -609,7 +919,10 @@
    "answers_fetched": 0,
    "body": "I am planning to begin my programming journey and am highly interested in learning Rust . However, I am a complete beginner with no prior background in computer science or software development. Most online resources and documentation define Rust in terms of low-level concepts (e.g., memory safety without a garbage collector, zero-cost abstractions, data races), which are difficult to grasp without foundational programming knowledge. To help me understand if this is a viable starting point, could",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 80009075,
    "question_returned": false,
    "tags": [
@@ -623,7 +936,10 @@
    "answers_fetched": 5,
    "body": "I\u2019m trying to install the Entity Framework Core CLI tools globally using the .NET CLI command: dotnet tool install --global dotnet-ef However, the installation fails with the following error message: Tool 'dotnet-ef' failed to update due to the following: The settings file in the tool's NuGet package is invalid: Settings file 'DotnetToolSettings.xml' was not found in the package. Tool 'dotnet-ef' failed to install. Contact the tool author for assistance. To reproduce, run dotnet tool install --g",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79817405,
    "question_returned": true,
    "tags": [
@@ -640,7 +956,10 @@
    "answers_fetched": 10,
    "body": "In Safari on iOS 26, when the page is scrolled down and the address bar shrinks at the bottom, the viewport appears to get displaced vertically, which in turn shifts the position of elements with position \"fixed\" or \"sticky.\" Code example: https://codesandbox.io/p/sandbox/reactjs-playground-forked-6zmgr4 Note the relevant div serving as a fixed footer, with inline styles as follows: style={{ position: \"fixed\", bottom: 0, }} Navigate to the code sandbox URL on iPhone with iOS 26 to reproduce the ",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79753701,
    "question_returned": true,
    "tags": [
@@ -658,7 +977,10 @@
    "answers_fetched": 1,
    "body": "I am in the process of upgrading our codebase from .NET 9 to .NET 10. All of the libraries of all of our packages were upgraded to the most recent version when I last upgraded to .NET 9. I did the same thing this go around and brought everything up to the most recent code versions. I have not done any code changes whatsoever and all of this code compiled and ran before the version update. However, I am stuck on this error, and it doesn't make any sense to me. The two methods it is referring to a",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79848893,
    "question_returned": true,
    "tags": [
@@ -674,7 +996,10 @@
    "answers_fetched": 5,
    "body": "SVGs have begun to open as image previews, which I do not need, I would like to view them as HTML text. I do not know how this has happened. I haven't made any changes to my VS Code, I haven't installed any extensions recently and the day before yesterday this working was fine.",
    "gold_from": "top_voted",
+   "gold_from_r": "top_voted",
+   "gold_number": 239844,
    "gold_repo": "microsoft/vscode",
+   "gold_repo_r": "microsoft/vscode",
    "qid": 79363302,
    "question_returned": true,
    "tags": [
@@ -689,7 +1014,10 @@
    "answers_fetched": 1,
    "body": "I\u2019m working on a Python project using uv as my package manager and struggling with ModuleNotFoundError when importing local packages. My goal is to make config/ and packages/src/ available throughout the project (e.g., from config.connection_config import database_config ) after an editable install with uv pip install -e . . Here\u2019s my project structure: dashboard/ \u251c\u2500\u2500 config/ \u2502 \u251c\u2500\u2500 __init__.py \u2502 \u2514\u2500\u2500 connection_config.py \u2502 \u2514\u2500\u2500 env/ \u251c\u2500\u2500 packages/ \u2502 \u2514\u2500\u2500 src/ \u2502 \u2514\u2500\u2500 (other packages/modules with __ini",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79533324,
    "question_returned": true,
    "tags": [
@@ -705,7 +1033,10 @@
    "answers_fetched": 1,
    "body": "I'm trying to use UIPickerView as the textfield's inputView and also add UIToolBar as the textfield's inputAccessoryView . In iOS 26, it adds some weird transparent background (like a liquid glass effect, I guess) under the toolbar. I want to preserve the same look as it had previously. Please see the example code below with attached images: let keyboardToolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 44.0))) let doneBarButton = UIBarButtonItem() doneBarButton.ti",
    "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
    "gold_repo": null,
+   "gold_repo_r": null,
    "qid": 79818015,
    "question_returned": true,
    "tags": [
@@ -716,6 +1047,3087 @@
    ],
    "title": "UITextField custom inputAccessoryView with custom inputView in iOS 26",
    "view_count": 1689
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "I am working on a big project (Unreal Engine, but that's irrelevant here) where I want to minimize the compile time (especially for live intellisense). So I am reducing header dependencies by replacing header includes with forward declarations where possible. I have a bunch of free functions overloads and for a particular file I know I only call one of them. But is it legal to just forward declare some, but not all of the overloads? // foo.cpp const char* foo(bool) { return \"bool\"; } const char*",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79769322,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "language-lawyer"
+   ],
+   "title": "Is it legal to forward declare just some, but not all of the overloads?",
+   "view_count": 655
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "The expression a.b.*c.d is parsed as (a.b).*(c.d) due to the . operator having higher precedence than the .* operator. Why do these operators have different precedence? What led to this decision? What are the advantages?",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80007784,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "syntax",
+    "operator-precedence",
+    "language-design",
+    "pointer-to-member"
+   ],
+   "title": "Why does pointer-to-member dereference operator have lower precedence than regular member access?",
+   "view_count": 1006
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I started a new project using the latest Vite and Tailwind. In version 4.0, I couldn't find the tailwind.config.js file, which made me confused about how to configure global types. Especially the container class does not appear in the documentation for version 4.0, and testing its values did affect the layout, so it wasn't removed. Now, I want to set its max-width after the xl breakpoint, but I'm not sure how to do that. Also, how can I add some custom classes with RWD and hover?",
+   "gold_from": null,
+   "gold_from_r": "top_voted",
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": "tailwindlabs/tailwindcss",
+   "qid": 79383758,
+   "question_returned": true,
+   "tags": [
+    "css",
+    "tailwind-css",
+    "vite",
+    "tailwind-css-4"
+   ],
+   "title": "How to set Tailwind CSS v4 global class?",
+   "view_count": 35272
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I\u2019m building a Flutter money-tracking app called Flow. It lets a user enter a UPI ID or scan a UPI QR code, then starts a payment in PhonePe on Android. When I try to pay \u20b91 , PhonePe displays \u201cCan\u2019t pay more than \u20b92,000\u201d and won\u2019t let me continue. The same message appears even though the amount is below \u20b92,000. The app builds a upi://pay URI and passes it to Android through a Kotlin method channel. I\u2019ve tried adjusting the UPI request handling, but the error persists. I\u2019d like to understand whe",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009506,
+   "question_returned": true,
+   "tags": [
+    "android",
+    "flutter",
+    "upi"
+   ],
+   "title": "Why does PhonePe say \u201cCan\u2019t pay more than \u20b92,000\u201d for a \u20b91 UPI payment from my Flutter app?",
+   "view_count": 48
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I am trying to understand something about the below code, where I am switching between std::cout and the newer std::print . #include <iostream> #include <print> int main() { for (int i{}; i != 3; ++i) { std::print(\"{0}\\n\", i); // std::cout << i << std::endl; } return 1; } g++ -g --std=c++23 print.cpp -o print_03 -O3 //for std::print g++ -g --std=c++23 print.cpp -o cout_03 -O3 //For std::cout Even when compiling with optimizations (check below output), the executable increases by 1MB. Why is it s",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79639474,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "cout",
+    "stdformat"
+   ],
+   "title": "Why does std::print take so much space?",
+   "view_count": 1047
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I have a Rails 8 application (assets managed by Propshaft) which runs precompile:assets outside deployment in production, I\u2019ve confirmed that the assets are created as is .manifest.json (and it lists the new assets), Rails does not recognise them, but after a restart it does. Is there any way to coerce Propshaft to reread the manifest without a restart?",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009100,
+   "question_returned": true,
+   "tags": [
+    "ruby-on-rails",
+    "propshaft"
+   ],
+   "title": "How to coerce Propshaft to reload .manifest.json",
+   "view_count": 39
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "As shown in the image, I got a warning in PyCharm at the list index positions like [0][1][2]... . The program still runs, but I don't understand what this warning means or how to resolve it. invitation_list = [\"Allen\", \"Lucas\", \"Peter\"] message = \"Pls come to my house for the dinner,\" print(f\"{message} {invitation_list[0]}, {invitation_list[1]}, {invitation_list[2]}.\") print(f\"But, {invitation_list[0]} can not join the dinner.\") invitation_list[0] = \"John\" message_2= \"I just found a bigger table",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79806553,
+   "question_returned": true,
+   "tags": [
+    "python",
+    "pycharm"
+   ],
+   "title": "How to fix this\uff1aType alias is not generic or already specialized",
+   "view_count": 2674
+  },
+  {
+   "answer_count": 3,
+   "answers_fetched": 3,
+   "body": "The Problem I have a very basic React + Vite web project (no backend/no APIs) that deploys to Github pages. I was previously running Vite 5 and have just upgraded to Vite 6. The upgrade went smoothly, no issues. Local runs and cloud deploy all work. Today, I've been trying to setup tailwindcss (and ultimately DaisyUI ) in this simple codebase but after following the official tailwindcss v4 docs here: https://tailwindcss.com/docs/installation/using-vite Also following the official DaisyUI v5 Beta",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79468329,
+   "question_returned": true,
+   "tags": [
+    "reactjs",
+    "tailwind-css",
+    "vite",
+    "daisyui"
+   ],
+   "title": "Adding tailwindcss to an upgraded Vite v6 codebase causes ERROR Failed to resolve \"@tailwindcss/vite\"",
+   "view_count": 10030
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "When loading an Apps Script Web App the console shows the following error: Uncaught TypeError: vb.X is not a constructor This started only this morning (1/15/2025) and has never been an issue before. This also happens across different apps. It will work randomly after a refresh or 2 (or 3...), but seems to happen at random.",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79358893,
+   "question_returned": true,
+   "tags": [
+    "google-apps-script"
+   ],
+   "title": "Unable to load Apps Script Web App because of error \"vb.X is not a constructor\"",
+   "view_count": 1961
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I'm working on a love2d project and I'm trying to implement a game mechanic with the following functional description and pseudocode: Iterate over all systems in the galaxyData table. For each system, send a message out to neighbours via a temporary table. Once iterated over the whole of the galaxy, reconcile the old messages table with the new messages table and clear the temporary table. Before sending messages, confirm there are no duplicates so the relay data doesn't grow. for systems in gal",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009038,
+   "question_returned": true,
+   "tags": [
+    "lua"
+   ],
+   "title": "Relay Broadcasting in lua for game systems",
+   "view_count": 114
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "In a ETL/DB scenario, a dev will be writing anf running SQLs (let us assume column addition). QA will be writing validation SQL. I need to develop a reporter that analyses and reports the coverage of the testing SQL. Any ideas?",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009443,
+   "question_returned": false,
+   "tags": [
+    "tooling-recommendation",
+    "python",
+    "oracle-database"
+   ],
+   "title": "Oracle testing coverage analysis",
+   "view_count": 53
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 1,
+   "body": "I'm using the code below to play two songs back to back in one of my webpages. It's part of a digital birthday card. The issue is that after song1 plays, it's like the page is not able to either see the script, or see the second song. I'm not sure what is going on. Both songs are in the Music folder. What might I be missing? var player = document.getElementById(\"player\"); var songs = [ \"https://cdn.jsdelivr.net/gh/effacestudios/Royalty-Free-Music-Pack@master/Fury.mp3\", \"https://cdn.jsdelivr.net/",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80008972,
+   "question_returned": true,
+   "tags": [
+    "javascript",
+    "html",
+    "autoplay"
+   ],
+   "title": "Playing songs back to back in autoplay in a website",
+   "view_count": 116
+  },
+  {
+   "answer_count": 6,
+   "answers_fetched": 6,
+   "body": "In C, you can do this: int arr[i]; From what I understand, this is called a VLA \u2014variable length array\u2014which is an array whose size is not known at compile time, which in most implementations is stored on the stack. In the implementations of VLAs that store the array on the stack, do they store the size of the array somewhere at runtime? If yes, where? If not, how do you know at runtime how much to decrement the stack pointer once the array goes out of scope? Note: The same question also applies",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79400684,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "stack",
+    "variable-length-array"
+   ],
+   "title": "Where is the size of a VLA stored in C?",
+   "view_count": 1958
+  },
+  {
+   "answer_count": 8,
+   "answers_fetched": 8,
+   "body": "I'm migrating from the legacy Google Places Autocomplete to the new PlaceAutocompleteElement in my Rails application. The new component is working functionally, but I can't get it to match the styling of my existing form inputs. Instead of enhancing my existing street address input field, the PlaceAutocompleteElement renders it as a completely separate input with Google's default styling, creating an inconsistent UI. Do you know how to remove the black border and change styles overall in https:/",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79556333,
+   "question_returned": true,
+   "tags": [
+    "javascript",
+    "google-maps",
+    "google-places-api",
+    "google-places-autocomplete"
+   ],
+   "title": "How to style Google Maps PlaceAutocompleteElement to match existing form inputs?",
+   "view_count": 7913
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "Going round and round on this, I can see the commanding is using php.ini but from web site you only get PHP log in maillog both command line and site running php 8.2.20 The server is runing postfix and used to used to work fine via web site from web site [11-Oct-2026 19:18:19 UTC] mail() on [/---------/gizmail.php:29]: To: pebble_rock@hottap.com -- Headers: From: gizmo@club.com To: pebble_rock@hottap.com X-Mailer: PHP/8.2.20 -- Subject: Your Club Membership From command line Oct 11 20:33:50 IS-9",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009312,
+   "question_returned": false,
+   "tags": [
+    "php",
+    "email"
+   ],
+   "title": "PHP 8 can send via mail() command line not via website",
+   "view_count": 110
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I am currently adding support for Google Drive in my file and folder synchronization app ( SyncFolder ) that performs 1-way, 2-way and blind copy synchronization between selected storage devices, like: local file system, USB, NAS, WebDAV, SFTP, FTP(S), OneDrive, ... To allow users to pick and sync existing folder structures on their Google Drive without re-selecting every file, the app uses the full Google Drive scope: [https://www.googleapis.com/auth/drive](https://www.googleapis.com/auth/drive",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80008968,
+   "question_returned": false,
+   "tags": [
+    "advice",
+    "oauth-2.0",
+    "google-drive-api",
+    "google-oauth"
+   ],
+   "title": "Does a pure client-side desktop sync app require a CASB/CASA Security Assessment for Google Drive restricted scope (drive)?",
+   "view_count": 56
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "Just read about \"Speculative Execution\" in modern CPUs, which is an attempt to predict branches, and ... other stuff. But, Do C++20 attributes [[likely]] and [[unlikely]] have anything to do with \"Speculative Execution\"?",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79753103,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "c++20",
+    "likely-unlikely"
+   ],
+   "title": "Do C++20 attributes [[likely]] and [[unlikely]] have anything to do with \"Speculative Execution\"?",
+   "view_count": 340
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I'm trying to use Instruments (with Xcode 16.1) to analyze memory usage of my iOS app running on the simulator. However, when I try to attach Instruments to the app, I get the above error. I am not sure why it says libmalloc hasn't been initialized With both the ways 1 Xcode -> Product -> Profile 2 Xcode -> Debug Navigator -> Memory Graph -> Profile In Instruments I am not sure about other Simulators but with iOS 18.1 Simulators having this issue so how to make it work? \ud83e\udde9 My Setup: macOS Sequoia",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79558090,
+   "question_returned": true,
+   "tags": [
+    "xcode",
+    "memory-leaks",
+    "instruments",
+    "xcode-instruments",
+    "memory-graph-debugger"
+   ],
+   "title": "Failed to generate memory graph for pid 73918: failed to create a VMUTaskMemoryScanner, probably because the target's libmalloc hasn't been initialize",
+   "view_count": 2149
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I am developing a Flutter personal finance app and want to automatically fetch bank transactions for users across multiple countries and banks. Since iOS does not allow general background access to incoming bank SMS messages, is it possible to integrate official bank APIs or third-party open banking providers to retrieve transaction history, account balances, and transaction details? Which providers support multiple countries and banks, and what is the recommended approach for implementing this ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009047,
+   "question_returned": false,
+   "tags": [
+    "ios",
+    "iphone",
+    "flutter"
+   ],
+   "title": "How can a finance app detect bank SMS messages automatically in the background on iOS?",
+   "view_count": 126
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "SPARTACO/VPSI v1 \u2014 Open Cryptanalysis Challenge A public challenge to the international cryptographic and cybersecurity research community Author and developer: I. Villasmil Research area: Applied cryptography, authenticated encryption, digital signatures, cryptographic key derivation, integrity verification, and formal security architectures. 1. Scientific Invitation I formally invite cryptographers, mathematicians, cybersecurity specialists, academic researchers, and independent security labor",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009585,
+   "question_returned": false,
+   "tags": [
+    "javascript",
+    "python"
+   ],
+   "title": "Challenge spartaco",
+   "view_count": 2
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "Coming from C++17 and trying to integrate operator<=> . I've stumbled on a conundrum. There seems to be no way to implement a generic container-like class where its T is a mutually recursive std::variant . Everything is fine with a common set of pre-C++20 comparison operators, probably because they are completely defined at any point in time. Event if T is forward declared at the point of template declaration. I've compiled a simplified set of test cases that make this issue evident. There Array",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79896261,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "c++20",
+    "std-variant",
+    "spaceship-operator"
+   ],
+   "title": "Convoluted operator<=> rules in case of mutually recursive std::variant",
+   "view_count": 439
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "It is established in ISO/IEC 9899:2018 that an implicit assignment of a char ** (such as the address of a char * ) to a const char ** is unsafe, and its reasoning is explicitly illustrated in \u00a76.5.16.2, p. 74, \u00b66: EXAMPLE 3 Consider the fragment: const char **cpp; char *p; const char c = 'A'; cpp = &p; // constraint violation *cpp = &c; // valid *p = 0; // valid The first assignment is unsafe because it would allow the following valid code to attempt to change the value of the const object c. Fu",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009012,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "language-lawyer",
+    "posix"
+   ],
+   "title": "Why do POSIX and the C FAQ suggest casting char ** to const char * const *?",
+   "view_count": 255
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "Recently I updated my Android Gradle Plugin to version 8.12.0 the upgrade was smooth and effortless all the project got upgraded to new Agp version no errors all good. My project level Build.gradle file is looking a little bit awkward as I am seeing a strikethrough text on \"compileSdk\" and the summary stating that compileSdk is deprecated. It was strange because as I remember Google has shifted to \"compileSdk\" from \"compileSdkVersion\" which was deprecated some years ago. There was no clear docum",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79723342,
+   "question_returned": true,
+   "tags": [
+    "android",
+    "android-gradle-plugin",
+    "build.gradle"
+   ],
+   "title": "Did Android Gradle Plugin 8.12.0 deprecated compileSdk?",
+   "view_count": 6312
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 1,
+   "body": "I am building a .NET application for a university project that requires 1:N (one-to-many) fingerprint identification using a DigitalPersona scanner. I have successfully implemented 1:1 verification using the DPFP.Verification.Verification class, but I cannot figure out how to scale this to 1:N matching to find a user from a database of registered fingerprints. My Question: Does the DigitalPersona .NET SDK have a built-in DPFP.Identification class or a specific driver/API call meant for 1:N match",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009143,
+   "question_returned": true,
+   "tags": [
+    "advice",
+    "c#",
+    "digital-persona-sdk"
+   ],
+   "title": "How to implement 1:N fingerprint identification using DigitalPersona SDK in C#?",
+   "view_count": 108
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "Consider: #include <print> #include <set> struct Num { auto operator <=> (const Num& other) const{ std::println (\"{} <=> {}\", val, other.val); return val <=> other.val; }; int val; }; int main() { std::set<Num> s{{1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}}; std::println(\"------------\"); return !s.contains({8}); } For the part that calls contains this prints out (among other things): ... 8 <=> 8 7 <=> 8 8 <=> 8 I would expect that after calling the spaceship operator with arguments (8,8) , the s",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79760145,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "c++20",
+    "spaceship-operator"
+   ],
+   "title": "Why does std::set::contains() call the spaceship operator twice on a target element?",
+   "view_count": 2220
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I'm integrating Mercado Pago recurring subscriptions into a Brazilian SaaS application using Next.js and TypeScript. When creating a test subscription through the Mercado Pago Preapproval API ( POST /preapproval ), the request returns HTTP 400: { \"status\": 400, \"message\": \"Payer is associated with a different site\" } What I have verified The seller access token tested locally belongs to a Mercado Pago test user. The seller's /users/me response reports site_id: \"MLB\" and test_user: true . The req",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009182,
+   "question_returned": false,
+   "tags": [
+    "typescript",
+    "next.js",
+    "subscription",
+    "mercadopago"
+   ],
+   "title": "Mercado Pago Preapproval API returns \"Payer is associated with a different site\" (HTTP 400) in sandbox",
+   "view_count": 56
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 1,
+   "body": "An existing Traditional Web App in an Autodesk Platform Services Developer Hub cannot obtain a two-legged OAuth token. App settings list Client Credentials as supported. APS Free and the hub belong to the same team. Data Management API and Model Derivative API are selected; Save changes succeeds. Client ID and Secret were privately compared with server values; both match. Minimal Python httpx request: import httpx with httpx.Client(timeout=30, follow_redirects=False) as client: response = client",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80008952,
+   "question_returned": true,
+   "tags": [
+    "autodesk-forge"
+   ],
+   "title": "APS Free returns 403 AUTH-001 for bucket:read and viewables:read with client_credentials",
+   "view_count": 31
+  },
+  {
+   "answer_count": 7,
+   "answers_fetched": 7,
+   "body": "I'm trying to read a package from a buffer, decode it, and then return a package that might contain a requested info or call a specific function depending on the package I received. I'd like to know if there is any way I can simplify this block of code in order to reduce code repetition: if (rx_buffer[0] == 0xAA && rx_buffer[1] == 0x88){ tx_buffer[0] = 'O'; tx_buffer[1] = 'K'; change_light_intensity(1000); } else if (rx_buffer[0] == 0xBB && rx_buffer[1] == 0x89){ tx_buffer[0] = 'O'; tx_buffer[1]",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79733841,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "buffer",
+    "dispatch"
+   ],
+   "title": "How to reduce repetition in a large amount of if-else statements when reading from a buffer",
+   "view_count": 2733
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "Environment OS: Windows 10 JDK: Eclipse Temurin 21.0.12.1 Build system: Gradle 8.14.3 Language: Kotlin 2.1.0 UI framework: Compose Multiplatform 1.7.3 Main class: com.drivesweep.MainKt Packaging tool: JDK jpackage.exe WiX Toolset: 3.11.2.4516 Problem Running the following Gradle task fails: .\\gradlew.bat :composeApp:packageExe The error log reports: Execution failed for task ':composeApp:packageExe'. External tool execution failed: Command: [...\\jdk-21.0.12.101-hotspot\\bin\\jpackage.exe, @...\\pac",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009097,
+   "question_returned": true,
+   "tags": [
+    "kotlin"
+   ],
+   "title": "JDK 21 jpackage fails to create Windows EXE installer with WiX Toolset 3.11 \u2014 candle.exe exits with code 14",
+   "view_count": 66
+  },
+  {
+   "answer_count": 4,
+   "answers_fetched": 4,
+   "body": "I'm using Tailwind CSS v4 in my Next.js project and getting the following errors in globals.css: Unknown at rule @plugin css(unknownAtRules) Unknown at rule @custom-variant css(unknownAtRules) Unknown at rule @theme css(unknownAtRules) Unknown at rule @utility css(unknownAtRules) Unknown at rule @variant css(unknownAtRules) Unknown at rule @apply css(unknownAtRules) Unknown at rule @source css(unknownAtRules) Unknown at rule @reference css(unknownAtRules) Here is my globals.css file: @import \"ta",
+   "gold_from": "top_voted",
+   "gold_from_r": "top_voted",
+   "gold_number": 1250,
+   "gold_repo": "tailwindlabs/tailwindcss-intellisense",
+   "gold_repo_r": "tailwindlabs/tailwindcss-intellisense",
+   "qid": 79513015,
+   "question_returned": true,
+   "tags": [
+    "vs-code",
+    "tailwind-css",
+    "tailwind-css-4",
+    "tailwind-css-intellisense"
+   ],
+   "title": "Tailwind CSS v4 - Unknown at rule @plugin, @custom-variant, @theme, @utility, @variant, @apply, @source, @reference in global.css",
+   "view_count": 24403
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "struct Bar; template <typename T> struct Foo { void baz(Bar bar = {}); }; struct Bar {}; template <typename T> void Foo<T>::baz(Bar bar) {} int main() { Foo<int> foo; } This compiles in GCC, but in Clang it produced the following error: <source>:5:22: error: variable has incomplete type 'Bar' 5 | void baz(Bar bar = {}); | ^ <source>:1:12: note: forward declaration of 'Bar' 1 | struct Bar; | My assumption is that GCC is probably being more lenient than the standard dictates. If that's the case, h",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79686889,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "gcc",
+    "clang",
+    "language-lawyer"
+   ],
+   "title": "Compiler divergence for incomplete type used as default argument of function declaration",
+   "view_count": 212
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I can get delay (in picoseconds) from benchmark_main : ./bazel-out/k8-opt/bin/xls/dev_tools/benchmark_main --delay_model=asap7 xxx.ir ... Total delay: 9387ps How to get delay (in picoseconds) from yosys ? What I tried in .ys file: read_verilog -sv xxx.v hierarchy -top custom_vector_instruction proc; opt; fsm; opt; memory; opt; techmap; opt; # suggested by AI: # -script \"+strash; &get -n; &dch -f; &nf -D 500; &ps -m; &put\" # -script \"+strash; &get -n; &dch -f; &nf -D 500; &if -g -v; &put\" # -scri",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009516,
+   "question_returned": true,
+   "tags": [
+    "yosys"
+   ],
+   "title": "How to get (total) delay (in picoseconds) from yosys?",
+   "view_count": 35
+  },
+  {
+   "answer_count": 5,
+   "answers_fetched": 5,
+   "body": "I have a Flask application that integrates with Google Generative AI (Gemini) and Google Calendar. It used to work fine, but recently I started running into two issues: Model not found (404) error Whenever my code calls the Gemini API, I get: ERROR:gemini_parser:Error extracting candidate info: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. ERROR:gemini_pars",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79779187,
+   "question_returned": true,
+   "tags": [
+    "python",
+    "artificial-intelligence",
+    "google-gemini"
+   ],
+   "title": "Google Generative AI: 404 \"models/gemini-1.5-flash is not found\" error when calling generateContent",
+   "view_count": 45772
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "The cppreference page for std::recursive_mutex says: The maximum number of times that a recursive_mutex may be locked is unspecified, but after that number is reached, calls to lock will throw std::system_error and calls to try_lock will return false. So: If I take this literally, I have to conclude that it's unsafe to use (lock) a std::recursive_mutex at all, since that maximum may be zero. But, maybe that interpretation is too silly, and I should assume it means the maximum is always at least ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79457269,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "recursive-mutex"
+   ],
+   "title": "Can std::recursive_mutex be used reliably?",
+   "view_count": 456
+  },
+  {
+   "answer_count": 3,
+   "answers_fetched": 3,
+   "body": "Under iOS 26, the look of navigation bars and toolbars has changed quite a bit. I am running into an issue trying to tint the added items. For \"standard\" UIBarButtonItem instances, you simply set the tintColor and it works fine. For example: let itemText = UIBarButtonItem(title: \"Text\") itemText.tintColor = .systemGreen The text will appear green in a toolbar or navbar. Same works as expected if created with an SF Symbol image. The issue lies when I need to create a UIBarButtonItem with a custom",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79663905,
+   "question_returned": true,
+   "tags": [
+    "ios",
+    "uikit",
+    "uibarbuttonitem",
+    "ios26"
+   ],
+   "title": "Unable to tint a custom view in a UIBarButtonItem in iOS 26",
+   "view_count": 3946
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "Let's say I have the function import numpy as np def foo(a: float | np.ndarray, b: float | np.ndarray, c: float | np.ndarray, d: float | np.ndarray) -> float | np.ndarray: return a * b + c * d It only returns a float when all input parameters are float . As soon as one of them is an array, an array is returned. How can I efficiently type hint that behavior? Using simple overloads I have to specify five variants. from typing import overload @overload def foo(a: float, b: float, c: float, d: float",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80001437,
+   "question_returned": true,
+   "tags": [
+    "python",
+    "python-typing"
+   ],
+   "title": "Type hint a default return type used unless more specific overload exists",
+   "view_count": 696
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "a simple reproduction could be import SwiftUI struct ContentView: View { @State private var paths = [String]() @Namespace var ns var body: some View { NavigationStack(path: $paths) { ScrollView { Button(\"Push\") { paths.append(\"a\") } .matchedTransitionSource(id: \"a\", in: ns) } .navigationDestination(for: String.self, destination: { id in Text(id) .navigationTransition(.zoom(sourceID: \"a\", in: ns)) }) } } } #Preview { ContentView() } the push button just remains invisible after you come back from ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79760365,
+   "question_returned": true,
+   "tags": [
+    "swiftui",
+    "navigation",
+    "transition",
+    "ios26"
+   ],
+   "title": "iOS 26 RC, View becomes invisible when it was swiped back from a zoom navigation transition",
+   "view_count": 1051
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 1,
+   "body": "When building REST APIs requests should identify resources by using their URI, and Wikipedia says: https://en.wikipedia.org/wiki/Web_resource#Using_HTTP_URIs_to_identify_abstract_resources The concept of resource has evolved during the Web's history, from the early notion of static addressable documents or files , to a more generic and abstract definition, now encompassing every \"thing\" or entity that can be identified, named, addressed or handled, in any way whatsoever, in the web at large, or ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009522,
+   "question_returned": true,
+   "tags": [
+    "best-practices",
+    "rest",
+    "jwt"
+   ],
+   "title": "Is JWTs considered a web resource?",
+   "view_count": 78
+  },
+  {
+   "answer_count": 3,
+   "answers_fetched": 3,
+   "body": "I created simple string class with construct from only constant strings (literal or const char[]) template<typename T> struct const_lit; template<unsigned N> struct const_lit<const char(&)[N]>{ inline static constexpr unsigned Count = N; }; struct str { const char* ptr; unsigned len; template<typename T> requires (const_lit<T>::Count > 0) str(T&& s) : ptr(s), len(const_lit<T>::Count - 1) { std::cout << \"ctor from literal \" << ptr << \"\\n\"; } }; When I use it as function param, it work well: void ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79885892,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "gcc",
+    "clang",
+    "compiler-bug"
+   ],
+   "title": "Bug in GCC when using string literal as const char(&)[N] through functor in templated function",
+   "view_count": 1021
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I fetched 5-minute candles like this: resp = market_data.historical_data({ \"exchange\": \"NSE\", \"type\": \"STOCK\", \"values\": [\"TATAMOTORS\"], \"fields\": [\"open\", \"high\", \"low\", \"close\", \"cumulative_volume\"], \"startDate\": \"2026-08-01T03:45:00.000Z\", \"endDate\": \"2026-08-05T10:00:00.000Z\", \"interval\": \"5m\", \"intraDay\": False, \"realTime\": False, }) pd.DataFrame(resp) gives garbage, values[\"close\"] throws, and the volume column only ever increases. A 1-minute request going back a year also returns nothing.",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009390,
+   "question_returned": true,
+   "tags": [
+    "python",
+    "pandas",
+    "trading",
+    "candlestick-chart",
+    "ohlc"
+   ],
+   "title": "Converting Nubra historical_data() to a pandas DataFrame: TimeSeriesPoint objects, nanosecond timestamps and odd volume",
+   "view_count": 99
+  },
+  {
+   "answer_count": 5,
+   "answers_fetched": 5,
+   "body": "Is there a way to assign a keyboard shortcut in Visual Studio Code to hide or toggle the GitHub Copilot Chat side panel? I haven\u2019t found a built-in action for this. So far, the only method I\u2019ve discovered to hide the panel is by manually resizing it to zero, which is not very convenient.",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79368095,
+   "question_returned": true,
+   "tags": [
+    "vs-code",
+    "hotkeys",
+    "github-copilot"
+   ],
+   "title": "How can I toggle the GitHub Copilot Chat panel in VS Code using a keyboard shortcut?",
+   "view_count": 15020
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "This question is implicitly for the CMake build system, but the answer could be extended for any build system. I am a C++ developer and I am used to distributing libraries in the \"headers + dll\" or \"headers + so\" way. But with the modules feature I do not know what is the expected or canonical way of distributing/installing libraries anymore. So, I want to ask if there is any standard or semi-standard way of doing this. I know the ISO C++ committee will not help because this is a build system pr",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79986340,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "cmake",
+    "c++-modules"
+   ],
+   "title": "How to distribute a C++ dynamic library which uses C++ modules (no header files)",
+   "view_count": 447
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I am working on a unity 2D project with the version 6000.5.7f1, and working on the project with the built in version control. Every time I make a changeset, my font that I use for every piece of text in the game (A lot, too much to change) the font corrupts. Sometimes the letters get mixed up. Sometimes the letters aren't even proper letters. Sometimes it fixes itself, but it is still a huge drag. Pic related, text after corruption. How would one go about fixing this?",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009194,
+   "question_returned": false,
+   "tags": [
+    "unity-game-engine"
+   ],
+   "title": "Unity 2D 6000.5.7f1 TMPro Font corruption after changeset",
+   "view_count": 81
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "I am developing an Android accessibility app in Kotlin. I want to provide full-screen magnification for users with visual impairments. I use AccessibilityService.MagnificationController to set the magnification scale to 1.5. It works initially, but when I swipe to the Android home screen, the magnification resets to 1.0. The accessibility service remains enabled and connected. I tried restoring the magnification once after detecting the reset. The API returns true , and the screen briefly become",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009429,
+   "question_returned": true,
+   "tags": [
+    "android",
+    "kotlin"
+   ],
+   "title": "Android 15: AccessibilityService magnification resets to 1.0 when switching to the home screen",
+   "view_count": 65
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "Any function declared in a C++20 module seems to get mangled in a way that includes the module name. For example: export module A; export void a(int); int main() { a(42); } This a gets mangled to _ZW1A1ai on Linux, which demangles to a@A(int) . I understand why this would be desirable for non-exported functions (so they can be used in multiple TUs inside of this named module, with no conflicts with outside modules), but why mangle the exported ones? Further, it seems that you can disable this be",
+   "gold_from": "top_voted",
+   "gold_from_r": "top_voted",
+   "gold_number": 144,
+   "gold_repo": "itanium-cxx-abi/cxx-abi",
+   "gold_repo_r": "itanium-cxx-abi/cxx-abi",
+   "qid": 79904504,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "c++-modules",
+    "name-mangling"
+   ],
+   "title": "Why is the module name a part of a mangled name for functions exported from C++20 modules?",
+   "view_count": 1105
+  },
+  {
+   "answer_count": 3,
+   "answers_fetched": 3,
+   "body": "After updating a .NET Core app version from .NET 8 to .NET 10, BuildHost-net472 and BuildHost-netcore folder shortcuts appeared in both projects in the solution, then deleted and works well, they also appeared in published project files. Are those files important?",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79843062,
+   "question_returned": true,
+   "tags": [
+    ".net-8.0",
+    ".net-10.0",
+    "versionupgrade"
+   ],
+   "title": ".NET 10 version update generates BuildHost-net472 and BuildHost-netcore folder shortcuts",
+   "view_count": 3242
+  },
+  {
+   "answer_count": 5,
+   "answers_fetched": 5,
+   "body": "I was using NVM to insall node js. But when i try to install this specific version nvm install 14.17.3 it is not able to detect the npm file. the .zip file for npm is not found in the specified directory. C:\\Users\\Infra>nvm install 14.17.3 Downloading node.js version 14.17.3 (64-bit)... Complete Downloading npm... Creating C:\\Users\\Infra\\AppData\\Local\\Temp\\nvm-install-3421872285\\temp Downloading npm version 6.14.13... Complete Installing npm v6.14.13... error installing 14.17.3: open C:\\Users\\In",
+   "gold_from": "top_voted",
+   "gold_from_r": "top_voted",
+   "gold_number": 1209,
+   "gold_repo": "coreybutler/nvm-windows",
+   "gold_repo_r": "coreybutler/nvm-windows",
+   "qid": 79339258,
+   "question_returned": true,
+   "tags": [
+    "node.js",
+    "windows",
+    "nvm"
+   ],
+   "title": "NVM installation error on Windows. Cannot find the npm file",
+   "view_count": 64744
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I use code completion all the time (don't we all!). But code completion does not make sense when in the middle of a comment. For example, I tried to type: /** * This function blah blah blah and uses the following state * * MyState.START * * etc... */ But by hitting the enter button at the end of the word \"state\", code-complete thought I was writing a stateflow (I'm using Android Studio was documenting my code and typed the word \"state\", but what came out was: /** * This function blah blah blah a",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009126,
+   "question_returned": true,
+   "tags": [
+    "android-studio",
+    "intellij-idea",
+    "autocomplete",
+    "code-completion"
+   ],
+   "title": "How can I disable code completion in comments in Intellij (Android Studio)?",
+   "view_count": 101
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 1,
+   "body": "When using the Python API, I want to understand the data transfer behavior of loadTable vs to_pandas . The database table has millions of rows and I don't want to accidentally trigger a full transfer. import dolphindb as ddb s = ddb.session() s.connect(\"localhost\", 8848, \"admin\", \"123456\") # Does this already pull data? t = s.loadTable(\"dfs://stock_db\", \"tick\") # Or does the actual transfer happen here? df = t.to_pandas() What I'm really asking: does loadTable() return a lazy reference (metadata",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009030,
+   "question_returned": true,
+   "tags": [
+    "python",
+    "pandas",
+    "dolphindb"
+   ],
+   "title": "Does loadTable().to_pandas() transfer all data or only metadata first?",
+   "view_count": 155
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "Recently there was a discussion on the reddit c++ subedit pertaining to the difficulties of using the random library. One of the issues was how to correctly seed a random number engines. std::random_device r; std::array<XXXXXXXXX,std::mt19937::state_size> seed; std::generate_n(seed.data(),seed.size(),std::ref(r)); std::seed_seq seq(std::begin(seed),std::end(seed)); It seems based on how two of the major STL implementations do it, figuring out the input type of the seed sequence is not trivially ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79668364,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "random",
+    "std",
+    "random-seed"
+   ],
+   "title": "How to correctly determine the seed type for the various random number engines in the c++ standard library",
+   "view_count": 213
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I've updated multiple of my apps to try and support the new edge-to-edge requirements for Android 15. For some of the projects I get the following warning on Google: Your app uses deprecated APIs or parameters for edge-to-edge I managed to fix some of them, but I can not find the cause of the last two. I do not call the deprecated methods in any of my classes, and I tried updating all the used styles to material3 (not sure if relevant). I tried looking in my mapping.txt file to see exactly what ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79402567,
+   "question_returned": true,
+   "tags": [
+    "android",
+    "android-sdk-35"
+   ],
+   "title": "How to track down what is using Google Edge-to-Edge deprecated APIs or Parameters",
+   "view_count": 1344
+  },
+  {
+   "answer_count": 3,
+   "answers_fetched": 3,
+   "body": "I\u2019m building an Expo (SDK 53) React Native app with Firebase Authentication and I keep getting this error on startup: [runtime not ready]: Error: Component auth has not been registered yet, js engine: hermes I\u2019ve tried many variations\u2014renaming files, moving imports, clearing caches, but nothing seems to work. I suspect the native entry point isn\u2019t wired up correctly. Below is a minimal reproduction of my setup. package.json { \"main\": \"index.js\", \"scripts\": { \"start\": \"expo start --dev-client\", \u2026",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79602687,
+   "question_returned": true,
+   "tags": [
+    "javascript",
+    "firebase",
+    "react-native"
+   ],
+   "title": "React Native Expo + Firebase Auth: \u201cComponent auth has not been registered yet\u201d on app launch",
+   "view_count": 13727
+  },
+  {
+   "answer_count": 8,
+   "answers_fetched": 8,
+   "body": "I have an kivy app and i compile it via Buildozer. My settings are: # (int) Target Android API, should be as high as possible. android.api = 34 # (int) Minimum API your APK / AAB will support. android.minapi = 21 # (int) Android SDK version to use android.sdk = 34 # (str) Android NDK version to use android.ndk = 25b Should i change only android.api = 34 to android.api = 35 or Should i change both android.api = 34 and android.sdk = 34 to android.api = 35 and android.sdk = 35 Thanks for your repli",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79686551,
+   "question_returned": true,
+   "tags": [
+    "android",
+    "kivy",
+    "buildozer"
+   ],
+   "title": "App must target Android 15 (API level 35) or higher",
+   "view_count": 32140
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I've been developing a 2D N-body gravity simulation in C++, and I've run into an interesting performance issue. Instead of a stable frame rate, the application's update time systematically pulsates between a \"fast state\" and a \"slow state.\" The simulation calculates gravitational forces for 5,184 bodies. The issue occurs with std::execution::par_unseq and, surprisingly, also with std::execution::seq . The Performance Problem The core issue is a cyclical slowdown. The App::Update function, which ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79781845,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "performance",
+    "parallel-processing"
+   ],
+   "title": "Why does my C++ N-body simulation have a pulsating performance slowdown?",
+   "view_count": 669
+  },
+  {
+   "answer_count": 3,
+   "answers_fetched": 3,
+   "body": "Assumption is that we have a dictionary containing exactly one key/value pair. Objective is to extract the only key. I can think of four ways to do this (there may be more). import timeit def func1(d): \"\"\" Convert to a list and return the first element \"\"\" return list(d)[0] def func2(d): \"\"\" Unpack \"\"\" rv, *_ = d return rv def func3(d): \"\"\" Classic efficient approach \"\"\" return next(iter(d)) def func4(d): \"\"\" Appears to be faster than the classic approach \"\"\" for key in d: return key if __name__",
+   "gold_from": "top_voted",
+   "gold_from_r": "top_voted",
+   "gold_number": 754,
+   "gold_repo": "more-itertools/more-itertools",
+   "gold_repo_r": "more-itertools/more-itertools",
+   "qid": 79716280,
+   "question_returned": true,
+   "tags": [
+    "python",
+    "performance",
+    "dictionary",
+    "optimization",
+    "micro-optimization"
+   ],
+   "title": "Efficient extraction of first/only key in a dictionary",
+   "view_count": 1161
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "Why does this code work ? int main() { auto exec = []( auto const &fn ) { fn(); }; exec( []() mutable {} ); } I think fn shouldn't be callable because it needs a non-const reference as its call operator is mutable .",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79592958,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "c++11",
+    "lambda"
+   ],
+   "title": "Why can I call a callable that is const-referenced and where the actual callable is a mutable lambda?",
+   "view_count": 438
+  },
+  {
+   "answer_count": 4,
+   "answers_fetched": 4,
+   "body": "I am getting multiple varFuncNullUB warnings from my static analyzer when calling a variadic function. The warning points to the NULL argument used as a sentinel. Example: static inline int EXAMPLE(char *LineStr, int NoOfWords, ...) { /* ... */ } ... EXAMPLE(line, 0, \"typedef\", \"unsigned\", \"int\", NULL); The analyzer reports: warning: Passing NULL after the last typed argument to a variadic function leads to undefined behaviour. [varFuncNullUB] I found suggestions online to cast NULL to const cha",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79990062,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "variadic",
+    "cppcheck"
+   ],
+   "title": "Why does passing NULL to a variadic function trigger a static analyzer warning about undefined behavior?",
+   "view_count": 1314
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I have a field with Geographic Role set to ZIP Code (right-click field \u2192 Geographic Role \u2192 Zip Code/Postcode). This works fine for building a map such as dragging the ZIP field onto a worksheet correctly auto-populates Latitude (generated) and Longitude (generated) onto the Rows/Columns shelves, and the map renders correctly. The problem: I need to use those same generated coordinates inside a calculated field \u2014 specifically to compute distance between two points using MAKEPOINT() / DISTANCE() .",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009343,
+   "question_returned": true,
+   "tags": [
+    "amazon-athena",
+    "tableau-desktop",
+    "zipcode"
+   ],
+   "title": "Tableau: Latitude/ Longitude fields from Geographic Role cannot be referenced in a calculated field (MAKEPOINT, DISTANCE, etc.))",
+   "view_count": 63
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 3,
+   "body": "I want to hide the internals of a struct but also allow static allocation. Usually an API that provides an opaque pointer requires dynamic allocation ( malloc and friends). However, for embedded systems, dynamic allocation is ideally avoided. I can expose another type with the same size and alignment to be used as a backing buffer - is this well-defined? Otherwise, is there a common solution or best practice for this sort of thing? // foo.h #include <stdalign.h> #include <stdint.h> #define FOO_S",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009583,
+   "question_returned": true,
+   "tags": [
+    "best-practices",
+    "c",
+    "interface",
+    "information-hiding"
+   ],
+   "title": "Opaque type with static allocation in C; is this well defined?",
+   "view_count": 14
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I'm experiencing a reproducible StoreKit pricing inconsistency in a Flutter iOS application using a non-consumable In-App Purchase. App Store Connect configuration: Product type: Non-consumable Bulgarian storefront price: EUR 6.99 US storefront price: USD 5.99 Test device: Same physical iPhone with Bulgarian storefront TestFlight build: 22 Observed behavior: Installation methodDisplayed priceStandalone development-signed StoreKit 2 probeEUR 6.99 (correct)Full Flutter app, release mode, developme",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009507,
+   "question_returned": true,
+   "tags": [
+    "flutter",
+    "in-app-purchase",
+    "testflight",
+    "storekit"
+   ],
+   "title": "Why does StoreKit return USD pricing in TestFlight but EUR in development builds on the same iPhone?",
+   "view_count": 37
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I'm experiencing an issue in Visual Studio 2026 (Version 18.10.1) where GitHub Copilot occasionally opens multiple Markdown (.md) files in Preview tabs without any interaction from me. These appear to be planning documents from previous Copilot sessions. The tabs open automatically while I'm working, sometimes filling the editor with multiple tabs and interrupting my workflow. I've looked through Tools \u2192 Options for a setting that would prevent Copilot from automatically opening these files, but",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009419,
+   "question_returned": true,
+   "tags": [
+    "visual-studio",
+    "github-copilot",
+    "visual-studio-2026"
+   ],
+   "title": "Visual Studio 2026 Copilot automatically opens multiple Markdown preview tabs",
+   "view_count": 110
+  },
+  {
+   "answer_count": 3,
+   "answers_fetched": 3,
+   "body": "Often, I'd like to chain preprocessor conditionals involving __has_include (defined in C++17 and C23, and supported in earlier versions as an extension by many compilers (GCC 4.9.2 and up, and Clang from at least 3.0.0)). A simple example looks something like this: #if defined(__has_include) && __has_include(\"header.h\") #include \"header.h\" #else #include \"backup-header.h\" #endif The problem is that this fails to compile for compilers/standards that don't support __has_include . The defined(__has",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79850519,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "c",
+    "language-lawyer",
+    "c-preprocessor"
+   ],
+   "title": "Workarounds for using __has_include when it may or may not be defined - Is it valid to pass __has_include as a macro argument?",
+   "view_count": 753
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "I am starting to learn Rust. In a lot of examples I have come across so far, I have noticed that functions are often implemented to return variables by value even if they are of a complex data type like a struct. This seems to be especially true for the idiomatic constructor functions new like in this example from Listing 12-7 of the Rust book ( new returns a complex data type Config ): fn main() { let args: Vec<String> = env::args().collect(); let config = Config::new(&args); // --snip-- } // -",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79747651,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "rust",
+    "return-value",
+    "idioms"
+   ],
+   "title": "Why is \"return by value\" idiomatic in Rust (as opposed to out parameters)?",
+   "view_count": 4428
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "use feature 'fc'; use utf8; use open ':std', ':encoding(UTF-8)'; my $char = \"\u0130\"; my $folded = fc($char); print \"fc(\u0130): $folded\\n\"; print \"Hex values: \", join(\" \", map { sprintf \"%02X\", ord($_) } split //, $folded), \"\\n\"; The above code is generated by chatGPT, and chatGPT said the output should be: fc(\u0130): i Hex values: 69 but on my laptops (macOS, Perl v5.40.2) and (Ubuntu, Perl v5.38.2) both output: fc(\u0130): i\u0307 Hex values: 69 307 I'm just three days into learning Perl and I'm curious whether any ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79639673,
+   "question_returned": true,
+   "tags": [
+    "string",
+    "perl",
+    "unicode",
+    "case-folding"
+   ],
+   "title": "Why is the output of case folding different from the expected?",
+   "view_count": 318
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "We very recently set up Google ads for our react app. Our React app is a 7-8 year old app originally built with create-react-app. Now, in Sentry we are getting these two errors, both with steady volume over the last week since launching Google ads: Here is our apps index.html showing the Google tag (with a fake AW-number): <!-- For Google Ads to be run on Search (not on the website) --> <!-- Google tag (gtag.js) --> <script async src=\"https://www.googletagmanager.com/gtag/js?id=AW-123456789\"> </",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79434372,
+   "question_returned": true,
+   "tags": [
+    "reactjs",
+    "error-handling",
+    "google-ads-api",
+    "sentry"
+   ],
+   "title": "Sentry errors \"Can't find variable: gmo\", \"invalid or unexpected token\" due to Google ads snippet in index.html of our react app",
+   "view_count": 5922
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I have compared the description of POSIX mkdir against the description of std::filesystem::create_directory , the specification draft for std::filesystem::create_directory , and the specification draft for std::filesystem::create_directories in face of what is described in 2612: Setting loose POSIX file permissions is security-sensitive of SonarQube: In Unix file system permissions, the \"others\" category refers to all users except the owner of the file system resource and the members of the grou",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79708412,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "sonarqube",
+    "std-filesystem",
+    "create-directory"
+   ],
+   "title": "Is there a safe way to create directories with std::filesystem?",
+   "view_count": 853
+  },
+  {
+   "answer_count": 5,
+   "answers_fetched": 5,
+   "body": "I\u2019m working on understanding pointers in C by breaking down the language into three key areas: syntax , semantics , and idioms . To grasp pointers, I\u2019ve been focusing on fundamental concepts: what\u2019s an expression , what\u2019s a value , what\u2019s evaluation , and what\u2019s assignment . Here\u2019s my current understanding, followed by a specific question about the LHS in assignments. Background: An expression is something that needs to be evaluated, like 10 + (15 - 2 * 5), which step-by-step becomes 15. A value",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79537353,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "pointers",
+    "variable-assignment",
+    "semantics",
+    "lvalue"
+   ],
+   "title": "How Does the Left-Hand Side (LHS) of an Assignment Evaluate in C?",
+   "view_count": 2101
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I'd love a quick review of my RAG retrieval settings and some advice on the vector store. Current stack Backend: FastAPI (Python) with Docker workers for ingestion Vector DB: ChromaDB (one collection per project) Keyword search: PostgreSQL full-text search ( tsvector , ts_rank_cd ) Cache: Redis Embeddings: Mistral, OpenAI, Jina (via Ollama) LLMs: OpenAI, Mistral, Gemini Reranker: BAAI/bge-reranker-base Chunking: LlamaIndex SentenceSplitter Indexing Chunks of 1,000\u20131,500 characters with 200 overl",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009465,
+   "question_returned": true,
+   "tags": [
+    "best-practices",
+    "rag",
+    "self-hosted"
+   ],
+   "title": "Sanity check on my hybrid RAG settings, and pgvector vs OpenSearch/Elasticsearch?",
+   "view_count": 80
+  },
+  {
+   "answer_count": 4,
+   "answers_fetched": 4,
+   "body": "I am facing an error with the license specification when trying to build and upload a python package. I have the last version of wheel, setuptools, twine, and build. building fails if I specify the license according to the python packaging tutorial: https://packaging.python.org/en/latest/tutorials/packaging-projects/ if I do not specify the license then twine upload fails with the error: ERROR InvalidDistribution: Invalid distribution metadata: unrecognized or malformed field 'license-file' the ",
+   "gold_from": "top_voted",
+   "gold_from_r": "top_voted",
+   "gold_number": 15611,
+   "gold_repo": "pypi/warehouse",
+   "gold_repo_r": "pypi/warehouse",
+   "qid": 79408101,
+   "question_returned": true,
+   "tags": [
+    "python",
+    "setuptools",
+    "pyproject.toml"
+   ],
+   "title": "What is the correct way of specifying the license in pyproject.toml file for a new package?",
+   "view_count": 9794
+  },
+  {
+   "answer_count": 5,
+   "answers_fetched": 5,
+   "body": "I just created a Next.js project using npx create-next-app . Today, I opened my Next.js projects in VS Code and all of the .css imports suddenly start showing this error: Cannot find module or type declarations for side-effect import of './globals.css' ts(2882) This happens even on newly created Next.js projects. I did not update any code or dependencies manually before this issue started. I also tried downgrading TypeScript, but the error persists. Why is this error suddenly happening, and how ",
+   "gold_from": null,
+   "gold_from_r": "top_voted",
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": "vercel/next.js",
+   "qid": 79775796,
+   "question_returned": true,
+   "tags": [
+    "typescript",
+    "next.js",
+    "tailwind-css"
+   ],
+   "title": "Next.js: \"Cannot find module or type declarations for side-effect import of './globals.css'\" ts(2882)",
+   "view_count": 27313
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "I have an idea to secure my application data (a .json file), but I'm not sure if it's the best approach or how to implement it in C++. My goal is to create a file that only my program can access, protecting it from being opened, modified, or deleted by users or other apps at all time, even when my program is not running. To handle synchronization, my current theory is: instead of constantly downloading the file from the server (which causes bad performance), the app could just check the file's i",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009157,
+   "question_returned": true,
+   "tags": [
+    "advice",
+    "c++",
+    "exclusive-lock"
+   ],
+   "title": "Check whenever a file gets changed",
+   "view_count": 171
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "Following How to define copy assignment operator to not be ill-formed across different CRTP children? , I have wondered what makes T& x() and T x() const (member functions) different from T &x (data members). Because when I used data members for tha aliases, it yielded this: <source>:50:7: error: object of type 'Vector<float, 3>' cannot be assigned because its copy assignment operator is implicitly deleted 50 | foo = bar; // foo should be { 4.0f, 5.0f, 6.0f } | ^ <source>:41:6: note: copy assign",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009518,
+   "question_returned": false,
+   "tags": [
+    "c++",
+    "operator-overloading"
+   ],
+   "title": "What's the difference between data member and member function references?",
+   "view_count": 88
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "All I can find from Microsoft is two blog posts: \"Introducing support for SLNX, a new, simpler solution file format in the .NET CLI\" dated March 13th, 2025, says that it is a preview feature. \"New, Simpler Solution File Format\" also dated March 13th, 2025 says that it is fully supported and contains no mention of preview. These blog posts explain: how to enable it how to convert your old solution files to it how cool it is etc. ...but being mere blog posts, they do not constitute documentation .",
+   "gold_from": null,
+   "gold_from_r": "top_voted",
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": "microsoft/vs-solutionpersistence",
+   "qid": 79606837,
+   "question_returned": true,
+   "tags": [
+    "c#",
+    ".net",
+    ".net-core",
+    "msbuild",
+    "solution"
+   ],
+   "title": "Where is the documentation for the '.slnx' solution format?",
+   "view_count": 5728
+  },
+  {
+   "answer_count": 4,
+   "answers_fetched": 4,
+   "body": "I made a small C program that should print an emoji: #include <stdio.h> #include <windows.h> int main(void) { SetConsoleOutputCP(CP_UTF8); printf(\"\\U0001F625\\n\"); // \ud83d\ude25 return 0; } And it worked fine. But I wanted to try wprintf and wrote this program: #include <stdio.h> int main(void) { wprintf(L\"\\U0001F625\\n\"); // \ud83d\ude25 return 0; } But it didn't work. Why did it not work?",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79802282,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "windows",
+    "unicode",
+    "character-encoding",
+    "emoji"
+   ],
+   "title": "Why doesn't printing a Unicode character with wprintf work?",
+   "view_count": 2069
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I have a little mickey mouse on-line diary that I keep up to date - been doing it for years. It is built in PHP and MySQL and hosted on Hostinger. It has a table at the top, with the day numbers on buttons which are formatted as to whether I have made a diary entry, marked it as complete, whether it is blank, or whether it is today. A few months ago, it would only show the grid up to day 20. I hadn't changed any of the code behind it for a couple of years at least. example image: enter image des",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009278,
+   "question_returned": true,
+   "tags": [
+    "php",
+    "mysql"
+   ],
+   "title": "PHP-generated website not fully displaying - used to work fine. Nothing changed",
+   "view_count": 135
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "When conditional branching logic grows large in Python, the go-to advice has always been to map keys to functions or values using a dictionary lookup mapping.get(key) to achieve O(1) time complexity, rather than using very long, O(n) sequence of if - elif statements. However, with structural pattern matching ( match - case ) in Python 3.10+, the syntax looks pretty clean for these types of large branch choices: match status_code: case 200: return \"OK\" case 404: return \"Not Found\" case 500: retur",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79999095,
+   "question_returned": true,
+   "tags": [
+    "python",
+    "performance",
+    "optimization",
+    "python-3.10",
+    "structural-pattern-matching"
+   ],
+   "title": "Python match-case vs. dictionary performance internals",
+   "view_count": 908
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "Consider struct A; namespace ns { int f(A&&); } struct A { friend int ns::f(A&&); }; int x = f(A{}); GCC trunk translates the last line into a call to ns::f(A&&) in C++20 and later. Clang, MSVC, EDG, GCC 15.2 (regardless of the language standard), GCC trunk in C++17 all reject the call, claiming that they can't find the declaration of f . demo: https://godbolt.org/z/59Pdzcc9G Which compiler is correct?",
+   "gold_from": "top_voted",
+   "gold_from_r": "top_voted",
+   "gold_number": 5302,
+   "gold_repo": "cplusplus/draft",
+   "gold_repo_r": "cplusplus/draft",
+   "qid": 79846974,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "namespaces",
+    "language-lawyer",
+    "c++20",
+    "argument-dependent-lookup"
+   ],
+   "title": "Should a friend function in a namespace different from the class be found by argument-dependent lookup?",
+   "view_count": 771
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "Explanations of Mixins in a C++ context, but many of them seem to describe use cases that are essentially Policy-Oriented Design. This has led to some confusion on my part. From what I understand, Policy-Oriented Design often uses static polymorphism (e.g., CRTP) to create flexible and reusable components by composing policies at compile time. This seems very similar to the way Mixins are described \u2014 reusable class templates meant to be composed together to build up functionality. Are Mixins in ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79582964,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "design-patterns",
+    "mixins",
+    "c++-concepts"
+   ],
+   "title": "Are Mixins in C++ simply Policy-Oriented Design, or is there more to them?",
+   "view_count": 131
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I am using Oracle APEX 26.1 and have a human task \"Equipment Change Review\". The Unified Task List and and Task Details Page were generated by APEX. In the the latter one, I included a form to immediately complete the task (assuming its claimed by the user). This part also works without a flaw. However, if the user instead wants to release the task again using the Actions menu (that was generated by APEX!), the task indeed gets released but I get redirected to an error page that says that the ta",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009480,
+   "question_returned": true,
+   "tags": [
+    "oracle-apex"
+   ],
+   "title": "Oracle APEX Human Task: Release Action redirects to error page",
+   "view_count": 27
+  },
+  {
+   "answer_count": 4,
+   "answers_fetched": 4,
+   "body": "I'm running into some behavior of std::float16_t (and std::bfloat16_t ) that I don't understand. My understanding and expectation is that: the next std::float16_t after 1024 is 1025 . 1024+1025=2049 isn't representable as std::float16_t , so it gets rounded-to-even to 2048 . therefore, (std::float16_t(1024) + std::float16_t(1025)) evaluates to std::float16_t(2048) . if I then convert that result to float or double , I should get 2048.0f or 2048.0 , respectively. So I expect that: (float)(std::fl",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79996927,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "floating-point",
+    "precision",
+    "floating-point-conversion",
+    "bfloat16"
+   ],
+   "title": "Should (double)(std::float16_t(1024) + std::float16_t(1025)) be 2048.0 or 2049.0?",
+   "view_count": 1145
+  },
+  {
+   "answer_count": 4,
+   "answers_fetched": 4,
+   "body": "In my first Tailwind project, the padding and margin utilities worked fine. However, in subsequent projects, these utilities stopped working as expected, and I had to use regular CSS instead. I'm not sure why they're not applying anymore in these newer projects. * { box-sizing: border-box; margin: 0; padding: 0; } .btn-nav { padding-block: 8px; padding-inline: 24px; } /*****/ nav.container { padding: 24px; margin-inline: auto; } .navbar a { /* margin-right: 24px; */ margin-inline-end: 24px; } .n",
+   "gold_from": null,
+   "gold_from_r": "top_voted",
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": "tailwindlabs/tailwindcss",
+   "qid": 79442978,
+   "question_returned": true,
+   "tags": [
+    "tailwind-css",
+    "tailwind-ui",
+    "tailwind-css-4",
+    "tailwind-elements"
+   ],
+   "title": "Issues with padding, margin, and space utilities not working",
+   "view_count": 10736
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I'm trying to set up a low-latency TCP communication channel, but while profiling, I noticed an odd behavior, which I was able to reduce to the following setup: The simplified structure of the client program is: write() wait_for_n_usecs(n) read() and for the server it is: read() wait_for_n_usecs(n) write() However, I noticed that as you increase n , both the time attributed to write() and the time attributed to read() also increase (though the rate of increase for write is lower than for read). ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009296,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "tcp"
+   ],
+   "title": "Why does recv() and write() get slower the more work is done between subsequent calls?",
+   "view_count": 204
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 0,
+   "body": "We are implementing a custom password recovery flow using Firebase Authentication with Identity Platform. Our security requirement is that password recovery must only be completed from a previously registered and approved browser. We have implemented a custom recovery mechanism using short-lived, single-use recovery tickets and server-side verification of the approved browser credential. However, we discovered that previously issued Firebase PASSWORD_RESET OOB codes may bypass this custom recove",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009340,
+   "question_returned": false,
+   "tags": [
+    "firebase",
+    "firebase-authentication"
+   ],
+   "title": "How can I invalidate existing Firebase Auth password reset OOB codes?",
+   "view_count": 47
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I'm developing small application for analyzing market information. It needs to refresh information from a web server. Information is received as JSON responses for REST requests. I decided to do it with Boost library: Asio, JSON and Beast. With all of this for now I have one strange issue: async_read unpredictable stalls, while other functions never do so. I'm using std::future overload of async_XXX functions. Here is my code: #include <cstdlib> #include <iostream> #include <string> #include <la",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009121,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "boost",
+    "boost-beast"
+   ],
+   "title": "Boost Beast async_read occasional stalls",
+   "view_count": 106
+  },
+  {
+   "answer_count": 3,
+   "answers_fetched": 3,
+   "body": "Consider the following code: char *str = \"1234\"; long n = strtol(str, &str, 10); The prototype of strtol() in C99 is: long strtol(const char *restrict nptr, char **restrict endptr, int base); My question is: does this call violate the restrict contract and produce undefined behaviour? I am aware that a similar question has been asked before ( Aliased arguments in strtol ), but the accepted answer does not clarify my doubts because it lacks of any explanations. My analysis so far: As I understand",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79929448,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "language-lawyer",
+    "undefined-behavior",
+    "c99",
+    "restrict-qualifier"
+   ],
+   "title": "Is strtol(str, &str, 10) legal in C99 due to restrict aliasing?",
+   "view_count": 1200
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I have two threads communicating through a shared memory-mapped register ( flag ). Thread 1 runs on a weakly ordered CPU (RISC-V) in an embedded PCIe processor, and Thread 2 runs on the host, which is a x86-64 CPU. The goal is for thread_2() to return only after thread_1() has started (and vice-versa). Here\u2019s a simplified example: // Thread 1: RISC-V void thread_1(volatile int* flag) { *flag = 1; while(*flag != 2) { membar_read(); // (1) } } // Thread 2: x86 void thread_2(volatile int* flag) { w",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79893839,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "x86",
+    "volatile",
+    "memory-barriers",
+    "pci-e"
+   ],
+   "title": "Two threads communicating across weak and strong memory models (non-cache-coherent PCIe), why a read barrier is needed?",
+   "view_count": 257
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I am learning Python and working with lists. I have a list containing several numbers, and I would like to find out how many elements are present in the list. Example: numbers = [10, 20, 30, 40, 50] I am looking for the correct way to count the number of elements in this list. Expected result: 5 I checked the Python documentation, but I am unsure which method is recommended for counting the number of items in a list. What is the correct and most Pythonic way to get the number of elements in a li",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009451,
+   "question_returned": false,
+   "tags": [
+    "python"
+   ],
+   "title": "How do I count the number of elements in a Python list?",
+   "view_count": 56
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I am aware that there are three I/O manipulators (namely std::hex , std::oct , and std::dec ) provided by the standard C++. But I've always wondered why there is no std::bin manipulator in the standard library. Note that I am not looking for workarounds, but instead want to know the historical reason(s) why no std::bin was added to the language. I am also aware of std::bitset , etc, but I want to know the reasons why it was not added to the standard, which may be documented somewhere in the old ",
+   "gold_from": null,
+   "gold_from_r": "top_voted",
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": "fmtlib/fmt",
+   "qid": 80002935,
+   "question_returned": true,
+   "tags": [
+    "advice",
+    "c++",
+    "binary",
+    "iostream",
+    "language-design"
+   ],
+   "title": "Why is there no std::bin stream manipulator in C++?",
+   "view_count": 1427
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I recently encountered an interesting C++ code example that compiles with Clang (-std=c++20) but fails with GCC and MSVC. The code involves operator overloading and friend function declarations. Code Example: #include <iostream> template<typename T> class Foo; template<typename T> Foo<T> operator+(int, const Foo<T>&); template<typename T> class Foo { public: Foo(const T& val) : data(val) {} Foo operator+(int); friend Foo<T> operator+<>(int, const Foo<T>&); private: T data; }; template<typename T",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79607696,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "g++",
+    "language-lawyer",
+    "clang++"
+   ],
+   "title": "Why does this C++ operator overloading code work in Clang but not GCC/MSVC with C++20?",
+   "view_count": 265
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "struct foo { const int bar; }; struct foo { const int *bar; } Do the 2 const qualifiers have any role?",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79865748,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "struct",
+    "constants"
+   ],
+   "title": "Does a const qualifier inside a struct member declaration do anything?",
+   "view_count": 2316
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "By including the following <intent> element within the <queries> tag in the AndroidManifest.xml file, I can access a list of all installed apps on a device: <queries> <intent> <action android:name=\"android.intent.action.MAIN\" /> </intent> </queries> Since most Android apps have a launcher activity, doing the following returns all the apps installed in an android device: getPackageManager().queryIntentActivities(new Intent(Intent.ACTION_MAIN), PackageManager.MATCH_ALL) Isn't this a potential priv",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79527331,
+   "question_returned": true,
+   "tags": [
+    "android",
+    "android-manifest",
+    "privacy"
+   ],
+   "title": "\"android.intent.action.MAIN\" intent in queries element in AndroidManifest.xml",
+   "view_count": 2604
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "Consider the following HTML snippet: foo <input type=\"text\" value=\"bar\"> <select> <option>baz</option> </select> qux You see \"foo bar baz qux\" rendered. But, in Firefox at least, if you select the whole thing and copy and paste it into another program, the text in the controls gets skipped, so all that pastes is \"foo qux\". How can I make the entire string \"foo bar baz qux\" paste instead, short of using JavaScript to construct the entire clipboard contents from scratch?",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79927761,
+   "question_returned": true,
+   "tags": [
+    "html",
+    "firefox",
+    "copy-paste"
+   ],
+   "title": "Make text in form controls copy along with regular text in browsers",
+   "view_count": 679
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I noticed that modern C compilers typically use push instructions to save caller-saved registers, rather than explicit mov + sub sequences. However, based on llvm-mca simulations, the mov approach appears more efficient in some cases. Why is this? On Skylake , push shows a clear dependency chain in llvm-mca . I also tested this on AMD\u2019s Zen 5 (znver5), where push performance approaches mov but remains slower, with the same dependency chain behavior. I analyzed two ways to save caller-saved regis",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79718097,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "assembly",
+    "x86-64",
+    "compiler-optimization",
+    "micro-optimization"
+   ],
+   "title": "Why do C compilers still prefer PUSH over MOV for saving registers, even when MOV appears faster in llvm-mca?",
+   "view_count": 4169
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I'm working on a Python script to analyze the internal link structure of a website. I want to extract all internal URLs from HTML pages and record their anchor text and destination URLs. I'm considering using BeautifulSoup to parse the HTML, but I'm unsure how to handle relative URLs, remove URL fragments, and avoid counting duplicate links. What would be a reliable approach to extracting and normalizing internal links across multiple pages?",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009401,
+   "question_returned": false,
+   "tags": [
+    "python"
+   ],
+   "title": "How can I extract internal links and anchor text from HTML pages using Python?",
+   "view_count": 113
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I'm trying to figure out why the service control manager can't launch Powershell. When I try this with cmd.exe, it works. Of course it throws error 1053 when the process terminates after 10 seconds but that's normal because it's not a real service program. You can still see that cmd.exe launched and worked as expected. sc create \"TestService\" binPath= \"cmd /C timeout /t 10\" However when I try to do the equivalent Powershell, it does not work. powershell.exe starts and immediately terminates, and",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009496,
+   "question_returned": true,
+   "tags": [
+    "windows",
+    "powershell",
+    "service",
+    "service-control-manager"
+   ],
+   "title": "Launch powershell.exe as a service",
+   "view_count": 66
+  },
+  {
+   "answer_count": 4,
+   "answers_fetched": 4,
+   "body": "Im trying to deploy a react app on render. It works on my localhost but when deployed on render the auth function doesn't work. It shows this error ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72]) however my print logs show that the password is only 13 bytes. Ive tried using crypt context and made sure the bcrypt backend is the same in local and deployment. Im stuck. Please. Help.",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79776559,
+   "question_returned": true,
+   "tags": [
+    "reactjs",
+    "deployment",
+    "bcrypt",
+    "render.com"
+   ],
+   "title": "passlib bcrypt not working when deployed to render. \"ValueError: password cannot be longer than 72 bytes\"",
+   "view_count": 15452
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 2,
+   "body": "I'm building a browser-based FPS game and I want to include gamepad/xbox controller support. The common method to detect gamepad button presses is to just use polling with requestAnimationFrame : function poll() { let gamepads = navigator.getGamepads(); if (gamepads.length > 0) { let gamepad = gamepads[0]; if (gamepad.buttons[0].pressed) { console.log(\"Button 'A' pressed!\"); } } requestAnimationFrame(poll); } poll(); The problem with this method is that, if there is a large drop in framerate (su",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009122,
+   "question_returned": true,
+   "tags": [
+    "javascript",
+    "gamepad"
+   ],
+   "title": "How do I accurately detect gamepad button presses in JavaScript?",
+   "view_count": 117
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I'm using templated conversion operator s to imitate return type deduction. This normally works fine, except for when the target type is std::optional : run on godbolt #include <iostream> #include <source_location> struct A { template <typename T> operator T() const { std::cout << std::source_location::current().function_name() << '\\n'; return 42; } }; int main() { int x = A{}; // `operator int`, ok std::optional<int> y = A{}; // `operator int`, but I want `operator std::optional<int>` } How can",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79743460,
+   "question_returned": true,
+   "tags": [
+    "c++"
+   ],
+   "title": "How do I make a templated conversion operator to `std::optional<T>`?",
+   "view_count": 467
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "Company A hired me to build their company profile website plus a login page. They\u2019re partnered with Company B, and the idea is that users log in on Company A\u2019s site and then get into Company B\u2019s dashboard. I\u2019ve done auth before and used NextAuth.js on past projects. I\u2019m planning on Clerk for this one. But I\u2019ve never built this kind of cross-company integration and I\u2019m not sure where to start. I was originally hired for frontend work so this wasn\u2019t in the original scope. Due to some circumstances",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009535,
+   "question_returned": true,
+   "tags": [
+    "advice",
+    "authentication",
+    "jwt",
+    "single-sign-on",
+    "federated-identity"
+   ],
+   "title": "Need advice on integrating authentication with a third-party dashboard",
+   "view_count": 72
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "With macOS integrating Liquid Glass, I'm now required to give Xcode an Icon Composer's .icon file. But what if I want to add a \"classic\" version of the icon ( .icns ) for earlier versions of macOS, Sequoia and older = to have two variations of the icon, one suitable for Liquid Glass, the other not? Should I add the \"classic\" version in the AppIcon asset like before macOS 26?",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79696822,
+   "question_returned": true,
+   "tags": [
+    "xcode",
+    "macos",
+    "icons"
+   ],
+   "title": "How to provide both Liquid Glass for macOS 26 and classic macOS app icons for older macOS versions?",
+   "view_count": 567
+  },
+  {
+   "answer_count": 4,
+   "answers_fetched": 4,
+   "body": "Having this regex pattern (in c#): ^\\d{2}/\\d{2}/\\d{2} \\d{2}:\\d{2}:\\d{2}$ this string will match: 11/10/25 17:22:31 but this one will not (it just has an added \"X\") X11/10/25 17:22:31 neither will this one: 11/10/25 X17:22:31 Is there any way to find out, when a string does not match the pattern, what parts of the strings are the ones making it not match? (ie. find the characters that, if removed, would make the regex match) So in this case, how to find the \"X\"? Why I want this: I am reading a bu",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79788851,
+   "question_returned": true,
+   "tags": [
+    "c#",
+    "regex"
+   ],
+   "title": "How to find what characters in a string are making it to not match a regex pattern?",
+   "view_count": 274
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "While writing a library that will be shared between programs compiled under GCC 14.2.0 for X86 and ARM 6.22 for Cortex-M, I came upon a discrepancy between how the two compilers handle the recursive lambda capture when using the new 'this auto &&' deduced 'this' feature. Here is the code: /* Compiled with --std=c++23 option */ struct Foo { int s = 1 ; void zook (void) { auto f_ok = [ & s = s ] (this auto && f , int x) -> void // ok { if (x < 10) f (x + s) ; } ; auto f_bad = [ & ] (this auto && f",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79340949,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "recursion",
+    "lambda",
+    "capture",
+    "c++23"
+   ],
+   "title": "Need clarification on how to capture by reference in C++ recursive lambda",
+   "view_count": 364
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "In Eclipse Java Editor when I activate Code completion (either with Ctrl-Space or auto activation on hover) the proposals pop up but nearly immediately another yellow popup shows up with javadoc. It hides the code completions making it nearly useless. I even asked chatGpt and I changed any content Assist setting I found, but the only \"success\" was to disable Content Assist but with Ctrl-Space the yellow Window kept appearing. I can't beleave there is no way to disable this, move the yellow windo",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79673093,
+   "question_returned": true,
+   "tags": [
+    "eclipse",
+    "editor",
+    "javadoc"
+   ],
+   "title": "In eclipse code completion is immediately hidden by yellow javadoc popup",
+   "view_count": 334
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I am working on a ultra low latency ring buffer in C++20 on an Intel Ice Lake (x86_64) architecture. I am trying to optimize the producer thread's throughput by minimizing cache pollution when writing large blocks of telemetry data, before signaling the consumer thread via a std::atomic<uint64_64> sequence counter. Normally, the release-store sequence looks like this: // thread 1 (Producer) std::memcpy(shared_buffer, local_data, 64); // Write 64 bytes ring_buffer_tail.store(new_tail, std::memory",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009171,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "x86-64",
+    "c++20",
+    "memory-barriers"
+   ],
+   "title": "Shifting an atomic store to a non-temporal vector instruction bypass the CPU's Store Buffer forwarding, causing a relaxed load to stall",
+   "view_count": 228
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "Why do I get this error when I created an array of char* s? \u2018void drawNameInput()\u2019: FunctionDefinitions.cpp:1344:55: error: cannot convert \u2018<unnamed enum>\u2019 to \u2018char*\u2019 It says on Google AI that I should have an array of char pointers named the same names, I did that and I still get an error. Please advise. FunctionDefinitions.h #ifndef FUNCTIONDECLARATIONS_H #define FUNCTIONDECLARATIONS_H #include \"Laser.h\" #include \"Explosion.h\" #include \"Debris.h\" #include <SDL2/SDL_mixer.h> // Constants and de",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009024,
+   "question_returned": false,
+   "tags": [
+    "c++"
+   ],
+   "title": "Why do I get this error: \"cannot convert \u2018<unnamed enum>\u2019 to \u2018char*\u2019\"?",
+   "view_count": 190
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I am working on an AI camera project to detect cheating using a pre-trained YOLO model, and I used the data from Git repository for my topic, but it still doesn't cover all cheating scenarios. Do you know of any sources to find pre-labeled datasets on exam cheating?",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009501,
+   "question_returned": false,
+   "tags": [
+    "python",
+    "python-3.x",
+    "yolo"
+   ],
+   "title": "Where can I find pre-labeled datasets for AI camera detection of exam cheating?",
+   "view_count": 75
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "Here's the test code: #include <concepts> template<typename T> concept Printable = requires(T obj) { { obj.print() } -> std::same_as<void>; }; template<Printable T> void func(const T& obj) { obj.print(); } class Foo { private: void print() const { /* std::cout << \"Foo\" << std::endl; */ } public: void bar() { static_assert(Printable<Foo>); func(*this); } }; print() is a private member of Foo , so Foo shouldn't satisfy the concept Printable . But within bar() , print() is accessible, and it seems ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79663318,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "gcc",
+    "c++20",
+    "c++-concepts",
+    "static-assert"
+   ],
+   "title": "Is this concept satisfaction a bug in GCC or did I invoke undefined behavior?",
+   "view_count": 599
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I am using hover on my Cargo Site to play sfx when hovering over links/buttons/etc.. But it only works once the user has mouse clicked anywhere on the site. Is the script thinking that document loading isn't complete until click has happened? I've tried it in multiple browsers and same results. Any ideas for how to get it running automatically? hover code bits: $(document).ready(function() { $(\"a.socials-button\").hover(function() { $('audio#bubble-pop')[0].play(); }); }); $(document).ready(funct",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009004,
+   "question_returned": true,
+   "tags": [
+    "html",
+    "jquery",
+    "audio",
+    "cargo"
+   ],
+   "title": "jquery .hover function only works on click",
+   "view_count": 51
+  },
+  {
+   "answer_count": 4,
+   "answers_fetched": 4,
+   "body": "I have a following embedded system optimization case (simplified). int main() { while (1) { // Do something if (unrecoverable_error) { __breakpoint(); while(1); } } } If the while (1); statement is replaced by return 0 , the compiler invokes all the destructors due upon exit from main, (and for that matter generates the destructor code bloat) - both for main-local and global, even if the crt0 ultimately traps the CPU in a while(1); loop after all. Thus, there is an advantage to judiciously use w",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79598477,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "c",
+    "static-analysis"
+   ],
+   "title": "Annotating intentional infinite loop to satisfy \"-fanalyzer\"",
+   "view_count": 1027
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I'm currently working on API testing using Bruno and trying to debug my scripts by adding console.log statements in the pre-request and post-response script sections. However, I'm having trouble finding where Bruno logs these outputs. I've checked the UI but couldn't find a dedicated console or log panel where these messages appear. I expected a section similar to Postman\u2019s console or a way to view script outputs, but I haven't had any luck.",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79404124,
+   "question_returned": true,
+   "tags": [
+    "bruno"
+   ],
+   "title": "Is there a way to check console on Bruno?",
+   "view_count": 13430
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "JEP 455 introduced Primitive Types in Patterns, instanceof, and switch as a preview feature in JDK 23. It continues as a preview feature in JDK 24 and 25, so the feature is not detailed in the Java Language Specification. The JEP describes \"safety of conversions\", where certain pairs of types are unconditionally exact , meaning no runtime checks are required. For other pairs, a runtime test is necessary to determine if a conversion can be made without loss of information. For example: int x = ge",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79761108,
+   "question_returned": true,
+   "tags": [
+    "java",
+    "pattern-matching",
+    "primitive-types",
+    "java-23"
+   ],
+   "title": "Primitive types in patterns: why doesn't Integer dominate byte?",
+   "view_count": 177
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I'm trying to create a static extension method that can be used with any enum type in C#. I want to be able to call this method on any enum value. However, since extension methods are defined for specific types, I'm unsure how to create a generic extension method that applies to all enums. Is there a way to do this using extension blocks? Now I could define a method only for the specific enum: extension(MyEnum) { public static Direction Random => Enum.GetValues<MyEnum>().Choice(); } But I want s",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79937561,
+   "question_returned": true,
+   "tags": [
+    "c#",
+    "enums"
+   ],
+   "title": "How can I create a static extension method for all Enum types?",
+   "view_count": 804
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "When a module needs to include a header, the following usually doesn't work, since the header contents get attached to the module: (with function names getting mangled to include the module name , etc) export module A; #include <iostream> // Wrong Including in the global module fragment does work, as it attaches the header contents to the global module: module; #include <iostream> export module A; Including in an extern \"C++\" block also seems to work: export module A; extern \"C++\" { #include <io",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79906660,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "c++20",
+    "c++-modules"
+   ],
+   "title": "Is there any difference between the global module fragment and the `extern \"C++\"` blocks?",
+   "view_count": 408
+  },
+  {
+   "answer_count": 4,
+   "answers_fetched": 4,
+   "body": "I have three std::vector s, std::vector<std::string> vec1{ \"one\", \"two\", \"three\" }; std::vector<std::string> vec2{ \"1\", \"2\", \"3\" }; std::vector<std::string> vec3{ \"i\", \"ii\", \"iii\" }; and a struct , struct MyData { std::string str1; std::string str2; std::string str3; }; I need to obtain a std::vector<MyData> , which is filled from the data of the three vectors: std::vector<MyData> myData; myData.reserve(vec1.size()); for (int i = 0; i < vec1.size(); ++i) { myData.emplace_back(vec1[i], vec2[i], v",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79796450,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "c++20",
+    "std-ranges"
+   ],
+   "title": "How can I combine corresponding items from several vectors into a single vector of structs?",
+   "view_count": 1898
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "This is a derivative question from the problem at An internal compiler error (ICE) is encountered with GCC, and compiling with Clang also produces confusing error messages In the previous question, the GCC team identified that the cause of the Internal Compiler Error (ICE) was GCC's failure to correctly accept the address of a static parameter\u2014this parameter being a structured binding of a reference to an object address, where the object address originates from a static variable and is processed",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79745946,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "gcc",
+    "clang",
+    "language-lawyer"
+   ],
+   "title": "The code compiles successfully in GCC but fails to compile in Clang",
+   "view_count": 411
+  },
+  {
+   "answer_count": 5,
+   "answers_fetched": 5,
+   "body": "I have been using Dbeaver for many days but for the past few days while I am connecting to my Staging server through PostgreSQL, I am getting these driver errors Dbeaver driver error : Maven artifact:org.postgresql:postgresql:RELEASE' can't be resolved in External Repositories I tried changing the preferences in the setting and also tried changing ODBC Datasources from the Control Panel but ended up with the same error - it hasn't been resolved yet.",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79335513,
+   "question_returned": true,
+   "tags": [
+    "postgresql",
+    "dbeaver"
+   ],
+   "title": "Error fix : Dbeaver driver error : Maven artifact:org.postgresql:postgresql:RELEASE' can't be resolved in External Repositories",
+   "view_count": 34266
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I'm testing a REST API using Postman and want to verify that a specific field in the JSON response contains the expected value. For example, the API returns this response: { \"id\": 101, \"name\": \"Test User\", \"status\": \"active\" } I want to check that the status field equals \"active\" and that the id field equals 101 . How can I write a Postman test script to validate these values? Also, how can I make the test fail if either value is incorrect? The test should pass when both values match and fail wh",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009138,
+   "question_returned": true,
+   "tags": [
+    "javascript",
+    "json",
+    "postman"
+   ],
+   "title": "How can I validate a specific field in a JSON response using Postman?",
+   "view_count": 86
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "The program below is an attempt to get the bit field for keyboard keys as they are pressed down but the resulting array returned by XQueryKeymap() is returning an empty field whereas keys have been pressed but they didn't appear when printing the array. The usleep() function is used to analyze the displayed array without printing thousands of arrays at once. The Code: #include <stdio.h> #include <X11/Xlib.h> #include <X11/keysym.h> #include <unistd.h> int main() { while(1) { Display *display = X",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009093,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "x11",
+    "xlib"
+   ],
+   "title": "Why is XQueryKeymap() returning empty bit field for the keyboard in C?",
+   "view_count": 96
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I am going through \"C++ Primer\", and it is mentioned that for the following code: double dval = 3.14; const int &ri = dval; //Bind a const int to a plain double object. The transformation of the code will be: const int temp = dval; //Create a temporary const int from the double const int &ri = temp; //bind ri to that temporary So, if I modify dval , say I set it to dval = 3.0 , since ri will be bound to the temporary object, the changed value will not be reflected. Wouldn't this cause a lot of s",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79730713,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "reference",
+    "constants",
+    "temporary-objects"
+   ],
+   "title": "C++ temporary objects and constant reference",
+   "view_count": 320
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "In the talk \"Taking a Byte Out of C++ - Avoiding Punning by Starting Lifetimes - Robert Leahy - CppCon 2022\" , the presenter shows the following code as a pre-C++23 alternative to std::start_lifetime_as : template<typename T> [[nodiscard]] T* start_lifetime_as(void* mem) noexcept{ auto bytes = new (mem) unsigned char[sizeof(T)]; auto ptr = reinterpret_cast<T*>(bytes); (void)*ptr; return ptr; } The first line of this function is valid. It's starting a new lifetime of an array of bytes in the loca",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79990816,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "c++20",
+    "lifetime",
+    "reinterpret-cast",
+    "stdlaunder"
+   ],
+   "title": "Why is the pre-C++23 start_lifetime_as() function described in \"Taking A byte out of C++\" not exhibiting Undefined Behavior?",
+   "view_count": 544
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I'm stuck on the Shopify App Store submission. The \"Embedded app checks\" have shown \"pending\" for 7 days: Using the latest App Bridge script loaded from Shopify's CDN Using session tokens for user authentication My implementation: App Bridge 4.x via CDN with the meta tag: html <meta name=\"shopify-api-key\" content=\"MY_API_KEY\"> <script src=\"https://cdn.shopify.com/shopifycloud/app-bridge.js\"></script> Session token flow: javascript const token = await window.shopify.idToken(); fetch('/api/session",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009172,
+   "question_returned": false,
+   "tags": [
+    "shopify",
+    "shopify-app-bridge"
+   ],
+   "title": "Shopify embedded app checks stuck on \"pending\" for 7 days despite correct App Bridge 4.x implementation",
+   "view_count": 66
+  },
+  {
+   "answer_count": 3,
+   "answers_fetched": 3,
+   "body": "I\u2019m facing a design issue in a multithreaded C++ program related to safely shutting down threads. Here\u2019s the problem: My main program starts multiple threads. During shutdown, I call join() on each thread to wait for them to finish properly. However, while the program is stuck inside join() , an interrupt signal (e.g., SIGINT from Ctrl+C ) can arrive. The signal handler immediately tries to stop all threads and also tries to join() again, or perform unsafe cleanup. This causes undefined behavior",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79561689,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "multithreading",
+    "join",
+    "thread-safety",
+    "periodic-task"
+   ],
+   "title": "How to safely handle thread join when interrupt signal (SIGINT) may arrive during join()?",
+   "view_count": 927
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I'm new to Flutter. I want to learn how to create a navigation bar using GoRouter. Here is my routing configuration: //routing/router.dart import 'package:android/ui/home/search_screen.dart'; import 'package:android/ui/home/setting_screen.dart'; import 'package:go_router/go_router.dart'; // GoRouter configuration final GoRouter router = GoRouter( routes: <RouteBase>[ GoRoute( path: '/', builder: (context, state) => HomeScreen(), ), GoRoute( path: '/search', builder: (context, state) => SearchScr",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009109,
+   "question_returned": true,
+   "tags": [
+    "flutter",
+    "flutter-go-router"
+   ],
+   "title": "How to keep the NavigationBar selected tab in sync with the current route in GoRouter",
+   "view_count": 70
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "I\u2019m using Expo Router with NativeWind v5 (Tailwind CSS v4). My design tokens are defined once in global.css using @theme : @import \"tailwindcss/theme.css\" layer(theme); @import \"tailwindcss/preflight.css\" layer(base); @import \"tailwindcss/utilities.css\"; @import \"nativewind/theme\"; @theme { --color-primary: #081126; --color-accent: #ea7a53; --color-background: #fff9e3; /* ... */ } In components I can use these with className=\"bg-accent\" . But Tabs from expo-router doesn\u2019t accept className ; it i",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80008985,
+   "question_returned": true,
+   "tags": [
+    "react-native",
+    "expo",
+    "tailwind-css-4",
+    "expo-router",
+    "nativewind"
+   ],
+   "title": "How to use @theme CSS variables from global.css in React Native Tabs tabBarStyle (NativeWind v5 / Tailwind v4) without duplicating colors?",
+   "view_count": 70
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "Suppose I want to set a thread to use a particular real time scheduling policy with a given priority. From what I can tell, there are at least two functions that accomplish this. From the man pages on my system: sched_setscheduler \"The sched_setscheduler() system call sets both the scheduling policy and parameters for the thread whose ID is specified in pid.\" #include <sched.h> int sched_setscheduler(pid_t pid, int policy, const struct sched_param *param); pthread_setschedparam \" The pthread_set",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79672408,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "c",
+    "linux",
+    "posix"
+   ],
+   "title": "What's the difference between pthread_setschedparam and sched_setscheduler?",
+   "view_count": 473
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I want to deploy a react router 8 app with docker. This is my package.json (showing only react router's related stuff) { \"scripts\": { \"build\": \"react-router build\", \"start\": \"react-router-serve ./build/server/index.js\", }, \"dependencies\": { \"@react-router/node\": \"^8.4.0\", \"@react-router/serve\": \"^8.4.0\", \"react-router\": \"^8.4.0\", \"react\": \"^19.3.0\", \"react-dom\": \"^19.3.0\", }, \"devDependencies\": { \"@react-router/dev\": \"^8.4.0\", \"@tailwindcss/vite\": \"^4.3.3\", \"typescript\": \"^7.0.2\", \"vite\": \"^8.3.",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009302,
+   "question_returned": true,
+   "tags": [
+    "react-router"
+   ],
+   "title": "React router 8 importing @react-router/dev/routes in production build",
+   "view_count": 35
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I'm encountering the following error in my Flutter project (Flutter 3.27.1, Java 17) while using Google Maps and Firebase: E/GoogleApiManager( 9509): Failed to get service from broker. E/GoogleApiManager( 9509): java.lang.SecurityException: Unknown calling package name 'com.google.android.gms'. E/GoogleApiManager( 9509): at android.os.Parcel.createExceptionOrNull(Parcel.java:3011) E/GoogleApiManager( 9509): at android.os.Parcel.createException(Parcel.java:2995) E/GoogleApiManager( 9509): at andr",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79385315,
+   "question_returned": true,
+   "tags": [
+    "android",
+    "flutter",
+    "firebase",
+    "google-maps",
+    "build.gradle"
+   ],
+   "title": "SecurityException: Unknown calling package name 'com.google.android.gms' in Flutter",
+   "view_count": 4654
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "XAMPP is set to listen to port 443 but Apache won't start and it does not say \"Port 443\" As another kind of question that I have, why is $_secret not able to multiply by $_secret? Its a string, but PHP only accepts integers. But it would make a crazy good token. The error code I get is: AH00526: Syntax error on line 36 of C:/xampp/apache/conf/extra/httpd-ssl.conf: Cannot define multiple Listeners on the same IP:port Running httpd.exe -t on C:\\xampp\\apache\\bin Here is httpd-ssl.conf: # # This is ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009170,
+   "question_returned": false,
+   "tags": [
+    "php",
+    "xampp"
+   ],
+   "title": "How to set XAMPP to listen on PORT 443, and running?",
+   "view_count": 92
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I use an AImageReader and a Vulkan sampler to sample the camera image in a shader, used in an AR application. I have two problems: Using the format AIMAGE_FORMAT_PRIVATE does not reliably work across all devices (because some devices apply some proprietary compressed format which just lead to garbage when being sampled). Format AIMAGE_FORMAT_YUV_420_888 is the only format that must be supported by all devices according to the documentation in NdkImage.h and indeed, this works across all devices ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009014,
+   "question_returned": true,
+   "tags": [
+    "android",
+    "android-ndk",
+    "vulkan",
+    "android-camera2",
+    "yuv"
+   ],
+   "title": "AImageReader -> Sampling swaps RGB <-> BGR, how to fix?",
+   "view_count": 88
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 2,
+   "body": "import java.awt.event.ActionEvent; import java.awt.event.ActionListener; import javax.swing.JButton; import javax.swing.JFrame; public class LaunchPage implements ActionListener{ static JFrame frame = new JFrame(); JButton wButton = new JButton(\"W\"); JButton sButton = new JButton(\"S\"); JButton aButton = new JButton(\"W\"); JButton dButton = new JButton(\"S\"); LaunchPage(){ frame.add(wButton); frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); frame.setSize(800,800); frame.setLayout(null); frame.",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009582,
+   "question_returned": true,
+   "tags": [
+    "java",
+    "eclipse",
+    "vs-code",
+    "eclipselink",
+    "helper"
+   ],
+   "title": "I'm Running Into The Classic Only W Button Showing Up Issue In Java Eclipse IDE Environment Setting",
+   "view_count": 9
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "Just stumble across Why we didn't rewrite our feed handler in Rust from databento And they say they cannot share a buffer during a loop. What would be the rust way to fix this without making copies of data? I made a minimal example struct Source { id: usize, data: Vec<u8>, } impl Source { fn fetch_data(&self) -> Vec<u8> { println!(\"Fetching data from source {}\", self.id); self.data.clone() } } const SPLITTER: u8 = b','; fn process_data(chunks: &[&[u8]]) { println!(\"Processing {} chunks:\", chunks",
+   "gold_from": "top_voted",
+   "gold_from_r": "top_voted",
+   "gold_number": 674,
+   "gold_repo": "rust-lang/libs-team",
+   "gold_repo_r": "rust-lang/libs-team",
+   "qid": 79786682,
+   "question_returned": true,
+   "tags": [
+    "rust",
+    "lifetime",
+    "memory-optimization"
+   ],
+   "title": "Share buffer during a loop",
+   "view_count": 587
+  },
+  {
+   "answer_count": 3,
+   "answers_fetched": 3,
+   "body": "I have a very simple C program where I am printing variables of different sizes. #include <stdio.h> unsigned int long long a; unsigned int c; int main() { a = 0x1111111122222222; c = 0x33333333; printf(\"Sizes: %zu %zu\\n\", sizeof(a), sizeof(c)); printf(\"Seg: %llx %x\\n\", a, c); printf(\"Seg: %lx %x\\n\", a, c); printf(\"Seg: %x\\n\", c); return 0; } On a 64-bit machine, all works fine. On a 32-bit machine though, if I use an incorrect formatter for the first argument (second printf ), I get incorrect ou",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79779696,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "printf",
+    "undefined-behavior",
+    "variadic-functions",
+    "calling-convention"
+   ],
+   "title": "Why does a mismatching printf specifier also affect subsequent arguments?",
+   "view_count": 2397
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "How to Set a Persistent Default Model in GitHub Copilot Chat? Hello, I'm currently using GitHub Copilot to generate tasks for me. When working with code, I usually prefer to use Claude by selecting it manually in Copilot Chat. Whenever I refresh the page or return to the conversation later , the chat automatically switches to GPT-4.1 by default. I\u2019m unable to continue the previous conversation with Claude \u2014 the only option available is GPT-4.1, unless I start a new conversation . Is there a way ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79704522,
+   "question_returned": true,
+   "tags": [
+    "github",
+    "settings",
+    "github-copilot",
+    "default-selected"
+   ],
+   "title": "GitHub Copilot Model Selection: How to Change the Default Version Setting?",
+   "view_count": 2529
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "Two programs below differ only in how they mention &inited_with_side_effect<> in the default template argument of template variable v . In both, I expect inited_with_side_effect<0> is instantiated and its dynamic initializer prints INIT . Is the instantiation/print required, or may an implementation omit it? Compilers disagree, and they disagree on different programs. A. Address encoded in a type #include <cstdio> #include <type_traits> template <int = 0> char inited_with_side_effect = (std::put",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79999417,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "templates",
+    "language-lawyer",
+    "template-instantiation",
+    "variable-templates"
+   ],
+   "title": "Must a variable template be instantiated when it appears only as `&x` in a default template argument?",
+   "view_count": 574
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I have a hash table with the key type std::array<uint8_t,6> , and I am trying to come up with as fast hash function as possible. One option is to pack all six 8-bit integers into a single 64-bit integer first, and then just use std::hash<uint64_t> . I've tried two different ways how to resolve this packing, one based on casting and shifting, the second one based on memcpy . uint64_t pack(std::array<uint8_t, 6> key) { return (static_cast<uint64_t>(key[0]) << 0) | (static_cast<uint64_t>(key[1]) <<",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79912729,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "gcc",
+    "hash",
+    "x86",
+    "memcpy"
+   ],
+   "title": "GCC vs Clang when packing array<uint8_t,N> into uint64_t",
+   "view_count": 588
+  },
+  {
+   "answer_count": 7,
+   "answers_fetched": 7,
+   "body": "Is there a way to declare an enumeration that has multiple representations, for example a numeric and a string? The intent here is to create an enum class with multiple values, each of which has 2 different representations, a numeric and a string. Either representation is valid and unique across the enumeration. A private constructor is included to prevent the addition of new enumerated values. The attributes numericCode and alphaCode represent the 2 representations of the enum. enum class Foo {",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79442076,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "enums"
+   ],
+   "title": "Is there a way in C++ to have a scoped enum containing multiple representations?",
+   "view_count": 1669
+  },
+  {
+   "answer_count": 4,
+   "answers_fetched": 4,
+   "body": "In C++, there are some widely used zero-size base classes used for the purpose of \"tagging\" subclasses, for example boost::noncopyable . Is there any that is used to mark a class non-instantiable, like a \"static class\" in C#? Before you tell me I should be using a namespace for this: my class has template arguments, namespaces can't. If there's no accepted \"tag\", is there a pattern that a compiler can use to recognize the static class pattern and generate warnings if a non-static member is accid",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79792501,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "abstract-class"
+   ],
+   "title": "Is there a widely used \"tag\" base class for C++ static classes?",
+   "view_count": 793
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 0,
+   "body": "I want to write a .py function that copies any number that contains 5 as the second to last digit within one file, along with the line below it, then write it to a different file. Trying something from the Youtube channel \"Programming Portal\", but still need the conditions mentioned above. file_to_read =\"BB-Talk Messages.txt\" write_to_file =\"BB-Gendered Dialogue Leftovers.txt\" file = open(file_to_read, \"r\") data = file.read() file.close() with open (write_to_file, \"a\") as file: file.write(data) ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009197,
+   "question_returned": false,
+   "tags": [
+    "python"
+   ],
+   "title": "Python script that copies certain lines and writes to other file",
+   "view_count": 446
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "The problem started appearing after upgrading from Java 21 to 25. With Java 21, my menus looked like this : With Java 25, a gutter started appearing : I've created minimal portable example to reproduce : import java.awt.Color; import java.awt.Graphics2D; import java.awt.event.ActionEvent; import java.awt.event.ActionListener; import java.awt.image.BufferedImage; import javax.swing.AbstractAction; import javax.swing.Action; import javax.swing.ButtonGroup; import javax.swing.ImageIcon; import java",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79820806,
+   "question_returned": true,
+   "tags": [
+    "java",
+    "swing"
+   ],
+   "title": "How do I avoid left padding in menu items after upgrading from Java 21 to Java 25?",
+   "view_count": 486
+  },
+  {
+   "answer_count": 3,
+   "answers_fetched": 3,
+   "body": "I mainly use Clang, but I have also explored other compilers during my experiments, such as MinGW GCC and MSVC, but they all have this problem. cd C:\\Users\\Moi5t clang -v Output: clang version 20.1.7 Target: x86_64-pc-windows-msvc Thread model: posix InstalledDir: D:\\installable\\LLVM\\bin In this case: I think using add rsp, 0x8 in noreturn functions can save stack space more effectively, but I don't know why mainstream compilers haven't implemented this feature. Maybe this optimization is not im",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79715742,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "windows",
+    "assembly",
+    "x86-64",
+    "compiler-optimization"
+   ],
+   "title": "Why doesn't the Windows C compiler reuse incoming shadow space in noreturn functions?",
+   "view_count": 1394
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "std::format insists that its format string argument should be a compile time constant. I thought this was so that std::format could be used to create compile time constant values. However, having tried the following example, I found that the code does not compile. #include <format> int main() { constexpr auto zero = 0; constexpr auto my_string = std::format(\"{}\", zero); return 0; } I attempted to compile this with $ g++ main.cpp -std=c++23 and obtained the following error output main.cpp: In fun",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79583661,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "c++23"
+   ],
+   "title": "Using std::format to create compile time objects with constexpr",
+   "view_count": 2154
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I have been reading up on safety profiles , safe C++ and some other articles on the matter ( example ). I would like one of these features to be adopted, and the only one that I believe has actually been prototyped is the safe c++ proposal . There also seems to be some strongly worded papers talking about all the problems with profiles ( example ), which I believe has now been voted as the way forward for investment. What is the current state of affairs with safe C++ making its way to the standa",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79666817,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "memory-safety"
+   ],
+   "title": "What is the progress on safety for C++?",
+   "view_count": 1500
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "Is there any \"aliasing\" way of shortening parameters lists like these? template <typename TA, size_t NA, typename TO, size_t NO, typename ... T> House<TA, NA, TO, NO, T...> create_house_from( Address<TA, NA> && address, Owner<TO, NO> && owner, std::tuple<T & ...> heterogeneous_list_of_house_rooms) { return House<TA, NA, TO, NO, T...>{ address, owner, std::make_from_tuple<HouseRoomsLayout<T...>>(std::move(heterogeneous_list_of_house_rooms)) }; } If there had been way like this (fictive syntactics",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79889909,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "templates",
+    "parameter-list"
+   ],
+   "title": "Is there any way of abbreviating long template parameter lists in C++?",
+   "view_count": 931
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I am trying to run Tomcat 10 on Debian 13 and Open JDK 21in vain. Everytime I try to access localhost:8080 and 127.0.0.1:8080, I see a blank page with the message: 'This site can't be reached -localhost/127.0.0 refused to connect'. What I thought would be a most simple process has decide to harrase me. I have ran Tomcat hundreds of time in the past, but have never experienced such a thing! This is the first time I am trying to run Tomcat on Debian 13 though. and before I ran, I had opened the po",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009310,
+   "question_returned": true,
+   "tags": [
+    "debian",
+    "java-21",
+    "tomcat10"
+   ],
+   "title": "Tomcat 10 not responding on Debian 13 and JDK 21",
+   "view_count": 38
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "I'm trying to persist the last modification timestamp of a set of files in a Git repository. I understand that Git doesn't natively support tracking filesystem metadata, so some sort of customization is due. For purposes of illustration, consider the following repository structure: / \u251c\u2500 meta.inf \u251c\u2500+ doc \u2502 \u2514\u2500 notes.md \u2514\u2500+ data \u251c\u2500 1.csv \u2514\u2500 2.csv Here is what I'm trying to accomplish: Before changes to the repository are to be materialized, if any file under the data directory was modified, then fi",
+   "gold_from": "top_voted",
+   "gold_from_r": "top_voted",
+   "gold_number": 3223,
+   "gold_repo": "powershell/powershell",
+   "gold_repo_r": "powershell/powershell",
+   "qid": 79836280,
+   "question_returned": true,
+   "tags": [
+    "windows",
+    "git",
+    "powershell",
+    "batch-file",
+    "timestamp"
+   ],
+   "title": "Retain the exact modification timestamp of a file in a Git repository",
+   "view_count": 987
+  },
+  {
+   "answer_count": 4,
+   "answers_fetched": 4,
+   "body": "My code reliably finds a precise (similar value every time) but in the region of 3.24 and 3.26. Competent mathematicians will note this around 0.1 away from an ideal Pi value. My code revolves around picking random points on a 10,000 x 10,000 grid. The hypotenuse with respect to (0,0) is calculated and if this hypotenuse is less than 10,000, the point is inside a theoretical circle with radius 10,000. The ratio of points inside and all points multiplied by 4 should give an estimation for Pi. #in",
+   "gold_from": null,
+   "gold_from_r": "top_voted",
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": "lemire/fastrange",
+   "qid": 79791886,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "math",
+    "montecarlo",
+    "pi"
+   ],
+   "title": "Estimation for Pi is precise but inaccurate",
+   "view_count": 2327
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "// gcc: ok // clang: compile error struct arg { consteval arg(const int i) // consteval : i_(i) { chk<int>(i); // error!! } template <typename T> constexpr void chk(const T i) // template member {} int i_; }; void f(arg i) {} int main() { f(10); return 0; } demo: https://godbolt.org/z/cjjGz7xP9 I'm working with GCC and Clang in C++23. When calling a constexpr template member function in a consteval constructor , Clang rejects the program. It compains: <source>:39:7: error: call to consteval func",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79558008,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "language-lawyer",
+    "constexpr",
+    "c++23",
+    "consteval"
+   ],
+   "title": "Cannot call constexpr template member function in consteval constructor",
+   "view_count": 278
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "I have a parameter calculation in a batch. Different batch sample types get one parameter value from different samples. I could make this three variants but we would like them to link-up in the batch data entry. The problem is that if I am looking at sample type A, the groovy translator grabs all of these parameters even if I do not go into the else clause. I have not found a way to check for undefined . If you know how to do that, that would help. Or, if you have a way to \"hide\" some of this, b",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009009,
+   "question_returned": true,
+   "tags": [
+    "groovy"
+   ],
+   "title": "LabVantage LIMS Groovy: Trying to Pull Undefined Values in Parameter Calculation",
+   "view_count": 52
+  },
+  {
+   "answer_count": 4,
+   "answers_fetched": 4,
+   "body": "I tried to write the following code and it was rejected by the compiler: #include <type_traits> struct Base { virtual void f() {} }; template <typename T> struct Derived : Base { virtual void f() requires std::is_same_v<T, int> override {} }; I found the relevant section in the standard here: 11.7.3 Virtual functions 6 A virtual function shall not have a trailing requires-clause ([dcl.decl]). [Example 5: template<typename T> struct A { virtual void f() requires true; // error: virtual function c",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79847613,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "constraints",
+    "overriding",
+    "require",
+    "virtual"
+   ],
+   "title": "Why doesn't C++ allow virtual function overrides to be constrained by a concept/requires clause?",
+   "view_count": 1550
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I've been using _aligned_malloc() , so far and realized that C++ has an aligned new operator since C++17 . I've read this StackOverflow question regarding the use of aligned new ; the accepted answer there suggests usage as in the following example: #include <new> int* allocate() { return new (std::align_val_t(16)) int[40]; // 128-bit alignment // will call `void* operator new[](size_t, align_val_t)` } but when I try this with MSVC, I get error C2956. To put it simply, what is C++17 aligned new ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009540,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "c++17",
+    "new-operator",
+    "delete-operator",
+    "memory-alignment"
+   ],
+   "title": "How can I use C++17 aligned new to replace _aligned_malloc?",
+   "view_count": 119
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "I am running a simple C program on Windows using VS Code and the PowerShell terminal. My code intentionally does not include a newline character ( \\n ) at the end of the printf statements. Code #include <stdio.h> int main() { printf(\"hello\"); printf(\"hello\"); return 0; } Since I am not printing \\n, I expected the terminal prompt to appear immediately after the output, on the same line, like this: hellohelloPS C:\\Users\\Kannan\\Desktop...> What actually happened : The output prints hellohello, but ",
+   "gold_from": null,
+   "gold_from_r": "top_voted",
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": "powershell/powershell",
+   "qid": 79865375,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "powershell",
+    "prompt"
+   ],
+   "title": "Why does the command prompt appear on a new line after C program execution, even without \\n?",
+   "view_count": 1097
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "I am working on a project for a networking class with other people, and I cannot get my code to asynchronously print received messages from the other person. It will print one message when sent for every newline I enter in the terminal. What I want to happen is that we each have the code running, pointing to each other, and whenever someone types something and hits Enter, the message will appear on the other person's terminal. Without the receiver having to interact at all. Both sides run client",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009140,
+   "question_returned": true,
+   "tags": [
+    "c",
+    "sockets",
+    "fifo"
+   ],
+   "title": "fgets keeping printf from printing to terminal output",
+   "view_count": 202
+  },
+  {
+   "answer_count": 1,
+   "answers_fetched": 1,
+   "body": "Any time you call document.createElement (or its cousins, e.g. createDocumentFragment ), the new node belongs to that document. It's my understanding that if you add that new node to a different document, then it will be updated to belong to that other document, and everything will work fine. I'm writing a factory function that creates elements given tag type, attributes, and children. I would rather not have to pass the document in as a parameter. In a situation where there are multiple documen",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009283,
+   "question_returned": true,
+   "tags": [
+    "javascript",
+    "dom"
+   ],
+   "title": "Is there any disadvantage to calling document.createElement with the \u201cwrong\u201d document?",
+   "view_count": 150
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "I'm creating a program to collect news items from the internet regarding companies, separate out the text from the html code and then allocate scoring depending on the information it contains. I've managed to create the program but it produced an error. I've pasted the full program at the bottom of this post but I think the error is happening in this code segment: text = \"\".join(p.get_text(\" \",strip=True) for p in paragraphs ) The full program is here: import feedparser import requests from bs4 ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009348,
+   "question_returned": true,
+   "tags": [
+    "python",
+    "web-scraping"
+   ],
+   "title": "How do I solve an error with a Python scraping program",
+   "view_count": 201
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "In the critpath of a threaded app I've encountered a performance bottleneck. profiling indicates unexpected contention on cache lines despite what appears to be independent data access across different threads. Given the following code: #include <thread> #include <vector> #include <atomic> #include <chrono> #include <iostream> struct Base { virtual ~Base() = default; }; struct DerivedA : public Base { alignas(64) std::atomic<uint64_t> counter_a{0}; }; struct DerivedB : public Base { alignas(64) ",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79581901,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "false-sharing",
+    "alignas"
+   ],
+   "title": "Surprising cache line contention adjacent inherited members",
+   "view_count": 161
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 1,
+   "body": "The documentation for language.higherKinds describe a potential downside of supporting higher-kinded types: Higher kinded types in Scala lead to a Turing-complete type system, where compiler termination is no longer guaranteed. What is an example of such a program in Scala 2.13.18, one whose compilation will never complete?",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 80009520,
+   "question_returned": true,
+   "tags": [
+    "scala",
+    "higher-kinded-types",
+    "scalac",
+    "turing-complete",
+    "scala-2.13"
+   ],
+   "title": "What is an example program where compilation doesn't complete due to higher-kinded types?",
+   "view_count": 49
+  },
+  {
+   "answer_count": 3,
+   "answers_fetched": 3,
+   "body": "I've just noted that my logfile is filled with many entries 2025-07-31 10:56:31.326 1709-5052 AppOps system_server E attributionTag not declared in manifest of XXXX 2025-07-31 10:56:31.327 1709-2137 AppOps system_server E attributionTag not declared in manifest of XXXXX I assume it is related to using the media player in my application and maybe it is related to Android 16 because I didn't see it in the past. I don't undestand where this error comes from and I'm not using any tag like \"attributi",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79721071,
+   "question_returned": true,
+   "tags": [
+    "android",
+    "android-manifest"
+   ],
+   "title": "Log file filled with attributionTag not declared in manifest",
+   "view_count": 4157
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "Creating a borderless OpenGL window with SDL3 on Windows at the native display resolution results in the window unexpectedly switching to an exclusive fullscreen mode. This happens specifically after the first call to SDL_GL_SwapWindow . Here's a MCVE: #include <SDL3/SDL.h> int main() { SDL_InitSubSystem(SDL_INIT_VIDEO); SDL_WindowFlags flags = {}; flags |= SDL_WINDOW_OPENGL; flags |= SDL_WINDOW_RESIZABLE; flags |= SDL_WINDOW_BORDERLESS; SDL_Window *w = SDL_CreateWindow(\"\", 3440, 1440, flags); /",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79614593,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "windows",
+    "opengl",
+    "sdl",
+    "sdl-3"
+   ],
+   "title": "Forcing non-exclusive borderless fullscreen with SDL3 + OpenGL on Windows 11",
+   "view_count": 1100
+  },
+  {
+   "answer_count": 2,
+   "answers_fetched": 2,
+   "body": "async function delay(ms) { return new Promise(r=>setTimeout(r,ms)) } async function fail(ms){ await delay(ms) throw new Error(\"kek\"); } async function ok(ms){ await delay(ms) return 1; } async function start() { try{ let fail_p = fail(500); let ok_p = ok(1000); console.log(await ok_p) console.log(await fail_p) } catch(e){ console.log(\"ERR\") } } start().then(()=>console.log(\"Finish\")) In the browser I get what I expected. 1 ERR Finish But in nodejs the application just crashes with the error \"kek",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79452303,
+   "question_returned": true,
+   "tags": [
+    "javascript",
+    "node.js",
+    "unhandled-promise-rejection"
+   ],
+   "title": "Why does throwing an error in a not-yet-awaited async function call terminate node.js?",
+   "view_count": 809
+  },
+  {
+   "answer_count": 0,
+   "answers_fetched": 0,
+   "body": "MSVC doesn't accept this code, even the latest version on Godbolt : #include <type_traits> template <class R> struct A { A(); }; template <class R> requires std::is_reference_v<R> struct A<R> { A(); }; template <class R> A<R>::A() {} template <class R> requires std::is_reference_v<R> A<R>::A() {} I've never fully understood the rules for determining correspondence of templated declarations, so perhaps this is IFNDR for some reason, or perhaps this is just an MSVC bug. I'm leaning toward the latt",
+   "gold_from": null,
+   "gold_from_r": null,
+   "gold_number": null,
+   "gold_repo": null,
+   "gold_repo_r": null,
+   "qid": 79754852,
+   "question_returned": true,
+   "tags": [
+    "c++",
+    "templates",
+    "c++20"
+   ],
+   "title": "Out of line definitions for members of constrained partial specializations",
+   "view_count": 196
   }
  ]
 }

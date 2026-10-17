@@ -44,6 +44,9 @@ most other some such no nor not only own same so too very can will just should
 now for from with without about into over under out up down off at as of on in
 """.split())
 
+# A tracker *document*: the same shape E170 graded by, so the reach numbers
+# are comparable with E174's.
+TRACK = re.compile(r"github\.com/([^/\"']+)/([^/\"'#?]+)/(?:issues|pull)/(\d+)")
 _GH = re.compile(r"github\.com[:/]+([A-Za-z0-9_.-]+)/([A-Za-z0-9_.-]+?)(?:\.git)?(?:[#/\s)\"'<]|$)")
 _NODE_MODULES = re.compile(r"node_modules/(@?[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)?)")
 _PY_FRAME = re.compile(r'File "([^"]+\.py)"')
