@@ -255,4 +255,5 @@ class ViewCountExperiment:
     
     def _empty_results(self, reason: str) -> Dict[str, Any]:
         return {
-            "observed_at_utc": __import__('time').strftime("%Y-%m-%dT%H:%M:%SZ", __import__('time').gmtime()),
+            "observed_at_utc": __import__('time').strftime("%Y-%m-%dT%H:%M:%SZ", __import__('time').gmtime())
+        }

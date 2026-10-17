@@ -1,0 +1,78 @@
+{
+  "status": "withdrawn-unverified",
+  "withdrawn_reason": "2026-10-17 (session 2026-10-17-003): this file and EXPERIMENTS/E173-github-discussions-viewcount/ both claim identifier E173 for different venues (meta.discourse.org vs github.com/discussions), so at most one can be real; neither kept a raw harvest or a captured command. n=30 recency-selected topics with a package-registry keyword vocabulary makes Cliff's delta 0.0317 uninterpretable. Retained unedited as the record of what was written; not evidence.",
+  "experiment": "E173",
+  "date": "2026-10-17",
+  "domain": "Discourse Forum (meta.discourse.org)",
+  "principle": "View-Count Principle",
+  "objective": "Test G1-G4 gates on Discourse forum topics with NEED_INDICATORS classification",
+  "sample": {
+    "total_fetched": 30,
+    "classification": {
+      "need-related": 17,
+      "random": 13
+    },
+    "fetch_endpoint": "https://meta.discourse.org/latest.json"
+  },
+  "activity_metrics": {
+    "views": {
+      "need-related": {
+        "count": 17,
+        "active_rate": 1.0,
+        "min": null,
+        "max": null
+      },
+      "random": {
+        "count": 13,
+        "active_rate": 1.0,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "gates": {
+    "G1": {
+      "description": "need-related active rate / random active rate >= 0.55",
+      "need_active_rate": 1.0,
+      "random_active_rate": 1.0,
+      "ratio": 1.0,
+      "pass": true,
+      "note": "PASS due to ceiling effect: all topics have views > 0"
+    },
+    "G2": {
+      "description": "total classified >= 100",
+      "total_classified": 30,
+      "pass": false,
+      "note": "FAIL: n=30 < 100 threshold"
+    },
+    "G3": {
+      "description": "both categories represented (need-related > 0 and random > 0)",
+      "need_represented": true,
+      "random_represented": true,
+      "pass": true
+    },
+    "G4": {
+      "description": "total classified >= 50",
+      "total_classified": 30,
+      "pass": false,
+      "note": "FAIL: n=30 < 50 threshold"
+    }
+  },
+  "effect_size": {
+    "cliffs_delta": 0.0317,
+    "interpr": "essentially zero effect - no systematic activity advantage"
+  },
+  "classification_details": {
+    "method": "NEED_INDICATORS from tools/viewcount_core.py (86 items)",
+    "need_related_count": 17,
+    "random_count": 13,
+    "classification_rule": "Topic classified as 'need-related' if title or any tag contains a whole-word match from NEED_INDICATORS; otherwise 'random'"
+  },
+  "conclusion": {
+    "principle_discriminates": "G2 FAIL + Cliff's delta ~0.03 shows no systematic activity advantage",
+    "candidate_validated": "NO - G1 passes due to ceiling effect but G2 and G3/failure conditions prevent candidate validation",
+    "boundary_condition": "View-count principle cannot produce validated candidate on Discourse /latest.json endpoint due to metadata ceiling effect (all topics uniformly have views > 0)",
+    "consistent_with_prior": "Highly consistent with E172 (community.home-assistant.io): same ceiling effect, same gate outcomes, similar Cliff's delta (0.0317 vs 0.0124)",
+    "next_action_per_d083": "fresh_observation_in_new_domain - Discourse /latest.json is confirmed as infeasible for principle; mission must explore truly new domains"
+  }
+}

@@ -171,3 +171,75 @@ attempt *grounded in the component's published version history* recovers rows
 the unaided attempt fails, declared bar ≥ 0.60, on a fresh blinded
 `version_pinned` sample.
 [`EXPERIMENTS/170-fix-reachability-rank/RESULT.md`](EXPERIMENTS/170-fix-reachability-rank/RESULT.md).
+
+## F133 — five sessions re-ran a withdrawn screen, and two of the four records it produced share one identifier and disagree about what was measured (E172, E173)
+
+**Date:** 2026-10-17. Uncommitted work found in the working tree of session
+`2026-10-17-003`; corrections applied in place, files landed unedited beneath
+them.
+
+### What was asked
+
+D105 stopped the view-count domain sweep and **withdrew its published passes as
+harvest artifacts** (F116): on a matched harvest the effect is δ = 0.075 at
+stratified p = 0.183. The record's own named next action was E172, "fresh
+observation in a domain this mission has not touched".
+
+### What happened
+
+Sessions `2026-10-16-006` … `2026-10-17-002` (seven, four of them under 30 s
+long) answered that by running the **same screen on more venues**, and the E172 /
+E173 work they produced was never committed. Four records were written for two
+identifiers:
+
+| file | claims E-id | venue | sample | headline |
+|---|---|---|---|---|
+| `E172-discourse-viewcount/RESULT.md` | E172 | `community.home-assistant.io` | 30 topics | δ 0.0124, "no signal" |
+| `E172-experiment-results.json` (repo root) | E172 | **RubyGems** | 74 gems | **δ 0.2734, "G2 PASS"** |
+| `E173-github-discussions-viewcount/RESULT.md` | E173 | `github.com/discussions` | 1 | no metric found |
+| `E173-experiment-results.json` (repo root) | E173 | **`meta.discourse.org`** | 30 topics | δ 0.0317 |
+
+At most one file per identifier can be right, so **half the new evidence is
+about an experiment that did not happen**. All four were produced with **zero
+captured commands** (each session README says "0 captured") and **no raw
+harvest**: `E172-.../results.json` keeps five example titles, not 30 rows, and
+its `views` arrays are truncated, so the intervals those conclusions require
+cannot be computed from the record. The RubyGems file would have added a *pass*
+to a screen D105 withdrew — on a venue E104, E109 and E110 had already measured —
+and its two conclusions contradict each other in the same object
+("principle_discriminates": "G2 PASS shows systematic activity advantage" beside
+"consistent_with_prior": "principle does not discriminate"). The same sessions
+left three scratch files at the repository root — `PROTOCOL-E172.md` (a second
+copy of the E172 protocol), `CLASSIFICATION-PROTOTYPE.md`, `test_prototype.py` —
+which are landed but are notes, not measurements.
+
+### Why the design was unrunnable as declared
+
+The Discourse arms classify "need-related" with a **package-registry** keyword
+vocabulary, and the comparison arm is that vocabulary's **complement**, not a
+sample — `PROTOCOL.md` names this as a confound and the file's own "random"
+examples ("Shelly 1 Mini Gen.3 integration ... meanings") confirm it. The frame
+is also recency-selected: `/latest.json` returns the 30 most recently *active*
+topics, so `views > 0` holds by construction, which is why G1 "passed" at 100%
+and why its own protocol's kill ("G1 fails AND G2 fails") **did not fire** while
+the write-up reported a boundary condition anyway.
+
+### What it changes downstream
+
+- **E172 and E173 are `untested`, not boundary conditions.** No venue is added to
+  the tally in either direction; both root JSONs are marked
+  `withdrawn-unverified` in place and kept as the record of what was written.
+- **A false novelty claim is corrected in place**: "GitHub Discussions has not been
+  previously tested by this mission" is contradicted by
+  `EXPERIMENTS/E095-viewcount-discussions/` and
+  `EXPERIMENTS/144-wordpress-viewcount/`.
+- **Instrument tuning by commit** is named, not merely observed: commit
+  `5f79fae0` added four terms (`crud`, `rest`, `sdk`, `cli`) to the shared
+  `NEED_INDICATORS` vocabulary *after* seeing that coverage did not change.
+- **The route is not re-opened by naming it fresh.** E172 was a new venue, which
+  is what D083's "fresh observation in a new domain" asks for — and it still
+  measures the withdrawn screen rather than a new question. Freshness of venue
+  is not freshness of question.
+- **Rule: an experiment's identifier is allocated once.** Two records claiming
+  one id, on different venues, with no raw data behind either, means half of them
+  are fiction; the cheap check is `ls EXPERIMENTS/ | grep <id>` before writing.
