@@ -1,0 +1,169 @@
+qid: 79602687
+tags: javascript, firebase, react-native
+
+=== TITLE ===
+React Native Expo + Firebase Auth: “Component auth has not been registered yet” on app lau
+nch
+
+=== QUESTION ===
+I’m building an Expo (SDK 53) React Native app with Firebase Authentication and I keep get
+ting this error on startup: 
+ [runtime not ready]: Error: Component auth has not been registered yet, js engine: hermes
+ 
+ I’ve tried many variations—renaming files, moving imports, clearing caches, but nothing s
+eems to work. I suspect the native entry point isn’t wired up correctly. Below is a minima
+l reproduction of my setup. 
+ package.json 
+ {
+ "main": "index.js",
+ "scripts": {
+ "start": "expo start --dev-client",
+ …
+ },
+ "dependencies": {
+ "expo": "~53.0.5",
+ "firebase": "^11.6.1",
+ "@react-native-async-storage/async-storage": "^1.24.0",
+ "react-native-gesture-handler": "^2.25.0",
+ "react-native-safe-area-context": "^5.4.0",
+ "@react-navigation/native": "^7.1.6",
+ "@react-navigation/native-stack": "^7.3.10",
+ …
+ }
+}
+ 
+ firebase.js 
+ import AsyncStorage from "@react-native-async-storage/async-storage";
+import { initializeApp } from "firebase/app";
+import { getReactNativePersistence, initializeAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseConfig = {
+ /* my config… */
+};
+
+const app = initializeApp(firebaseConfig);
+export const auth = initializeAuth(app, {
+ persistence: getReactNativePersistence(AsyncStorage),
+});
+export const db = getFirestore(app);
+ 
+ AuthContext.js 
+ import { onAuthStateChanged } from "firebase/auth";
+import React, { createContext, useEffect, useState } from "react";
+import { auth } from "../services/firebase";
+
+export const AuthContext = createContext({});
+
+export function AuthProvider({ children }) {
+ const [user, setUser] = useState(null);
+ const [loading, setLoading] = useState(true);
+
+ useEffect(() => {
+ const unsub = onAuthStateChanged(auth, u => {
+ setUser(u);
+ setLoading(false);
+ });
+ return unsub;
+ }, []);
+
+ return (
+ <AuthContext.Provider value={{ user, loading, setUser }}>
+ {children}
+ </AuthContext.Provider>
+ );
+}
+ 
+ What I’ve tried 
+ 
+ Clearing Metro cache (expo start -c) 
+ Renaming firebase.js → firebase.client.js 
+ Moving initializeAuth into different modules 
+ Ensuring index.js is present and pointed in package.json 
+ Deleting node_modules, reinstalling 
+ 
+ Nothing fixes it. The native console still complains that it can’t find a registered comp
+onent named “auth.” I’m not explicitly calling AppRegistry.registerComponent('auth', …) , 
+so it looks like Expo/Metro is picking up something strange. 
+
+ [runtime not ready]: Error: Component auth has not been registered yet, js engine: hermes
+ 
+ {
+ "main": "index.js",
+ "scripts": {
+ "start": "expo start --dev-client",
+ …
+ },
+ "dependencies": {
+ "expo": "~53.0.5",
+ "firebase": "^11.6.1",
+ "@react-native-async-storage/async-storage": "^1.24.0",
+ "react-native-gesture-handler": "^2.25.0",
+ "react-native-safe-area-context": "^5.4.0",
+ "@react-navigation/native": "^7.1.6",
+ "@react-navigation/native-stack": "^7.3.10",
+ …
+ }
+}
+ 
+ import AsyncStorage from "@react-native-async-storage/async-storage";
+import { initializeApp } from "firebase/app";
+import { getReactNativePersistence, initializeAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseConfig = {
+ /* my config… */
+};
+
+const app = initializeApp(firebaseConfig);
+export const auth = initializeAuth(app, {
+ persistence: getReactNativePersistence(AsyncStorage),
+});
+export const db = getFirestore(app);
+ 
+ import { onAuthStateChanged } from "firebase/auth";
+import React, { createContext, useEffect, useState } from "react";
+import { auth } from "../services/firebase";
+
+export const AuthContext = createContext({});
+
+export function AuthProvider({ children }) {
+ const [user, setUser] = useState(null);
+ const [loading, setLoading] = useState(true);
+
+ useEffect(() => {
+ const unsub = onAuthStateChanged(auth, u => {
+ setUser(u);
+ setLoading(false);
+ });
+ return unsub;
+ }, []);
+
+ return (
+ <AuthContext.Provider value={{ user, loading, setUser }}>
+ {children}
+ </AuthContext.Provider>
+ );
+}
+ 
+ AppRegistry.registerComponent('auth', …)
+
+=== KEY ANSWER (highest scored) ===
+Instead of using expo-dev client, I continued to use expo go. I simply added the following
+ line in my metro.config.js file: 
+ const defaultConfig = getDefaultConfig(__dirname);
+
+defaultConfig.resolver.sourceExts.push('cjs');
+
+// This is the new line you should add in, after the previous lines
+defaultConfig.resolver.unstable_enablePackageExports = false;
+ 
+ After that, I didn't seem to get the error "Component auth has not been registered yet". 
+
+ const defaultConfig = getDefaultConfig(__dirname);
+
+defaultConfig.resolver.sourceExts.push('cjs');
+
+// This is the new line you should add in, after the previous lines
+defaultConfig.resolver.unstable_enablePackageExports = false;
+

@@ -1,0 +1,103 @@
+qid: 79779187
+tags: python, artificial-intelligence, google-gemini
+
+=== TITLE ===
+Google Generative AI: 404 &quot;models/gemini-1.5-flash is not found&quot; error when call
+ing generateContent
+
+=== QUESTION ===
+I have a Flask application that integrates with Google Generative AI (Gemini) and Google C
+alendar. It used to work fine, but recently I started running into two issues: 
+ 
+ 
+ Model not found (404) error 
+ 
+ Whenever my code calls the Gemini API, I get: 
+ ERROR:gemini_parser:Error extracting candidate info: 404 models/gemini-1.5-flash is not f
+ound for API version v1beta,
+or is not supported for generateContent. Call ListModels to see the list of available mode
+ls and their supported methods.
+ERROR:gemini_parser:Error scoring candidate: 404 models/gemini-1.5-flash is not found for 
+API version v1beta...
+ 
+ This happens for every resume processed, and all candidates get marked as "Parse Error" w
+ith a default score. 
+ Here’s how I initialize the model: 
+ import google.generativeai as genai
+
+genai.configure(api_key="MY_API_KEY")
+model = genai.GenerativeModel("gemini-1.5-flash")
+
+response = model.generate_content("Test prompt")
+print(response.text)
+ 
+ This exact code worked before, but now I get the error above. 
+ 
+ 
+ SSL errors in logs 
+ 
+ At startup, I also see warnings like: 
+ WARNING:tools:SSL/Connection error on attempt 1: [SSL: WRONG_VERSION_NUMBER] wrong versio
+n number (_ssl.c:2580)
+WARNING:tools:SSL/Connection error on attempt 2: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC
+] decryption failed or bad record mac (_ssl.c:2580)
+ERROR:tools:Error checking availability: The read operation timed out
+ 
+ Despite these, my Flask app continues to run on http://127.0.0.1:5000 and processes reque
+sts. 
+ 
+ What I tried: 
+ 
+ Restarted the app and re-authenticated with Google API. 
+ 
+ Verified my API key and credentials are set. 
+ 
+ Tested genai.list_models() — it returns a generator, but I’m not sure if gemini-1.5-flash
+ is still in the list. 
+ 
+ Tried different networks to rule out connectivity. 
+ 
+ 
+ 
+ My Questions: 
+ 
+ Why is models/gemini-1.5-flash returning 404 now? 
+ Did Google deprecate or rename it? 
+ Is it only available under certain API versions (v1 vs v1beta)? 
+ 
+ Could API quota exhaustion cause this behavior? 
+ 
+ What’s the correct way to check the currently available Gemini models? 
+ 
+ Are the SSL errors related to the 404 issue, or just a separate local misconfiguration (F
+lask dev server using HTTP instead of HTTPS)? 
+ 
+ 
+ 
+ Any guidance would be appreciated 🙏 
+
+ ERROR:gemini_parser:Error extracting candidate info: 404 models/gemini-1.5-flash is not f
+ound for API version v1beta,
+or is not supported for generateContent. Call ListModels to see the list of available mode
+ls and their supported methods.
+ERROR:gemini_parser:Error scoring candidate: 404 models/gemini-1.5-flash is not found for 
+API version v1beta...
+ 
+ import google.generativeai as genai
+
+genai.configure(api_key="MY_API_KEY")
+model = genai.GenerativeModel("gemini-1.5-flash")
+
+response = model.generate_content("Test prompt")
+print(response.text)
+ 
+ WARNING:tools:SSL/Connection error on attempt 1: [SSL: WRONG_VERSION_NUMBER] wrong versio
+n number (_ssl.c:2580)
+WARNING:tools:SSL/Connection error on attempt 2: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC
+] decryption failed or bad record mac (_ssl.c:2580)
+ERROR:tools:Error checking availability: The read operation timed out
+
+=== KEY ANSWER (highest scored) ===
+Just use gemini-flash-latest 
+ All models: https://ai.google.dev/gemini-api/docs/models
+

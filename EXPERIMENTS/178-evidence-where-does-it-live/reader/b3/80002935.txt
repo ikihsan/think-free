@@ -1,0 +1,75 @@
+qid: 80002935
+tags: advice, c++, binary, iostream, language-design
+
+=== TITLE ===
+Why is there no std::bin stream manipulator in C++?
+
+=== QUESTION ===
+I am aware that there are three I/O manipulators (namely std::hex , std::oct , and std::de
+c ) provided by the standard C++. But I've always wondered why there is no std::bin manipu
+lator in the standard library. 
+ Note that I am not looking for workarounds, but instead want to know the historical reaso
+n(s) why no std::bin was added to the language. I am also aware of std::bitset , etc, but 
+I want to know the reasons why it was not added to the standard, which may be documented s
+omewhere in the old C++ docs, etc. 
+ I think there can be some length ambiguity in printing in this form, but there may be mor
+e reasons. 
+
+ std::hex 
+ std::oct 
+ std::dec 
+ std::bin 
+ std::bin 
+ std::bitset
+
+=== KEY ANSWER (highest scored) ===
+<iostream> was originally modeled after the legacy C printf API lacking support for binary
+ format. It was meant to make a safe replacement for variadic functions. 
+ It wasn't until C++14 that the 0b prefix was adopted into C++ as the binary literal value
+ indicator, and by that time, the critical design flaws of <iostream> were well-known. Bes
+ides that the C++11 adoption of variadic templates had already started the quest for simpl
+er interfaces.
+Today <iostream> is maintained as legacy burden. 
+ The output is now carried out using C++23 header <print> with std::print , and std::print
+ln handling standard output as well as formatted file output to std::ostream , std::ofstre
+am , and the C API std::FILE * . The new std::formatter adds support for binary through b 
+format argument. 
+ On a C++20 setup <format> gives std::format — using same std::formatter — as the replacem
+ent for sprintf . So combination of std::puts , or std::fputs with std::format and std::st
+ring::c_str can temporarily fill in the place of <print> . 
+ Otherwise the refrence implementation of <format> and <print> is the {fmt} library — comp
+atible with C++17 . 
+ All in all, <iostream> is only being used for istream input, in modern code. If {scanlib}
+ hits the maturity level of {fmt} , or a better implementation of C++ regexp emerges, we c
+an finally totally retire <iostream> as deprecated. So, short answer to original question 
+is that <iostream> is not worth more investment. 
+
+ <iostream> 
+ printf 
+ 0b 
+ <iostream> 
+ <iostream> 
+ <print> 
+ std::print 
+ std::println 
+ std::ostream 
+ std::ofstream 
+ std::FILE * 
+ std::formatter 
+ b 
+ <format> 
+ std::format 
+ std::formatter 
+ sprintf 
+ std::puts 
+ std::fputs 
+ std::format 
+ std::string::c_str 
+ <print> 
+ <format> 
+ <print> 
+ <iostream> 
+ istream 
+ <iostream> 
+ <iostream>
+

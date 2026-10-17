@@ -1,0 +1,96 @@
+qid: 79810849
+tags: algorithm, math, permutation
+
+=== TITLE ===
+Finding a maximum &quot;score&quot; of a permutation
+
+=== QUESTION ===
+Consider an array of a permutation P of length n (n > 2), namely some order of the integer
+s 1 through n. 
+ Example of P with length n = 7,
+ [6,5,2,3,7,1,4] 
+ A "score" of a permutation is measured by the amount of indices i (0 <= i <= n-3) that sa
+tisfy the condition, P[i] >= P[i+1] + P[i+2] . 
+ The score of the example P is 2 at i = 1, 5 (5 >= 2 + 3, 7 >= 1 + 4) 
+ Could we find the maximum score among all possible permutation of length n? 
+ Here are some bruteforce solutions: 
+ n = 3; max = 1 (3 2 1)
+n = 4; max = 2 (4 3 1 2)
+n = 5; max = 2 (5 4 3 1 2)
+n = 6; max = 2 (6 4 2 1 3 5)
+n = 7; max = 3 (7 5 1 4 6 3 2)*
+n = 8; max = 4 (8 5 3 2 7 6 1 4)
+n = 9; max = 4 (9 8 5 3 2 7 6 1 4)
+n = 10; max = 5 (10 8 2 6 9 5 4 1 3 7)
+n = 11; max = 5 (11 10 8 2 6 9 5 4 1 3 7)
+n = 12; max = 6 (12 7 3 4 10 9 1 6 11 8 2 5)
+.
+n = 15; max (currently) = 8; (15 13 1 11 9 2 7 14 10 4 6 12 8 3 5)
+.
+n = 20; max (currently) = 10 (20 15 1 10 19 14 2 9 18 13 3 8 17 12 4 7 16 11 5 6)
+ 
+ There seems to be a strategy of placeing digits in this manner: 
+ 20 15 1 10
+19 14 2 9
+18 13 3 8
+17 12 4 7 
+16 11 5 6
+ 
+ to achieve a 5 blocks of score = 2.
+But the solution of n = 15 with max = 8 suggests otherwise by joining 2 score 2 blocks 
+ 15 13 1 11
+ 11 9 2 7 | 14 10 4 6 | 12 8 3 5
+ 
+ Could we possibly find a formula or an optimal strategy for this? Thank you! 
+
+ [6,5,2,3,7,1,4] 
+ i 
+ P[i] >= P[i+1] + P[i+2] 
+ 2 
+ 1, 5 
+ (5 >= 2 + 3, 7 >= 1 + 4) 
+ n = 3; max = 1 (3 2 1)
+n = 4; max = 2 (4 3 1 2)
+n = 5; max = 2 (5 4 3 1 2)
+n = 6; max = 2 (6 4 2 1 3 5)
+n = 7; max = 3 (7 5 1 4 6 3 2)*
+n = 8; max = 4 (8 5 3 2 7 6 1 4)
+n = 9; max = 4 (9 8 5 3 2 7 6 1 4)
+n = 10; max = 5 (10 8 2 6 9 5 4 1 3 7)
+n = 11; max = 5 (11 10 8 2 6 9 5 4 1 3 7)
+n = 12; max = 6 (12 7 3 4 10 9 1 6 11 8 2 5)
+.
+n = 15; max (currently) = 8; (15 13 1 11 9 2 7 14 10 4 6 12 8 3 5)
+.
+n = 20; max (currently) = 10 (20 15 1 10 19 14 2 9 18 13 3 8 17 12 4 7 16 11 5 6)
+ 
+ 20 15 1 10
+19 14 2 9
+18 13 3 8
+17 12 4 7 
+16 11 5 6
+ 
+ 15 13 1 11
+ 11 9 2 7 | 14 10 4 6 | 12 8 3 5
+
+=== KEY ANSWER (highest scored) ===
+I adopted a Divide And Conquer strategy which can be described as follows. 
+ Suppose we want to find an optimally scoring permutation of A = {1, ... , n}. Choose usiz
+e and vsize so that usize + 2 + vsize = n. Let U be any subset of A of size usize. 
+ Suppose p,q, p != q, are in A and not in U, define S(U,p,q) as the optimal score attainab
+le from permutations of elements of U followed by p then q. Define V = A - U - {p,q} and T
+(p,q,V) as the optimal score attainable from p, q then permutations of elements of V. Then
+ the maximum score attainable by any permutation of elements of A is 
+ MAX_{U,p,q} S(U,p,q) + T(p,q,V) 
+ My naive O(n!) permutation 'brute force' exhaustive search program gave me (3 7 12 11 1 1
+0 8 2 6 13 9 4 5) and (5 12 11 1 9 13 10 3 7 14 8 6 2 4) for n=13 and 14 scoring 6 and 7 r
+espectively. 
+ My not-production-level-tested exhaustive O(n^2(nCk)k!) for k = floor((n-1)/2) permutatio
+n divide and conquer program found examples of optimal sequences for n = 15, to 22 inclusi
+ve, (13 11 2 8 7 1 5 14 10 4 6 15 12 3 9), (12 10 2 8 6 1 5 14 15 11 4 7 16 13 3 9), (13 9
+ 4 5 15 8 7 1 6 16 12 2 10 17 14 3 11), (12 10 2 6 13 9 4 5 17 14 3 11 18 16 1 15 7 8), (1
+6 11 5 6 15 12 3 9 8 1 7 18 14 4 10 19 17 2 13), (18 13 5 8 16 9 7 1 6 19 15 4 11 20 17 3 
+14 12 2 10) , (13 16 12 4 8 17 10 7 2 5 20 19 1 18 14 3 11 21 15 6 9), (17 12 5 7 19 16 3 
+13 11 1 8 21 15 6 9 22 20 2 18 14 4 10) with scores 8, 8, 9, 9, 10, 11, 11 and 12 respecti
+vely.
+

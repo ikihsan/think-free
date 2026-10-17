@@ -1,0 +1,228 @@
+qid: 79715742
+tags: c, windows, assembly, x86-64, compiler-optimization
+
+=== TITLE ===
+Why doesn&#39;t the Windows C compiler reuse incoming shadow space in noreturn functions?
+
+=== QUESTION ===
+I mainly use Clang, but I have also explored other compilers during my experiments, such a
+s MinGW GCC and MSVC, but they all have this problem. 
+ cd C:\Users\Moi5t
+clang -v
+ 
+ Output: 
+ clang version 20.1.7
+Target: x86_64-pc-windows-msvc
+Thread model: posix
+InstalledDir: D:\installable\LLVM\bin
+ 
+ In this case: 
+ I think using add rsp, 0x8 in noreturn functions can save stack space more effectively, b
+ut I don't know why mainstream compilers haven't implemented this feature. Maybe this opti
+mization is not important, or maybe I'm wrong. 
+ test.c 
+ void interface();
+__attribute__((noreturn)) void exit();
+
+__attribute__((noreturn)) void entry() {
+ interface();
+ exit();
+}
+ 
+ Compilation: 
+ cd E:\code\test
+clang -S -O3 -ffreestanding test.c
+ 
+ test.s 
+ .def @feat.00;
+ .scl 3;
+ .type 0;
+ .endef
+ .globl @feat.00
+.set @feat.00, 0
+ .file "test.c"
+ .def entry;
+ .scl 2;
+ .type 32;
+ .endef
+ .text
+ .globl entry # -- Begin function entry
+ .p2align 4
+entry: # @entry
+# %bb.0:
+ subq $40, %rsp
+ callq interface
+ callq exit
+ # -- End function
+ .addrsig
+ 
+ I think the ultimate optimization shouldn't be like this, right? 
+ test.s 
+ .def @feat.00;
+ .scl 3;
+ .type 0;
+ .endef
+ .globl @feat.00
+.set @feat.00, 0
+ .file "test.c"
+ .def entry;
+ .scl 2;
+ .type 32;
+ .endef
+ .text
+ .globl entry # -- Begin function entry
+ .p2align 4
+entry: # @entry
+# %bb.0:
+ addq $8, %rsp
+ callq interface
+ callq exit
+ # -- End function
+ .addrsig
+ 
+ Since compilers don't really do this, I think I might be wrong, but I don't understand wh
+y I'm wrong, and I want to know if I'm correct. 
+
+ cd C:\Users\Moi5t
+clang -v
+ 
+ clang version 20.1.7
+Target: x86_64-pc-windows-msvc
+Thread model: posix
+InstalledDir: D:\installable\LLVM\bin
+ 
+ add rsp, 0x8 
+ void interface();
+__attribute__((noreturn)) void exit();
+
+__attribute__((noreturn)) void entry() {
+ interface();
+ exit();
+}
+ 
+ cd E:\code\test
+clang -S -O3 -ffreestanding test.c
+ 
+ .def @feat.00;
+ .scl 3;
+ .type 0;
+ .endef
+ .globl @feat.00
+.set @feat.00, 0
+ .file "test.c"
+ .def entry;
+ .scl 2;
+ .type 32;
+ .endef
+ .text
+ .globl entry # -- Begin function entry
+ .p2align 4
+entry: # @entry
+# %bb.0:
+ subq $40, %rsp
+ callq interface
+ callq exit
+ # -- End function
+ .addrsig
+ 
+ .def @feat.00;
+ .scl 3;
+ .type 0;
+ .endef
+ .globl @feat.00
+.set @feat.00, 0
+ .file "test.c"
+ .def entry;
+ .scl 2;
+ .type 32;
+ .endef
+ .text
+ .globl entry # -- Begin function entry
+ .p2align 4
+entry: # @entry
+# %bb.0:
+ addq $8, %rsp
+ callq interface
+ callq exit
+ # -- End function
+ .addrsig
+
+=== KEY ANSWER (highest scored) ===
+One major reason for not looking for your proposed optimization is that it's super niche (
+noreturn functions are rare), and doesn't save instructions. Also, it would conflict with 
+keeping any of your own local vars in your incoming shadow space , and many functions have
+ local vars. 
+ (Compiler devs have to balance the value of an optimization against the amount of compile
+ time it takes to look for it, and the maintenance / testing burden of the compiler code t
+hat looks for it. Not just the development time of a new feature, but ongoing cost in slow
+er builds, larger source code, and something that could potentially break and lead to misc
+ompiled programs when other parts of the compiler internals are being reworked.) 
+ It only helps with speed by reusing a cache line of stack space that's already hot... onc
+e in the lifetime of a thread. Sure you could construct a corner case where this avoids a 
+page fault to grow the stack, but very often the saving would be totally trivial. 
+ Often a tailcall is possible (like jmp exit ) and does as good a job at giving our shadow
+ space to a callee. ( exit may be marked as special to have GCC not tailcall it, so debugg
+ers can see where it was called from. abort() is marked that way, so the backtrace it gene
+rates doesn't omit its actual caller. Or maybe your GCC just chooses to use call instead o
+f add $40, %rsp / jmp exit since it already has the stack set up for a call. And that's fi
+ne since the stack memory below RSP is probably already hot in cache since we just make an
+other call.) 
+ As far as I can tell, GCC doesn't seem to have any special attributes other than noreturn
+ for functions like abort : https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.
+html#index-noreturn-function-attribute says - In order to preserve backtraces, GCC will ne
+ver turn calls to noreturn functions into tail calls. So doing other things that break bac
+ktraces should also be avoided for callers of noreturn functions. This proposed optimizati
+on would still allow seeing which function called abort , but not further up the call stac
+k: what you're doing is almost like a tailcall, but we overwrite our incoming return addre
+ss with a return address into this function. So instead of skipping ourselves in the call-
+chain, we break the chain, losing any reference to our parent function. 
+(Semi-related: Why does the C compiler save registers in a noreturn function? ) 
+ 
+ Allocating local variables (other than incoming register args) into shadow space is somet
+hing MSVC does (but not GCC or Clang) , since that's a generally useful optimization and i
+t can save instructions in leaf functions, or ones that exit via tailcall, if they never h
+ave to move RSP at all. 
+( Godbolt - MSVC does it for volatile int a,b; , volatile long long a,b (16 bytes), or vol
+atile int arr[2] , but not for volatile int arr[4]; (16 bytes)) 
+ e.g. void foo(){ volatile long long a=1; } compiles with MSVC to mov QWORD PTR a$[rsp], 1
+ / ret , where a$ is defined as a$ = 8 in its asm listing. So this is the first slot of sh
+adow space. 
+ 
+ Saving stack space isn't totally irrelevant; the same compilers we use for user-space are
+ also used to compile kernel code. Kernel stacks are often 8K or 16K per thread, and not p
+ageable . (Linux used to use 4K kernel stacks on 32-bit x86, but last I checked had raised
+ it again for x86-64 from 8 to 16K. I don't know what Windows does.) 
+ So it's good if compilers don't waste stack space gratuitously, but even 48 bytes is not 
+much out of 8K if it only happens a couple times in a call chain. And noreturn functions a
+re vanishingly rare in kernel code, especially higher up in the callstack where the space 
+would be wasted across calls to many callees. (In kernel code, everything except ending a 
+thread/task will return to user-space.) So this is probably irrelevant there. And as @chqr
+lie says, stack space is not a precious commodity in user-space on x86-64. Windows by defa
+ult uses 1MiB user-space stacks, GNU/Linux 8MiB. 
+ Most calling-conventions that GCC targets don't have shadows space, only a few like MIPS 
+and Windows x64, so I'm not surprised it doesn't have optimization passes to look for ways
+ to get the best use out of it. x86-64 is the most important target for MSVC, so it's a go
+od thing it does better at using it for locals. 
+
+ jmp exit 
+ exit 
+ abort() 
+ call 
+ add $40, %rsp 
+ jmp exit 
+ noreturn 
+ abort 
+ noreturn 
+ noreturn 
+ abort 
+ volatile int a,b; 
+ volatile long long a,b 
+ volatile int arr[2] 
+ volatile int arr[4]; 
+ void foo(){ volatile long long a=1; } 
+ mov QWORD PTR a$[rsp], 1 
+ ret 
+ a$ 
+ a$ = 8 
+ noreturn
+

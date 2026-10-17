@@ -1,0 +1,216 @@
+qid: 79791886
+tags: c, math, montecarlo, pi
+
+=== TITLE ===
+Estimation for Pi is precise but inaccurate
+
+=== QUESTION ===
+My code reliably finds a precise (similar value every time) but in the region of 3.24 and 
+3.26. Competent mathematicians will note this around 0.1 away from an ideal Pi value. 
+ My code revolves around picking random points on a 10,000 x 10,000 grid. The hypotenuse w
+ith respect to (0,0) is calculated and if this hypotenuse is less than 10,000, the point i
+s inside a theoretical circle with radius 10,000. 
+ The ratio of points inside and all points multiplied by 4 should give an estimation for P
+i. 
+ #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+
+int RandomNum(int min, int max);
+
+int main()
+{
+ int d = 0;
+ int n = 0;
+ srand(time(NULL));
+
+
+ for (int i =0; i < 10000; i++)
+ {
+ n++;
+ int xI = RandomNum(-10000, 10000);
+ //double xF = (double) xI/10000;
+ printf("\nx: %f", xI);
+
+ int yI = RandomNum(-10000, 10000);
+ //double yF = (double) yI/10000;
+ printf("\ny: %f", yI);
+
+ double pythag = sqrt(xI*xI+yI*yI);
+ printf("\nhyp: %f\n\n",pythag);
+
+ if (pythag < 10000)
+ {
+ d++;
+ }
+
+ }
+ printf("d = %d\n", d);
+ printf("n = %d\n", n);
+ double DNratio = (double) d/n;
+ double PiEstimate = DNratio * 4;
+ printf("Pi Estimate: %f", PiEstimate);
+ return 0;
+}
+int RandomNum(int min, int max)
+{
+ int r = rand()%(max - min + 1) + min;
+ return r;
+}
+
+//https://www.geeksforgeeks.org/c/generating-random-number-range-c/
+//https://www.tutorialspoint.com/c_standard_library/c_function_srand.htm
+
+ 
+
+ #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+
+int RandomNum(int min, int max);
+
+int main()
+{
+ int d = 0;
+ int n = 0;
+ srand(time(NULL));
+
+
+ for (int i =0; i < 10000; i++)
+ {
+ n++;
+ int xI = RandomNum(-10000, 10000);
+ //double xF = (double) xI/10000;
+ printf("\nx: %f", xI);
+
+ int yI = RandomNum(-10000, 10000);
+ //double yF = (double) yI/10000;
+ printf("\ny: %f", yI);
+
+ double pythag = sqrt(xI*xI+yI*yI);
+ printf("\nhyp: %f\n\n",pythag);
+
+ if (pythag < 10000)
+ {
+ d++;
+ }
+
+ }
+ printf("d = %d\n", d);
+ printf("n = %d\n", n);
+ double DNratio = (double) d/n;
+ double PiEstimate = DNratio * 4;
+ printf("Pi Estimate: %f", PiEstimate);
+ return 0;
+}
+int RandomNum(int min, int max)
+{
+ int r = rand()%(max - min + 1) + min;
+ return r;
+}
+
+//https://www.geeksforgeeks.org/c/generating-random-number-range-c/
+//https://www.tutorialspoint.com/c_standard_library/c_function_srand.htm
+
+=== KEY ANSWER (highest scored) ===
+The behavior you're seeing is most likely the result of a modulo bias, due to the small RA
+ND_MAX value that is being used by the specific C library/compiler's implementation of the
+ rand() function. 
+ I get similar results to yours when testing with MSVC ( x86 msvc v19.latest ), where the 
+RAND_MAX value is just 32,767 . Using a modulo 10,000 operation ( % 10000 ) on the output 
+of rand() will generate "random" numbers with a very significant bias towards the lower nu
+mbers. (1) This causes more points to fall within your circle than you would normally expe
+ct, and results in an inflated estimated value of π. (2) 
+ To demonstrate this: if we pick the random values between 0 and 32,767 and compare the hy
+potenuse with that value, we eliminate the modulo bias altogether, and the results much mo
+re closely approach the value of π as can be seen here : (3) 
+ #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+
+int main()
+{
+ int d = 0;
+ int n = 0;
+ srand(time(NULL));
+
+ for (int i =0; i < 10000; i++)
+ {
+ n++;
+ int xI = rand();
+ int yI = rand();
+
+ double pythag = sqrt(xI*xI + yI*yI);
+
+ if (pythag <= RAND_MAX)
+ {
+ d++;
+ }
+ }
+ 
+ printf("d = %d\n", d);
+ printf("n = %d\n", n);
+ double DNratio = ((double) d)/n;
+ double PiEstimate = DNratio * 4;
+ printf("Pi Estimate: %f", PiEstimate); // yields ≈3.14
+ return 0;
+}
+ 
+ 
+ (1) Your implementation actually seems to be doing modulo 20,001 , resulting in an even b
+igger bias. For a RAND_MAX value of 32,767 , the rand() % 20001 operation produces numbers
+ in the interval [0 .. 12,766] twice as often as numbers in the interval [12,767 .. 20,000
+] . 
+ (2) When using a compiler with a larger RAND_MAX value (like x86_64 gcc (trunk) where it'
+s 2,147,483,647 ), the bias is much less noticeable, but still there. 
+ (3) This of course doesn't negate the effects of the relatively small random sample size,
+ and the inherent bias of the PRNG itself. 
+ 
+
+ RAND_MAX 
+ rand() 
+ x86 msvc v19.latest 
+ RAND_MAX 
+ % 10000 
+ rand() 
+ #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+
+int main()
+{
+ int d = 0;
+ int n = 0;
+ srand(time(NULL));
+
+ for (int i =0; i < 10000; i++)
+ {
+ n++;
+ int xI = rand();
+ int yI = rand();
+
+ double pythag = sqrt(xI*xI + yI*yI);
+
+ if (pythag <= RAND_MAX)
+ {
+ d++;
+ }
+ }
+ 
+ printf("d = %d\n", d);
+ printf("n = %d\n", n);
+ double DNratio = ((double) d)/n;
+ double PiEstimate = DNratio * 4;
+ printf("Pi Estimate: %f", PiEstimate); // yields ≈3.14
+ return 0;
+}
+ 
+ RAND_MAX 
+ rand() % 20001 
+ RAND_MAX 
+ x86_64 gcc (trunk)
+

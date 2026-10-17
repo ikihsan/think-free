@@ -1,0 +1,94 @@
+qid: 79846974
+tags: c++, namespaces, language-lawyer, c++20, argument-dependent-lookup
+
+=== TITLE ===
+Should a friend function in a namespace different from the class be found by argument-depe
+ndent lookup?
+
+=== QUESTION ===
+Consider 
+ struct A;
+namespace ns { int f(A&&); }
+struct A {
+ friend int ns::f(A&&);
+};
+
+int x = f(A{});
+ 
+ GCC trunk translates the last line into a call to ns::f(A&&) in C++20 and later. Clang, M
+SVC, EDG, GCC 15.2 (regardless of the language standard), GCC trunk in C++17 all reject th
+e call, claiming that they can't find the declaration of f . 
+ demo: https://godbolt.org/z/59Pdzcc9G 
+ Which compiler is correct? 
+
+ struct A;
+namespace ns { int f(A&&); }
+struct A {
+ friend int ns::f(A&&);
+};
+
+int x = f(A{});
+ 
+ ns::f(A&&) 
+ f
+
+=== KEY ANSWER (highest scored) ===
+I was thinking that GCC trunk is correct because it implements the post-C++20 rule to the 
+letter. But I found an old CWG issue that contradicts with the new behavior (see below). I
+ can't tell whether GCC is correct and the standard committee changed its mind, or GCC is 
+incorrect and either the post-C++20 wording is defective or both I and GCC maintainer misr
+ead the new wording. 
+ Before C++20, the specification says ( N4659 [basic.lookup.argdep]/3 ): 
+ 
+ Let X be the lookup set produced by unqualified lookup and let Y be the lookup set produc
+ed by argument dependent lookup (defined as follows). If X contains 
+ 
+ [...] 
+ 
+ then Y is empty. Otherwise Y is the set of declarations found in the namespaces associate
+d with the argument types as described below. 
+ When considering an associated namespace, the lookup is the same as the lookup performed 
+when the associated namespace is used as a qualifier except that: 
+ 
+ [...] 
+ Any namespace-scope friend functions or friend function templates declared in associated 
+classes are visible within their respective namespaces even if they are not visible during
+ an ordinary lookup. 
+ [...] 
+ 
+ 
+ Here X contains nothing, so Y consists of the declarations found in A 's associated names
+pace, which is the global namespace, which doesn't contain a declaration of f . The lookup
+ finds nothing. 
+ After C++20 (specifically, after the post-C++20 paper P1787R6 ), the specification says (
+ N4950 [basic.lookup.argdep]/4 ): 
+ 
+ Argument-dependent lookup finds all declarations of functions and function templates that
+ 
+ 
+ are found by a search of any associated namespace, or 
+ are declared as a friend ([class.friend]) of any class with a reachable definition in the
+ set of associated entities, or 
+ are exported, are attached to a named module M ([module.interface]), do not appear in the
+ translation unit containing the point of the lookup, and have the same innermost enclosin
+g non-inline namespace scope as a declaration of an associated entity attached to M ([basi
+c.link]). 
+ 
+ 
+ Note that in the second bullet, for functions that are declared as a friend, there's no r
+estriction to the namespace. Hence it seems that ADL should find the declaration of ns::f 
+. 
+ I found GCC commit 8f6c9ebc7d7 which seems to be the commit that implements the new rule.
+ It mentions that "in C++20 P1787 changed [basic.lookup.argdep]/4.2 to directly include al
+l friends in the lookup", which agrees with my analysis. 
+ I also found editorial issue #5302 against the draft standard, which presents a similar e
+xample. But this issue doesn't have a definitive outcome. 
+ Lastly, I found CWG 143 , dated 1999. It says ADL works by finding "invisible" declaratio
+ns in the namespace in which the associated classes are members, and not by finding friend
+ declarations in associated classes (with an example similar to the one in this question).
+ If the committee didn't change its mind, this means GCC's new behavior is incorrect. 
+
+ A 
+ f 
+ ns::f
+

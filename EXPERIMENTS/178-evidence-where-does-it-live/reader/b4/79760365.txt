@@ -1,0 +1,131 @@
+qid: 79760365
+tags: swiftui, navigation, transition, ios26
+
+=== TITLE ===
+iOS 26 RC, View becomes invisible when it was swiped back from a zoom navigation transitio
+n
+
+=== QUESTION ===
+a simple reproduction could be 
+ 
+import SwiftUI
+
+struct ContentView: View {
+ @State private var paths = [String]()
+ 
+ @Namespace var ns
+ 
+ var body: some View {
+ NavigationStack(path: $paths) {
+ ScrollView {
+ Button("Push") {
+ paths.append("a")
+ }
+ .matchedTransitionSource(id: "a", in: ns)
+ }
+ .navigationDestination(for: String.self, destination: { id in
+ Text(id)
+ .navigationTransition(.zoom(sourceID: "a", in: ns))
+ })
+ }
+ }
+}
+
+#Preview {
+ ContentView()
+}
+ 
+ the push button just remains invisible after you come back from the second level view 
+
+ 
+import SwiftUI
+
+struct ContentView: View {
+ @State private var paths = [String]()
+ 
+ @Namespace var ns
+ 
+ var body: some View {
+ NavigationStack(path: $paths) {
+ ScrollView {
+ Button("Push") {
+ paths.append("a")
+ }
+ .matchedTransitionSource(id: "a", in: ns)
+ }
+ .navigationDestination(for: String.self, destination: { id in
+ Text(id)
+ .navigationTransition(.zoom(sourceID: "a", in: ns))
+ })
+ }
+ }
+}
+
+#Preview {
+ ContentView()
+}
+ 
+ push
+
+=== KEY ANSWER (highest scored) ===
+In iOS 26, NavigationStack breaks the matchedTransitionSource in this case, which is why t
+he button stays invisible when you come back.
+Instead of using .navigationDestination , use a .fullScreenCover so the source view isn’t 
+removed 
+ In ios 18 doesn't need change this 
+ Here’s the version using .fullScreenCover instead of .navigationDestination : 
+ import SwiftUI
+
+struct ContentView: View {
+ @State private var showDetail = false
+ @Namespace var ns
+ 
+ var body: some View {
+ ScrollView {
+ Button("Push") {
+ showDetail = true
+ }
+ .matchedTransitionSource(id: "a", in: ns)
+ }
+ .fullScreenCover(isPresented: $showDetail) {
+ Text("a")
+ .font(.largeTitle)
+ .navigationTransition(.zoom(sourceID: "a", in: ns))
+ }
+ }
+}
+
+#Preview {
+ ContentView()
+}
+ 
+
+ .navigationDestination 
+ .fullScreenCover 
+ .fullScreenCover 
+ .navigationDestination 
+ import SwiftUI
+
+struct ContentView: View {
+ @State private var showDetail = false
+ @Namespace var ns
+ 
+ var body: some View {
+ ScrollView {
+ Button("Push") {
+ showDetail = true
+ }
+ .matchedTransitionSource(id: "a", in: ns)
+ }
+ .fullScreenCover(isPresented: $showDetail) {
+ Text("a")
+ .font(.largeTitle)
+ .navigationTransition(.zoom(sourceID: "a", in: ns))
+ }
+ }
+}
+
+#Preview {
+ ContentView()
+}
+

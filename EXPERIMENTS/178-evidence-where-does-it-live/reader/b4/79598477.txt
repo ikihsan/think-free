@@ -1,0 +1,68 @@
+qid: 79598477
+tags: c++, c, static-analysis
+
+=== TITLE ===
+Annotating intentional infinite loop to satisfy &quot;-fanalyzer&quot;
+
+=== QUESTION ===
+I have a following embedded system optimization case (simplified). 
+ int main() {
+ while (1) { 
+ // Do something
+ if (unrecoverable_error) { 
+ __breakpoint(); 
+ while(1); 
+ }
+ } 
+}
+ 
+ If the while (1); statement is replaced by return 0 , the compiler invokes all the destru
+ctors due upon exit from main, (and for that matter generates the destructor code bloat) -
+ both for main-local and global, even if the crt0 ultimately traps the CPU in a while(1); 
+loop after all. 
+ Thus, there is an advantage to judiciously use while(1); if one wants the system to inten
+tionally hang. 
+ Statically analyzing the code with -fanalyzer leads to (obvious) infinite loop error/warn
+ing. 
+ How does one annotate that a specific instance of the infinite loop is indeed intentional
+? 
+ I don't want to disable the infinite loop detection entirely (as it is possible that othe
+r parts of the code may contain bugs that lead to non-trivial infinite loops). 
+
+ int main() {
+ while (1) { 
+ // Do something
+ if (unrecoverable_error) { 
+ __breakpoint(); 
+ while(1); 
+ }
+ } 
+}
+ 
+ while (1); 
+ return 0 
+ crt0 
+ while(1); 
+ while(1); 
+ -fanalyzer
+
+=== KEY ANSWER (highest scored) ===
+Infinite loops without side effects are generally considered as undefined behavior in C++ 
+(Some exceptions in the newest draft are given in the comments of the question). 
+ According to the latest draft , reading from a volatile object is considered a side effec
+t. 
+ Therefore you might replace the while(1); statement with 
+ volatile int dummy = 1;
+while (1) { // I do not know if side effect in control statement counts
+ if (!dummy)
+ break;
+}
+ 
+
+ while(1); 
+ volatile int dummy = 1;
+while (1) { // I do not know if side effect in control statement counts
+ if (!dummy)
+ break;
+}
+

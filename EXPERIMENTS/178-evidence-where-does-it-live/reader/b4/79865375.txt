@@ -1,0 +1,208 @@
+qid: 79865375
+tags: c, powershell, prompt
+
+=== TITLE ===
+Why does the command prompt appear on a new line after C program execution, even without \
+n?
+
+=== QUESTION ===
+I am running a simple C program on Windows using VS Code and the PowerShell terminal. My c
+ode intentionally does not include a newline character ( \n ) at the end of the printf sta
+tements. 
+ Code 
+ #include <stdio.h>
+
+int main() {
+ printf("hello");
+ printf("hello");
+ return 0;
+}
+ 
+ Since I am not printing \n, I expected the terminal prompt to appear immediately after th
+e output, on the same line,
+like this: 
+ hellohelloPS C:\Users\Kannan\Desktop...>
+ 
+ What actually happened : The output prints hellohello, but the prompt appears on the next
+ line, as if a newline was added automatically: 
+ PS C:\Users\Kannan\Desktop...> ./r.exe
+hellohello
+PS C:\Users\Kannan\Desktop...>
+ 
+ I know standard printf behavior does not flush a newline automatically. Is this behavior 
+specific to the C runtime on Windows? 
+ 
+ Raw output 
+ PS C:\Users\Kannan\Desktop\K\L0\c++> gcc random_walk.c -o r
+PS C:\Users\Kannan\Desktop\K\L0\c++> ./r.exe > output.txt
+PS C:\Users\Kannan\Desktop\K\L0\c++> Format-Hex output.txt
+
+
+ Path: C:\Users\Kannan\Desktop\K\L0\c++\output.txt
+
+ 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
+
+00000000 FF FE 68 00 65 00 6C 00 6C 00 6F 00 68 00 65 00 .þh.e.l.l.o.h.e.
+00000010 6C 00 6C 00 6F 00 0D 00 0A 00 l.l.o..... 
+
+
+PS C:\Users\Kannan\Desktop\K\L0\c++> 
+ 
+
+ \n 
+ printf 
+ #include <stdio.h>
+
+int main() {
+ printf("hello");
+ printf("hello");
+ return 0;
+}
+ 
+ hellohelloPS C:\Users\Kannan\Desktop...>
+ 
+ PS C:\Users\Kannan\Desktop...> ./r.exe
+hellohello
+PS C:\Users\Kannan\Desktop...>
+ 
+ PS C:\Users\Kannan\Desktop\K\L0\c++> gcc random_walk.c -o r
+PS C:\Users\Kannan\Desktop\K\L0\c++> ./r.exe > output.txt
+PS C:\Users\Kannan\Desktop\K\L0\c++> Format-Hex output.txt
+
+
+ Path: C:\Users\Kannan\Desktop\K\L0\c++\output.txt
+
+ 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
+
+00000000 FF FE 68 00 65 00 6C 00 6C 00 6F 00 68 00 65 00 .þh.e.l.l.o.h.e.
+00000010 6C 00 6C 00 6F 00 0D 00 0A 00 l.l.o..... 
+
+
+PS C:\Users\Kannan\Desktop\K\L0\c++>
+
+=== KEY ANSWER (highest scored) ===
+A since-deleted, putatively AI-generated answer (only users with sufficient reputation can
+ view the link) actually provided good insights; let me provide a 100% human-generated per
+spective. 
+ Your program works as intended ; the behaviors you observe are specific to [Windows] Powe
+rShell. 
+ There are two distinct, unrelated aspects to consider: 
+ 
+ (a) Printing external program output to the console (terminal). 
+ 
+ (b) Capturing such output in a file , using > , i.e. I/O redirection . 
+ 
+ 
+ 
+ Re (a) 
+ By design, both cmd.exe and PowerShell - unlike most POSIX-compatible shells such as Bash
+ [0] - ensure that a newline is always printed following command output before re-printing
+ their prompt string in interactive sessions - even if the external program output does no
+t end in a newline, such as in your case. 
+ Thus, a program printing, say, printf("foo"); produces the same display output as one emi
+tting printf("foo\n"); : 
+ 
+ Presumably, the design rationale is to ensure that the prompt string always prints at the
+ start of a line, for visual consistency. 
+There is no way to modify this behavior in PowerShell that I am aware of. [1] 
+ 
+ Re (b) 
+ While it is understandable to try to use an I/O redirection, > , to capture an external p
+rogram's raw byte output , this does not work as intended in Windows PowerShell , the lega
+cy, ships-with-Windows, Windows-only edition of PowerShell whose latest and final version 
+is 5.1: 
+ 
+ External-program output is invariably first decoded , based on the encoding stored in [Co
+nsole]::OutputEncoding , ... 
+ 
+ ... and then re-encoded on saving to the target file, using the default encoding of the O
+ut-File cmdlet, of which > is a virtual alias, and that default encoding happens to be UTF
+-16 LE (in which ASCII-range characters such as h are represented as 2-byte sequences with
+ the low-order byte representing the ASCII code point and the high-order byte being 0x0 , 
+e.g. 68 00 for 'h' ), preceded by a BOM (the FF FE by sequence shown at the start of your 
+Format-Hex output). 
+ 
+ Additionally, the external-program output is decoded line by line , and each line is writ
+ten to the target file with a trailing newline , using the platform-native newline format,
+ which is CRLF on Windows ( \r\n , in printf terms) - whether or not the output's last lin
+e had a trailing newline. 
+Thus, similarly to the to-console output, a program printing, say, printf("foo"); produces
+ the same file content as one emitting printf("foo\n"); when redirected with > , the redir
+ection operator 
+ 
+ It is worth noting that even in PowerShell (Core) 7 (see below) the decoding behavior sti
+ll applies with respect to further processing external-program output in memory , and the 
+re-encoding behavior still applies when using explicit calls to file-saving cmdlets such a
+s Out-File , though PowerShell 7 notably and commendably consistently defaults to BOM-less
+ UTF-8 . [2] 
+ 
+ The simplest way to ensure capturing of raw bytes from external programs in Windows Power
+Shell is to delegate to cmd.exe , whose > operator does just that: 
+ # Windows PowerShell:
+# Captures raw byte output from .\r.exe 
+# Note: \ rather than / must be used for cmd.exe's sake.
+cmd /c .\r.exe > output.txt
+ 
+ 
+ 
+ By contrast, it does work as intended in PowerShell (Core) 7 , the modern, cross-platform
+, install-on-demand edition, in v7.4+ (older versions are now out of support), i.e. > capt
+ures raw byte output , the same way it does in cmd.exe and in POSIX-compatible shells such
+ as Bash. 
+ # PowerShell (Core) 7.4+:
+ # Captures raw byte output from ./r.exe, both on Windows and Unix-like platforms.
+ ./r.exe > output.txt
+ 
+ 
+ [0] As Charlie Harding points out in a comment on the question, the lone exception among 
+the major POSIX-compatible shells is zsh , which also ensures that a newline is printed, b
+ut additionally visually highlights the lack of a trailing newline in program output by fo
+llowing its last line with a % printed in reverse video; the - non-POSIX-compatible - fish
+ shell uses ⏎ instead; see this blog post for details. 
+ [1] By contrast, a hack is available if you use cmd.exe rather than PowerShell, as explai
+ned by Neil in a comment on the question: Batch files whose last line contains (just) : su
+ppress the mechanism that implicitly adds a newline to the output from programs not ending
+ in a newline, so you could wrap calls to such programs in such a batch file. 
+ [2] Windows PowerShell is, unfortunately, wildly inconsistent with respect to default cha
+racter encodings - see the bottom section of this answer . 
+
+ > 
+ cmd.exe 
+ printf("foo"); 
+ printf("foo\n"); 
+ > 
+ [Console]::OutputEncoding 
+ Out-File 
+ > 
+ h 
+ 0x0 
+ 68 00 
+ 'h' 
+ FF FE 
+ Format-Hex 
+ \r\n 
+ printf 
+ printf("foo"); 
+ printf("foo\n"); 
+ > 
+ Out-File 
+ cmd.exe 
+ > 
+ # Windows PowerShell:
+# Captures raw byte output from .\r.exe 
+# Note: \ rather than / must be used for cmd.exe's sake.
+cmd /c .\r.exe > output.txt
+ 
+ > 
+ cmd.exe 
+ # PowerShell (Core) 7.4+:
+ # Captures raw byte output from ./r.exe, both on Windows and Unix-like platforms.
+ ./r.exe > output.txt
+ 
+ zsh 
+ % 
+ fish 
+ ⏎ 
+ cmd.exe 
+ :
+

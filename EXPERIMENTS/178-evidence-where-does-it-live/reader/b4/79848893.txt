@@ -1,0 +1,346 @@
+qid: 79848893
+tags: c#, .net, .net-10.0
+
+=== TITLE ===
+The call is ambiguous between identical methods
+
+=== QUESTION ===
+I am in the process of upgrading our codebase from .NET 9 to .NET 10. All of the libraries
+ of all of our packages were upgraded to the most recent version when I last upgraded to .
+NET 9. 
+ I did the same thing this go around and brought everything up to the most recent code ver
+sions. 
+ I have not done any code changes whatsoever and all of this code compiled and ran before 
+the version update. 
+ However, I am stuck on this error, and it doesn't make any sense to me. 
+The two methods it is referring to are identical. 
+ 
+ The call is ambiguous between the following methods or properties 
+ System.Linq.AsyncEnumerable.ToListAsync(System.Collections.Generic.IAsyncEnumerable, Syst
+em.Threading.CancellationToken) 
+ and 
+ System.Linq.AsyncEnumerable.ToListAsync(System.Collections.Generic.IAsyncEnumerable, Syst
+em.Threading.CancellationToken) 
+ 
+ I am also getting this with a few other System.Linq functions such as: 
+ 
+ The call is ambiguous between the following methods or properties: 
+ System.Linq.AsyncEnumerable.Select<TSource, TResult>(System.Collections.Generic.IAsyncEnu
+merable, System.Func<TSource, TResult>) 
+ and 
+ System.Linq.AsyncEnumerable.Select<TSource, TResult>(System.Collections.Generic.IAsyncEnu
+merable, System.Func<TSource, TResult>) 
+ 
+ I have looked at other solutions, such as cleaning out every bin and obj folder in the en
+tire project (which I've done numerous times), check for duplicate dll files, etc. and not
+hing seems to resolve this. 
+ Any help would be appreciated. 
+ Here is a code snippet that will reproduce the issue: 
+ using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+using Couchbase;
+
+namespace Kordata.N1QL
+{ 
+ public class N1QLConnection
+ {
+ public async Task<IEnumerable<T>> ExecuteQueryAsync<T>(string query)
+ {
+ ICluster cluster = new Cluster();
+
+ var result = await cluster.QueryAsync<T>(query);
+
+ var rows = await result.Rows.ToListAsync();
+ return rows;
+ }
+ }
+}
+ 
+ The error is on this line: 
+ var rows = await result.Rows.ToListAsync();
+ 
+ Included are the .csproj files for the project. 
+ Kordata.N1QL.csproj : 
+ <Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup>
+ <Description>Couchbase N1QL utilities</Description>
+ <TargetFramework>net10.0</TargetFramework>
+ <AssemblyName>Kordata.N1QL</AssemblyName>
+ <PackageId>Kordata.N1QL</PackageId>
+ </PropertyGroup>
+
+ <ItemGroup>
+ <ProjectReference Include="..\..\common\common-core\Kordata.Common.csproj" />
+ <ProjectReference Include="..\..\core\src\Kordata.Core.csproj" />
+ </ItemGroup>
+
+ <ItemGroup>
+ <PackageReference Include="CouchbaseNetClient" Version="3.8.1" />
+ <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.1" />
+ <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.1" />
+ <PackageReference Include="NodaTime.Serialization.JsonNet" Version="3.2.0" /> 
+ <PackageReference Include="morelinq" Version="4.4.0" />
+ </ItemGroup>
+</Project>
+ 
+ Here are the included .csproj files: 
+ Kordata.Common.csproj : 
+ <Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup>
+ <Description>Kordata common functions and classes</Description>
+ <TargetFramework>net10.0</TargetFramework>
+ <AssemblyName>Kordata.Common</AssemblyName>
+ <PackageId>Kordata.Common</PackageId>
+ </PropertyGroup>
+
+ <ItemGroup>
+ <PackageReference Include="NodaTime" Version="3.2.3" />
+ <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+ </ItemGroup>
+</Project>
+ 
+ Kordata.Core.csproj : 
+ <Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup>
+ <TargetFramework>net10.0</TargetFramework>
+ <NoWarn>$(NoWarn);CS0618</NoWarn>
+ <AssemblyName>Kordata.Core</AssemblyName>
+ <PackageId>Kordata.Core</PackageId>
+ </PropertyGroup>
+ <ItemGroup>
+ <PackageReference Include="BCrypt.Net-Core" Version="1.6.0" />
+ <PackageReference Include="Jint" Version="4.4.2" />
+ <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="10.0
+.1" />
+ <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.1" />
+ <PackageReference Include="NodaTime.Serialization.JsonNet" Version="3.2.0" />
+ <PackageReference Include="NodaTime" Version="3.2.3" />
+ <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+ <PackageReference Include="morelinq" Version="4.4.0" />
+ <PackageReference Include="SharpZipLib" Version="1.4.2" />
+ <PackageReference Include="Nito.AsyncEx.Coordination" Version="5.1.2" />
+ <PackageReference Include="SkiaSharp" Version="3.119.1" />
+ <PackageReference Include="ZXing.Net" Version="0.16.11" />
+ <PackageReference Include="CouchbaseNetClient" Version="3.8.1" />
+ <ProjectReference Include="..\..\clients\kordata-metrics\Kordata.Metrics.Client.csproj" /
+>
+ </ItemGroup>
+
+ <ItemGroup>
+ <Compile Remove="Abstractions\IQRCodeGenerator.cs" />
+ </ItemGroup>
+</Project>
+ 
+ Kordata.Metrics.Client.csproj : 
+ <Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup>
+ <TargetFramework>net10.0</TargetFramework>
+ <AssemblyName>Kordata.Metrics.Client</AssemblyName>
+ <PackageId>Kordata.Metrics.Client</PackageId>
+ <OutputType>Library</OutputType>
+ <Authors>Swagger</Authors>
+ <Company>Swagger</Company>
+ <AssemblyTitle>Swagger Library</AssemblyTitle>
+ <Description>A library generated from a Swagger doc</Description>
+ <Copyright>No Copyright</Copyright>
+ <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+ <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+ <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+ <RootNamespace>Kordata.Metrics.Client</RootNamespace>
+ <Version>1.0.0</Version>
+ </PropertyGroup>
+
+ <ItemGroup>
+ <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.1" />
+ <PackageReference Include="FubarCoder.RestSharp.Portable.Core" Version="4.0.8" />
+ <PackageReference Include="FubarCoder.RestSharp.Portable.HttpClient" Version="4.0.8" />
+ <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+ </ItemGroup>
+</Project>
+ 
+
+ System.Linq 
+ bin 
+ obj 
+ using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+using Couchbase;
+
+namespace Kordata.N1QL
+{ 
+ public class N1QLConnection
+ {
+ public async Task<IEnumerable<T>> ExecuteQueryAsync<T>(string query)
+ {
+ ICluster cluster = new Cluster();
+
+ var result = await cluster.QueryAsync<T>(query);
+
+ var rows = await result.Rows.ToListAsync();
+ return rows;
+ }
+ }
+}
+ 
+ var rows = await result.Rows.ToListAsync();
+ 
+ .csproj 
+ Kordata.N1QL.csproj 
+ <Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup>
+ <Description>Couchbase N1QL utilities</Description>
+ <TargetFramework>net10.0</TargetFramework>
+ <AssemblyName>Kordata.N1QL</AssemblyName>
+ <PackageId>Kordata.N1QL</PackageId>
+ </PropertyGroup>
+
+ <ItemGroup>
+ <ProjectReference Include="..\..\common\common-core\Kordata.Common.csproj" />
+ <ProjectReference Include="..\..\core\src\Kordata.Core.csproj" />
+ </ItemGroup>
+
+ <ItemGroup>
+ <PackageReference Include="CouchbaseNetClient" Version="3.8.1" />
+ <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.1" />
+ <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.1" />
+ <PackageReference Include="NodaTime.Serialization.JsonNet" Version="3.2.0" /> 
+ <PackageReference Include="morelinq" Version="4.4.0" />
+ </ItemGroup>
+</Project>
+ 
+ .csproj 
+ Kordata.Common.csproj 
+ <Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup>
+ <Description>Kordata common functions and classes</Description>
+ <TargetFramework>net10.0</TargetFramework>
+ <AssemblyName>Kordata.Common</AssemblyName>
+ <PackageId>Kordata.Common</PackageId>
+ </PropertyGroup>
+
+ <ItemGroup>
+ <PackageReference Include="NodaTime" Version="3.2.3" />
+ <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+ </ItemGroup>
+</Project>
+ 
+ Kordata.Core.csproj 
+ <Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup>
+ <TargetFramework>net10.0</TargetFramework>
+ <NoWarn>$(NoWarn);CS0618</NoWarn>
+ <AssemblyName>Kordata.Core</AssemblyName>
+ <PackageId>Kordata.Core</PackageId>
+ </PropertyGroup>
+ <ItemGroup>
+ <PackageReference Include="BCrypt.Net-Core" Version="1.6.0" />
+ <PackageReference Include="Jint" Version="4.4.2" />
+ <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="10.0
+.1" />
+ <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.1" />
+ <PackageReference Include="NodaTime.Serialization.JsonNet" Version="3.2.0" />
+ <PackageReference Include="NodaTime" Version="3.2.3" />
+ <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+ <PackageReference Include="morelinq" Version="4.4.0" />
+ <PackageReference Include="SharpZipLib" Version="1.4.2" />
+ <PackageReference Include="Nito.AsyncEx.Coordination" Version="5.1.2" />
+ <PackageReference Include="SkiaSharp" Version="3.119.1" />
+ <PackageReference Include="ZXing.Net" Version="0.16.11" />
+ <PackageReference Include="CouchbaseNetClient" Version="3.8.1" />
+ <ProjectReference Include="..\..\clients\kordata-metrics\Kordata.Metrics.Client.csproj" /
+>
+ </ItemGroup>
+
+ <ItemGroup>
+ <Compile Remove="Abstractions\IQRCodeGenerator.cs" />
+ </ItemGroup>
+</Project>
+ 
+ Kordata.Metrics.Client.csproj 
+ <Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup>
+ <TargetFramework>net10.0</TargetFramework>
+ <AssemblyName>Kordata.Metrics.Client</AssemblyName>
+ <PackageId>Kordata.Metrics.Client</PackageId>
+ <OutputType>Library</OutputType>
+ <Authors>Swagger</Authors>
+ <Company>Swagger</Company>
+ <AssemblyTitle>Swagger Library</AssemblyTitle>
+ <Description>A library generated from a Swagger doc</Description>
+ <Copyright>No Copyright</Copyright>
+ <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+ <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+ <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+ <RootNamespace>Kordata.Metrics.Client</RootNamespace>
+ <Version>1.0.0</Version>
+ </PropertyGroup>
+
+ <ItemGroup>
+ <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.1" />
+ <PackageReference Include="FubarCoder.RestSharp.Portable.Core" Version="4.0.8" />
+ <PackageReference Include="FubarCoder.RestSharp.Portable.HttpClient" Version="4.0.8" />
+ <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+ </ItemGroup>
+</Project>
+
+=== KEY ANSWER (highest scored) ===
+CouchbaseNetClient 3.8.1 references System.Linq.Async (v6.0.1, which is around 3 years old
+). Via dotnet nuget why : 
+ 
+ This version exposes the ToListAsync method. .NET 10 has the same method included in the 
+framework . 
+ Since you have transient dependency on the package you can install it's 7th version which
+ seems to have the ambiguity resolved for .NET 10. as stated in the Recommended action sec
+tion of the linked before doc: 
+ 
+ If you're upgrading to .NET 10 and your code includes a direct package reference to Syste
+m.Linq.Async, remove that package reference or upgrade to version 7.0.0. 
+ 
+ Or for transient dependency (as in your case) you can reference it directly and add <Excl
+udeAssets> metadata with a value of compile or all : 
+ 
+ This configuration prevents direct usage in your code while allowing other packages to co
+ntinue using System.Linq.Async internally: 
+ 
+ <PackageReference Include="System.Linq.Async" Version="6.0.1">
+ <ExcludeAssets>compile</ExcludeAssets>
+</PackageReference>
+ 
+ 
+ Use this configuration only if you're certain no dependencies require System.Linq.Async a
+t runtime. 
+ 
+ <PackageReference Include="System.Linq.Async" Version="6.0.1">
+ <ExcludeAssets>all</ExcludeAssets>
+</PackageReference>
+ 
+ Moving from the comment by Panagiotis Kanavos : 
+ 
+ I see that the latest CouchbaseClient , 3.9.0-RC3 removes the dependency on System.Linq.A
+sync on .NET 10. 
+ 
+ So another option would be to update to it (or wait for the release) 
+
+ CouchbaseNetClient 
+ System.Linq.Async 
+ dotnet nuget why 
+ ToListAsync 
+ <ExcludeAssets> 
+ compile 
+ all 
+ System.Linq.Async 
+ <PackageReference Include="System.Linq.Async" Version="6.0.1">
+ <ExcludeAssets>compile</ExcludeAssets>
+</PackageReference>
+ 
+ System.Linq.Async 
+ <PackageReference Include="System.Linq.Async" Version="6.0.1">
+ <ExcludeAssets>all</ExcludeAssets>
+</PackageReference>
+ 
+ System.Linq.Async
+
