@@ -166,7 +166,7 @@ The blocks record what those files already were, and change nothing in them.
 Whether a free general assistant is measurably worse at reaching a real
 question's community answer when that answer's resolution depends on a fact or
 artefact the question does not contain. Stated and declared before any answer
-body was read: [`PROTOCOL.md`](../EXPERIMENTS/177-evidence-gated-need/PROTOCOL.md).
+body was read: [`PROTOCOL.md`](EXPERIMENTS/177-evidence-gated-need/PROTOCOL.md).
 
 ### What it found
 

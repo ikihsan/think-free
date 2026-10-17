@@ -166,6 +166,20 @@ exempt: EXPERIMENTS/**/trees/*.tsv
 # would cut an account in half. Same class as the `.tsv` rule above: a data file
 # the cap has nothing to say about.
 exempt: EXPERIMENTS/**/corpus/synthetic/*.csv
+
+# E177's reader-input fixtures: one hard-wrapped text file per row, written by
+# `roles.py` and `score_inputs.py` from the committed `rows.json`. They are
+# regenerable byte-identically from committed bytes and committed seeds, and they
+# exist only because a reader lost a field to a 2 000-character line cap
+# (AMENDMENT-4) - one JSON object per line silently truncated the question on
+# 18 of 50 rows. A Stack Overflow answer carrying a code block spans several
+# hundred lines at 90 columns, and splitting one would cut an answer in half:
+# the same class as the `.tsv` and synthetic-`.csv` exemptions above. The
+# *evidence* is the readers' outputs (`clf/labels-*.jsonl`,
+# `ans/answers.jsonl`, `score/verdicts.jsonl`), all of which are `.jsonl` and
+# exempt already.
+exempt: EXPERIMENTS/**/clf/*/*.txt
+exempt: EXPERIMENTS/**/score/pairs/*.txt
 exempt: EXPERIMENTS/**/grading-sheet.txt
 exempt: EXPERIMENTS/**/screening-sheet.txt
 
