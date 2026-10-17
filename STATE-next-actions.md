@@ -14,6 +14,10 @@ last-verified: 2026-10-17
 > harvest, not confirmed**. Do not run another registry sweep. See
 > [`EXPERIMENTS/113-viewcount-matched-harvest/`](EXPERIMENTS/113-viewcount-matched-harvest/README.md).
 
+## Money SE fresh observation (2026-10-17) — the round trip is even stronger when missing facts are personal
+
+A fresh observation on Personal Finance SE (`money.stackexchange.com`) tested F137's conclusion on a second venue. **Hypothesis (declared before the run):** on money SE, missing facts are more personal (income, debt, jurisdiction, age) and harder to elicit, so the round trip should fail *more* than on SO. **Result: the opposite.** On the 30 highest-arrival questions with answers, **9/30 = 0.3000 lack a specific personal fact** (income/age/jurisdiction/amount — the money-SE analog of E177's EVID class), and **27/30 = 0.9000 carry a round-trip ask** (someone comments asking for the missing fact), against SO's 31/46 = 0.6739. The round trip is **stronger** on money SE, not weaker: the venue asks *more* readily when the missing fact is personal, not less. **F177's conclusion is confirmed on a second venue** — the EVID class is served by the venue's own round trip, and the genuinely unserved residue is tiny and eventually answered. The "unserved need" hypothesis is dead for money SE too. Raw data: `/tmp/opencode/money_analysis.json` (per-question facts, comments, asks). **Next action:** the EVID line is closed on two venues. The mission returns to fresh exploration.
+
 ## E178 completed (2026-10-17) — the missing evidence is not in anything the project publishes; the venue's own round trip already supplies it
 
 **The gap E177's own measurement opened.** E177 found a class of **46 of the

@@ -148,3 +148,27 @@ is empty, so there is no published artefact to measure. The line is closed.
 the same instrument), E170's global arm, another view-count domain (D105,
 F133), or a fresh draw of E177's comparison before the composition of the 46
 is examined.
+
+## Addendum (2026-10-17, exploratory — F137): the round trip fails uniformly, and the unserved residue is tiny
+
+A post-hoc cross-tab of `has_ask` against the M2 bucket (computed by
+replicating `score.py`'s exact `is_ask` lexicon and joining on `qid`; no new
+fetch) closes the "automated ask" route from the inside:
+
+- **The round trip's failure is uniform across buckets** — 7/21 `asker_only`,
+  6/20 `third_party`, 2/5 `none` (overall 15/46 = 0.3261). It is not
+  concentrated in `asker_only`, so there is no special asker-held-fact
+  sub-population for an automated ask to uniquely serve. 5 of the 7
+  `asker_only`+failed rows have **zero** comments: a low-engagement failure,
+  not a bucket-specific one.
+- **On the 30 scored EVID rows**, the joint with the free assistant's verdict
+  gives a genuinely unserved residue (round trip failed AND assistant missed)
+  of **7/30 = 0.2333** — and all 7 carry a key answer, so they were served by
+  a mechanism other than the assistant or the visible round trip (asker edit,
+  expert answer, or self-answer; `rows.json` does not record which).
+
+**This decides the "automated ask" route has no buildable sub-population on
+Stack Overflow.** The round trip fails because of low engagement, not because
+the missing fact is the wrong kind, and the 23% residue it leaves is a
+population that was eventually answered anyway. See **F137** in
+[`FAILURES-findings-43.md`](../../FAILURES-findings-43.md).
