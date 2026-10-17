@@ -1,0 +1,28 @@
+pid: g-79434372
+
+=== LEFT ===
+Do not follow either LLM suggestion; both are noise. window.gmo is created by Google's own
+ ad snippets (Ads enhanced conversions, Ads data hub) injected by the gtag loader, so the 
+errors come from third-party code running in users' browsers, not your bundle; 'invalid or
+ unexpected token' is the same class of injected script. Your index.html is correct and ne
+eds no change. Note the comment says the tag is for Ads on Search only, so it does nothing
+ in your React app: consider removing it. In Sentry, filter with beforeSend or ignoreError
+s, dropping errors whose stack or URL contains googletagmanager.com, googleadservices.com 
+or 'gmo'. Session Replay can tell you whether an extension or blocker triggers it.
+
+=== RIGHT ===
+I think the best approach here would be to use the ignoreErrors option https://docs.sentry
+.io/platforms/javascript/configuration/filtering/ 
+ Sentry.init({
+ ignoreErrors: [
+ "Can't find variable: gmo"
+ ],
+});
+ 
+
+ ignoreErrors 
+ Sentry.init({
+ ignoreErrors: [
+ "Can't find variable: gmo"
+ ],
+});

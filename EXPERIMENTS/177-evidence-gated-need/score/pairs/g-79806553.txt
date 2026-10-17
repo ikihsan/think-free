@@ -1,0 +1,22 @@
+pid: g-79806553
+
+=== LEFT ===
+That text is PyCharm's message for indexing a type alias that takes no template arguments,
+ and in this snippet there is no alias at all, which means the name it thinks it is subscr
+ipting has been shadowed. Most likely something called list (or List, or a name used in an
+ annotation) is defined as a TypeAlias or in a stub, so PyCharm resolves the built-in list
+ to your alias and complains when you index it. Hover the reported name to see where the a
+lias comes from and check the project and site-packages for a TypeAlias assignment or a .p
+yi stub. Since the code runs, this is inspection-only. Fix the shadowing, or avoid indexin
+g entirely with f-string unpacking such as f'... {", ".join(invitation_list)}'.
+
+=== RIGHT ===
+It looks like semantic analyzer in IDE has a bug. 
+ For now it can be fixed without a suppression with using a direct method list . __getitem
+__ (this approach is mentioned in question comments). 
+ Example. Before: 
+ 
+ After: 
+
+ list 
+ __getitem__

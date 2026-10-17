@@ -1,0 +1,46 @@
+pid: g-79871713
+
+=== LEFT ===
+The _UIReparentingView warning is emitted by UIKit itself when a popover/hosting view is i
+nserted under the hosting controller; it comes from the new iOS 26 Menu presentation path,
+ not from your code. The visible glitch is a rendering regression in 26.x. Workarounds to 
+try: replace Menu with MenuPicker (iOS 17+), which uses a different code path; or drive a 
+plain popover with .popover or a custom sheet; or drop the unnecessary ZStack and VStack n
+esting around the Menu. If you can isolate a minimal case, file it with Feedback Assistant
+, since only Apple can fix the animation.
+
+=== RIGHT ===
+In my case, I was getting the same warning and animation glitch when a Menu was inside a G
+lassEffectContainer with .buttonStyle(.glass) and . glassEffectUnion() . 
+ Adding .compositingGroup() before the button style fixed it: 
+ Menu {
+ // menu content...
+} label: {
+ Image(systemName: "ellipsis")
+}
+.compositingGroup() // fixes _UIReparentingView warning
+.buttonStyle(.glass)
+ 
+ The .compositingGroup() creates a rendering boundary that isolates the Menu from parent e
+ffects, preventing the UIKit view hierarchy conflict when the menu presents. 
+ Even if you're not using glass effects, .compositingGroup() on its own might still resolv
+e your issue since it seems to be a general SwiftUI/Menu bug in iOS 26 related to how Menu
+ 's UIKit presentation interacts with the view hierarchy. 
+
+ Menu 
+ GlassEffectContainer 
+ .buttonStyle(.glass) 
+ glassEffectUnion() 
+ .compositingGroup() 
+ Menu {
+ // menu content...
+} label: {
+ Image(systemName: "ellipsis")
+}
+.compositingGroup() // fixes _UIReparentingView warning
+.buttonStyle(.glass)
+ 
+ .compositingGroup() 
+ Menu 
+ .compositingGroup() 
+ Menu

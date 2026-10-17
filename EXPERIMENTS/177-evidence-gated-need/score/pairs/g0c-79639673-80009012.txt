@@ -1,0 +1,175 @@
+pid: g0c-79639673-80009012
+
+=== LEFT ===
+Without knowing the text is using a Turkic language, returning U+0069 is incorrect. 
+ 
+ You have U+0130 LATIN CAPITAL LETTER I WITH DOT ABOVE 
+ Unicode gives the following three ways of folding it: 
+ 
+ 
+ 
+ Status 
+ Use 
+ Fold 
+ 
+ 
+ 
+ 
+ F 
+ For full implementations 
+ U+0069 LATIN SMALL LETTER I U+0307 COMBINING DOT ABOVE 
+ 
+ 
+ S 
+ For simple implementations 
+ U+0130 LATIN CAPITAL LETTER I WITH DOT ABOVE 
+ 
+ 
+ T 
+ For Turkic languages only, optionally 
+ U+0069 LATIN SMALL LETTER I 
+ 
+ 
+ 
+ Since Perl supports foldings that are larger than the original, and since Perl's fc isn't
+ language-aware, it returns the full case folding defined by Unicode. 
+ Longer answer follows. 
+ 
+ You have U+0130 LATIN CAPITAL LETTER I WITH DOT ABOVE 
+ Unicode 16.0.0's CaseFolding table defines its fold as follows: 
+ 
+ 
+ 
+ Status 
+ Use 
+ Fold 
+ 
+ 
+ 
+ 
+ F 
+ For full implementations 
+ U+0069 LATIN SMALL LETTER I U+0307 COMBINING DOT ABOVE 
+ 
+ 
+ S 
+ For simple implementations 
+ U+0130 LATIN CAPITAL LETTER I WITH DOT ABOVE 
+ 
+ 
+ T 
+ For Turkic languages, optionally 
+ U+0069 LATIN SMALL LETTER I 
+ 
+ 
+ 
+ The ideal fold of most Code Points is a single Code Point. These Code Points have a singl
+e common case folding (“C”). 
+ Some Code Points have an ideal fold that consists of multiple Code Points. These Code Poi
+nts have two foldings: the ideal but longer full case folding (“F”), and a single Code Poi
+nt simple case folding (“S”). Implementations that want to avoid the complexities of foldi
+ng into a larger sequence can opt to use the simple case folding instead of the full case 
+folding . 
+ But this one has three foldings! (The simple case folding is implied by the explicit defi
+nition of a full case folding .) Of all the Code Points, two have a special alternate fold
+ing rule. [1] This is one of them. 
+ Of “T”, the notes in the file say: 
+ 
+ special case for uppercase I and dotted uppercase I 
+ 
+ For non-Turkic languages, this mapping is normally not used. 
+ For Turkic languages (tr, az), this mapping can be used instead of the normal mapping for
+ these characters. Note that the Turkic mappings do not maintain canonical equivalence wit
+hout additional processing. See the discussions of case mapping in the Unicode Standard fo
+r more information. 
+ 
+ Usage: 
+ 
+ To do a simple case folding, use the mappings with status C + S. 
+ 
+ To do a full case folding, use the mappings with status C + F. 
+ The mappings with status T can be used or omitted depending on the desired case-folding b
+ehavior. (The default option is to exclude them.) 
+ 
+ 
+ 
+ Having no sense of the language of the text, Perl must exercise the default option of exc
+luding the Turkic case folding . 
+ And since Perl put in the effort to support full case foldings , it returns this one. 
+ 
+ 
+ The other character with a special folding is U+0049 LATIN CAPITAL LETTER I. 
+ 
+ 
+ 
+ Status 
+ Use 
+ Fold 
+ 
+ 
+ 
+ 
+ C 
+ For full and simple implementations 
+ U+0069 LATIN SMALL LETTER I 
+ 
+ 
+ T 
+ For Turkic languages, optionally 
+ U+0131 LATIN SMALL LETTER DOTLESS I 
+ 
+ 
+ 
+ 
+ 
+
+ fc
+
+=== RIGHT ===
+Neither POSIX nor C FAQ recommend such a thing. 
+ There are no POSIX APIs that take T const * const * so there's no need to cast anything t
+o such type as far as POSIX is concerned. The quoted passage from the POSIX document expla
+ins why there are no such APIs, not what to do when you see one (there are none). 
+ The quoted passage from the C FAQ doesn't mention such types at all. It does tell you tha
+t if you need to pass a char** to a function that expects const char** you would need a ca
+st. This is hardly a recommendation, given that it immediately warns you that the need for
+ such cast likely indicates a deeper problem that the cast wouldn't fix. 
+ It is true that casting T ** to T const * const * (or indeed to T const ** ) and using th
+e resulting pointer (even without modifying anything) can lead to UB, but there are no rec
+ommendations to use such casts by POSIX or C FAQ. 
+ There is a problem of casting in the opposite direction though. Some APIs like execv expe
+ct a char * const * . If for some ungodly reason all you have is char const * const * , yo
+u need to cast (or copy the entire array, which to my limited knowledge nobody ever does).
+ And this cast leads to the same sort of UB you describe. To clarify, the problem is an in
+termediate pointer being accessed through an lvalue of a type that is not a qualified vers
+ion of the type of the underlying pointer object (one is T* and another is T const* , and 
+no matter which is which, it's UB). 
+ It is sometimes suggested that since T* and T const* have identical representation and al
+ignment requirements, it is somehow OK to perform such access. But the standard makes no p
+rovision for that. 
+ When programming in C, you shouldn't really be dealing with deeply qualified pointer type
+s, precisely because they are broken and you cannot convert between those and nowhere-qual
+ified pointers without UB. C and POSIX (to my knowledge) only use top-qualified multilevel
+ pointers in their APIs so if you stick with their types, you should be fine. But the prob
+lem is there and it is known. 
+ When writing in C++ it is harder to escape the problem because string literals are const 
+. But in C, just avoid deep const . 
+ For array types the problem is solved in C23: array types now share qualification with th
+eir element types, so you can now have multilevel const-qualified arrays and pointers to t
+hose arrays behave consistently. Pointers to pointers remain a problem though. 
+
+ T const * const * 
+ char** 
+ const char** 
+ T ** 
+ T const * const * 
+ T const ** 
+ execv 
+ char * const * 
+ char const * const * 
+ T* 
+ T const* 
+ T* 
+ T const* 
+ const 
+ const

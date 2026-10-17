@@ -1,0 +1,15 @@
+pid: g-79385315
+
+=== LEFT ===
+The exception is thrown by Google Play services because it cannot verify which package is 
+calling. In practice it means the API key's package restriction does not match your real a
+pplicationId, or the SHA-1 of the signing certificate is not registered. Two common causes
+: the manifest has an applicationIdSuffix (.debug/.staging) and you registered the base id
+, or you rebuilt with a different signing key. Check the Cloud Console credentials for the
+ Android key, confirm the package name and the SHA-1/SHA-256 of your upload key (keytool -
+list -v -keystore ...), then reinstall a clean build. Also confirm the API_KEY meta-data e
+ntry is inside the application tag of AndroidManifest and that com.google.android.gms is a
+ declared dependency. Installing SDK tools cannot fix a key mismatch.
+
+=== RIGHT ===
+There is an open issue regarding these error logs. However, no fix yet.

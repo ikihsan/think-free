@@ -1,0 +1,54 @@
+pid: g-79847613
+
+=== LEFT ===
+The rule exists because a virtual function's identity must not depend on template argument
+s: for a given dynamic type, the vtable must have an entry for every function the base dec
+lares. If a derived class could constrain its override, the override would silently vanish
+ for some instantiations while calls through Base* still had to dispatch, so the call woul
+d reach a base function with a different contract, and final-overrider lookup breaks. It a
+lso breaks template argument deduction. The supported pattern is the one you found: constr
+ain the class template (partial specialization, or a requires clause on the class), or pro
+vide unconditional overloads that delegate with if constexpr, or use CRTP so dispatch neve
+r relies on the virtual table.
+
+=== RIGHT ===
+Why? 
+ 
+ Because the standard says so :) 
+ I would say that the rationale is to avoid having to decide whether different requires hi
+de or override base function. 
+ Imagine valid code: 
+ template <int I>
+concept isEven = ((I % 2) == 0);
+
+template <int I>
+struct Base {
+
+ void f() requires (isEven<I>) { std::cout << "even\n"; }
+ void f() requires (isEven<I> && I == 0) { std::cout << "0\n"; }
+ void f() requires (I == 1) { std::cout << "1\n"; }
+};
+ 
+ Demo 
+ Base<0> has actually 2 overloads f , one more specialized than the other (subsumption). 
+ If you add virtual , would void f() override be allowed in the derived class?
+Should the override have the same requires clause as in the base class? 
+ Forbidding it now allows to decide later whether it's required. 
+
+ requires 
+ template <int I>
+concept isEven = ((I % 2) == 0);
+
+template <int I>
+struct Base {
+
+ void f() requires (isEven<I>) { std::cout << "even\n"; }
+ void f() requires (isEven<I> && I == 0) { std::cout << "0\n"; }
+ void f() requires (I == 1) { std::cout << "1\n"; }
+};
+ 
+ Base<0> 
+ f 
+ virtual 
+ void f() override 
+ requires

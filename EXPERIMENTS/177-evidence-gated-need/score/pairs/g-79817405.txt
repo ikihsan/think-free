@@ -1,0 +1,33 @@
+pid: g-79817405
+
+=== LEFT ===
+That error means the package NuGet handed you has no DotnetToolSettings.xml, so the CLI ca
+nnot treat it as a tool; it is not a broken install on your side. It usually comes from a 
+stale or mirrored NuGet source serving a non-tool package under that id, or a partially ca
+ched download. First run dotnet nuget list source and remove any internal mirror, then run
+ dotnet nuget locals all --clear and dotnet tool uninstall --global dotnet-ef. Install a v
+ersion matching your target framework explicitly, for example dotnet tool install --global
+ dotnet-ef --version 8.*. A cleaner setup for a repository is a local tool manifest: dotne
+t new tool-manifest, then dotnet tool install dotnet-ef, which pins the version for everyo
+ne.
+
+=== RIGHT ===
+This is due to a mismatch between the version of the .NET SDK (probably v9.0) and the late
+st version of the dotnet-ef tool (v10.0). This command tells you which versions you have i
+nstalled: 
+ dotnet --list-sdks
+ 
+ You can solve it by explicitely specifying a version of the tool that matches your instal
+led .NET SDK. For example, when running on .NET SDK v9.0: 
+ install --global dotnet-ef --version 9.0.11
+ 
+ or 
+ dotnet.exe tool install --global dotnet-ef --version 9.0.11
+ 
+
+ dotnet-ef 
+ dotnet --list-sdks
+ 
+ install --global dotnet-ef --version 9.0.11
+ 
+ dotnet.exe tool install --global dotnet-ef --version 9.0.11

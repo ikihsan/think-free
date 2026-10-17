@@ -1,0 +1,60 @@
+pid: g-79779696
+
+=== LEFT ===
+There is no corruption; printf simply reads the argument area sequentially. On i386 every 
+variadic argument is passed as a 4-byte slot, so your 8-byte long long is consumed as two 
+slots. With the wrong specifier %lx, printf reads only the low half, 0x22222222, and the n
+ext %x then reads the remaining upper half, 0x11111111, which is why the second value look
+s wrong too. A single mismatched specifier silently desynchronizes everything after it, an
+d passing a mismatched type is undefined behaviour. Always compile with -Wall -Wextra -Wfo
+rmat=2 and use inttypes.h PRIx64, which prints correct specifiers on 32- and 64-bit builds
+.
+
+=== RIGHT ===
+The second printf where the conversion format does not match the actual type passed has un
+defined behavior, so the C Standard imposes no requirements and anything you observe is po
+ssible, including expected behavior, as you observe on 64-bit targets and different behavi
+or as you want to analyse on your 32-bit target. 
+ Here is a tentative explanation (assuming little endian and stack based ABI): 
+ 
+ on your 32-bit target, vararg arguments are passed on the stack, 32-bit aligned 
+ passing an unsigned long long uses 2 stack slots in little endian order 
+ passing an unsigned int uses a single slot 
+ on this target, unsigned long , expected by printf for %lx has 32 bits (as is the case on
+ most targets), so it uses a single slot 
+ hence in this target, the first number is retrieved from the first slot and the value is 
+the low 32-bits of the 64-bit value passed in little endian order 
+ the second number is retrieved from the second slot, where the most significant 32-bits h
+ave been stored by the caller. 
+ this explains the output: Seg: 22222222 11111111 
+ 
+ Remember that undefined behavior is by definition not defined, so other side effects may 
+happen and something completely different may be output, even on the same host with the sa
+me binary. 
+ As commented by @GlennWillen, in particular, you cannot count on the damage being limited
+ to a particular line of code, or function, or file; and you cannot count on it being limi
+ted to consequences which would actually be possible in any straightforward interpretation
+ of the code; and you cannot count on it being limited to things happening chronologically
+ after the UB in many cases. If the code could execute UB when some condition is true, the
+ compiler may act as though that condition is false everywhere and for all purposes, even 
+if this is absurd or contradictory. 
+ Here are some take-aways: 
+ 
+ always turn on extra warnings so this kind of bug is reported by the compiler ( -Wall -We
+xtra or similar). 
+ fix the code to compile without any warnings (adding -Werror will force this) and think t
+wice before using casts to silence a warning. 
+ use the formatting macros from <inttypes.h> for types defined in <stdint.h> 
+ 
+
+ printf 
+ unsigned long long 
+ unsigned int 
+ unsigned long 
+ printf 
+ %lx 
+ Seg: 22222222 11111111 
+ -Wall -Wextra 
+ -Werror 
+ <inttypes.h> 
+ <stdint.h>

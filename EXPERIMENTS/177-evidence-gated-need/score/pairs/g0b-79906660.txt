@@ -1,0 +1,49 @@
+pid: g0b-79906660
+
+=== LEFT ===
+Certainly you should prefer the actual global module fragment over the emulation thereof, 
+for several reasons: 
+ 
+ #include of certain header files may get transformed into import , which must appear imme
+diately after the module declaration (or else in the global module fragment). 
+ If an #include is not so translated, the file included might contain an import which woul
+d be so restricted. 
+ Declarations in the global module fragment are discarded if they are not directly used, s
+o that they do not require space in the compiled module interface and time in importers. (
+Obviously you might want to provide access to more of the interface, but that would involv
+e export using declarations that would prevent the discarding anyway.) 
+ Build systems try to optimize scanning module files to find dependencies, and #include s 
+later would defeat that. 
+ 
+
+ #include 
+ import 
+ module 
+ #include 
+ import 
+ export using 
+ #include
+
+=== RIGHT ===
+Certainly you should prefer the actual global module fragment over the emulation thereof, 
+for several reasons: 
+ 
+ #include of certain header files may get transformed into import , which must appear imme
+diately after the module declaration (or else in the global module fragment). 
+ If an #include is not so translated, the file included might contain an import which woul
+d be so restricted. 
+ Declarations in the global module fragment are discarded if they are not directly used, s
+o that they do not require space in the compiled module interface and time in importers. (
+Obviously you might want to provide access to more of the interface, but that would involv
+e export using declarations that would prevent the discarding anyway.) 
+ Build systems try to optimize scanning module files to find dependencies, and #include s 
+later would defeat that. 
+ 
+
+ #include 
+ import 
+ module 
+ #include 
+ import 
+ export using 
+ #include

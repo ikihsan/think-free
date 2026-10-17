@@ -1,0 +1,19 @@
+pid: g-79775796
+
+=== LEFT ===
+ts(2882) is the TypeScript diagnostic for a side-effect import of a module it cannot resol
+ve types for, and for CSS that resolution depends on the ambient declarations Next.js gene
+rates in next-env.d.ts. If that file was deleted or excluded from tsconfig, every CSS impo
+rt errors at once, which matches the symptom of nothing in your code having changed. Fix: 
+run npx next dev or next build once to regenerate next-env.d.ts, make sure tsconfig.json i
+ncludes it and that it is not gitignored, and confirm VS Code uses the workspace TypeScrip
+t (TypeScript: Select TypeScript Version -> Use Workspace Version). If it persists, a newe
+r TS or Volar release tightened the check; silence it per line or through typescript.seman
+ticValidationRules until you update Next.js.
+
+=== RIGHT ===
+Open any .tsx file. Press Ctrl + Shift + p and type: TypeScript: Select TypeScript version
+ After that, select workspace version. It will search your node_modules for your lib and s
+elect it. The error will disappear. 
+ 
+ - Guilherme on Sep 29 at 23:47

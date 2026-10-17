@@ -1,0 +1,15 @@
+pid: g-79404124
+
+=== LEFT ===
+Bruno does have script output, just not as an always-visible Postman-style panel. Open the
+ Console tab next to Tests/Docs in the request window (View: Toggle Console, or the Consol
+e button in the tab bar) and run the request again; output from pre-request and post-respo
+nse scripts appears there, and script errors are reported there too. Make sure scripting i
+s enabled in Settings and that you executed the request after adding the log. In Bruno CLI
+ the same output goes to the terminal, and in the VS Code extension it appears in the exte
+nsion's output channel. If the tab is missing, update Bruno, since the console has been re
+worked across 1.x releases.
+
+=== RIGHT ===
+The console is a part of the developer tools panel. It is hidden by default, but you can o
+pen it from the view menu. View -> Toggle Developer Tools

@@ -1,0 +1,20 @@
+pid: g-79635270
+
+=== LEFT ===
+Turn it off in Tools: Options. For the suggestion list, open Tools -> Options -> Text Edit
+or -> IntelliSense and uncheck Enable IntelliSense (or, for C++, set Enable IntelliSense t
+o Disabled under Text Editor -> C/C++ -> Advanced). Copilot has its own page, Tools -> Opt
+ions -> GitHub Copilot, with checkboxes to turn off completions and chat; otherwise uninst
+all the GitHub Copilot and GitHub Copilot Chat extensions from Extensions -> Installed and
+ restart Visual Studio. To disable Copilot fully for the machine, turn off both the Option
+s checkboxes and remove the extensions, since Copilot also contributes the whole-document 
+completion you are seeing.
+
+=== RIGHT ===
+I'm not sure about the autocomplete options as sometimes they all seem to fight (especiall
+y when other linting tools like Resharper are involved). However, to get rid of it complet
+ely you can uninstall CoPilot for VS2022 if you go to : 
+ Tools > Get Tools and Features > Individual components 
+ Untick GitHub Copilot: 
+ 
+ It should remove it. Hope this helps

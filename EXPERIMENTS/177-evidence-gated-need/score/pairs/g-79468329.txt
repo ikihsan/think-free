@@ -1,0 +1,48 @@
+pid: g-79468329
+
+=== LEFT ===
+The error says require was used, so Vite is loading your config as CommonJS. Tailwind's Vi
+te plugin is ESM only, hence the message. Fix it by telling Node the project is ESM: add '
+type': 'module' to package.json, or rename vite.config.js to vite.config.mjs (Vite 6 also 
+supports .mts). Verify there is no leftover require in the config and that nothing makes N
+ode treat .js as CJS. If a stale cache is suspected, delete node_modules/.vite and reinsta
+ll. Also make sure the package.json you deploy to GitHub Pages actually carries the type f
+ield.
+
+=== RIGHT ===
+Ok! After writing this issue and trying a few things, my eyes missed that the error provid
+ed a link with some Vite documentation on the matter at: 
+ https://vite.dev/guide/troubleshooting.html#this-package-is-esm-only 
+ The Fix 
+ The quick fix to the above error was as simple as doing the following in the case of my p
+roject: 
+ 
+ Rename vite.config.js to vite.config.mjs 
+ 
+ Note the ending suffix changes from js to mjs . 
+ Now running npm run dev is a SUCCESS! 
+ 
+ Additional notes (the why) 
+ The main issue here was not the Vite upgrade. It's that the coding ecosystem is moving aw
+ay from CommonJS style towards ESM Modules (and that I'm behind on the latest and greatest
+). 
+ My vite.config.js is a CJS config file. 
+ Renaming it to vite.config.mjs turns it into an ESM config file. 
+ This changes how the libraries were being loaded up. Turns out the latest tailwindcss v4 
+is ESM-only now (according to that error message). So the CJS vite.config.js couldn't load
+ up the ESM Tailwindcss v4 (it was trying to use require which is standard CJS practice). 
+ There shouldn't be any issues changing it to an ESM config file instead of CJS as most mo
+dern libraries are headed that way, but if you are upgrading an older larger codebase with
+ dated libraries reliant on the CJS way take note this may cause breakage! 
+ Feel free to correct me or add more notes if anything is amiss here! Hopefully this helps
+ others who might stumble upon this issue. 
+
+ vite.config.js 
+ vite.config.mjs 
+ js 
+ mjs 
+ npm run dev 
+ vite.config.js 
+ vite.config.mjs 
+ vite.config.js 
+ require

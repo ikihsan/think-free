@@ -1,0 +1,48 @@
+pid: g-79442978
+
+=== LEFT ===
+Your own stylesheet is loaded after Tailwind's, and some of your selectors are more specif
+ic than the utilities, so you are overriding them. nav.container (class plus element) beat
+s p-6 (single class), .navbar a beats space-x-6's margin utility, and .btn-nav with paddin
+g-block/padding-inline overrides py-2/px-6 because your sheet comes last. The universal re
+set * {margin:0;padding:0} is not needed, since Tailwind v4 already ships preflight. Remov
+e the hand-written rules, or move them into Tailwind's cascade with @layer components/base
+ inside your CSS entry so utilities win, or express them as @utility so they participate i
+n variants and ordering.
+
+=== RIGHT ===
+I think you are facing this problem just because of your default styling inside your style
+.css like: 
+ * {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ }
+ 
+ In Tailwind v4 you need to use this default styling inside @layer base{} . Put all the de
+fault styles inside the Tailwind base layer . 
+ @layer base {
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ scroll-behavior: smooth;
+ }
+ }
+ 
+
+ * {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ }
+ 
+ @layer base{} 
+ @layer base {
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ scroll-behavior: smooth;
+ }
+ }

@@ -1,0 +1,27 @@
+pid: g-79760145
+
+=== LEFT ===
+This is inherent, not a missing update. An associative container only requires operator<, 
+so the tree must navigate with less-than: at each node it compares and picks left or right
+, and an equal result must be resolved by descending left and continuing. Hence equal comp
+arisons repeat: you compare 8 with 8, go left, compare 7 with 8, then compare 8 with 8 aga
+in. The implementation-independent way to express find/contains is a lower_bound followed 
+by an equality check, so you pay at most one extra comparison per lookup, and a three-way 
+operator<=> cannot remove it because the container requirement is still operator<. C++20 s
+et::contains only avoids forming an iterator; it does not change the comparison count.
+
+=== RIGHT ===
+std::set bases its ordering of the contents on a template parameter. And the ordering func
+tor doesn't test equality; it only says if one item is "less than" another. As such, set c
+onsiders two objects to be equivalent if the ordering functor returns false for comp(A, B)
+ and comp(B, A) (neither is "less than" the other). 
+ So even if operator<=> is being called, set doesn't know that. All it sees is the orderin
+g; it has to manufacture equivalence. 
+
+ std::set 
+ set 
+ false 
+ comp(A, B) 
+ comp(B, A) 
+ operator<=> 
+ set

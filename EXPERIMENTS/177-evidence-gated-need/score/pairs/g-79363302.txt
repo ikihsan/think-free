@@ -1,0 +1,21 @@
+pid: g-79363302
+
+=== LEFT ===
+VS Code 1.97 added a built-in SVG preview, so the change is not yours. Force the text edit
+or instead: add a file association, for example 'files.associations': { '*.svg': 'xml' }, 
+which makes SVG open as markup; or pin the editor per file with 'workbench.editorAssociati
+ons': { '*.svg': 'xml' } or default_editor. Also open Settings and search svg to see the n
+ew preview-related toggles the release added, and check the Extensions tab for an update t
+o an SVG/image preview extension that may now claim .svg. Update to the newest 1.97.x patc
+h as well, since preview behaviour was adjusted in patch releases.
+
+=== RIGHT ===
+It's a new feature for last version . 
+ Go to settings, search for workbench.editorAssociations and add item with key *.svg and v
+alue default 
+ 
+ I found this solution on Reddit . 
+
+ workbench.editorAssociations 
+ *.svg 
+ default

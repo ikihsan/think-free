@@ -1,0 +1,33 @@
+pid: g0b-79457269
+
+=== LEFT ===
+The standard does not specify the number, but I think it is reasonable to assume that it i
+s a reasonable number. 
+ For 32 bits processors I would expect it to be a 32 bit recursion (approx 4Billion) - tha
+t would not be achievable, as the stack used by 4 billion calls would consume all the memo
+ry of the processor. 
+ For 64 bit machines, either 32 or 64 bits would be reasonable. 
+ Algorithmically the recursive use of a mutex is problematic - if you think the potential 
+recursions are > the number of bits on the processor (32 recursions / 64 recursions), then
+ you probably need an alternative design - where the lock is held more globally and not us
+ed in inner functions. 
+ The unspecified nature, allows the standard to be flexible, yet deliver something useful.
+ If they specified a minimum size, that may limit the ability to implement C++ on some pro
+cessors, due to the counter would need to be some form of atomic operation to work success
+fully.
+
+=== RIGHT ===
+The standard does not specify the number, but I think it is reasonable to assume that it i
+s a reasonable number. 
+ For 32 bits processors I would expect it to be a 32 bit recursion (approx 4Billion) - tha
+t would not be achievable, as the stack used by 4 billion calls would consume all the memo
+ry of the processor. 
+ For 64 bit machines, either 32 or 64 bits would be reasonable. 
+ Algorithmically the recursive use of a mutex is problematic - if you think the potential 
+recursions are > the number of bits on the processor (32 recursions / 64 recursions), then
+ you probably need an alternative design - where the lock is held more globally and not us
+ed in inner functions. 
+ The unspecified nature, allows the standard to be flexible, yet deliver something useful.
+ If they specified a minimum size, that may limit the ability to implement C++ on some pro
+cessors, due to the counter would need to be some form of atomic operation to work success
+fully.

@@ -1,0 +1,15 @@
+pid: g-79779187
+
+=== LEFT ===
+Gemini 1.5 Flash has been retired from the API, so the model id no longer resolves and you
+ get 404; quota problems return 429 and API version mismatch is not the cause. List what y
+ou can use by iterating genai.list_models() and filtering for generateContent support, the
+n move to a current 2.x Flash or Pro id and update the code plus any stored model name. Th
+e SSL errors are unrelated: WRONG_VERSION_NUMBER and BAD_RECORD_MAC mean something answere
+d a TLS handshake with plain HTTP, typically a corporate proxy or a bad HTTPS_PROXY settin
+g. Check HTTP_PROXY, HTTPS_PROXY, NO_PROXY and any MITM certificate. The Flask server bind
+ing to local HTTP is fine and has nothing to do with either issue.
+
+=== RIGHT ===
+Just use gemini-flash-latest 
+ All models: https://ai.google.dev/gemini-api/docs/models

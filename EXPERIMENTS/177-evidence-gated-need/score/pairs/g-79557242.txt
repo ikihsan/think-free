@@ -1,0 +1,20 @@
+pid: g-79557242
+
+=== LEFT ===
+R's vectors concatenate, so you need to interleave explicitly. The shortest answer is as.v
+ector(rbind(vec, paste0(vec, '.1'))): rbind makes a two-row matrix and as.vector reads it 
+column-major, giving x, x.1, y, y.1, z, z.1. Equally explicit: paste0(rep(vec, each = 2), 
+rep(c('', '.1'), times = length(vec))). A base-R loop works too: unlist(lapply(vec, functi
+on(x) c(x, paste0(x, '.1'))), use.names = FALSE). The rep(each = 2) plus a repeated suffix
+ vector is usually clearest if the suffix may later vary per element.
+
+=== RIGHT ===
+You can use make.unique + rep 
+ make.unique(rep(vec, each = 2))
+[1] "x" "x.1" "y" "y.1" "z" "z.1"
+ 
+
+ make.unique 
+ rep 
+ make.unique(rep(vec, each = 2))
+[1] "x" "x.1" "y" "y.1" "z" "z.1"

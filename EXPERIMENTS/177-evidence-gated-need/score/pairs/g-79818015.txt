@@ -1,0 +1,22 @@
+pid: g-79818015
+
+=== LEFT ===
+The extra translucent strip is added by the system, not by your toolbar: in iOS 26 the inp
+ut container between inputView and inputAccessoryView is drawn with the new Liquid Glass m
+aterial, and it appears when both a custom inputView and a custom inputAccessoryView are s
+et. There is no public API to remove that container background. The practical fix is to st
+op using UIToolbar as the accessory: build a plain UIView containing a Done UIButton, set 
+its backgroundColor to .clear or .systemBackground as needed, and assign that as inputAcce
+ssoryView. Keep the button's configuration colors explicit rather than relying on tint inh
+eritance, and size the view yourself.
+
+=== RIGHT ===
+That gray Liquid Glass UI is the top of the keyboard. The documentation for UIInputView st
+ates 
+ 
+ The UIInputView class is designed to match the appearance of the standard system keyboard
+ when used as an input view with a responder. 
+ 
+ It’s recommended to avoid applying a background to the input view (white and blue in thes
+e examples) to avoid covering up the system effects. This is how a “proper” input view + i
+nput accessory view looks on iOS 26:

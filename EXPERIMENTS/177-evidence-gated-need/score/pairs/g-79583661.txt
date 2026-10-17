@@ -1,0 +1,62 @@
+pid: g-79583661
+
+=== LEFT ===
+std::format is not constexpr in C++23, and it cannot become so while returning std::string
+, since constructing a string needs heap allocation, which a constant expression forbids. 
+The formatting core was made constant-evaluable for C++26, so with a C++26 compiler you ca
+n use std::format_to or std::format_to_n into a fixed-size std::array<char, N> using a con
+stexpr-friendly output iterator inside a constexpr function, then return the array. On C++
+23 the practical answer is std::to_chars, which is constexpr and produces the same digits,
+ or a hand-written constexpr formatter. If you need a NUL-terminated result, expose a std:
+:string_view over the constexpr array.
+
+=== RIGHT ===
+std::format insists that its format string argument should be a compile time constant. 
+ I thought this was so that std::format could be used to create compile time constant valu
+es. 
+ 
+ It is not. The motivation for std::format 's format string to be a constant is to allow c
+ompile-time type checking of the format string. So that something like std::format("x={}")
+ is a compile error, rather than a runtime error. 
+ 
+ Is there a solution, or a workaround, to this? Or am I simply missing something which can
+ make this work. 
+ 
+ std::format itself is not constexpr (yet). There is no workaround. 
+ 
+ Note also that you can still provide non-constant format strings to std::format , you jus
+t have to wrap the format string in std::runtime_format : 
+ int main()
+{
+ std::print("Hello {}!\n", "world");
+ 
+ std::string fmt;
+ for (int i{}; i != 3; ++i)
+ {
+ fmt += "{} "; // constructs the formatting string
+ std::print("{} : ", fmt);
+ std::println(std::runtime_format(fmt), "alpha", 'Z', 3.14, "unused");
+ }
+}
+ 
+
+ std::format 
+ std::format 
+ std::format 
+ std::format("x={}") 
+ std::format 
+ constexpr 
+ std::format 
+ std::runtime_format 
+ int main()
+{
+ std::print("Hello {}!\n", "world");
+ 
+ std::string fmt;
+ for (int i{}; i != 3; ++i)
+ {
+ fmt += "{} "; // constructs the formatting string
+ std::print("{} : ", fmt);
+ std::println(std::runtime_format(fmt), "alpha", 'Z', 3.14, "unused");
+ }
+}

@@ -1,0 +1,75 @@
+pid: g0c-79607696-80009583
+
+=== LEFT ===
+it seems to be that Foo + operater wasn't instantiated and thus never properly functions f
+or the call. where as you're workaround gives a way to deduce and is actually a template n
+ow, where as it can't use the operator as a template and thus never functions due to it ne
+ver doing anything since operator itself does not provide template functionality.
+
+=== RIGHT ===
+Is this well-defined by the C standard? 
+ 
+ No. See other answers. 
+ 
+ Otherwise, is there a common solution or best practice for this sort of thing? 
+ 
+ 
+ Trust the user 
+ Expose typedef struct foo { int x; float y; char *z; } foo_t; in the foo.h file (possible
+ by having it include a foo_private.h ) and tell the user to not access the members with a
+ comment in the .h file. (i. e. give up absolute information hiding, yet promote cooperati
+ve information hiding) 
+ // foo.h
+
+// I know you want to use these members, but don't.
+typedef struct foo {
+ int x_private;
+ float y_private;
+ char *z_private;
+} foo_t;
+ 
+ 
+ 
+ OR 
+ 
+ Re-write the interface and only pass in and receive pointers struct foo * and never the s
+truct foo itself. 
+ struct foo *foo_create(void);
+void foo_do_something(struct foo *foo);
+void foo_delete(struct foo *foo);
+ 
+ 
+ 
+ 
+ In both cases drop: 
+ //#define FOO_SIZE 12
+//#define FOO_ALIGN 4
+
+//typedef struct foo_static {
+// alignas(FOO_ALIGN) uint8_t private[FOO_SIZE];
+//} foo_static_t;
+ 
+
+ typedef struct foo { int x; float y; char *z; } foo_t; 
+ foo_private.h 
+ // foo.h
+
+// I know you want to use these members, but don't.
+typedef struct foo {
+ int x_private;
+ float y_private;
+ char *z_private;
+} foo_t;
+ 
+ struct foo * 
+ struct foo 
+ struct foo *foo_create(void);
+void foo_do_something(struct foo *foo);
+void foo_delete(struct foo *foo);
+ 
+ //#define FOO_SIZE 12
+//#define FOO_ALIGN 4
+
+//typedef struct foo_static {
+// alignas(FOO_ALIGN) uint8_t private[FOO_SIZE];
+//} foo_static_t;

@@ -1,0 +1,67 @@
+pid: g0b-79768581
+
+=== LEFT ===
+This is the warning for CWG244 . It is saying that in " nested-name-specifier class-name :
+: ~ class-name ", the second class-name is looked up in the same scope as the first nested
+-name-specifier , and not in the scope of the first class-name . Clang is claiming to use 
+an extension to search inside the first class-name to find the destructor (because searchi
+ng inside Foo:: will not be able to find a ~Bar ). 
+ The warning is suggesting you write it like: 
+ template <typename T>
+Foo::Bar<T>::Bar::~Bar()
+{
+ // dtor implementation
+}
+ 
+ Where now the first nested-name-specifier is Foo::Bar<T>:: , which you will be able to fi
+nd ~Bar in. 
+ 
+ I'm not sure this warning is actually correct. The part about destructor lookup (now at [
+basic.lookup.qual.general]p4 was changed heavily by P1787R6 , which the discussion around 
+CWG244 and related issues seems to say solves this 
+
+ :: 
+ ~ 
+ Foo:: 
+ ~Bar 
+ template <typename T>
+Foo::Bar<T>::Bar::~Bar()
+{
+ // dtor implementation
+}
+ 
+ Foo::Bar<T>:: 
+ ~Bar
+
+=== RIGHT ===
+This is the warning for CWG244 . It is saying that in " nested-name-specifier class-name :
+: ~ class-name ", the second class-name is looked up in the same scope as the first nested
+-name-specifier , and not in the scope of the first class-name . Clang is claiming to use 
+an extension to search inside the first class-name to find the destructor (because searchi
+ng inside Foo:: will not be able to find a ~Bar ). 
+ The warning is suggesting you write it like: 
+ template <typename T>
+Foo::Bar<T>::Bar::~Bar()
+{
+ // dtor implementation
+}
+ 
+ Where now the first nested-name-specifier is Foo::Bar<T>:: , which you will be able to fi
+nd ~Bar in. 
+ 
+ I'm not sure this warning is actually correct. The part about destructor lookup (now at [
+basic.lookup.qual.general]p4 was changed heavily by P1787R6 , which the discussion around 
+CWG244 and related issues seems to say solves this 
+
+ :: 
+ ~ 
+ Foo:: 
+ ~Bar 
+ template <typename T>
+Foo::Bar<T>::Bar::~Bar()
+{
+ // dtor implementation
+}
+ 
+ Foo::Bar<T>:: 
+ ~Bar

@@ -1,0 +1,146 @@
+pid: g-79824381
+
+=== LEFT ===
+Yes, but do not hand-write a parallel C struct. Safe pattern: define the storage type once
+ in a header usable from both languages, or keep the template in C++ and expose only funct
+ions. Concretely, put template struct Queue in queue.hpp, write explicit instantiations (t
+emplate struct Queue<int, 8>;) in queue.cpp so the members are emitted, and add extern 'C'
+ wrappers such as bool qint8_push_back(Qint8*, int) that call the specialization. If C nee
+ds to embed or size the object, expose opaque handles plus a size query (size_t Qint8_size
+(void)), or use the C-compatible layout struct as the member storage and let the template 
+wrap it, so there is exactly one definition of the layout. Duplicating the struct in C ris
+ks padding and alignment mismatches.
+
+=== RIGHT ===
+I've got an idea: expose the concrete type Qint8 and Qchar4 as memory buffers. 
+ // bridge.h
+#pragma once
+#include <stdalign.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define Qint8Size 48
+#define Qint8Align 8
+typedef struct {
+ alignas(Qint8Align) unsigned char internal[Qint8Size];
+} Qint8;
+void Qint8_Construct(Qint8 *);
+bool Qint8_PushBack(Qint8 *, int);
+bool Qint8_PopFront(Qint8 *, int *);
+// C code won't access struct members directly
+// but should be able to know the struct's size
+// e.g. define an instance, or embed the circular queue in anouther struct
+extern Qint8 g_qint8;
+
+#define Qchar4Size 24
+#define Qchar4Align 8
+typedef struct {
+ alignas(Qchar4Align) unsigned char internal[Qchar4Size];
+} Qchar4;
+void Qchar4_Construct(Qchar4 *);
+bool Qchar4_PushBack(Qchar4 *, char);
+bool Qchar4_PopFront(Qchar4 *, char *);
+
+#ifdef __cplusplus
+}
+#endif
+ 
+ // bridge.cpp
+#include "bridge.h"
+#include "queue.hpp"
+#include <new>
+using T1 = Queue<int, 8>;
+static_assert(sizeof(T1) == Qint8Size && sizeof(Qint8) == Qint8Size);
+static_assert(alignof(T1) == Qint8Align);
+
+void Qint8_Construct(Qint8 *q) { new(q->internal) T1; }
+bool Qint8_PushBack(Qint8 *q, int v) {
+ auto p = std::launder(reinterpret_cast<T1 *>(q->internal));
+ return p->PushBack(v);
+}
+bool Qint8_PopFront(Qint8 *q, int *v) {
+ auto p = std::launder(reinterpret_cast<T1 *>(q->internal));
+ return p->PopFront(v);
+}
+
+using T2 = Queue<char, 4>;
+static_assert(sizeof(T2) == Qchar4Size && sizeof(Qchar4) == Qchar4Size);
+static_assert(alignof(T2) == Qchar4Align);
+void Qchar4_Construct(Qchar4 *q) { new(q->internal) T2; }
+bool Qchar4_PushBack(Qchar4 *q, char v) {
+ auto p = std::launder(reinterpret_cast<T2 *>(q->internal));
+ return p->PushBack(v);
+}
+bool Qchar4_PopFront(Qchar4 *q, char *v) {
+ auto p = std::launder(reinterpret_cast<T2 *>(q->internal));
+ return p->PopFront(v);
+}
+ 
+ This works. The downside is the hardcode of queue size and alignment in the header. 
+
+ Qint8 
+ Qchar4 
+ // bridge.h
+#pragma once
+#include <stdalign.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define Qint8Size 48
+#define Qint8Align 8
+typedef struct {
+ alignas(Qint8Align) unsigned char internal[Qint8Size];
+} Qint8;
+void Qint8_Construct(Qint8 *);
+bool Qint8_PushBack(Qint8 *, int);
+bool Qint8_PopFront(Qint8 *, int *);
+// C code won't access struct members directly
+// but should be able to know the struct's size
+// e.g. define an instance, or embed the circular queue in anouther struct
+extern Qint8 g_qint8;
+
+#define Qchar4Size 24
+#define Qchar4Align 8
+typedef struct {
+ alignas(Qchar4Align) unsigned char internal[Qchar4Size];
+} Qchar4;
+void Qchar4_Construct(Qchar4 *);
+bool Qchar4_PushBack(Qchar4 *, char);
+bool Qchar4_PopFront(Qchar4 *, char *);
+
+#ifdef __cplusplus
+}
+#endif
+ 
+ // bridge.cpp
+#include "bridge.h"
+#include "queue.hpp"
+#include <new>
+using T1 = Queue<int, 8>;
+static_assert(sizeof(T1) == Qint8Size && sizeof(Qint8) == Qint8Size);
+static_assert(alignof(T1) == Qint8Align);
+
+void Qint8_Construct(Qint8 *q) { new(q->internal) T1; }
+bool Qint8_PushBack(Qint8 *q, int v) {
+ auto p = std::launder(reinterpret_cast<T1 *>(q->internal));
+ return p->PushBack(v);
+}
+bool Qint8_PopFront(Qint8 *q, int *v) {
+ auto p = std::launder(reinterpret_cast<T1 *>(q->internal));
+ return p->PopFront(v);
+}
+
+using T2 = Queue<char, 4>;
+static_assert(sizeof(T2) == Qchar4Size && sizeof(Qchar4) == Qchar4Size);
+static_assert(alignof(T2) == Qchar4Align);
+void Qchar4_Construct(Qchar4 *q) { new(q->internal) T2; }
+bool Qchar4_PushBack(Qchar4 *q, char v) {
+ auto p = std::launder(reinterpret_cast<T2 *>(q->internal));
+ return p->PushBack(v);
+}
+bool Qchar4_PopFront(Qchar4 *q, char *v) {
+ auto p = std::launder(reinterpret_cast<T2 *>(q->internal));
+ return p->PopFront(v);
+}

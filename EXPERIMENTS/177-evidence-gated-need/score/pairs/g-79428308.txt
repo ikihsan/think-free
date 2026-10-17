@@ -1,0 +1,19 @@
+pid: g-79428308
+
+=== LEFT ===
+Same failure mode as the other nvm-windows report: Node 14 downloaded, npm 6.14.18 did not
+, because nvm-windows stages npm in a temp folder and the file goes missing or is blocked.
+ Clearing temp folders will not help. Run the install from an elevated command prompt, exc
+lude the temp directory and NVM_HOME from Windows Defender, and retry after deleting any p
+artial v14.21.3 folder. If it persists, install that version manually: download node-v14.2
+1.3-win-x64.zip, extract it to %NVM_HOME%\v14.21.3, then run nvm use 14.21.3. For old Node
+ versions generally, nvm for Linux/WSL, fnm or n avoid the problem because they unpack off
+icial archives directly. Setting NVM_HOME, NVM_SYMLINK and TEMP to short paths without spa
+ces also fixes it in some setups.
+
+=== RIGHT ===
+The issue is because in the NVM version 1.2.2 the temporary directory is refered as "tmp" 
+while the old one was "temp", so this issue will be fixed in NVM v1.2.3. 
+ Till the new version is available, you can use the older version of NVM (v1.1.12) Link to
+ download , from this version you can install node 14.21.3. 
+ Thank you
