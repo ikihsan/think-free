@@ -17,7 +17,7 @@ RAW = os.path.join(HERE, "raw")
 UA = "think-free-e175/1.0"
 
 # --- ecosystem list: fixed before the draw, 40 names (PROTOCOL.md step 1) ---
-MAX_LOOKUPS = 8            # declared in AMENDMENT 1
+MAX_LOOKUPS = 12           # AMENDMENT 1 declared 8; AMENDMENT 4 raises it to 12
 
 ECOSYSTEMS = [
     "python", "pypi", "pip", "conda", "node", "npm", "nodejs", "django",
@@ -133,8 +133,10 @@ def artifacts(row):
         else:
             for d in _DOTTED.findall(tok):
                 add(d.split(".")[0])
-    for m in _PYPI_NAME.finditer(text):
-        add(m.group(1))
+    # AMENDMENT 4: the loose body sweep is dropped. Any hyphenated lowercase
+    # word in a post was being tried as a package name, and that is how
+    # fmtlib/fmt resolved to an unrelated project (F131 already measured this
+    # mining strategy as a noise source).
     return specific, generic
 
 

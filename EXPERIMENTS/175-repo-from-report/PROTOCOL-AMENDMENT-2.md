@@ -70,3 +70,28 @@ This is the **second** defect in the same function, and the honest reading is
 that the instrument, not the mechanism, produced the 0. Both repairs are logged
 rather than folded into a "fixed extractor", because a reader needs to know how
 many times this number was wrong before it was right.
+
+## Amendment 4 (same date) — the last instrument repair, and what it is not allowed to do
+
+With every registry consulted, the failures inverted from `no_candidate` (15) to
+`wrong_repo` (20), and the wrong repositories name the cause: `hapijs/code` for
+`microsoft/vscode`, `rumpl/c` for `microsoft/vs-solutionpersistence`,
+`pcattori/namespaces` for `cplusplus/draft`, `orsinium/advice` for `fmtlib/fmt`.
+Those come from the **loose body sweep** — any hyphenated lowercase word in the
+post is treated as a possible package name — which this record has already
+measured as a noise source (F131: mining a document for its most selective terms
+selects URLs and image markup).
+
+**Repair:** candidates come only from sources that name an artifact — a SO tag
+(raw and de-dashed), a `node_modules` path, a backticked token, a stack-frame
+file name, a `name@version` form. The body sweep and the dotted-module heuristic
+over prose are dropped. `MAX_LOOKUPS` rises from 8 to 12 registry attempts per
+row, because each candidate now costs three.
+
+**This is the final instrument repair.** Whatever this run reports is the result
+and no further extractor change will be made against this population — a
+zero that has been repaired four times is not a zero, and a reader is entitled to
+know how many numbers preceded it. If the mechanism were viable, a
+human-written or model-written extractor would do better; this measures whether
+*this* one works, and reports the structural reason for its ceiling rather than
+the ceiling alone.
