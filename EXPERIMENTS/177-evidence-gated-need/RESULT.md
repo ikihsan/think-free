@@ -217,3 +217,21 @@ class is not "questions missing a fact" but **questions whose posted symptoms
 underdetermine the cause**, and the missing evidence is the thing that
 *discriminates* between hypotheses. That is a sharper target than E178's three
 buckets, and it is what the next experiment should be written against.
+
+**One more defect, in the gate rather than in the experiment.** Two `origin doc
+lint` runs overlapped once while this file's addendum was being written. The
+second run reported **21 violations on files it had not changed** — 18
+`README.md` files from the view-count sweep whose timestamps were days old, four
+`.py` files at 301–380 lines, and `DECISIONS-PYTESTIVE-SUMMARY.md` as missing an
+`origin-meta` block **while that block was the first line of the file**. A single
+run on the same bytes reported `doc lint: OK`.
+
+`observed`: the concurrent run reported the violations; the clean run did not.
+`inferred`, not confirmed: two processes of the same gate reading and writing
+shared classification state. **Not reproduced and not diagnosed here** — it was
+found because the clean run disagreed with the noisy one and the reported files
+were days old, which is the same instinct that caught `AMENDMENT-6`.
+
+Recorded because the next session will run this gate, and because the correct
+response to a red `doc lint` whose named files are days old is to look for a
+concurrent run before editing any of them.
