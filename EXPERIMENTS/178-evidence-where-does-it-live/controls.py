@@ -68,36 +68,41 @@ def g0d():
 
 
 def g0b():
-    """Every one of the 46 must have a comments record and a reconciled count."""
+    """AMENDMENT-2: no independent comment count exists in this API, so G0b is
+    pagination, not reconciliation. Every row must be present, every chunk must
+    be paged to `has_more == false`, and a re-fetch at a different page size
+    must return the same totals."""
     here = os.path.join(HERE, "comments.json")
-    counts_file = os.path.join(HERE, "comment_counts.json")
-    if not (os.path.exists(here) and os.path.exists(counts_file)):
+    if not os.path.exists(here):
         print("G0b: not run - fetch has not produced comments.json yet")
         return False
     pop = json.load(open(os.path.join(HERE, "population.json")))
-    counts = {int(k): v for k, v in
-              json.load(open(counts_file))["comment_counts"].items()}
     com = json.load(open(here))
-    qcom = {int(k): v for k, v in com["question_comments"].items()}
-    acom = {int(k): v for k, v in com["answer_comments"].items()}
+    qids = [e["qid"] for e in pop["population"]]
+    raw = [json.loads(l) for l in
+           open(os.path.join(HERE, "raw", "se.jsonl"))]
     bad = []
+    if com["problems"]:
+        bad.extend(com["problems"])
+    diffs = com.get("pagesize_agreement", {})
+    if diffs.get("question") or diffs.get("answer"):
+        bad.append("pagesize-50 re-fetch disagreed: %s / %s"
+                   % (diffs.get("question"), diffs.get("answer")))
+    paged = com.get("paged", {})
+    print("G0b: %d rows; chunks that paged: question %s, answer %s; "
+          "pagesize-50 agreement: question %s, answer %s"
+          % (len(qids), paged.get("question"), paged.get("answer"),
+             diffs.get("question") or "agree", diffs.get("answer") or "agree"))
+    print("G0b: every response has_more false on its last page: %s"
+          % all(r["has_more"] is False
+                 for r in raw[-1:] + [x for x in raw if not x["has_more"]]))
     for e in pop["population"]:
-        qid = e["qid"]
-        if qid not in counts:
-            bad.append((qid, "no default-filter record"))
-        elif counts[qid] != len(qcom.get(qid, [])):
-            bad.append((qid, "comment_count %s vs %d returned"
-                        % (counts[qid], len(qcom.get(qid, [])))))
-        aid = e["key_answer_id"]
-        if not aid:
-            bad.append((qid, "no key answer id"))
-        elif aid not in acom and counts.get(qid, 0) and aid not in acom:
-            bad.append((qid, "key answer %d returned no comment thread" % aid))
-    print("G0b: %d rows checked, %d mismatch(es); fetch problems: %s"
-          % (len(pop["population"]), len(bad), com["problems"] or "none"))
+        if e["key_answer_id"] is None:
+            bad.append((e["qid"], "no key answer id"))
+    print("G0b: %d problem(s)" % len(bad))
     for b in bad[:10]:
         print("  FAIL %s" % (b,))
-    return not bad and not com["problems"]
+    return not bad
 
 
 if __name__ == "__main__":

@@ -53,18 +53,48 @@ def chunks(seq, n):
         yield seq[i:i + n]
 
 
-def fetch_all(endpoint, ids, key):
-    """Fetch `endpoint` for ids in chunks; return {id: [items]}, plus a log."""
-    got, problems = {}, []
+def fetch_all(endpoint, ids, key, pagesize=100):
+    """Fetch `endpoint` for ids in chunks, paging to exhaustion.
+
+    AMENDMENT-2: the first run read one page per chunk and printed no warning
+    when `has_more` was true, truncating sixteen of the 46 rows. Pages are now
+    followed and every page's `has_more` and item count is in raw/se.jsonl.
+    """
+    got, problems, paged = {}, [], []
     for part in chunks(ids, 20):
-        path = endpoint % ";".join(str(i) for i in part)
-        rec = se(path, {"site": SITE, "filter": "withbody", "pagesize": 100})
-        for it in rec["body"].get("items", []):
-            got.setdefault(key(it), []).append(it)
-        if rec["has_more"]:
-            problems.append("%s: has_more true for chunk starting %d"
-                            % (endpoint, part[0]))
-    return got, problems
+        page = 1
+        while True:
+            rec = se(endpoint % ";".join(str(i) for i in part),
+                     {"site": SITE, "filter": "withbody",
+                      "pagesize": pagesize, "page": page})
+            for it in rec["body"].get("items", []):
+                got.setdefault(key(it), []).append(it)
+            if not rec["has_more"]:
+                break
+            paged.append((part[0], page))
+            page += 1
+            if page > 20:
+                problems.append("%s: gave up after 20 pages for chunk %d"
+                                % (endpoint, part[0]))
+                break
+    return got, problems, paged
+
+
+def refetch_agreement(endpoint, ids, key, got):
+    """Re-fetch with a different page size; the totals must agree.
+
+    The pagination loop above writes `has_more` to disk and trusts it. This is
+    the check that does not trust it: same ids, `pagesize=50`, compare totals.
+    """
+    again, _, _ = fetch_all(endpoint, ids, key, pagesize=50)
+    diffs = []
+    for qid, items in again.items():
+        if len(items) != len(got.get(qid, [])):
+            diffs.append((qid, len(got.get(qid, [])), len(items)))
+    for qid, items in got.items():
+        if qid not in again:
+            diffs.append((qid, len(items), 0))
+    return again, diffs
 
 
 def main():
@@ -74,74 +104,81 @@ def main():
             if e["key_answer_id"]]
     problems, quota = [], []
 
-    # 1. comment_count for every row in the arm population, default filter.
-    counts = {}
-    for part in chunks(sorted(qids + pop["self_arm_ids"]), 100):
-        rec = se("questions/%s" % ";".join(str(i) for i in part),
-                 {"site": SITE, "filter": "default", "pagesize": 100})
-        for it in rec["body"].get("items", []):
-            counts[it["question_id"]] = it.get("comment_count") or 0
-        quota.append(rec["quota_remaining"])
-    print("default-filter records: %d (expected %d); comment_count present on %d"
-          % (len(counts), len(set(qids + pop["self_arm_ids"])),
-             sum(1 for q in counts if counts[q] is not None)))
-    with open(os.path.join(HERE, "comment_counts.json"), "w") as fh:
-        json.dump({"comment_counts": {str(k): v for k, v in counts.items()},
-                   "source": "questions/{ids}?filter=default",
-                   "note": "0 and absent are distinguished in raw/se.jsonl; "
-                           "an id absent here is absent from the fetch"},
-                  fh, indent=1, sort_keys=True)
-        fh.write("\n")
+    # AMENDMENT-2: stage 1 (the default-filter question fetch for a comment
+    # count) is withdrawn. Neither `default` nor `withbody` carries
+    # `comment_count`, so the "0 on 98 rows" it produced was an absent field
+    # read as zero, and the G0a control set was ordered on that fiction. The
+    # control set is now ordered on the comments this script fetches, which is
+    # the rule PROTOCOL.md already declared with a different instrument.
 
-    # 2. the control set, fixed by rule: the five SELF-arm rows with the most
-    #    comments. Declared in PROTOCOL.md before this fetch ran.
-    control = sorted(pop["self_arm_ids"],
-                     key=lambda q: (-(counts.get(q, 0) or 0), q))[:5]
-    print("G0a control set (rule: 5 SELF rows, most comments first): %s -> %s"
-          % (control, [counts.get(q) for q in control]))
-
-    # 3. question comments and key-answer comments.
-    qcom, p1 = fetch_all("questions/%s/comments", qids,
-                         lambda it: it["post_id"])
-    acom, p2 = fetch_all("answers/%s/comments", aids,
-                         lambda it: it["post_id"])
+    # 1. question comments and key-answer comments for the 46.
+    qcom, p1, pg1 = fetch_all("questions/%s/comments", qids,
+                              lambda it: it["post_id"])
+    acom, p2, pg2 = fetch_all("answers/%s/comments", aids,
+                              lambda it: it["post_id"])
     problems += p1 + p2
+
+    # 2. the G0a control set, fixed by rule: the five SELF-arm rows with the
+    #    most comments. Needs the whole SELF arm's comments (AMENDMENT-2).
+    scom, p3, pg3 = fetch_all("questions/%s/comments", pop["self_arm_ids"],
+                              lambda it: it["post_id"])
+    problems += p3
+    counts = {q: len(v) for q, v in qcom.items()}
+    scounts = {q: len(v) for q, v in scom.items()}
+    control = sorted(pop["self_arm_ids"],
+                     key=lambda q: (-scounts.get(q, 0), q))[:5]
+    print("G0a control set (rule: 5 SELF rows, most comments first): %s -> %s"
+          % (control, [scounts.get(q, 0) for q in control]))
+    print("SELF arm comment counts, top 10 by count: %s"
+          % sorted(scounts.items(), key=lambda kv: (-kv[1], kv[0]))[:10])
+
+    # 3. G0b part 3, the check that does not trust the paging loop: the
+    #    paged endpoints are re-fetched at pagesize 50 and the totals must
+    #    agree. Both endpoints are re-fetched whole, so the check also covers
+    #    the chunks that did not page.
+    q2, diffq = refetch_agreement("questions/%s/comments", qids,
+                                  lambda it: it["post_id"], qcom)
+    a2, diffa = refetch_agreement("answers/%s/comments", aids,
+                                  lambda it: it["post_id"], acom)
 
     payload = {
         "control_set": control,
-        "control_rule": "five SELF-arm rows of E177's population with the "
-                        "highest comment_count on the default filter, ties by "
-                        "ascending qid",
+        "control_rule": "five SELF-arm rows of E177's population with the most "
+                        "question comments in the fetched thread, ties by "
+                        "ascending qid (AMENDMENT-2: the ordering instrument "
+                        "changed, the rule did not)",
+        "control_comments": {str(k): scom.get(k, []) for k in control},
+        "self_arm_comment_counts": {str(k): v for k, v in scounts.items()},
         "question_comments": {str(k): v for k, v in qcom.items()},
         "answer_comments": {str(k): v for k, v in acom.items()},
         "fetched": {"question_comment_threads": len(qcom),
                     "answer_comment_threads": len(acom),
+                    "self_arm_comment_threads": len(scom),
                     "question_ids": len(qids), "key_answer_ids": len(aids)},
+        "paged": {"question": pg1, "answer": pg2, "self_arm": pg3},
+        "pagesize_agreement": {"question": diffq, "answer": diffa},
         "problems": problems,
-        "quota_remaining_last": quota[-1] if quota else None,
     }
     with open(os.path.join(HERE, "comments.json"), "w") as fh:
         json.dump(payload, fh, indent=1, sort_keys=True)
         fh.write("\n")
 
     # G0b, reported not assumed: which of the 46 came back with no thread at
-    # all, and does the comment count reconcile with the default filter.
-    got_q = set(qcom)
-    zero = sorted(q for q in qids if q not in got_q)
-    bad = []
-    for q in qids:
-        n = len(qcom.get(q, []))
-        if q in counts and counts[q] != n:
-            bad.append((q, counts[q], n))
-    print("question comment threads returned for %d of %d (no thread: %s)"
-          % (len(got_q), len(qids), zero or "none"))
-    print("comment_count reconciliation mismatches: %s" % (bad or "none"))
-    print("key-answer comment threads: %d of %d; control set fetched: %d"
-          % (len(acom), len(aids),
-             sum(1 for q in control if q in got_q)))
+    # all, which chunks paged, and whether a different page size agrees.
+    zero = sorted(q for q in qids if q not in qcom)
+    print("question comment threads returned for %d of %d; %d with no "
+          "comments: %s" % (len(qcom), len(qids), len(zero), zero))
+    print("chunks that paged: question %s, answer %s, self_arm %s"
+          % (pg1, pg2, pg3))
+    print("pagesize-50 re-fetch disagreements: question %s, answer %s"
+          % (diffq or "none", diffa or "none"))
+    print("key-answer comment threads: %d of %d; total question comments %d"
+          % (len(acom), len(aids), sum(counts.values())))
     print("problems: %s" % (problems or "none"))
-    print("quota remaining at the default-filter stage: %s"
-          % (quota[-1] if quota else None))
+    if os.path.exists(os.path.join(RAW, "se.jsonl")):
+        recs = [json.loads(l) for l in open(os.path.join(RAW, "se.jsonl"))]
+        print("requests on disk: %d; quota_remaining on the last: %s"
+              % (len(recs), recs[-1]["body"].get("quota_remaining")))
     return 0
 
 
