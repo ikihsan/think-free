@@ -52,10 +52,13 @@ _(none recorded)_
 | FAILURES-findings-43.md | 673fa4efa305 | 3864 |
 | HYPOTHESES.md | e63225b80f88 | 27354 |
 | STATE.md | 97c9e5d6e85e | 21531 |
+| DECISIONS-RECORDS-3.md | fa1a0cd1f69b | 6475 |
+| DECISIONS.md | d7ef4b788a45 | 27068 |
+| STATE-next-actions.md | bf98986407bd | 20904 |
 
 ## Commands
 
-17 captured, 4 non-zero exit.
+18 captured, 4 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -76,6 +79,7 @@ _(none recorded)_
 | 23 | ['python3', 'EXPERIMENTS/175-repo-from-report/run.py'] | 0 | 41295 |
 | 24 | ['python3', 'EXPERIMENTS/175-repo-from-report/run.py'] | 0 | 52310 |
 | 25 | ['python3', 'EXPERIMENTS/175-repo-from-report/run.py'] | 0 | 43425 |
+| 45 | ['./tools/origin', 'doc', 'index'] | 0 | 11711 |
 
 ## Integrity
 
@@ -135,6 +139,10 @@ _(none recorded)_
 | 42 | 05:59:13 | artifact | wrote STATE.md |
 | 43 | 05:59:15 | milestone | E174 recomputed all seven E170 arms from committed raw data: the repo-scoped arms reach 5/13 = 0.3846 against the global arms' 0.0769 and 0.1538, and  |
 | 44 | 05:59:16 | milestone | E175 killed the registry route at its own declared gate: G1 = 0 of 21 with 20 confidently wrong repositories, after four declared instrument repairs |
+| 45 | 06:00:55 | command | $ ./tools/origin doc index |
+| 46 | 06:06:11 | artifact | wrote DECISIONS-RECORDS-3.md |
+| 47 | 06:06:20 | artifact | wrote DECISIONS.md |
+| 48 | 06:06:27 | artifact | wrote STATE-next-actions.md |
 
 ## Reproduce this record
 

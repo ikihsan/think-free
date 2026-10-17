@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-16
+last-verified: 2026-10-17
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -424,7 +424,9 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/168-version-pinned-need/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 2 documents |
 | `EXPERIMENTS/169-version-pinned-reach/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 4 documents |
 | `EXPERIMENTS/170-fix-reachability-rank/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 4 documents |
-| `EXPERIMENTS/171-resolution-fact-locus/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 3 documents |
+| `EXPERIMENTS/171-resolution-fact-locus/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 4 documents |
+| `EXPERIMENTS/174-scoped-reach-recompute/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 2 documents |
+| `EXPERIMENTS/175-repo-from-report/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 4 documents |
 | `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |

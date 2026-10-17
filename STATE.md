@@ -234,24 +234,34 @@ records with no raw data behind any of them**, one of them reporting a *pass* fo
 a screen D105 had already withdrawn (F133); both are `untested` and add no venue
 to any tally.
 
-Named next action: **E175 - can the repository be derived from the failure report
-alone?** It is the one open question E170's G3 predicted and nobody recorded, and
-the only part of the mechanism that is not already the incumbent's. It is
-mechanical and needs no search engine: error reports name artifacts - a module
-path, a package name, a stack frame, an OS component - and registries publish
-where each artifact's tracker lives (PyPI `project_urls` and `home_page`, npm
-`repository`, crates.io, Maven). Declared in
-[`EXPERIMENTS/175-repo-from-report/PROTOCOL.md`](EXPERIMENTS/175-repo-from-report/PROTOCOL.md):
-**oracle-repo** (E170's scoped arm, the ceiling), **derived-repo** (the candidate:
-report -> artifact -> registry -> tracker, no human input), and **artifact-only**,
-on a fresh blinded draw of `version_pinned` rows, with the strongest alternative -
-a person who already knows the repository - stated as the ceiling rather than as a
-rival. Kill gate and the 0.30 build bar are in the protocol, committed before any
-fetch. **E171 is withdrawn, not deferred**: its pre-condition screen (2/13 = 0.1538
-against a declared 0.40) closed version-history grounding as a mechanism, so its
-G3 cannot pass in principle. **E172/E173 are not to be resumed** (F133).
-**E170's replication gate stays deliberately unrun** - replicating a near-zero
-global-arm effect teaches nothing this record lacks.
+**E175 completed (2026-10-17): the registry route derives the wrong repository,
+and its own declared kill fires.** 200 rows drawn by a committed seed, 145 with
+answers: **21 name a GitHub repository and 10 a specific tracker document — 0.1448
+and 0.0690 of answered rows**, the conditioning every rate in E168/E170/E174
+carries, now measured first and stated before the mechanism was. **G1 = 0 of 21 =
+0.0000**, Wilson [0.0000, 0.1546], declared kill 0.20, **20 `wrong_repo` and 1
+`not_in_registry`**: `hapijs/code` for `microsoft/vscode`, `rumpl/c` for
+`vs-solutionpersistence`, `christkv/node-git` for `powershell/powershell`. **A
+package registry is keyed by distributable name and a failure report carries a
+symptom name** — the projects that own fixes are applications, runtimes, standards
+bodies and working groups, and where a name *is* a registry name it is a common
+word owned by an unrelated package, so collision returns a confident wrong answer
+where an abstention would have been honest. **The zero was wrong four times**,
+each repair declared and committed before the next run, and G0's later runs are
+withdrawn as instrument-limited (`403 rate limit exceeded`, 60/hour). G2 is **not
+run**: stage two of a pipeline whose stage one is wrong 20 in 21 measures nothing.
+The step stays open and is redirected — a *project index* is the right source
+shape, those exist as prior art, so nothing is proposed to build (D117, F135).
+[`EXPERIMENTS/175-repo-from-report/RESULT.md`](EXPERIMENTS/175-repo-from-report/RESULT.md).
+
+**Named next action: E176 - what carries the fix when it is not a repository
+link.** E175's own measurement opens it: **79% of answered high-arrival questions
+record no repository link at all** - the complement of the 7% bucket every rate in
+this line lives inside, never characterised. Question, declared classification,
+kill and ending condition are in
+[`STATE-next-actions.md`](STATE-next-actions.md). **Not to be run:** E171
+(withdrawn), E172/E173 (F133), another view-count domain (D105), or a replication
+of E170's global-arm near-zero.
 
 ## Dashboard
 

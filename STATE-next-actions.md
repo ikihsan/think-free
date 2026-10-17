@@ -14,6 +14,43 @@ last-verified: 2026-10-14
 > harvest, not confirmed**. Do not run another registry sweep. See
 > [`EXPERIMENTS/113-viewcount-matched-harvest/`](EXPERIMENTS/113-viewcount-matched-harvest/README.md).
 
+## E176 — what carries the fix when it is not a repository link (2026-10-17)
+
+**The gap this session's own measurement opened.** E175 drew 200
+high-arrival Stack Overflow questions, 145 of them answered, and found that
+**21 (0.1448) name a repository and 10 (0.0690) name a tracker document — so
+79% of answered high-arrival questions record no repository link at all**
+(F135). Every rate in E168, E170 and E174 lives inside the 7% bucket, and the
+complement bucket is the largest one this line has ever had in front of it and
+has never characterised.
+
+**The question.** For the answered rows whose answer contains no GitHub link,
+what *does* the answer contain? Classified by deterministic rules committed
+before the classification, over all 124 such rows: a configuration key or setting,
+a version number or changelog statement, a code snippet, an OS or environment
+fact, a third-party service behaviour, an upgrade or downgrade instruction, or no
+fix at all. Report the distribution with intervals; report the share whose
+resolution is **decidable from the text plus the facts** — because D107's
+standing constraint (five consecutive service closures) says a candidate must
+target a task whose answer cannot be computed from what is already in hand.
+
+**Why this rather than another retrieval screen.** The version-pinned retrieval
+line closes with its ceiling named (D117): the population is 7% and the reachable
+share of it is 0. The complement is 79%, unmeasured, and it contains the cases
+where the answer is a version fact in prose rather than a document to find.
+
+**What would end it.** If the 124 rows' resolutions are dominated by
+environment facts and no-fix statements, the class is unaddressable and closes. If
+a material share is a **version or changelog statement**, that is a population
+where the missing input is a specific published artefact rather than a semantic
+bridge, and the candidate is a version-difference reader rather than a retriever —
+which is the one mechanism E171's pre-condition screen (2/13 against a declared
+0.40) closed, so E176 must be run on this population and not on E168's rows.
+
+**Do not run:** E171 (withdrawn, its pre-condition fired), E172/E173 (F133),
+another view-count domain (D105, F133), or a replication of E170's global-arm
+near-zero (E174 shows the scope was the whole effect).
+
 The D083 sweep table and the completed closing entries this file used to
 carry were split into
 [`STATE-next-actions-sweep-history.md`](STATE-next-actions-sweep-history.md)

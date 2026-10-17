@@ -75,3 +75,74 @@ to any reader of both files, which is the cheapest possible check.
   sentence is written. A gate that predicts a product constraint is a **result**,
   and reporting only the gates that closed the line is how a line gets closed on
   one cell of a 2×2.
+
+## F135 — a package registry is keyed by distributable name and a failure report carries a symptom name, so the pipeline returns a plausible wrong repository instead of abstaining (E175)
+
+**Date:** 2026-10-17. `EXPERIMENTS/175-repo-from-report/`. Raw:
+[`derivation.json`](../EXPERIMENTS/175-repo-from-report/derivation.json) and
+[`raw/http.jsonl`](../EXPERIMENTS/175-repo-from-report/raw/http.jsonl).
+
+### What was asked
+
+E174 reopened the version-pinned line and left one open step: `report →
+repository`. Could it be mechanical — no model, no search engine — by asking a
+public registry where the artifact a failure report names is developed?
+
+### What happened
+
+**G1 = 0 of 21 = 0.0000**, Wilson [0.0000, 0.1546], against a **declared kill at
+0.20**. Failure classes: **20 `wrong_repo`, 1 `not_in_registry`, 0 correct**. The
+wrong repositories are real and reachable through real registry lookups:
+`hapijs/code` for `microsoft/vscode`, `rumpl/c` for
+`microsoft/vs-solutionpersistence`, `pcattori/namespaces` for `cplusplus/draft`,
+`christkv/node-git` for `powershell/powershell`, `orsinium/advice` for
+`fmtlib/fmt`, `alexfernandez/performance` for `more-itertools/more-itertools`.
+
+**Coverage and collision, both measured.** The 17 gold repositories are
+applications, runtimes, standards bodies and working groups — `microsoft/vscode`,
+`powershell/powershell`, `fmtlib/fmt`, `cplusplus/draft`,
+`itanium-cxx-abi/cxx-abi`, `rust-lang/libs-team`, `git-for-windows/git` — and
+none is a registry entry under the name a report would use. Where a name *is* a
+registry name it is a common word owned by an unrelated package, so **collision
+is worse than absence**: an abstention is honest, `hapijs/code` is not.
+
+### The number that bounds the whole line
+
+A high-arrival Stack Overflow question records its fix as a **repository** link
+in **21 of 145 answered rows = 0.1448**, and as a specific **tracker document**
+in **10 of 145 = 0.0690** (of the 200 drawn: 0.1050 and 0.0500). E174's 0.3846
+was measured on rows drawn from that 1-in-14 population, and E175 measures the
+step that would have to be automatic at **0**. Composing the two is an
+inference across two populations and is labelled one. **79% of answered
+high-arrival questions record no repository link at all** — the largest bucket,
+and the one this line has never had a handle on.
+
+### The instrument cost, declared in full
+
+The 0 was wrong four times, and each repair was declared and committed before the
+next run: document-order candidates with first-hit-wins (so the generic word
+`npm` beat the project's own package name); a 20-entry package whitelist that
+contradicted the protocol and excluded every package the author had not thought
+of; a loose body sweep that treated any hyphenated word as a package name (F131
+had already measured that strategy as noise); and finally the ordering and
+tag-spelling repairs that left the number unmoved. G0's later runs are withdrawn
+as instrument-limited — `403 rate limit exceeded` on the 60/hour core API — and
+the first run's 17 of 17 stands.
+
+### What it changes
+
+- **The registry route is closed, and the step is redirected rather than
+  abandoned**: a *project index* is the right source shape, and those exist
+  (libraries.io, ecosyste.ms, Homebrew and winget manifests, GitHub topics), so
+  no prior-art screen is run and nothing is proposed to build.
+- **Rule: a tool that returns a wrong answer confidently is worse than one that
+  abstains, and an evaluation that only scores correctness hides that.** A
+  candidate pipeline on this population should be scored on **wrong-repo rate** as
+  a first-class number, because 20 of 21 wrong answers with 0 abstentions is a
+  different product from 20 wrong answers and 1 abstention.
+- **Rule: a zero repaired N times is not a zero.** Declare the repairs, declare
+  the last one, and then stop — an instrument that needs a fifth repair against
+  the population it is measured on is measuring its author.
+- **The next candidate may not be a retriever or an extractor over tracker
+  documents** (D117): the population is 7% of high-arrival questions and the
+  reachable share of it is 0.
