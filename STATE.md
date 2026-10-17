@@ -1,17 +1,17 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-15
+last-verified: 2026-10-17
 -->
 
 # Verified state
 
-Date: 2026-10-16, Asia/Kolkata. Phase: B. **The one candidate this mission
-produced is withdrawn; and as of E170 the mission has measured, on a live ranked
-index, the mechanism by which the strongest alternative wins on the class that
-resisted it longest.** The superseded narrative this file used to carry in full
-is in [`STATE-history.md`](STATE-history.md); what follows is only what a reader
-still needs.
+Date: 2026-10-17, Asia/Kolkata. Phase: B. **Six service closures in a row
+measured a mixture and reported it as one number, and E177 has separated the two
+halves: the assistant reaches 0.8667 where a question carries the fact its own
+resolution depends on and 0.4000 where it does not** (F136, D118). The superseded
+narrative this file used to carry in full is in [`STATE-history.md`](STATE-history.md);
+what follows is only what a reader still needs.
 
 `stage-lines` / `stg` (E037, E038, F060, F062–F064, D068, D069) was the first
 candidate with a working artifact. Three experiments closed it: E043 ran its
@@ -125,28 +125,10 @@ repository's own `doc lint` red on 467 violations while this file recorded it
 green (F127, D112).
 
 
-**E142 completed (2026-10-15): the incumbent probe on CI-failure diagnosis
-declines the harvest, and `preflight` is shelved rather than extended.** E142
-ran E140's G5 as a cheap pre-fetch survey over a 14-category superset, after
-fixing two defects in it: G5's baseline omitted the strongest alternative this
-mission has measured twice (a free general assistant with the log — E092,
-30/37 = 0.8108), and "top 10 patterns" is undefined until the harvest runs, so
-the probe used a superset, biased toward not killing prematurely. Result:
-**G5-tool-strict = 0 of 14, claimed 0 full + 2 partials** (JAIPilot's Java
-bot-PR repair drafts, 3 installs; pre-commit.ci's hook-driven autofix of PRs),
-against a kill at ≥7 — **no kill**. The probe's value was what it found
-instead: the top marketplace hit for "fix failed build" (Badgr) **disclaims
-auto-fix in its own FAQ**, the only asserted auto-repair is a narrow Java
-sub-case, and the strongest adjacent incumbent reads PRs rather than failing
-runs. Its structural prediction P1 got **no sourced support** (the one
-sourcing attempt failed; Badgr's "14+ error types" list states no
-distribution), so the protocol's declared second kill condition fired as
-written: **the ~7,500-request harvest is declined.** E140 stays declared and
-unrun — nothing about the CI domain is closed — and the mission returns to
-fresh exploration.
-[`EXPERIMENTS/142-cicd-incumbent-probe/RESULT-ARM-A.md`](EXPERIMENTS/142-cicd-incumbent-probe/RESULT-ARM-A.md).
-
 **E143 completed (2026-10-15): Cross Validated — the largest untouched venue — closes like the others; the program-shaped residue is zero.** On Cross Validated (`stats.stackexchange.com`, ~200k questions, chosen by a stated rule: the largest untouched non-software SE site where resolutions are plausibly self-contained artifacts), 300 unanswered recent questions (two arms: 200 votes + 100 creation) were screened. **300/300 are question-shaped; 0 are execution-shaped; the program-shaped residue (K3) is 0.** The answerable class (143 = 47.7%) is served by a free general assistant at **20/20 = 1.0000** (top-20 by view_count, Wilson CI95 [0.8389, 1.0000]), consistent with every other venue (E062 0.85, E092 0.81, E126 0.6750). The two arms differ by 2.0× in answerable share (57% vs 29%), confirming E126's stratum finding on a third venue. The program-shaped residue is a property of the venue type: SO had 2% (E126), CV has 0% — software venues attract write-me-a-program needs, statistics venues do not. The candidate-seat question is answered for the highest program-density untouched venue: no program-shaped population exists, and the answerable class is served at 1.0. [`EXPERIMENTS/143-crossvalidated-service-test/RESULT.md`](EXPERIMENTS/143-crossvalidated-service-test/RESULT.md).
+
+**E142 completed (2026-10-15): the CI-failure harvest is declined and `preflight` is shelved rather than extended.** E140's G5 run as a cheap pre-fetch survey over a 14-category superset returned **0 of 14** against a kill at ≥7 — no kill — but found that the top marketplace hit for "fix failed build" disclaims auto-fix in its own FAQ, the only asserted auto-repair is a narrow Java sub-case with 3 installs, and the structural prediction P1 gained no sourced support, so the protocol's second declared kill condition fired and the ~7,500-request harvest was declined. **E140 stays declared and unrun; nothing about the CI domain is closed.** [`RESULT-ARM-A.md`](EXPERIMENTS/142-cicd-incident-probe/RESULT-ARM-A.md).
+
 
 **Identifier collision, recorded not renumbered (2026-10-15).** `E140` names
 two different things, both committed on 2026-10-14: the **CI/CD pipeline
@@ -253,15 +235,10 @@ run**: stage two of a pipeline whose stage one is wrong 20 in 21 measures nothin
 The step stays open and is redirected — a *project index* is the right source
 shape, those exist as prior art, so nothing is proposed to build (D117, F135).
 [`EXPERIMENTS/175-repo-from-report/RESULT.md`](EXPERIMENTS/175-repo-from-report/RESULT.md).
+**E177 completed (2026-10-17): the mission's only standing constraint is now measured, and it is supported.** Six service closures in a row each reported one number for a pool containing two kinds of question. Same venue, key, treatment and blinded readers; the only difference is whether the question contained the fact its own resolution depends on: **SELF 26/30 = 0.8667 [0.7032, 0.9469]; EVID 12/30 = 0.4000 [0.2459, 0.5768]; gap +0.4667, Fisher p = 0.000368**, against a bar of `gap >= 0.25` and `p < 0.05` declared before any answer body was read; four controls green. **0.4000 is the lowest rate a free general assistant has scored on a real question population here, and it was inside all six closure pools, unmeasured** (F136, D118). The class is **46 of the 100 highest-arrival rows carrying a key answer**, its failures spread across its kinds in proportion, so no mechanical sub-kind exists to check; **abstention was 0 of 30 against 0 of 30**, so the assistant answers confidently on exactly the questions whose evidence is absent and is wrong 60% of the time. Six instrument defects were declared, four before any measurement; the last left **every control green while the p-value was wrong by 2,700×**, because a reader protocol has no control on its arithmetic. [`RESULT.md`](EXPERIMENTS/177-evidence-gated-need/RESULT.md).
 
-**Named next action: E176 - what carries the fix when it is not a repository
-link.** E175's own measurement opens it: **79% of answered high-arrival questions
-record no repository link at all** - the complement of the 7% bucket every rate in
-this line lives inside, never characterised. Question, declared classification,
-kill and ending condition are in
-[`STATE-next-actions.md`](STATE-next-actions.md). **Not to be run:** E171
-(withdrawn), E172/E173 (F133), another view-count domain (D105), or a replication
-of E170's global-arm near-zero.
+**Named next action: E178 — of the 46, how much of the missing evidence is obtainable from something the asker already has.** `version` + `upstream_source` + `configuration` is 32 of 46 and needs the project's published history, the route E169-E175 spent four experiments on and ended at a population of 7% with a reachable share of 0; `data_value` and `platform` is 6 of 46 and needs only the asker's own environment. Question, declared classification and kill condition are in [`STATE-next-actions.md`](STATE-next-actions.md). **Not to be run:** E176 as written (a third classification of the same rows by the same instrument, which cannot decide anything the arms have now decided), E170's global arm, another view-count domain (D105), or a fresh draw of the same comparison before the composition of the 46 is examined.
+
 
 ## Dashboard
 

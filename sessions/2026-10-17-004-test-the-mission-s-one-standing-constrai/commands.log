@@ -726,3 +726,134 @@ clf_population sha256 d1bbc7111fd7c354
 bytes of question+answer text in the two batches: 466332
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 319  redactions: none
+==============================================================================
+[seq 13] 2026-10-17T07:06:04+00:00
+$ python3 EXPERIMENTS/177-evidence-gated-need/arms.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population 100; labelled 100; missing none; extra none; duplicates none
+arms: {'EVID': 46, 'UNCLEAR': 2, 'SELF': 52}
+EVID kinds: {'version': 7, 'upstream_source': 19, 'configuration': 6, 'other': 8, 'platform': 2, 'data_value': 4}
+ANS population: SELF 30, EVID 30, overlap 0 (G0d)
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/177-evidence-gated-need/arms.py", line 106, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/177-evidence-gated-need/arms.py", line 98, in main
+    for ln in rows[q]["question_text"].split("\n") or [""]:
+KeyError: 'question_text'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 608  redactions: none
+==============================================================================
+[seq 14] 2026-10-17T07:06:17+00:00
+$ python3 EXPERIMENTS/177-evidence-gated-need/arms.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population 100; labelled 100; missing none; extra none; duplicates none
+arms: {'EVID': 46, 'UNCLEAR': 2, 'SELF': 52}
+EVID kinds: {'version': 7, 'upstream_source': 19, 'configuration': 6, 'other': 8, 'platform': 2, 'data_value': 4}
+ANS population: SELF 30, EVID 30, overlap 0 (G0d)
+wrote ans/questions.txt: 60 questions, shuffled by seed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 198  redactions: none
+==============================================================================
+[seq 16] 2026-10-17T07:15:20+00:00
+$ python3 EXPERIMENTS/177-evidence-gated-need/repair.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+repaired line 36, qid 79806553: 709 characters of answer re-escaped
+60 lines parse; 60 unique qids; covers the order: True
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 99  redactions: none
+==============================================================================
+[seq 17] 2026-10-17T07:15:38+00:00
+$ python3 EXPERIMENTS/177-evidence-gated-need/score_inputs.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+wrote 70 pairs (60 graded, 5 identical controls, 5 distinct controls), shuffled
+control qids come from outside the CLF population: 79457269
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 131  redactions: none
+==============================================================================
+[seq 18] 2026-10-17T07:15:51+00:00
+$ python3 EXPERIMENTS/177-evidence-gated-need/score_inputs.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+wrote 70 pairs (60 graded, 5 identical controls, 5 distinct controls), shuffled
+control qids come from outside the CLF population: 79457269
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 137  redactions: none
+==============================================================================
+[seq 19] 2026-10-17T07:19:33+00:00
+$ python3 EXPERIMENTS/177-evidence-gated-need/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== integrity ==
+verdicts 70; index 70; same set: True
+G0d arms disjoint: True (no overlap)
+
+== G0a: is the treatment an assistant rather than a refuser ==
+questions asked 60; refusals or stubs 0 []; gate >= 55 substantive: True
+
+== G0b / G0c: can SCORE recover real positives and reject real negatives ==
+G0b identical pairs marked reached: 5 of 5 (need 5) -> PASS
+G0c distinct pairs marked reached: 0 of 5 (need 0) -> PASS
+
+== the declared comparison ==
+SELF  n=30 reached=26 rate=0.8667 CI95 [0.7032, 0.9469]
+EVID  n=30 reached=12 rate=0.4000 CI95 [0.2459, 0.5768]
+gap (SELF - EVID) = +0.4667   Fisher exact two-sided p = 1
+G3 declared bar: gap >= 0.25 AND p < 0.05 -> DID NOT FIRE
+
+== abstention by arm (reported, not gated) ==
+SELF  refusals or stubs 0 of 30
+EVID  refusals or stubs 0 of 30
+
+== census (automatic, all keyed rows) ==
+rows_with_key_answer         145
+evidence_gain_median         0.7959
+share_gain_ge_0.50           137
+share_gain_ge_0.50_rate      0.9448
+share_gain_ge_0.50_ci95      [0.8949, 0.9718]
+
+wrote result.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 109  redactions: none
+==============================================================================
+[seq 20] 2026-10-17T07:20:05+00:00
+$ python3 EXPERIMENTS/177-evidence-gated-need/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== integrity ==
+verdicts 70; index 70; same set: True
+G0d arms disjoint: True (no overlap)
+
+== G0a: is the treatment an assistant rather than a refuser ==
+questions asked 60; refusals or stubs 0 []; gate >= 55 substantive: True
+
+== G0b / G0c: can SCORE recover real positives and reject real negatives ==
+G0b identical pairs marked reached: 5 of 5 (need 5) -> PASS
+G0c distinct pairs marked reached: 0 of 5 (need 0) -> PASS
+
+== the declared comparison ==
+SELF  n=30 reached=26 rate=0.8667 CI95 [0.7032, 0.9469]
+EVID  n=30 reached=12 rate=0.4000 CI95 [0.2459, 0.5768]
+gap (SELF - EVID) = +0.4667   Fisher exact two-sided p = 0.000368177
+G3 declared bar: gap >= 0.25 AND p < 0.05 -> FIRED
+
+== abstention by arm (reported, not gated) ==
+SELF  refusals or stubs 0 of 30
+EVID  refusals or stubs 0 of 30
+
+== census (automatic, all keyed rows) ==
+rows_with_key_answer         145
+evidence_gain_median         0.7959
+share_gain_ge_0.50           137
+share_gain_ge_0.50_rate      0.9448
+share_gain_ge_0.50_ci95      [0.8949, 0.9718]
+
+wrote result.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 199  redactions: none

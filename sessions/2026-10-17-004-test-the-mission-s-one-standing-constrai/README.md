@@ -30,10 +30,11 @@ _(none recorded)_
 | path | sha256 (first 12) | bytes |
 |---|---|---|
 | EXPERIMENTS/177-evidence-gated-need/PROTOCOL.md | 8604eaf35d3c | 11479 |
+| EXPERIMENTS/177-evidence-gated-need/RESULT.md | 174f86d3be48 | 9053 |
 
 ## Commands
 
-10 captured, 3 non-zero exit.
+17 captured, 4 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -47,6 +48,13 @@ _(none recorded)_
 | 10 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/roles.py'] | 1 | 835 |
 | 11 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/roles.py'] | 0 | 312 |
 | 12 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/roles.py'] | 0 | 319 |
+| 13 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/arms.py'] | 1 | 608 |
+| 14 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/arms.py'] | 0 | 198 |
+| 16 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/repair.py'] | 0 | 99 |
+| 17 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/score_inputs.py'] | 0 | 131 |
+| 18 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/score_inputs.py'] | 0 | 137 |
+| 19 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/score.py'] | 0 | 109 |
+| 20 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/score.py'] | 0 | 199 |
 
 ## Integrity
 
@@ -74,6 +82,15 @@ _(none recorded)_
 | 10 | 06:53:53 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/roles.py |
 | 11 | 06:54:03 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/roles.py |
 | 12 | 06:59:40 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/roles.py |
+| 13 | 07:06:04 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/arms.py |
+| 14 | 07:06:17 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/arms.py |
+| 15 | 07:06:31 | milestone | CLF arms committed before any answer: SELF 52, EVID 46, UNCLEAR 2 of the 100 highest-arrival keyed rows |
+| 16 | 07:15:20 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/repair.py |
+| 17 | 07:15:38 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/score_inputs.py |
+| 18 | 07:15:51 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/score_inputs.py |
+| 19 | 07:19:33 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/score.py |
+| 20 | 07:20:05 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/score.py |
+| 21 | 07:20:40 | artifact | wrote EXPERIMENTS/177-evidence-gated-need/RESULT.md |
 
 ## Reproduce this record
 

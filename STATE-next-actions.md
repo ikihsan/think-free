@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-14
+last-verified: 2026-10-17
 -->
 
 # Next actions
@@ -14,47 +14,47 @@ last-verified: 2026-10-14
 > harvest, not confirmed**. Do not run another registry sweep. See
 > [`EXPERIMENTS/113-viewcount-matched-harvest/`](EXPERIMENTS/113-viewcount-matched-harvest/README.md).
 
-## E176 — what carries the fix when it is not a repository link (2026-10-17)
+## E178 — of the 46, how much of the missing evidence is obtainable (2026-10-17)
 
-**The gap this session's own measurement opened.** E175 drew 200
-high-arrival Stack Overflow questions, 145 of them answered, and found that
-**21 (0.1448) name a repository and 10 (0.0690) name a tracker document — so
-79% of answered high-arrival questions record no repository link at all**
-(F135). Every rate in E168, E170 and E174 lives inside the 7% bucket, and the
-complement bucket is the largest one this line has ever had in front of it and
-has never characterised.
+**The gap E177's own measurement opened.** E177 found a class of **46 of the
+100 highest-arrival rows that carry a key answer** whose resolution depends on a
+fact or artefact the question does not contain, and on that class a free general
+assistant reaches **12/30 = 0.4000** against **26/30 = 0.8667** on the
+self-contained half of the same pool (gap +0.4667, Fisher p = 0.000368; F136,
+D118). The class is real and large and the rate on it is the lowest this mission
+has measured. **None of that says the population is buildable**, which is what
+this experiment asks.
 
-**The question.** For the answered rows whose answer contains no GitHub link,
-what *does* the answer contain? Classified by deterministic rules committed
-before the classification, over all 124 such rows: a configuration key or setting,
-a version number or changelog statement, a code snippet, an OS or environment
-fact, a third-party service behaviour, an upgrade or downgrade instruction, or no
-fix at all. Report the distribution with intervals; report the share whose
-resolution is **decidable from the text plus the facts** — because D107's
-standing constraint (five consecutive service closures) says a candidate must
-target a task whose answer cannot be computed from what is already in hand.
+**The question.** For each of the 46, **where does the missing evidence live**,
+and is it obtainable without the person going to fetch it?
 
-**Why this rather than another retrieval screen.** The version-pinned retrieval
-line closes with its ceiling named (D117): the population is 7% and the reachable
-share of it is 0. The complement is 79%, unmeasured, and it contains the cases
-where the answer is a version fact in prose rather than a document to find.
+| bucket | what it means | the experiment's job |
+|---|---|---|
+| `publishable` | it is in something the project publishes — a changelog, a release note, a spec, a commit | can the project's own published corpus answer this question *without* a search engine? |
+| `asker_only` | it is a value or fact only the asker has — their version output, their config, their libc | not fetchable by any tool; it has to be **asked for**, and the cost is one round trip |
+| `third_party` | it lives in another organisation's system | not fetchable; the ceiling is the third party's own reporting |
 
-**What would end it.** If the 124 rows' resolutions are dominated by
-environment facts and no-fix statements, the class is unaddressable and closes. If
-a material share is a **version or changelog statement**, that is a population
-where the missing input is a specific published artefact rather than a semantic
-bridge, and the candidate is a version-difference reader rather than a retriever —
-which is the one mechanism E171's pre-condition screen (2/13 against a declared
-0.40) closed, so E176 must be run on this population and not on E168's rows.
+**Why this rather than E176 as written.** E176 classifies the same 200 rows by
+the same instrument as E175 and E168 — a third consecutive session on that pool
+— and it cannot decide anything the arms have now decided. **This can**, because
+it is the first question in this line whose answer is a build decision rather
+than a bucket count.
 
-**Do not run:** E171 (withdrawn, its pre-condition fired), E172/E173 (F133),
-another view-count domain (D105, F133), or a replication of E170's global-arm
-near-zero (E174 shows the scope was the whole effect).
+**Declared kill.** If `publishable` is below **0.50 of the 46**, the class is
+mostly evidence only the asker holds, the ceiling is a round trip rather than a
+tool, and **E177's population closes with no candidate** — which is a real
+answer and a cheap one.
 
-The D083 sweep table and the completed closing entries this file used to
-carry were split into
-[`STATE-next-actions-sweep-history.md`](STATE-next-actions-sweep-history.md)
-at the 300-line cap.
+**Declared ending condition.** If `publishable` clears 0.50, the next experiment
+is the one that measures whether a specific published artefact answers the
+question, on a **fresh draw**, and it may not be a retriever over tracker
+documents (D117) — the 7% ceiling there is measured. What it may be is decided
+by what `publishable` turns out to consist of, not chosen in advance.
+
+**Do not run:** E176 as written (above), E170's global arm, another view-count
+domain (D105, F133), or a fresh draw of E177's comparison before this one —
+the reused draw means the composition of the 46, not its rate, is the number a
+fresh draw would add.
 
 ## E137 completed (2026-10-14) — cross-model agreement: third exact AGREE
 

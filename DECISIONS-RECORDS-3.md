@@ -6,7 +6,7 @@ last-verified: 2026-10-17
 
 # Decisions — records (part 3)
 
-Decisions **D116, D117**. Same invariant and shape as
+Decisions **D116, D117, D118**. Same invariant and shape as
 [`DECISIONS-RECORDS-2.md`](DECISIONS-RECORDS-2.md): a choice that was genuinely
 open, the evidence behind it, the alternatives rejected, and the reason. Split
 on 2026-10-17, not at the cap — this part exists because both decisions were
@@ -108,3 +108,69 @@ declared 0.40, so it cannot pass in principle.
 constraint E174 established travels with it: **the next candidate must not be a
 retriever over tracker documents**, because that population is 7% of
 high-arrival questions and the reachable share of it is 0.
+## D118 — a service screen reports its arms, not its pool, because evidence-completeness moves the rate by 0.47
+
+**Date:** 2026-10-17. Evidence: E177, F136.
+
+**What this is about.** Six populations in this record closed because a free
+general assistant served them, and every one of those closures reported a single
+number for a pool containing two kinds of question. D107 turned the resulting
+pattern into the mission's only standing constraint — target a task whose answer
+is not computable from the text plus the facts — on the inference that the
+undecidable population was where the assistant is weak. **That inference had
+never been measured**, and E177 measured it.
+
+**The measurement.** Same venue, same key, same treatment, same blinded readers;
+the only difference is whether the question carried the evidence its own
+resolution depends on. **SELF 26/30 = 0.8667, EVID 12/30 = 0.4000, gap +0.4667,
+Fisher p = 0.000368**, on a bar of `gap >= 0.25` and `p < 0.05`. The class is
+**46 of the 100 highest-arrival rows that carry a key answer**, and the failures
+inside it are spread across its kinds in proportion, so there is no mechanical
+sub-kind to check.
+
+**The decision.**
+
+1. **D107's standing constraint is supported on this population** and stands. It
+   is now a measurement rather than an inference, and its wording does not change.
+2. **A service screen reports its arms, not its pool.** D113 already required
+   stratification on version-dependence "rather than one pool rate"; that
+   requirement generalises to **any stratification whose arms differ**, and the
+   difference that matters here is **evidence-completeness** — whether the
+   question contains the fact or artefact its resolution depends on.
+3. **The prior closure numbers are not wrong, they are pool rates, and they are
+   not verdicts about their populations.** 0.85, 0.81, 0.6750, 1.0 and 0.25 are
+   each consistent with a mixture that contains a 0.40 arm. They keep their
+   status as statements about the pools they measured. **E091's composition
+   finding (F114) and E143's venue-shape finding stand** — venue composition is
+   real; it is simply not the only composition in a pool, and it is not the one
+   that produces the low tail.
+4. **An abstention rate is reported beside every reach rate.** Measured here at
+   **0 of 30 against 0 of 30**: the assistant answers confidently on exactly the
+   questions whose evidence is absent and is wrong 60% of the time. A candidate on
+   this population is scored on confident-wrong rate first.
+5. **The reuse of E175's draw is declared as a ceiling.** Everything here is
+   conditional on 145 keyed rows of one committed draw, not a prevalence estimate
+   on a fresh pool.
+
+**Alternatives rejected.**
+
+- **Re-run E176 as written.** Rejected on opportunity cost, which this file now
+  records rather than assumes: E176 classifies the same 200 rows by the same
+  instrument as E175 and E168, and cannot decide anything the arms have decided.
+- **Claim the class is 0.46 of Stack Overflow.** Rejected: the draw is reused and
+  CLF labelled the top 100 by arrival, so 0.46 is conditional on that slice.
+- **Propose a tool.** Rejected, by the protocol's own G5 and because it is not
+  earned yet: `upstream_source` + `version` + `configuration` is 32 of the 46, and
+  D117 closed retrieval over tracker documents for that population.
+- **Treat 0.4000 as the new baseline for all future screens.** Rejected: it is one
+  arm of one comparison at n = 30 on one venue, and generalising it is the
+  mistake this decision is about.
+
+**What this leaves.** The named next action is E178: of the 46, how much of the
+missing evidence is obtainable from something the asker already has, which is
+what separates a buildable population from a merely real one. `data_value` and
+`platform` (6 of 46) need the asker's own environment; `version`,
+`upstream_source` and `configuration` (32 of 46) need the project's published
+history, and the four experiments E169–E175 spent on that route ended at a
+population of 7% and a reachable share of 0 — so E178 has to say which of the
+32 is reachable **without** building a retriever.

@@ -154,3 +154,72 @@ than invented for them: `CLASSIFICATION-PROTOTYPE.md`, `PROTOCOL-E172.md` and
 `EXPERIMENTS/171-resolution-fact-locus/RESULT.md` were written by other sessions
 and had none, so `doc lint` was red on all three the moment they were committed.
 The blocks record what those files already were, and change nothing in them.
+
+---
+
+## F136 — six service closures in a row each measured a mixture and reported it as one number (E177)
+
+**Date:** 2026-10-17. `EXPERIMENTS/177-evidence-gated-need/`.
+
+### What was asked
+
+Whether a free general assistant is measurably worse at reaching a real
+question's community answer when that answer's resolution depends on a fact or
+artefact the question does not contain. Stated and declared before any answer
+body was read: [`PROTOCOL.md`](../EXPERIMENTS/177-evidence-gated-need/PROTOCOL.md).
+
+### What it found
+
+Same venue, same key, same treatment, same reader roles, **the only difference
+being whether the question carried its own evidence**:
+
+| arm | n | reached | rate | Wilson 95% |
+|---|---|---|---|---|
+| SELF — resolution reachable from the question's text | 30 | 26 | **0.8667** | [0.7032, 0.9469] |
+| EVID — resolution needs something the question does not contain | 30 | 12 | **0.4000** | [0.2459, 0.5768] |
+
+**gap +0.4667, Fisher exact two-sided p = 0.000368**, against a bar declared as
+`gap >= 0.25` and `p < 0.05`. All four controls green on the same run.
+
+CLF's labels put the class at **46 of the 100 highest-arrival rows carrying a
+key answer** — 0.46 of high-arrival answered questions — composed of
+`upstream_source` 19, `other` 8, `version` 7, `configuration` 6, `data_value` 4,
+`platform` 2. Reached rows are spread across the kinds in proportion, so **no
+single mechanical kind carries the failure**.
+
+### Why this is recorded as a failure of the record and not of the assistant
+
+Six populations in this record closed on service — E062 0.85, E091 0.25, E092
+0.81, E126 0.6750, E143 1.0, E115 14/14 — and every one of them reported a
+single number for a pool that contains both classes. **0.4000 is the lowest rate
+a free general assistant has scored on a real question population here**, and it
+was inside all six of those pools, unmeasured. D107 built the mission's only
+standing constraint on the inference that the undecidable population was the
+open region; that inference is now measured and **supported**, and the thing
+that was wrong was the screens' arithmetic: a stratified quantity was being
+reported unstratified, five times, and read as a verdict about each population.
+
+E091 did stratify, by answerability — and got 0.25, which is why it looked like
+an outlier and why the record's explanation was *composition of what the
+community owns*. **Composition is real (F114) and E143's venue-shape result
+stands; but composition of the venue is not the only composition in the pool.**
+E177 finds a second, larger one inside a single venue.
+
+### Rules that come out of it
+
+- **A service screen must stratify on evidence-completeness before it reports a
+  pool rate.** This is D113's rule (stratify on version-dependence, not one
+  pool rate) applied to a second variable, and it is now a general rule: **report
+  the arm, not the pool, whenever the arms differ.** Two arms differing by 0.47
+  at p = 0.00037 is not a pool.
+- **An abstention rate is reported beside every reach rate.** Here it was
+  **0 of 30 against 0 of 30** — the assistant does not notice that the evidence
+  is missing, it answers anyway and is wrong 60% of the time. A confident-wrong
+  rate is a first-class number for any candidate on this population, and this is
+  the same rule F135 reached from the other end (wrong-repo rate with 0
+  abstentions).
+- **No control in a reader protocol tests the arithmetic.** All four of this
+  protocol's controls passed on a run whose p-value was wrong by a factor of
+  2,700 (`AMENDMENT-6`). A hand-written test must be checked against a table
+  with a published value before its output is reported, and the check is
+  committed beside the result.
