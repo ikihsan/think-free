@@ -1,0 +1,57 @@
+{
+ "g0b_identical_pairs": [
+  {
+   "a_qid": 79457269,
+   "b_qid": 79457269,
+   "id": "g0b-79457269"
+  },
+  {
+   "a_qid": 79592958,
+   "b_qid": 79592958,
+   "id": "g0b-79592958"
+  },
+  {
+   "a_qid": 79906660,
+   "b_qid": 79906660,
+   "id": "g0b-79906660"
+  },
+  {
+   "a_qid": 79768581,
+   "b_qid": 79768581,
+   "id": "g0b-79768581"
+  },
+  {
+   "a_qid": 79340949,
+   "b_qid": 79340949,
+   "id": "g0b-79340949"
+  }
+ ],
+ "g0c_distinct_pairs": [
+  {
+   "a_qid": 79753103,
+   "b_qid": 79673093,
+   "id": "g0c-79753103-79673093"
+  },
+  {
+   "a_qid": 79767311,
+   "b_qid": 79730713,
+   "id": "g0c-79767311-79730713"
+  },
+  {
+   "a_qid": 79639673,
+   "b_qid": 80009012,
+   "id": "g0c-79639673-80009012"
+  },
+  {
+   "a_qid": 80009171,
+   "b_qid": 79788851,
+   "id": "g0c-80009171-79788851"
+  },
+  {
+   "a_qid": 79607696,
+   "b_qid": 80009583,
+   "id": "g0c-79607696-80009583"
+  }
+ ],
+ "note": "g0b is one row's key answer against the same row's key answer; g0c is one row's key answer against another row's, from outside the 100-row population. Fixed before any reader ran."
+}

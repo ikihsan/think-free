@@ -49,11 +49,11 @@ def wilson(k, n, z=1.959963985):
 
 def main():
     data = json.load(open(os.path.join(HERE, "rows.json")))
-    rows = [r for r in data["rows"] if r.get("accepted_body")]
+    rows = [r for r in data["rows"] if r.get("key_body")]
     out = []
     for r in rows:
         q = toks(strip_html(r["title"]) + " " + strip_html(r["body"]))
-        a = toks(strip_html(r["accepted_body"]))
+        a = toks(strip_html(r["key_body"]))
         qset = set(q)
         aset = set(a)
         gain_set = aset - qset
@@ -68,7 +68,7 @@ def main():
     at_half = sum(1 for g in gains if g >= 0.5)
     lo, hi = wilson(at_half, n)
     result = {
-        "rows_with_accepted_answer": n,
+        "rows_with_key_answer": n,
         "rows_drawn": len(data["rows"]),
         "evidence_gain_median": med,
         "evidence_gain_min": gains[0] if n else None,
@@ -84,7 +84,7 @@ def main():
     with open(os.path.join(HERE, "census.json"), "w") as fh:
         json.dump({"summary": result, "rows": out}, fh, indent=1, sort_keys=True)
         fh.write("\n")
-    for k in ("rows_with_accepted_answer", "evidence_gain_median",
+    for k in ("rows_with_key_answer", "evidence_gain_median",
               "share_gain_ge_0.50", "share_gain_ge_0.50_rate",
               "share_gain_ge_0.50_ci95"):
         print("%-28s %s" % (k, result[k]))
