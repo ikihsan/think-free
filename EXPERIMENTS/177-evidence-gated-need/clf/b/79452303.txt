@@ -1,0 +1,219 @@
+qid: 79452303
+view_count: 809
+tags: javascript, node.js, unhandled-promise-rejection
+key_score: 15
+
+=== TITLE ===
+Why does throwing an error in a not-yet-awaited async function call terminate node.js?
+
+=== QUESTION ===
+async function delay(ms) {
+ return new Promise(r=>setTimeout(r,ms))
+}
+async function fail(ms){
+ await delay(ms)
+ throw new Error("kek");
+}
+async function ok(ms){
+ await delay(ms)
+ return 1;
+}
+async function start() {
+ try{
+
+ let fail_p = fail(500);
+ let ok_p = ok(1000);
+ console.log(await ok_p)
+ console.log(await fail_p)
+ }
+ catch(e){
+ console.log("ERR")
+ }
+}
+start().then(()=>console.log("Finish")) 
+ 
+ 
+ 
+ In the browser I get what I expected. 
+ 1
+ERR
+Finish
+ 
+ But in nodejs the application just crashes with the error "kek" 
+ /path/test.js:6
+ throw new Error("kek");
+ ^
+
+Error: kek
+ at fail (/path/test.js:6:11)
+
+Node.js v22.14.0
+ 
+ Is this a nodejs bug? 
+And how can I achieve the same behavior with nodejs? 
+
+ async function delay(ms) {
+ return new Promise(r=>setTimeout(r,ms))
+}
+async function fail(ms){
+ await delay(ms)
+ throw new Error("kek");
+}
+async function ok(ms){
+ await delay(ms)
+ return 1;
+}
+async function start() {
+ try{
+
+ let fail_p = fail(500);
+ let ok_p = ok(1000);
+ console.log(await ok_p)
+ console.log(await fail_p)
+ }
+ catch(e){
+ console.log("ERR")
+ }
+}
+start().then(()=>console.log("Finish")) 
+ 1
+ERR
+Finish
+ 
+ /path/test.js:6
+ throw new Error("kek");
+ ^
+
+Error: kek
+ at fail (/path/test.js:6:11)
+
+Node.js v22.14.0
+
+=== KEY ANSWER ===
+Both in browsers as in Node, there is an unhandled promise rejection, but they deal differ
+ently with it: 
+ 
+ Node will deal with this according to the --unhandled-rejections=mode flag. In your case 
+the default action was taken, which is to throw the unhandled rejection as an uncaught exc
+eption. And by default, Node will exit when an uncaught exception event is emitted. See Ev
+ent: 'uncaughtException' . 
+ 
+ A browser will also raise this error, which appears in the console log. However, in a bro
+wser context, the JavaScript main thread and the host's job queues remain operational. As 
+soon as a rejection handler has been attached to the rejected promise, the browser's conso
+le will typically remove this error from the console log. 
+ 
+ 
+ Why is there an unhandled rejection? 
+ One may wonder why there is an unhandled rejection in the first place, since there is a t
+ry...catch block. But realise that the throw that gets executed in the fail function trans
+lates into the rejection of a promise, because that throw executes in an async function wh
+ich has implicit handlers for errors. The state of the promise that is referenced by fail_
+p changes to rejected and there is no more error. A try...catch block does not deal with r
+ejected promises; it deals with errors, but there are none. 
+ What does raise an error is when an await operator is applied to a promise that is (or wi
+ll be) rejected. But in your scenario the await fail_p expression did not execute yet beca
+use execution was suspended at the await ok_p . That promise is still pending at the time 
+that fail_p rejects, and so we have a case where a rejected promise is not handled . 
+ Unless the process exits (which is the case in Node), that unfortunate situation ends as 
+soon as ok_p fulfills, because then execution resumes to execute await fail_p , and it is 
+at that time a new error is thrown (with the same description as the promise rejection rea
+son), and it is at that time the try...catch block can do its error handling job. Now we n
+o longer have an unhandled promise rejection anymore. But again, Node has already exited b
+efore ok_p fulfilled, (with default Node settings), when it found that fail_p rejected and
+ there was no handler for it. 
+ Better practice 
+ As indicated above there are flags you can set in Node so that it behaves differently whe
+n a promise rejects that has no handler for it. But it's better to avoid this situation th
+an to fix it. 
+ This situation would not occur if you would ensure that a promise has a rejection handler
+ attached to it at the time of its creation. This is not the case in your current script. 
+ Here is one way you could write your program so that your two promises get rejection hand
+lers synchronously after their creation: 
+ 
+ 
+ async function delay(ms) {
+ return new Promise(r=>setTimeout(r,ms))
+}
+async function fail(ms){
+ await delay(ms)
+ throw new Error("kek");
+}
+async function ok(ms){
+ await delay(ms)
+ return 1;
+}
+async function start() {
+ try{
+
+ let fail_p = fail(500); 
+ let ok_p = ok(1000);
+ // Synchronously attach reject handlers to both promises:
+ const results = await Promise.all([ok_p, fail_p]);
+ console.log(...results); // This will not execute
+ }
+ catch(e){
+ // This executes before ok_p is fulfilled
+ console.log("ERR");
+ }
+}
+start().then(()=>console.log("Finish")); 
+ 
+ 
+ 
+ Depending on your expectations, you may want to still await ok_p , even when fail_p has a
+lready rejected. If so, you could use Promise.allSettled instead of Promise.all and only r
+aise an exception when both promises have settled (one fulfulled, one rejected). Note that
+ you then have to throw the error explicitly, and so the use of try...catch might become a
+ less interesting option. It all depends on what you expect to happen in your real case...
+ 
+
+ --unhandled-rejections=mode 
+ try...catch 
+ throw 
+ fail 
+ throw 
+ async 
+ fail_p 
+ try...catch 
+ await 
+ await fail_p 
+ await ok_p 
+ fail_p 
+ ok_p 
+ await fail_p 
+ try...catch 
+ ok_p 
+ fail_p 
+ async function delay(ms) {
+ return new Promise(r=>setTimeout(r,ms))
+}
+async function fail(ms){
+ await delay(ms)
+ throw new Error("kek");
+}
+async function ok(ms){
+ await delay(ms)
+ return 1;
+}
+async function start() {
+ try{
+
+ let fail_p = fail(500); 
+ let ok_p = ok(1000);
+ // Synchronously attach reject handlers to both promises:
+ const results = await Promise.all([ok_p, fail_p]);
+ console.log(...results); // This will not execute
+ }
+ catch(e){
+ // This executes before ok_p is fulfilled
+ console.log("ERR");
+ }
+}
+start().then(()=>console.log("Finish")); 
+ ok_p 
+ fail_p 
+ Promise.allSettled 
+ Promise.all 
+ try...catch
+

@@ -1,0 +1,73 @@
+qid: 79792501
+view_count: 794
+tags: c++, abstract-class
+key_score: 10
+
+=== TITLE ===
+Is there a widely used &quot;tag&quot; base class for C++ static classes?
+
+=== QUESTION ===
+In C++, there are some widely used zero-size base classes used for the purpose of "tagging
+" subclasses, for example boost::noncopyable . 
+ Is there any that is used to mark a class non-instantiable, like a "static class" in C#? 
+ Before you tell me I should be using a namespace for this: my class has template argument
+s, namespaces can't. 
+ If there's no accepted "tag", is there a pattern that a compiler can use to recognize the
+ static class pattern and generate warnings if a non-static member is accidentally created
+? 
+ template<typename my_trait>
+struct X
+{
+ ~X() = delete;
+
+ static int N; // I don't need this but static data members are typically allowed for stat
+ic classes
+ int x; // warning please!
+ static bool f(typename my_trait::f_arg arg); // ok
+ bool g(); // warning please!
+};
+ 
+
+ boost::noncopyable 
+ template<typename my_trait>
+struct X
+{
+ ~X() = delete;
+
+ static int N; // I don't need this but static data members are typically allowed for stat
+ic classes
+ int x; // warning please!
+ static bool f(typename my_trait::f_arg arg); // ok
+ bool g(); // warning please!
+};
+
+=== KEY ANSWER ===
+Whilst namespaces can't have template arguments, things declared in namespaces can. 
+ namespace X
+{
+template<typename my_trait>
+int N;
+
+template<typename my_trait>
+bool f(typename my_trait::f_arg arg);
+}
+ 
+ Yes this means that uses of this will be X::N<foo> and X::f<foo>(bar) instead of X<foo>::
+N and X<foo>::f(bar) . You will also be repeating template<typename my_trait> a whole lot.
+ 
+
+ namespace X
+{
+template<typename my_trait>
+int N;
+
+template<typename my_trait>
+bool f(typename my_trait::f_arg arg);
+}
+ 
+ X::N<foo> 
+ X::f<foo>(bar) 
+ X<foo>::N 
+ X<foo>::f(bar) 
+ template<typename my_trait>
+

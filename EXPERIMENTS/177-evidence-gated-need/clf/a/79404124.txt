@@ -1,0 +1,20 @@
+qid: 79404124
+view_count: 13461
+tags: bruno
+key_score: 24
+
+=== TITLE ===
+Is there a way to check console on Bruno?
+
+=== QUESTION ===
+I'm currently working on API testing using Bruno and trying to debug my scripts by adding 
+console.log statements in the pre-request and post-response script sections. However, I'm 
+having trouble finding where Bruno logs these outputs. 
+ I've checked the UI but couldn't find a dedicated console or log panel where these messag
+es appear. I expected a section similar to Postman’s console or a way to view script outpu
+ts, but I haven't had any luck.
+
+=== KEY ANSWER ===
+The console is a part of the developer tools panel. It is hidden by default, but you can o
+pen it from the view menu. View -> Toggle Developer Tools
+

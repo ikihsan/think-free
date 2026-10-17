@@ -1,0 +1,86 @@
+qid: 79760145
+view_count: 2222
+tags: c++, c++20, spaceship-operator
+key_score: 29
+
+=== TITLE ===
+Why does std::set::contains() call the spaceship operator twice on a target element?
+
+=== QUESTION ===
+Consider: 
+ #include <print>
+#include <set>
+
+struct Num {
+ auto operator <=> (const Num& other) const{
+ std::println ("{} <=> {}", val, other.val);
+ return val <=> other.val;
+ };
+ int val;
+};
+
+int main() {
+ std::set<Num> s{{1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}};
+ std::println("------------");
+ return !s.contains({8});
+}
+ 
+ For the part that calls contains this prints out (among other things): 
+ ...
+8 <=> 8
+7 <=> 8
+8 <=> 8
+ 
+ I would expect that after calling the spaceship operator with arguments (8,8) , the set w
+ould know it found the element and can return true immediately. 
+ Is this just because std::set in implementations I checked (libc++ and libstdc++ ) was ne
+ver updated to move from using logic written for operator < , or is there a more fundament
+al reason for this? Is this still faster than all the time checking if compared elements a
+re equal (since that happens at most once during lookup and moves the logic from handling 
+two outcomes to handling three outcomes)? 
+
+ #include <print>
+#include <set>
+
+struct Num {
+ auto operator <=> (const Num& other) const{
+ std::println ("{} <=> {}", val, other.val);
+ return val <=> other.val;
+ };
+ int val;
+};
+
+int main() {
+ std::set<Num> s{{1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}};
+ std::println("------------");
+ return !s.contains({8});
+}
+ 
+ contains 
+ ...
+8 <=> 8
+7 <=> 8
+8 <=> 8
+ 
+ (8,8) 
+ set 
+ true 
+ std::set 
+ operator <
+
+=== KEY ANSWER ===
+std::set bases its ordering of the contents on a template parameter. And the ordering func
+tor doesn't test equality; it only says if one item is "less than" another. As such, set c
+onsiders two objects to be equivalent if the ordering functor returns false for comp(A, B)
+ and comp(B, A) (neither is "less than" the other). 
+ So even if operator<=> is being called, set doesn't know that. All it sees is the orderin
+g; it has to manufacture equivalence. 
+
+ std::set 
+ set 
+ false 
+ comp(A, B) 
+ comp(B, A) 
+ operator<=> 
+ set
+

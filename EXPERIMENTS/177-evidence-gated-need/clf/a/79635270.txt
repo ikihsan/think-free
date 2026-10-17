@@ -1,0 +1,28 @@
+qid: 79635270
+view_count: 6216
+tags: visual-studio, github-copilot
+key_score: 19
+
+=== TITLE ===
+How to disable Copilot code completion in Visual Studio?
+
+=== QUESTION ===
+The regular code completion in Visual Studio somehow turned into Copilot code completion: 
+ 
+ It does not work though, replaces contents of the whole document with single-line propose
+d completion. 
+ 
+ How can I return to the regular refactorings? 
+ These are my Copilot options: 
+ 
+ Bonus question: How to turn off Github Copilot completely?
+
+=== KEY ANSWER ===
+I'm not sure about the autocomplete options as sometimes they all seem to fight (especiall
+y when other linting tools like Resharper are involved). However, to get rid of it complet
+ely you can uninstall CoPilot for VS2022 if you go to : 
+ Tools > Get Tools and Features > Individual components 
+ Untick GitHub Copilot: 
+ 
+ It should remove it. Hope this helps
+

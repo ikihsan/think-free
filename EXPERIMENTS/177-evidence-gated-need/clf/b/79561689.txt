@@ -1,0 +1,55 @@
+qid: 79561689
+view_count: 928
+tags: c++, multithreading, join, thread-safety, periodic-task
+key_score: 6
+
+=== TITLE ===
+How to safely handle thread join when interrupt signal (SIGINT) may arrive during join()?
+
+=== QUESTION ===
+I’m facing a design issue in a multithreaded C++ program related to safely shutting down t
+hreads.
+Here’s the problem:
+My main program starts multiple threads.
+During shutdown, I call join() on each thread to wait for them to finish properly.
+However, while the program is stuck inside join() , an interrupt signal (e.g., SIGINT from
+ Ctrl+C ) can arrive.
+The signal handler immediately tries to stop all threads and also tries to join() again, o
+r perform unsafe cleanup.
+This causes undefined behavior, because:
+There’s no way to know if a thread is already inside join() .
+ join() is a blocking the call — if interrupted halfway, it’s unclear what the state of th
+e thread object is.
+Double-joining a thread or touching the thread incorrectly can lead to crashes or deadlock
+s.
+I thought about sleeping for a short time instead of joining immediately, but that doesn't
+ solve the fundamental race condition between:
+The main thread trying to join() 
+The signal handler trying to "force stop" 
+ My questions:
+How to properly design thread shutdown when an interrupt might arrive during join()?
+How to avoid unsafe behavior if a signal arrives during join() ? 
+ Important notes: 
+ The signal handler currently calls _Exit(1) after trying to stop everything, which kills 
+the program immediately (bad - this is how they implemented it for years, no clean shutdow
+n). 
+ I want to move toward a safer design any solutions? 
+
+ join() 
+ join() 
+ SIGINT 
+ Ctrl+C 
+ join() 
+ join() 
+ join() 
+ join() 
+ _Exit(1)
+
+=== KEY ANSWER ===
+Signals are an ancient Unix API. They're not really compatible with multi-threaded program
+s. Hence, the best idea is to block signal delivery, and check for signals yourselves from
+ a thread you have chosen for that purpose. That thread will need to do a clean shutdown i
+n response to SIGINT . 
+
+ SIGINT
+

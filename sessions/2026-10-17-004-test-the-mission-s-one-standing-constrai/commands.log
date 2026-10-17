@@ -716,3 +716,13 @@ clf_population sha256 d1bbc7111fd7c354
 bytes of question+answer text in the two batches: 466332
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 312  redactions: none
+==============================================================================
+[seq 12] 2026-10-17T06:59:40+00:00
+$ python3 EXPERIMENTS/177-evidence-gated-need/roles.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+keyed rows 145; CLF population 100 (batches 50/50); control pool 45
+clf_population sha256 d1bbc7111fd7c354
+bytes of question+answer text in the two batches: 466332
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 319  redactions: none

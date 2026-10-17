@@ -1,0 +1,69 @@
+qid: 79904504
+view_count: 1106
+tags: c++, c++-modules, name-mangling
+key_score: 10
+
+=== TITLE ===
+Why is the module name a part of a mangled name for functions exported from C++20 modules?
+
+=== QUESTION ===
+Any function declared in a C++20 module seems to get mangled in a way that includes the mo
+dule name. For example: 
+ export module A;
+export void a(int);
+ 
+ int main()
+{
+ a(42);
+}
+ 
+ This a gets mangled to _ZW1A1ai on Linux, which demangles to a@A(int) . 
+ I understand why this would be desirable for non-exported functions (so they can be used 
+in multiple TUs inside of this named module, with no conflicts with outside modules), but 
+why mangle the exported ones? 
+ Further, it seems that you can disable this behavior with extern "C++" {...} , so this is
+ not a techinical limitation. 
+ 
+ It seems that this approach is called "strong module ownership" (i.e. including the modul
+e name in both exported and non-exported functions). 
+ While only including the module name for non-exported functions is called "weak module ow
+nership" . 
+
+ export module A;
+export void a(int);
+ 
+ int main()
+{
+ a(42);
+}
+ 
+ a 
+ _ZW1A1ai 
+ a@A(int) 
+ extern "C++" {...}
+
+=== KEY ANSWER ===
+This is the 'strong-ownership model', where the module strongly owns even exported symbols
+. Windows started with this, and GCC and Clang eventually moved to this due to some benefi
+ts seen with adding the module name to the mangling. 
+ See: 
+ https://github.com/itanium-cxx-abi/cxx-abi/pull/144 
+ 
+ The strong-ownership model is implemented — the symbols of exported entities with named-m
+odule attachment are mangled with a module-name component. 
+ 
+ https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=73baba1ae1b8f3618c2d3b674117b8a462e0ca76 
+ 
+ This implements a strong ownership model, so that exported entities
+from named modules are mangled to include their module attachment.
+This gives more informative linker diagnostics and better module
+isolation. Weak ownership was hoped to allow backwards compatibility
+with non-modular code, but in practice was very brittle, and C++20
+added new semantics for linkage declarations that cover the needed
+functionality. 
+ 
+ https://github.com/llvm/llvm-project/commit/ae4dce8659f313ca2034782583d31993212fa8bd 
+ 
+ The hoped-for C++17 compatibility of weak ownership turns out to be
+fragile
+

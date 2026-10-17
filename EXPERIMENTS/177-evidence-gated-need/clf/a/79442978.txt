@@ -1,0 +1,155 @@
+qid: 79442978
+view_count: 10743
+tags: tailwind-css, tailwind-ui, tailwind-css-4, tailwind-elements
+key_score: 26
+
+=== TITLE ===
+Issues with padding, margin, and space utilities not working
+
+=== QUESTION ===
+In my first Tailwind project, the padding and margin utilities worked fine. However, in su
+bsequent projects, these utilities stopped working as expected, and I had to use regular C
+SS instead. I'm not sure why they're not applying anymore in these newer projects. 
+ 
+ 
+ * {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+
+.btn-nav {
+ padding-block: 8px;
+ padding-inline: 24px;
+}
+
+/*****/
+
+nav.container {
+ padding: 24px;
+ margin-inline: auto;
+}
+
+.navbar a {
+ /* margin-right: 24px; */
+ margin-inline-end: 24px;
+}
+
+.navbar a:last-child {
+ /* margin-right: 0; */
+ margin-inline-end: 0;
+} 
+ <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+<nav class="container mx-auto p-6">
+ <div class="flex items-center justify-between">
+ <div>
+ <img src="./imgs/Tailwind_LightBG_logo.svg.png" alt="logo tailwind" width="200px">
+ </div>
+ <div class="navbar hidden md:flex space-x-6 items-center">
+ <a href="#" class="text-slate-900 hover:text-slate-500">Portfolio</a>
+ <a href="#" class="text-slate-900 hover:text-slate-500">About</a>
+ <a href="#" class="text-slate-900 hover:text-slate-500">Contact</a>
+ <a href="#" class="text-slate-900 hover:text-slate-500">Social</a>
+ <a href="#" class="btn-nav rounded-full py-2 px-6 text-white bg-orange-500 transition-all
+ duration-500 ease-in-out hover:bg-slate-900">Call Me</a>
+ </div>
+ <div id="mobile-btn" class="md:hidden">
+ <i class="ri-menu-line text-2xl"></i>
+ </div>
+ </div> 
+ 
+ 
+ 
+ I've tried using the standard Tailwind padding and margin utilities like p-4 , m-2 , spac
+e-x-4 , and space-y-4 in my HTML. In my first project, these worked perfectly, but in my s
+ubsequent projects, they don't seem to apply any styles. I expected that the spacing utili
+ties would be applied correctly, but the elements are not spaced as intended. Instead, I h
+ave to manually write the styles in a separate CSS file to get the expected result. 
+
+ * {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+
+.btn-nav {
+ padding-block: 8px;
+ padding-inline: 24px;
+}
+
+/*****/
+
+nav.container {
+ padding: 24px;
+ margin-inline: auto;
+}
+
+.navbar a {
+ /* margin-right: 24px; */
+ margin-inline-end: 24px;
+}
+
+.navbar a:last-child {
+ /* margin-right: 0; */
+ margin-inline-end: 0;
+} 
+ <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+<nav class="container mx-auto p-6">
+ <div class="flex items-center justify-between">
+ <div>
+ <img src="./imgs/Tailwind_LightBG_logo.svg.png" alt="logo tailwind" width="200px">
+ </div>
+ <div class="navbar hidden md:flex space-x-6 items-center">
+ <a href="#" class="text-slate-900 hover:text-slate-500">Portfolio</a>
+ <a href="#" class="text-slate-900 hover:text-slate-500">About</a>
+ <a href="#" class="text-slate-900 hover:text-slate-500">Contact</a>
+ <a href="#" class="text-slate-900 hover:text-slate-500">Social</a>
+ <a href="#" class="btn-nav rounded-full py-2 px-6 text-white bg-orange-500 transition-all
+ duration-500 ease-in-out hover:bg-slate-900">Call Me</a>
+ </div>
+ <div id="mobile-btn" class="md:hidden">
+ <i class="ri-menu-line text-2xl"></i>
+ </div>
+ </div> 
+ p-4 
+ m-2 
+ space-x-4 
+ space-y-4
+
+=== KEY ANSWER ===
+I think you are facing this problem just because of your default styling inside your style
+.css like: 
+ * {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ }
+ 
+ In Tailwind v4 you need to use this default styling inside @layer base{} . Put all the de
+fault styles inside the Tailwind base layer . 
+ @layer base {
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ scroll-behavior: smooth;
+ }
+ }
+ 
+
+ * {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ }
+ 
+ @layer base{} 
+ @layer base {
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ scroll-behavior: smooth;
+ }
+ }
+

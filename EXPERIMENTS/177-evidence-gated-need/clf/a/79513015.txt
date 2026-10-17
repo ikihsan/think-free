@@ -1,0 +1,87 @@
+qid: 79513015
+view_count: 24459
+tags: vs-code, tailwind-css, tailwind-css-4, tailwind-css-intellisense
+key_score: 55
+
+=== TITLE ===
+Tailwind CSS v4 - Unknown at rule @plugin, @custom-variant, @theme, @utility, @variant, @a
+pply, @source, @reference in global.css
+
+=== QUESTION ===
+I'm using Tailwind CSS v4 in my Next.js project and getting the following errors in global
+s.css: 
+ 
+ Unknown at rule @plugin css(unknownAtRules) 
+Unknown at rule @custom-variant css(unknownAtRules) 
+Unknown at rule @theme css(unknownAtRules) 
+Unknown at rule @utility css(unknownAtRules) 
+Unknown at rule @variant css(unknownAtRules) 
+Unknown at rule @apply css(unknownAtRules) 
+Unknown at rule @source css(unknownAtRules) 
+Unknown at rule @reference css(unknownAtRules) 
+ 
+ Here is my globals.css file: 
+ @import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+ /* theme customization */
+}
+ 
+ 
+
+ @import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+ /* theme customization */
+}
+
+=== KEY ANSWER ===
+These are custom TailwindCSS directives that CSS IDEs don't understand by default. For VSC
+ode, use the official TailwindCSS IntelliSense extension. 
+ 
+ TailwindCSS IntelliSense - VSCode Marketplace 
+ 
+ After that, tell VSCode that you want to treat your .css files as TailwindCSS. You can do
+ this in the settings under files.associations like this: 
+ {
+ "files.associations": {
+ "*.css": "tailwindcss",
+ "*.scss": "tailwindcss",
+ },
+}
+ 
+ 
+ Recommended VSCode settings for TailwindCSS IntelliSense - GitHub 
+ 
+ Since these are just IDE error messages, the code will work as expected if you have prope
+rly installed TailwindCSS. However, they can be frustrating, so it is definitely recommend
+ed to use the extension. 
+ Known Issues 
+ 
+ Auto-completion and suggestions not working with TailwindCSS v4 - StackOverflow 
+ 
+ It may happen that the syntax highlighting for the mentioned syntax will not work properl
+y with the solution, this is a known issue: 
+ 
+ tailwindlabs/tailwindcss-intellisense issue #1250 - GitHub 
+ 
+
+ .css 
+ files.associations 
+ {
+ "files.associations": {
+ "*.css": "tailwindcss",
+ "*.scss": "tailwindcss",
+ },
+}
+ 
+ tailwindlabs/tailwindcss-intellisense
+

@@ -1,0 +1,47 @@
+qid: 79358893
+view_count: 1961
+tags: google-apps-script
+key_score: 16
+
+=== TITLE ===
+Unable to load Apps Script Web App because of error &quot;vb.X is not a constructor&quot;
+
+=== QUESTION ===
+When loading an Apps Script Web App the console shows the following error: 
+ 
+ Uncaught TypeError: vb.X is not a constructor 
+ 
+ This started only this morning (1/15/2025) and has never been an issue before. This also 
+happens across different apps. It will work randomly after a refresh or 2 (or 3...), but s
+eems to happen at random.
+
+=== KEY ANSWER ===
+It's an intermittent issue and is reported on: Uncaught TypeError: vb.X is not a construct
+or . You may +1 on it to let Google know you're also experiencing the same problem. 
+ As of now, the latest update on Google's end is comment #107 from jp...@google.com<jp...@
+google.com> : 
+ 
+ I am locking comments for this issue as no additional information is needed by the engine
+ering team. Currently, a fix is being rolled out to production. You can subscribe to this 
+issue by clicking the star ⭐ button. Thank you for your patience. 
+ 
+ UPDATE 
+ As of Jan 16, 2025 05:10AM PhST, comment #108 from jp...@google.com<jp...@google.com> ver
+ifies that: 
+ 
+ Marked as fixed.
+This issue has been fixed. 
+ 
+ 
+ SUMMARY 
+ Numerous users reported getting the error Uncaught TypeError: vb.X is not a constructor o
+n their Google Apps Script web apps. The issue is intermittent and is sometimes resolved b
+y doing a refresh on the page. Google implemented a fix with no further action required by
+ its users, and the issue is now resolved. 
+
+ +1 
+ jp...@google.com<jp...@google.com> 
+ Jan 16, 2025 05:10AM 
+ jp...@google.com<jp...@google.com> 
+ Uncaught TypeError: vb.X is not a constructor
+

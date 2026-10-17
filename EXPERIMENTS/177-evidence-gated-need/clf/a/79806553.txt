@@ -1,0 +1,47 @@
+qid: 79806553
+view_count: 2682
+tags: python, pycharm
+key_score: 1
+
+=== TITLE ===
+How to fix this：Type alias is not generic or already specialized
+
+=== QUESTION ===
+As shown in the image, I got a warning in PyCharm at the list index positions like [0][1][
+2]... . The program still runs, but I don't understand what this warning means or how to r
+esolve it. 
+ invitation_list = ["Allen", "Lucas", "Peter"]
+message = "Pls come to my house for the dinner,"
+print(f"{message} {invitation_list[0]}, {invitation_list[1]}, {invitation_list[2]}.")
+
+print(f"But, {invitation_list[0]} can not join the dinner.")
+
+invitation_list[0] = "John"
+message_2= "I just found a bigger table."
+print(message_2)
+
+ 
+ 
+
+ [0][1][2]... 
+ invitation_list = ["Allen", "Lucas", "Peter"]
+message = "Pls come to my house for the dinner,"
+print(f"{message} {invitation_list[0]}, {invitation_list[1]}, {invitation_list[2]}.")
+
+print(f"But, {invitation_list[0]} can not join the dinner.")
+
+invitation_list[0] = "John"
+message_2= "I just found a bigger table."
+print(message_2)
+
+=== KEY ANSWER ===
+It looks like semantic analyzer in IDE has a bug. 
+ For now it can be fixed without a suppression with using a direct method list . __getitem
+__ (this approach is mentioned in question comments). 
+ Example. Before: 
+ 
+ After: 
+
+ list 
+ __getitem__
+

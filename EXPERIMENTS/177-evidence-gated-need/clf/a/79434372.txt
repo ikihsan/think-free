@@ -1,0 +1,100 @@
+qid: 79434372
+view_count: 5924
+tags: reactjs, error-handling, google-ads-api, sentry
+key_score: 4
+
+=== TITLE ===
+Sentry errors &quot;Can&#39;t find variable: gmo&quot;, &quot;invalid or unexpected token&
+quot; due to Google ads snippet in index.html of our react app
+
+=== QUESTION ===
+We very recently set up Google ads for our react app. Our React app is a 7-8 year old app 
+originally built with create-react-app. Now, in Sentry we are getting these two errors, bo
+th with steady volume over the last week since launching Google ads: 
+ 
+ 
+ Here is our apps index.html showing the Google tag (with a fake AW-number): 
+ <!-- For Google Ads to be run on Search (not on the website) -->
+ <!-- Google tag (gtag.js) -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=AW-123456789">
+ </script>
+ <script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'AW-123456789');
+ </script>
+ <!-- End -->
+ 
+ LLM suggested to add window.gmo = window.gmo || {}; as the first line in the script (just
+ above window.dataLayer = window.dataLayer || []; ) to resolve the "cant find variable: gm
+o" error, but this isn't something mentioned / included in https://developers.google.com/t
+ag-platform/gtagjs . It thinks gmo = Google Marketing Object. 
+ LLM also suggested to add handling of query/search parameters into our App.js file to res
+olve the "invalid or unexpected token" error. Currently, our app uses nearly zero query/se
+arch params other than this google tag, rather we use route params for all of our routing.
+ LLM suggested for our App.js : 
+ // Add near other useState hooks
+ const [searchParams] = useSearchParams();
+ 
+ // Optional: Save ad parameters if needed
+ useEffect(() => {
+ if (searchParams.get('gclid')) {
+ // Store gclid or handle ad tracking here if needed
+ // Example: localStorage.setItem('gclid', searchParams.get('gclid'));
+ }
+ }, [searchParams]);
+ 
+ Here is Sentry snippet in email showing that the Google code is likely the issue here: 
+ 
+ Fortunately, neither issue is breaking our web app. No fallback to error handling page in
+ the Sentry replays, rather the user is able to continue using the app. 
+ Is this issue something we can ignore in Sentry? Or should we make a change to the Google
+ tag or to something/anything else (in our Google Ads account) to resolve the issues? 
+
+ index.html 
+ <!-- For Google Ads to be run on Search (not on the website) -->
+ <!-- Google tag (gtag.js) -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=AW-123456789">
+ </script>
+ <script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'AW-123456789');
+ </script>
+ <!-- End -->
+ 
+ window.gmo = window.gmo || {}; 
+ window.dataLayer = window.dataLayer || []; 
+ App.js 
+ // Add near other useState hooks
+ const [searchParams] = useSearchParams();
+ 
+ // Optional: Save ad parameters if needed
+ useEffect(() => {
+ if (searchParams.get('gclid')) {
+ // Store gclid or handle ad tracking here if needed
+ // Example: localStorage.setItem('gclid', searchParams.get('gclid'));
+ }
+ }, [searchParams]);
+
+=== KEY ANSWER ===
+I think the best approach here would be to use the ignoreErrors option https://docs.sentry
+.io/platforms/javascript/configuration/filtering/ 
+ Sentry.init({
+ ignoreErrors: [
+ "Can't find variable: gmo"
+ ],
+});
+ 
+
+ ignoreErrors 
+ Sentry.init({
+ ignoreErrors: [
+ "Can't find variable: gmo"
+ ],
+});
+

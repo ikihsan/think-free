@@ -1,0 +1,188 @@
+qid: 79999417
+view_count: 576
+tags: c++, templates, language-lawyer, template-instantiation, variable-templates
+key_score: 6
+
+=== TITLE ===
+Must a variable template be instantiated when it appears only as `&amp;x` in a default tem
+plate argument?
+
+=== QUESTION ===
+Two programs below differ only in how they mention &inited_with_side_effect<> in the defau
+lt template argument of template variable v . In both, I expect inited_with_side_effect<0>
+ is instantiated and its dynamic initializer prints INIT . 
+ Is the instantiation/print required, or may an implementation omit it? Compilers disagree
+, and they disagree on different programs. 
+ A. Address encoded in a type 
+ #include <cstdio>
+#include <type_traits>
+
+template <int = 0>
+char inited_with_side_effect = (std::puts("INIT"), 0);
+
+template <typename = std::integral_constant<char *, &inited_with_side_effect<>>>
+constexpr int v = 0;
+
+int main() {
+ return v<>;
+}
+ 
+ B. Address as an auto NTTP 
+ #include <cstdio>
+
+template <int = 0>
+char inited_with_side_effect = (std::puts("INIT"), 0);
+
+template <auto = &inited_with_side_effect<>>
+constexpr int v = 0;
+
+int main() {
+ return v<>;
+}
+ 
+ Observed ( INIT printed or not) 
+ 
+ 
+ 
+ 
+ A ( typename = integral_constant<…> ) 
+ B ( auto = &… ) 
+ 
+ 
+ 
+ 
+ GCC 
+ no print 
+ prints INIT 
+ 
+ 
+ Clang 
+ prints INIT 
+ prints INIT 
+ 
+ 
+ MSVC 
+ prints INIT 
+ no print 
+ 
+ 
+ 
+ So far: GCC omits the print on A ; MSVC omits it on B . 
+ Compiler Explorer: https://godbolt.org/z/ff6daY3nb 
+ Why it might have to print 
+ The expression &inited_with_side_effect<> in the default template argument is potentially
+ evaluated if you take the definition in [basic.def.odr] literally. 
+ The default template argument is also "instantiated" because it is needed by return v<>; 
+([temp.arg.general]). 
+ [basic.def.odr]: a variable named by a potentially evaluated expression is odr-used unles
+s an exception applies. Unary & does not apply lvalue-to-rvalue conversion, and this objec
+t is a non- const non- constexpr char , so it is not usable in constant expressions. Takin
+g its address looks like an odr-use. 
+ [temp.inst]: a variable template specialization is implicitly instantiated when it is ref
+erenced in a context that requires a variable definition to exist. Odr-use is the usual su
+ch context. 
+ If that specialization is instantiated, it is a non-block non-inline variable with static
+ storage duration. 
+ 
+ [basic.start.dynamic]: It is implementation-defined whether the dynamic initialization of
+ a non-block non-inline variable with static storage duration is sequenced before the firs
+t statement of main or is deferred. If it is deferred, it strongly happens before any non-
+initialization odr-use of any non-inline function or non-inline variable defined in the sa
+me translation unit as the variable to be initialized. 
+ 
+ main is a non-inline function defined in the same TU and calling it is a non-initializati
+on odr-use. So initialization of inited_with_side_effect<0> , deferred or not, should stro
+ngly happen before main 's first statement. The same chapter also says that a non-local st
+atic-storage variable whose initialization has side effects is initialized in this situati
+on even if that variable is not itself odr-used. 
+ Questions 
+ 
+ Are these compiler bugs? Or does any rule in the standard permit skipping the definition 
+/ the dynamic initializer? 
+ 
+ If v<...> is never used, should the side effect still happen? 
+ 
+ 
+
+ &inited_with_side_effect<> 
+ v 
+ inited_with_side_effect<0> 
+ INIT 
+ #include <cstdio>
+#include <type_traits>
+
+template <int = 0>
+char inited_with_side_effect = (std::puts("INIT"), 0);
+
+template <typename = std::integral_constant<char *, &inited_with_side_effect<>>>
+constexpr int v = 0;
+
+int main() {
+ return v<>;
+}
+ 
+ auto 
+ #include <cstdio>
+
+template <int = 0>
+char inited_with_side_effect = (std::puts("INIT"), 0);
+
+template <auto = &inited_with_side_effect<>>
+constexpr int v = 0;
+
+int main() {
+ return v<>;
+}
+ 
+ INIT 
+ typename = integral_constant<…> 
+ auto = &… 
+ INIT 
+ INIT 
+ INIT 
+ INIT 
+ &inited_with_side_effect<> 
+ return v<>; 
+ & 
+ const 
+ constexpr 
+ char 
+ main 
+ main 
+ inited_with_side_effect<0> 
+ main 
+ v<...>
+
+=== KEY ANSWER ===
+Instantiation of default template arguments is underspecified (see CWG1635 ) but the OP's 
+examples, surprisingly, fall within the bounds of what very little the standard does say c
+learly. See [temp.arg.general]/10 : 
+ 
+ When a simple-template-id or splice-specialization-specifier does not designate a functio
+n, a default template-argument is implicitly instantiated when the value of that default a
+rgument is needed. 
+[ Example 7: 
+ template<typename T, typename U = int>
+struct S { };
+S<bool>* p; // the type of p is S<bool, int>*
+ 
+ The default argument for U is instantiated to form the type S<bool, int>*. — end example 
+] 
+ 
+ It's clear: merely mentioning the simple-template-id v<> is enough to force instantiation
+ of its default argument. Then, as you say, since the expression &inited_with_side_effect<
+> is potentially evaluated, it constitutes an odr-use of that variable and forces its inst
+antiation. 
+ A more interesting question is whether inited_with_side_effect<> should still be instanti
+ated if v<> isn't mentioned in the program. The standard doesn't give a clear answer to th
+at. 
+
+ template<typename T, typename U = int>
+struct S { };
+S<bool>* p; // the type of p is S<bool, int>*
+ 
+ v<> 
+ &inited_with_side_effect<> 
+ inited_with_side_effect<> 
+ v<>
+

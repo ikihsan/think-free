@@ -1,0 +1,64 @@
+qid: 79796450
+view_count: 1904
+tags: c++, c++20, std-ranges
+key_score: 34
+
+=== TITLE ===
+How can I combine corresponding items from several vectors into a single vector of structs
+?
+
+=== QUESTION ===
+I have three std::vector s, 
+ std::vector<std::string> vec1{ "one", "two", "three" };
+std::vector<std::string> vec2{ "1", "2", "3" };
+std::vector<std::string> vec3{ "i", "ii", "iii" };
+ 
+ and a struct , 
+ struct MyData {
+ std::string str1;
+ std::string str2;
+ std::string str3;
+};
+ 
+ I need to obtain a std::vector<MyData> , which is filled from the data of the three vecto
+rs: 
+ std::vector<MyData> myData;
+myData.reserve(vec1.size());
+for (int i = 0; i < vec1.size(); ++i) {
+ myData.emplace_back(vec1[i], vec2[i], vec3[i]);
+}
+ 
+ Is there a more elegant way instead of using this for loop (like using views or similar) 
+for C++20 ? It is guaranteed that the three vectors are of the same length. 
+
+ std::vector 
+ std::vector<std::string> vec1{ "one", "two", "three" };
+std::vector<std::string> vec2{ "1", "2", "3" };
+std::vector<std::string> vec3{ "i", "ii", "iii" };
+ 
+ struct 
+ struct MyData {
+ std::string str1;
+ std::string str2;
+ std::string str3;
+};
+ 
+ std::vector<MyData> 
+ std::vector<MyData> myData;
+myData.reserve(vec1.size());
+for (int i = 0; i < vec1.size(); ++i) {
+ myData.emplace_back(vec1[i], vec2[i], vec3[i]);
+}
+
+=== KEY ANSWER ===
+You can use views::zip_transform (C++23) like: 
+ auto to_MyData = [](auto... elems) { return MyData(elems...); };
+auto myData = std::views::zip_transform(to_MyData, vec1, vec2, vec3)
+ | std::ranges::to<std::vector>();
+ 
+
+ views::zip_transform 
+ auto to_MyData = [](auto... elems) { return MyData(elems...); };
+auto myData = std::views::zip_transform(to_MyData, vec1, vec2, vec3)
+ | std::ranges::to<std::vector>();
+

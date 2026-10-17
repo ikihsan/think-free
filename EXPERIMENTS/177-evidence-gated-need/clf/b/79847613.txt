@@ -1,0 +1,125 @@
+qid: 79847613
+view_count: 1551
+tags: c++, constraints, overriding, require, virtual
+key_score: 11
+
+=== TITLE ===
+Why doesn&#39;t C++ allow virtual function overrides to be constrained by a concept/requir
+es clause?
+
+=== QUESTION ===
+I tried to write the following code and it was rejected by the compiler: 
+ #include <type_traits>
+struct Base {
+ virtual void f() {}
+};
+
+template <typename T>
+struct Derived : Base {
+ virtual void f() requires std::is_same_v<T, int> override {}
+};
+ 
+ I found the relevant section in the standard here: 
+ 
+ 11.7.3 Virtual functions 
+6 A virtual function shall not have a trailing requires-clause ([dcl.decl]). 
+[Example 5: 
+ template<typename T>
+struct A {
+ virtual void f() requires true; // error: virtual function cannot be constrained ([temp.c
+onstr.decl])
+};
+ 
+ — end example] 
+ 
+ but I don't understand the motivation behind this. Seeing as it is perfectly reasonable f
+or a derived class not to override a base class' virtual function, why is it not considere
+d OK to decide whether this override exists based on a (compile time) constraint? 
+ This restriction seems particularly silly (at least in this example), since this code is 
+legal and achieves essentially the same thing more verbosely: 
+ template <typename T>
+struct Derived : Base {
+};
+
+template <typename T>
+requires std::is_same_v<T, int>
+struct Derived<T> : Base {
+ virtual void f() override {}
+};
+ 
+ Edit 
+ I seem to have caused some confusion by my omission of the virtual specifiers on the over
+ride functions in Derived . I have added them to make it clear that I'm intending to overr
+ide the base class' virtual function (with another virtual function). 
+
+ #include <type_traits>
+struct Base {
+ virtual void f() {}
+};
+
+template <typename T>
+struct Derived : Base {
+ virtual void f() requires std::is_same_v<T, int> override {}
+};
+ 
+ template<typename T>
+struct A {
+ virtual void f() requires true; // error: virtual function cannot be constrained ([temp.c
+onstr.decl])
+};
+ 
+ template <typename T>
+struct Derived : Base {
+};
+
+template <typename T>
+requires std::is_same_v<T, int>
+struct Derived<T> : Base {
+ virtual void f() override {}
+};
+ 
+ virtual 
+ Derived
+
+=== KEY ANSWER ===
+Why? 
+ 
+ Because the standard says so :) 
+ I would say that the rationale is to avoid having to decide whether different requires hi
+de or override base function. 
+ Imagine valid code: 
+ template <int I>
+concept isEven = ((I % 2) == 0);
+
+template <int I>
+struct Base {
+
+ void f() requires (isEven<I>) { std::cout << "even\n"; }
+ void f() requires (isEven<I> && I == 0) { std::cout << "0\n"; }
+ void f() requires (I == 1) { std::cout << "1\n"; }
+};
+ 
+ Demo 
+ Base<0> has actually 2 overloads f , one more specialized than the other (subsumption). 
+ If you add virtual , would void f() override be allowed in the derived class?
+Should the override have the same requires clause as in the base class? 
+ Forbidding it now allows to decide later whether it's required. 
+
+ requires 
+ template <int I>
+concept isEven = ((I % 2) == 0);
+
+template <int I>
+struct Base {
+
+ void f() requires (isEven<I>) { std::cout << "even\n"; }
+ void f() requires (isEven<I> && I == 0) { std::cout << "0\n"; }
+ void f() requires (I == 1) { std::cout << "1\n"; }
+};
+ 
+ Base<0> 
+ f 
+ virtual 
+ void f() override 
+ requires
+

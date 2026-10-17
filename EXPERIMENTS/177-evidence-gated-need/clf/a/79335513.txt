@@ -1,0 +1,22 @@
+qid: 79335513
+view_count: 34403
+tags: postgresql, dbeaver
+key_score: 10
+
+=== TITLE ===
+Error fix : Dbeaver driver error : Maven artifact:org.postgresql:postgresql:RELEASE&#39; c
+an&#39;t be resolved in External Repositories
+
+=== QUESTION ===
+I have been using Dbeaver for many days but for the past few days while I am connecting to
+ my Staging server through PostgreSQL, I am getting these driver errors 
+ 
+ Dbeaver driver error : Maven artifact:org.postgresql:postgresql:RELEASE' can't be resolve
+d in External Repositories 
+ 
+ I tried changing the preferences in the setting and also tried changing ODBC Datasources 
+from the Control Panel but ended up with the same error - it hasn't been resolved yet.
+
+=== KEY ANSWER ===
+Just re open your debeaver as an administrator.That worked for me
+

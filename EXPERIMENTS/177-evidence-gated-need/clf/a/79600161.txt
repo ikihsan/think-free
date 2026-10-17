@@ -1,0 +1,123 @@
+qid: 79600161
+view_count: 14854
+tags: android, ffmpeg, android-ffmpeg
+key_score: 14
+
+=== TITLE ===
+Could not find com.arthenica:ffmpeg-kit-full:6.0-2
+
+=== QUESTION ===
+I started receiving this message when I build my project 
+ > Could not find com.arthenica:ffmpeg-kit-full:6.0-2.
+ Searched in the following locations:
+ - https://dl.google.com/dl/android/maven2/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-
+full-6.0-2.pom
+ - https://repo.maven.apache.org/maven2/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-ful
+l-6.0-2.pom
+ - https://jcenter.bintray.com/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.p
+om
+ - https://jitpack.io/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom
+ - https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/mav
+en/v1/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom
+ - https://oss.sonatype.org/content/repositories/snapshots/com/arthenica/ffmpeg-kit-full/6
+.0-2/ffmpeg-kit-full-6.0-2.pom
+ Required by:
+ project :presentation > project :domain
+ 
+ These are the project's repositories 
+ allprojects { 
+ repositories {
+ google()
+ mavenCentral()
+ jcenter()
+ maven { url 'https://jitpack.io' }
+ maven { url "https://oss.sonatype.org/content/repositories/snapshots" } 
+ } 
+}
+ 
+ And this is the dependency I'm adding 
+ implementation(libs.arthenica.ffmpeg.full)
+ 
+ This is my libs.version.toml 
+ ffmpeg = "6.0-2"
+arthenica-ffmpeg-full = { group = "com.arthenica", name = "ffmpeg-kit-full", version.ref =
+ "ffmpeg" }
+ 
+ AFAICS in the project's github page , it will not be maintained anymore
+ 
+ In the short term, do you know any other repository that still servers this dependency? 
+ On the other hand, do you know any other project to replace Arthenica ffmpeg-kit-full dep
+endency? 
+
+ > Could not find com.arthenica:ffmpeg-kit-full:6.0-2.
+ Searched in the following locations:
+ - https://dl.google.com/dl/android/maven2/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-
+full-6.0-2.pom
+ - https://repo.maven.apache.org/maven2/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-ful
+l-6.0-2.pom
+ - https://jcenter.bintray.com/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.p
+om
+ - https://jitpack.io/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom
+ - https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/mav
+en/v1/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom
+ - https://oss.sonatype.org/content/repositories/snapshots/com/arthenica/ffmpeg-kit-full/6
+.0-2/ffmpeg-kit-full-6.0-2.pom
+ Required by:
+ project :presentation > project :domain
+ 
+ allprojects { 
+ repositories {
+ google()
+ mavenCentral()
+ jcenter()
+ maven { url 'https://jitpack.io' }
+ maven { url "https://oss.sonatype.org/content/repositories/snapshots" } 
+ } 
+}
+ 
+ implementation(libs.arthenica.ffmpeg.full)
+ 
+ ffmpeg = "6.0-2"
+arthenica-ffmpeg-full = { group = "com.arthenica", name = "ffmpeg-kit-full", version.ref =
+ "ffmpeg" }
+
+=== KEY ANSWER ===
+Maybe this information comes to late but if its can help anyone i found the solution, this
+ solution is maybe temporal because is a compiled binary of a last version of FfmpegKit in
+ his full version, this works in video and audio with full caracteristics. 
+ First download the .aar file in this link: 
+ https://artifactory.appodeal.com/appodeal-public/com/arthenica/ffmpeg-kit-full-gpl/6.0-2.
+LTS/ 
+ later go to your project structure yourProject/app/libs if you dont have a folder named l
+ibs in your app folder only create this folder and place the .aar file into this. 
+ next you need delete your dependece of this: 
+ implementation 'com.arthenica:ffmpeg-kit-full-gpl:6.0-2'
+ 
+ and change to this: 
+ implementation(files("libs/ffmpeg-kit-full-gpl-6.0-2.LTS.aar"))
+implementation("com.arthenica:smart-exception-java9:0.2.1")
+ 
+ and thats all your project will continue work without changes. 
+ SOLVE 16KB ERROR 
+ To solve the 16kb problem I have compiled ffmpeg-kit in the development branch that conta
+ins this correction, for this compilation I only added the x264 encoder, I share the file 
+if it is useful. 
+ in this folder you can download my compilation: 
+ https://drive.google.com/drive/folders/1o-2jJKMguzQ4-JOOCkginqoE7CAcPy4d?usp=sharing 
+ Additionally, in the folder you have a txt that explains how to compile ffmpegkit with ad
+ditional libraries. 
+ EDIT 
+ It is not java9 it is java only both are different dependencies This worked for me 
+ implementation("com.arthenica:smart-exception-java:0.2.1")
+implementation(files("libs/ffmpeg-kit-min-gpl-5.1.LTS.aar"))
+ 
+
+ implementation 'com.arthenica:ffmpeg-kit-full-gpl:6.0-2'
+ 
+ implementation(files("libs/ffmpeg-kit-full-gpl-6.0-2.LTS.aar"))
+implementation("com.arthenica:smart-exception-java9:0.2.1")
+ 
+ It is not java9 it is java only both are different dependencies 
+ implementation("com.arthenica:smart-exception-java:0.2.1")
+implementation(files("libs/ffmpeg-kit-min-gpl-5.1.LTS.aar"))
+

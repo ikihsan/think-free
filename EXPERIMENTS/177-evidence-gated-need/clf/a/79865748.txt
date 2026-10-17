@@ -1,0 +1,185 @@
+qid: 79865748
+view_count: 2316
+tags: c, struct, constants
+key_score: 32
+
+=== TITLE ===
+Does a const qualifier inside a struct member declaration do anything?
+
+=== QUESTION ===
+struct foo {
+ const int bar;
+};
+
+struct foo {
+ const int *bar;
+}
+ 
+ Do the 2 const qualifiers have any role? 
+
+ struct foo {
+ const int bar;
+};
+
+struct foo {
+ const int *bar;
+}
+ 
+ const
+
+=== KEY ANSWER ===
+In structs as elsewhere, 
+ 
+ const int bar (aka int const bar ) means that bar is a constant int . Once initialized, t
+he object can't be modified directly. 
+ int * const bar means that bar is a constant pointer to an int . Once initialized, the ob
+ject can't be modified directly. 
+ const int * bar (aka int const * bar ) means that bar is a pointer to a constant int obje
+ct. bar isn't constant and can be modified. But the pointer can't be used to modify the in
+t object to which it points. 
+ const int * const bar (aka int const * const bar ) means that bar is a constant pointer t
+o a constant int object. In this situation, the pointer is constant, and it can't be used 
+to modify the int object to which it points. 
+ 
+ (The spiral rule can be used to "decipher" the meaning of a declaration. If there's nothi
+ng that follows the name being declared, it simplifies to reading from back to front.) 
+ This is easy to check! 
+ #include <stdio.h>
+
+struct Foo {
+ const int bar; // `bar` is a constant `int`
+};
+
+int main( void ) {
+ struct Foo foo = { 123 };
+ foo.bar = 456; // error: assignment of read-only member 'bar'
+ printf( "%d\n", foo.bar );
+}
+ 
+ Changing to a pointer makes no difference: 
+ #include <stdio.h>
+
+struct Foo {
+ int * const bar; // `bar` is a constant pointer to an `int`
+};
+
+int main( void ) {
+ int i = 123;
+ int j = 456;
+ struct Foo foo = { &i };
+ foo.bar = &j; // error: assignment of read-only member 'bar'
+ *( foo.bar ) = 789; // ok
+ printf( "%d\n", *( foo.bar ) );
+}
+ 
+ In your second snippet, it's not bar that's constant but *bar . 
+ #include <stdio.h>
+
+struct Foo {
+ const int * bar; // `bar` is a pointer to a constant `int`
+};
+
+int main( void ) {
+ int i = 123;
+ int j = 456;
+ struct Foo foo = { &i };
+ foo.bar = &j; // ok
+ *( foo.bar ) = 789; // error: assignment of read-only location '*foo.bar'
+ printf( "%d\n", *( foo.bar ) );
+}
+ 
+ Finally, both the pointer and that to which it points are constant in the following snipp
+et: 
+ #include <stdio.h>
+
+struct Foo {
+ const int * const bar; // `bar` is a constant pointer to a constant `int`
+};
+
+int main( void ) {
+ int i = 123;
+ int j = 456;
+ struct Foo foo = { &i };
+ foo.bar = &j; // error: assignment of read-only member 'bar'
+ *( foo.bar ) = 789; // error: assignment of read-only location '*foo.bar'
+ printf( "%d\n", *( foo.bar ) );
+}
+ 
+
+ const int bar 
+ int const bar 
+ bar 
+ int 
+ int * const bar 
+ bar 
+ int 
+ const int * bar 
+ int const * bar 
+ bar 
+ int 
+ bar 
+ int 
+ const int * const bar 
+ int const * const bar 
+ bar 
+ int 
+ int 
+ #include <stdio.h>
+
+struct Foo {
+ const int bar; // `bar` is a constant `int`
+};
+
+int main( void ) {
+ struct Foo foo = { 123 };
+ foo.bar = 456; // error: assignment of read-only member 'bar'
+ printf( "%d\n", foo.bar );
+}
+ 
+ #include <stdio.h>
+
+struct Foo {
+ int * const bar; // `bar` is a constant pointer to an `int`
+};
+
+int main( void ) {
+ int i = 123;
+ int j = 456;
+ struct Foo foo = { &i };
+ foo.bar = &j; // error: assignment of read-only member 'bar'
+ *( foo.bar ) = 789; // ok
+ printf( "%d\n", *( foo.bar ) );
+}
+ 
+ bar 
+ *bar 
+ #include <stdio.h>
+
+struct Foo {
+ const int * bar; // `bar` is a pointer to a constant `int`
+};
+
+int main( void ) {
+ int i = 123;
+ int j = 456;
+ struct Foo foo = { &i };
+ foo.bar = &j; // ok
+ *( foo.bar ) = 789; // error: assignment of read-only location '*foo.bar'
+ printf( "%d\n", *( foo.bar ) );
+}
+ 
+ #include <stdio.h>
+
+struct Foo {
+ const int * const bar; // `bar` is a constant pointer to a constant `int`
+};
+
+int main( void ) {
+ int i = 123;
+ int j = 456;
+ struct Foo foo = { &i };
+ foo.bar = &j; // error: assignment of read-only member 'bar'
+ *( foo.bar ) = 789; // error: assignment of read-only location '*foo.bar'
+ printf( "%d\n", *( foo.bar ) );
+}
+

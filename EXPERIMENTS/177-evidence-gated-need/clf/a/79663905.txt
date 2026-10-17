@@ -1,0 +1,466 @@
+qid: 79663905
+view_count: 3953
+tags: ios, uikit, uibarbuttonitem, ios26
+key_score: 3
+
+=== TITLE ===
+Unable to tint a custom view in a UIBarButtonItem in iOS 26
+
+=== QUESTION ===
+Under iOS 26, the look of navigation bars and toolbars has changed quite a bit. I am runni
+ng into an issue trying to tint the added items. For "standard" UIBarButtonItem instances,
+ you simply set the tintColor and it works fine. For example: 
+ let itemText = UIBarButtonItem(title: "Text")
+itemText.tintColor = .systemGreen
+ 
+ The text will appear green in a toolbar or navbar. Same works as expected if created with
+ an SF Symbol image. 
+ The issue lies when I need to create a UIBarButtonItem with a custom view. I've experimen
+ted with UIButton , UISegmentedControl , and UISwitch . If I create and tint such controls
+ and add them to the view controller's view, the colors work as expected. When the same co
+lored controls are used with UIBarButtonItem(customView:) and added to a navbar or toolbar
+, then all colors are lost (oddly, except for the UISwitch onTintColor ). 
+ Am I missing the correct way to tint custom views used in this manner, or is this an issu
+e with iOS 26? 
+ Here's some sample code to demonstrate the issue. Create a new iOS app storyboard project
+ in Xcode 26. Setup the storyboard to display a navigation controller with a plain view co
+ntroller as its root. Replace the ViewController code with the following: 
+ import UIKit
+
+class ViewController: UIViewController {
+ func createButton() -> UIButton {
+ var cfg = UIButton.Configuration.plain()
+ cfg.image = UIImage(systemName: "eye")
+ let button = UIButton(configuration: cfg)
+
+ return button
+ }
+
+ func createSegment() -> UISegmentedControl {
+ let i1 = UIImage(systemName: "eye")!
+ let i2 = UIImage(systemName: "eye")!
+ let seg = UISegmentedControl(items: [i1, i2])
+ seg.selectedSegmentIndex = 0
+ return seg
+ }
+
+ override func viewDidLoad() {
+ super.viewDidLoad()
+
+ view.backgroundColor = .systemBackground
+
+ let b1 = createButton()
+ b1.tintColor = .systemRed
+ b1.translatesAutoresizingMaskIntoConstraints = false
+ view.addSubview(b1)
+
+ let s1 = createSegment()
+ s1.selectedSegmentTintColor = .systemYellow
+ s1.translatesAutoresizingMaskIntoConstraints = false
+ view.addSubview(s1)
+
+ let w1 = UISwitch()
+ w1.onTintColor = .systemCyan
+ w1.thumbTintColor = .systemPink
+ w1.translatesAutoresizingMaskIntoConstraints = false
+ view.addSubview(w1)
+
+ NSLayoutConstraint.activate([
+ b1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+ b1.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+ s1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+ s1.topAnchor.constraint(equalTo: b1.bottomAnchor, constant: 20),
+ w1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+ w1.topAnchor.constraint(equalTo: s1.bottomAnchor, constant: 20),
+ ])
+
+ // Despite all these attempts to set a color, the views in the navbar remain black
+ let b2 = createButton()
+ b2.tintColor = .systemRed // Nope
+ let nb1 = UIBarButtonItem(customView: b2)
+ nb1.tintColor = .systemYellow // Nope
+
+ let s2 = createSegment()
+ s2.selectedSegmentTintColor = .systemRed // Nope
+ let nb2 = UIBarButtonItem(customView: s2)
+ nb2.tintColor = .systemMint // Nope
+
+ let w2 = UISwitch()
+ w2.onTintColor = .systemCyan // This actually works
+ w2.thumbTintColor = .systemPink // But this doesn't
+ let nb3 = UIBarButtonItem(customView: w2)
+ nb3.tintColor = .systemBrown // Neither does this
+
+ let nb4 = UIBarButtonItem(title: "Text")
+ nb4.tintColor = .systemGreen // This works on the text if not changed below with the titl
+eTextAttributes
+
+ navigationItem.rightBarButtonItems = [nb1, nb3]
+ navigationItem.leftBarButtonItems = [nb2, nb4]
+
+ self.navigationController?.navigationBar.tintColor = .systemRed // Nothing
+ self.navigationController?.navigationBar.barTintColor = .systemYellow // Nothing
+
+ // This works on the text color but not the others
+ self.navigationController?.navigationBar.standardAppearance.buttonAppearance.normal.title
+TextAttributes = [ .foregroundColor : UIColor.systemPurple ]
+ }
+}
+ 
+ Run this on an iOS 26 simulator or device. The center of the screen will show a properly 
+colored button, segmented control, and switch. 
+ The navigation bar will show a segmented control, some text, a switch, and a button. 
+ The text will have the appropriate color depending on which code is commented. But this d
+oes not involve a custom view. 
+ The switch retains its onTintColor but not the thumbTintColor . 
+ The button loses its tintColor . 
+ The segmented control loses its selectSegmentTintColor . 
+ Setting the tintColor of each UIBarButtonItem created with a custom view has no effect. 
+
+ UIBarButtonItem 
+ tintColor 
+ let itemText = UIBarButtonItem(title: "Text")
+itemText.tintColor = .systemGreen
+ 
+ UIBarButtonItem 
+ UIButton 
+ UISegmentedControl 
+ UISwitch 
+ UIBarButtonItem(customView:) 
+ UISwitch onTintColor 
+ import UIKit
+
+class ViewController: UIViewController {
+ func createButton() -> UIButton {
+ var cfg = UIButton.Configuration.plain()
+ cfg.image = UIImage(systemName: "eye")
+ let button = UIButton(configuration: cfg)
+
+ return button
+ }
+
+ func createSegment() -> UISegmentedControl {
+ let i1 = UIImage(systemName: "eye")!
+ let i2 = UIImage(systemName: "eye")!
+ let seg = UISegmentedControl(items: [i1, i2])
+ seg.selectedSegmentIndex = 0
+ return seg
+ }
+
+ override func viewDidLoad() {
+ super.viewDidLoad()
+
+ view.backgroundColor = .systemBackground
+
+ let b1 = createButton()
+ b1.tintColor = .systemRed
+ b1.translatesAutoresizingMaskIntoConstraints = false
+ view.addSubview(b1)
+
+ let s1 = createSegment()
+ s1.selectedSegmentTintColor = .systemYellow
+ s1.translatesAutoresizingMaskIntoConstraints = false
+ view.addSubview(s1)
+
+ let w1 = UISwitch()
+ w1.onTintColor = .systemCyan
+ w1.thumbTintColor = .systemPink
+ w1.translatesAutoresizingMaskIntoConstraints = false
+ view.addSubview(w1)
+
+ NSLayoutConstraint.activate([
+ b1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+ b1.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+ s1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+ s1.topAnchor.constraint(equalTo: b1.bottomAnchor, constant: 20),
+ w1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+ w1.topAnchor.constraint(equalTo: s1.bottomAnchor, constant: 20),
+ ])
+
+ // Despite all these attempts to set a color, the views in the navbar remain black
+ let b2 = createButton()
+ b2.tintColor = .systemRed // Nope
+ let nb1 = UIBarButtonItem(customView: b2)
+ nb1.tintColor = .systemYellow // Nope
+
+ let s2 = createSegment()
+ s2.selectedSegmentTintColor = .systemRed // Nope
+ let nb2 = UIBarButtonItem(customView: s2)
+ nb2.tintColor = .systemMint // Nope
+
+ let w2 = UISwitch()
+ w2.onTintColor = .systemCyan // This actually works
+ w2.thumbTintColor = .systemPink // But this doesn't
+ let nb3 = UIBarButtonItem(customView: w2)
+ nb3.tintColor = .systemBrown // Neither does this
+
+ let nb4 = UIBarButtonItem(title: "Text")
+ nb4.tintColor = .systemGreen // This works on the text if not changed below with the titl
+eTextAttributes
+
+ navigationItem.rightBarButtonItems = [nb1, nb3]
+ navigationItem.leftBarButtonItems = [nb2, nb4]
+
+ self.navigationController?.navigationBar.tintColor = .systemRed // Nothing
+ self.navigationController?.navigationBar.barTintColor = .systemYellow // Nothing
+
+ // This works on the text color but not the others
+ self.navigationController?.navigationBar.standardAppearance.buttonAppearance.normal.title
+TextAttributes = [ .foregroundColor : UIColor.systemPurple ]
+ }
+}
+ 
+ onTintColor 
+ thumbTintColor 
+ tintColor 
+ selectSegmentTintColor 
+ tintColor 
+ UIBarButtonItem
+
+=== KEY ANSWER ===
+It is a really frustrating situation and here is what has worked for me: 
+ 
+ baseForegroundColor and imageColorTransformer works only if UIButton.Configuration is .cl
+earGlass or .prominentClearGlass 
+ 
+ 
+ THIS WORKS FOR ALL STYLES as stated in mhammad's answer 
+ withTintColor and withRenderingMode(.alwaysOriginal) 
+ config.image = UIImage(systemName: "star")?.withTintColor(.magenta) .withRenderingMode(.a
+lwaysOriginal)
+ 
+ 
+ 
+ THIS ALSO WORKS FOR ALL STYLES take a snapshot of your custom view (UIGraphicsImageRender
+er) and use UIBarButtonItem(image: snapshot-of-custom-view) or set self.image = snapshot-o
+f-custom-view property if you are using custom class with a tintColor for UIBarButtonItem 
+. 
+ final class BarButtonItem: UIBarButtonItem {
+// ...
+ init() {
+ self.image = UIGraphicsImageRenderer(size: button.intrinsicContentSize).image { [weak but
+ton] c in
+ button?.layer.render(in: c.cgContext)
+ }
+ tintColor = .systemOrange
+ }
+}
+ 
+ 
+ 
+ 
+ FULL CODE: 
+ //: A UIKit based Playground for presenting user interface
+
+import UIKit
+import PlaygroundSupport
+
+@MainActor
+func makeButton(_ config: UIButton.Configuration, title: String) -> UIButton {
+ var config = config
+ config.title = title
+ config.contentInsets = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
+ config.imagePlacement = .top
+ config.cornerStyle = .capsule
+ config.baseForegroundColor = .green
+ config.imageColorTransformer = .init({ _ in
+ UIColor.systemPink
+ })
+ config.titleTextAttributesTransformer = .init({ c in
+ var c = c
+ c.foregroundColor = .blue
+ return c
+ })
+ config.baseBackgroundColor = .systemYellow
+ config.image = .init(systemName: "star", withConfiguration: UIImage.SymbolConfiguration(s
+cale: .small))
+// Solution 2. Using image renderingMode and tint
+// config.image = .init(systemName: "star", withConfiguration: UIImage.SymbolConfiguration
+(scale: .small))?.withTintColor(.magenta) .withRenderingMode(.alwaysOriginal)
+ let v = UIButton(configuration: config)
+ v.tintColor = .blue
+ return v
+}
+
+final class BarButtonItem: UIBarButtonItem {
+ private let button: UIButton!
+ 
+ init(_ config: UIButton.Configuration, title: String) {
+ button = makeButton(config, title: title)
+ super.init()
+ sharesBackground = false
+
+// Solution 1 and 2. Use customView
+ customView = button
+
+// Solution 3. Use snapshot image from custom view
+ // let image = UIGraphicsImageRenderer(size: button.intrinsicContentSize).image { [weak b
+utton] c in
+ // button?.layer.render(in: c.cgContext)
+ // }
+ // tintColor = .systemOrange
+ // self.image = image
+ }
+ 
+ required init?(coder: NSCoder) {
+ fatalError("init(coder:) has not been implemented")
+ }
+}
+
+@MainActor
+func makeBar(_ items: [UIBarButtonItem], w: CGFloat = 800) -> UINavigationBar {
+ var item = UINavigationItem()
+ item.leftBarButtonItems = items
+ var bar = UINavigationBar()
+ bar.items = [item]
+ return bar
+}
+
+// Present the view controller in the Live View window
+var stack = UIStackView()
+stack.axis = .vertical
+stack.alignment = .fill
+stack.addArrangedSubview(makeBar([
+ BarButtonItem(.plain(), title: "plain"),
+ BarButtonItem(.gray(), title: "gray"),
+ BarButtonItem(.tinted(), title: "tinted"),
+ BarButtonItem(.filled(), title: "filled"),
+ BarButtonItem(.borderless(), title: "borderless"),
+]))
+stack.addArrangedSubview(makeBar([
+ BarButtonItem(.bordered(), title: "bordered"),
+ BarButtonItem(.borderedTinted(), title: "borderedTinted"),
+ BarButtonItem(.borderedProminent(), title: "borderedProminent"),
+]))
+stack.addArrangedSubview(makeBar([
+ BarButtonItem(.clearGlass(), title: "clearGlass"),
+ BarButtonItem(.glass(), title: "glass"),
+ BarButtonItem(.prominentGlass(), title: "prominentGlass"),
+ BarButtonItem(.prominentClearGlass(), title: "prominentClearGlass"),
+]))
+var hStack = UIStackView(frame: .init(origin: .zero, size: .init(width: 800, height: 400))
+)
+hStack.addArrangedSubview(stack)
+hStack.alignment = .top
+PlaygroundPage.current.liveView = hStack
+ 
+
+ baseForegroundColor 
+ imageColorTransformer 
+ UIButton.Configuration 
+ .clearGlass 
+ .prominentClearGlass 
+ withTintColor 
+ withRenderingMode(.alwaysOriginal) 
+ config.image = UIImage(systemName: "star")?.withTintColor(.magenta) .withRenderingMode(.a
+lwaysOriginal)
+ 
+ UIBarButtonItem(image: snapshot-of-custom-view) 
+ self.image = snapshot-of-custom-view 
+ tintColor 
+ UIBarButtonItem 
+ final class BarButtonItem: UIBarButtonItem {
+// ...
+ init() {
+ self.image = UIGraphicsImageRenderer(size: button.intrinsicContentSize).image { [weak but
+ton] c in
+ button?.layer.render(in: c.cgContext)
+ }
+ tintColor = .systemOrange
+ }
+}
+ 
+ //: A UIKit based Playground for presenting user interface
+
+import UIKit
+import PlaygroundSupport
+
+@MainActor
+func makeButton(_ config: UIButton.Configuration, title: String) -> UIButton {
+ var config = config
+ config.title = title
+ config.contentInsets = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
+ config.imagePlacement = .top
+ config.cornerStyle = .capsule
+ config.baseForegroundColor = .green
+ config.imageColorTransformer = .init({ _ in
+ UIColor.systemPink
+ })
+ config.titleTextAttributesTransformer = .init({ c in
+ var c = c
+ c.foregroundColor = .blue
+ return c
+ })
+ config.baseBackgroundColor = .systemYellow
+ config.image = .init(systemName: "star", withConfiguration: UIImage.SymbolConfiguration(s
+cale: .small))
+// Solution 2. Using image renderingMode and tint
+// config.image = .init(systemName: "star", withConfiguration: UIImage.SymbolConfiguration
+(scale: .small))?.withTintColor(.magenta) .withRenderingMode(.alwaysOriginal)
+ let v = UIButton(configuration: config)
+ v.tintColor = .blue
+ return v
+}
+
+final class BarButtonItem: UIBarButtonItem {
+ private let button: UIButton!
+ 
+ init(_ config: UIButton.Configuration, title: String) {
+ button = makeButton(config, title: title)
+ super.init()
+ sharesBackground = false
+
+// Solution 1 and 2. Use customView
+ customView = button
+
+// Solution 3. Use snapshot image from custom view
+ // let image = UIGraphicsImageRenderer(size: button.intrinsicContentSize).image { [weak b
+utton] c in
+ // button?.layer.render(in: c.cgContext)
+ // }
+ // tintColor = .systemOrange
+ // self.image = image
+ }
+ 
+ required init?(coder: NSCoder) {
+ fatalError("init(coder:) has not been implemented")
+ }
+}
+
+@MainActor
+func makeBar(_ items: [UIBarButtonItem], w: CGFloat = 800) -> UINavigationBar {
+ var item = UINavigationItem()
+ item.leftBarButtonItems = items
+ var bar = UINavigationBar()
+ bar.items = [item]
+ return bar
+}
+
+// Present the view controller in the Live View window
+var stack = UIStackView()
+stack.axis = .vertical
+stack.alignment = .fill
+stack.addArrangedSubview(makeBar([
+ BarButtonItem(.plain(), title: "plain"),
+ BarButtonItem(.gray(), title: "gray"),
+ BarButtonItem(.tinted(), title: "tinted"),
+ BarButtonItem(.filled(), title: "filled"),
+ BarButtonItem(.borderless(), title: "borderless"),
+]))
+stack.addArrangedSubview(makeBar([
+ BarButtonItem(.bordered(), title: "bordered"),
+ BarButtonItem(.borderedTinted(), title: "borderedTinted"),
+ BarButtonItem(.borderedProminent(), title: "borderedProminent"),
+]))
+stack.addArrangedSubview(makeBar([
+ BarButtonItem(.clearGlass(), title: "clearGlass"),
+ BarButtonItem(.glass(), title: "glass"),
+ BarButtonItem(.prominentGlass(), title: "prominentGlass"),
+ BarButtonItem(.prominentClearGlass(), title: "prominentClearGlass"),
+]))
+var hStack = UIStackView(frame: .init(origin: .zero, size: .init(width: 800, height: 400))
+)
+hStack.addArrangedSubview(stack)
+hStack.alignment = .top
+PlaygroundPage.current.liveView = hStack
+

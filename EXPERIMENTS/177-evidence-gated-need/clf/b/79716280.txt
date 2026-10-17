@@ -1,0 +1,310 @@
+qid: 79716280
+view_count: 1163
+tags: python, performance, dictionary, optimization, micro-optimization
+key_score: 15
+
+=== TITLE ===
+Efficient extraction of first/only key in a dictionary
+
+=== QUESTION ===
+Assumption is that we have a dictionary containing exactly one key/value pair. Objective i
+s to extract the only key. 
+ I can think of four ways to do this (there may be more). 
+ import timeit
+
+
+def func1(d):
+ """
+ Convert to a list and return the first element
+ """
+ return list(d)[0]
+
+
+def func2(d):
+ """
+ Unpack
+ """
+ rv, *_ = d
+ return rv
+
+
+def func3(d):
+ """
+ Classic efficient approach
+ """
+ return next(iter(d))
+
+
+def func4(d):
+ """
+ Appears to be faster than the classic approach
+ """
+ for key in d:
+ return key
+
+
+if __name__ == "__main__":
+ d = {"foo": 0}
+ for func in (func1, func2, func3, func4):
+ assert func1(d) == func(d)
+ duration = timeit.timeit(lambda: func(d), number=5_000_000)
+ print(func.__name__, f"{duration=:.4f}s")
+ 
+ Output: 
+ func1 duration=0.6322s
+func2 duration=0.8306s
+func3 duration=0.5505s
+func4 duration=0.5040s
+ 
+ I have always understood that the implementation in func3() is optimal - and that's what 
+I would normally use. 
+ However, it appears that func4() is more efficient. This may be related to Python version
+ (3.13.5 in this case). 
+ Why would func4() perform better than func3() ? Are there optimisations in modern Python 
+versions that would affect this? 
+
+ import timeit
+
+
+def func1(d):
+ """
+ Convert to a list and return the first element
+ """
+ return list(d)[0]
+
+
+def func2(d):
+ """
+ Unpack
+ """
+ rv, *_ = d
+ return rv
+
+
+def func3(d):
+ """
+ Classic efficient approach
+ """
+ return next(iter(d))
+
+
+def func4(d):
+ """
+ Appears to be faster than the classic approach
+ """
+ for key in d:
+ return key
+
+
+if __name__ == "__main__":
+ d = {"foo": 0}
+ for func in (func1, func2, func3, func4):
+ assert func1(d) == func(d)
+ duration = timeit.timeit(lambda: func(d), number=5_000_000)
+ print(func.__name__, f"{duration=:.4f}s")
+ 
+ func1 duration=0.6322s
+func2 duration=0.8306s
+func3 duration=0.5505s
+func4 duration=0.5040s
+
+=== KEY ANSWER ===
+Indeed 
+ I've been using this optimization for years, for example I optimized/simplified more_iter
+tools.first from 
+ def first(iterable, default=_marker):
+ try:
+ return next(iter(iterable))
+ except StopIteration as e:
+ (empty case handling here)
+ 
+ to: 
+ def first(iterable, default=_marker):
+ for item in iterable:
+ return item
+ (empty case handling here)
+ 
+ In the issue I showed that it was faster for various iterables (especially for empty ones
+). Here are benchmark results with various arguments (columns: time of the old implementat
+ion in ns, time of proposal, time difference, arguments): 
+ 137 118 -19 (0,),
+140 121 -19 [0],
+150 122 -28 "0",
+200 174 -26 {0},
+142 123 -19 {0: 0},
+115 92 -23 iter((0,) * 10000),
+114 92 -22 iter([0] * 10000),
+113 92 -21 repeat(0),
+140 118 -22 (x for x in repeat(0)),
+220 196 -24 Infinite(),
+458 124 -334 (), None
+457 126 -331 [], None
+454 124 -330 "", None
+463 132 -331 set(), None
+455 125 -330 {}, None
+425 98 -327 iter(()), None
+426 98 -328 iter([]), None
+422 98 -324 repeat(None, 0), None
+429 98 -331 (x for x in ()), None
+711 506 -205 Empty(), None
+ 
+ Why 
+ It's not really about modern optimizations. With return next(iter(d)) you load two global
+s and have two calls, all in Python. With for key in d: return key you have lower-level eq
+uivalents of iter and next , which is evidently so much faster that it's a win despite its
+ additional saving and loading of the local variable key . Has been like this for a long t
+ime, all this was already the case in Python 2. 
+ (In the above case of more_itertools.first , the for way also saves entering try , althou
+gh CPython has had "Zero cost" exception handling for a while when no exception is raised.
+) 
+ More: The for-break(-else) pattern 
+ I've used it not just with return but more often with an unconditional break , for exampl
+e in Optimize heapq.merge with for-break(-else) pattern? . Not just for speed but also for
+ shorter/nicer code, for example the initialization where an iterator it (or its __next__ 
+) is added to the heap if it's not empty: 
+ Current:
+
+ try:
+ next = it.__next__
+ h_append([next(), order * direction, next])
+ except StopIteration:
+ pass
+
+Proposal:
+
+ for value in it:
+ h_append([value, order * direction, it])
+ break
+ 
+ More: nested for s over the same iterator 
+ Yet another way I've been using for to quickly get just the first value with an iterator 
+is nested loops over the same iterator, for example my more_itertools.all_equal proposal (
+you can find benchmarks there), which got adopted with small modifications: 
+ def all_equal(iterable):
+ groups = groupby(iterable)
+ for first in groups:
+ for second in groups:
+ return False
+ return True
+ 
+ In that case, the inner loop had an unconditional return . In other cases, my inner loop 
+exhausts the iterator, for example in my improvement of more_itertools.mark_ends just last
+ week: 
+ def mark_ends__improved_mystyle(iterable):
+ it = iter(iterable)
+ for a in it:
+ first = True
+ for b in it:
+ yield first, False, a
+ a = b
+ first = False
+ yield first, True, a
+ 
+ The previous/ alternative code achieved the "get first value or do nothing" with four lin
+es instead of my one line for a in it: and nesting: 
+ try:
+ b = next(it)
+ except StopIteration:
+ return
+ 
+ Btw 
+ Your func1 can be optimized by changing list(d)[0] to [*d][0] , which is faster as it lik
+ewise replaced loading and calling the global list . 
+ And if you really assume that your dict has exactly one item as you said, then you can im
+prove your func2 by changing rv, *_ = d to rv, = d . 
+
+ more_itertools.first 
+ def first(iterable, default=_marker):
+ try:
+ return next(iter(iterable))
+ except StopIteration as e:
+ (empty case handling here)
+ 
+ def first(iterable, default=_marker):
+ for item in iterable:
+ return item
+ (empty case handling here)
+ 
+ 137 118 -19 (0,),
+140 121 -19 [0],
+150 122 -28 "0",
+200 174 -26 {0},
+142 123 -19 {0: 0},
+115 92 -23 iter((0,) * 10000),
+114 92 -22 iter([0] * 10000),
+113 92 -21 repeat(0),
+140 118 -22 (x for x in repeat(0)),
+220 196 -24 Infinite(),
+458 124 -334 (), None
+457 126 -331 [], None
+454 124 -330 "", None
+463 132 -331 set(), None
+455 125 -330 {}, None
+425 98 -327 iter(()), None
+426 98 -328 iter([]), None
+422 98 -324 repeat(None, 0), None
+429 98 -331 (x for x in ()), None
+711 506 -205 Empty(), None
+ 
+ return next(iter(d)) 
+ for key in d: return key 
+ iter 
+ next 
+ key 
+ more_itertools.first 
+ for 
+ try 
+ return 
+ break 
+ it 
+ __next__ 
+ Current:
+
+ try:
+ next = it.__next__
+ h_append([next(), order * direction, next])
+ except StopIteration:
+ pass
+
+Proposal:
+
+ for value in it:
+ h_append([value, order * direction, it])
+ break
+ 
+ for 
+ for 
+ more_itertools.all_equal 
+ def all_equal(iterable):
+ groups = groupby(iterable)
+ for first in groups:
+ for second in groups:
+ return False
+ return True
+ 
+ return 
+ more_itertools.mark_ends 
+ def mark_ends__improved_mystyle(iterable):
+ it = iter(iterable)
+ for a in it:
+ first = True
+ for b in it:
+ yield first, False, a
+ a = b
+ first = False
+ yield first, True, a
+ 
+ for a in it: 
+ try:
+ b = next(it)
+ except StopIteration:
+ return
+ 
+ func1 
+ list(d)[0] 
+ [*d][0] 
+ list 
+ func2 
+ rv, *_ = d 
+ rv, = d
+

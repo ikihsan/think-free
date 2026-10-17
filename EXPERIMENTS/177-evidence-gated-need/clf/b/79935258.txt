@@ -1,0 +1,373 @@
+qid: 79935258
+view_count: 1168
+tags: c++, language-lawyer, atomic
+key_score: 0
+
+=== TITLE ===
+Is correctness of EBR algorithm guaranteed by `seq_cst` also guaranteed by changing them t
+o RMW operations with `acq_rel` that write the same value?
+
+=== QUESTION ===
+Consider this example: 
+ #include <atomic>
+#include <thread>
+
+int main(){
+ std::atomic<int> epoch = {0};
+ std::atomic<int> value = {1};
+ std::jthread t1([&](){
+ epoch.store(1,std::memory_order::seq_cst); // #1
+ value.load(std::memory_order::seq_cst); // #2
+ });
+ 
+ std::jthread t2([&](){
+ value.exchange(2,std::memory_order::seq_cst); // #3
+ epoch.load(std::memory_order::seq_cst); // #4
+ });
+}
+ 
+ In this example, if #2 read 1 , then #4 must read #1 , because it's guaranteed by the sin
+gle total order #1 < #2 < #3 < #4 . For other cases, #4 can either read the initial value 
+or #1 , they correspond to a valid single total order #3 < #4 < #1 < #2 , or #3 < #1 < #2 
+< #4 (or, #3 < #1 < #4 < #2 ), respectively. 
+ If change the example to the following: 
+ #include <atomic>
+#include <thread>
+
+int main(){
+ std::atomic<int> epoch = {0};
+ std::atomic<int> value = {1};
+ std::jthread t1([&](){
+ epoch.store(1,std::memory_order::relaxed); // #1
+ value.fetch_add(0,std::memory_order::acq_rel); // #2
+ });
+ 
+ std::jthread t2([&](){
+ value.exchange(2,std::memory_order::acq_rel); // #3
+ epoch.load(std::memory_order::relaxed); // #4
+ });
+}
+ 
+ In this example, if #2 read 1 , according to [atomics.order] p10 
+ 
+ Atomic read-modify-write operations shall always read the last value (in the modification
+ order) written before the write associated with the read-modify-write operation. 
+ 
+ #3 must follow #2 in the modification order of value . Because their memory orders are ac
+q_rel , #2 must happens-before #3 , so the visibility of #1 to #4 is now guaranteed by the
+ happens-before . Similarly, for other cases, #4 can either read 0 or #1 . IIUC, these two
+ programs are functionally equivalent in observable behaviors. 
+ This first snippet of code is simplified from the EBR algorithm(i.e., Epoch-Based Reclama
+tion) . #3 emulates the operation that updates the pointer, the core idea is that, if #2 r
+eads the old pointer value, it must precede #3 in the single total order, so #1 also prece
+des #4 in the single total order; therefore, #4 must see #1 to check whether the reader's 
+epoch is the current one. 
+ If we only consider the correctness of implementing the core idea(i.e., the EBR algorithm
+), can I change the memory order seq_cst to acq_rel by changing the corresponding operatio
+ns to those in the second example? IIUC, they should have the same correctness; merely, th
+e visibility of #1 is guaranteed by the single total order in the first way, and is guaran
+teed by happens-before in the second way. 
+ Update: 
+ A pseudo-implementation of EBR for multiple readers and a single writer is as follows: 
+ #include <atomic>
+#include <vector>
+#include <iostream>
+
+struct ThreadState {
+ std::atomic<bool> active{false};
+ std::atomic<uint64_t> local_epoch{0};
+};
+
+class EBRManager {
+ std::atomic<uint64_t> global_epoch{0};
+ ThreadState thread_states[8]; 
+ 
+ // Bag[0], Bag[1], Bag[2]
+ std::vector<void*> garbage_bags[3];
+
+public:
+
+ void reader_enter(int tid) {
+ thread_states[tid].active.store(true, std::memory_order_seq_cst);
+ uint64_t g = global_epoch.load(std::memory_order_seq_cst);
+ thread_states[tid].local_epoch.store(g, std::memory_order_seq_cst);
+ }
+
+ void reader_exit(int tid) {
+ thread_states[tid].active.store(false, std::memory_order_seq_cst);
+ }
+
+ 
+ void retire(void* old_ptr) {
+ uint64_t g = global_epoch.load(std::memory_order_relaxed);
+ garbage_bags[g].push_back(old_ptr);
+ try_collect();
+ }
+
+ void try_collect() {
+ uint64_t curr_g = global_epoch.load(std::memory_order_seq_cst);
+
+ for (int i = 0; i < 8; ++i) {
+ if (thread_states[i].active.load(std::memory_order_seq_cst)) {
+ if (thread_states[i].local_epoch.load(std::memory_order_seq_cst) != curr_g) {
+ return; 
+ }
+ }
+ }
+
+
+ uint64_t next_g = (curr_g + 1) % 3;
+ 
+
+ uint64_t safe_g = (next_g + 1) % 3; 
+ clear_bag(safe_g);
+
+ global_epoch.store(next_g, std::memory_order_seq_cst);
+ }
+
+ void clear_bag(int index) {
+ for (void* ptr : garbage_bags[index]) {
+ free(ptr); 
+ }
+ garbage_bags[index].clear();
+ }
+};
+
+struct Data {
+ int value;
+};
+
+std::atomic<Data*> global_ptr{new Data{100}};
+EBRManager ebr;
+
+void writer_thread_update(int new_value) {
+ Data* newData = new Data{new_value};
+ Data* oldData = global_ptr.exchange(newData, std::memory_order_seq_cst);
+ if (oldData != nullptr) {
+ ebr.retire(oldData); 
+ }
+}
+
+void reader_thread(int tid) {
+ ebr.reader_enter(tid);
+ Data* p = global_ptr.load(std::memory_order_seq_cst);
+ ebr.reader_exit(tid);
+}
+ 
+ My approach to proof: 
+ 
+ As shown in the graph, we don't need to care about what the value of epoch at #1 reads; w
+e can just assume that the value is C . Assuming the operation value.fetch_add(0,std::memo
+ry_order::acq_rel) at #2 reads the pointer value Px , we also don't need to care about wha
+t the writer does before, because the pointer value Px can only potentially be reclaimed a
+fter it is swapped out . So, we assume there exists a writer that executes an exchange ope
+ration that writes new_pointer and swaps out Px , because of the release sequence, this me
+ans, for any reader who reads the pointer value Px at #2 must synchronize with such a oper
+ation at #3 that swapped out Px and write new_pointer ; therefore, its #1 must be visible 
+to #4 of the writer. This is the core idea why I think fetch_add(0,acq_rel) can hold the s
+ame correctness as the first example does. 
+ As shown in the picture, the epoch can at most be advanced once if the stored epoch of al
+l readers reading Px equal G and the writer subsequently reclaims the pointer value saved 
+in garbage[G-1] ; anyway, Px was saved in garbage[G] , the epoch cannot be advanced until 
+all readers reading Px write false to active . This proof applies to any reader . 
+
+ #include <atomic>
+#include <thread>
+
+int main(){
+ std::atomic<int> epoch = {0};
+ std::atomic<int> value = {1};
+ std::jthread t1([&](){
+ epoch.store(1,std::memory_order::seq_cst); // #1
+ value.load(std::memory_order::seq_cst); // #2
+ });
+ 
+ std::jthread t2([&](){
+ value.exchange(2,std::memory_order::seq_cst); // #3
+ epoch.load(std::memory_order::seq_cst); // #4
+ });
+}
+ 
+ #2 
+ 1 
+ #4 
+ #1 
+ #1 < #2 < #3 < #4 
+ #4 
+ #1 
+ #3 < #4 < #1 < #2 
+ #3 < #1 < #2 < #4 
+ #3 < #1 < #4 < #2 
+ #include <atomic>
+#include <thread>
+
+int main(){
+ std::atomic<int> epoch = {0};
+ std::atomic<int> value = {1};
+ std::jthread t1([&](){
+ epoch.store(1,std::memory_order::relaxed); // #1
+ value.fetch_add(0,std::memory_order::acq_rel); // #2
+ });
+ 
+ std::jthread t2([&](){
+ value.exchange(2,std::memory_order::acq_rel); // #3
+ epoch.load(std::memory_order::relaxed); // #4
+ });
+}
+ 
+ #2 
+ 1 
+ #3 
+ #2 
+ value 
+ acq_rel 
+ #2 
+ #3 
+ #1 
+ #4 
+ #4 
+ 0 
+ #1 
+ #3 
+ #2 
+ #3 
+ #1 
+ #4 
+ #4 
+ #1 
+ seq_cst 
+ acq_rel 
+ #1 
+ #include <atomic>
+#include <vector>
+#include <iostream>
+
+struct ThreadState {
+ std::atomic<bool> active{false};
+ std::atomic<uint64_t> local_epoch{0};
+};
+
+class EBRManager {
+ std::atomic<uint64_t> global_epoch{0};
+ ThreadState thread_states[8]; 
+ 
+ // Bag[0], Bag[1], Bag[2]
+ std::vector<void*> garbage_bags[3];
+
+public:
+
+ void reader_enter(int tid) {
+ thread_states[tid].active.store(true, std::memory_order_seq_cst);
+ uint64_t g = global_epoch.load(std::memory_order_seq_cst);
+ thread_states[tid].local_epoch.store(g, std::memory_order_seq_cst);
+ }
+
+ void reader_exit(int tid) {
+ thread_states[tid].active.store(false, std::memory_order_seq_cst);
+ }
+
+ 
+ void retire(void* old_ptr) {
+ uint64_t g = global_epoch.load(std::memory_order_relaxed);
+ garbage_bags[g].push_back(old_ptr);
+ try_collect();
+ }
+
+ void try_collect() {
+ uint64_t curr_g = global_epoch.load(std::memory_order_seq_cst);
+
+ for (int i = 0; i < 8; ++i) {
+ if (thread_states[i].active.load(std::memory_order_seq_cst)) {
+ if (thread_states[i].local_epoch.load(std::memory_order_seq_cst) != curr_g) {
+ return; 
+ }
+ }
+ }
+
+
+ uint64_t next_g = (curr_g + 1) % 3;
+ 
+
+ uint64_t safe_g = (next_g + 1) % 3; 
+ clear_bag(safe_g);
+
+ global_epoch.store(next_g, std::memory_order_seq_cst);
+ }
+
+ void clear_bag(int index) {
+ for (void* ptr : garbage_bags[index]) {
+ free(ptr); 
+ }
+ garbage_bags[index].clear();
+ }
+};
+
+struct Data {
+ int value;
+};
+
+std::atomic<Data*> global_ptr{new Data{100}};
+EBRManager ebr;
+
+void writer_thread_update(int new_value) {
+ Data* newData = new Data{new_value};
+ Data* oldData = global_ptr.exchange(newData, std::memory_order_seq_cst);
+ if (oldData != nullptr) {
+ ebr.retire(oldData); 
+ }
+}
+
+void reader_thread(int tid) {
+ ebr.reader_enter(tid);
+ Data* p = global_ptr.load(std::memory_order_seq_cst);
+ ebr.reader_exit(tid);
+}
+ 
+ #1 
+ C 
+ value.fetch_add(0,std::memory_order::acq_rel) 
+ #2 
+ Px 
+ Px 
+ exchange 
+ new_pointer 
+ Px 
+ Px 
+ #2 
+ #3 
+ Px 
+ new_pointer 
+ #1 
+ #4 
+ fetch_add(0,acq_rel) 
+ epoch 
+ Px 
+ G 
+ garbage[G-1] 
+ Px 
+ garbage[G] 
+ Px 
+ false 
+ active
+
+=== KEY ANSWER ===
+NOT Equal guaranteed 
+ Regarding your question: 
+ 
+ Does the observable behavior of the program guaranteed by seq_cst equal that of changing 
+it to RMW operations with acq_rel that write the same value? 
+ 
+ No, not in general . A no-op RMW with `acq_rel` is not a drop-in replacement for a `seq_c
+st` load/store pair. 
+ Only equivilant correctness (in special cases) 
+ For the small example in the question, though, 
+ 
+ If we only consider the correctness of implementing the core idea, can I change the memor
+y order seq_cst to acq_rel by changing the corresponding operations to those in the second
+ example? IIUC, they should have the same correctness; merely, the visibility of #1 is gua
+ranteed by the single total order in the first way, and is guaranteed by happens-before in
+ the second way 
+ 
+ ..the particular implication you want does hold. 
+ See [atomics.order] in the C++23.
+

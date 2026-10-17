@@ -1,0 +1,42 @@
+qid: 79776559
+view_count: 15462
+tags: reactjs, deployment, bcrypt, render.com
+key_score: 90
+
+=== TITLE ===
+passlib bcrypt not working when deployed to render. &quot;ValueError: password cannot be l
+onger than 72 bytes&quot;
+
+=== QUESTION ===
+Im trying to deploy a react app on render. It works on my localhost but when deployed on r
+ender the auth function doesn't work. It shows this error 
+ 
+ ValueError: password cannot be longer than 72 bytes, truncate manually
+if necessary (e.g. my_password[:72]) however my print logs show that
+the password is only 13 bytes. 
+ 
+ Ive tried using crypt context and made sure the bcrypt backend is the same in local and d
+eployment. Im stuck. Please. Help.
+
+=== KEY ANSWER ===
+I ran into the same issue recently on a previously stable app, and it turned out to be rel
+ated to the latest bcrypt release. A change in behavior between passlib and bcrypt seems t
+o have caused problems even when the input was well under the 72-byte limit. 
+ What solved it for me was pinning bcrypt to version 4.3.0 , instead of allowing the upgra
+de to 5.0.0 (released on 2025-09-25). After making that change, the errors stopped. 
+ For example, in Python you can update requirements.txt from: 
+ bcrypt 
+ to: 
+ bcrypt==4.3.0 
+ This ensures your environment uses the last known stable version. If you’re working with 
+another stack (React, FastAPI, etc.), the same principle applies — make sure you’re not pu
+lling in bcrypt 5.0.0 until compatibility issues are resolved. 
+
+ bcrypt 
+ passlib 
+ bcrypt 
+ bcrypt 
+ requirements.txt 
+ bcrypt 
+ bcrypt==4.3.0
+

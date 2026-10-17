@@ -1,0 +1,73 @@
+qid: 79743460
+view_count: 471
+tags: c++
+key_score: 9
+
+=== TITLE ===
+How do I make a templated conversion operator to `std::optional&lt;T&gt;`?
+
+=== QUESTION ===
+I'm using templated conversion operator s to imitate return type deduction. 
+ This normally works fine, except for when the target type is std::optional : 
+ run on godbolt 
+ #include <iostream>
+#include <source_location>
+
+struct A
+{
+ template <typename T>
+ operator T() const
+ {
+ std::cout << std::source_location::current().function_name() << '\n';
+ return 42;
+ }
+};
+
+int main()
+{
+ int x = A{}; // `operator int`, ok
+ std::optional<int> y = A{}; // `operator int`, but I want `operator std::optional<int>`
+}
+ 
+ How can I make std::optional<int> y = A{}; call operator std::optional<int> instead of op
+erator int ? I understand why this happens (the optional<T> has a constructor that takes a
+nything convertible to T ), the question is how to fix it. 
+ Adding a separate operator std::optional<T> doesn't work, unless I also remove operator T
+ , but I'm trying to support all types with this. 
+
+ operator 
+ std::optional 
+ #include <iostream>
+#include <source_location>
+
+struct A
+{
+ template <typename T>
+ operator T() const
+ {
+ std::cout << std::source_location::current().function_name() << '\n';
+ return 42;
+ }
+};
+
+int main()
+{
+ int x = A{}; // `operator int`, ok
+ std::optional<int> y = A{}; // `operator int`, but I want `operator std::optional<int>`
+}
+ 
+ std::optional<int> y = A{}; 
+ operator std::optional<int> 
+ operator int 
+ optional<T> 
+ T 
+ operator std::optional<T> 
+ operator T
+
+=== KEY ANSWER ===
+This is impossible: std::optional has a constructor template that (if viable) will always 
+be a better match than any that would require a user-defined conversion. (The conversion t
+o initialize the stored value happens later and does not count.) 
+
+ std::optional
+

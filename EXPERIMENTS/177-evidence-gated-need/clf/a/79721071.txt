@@ -1,0 +1,67 @@
+qid: 79721071
+view_count: 4176
+tags: android, android-manifest
+key_score: 8
+
+=== TITLE ===
+Log file filled with attributionTag not declared in manifest
+
+=== QUESTION ===
+I've just noted that my logfile is filled with many entries 
+ 2025-07-31 10:56:31.326 1709-5052 AppOps system_server E attributionTag not declared in m
+anifest of XXXX 
+ 2025-07-31 10:56:31.327 1709-2137 AppOps system_server E attributionTag not declared in m
+anifest of XXXXX 
+ I assume it is related to using the media player in my application and maybe it is relate
+d to Android 16 because I didn't see it in the past. 
+ I don't undestand where this error comes from and I'm not using any tag like "attribution
+" in my manifest. 
+ Using the media player is like: 
+ mediaPlayer = MediaPlayer.create(context, alarmResourceId)
+ 
+ where alarmResourceId points to an ogg-file part of the resources under the raw directory
+. 
+ I would like to know what I have to specify in my manifest to get rid of this error messa
+ge. 
+
+ mediaPlayer = MediaPlayer.create(context, alarmResourceId)
+
+=== KEY ANSWER ===
+I've investigated the problem deeper, found the source code and it turns out that the erro
+r log message is constructed as: 
+ msg = "attributionTag " + attributionTag + " not declared in manifest of "
+
+ 
+ So, it is easy to see that in case of @de11833 like in my case, the attributionTag search
+ed was actually an empty string. 
+ Finally, after one full day of fighting I've added both tags to the manifest (under the <
+manifest> tag, not <application> or <activity> ) 
+ <attribution android:tag="@string/empty" android:label="@string/description" />
+<attribution android:tag="audioPlayback" android:label="@string/description" />
+
+ 
+ The trick is that simple empty tag "" or "@null" or omitted tag are not accepted during c
+ompile time or after run, so it is tricky to provide @string/empty as empty string using s
+tring resources. 
+ Only after that the error in logcat is finally disappeared... 
+ P.S. Of course I've created and properly used the attribution context by 
+ createAttributionContext(context, "audioPlayback");
+ 
+ but it didn't help. So anyway I leave all the code as is and also keep "audioPlayback" ta
+g in the manifest for the moment when this bug is fixed at the platform level 
+
+ msg = "attributionTag " + attributionTag + " not declared in manifest of "
+
+ 
+ <manifest> 
+ <application> 
+ <activity> 
+ <attribution android:tag="@string/empty" android:label="@string/description" />
+<attribution android:tag="audioPlayback" android:label="@string/description" />
+
+ 
+ "" 
+ "@null" 
+ @string/empty 
+ createAttributionContext(context, "audioPlayback");
+

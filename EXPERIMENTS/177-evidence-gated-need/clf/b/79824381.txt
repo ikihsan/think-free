@@ -1,0 +1,213 @@
+qid: 79824381
+view_count: 1634
+tags: c++, c
+key_score: 6
+
+=== TITLE ===
+Is it possible to expose C++ template struct (fully specialized) to C?
+
+=== QUESTION ===
+I want to use circular queue with different types and lengths in a project which mainly co
+nsists of C code. I'm thinking about implementing the circular queue as a C++ template str
+uct. How to expose the fully specialized C++ template struct to C? 
+ // C++ implementation
+// queue.hpp
+template <typename T, size_t MAX_LEN>
+struct Queue {
+ T data[MAX_LEN];
+ size_t readIdx = 0;
+ size_t writeIdx = 0;
+
+ bool PushBack(T);
+ bool PopFront(T *);
+};
+ 
+ // expected C API
+typedef struct {
+ int data[8];
+ size_t readIdx;
+ size_t writeIdx;
+} Qint8;
+bool Qint8_PushBack(Qint8 *, int);
+bool Qint8_PopFront(Qint8 *, int *);
+// C code won't access struct members directly
+// but should be able to know the struct's size
+// e.g. define an instance, or embed the circular queue in anouther struct
+extern Qint8 g_qint8;
+
+typedef struct {
+ char data[4];
+ size_t readIdx;
+ size_t writeIdx;
+} Qchar4;
+bool Qchar4_PushBack(Qchar4 *, char);
+bool Qchar4_PopFront(Qchar4 *, char *);
+ 
+
+ // C++ implementation
+// queue.hpp
+template <typename T, size_t MAX_LEN>
+struct Queue {
+ T data[MAX_LEN];
+ size_t readIdx = 0;
+ size_t writeIdx = 0;
+
+ bool PushBack(T);
+ bool PopFront(T *);
+};
+ 
+ // expected C API
+typedef struct {
+ int data[8];
+ size_t readIdx;
+ size_t writeIdx;
+} Qint8;
+bool Qint8_PushBack(Qint8 *, int);
+bool Qint8_PopFront(Qint8 *, int *);
+// C code won't access struct members directly
+// but should be able to know the struct's size
+// e.g. define an instance, or embed the circular queue in anouther struct
+extern Qint8 g_qint8;
+
+typedef struct {
+ char data[4];
+ size_t readIdx;
+ size_t writeIdx;
+} Qchar4;
+bool Qchar4_PushBack(Qchar4 *, char);
+bool Qchar4_PopFront(Qchar4 *, char *);
+
+=== KEY ANSWER ===
+I've got an idea: expose the concrete type Qint8 and Qchar4 as memory buffers. 
+ // bridge.h
+#pragma once
+#include <stdalign.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define Qint8Size 48
+#define Qint8Align 8
+typedef struct {
+ alignas(Qint8Align) unsigned char internal[Qint8Size];
+} Qint8;
+void Qint8_Construct(Qint8 *);
+bool Qint8_PushBack(Qint8 *, int);
+bool Qint8_PopFront(Qint8 *, int *);
+// C code won't access struct members directly
+// but should be able to know the struct's size
+// e.g. define an instance, or embed the circular queue in anouther struct
+extern Qint8 g_qint8;
+
+#define Qchar4Size 24
+#define Qchar4Align 8
+typedef struct {
+ alignas(Qchar4Align) unsigned char internal[Qchar4Size];
+} Qchar4;
+void Qchar4_Construct(Qchar4 *);
+bool Qchar4_PushBack(Qchar4 *, char);
+bool Qchar4_PopFront(Qchar4 *, char *);
+
+#ifdef __cplusplus
+}
+#endif
+ 
+ // bridge.cpp
+#include "bridge.h"
+#include "queue.hpp"
+#include <new>
+using T1 = Queue<int, 8>;
+static_assert(sizeof(T1) == Qint8Size && sizeof(Qint8) == Qint8Size);
+static_assert(alignof(T1) == Qint8Align);
+
+void Qint8_Construct(Qint8 *q) { new(q->internal) T1; }
+bool Qint8_PushBack(Qint8 *q, int v) {
+ auto p = std::launder(reinterpret_cast<T1 *>(q->internal));
+ return p->PushBack(v);
+}
+bool Qint8_PopFront(Qint8 *q, int *v) {
+ auto p = std::launder(reinterpret_cast<T1 *>(q->internal));
+ return p->PopFront(v);
+}
+
+using T2 = Queue<char, 4>;
+static_assert(sizeof(T2) == Qchar4Size && sizeof(Qchar4) == Qchar4Size);
+static_assert(alignof(T2) == Qchar4Align);
+void Qchar4_Construct(Qchar4 *q) { new(q->internal) T2; }
+bool Qchar4_PushBack(Qchar4 *q, char v) {
+ auto p = std::launder(reinterpret_cast<T2 *>(q->internal));
+ return p->PushBack(v);
+}
+bool Qchar4_PopFront(Qchar4 *q, char *v) {
+ auto p = std::launder(reinterpret_cast<T2 *>(q->internal));
+ return p->PopFront(v);
+}
+ 
+ This works. The downside is the hardcode of queue size and alignment in the header. 
+
+ Qint8 
+ Qchar4 
+ // bridge.h
+#pragma once
+#include <stdalign.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define Qint8Size 48
+#define Qint8Align 8
+typedef struct {
+ alignas(Qint8Align) unsigned char internal[Qint8Size];
+} Qint8;
+void Qint8_Construct(Qint8 *);
+bool Qint8_PushBack(Qint8 *, int);
+bool Qint8_PopFront(Qint8 *, int *);
+// C code won't access struct members directly
+// but should be able to know the struct's size
+// e.g. define an instance, or embed the circular queue in anouther struct
+extern Qint8 g_qint8;
+
+#define Qchar4Size 24
+#define Qchar4Align 8
+typedef struct {
+ alignas(Qchar4Align) unsigned char internal[Qchar4Size];
+} Qchar4;
+void Qchar4_Construct(Qchar4 *);
+bool Qchar4_PushBack(Qchar4 *, char);
+bool Qchar4_PopFront(Qchar4 *, char *);
+
+#ifdef __cplusplus
+}
+#endif
+ 
+ // bridge.cpp
+#include "bridge.h"
+#include "queue.hpp"
+#include <new>
+using T1 = Queue<int, 8>;
+static_assert(sizeof(T1) == Qint8Size && sizeof(Qint8) == Qint8Size);
+static_assert(alignof(T1) == Qint8Align);
+
+void Qint8_Construct(Qint8 *q) { new(q->internal) T1; }
+bool Qint8_PushBack(Qint8 *q, int v) {
+ auto p = std::launder(reinterpret_cast<T1 *>(q->internal));
+ return p->PushBack(v);
+}
+bool Qint8_PopFront(Qint8 *q, int *v) {
+ auto p = std::launder(reinterpret_cast<T1 *>(q->internal));
+ return p->PopFront(v);
+}
+
+using T2 = Queue<char, 4>;
+static_assert(sizeof(T2) == Qchar4Size && sizeof(Qchar4) == Qchar4Size);
+static_assert(alignof(T2) == Qchar4Align);
+void Qchar4_Construct(Qchar4 *q) { new(q->internal) T2; }
+bool Qchar4_PushBack(Qchar4 *q, char v) {
+ auto p = std::launder(reinterpret_cast<T2 *>(q->internal));
+ return p->PushBack(v);
+}
+bool Qchar4_PopFront(Qchar4 *q, char *v) {
+ auto p = std::launder(reinterpret_cast<T2 *>(q->internal));
+ return p->PopFront(v);
+}
+

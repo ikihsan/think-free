@@ -1,0 +1,53 @@
+qid: 79527331
+view_count: 2604
+tags: android, android-manifest, privacy
+key_score: 4
+
+=== TITLE ===
+&quot;android.intent.action.MAIN&quot; intent in queries element in AndroidManifest.xml
+
+=== QUESTION ===
+By including the following <intent> element within the <queries> tag in the AndroidManifes
+t.xml file, I can access a list of all installed apps on a device: 
+ <queries>
+ <intent>
+ <action android:name="android.intent.action.MAIN" />
+ </intent>
+</queries>
+ 
+ Since most Android apps have a launcher activity, doing the following returns all the app
+s installed in an android device: 
+ getPackageManager().queryIntentActivities(new Intent(Intent.ACTION_MAIN), PackageManager.
+MATCH_ALL) 
+ Isn't this a potential privacy loophole and almost equivalent to the very sensitive QUERY
+_ALL_PACKAGES permission? I see so many apps with this intent element under the queries el
+ement in their manifest files. 
+
+ <intent> 
+ <queries> 
+ AndroidManifest.xml 
+ <queries>
+ <intent>
+ <action android:name="android.intent.action.MAIN" />
+ </intent>
+</queries>
+ 
+ getPackageManager().queryIntentActivities(new Intent(Intent.ACTION_MAIN), PackageManager.
+MATCH_ALL) 
+ QUERY_ALL_PACKAGES
+
+=== KEY ANSWER ===
+doing the following returns all the apps installed in an android device: 
+ 
+ FWIW, that code returns activities, not apps. 
+ 
+ Isn't this a potential privacy loophole and almost equivalent to the very sensitive QUERY
+_ALL_PACKAGES permission? 
+ 
+ Yes, which is why I and others wrote about this years ago . 
+ Bear in mind that Google (and other app distributors) could penalize developers for havin
+g overly-broad <queries> requests. 
+
+ QUERY_ALL_PACKAGES 
+ <queries>
+

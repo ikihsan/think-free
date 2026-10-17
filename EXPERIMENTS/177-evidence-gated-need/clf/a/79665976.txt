@@ -1,0 +1,148 @@
+qid: 79665976
+view_count: 20048
+tags: python, uv
+key_score: 8
+
+=== TITLE ===
+Create project with specific (downgraded) Python version
+
+=== QUESTION ===
+At work, I am running 3.9.21. At home, I am running Python 3.13.2 on Linux, but also use u
+v install Python 3.9.21 to be in sync with work. 
+ In my home machine, I created a new project: 
+ uv init --package --python "python==3.9.21" sandbox
+cd sandbox
+uv sync
+ 
+ At this time, I got the following error: 
+ Using CPython 3.13.2
+error: The requested interpreter resolved to Python 3.13.2, which is incompatible with the
+ project's Python requirement: `==3.9.21`
+ 
+ How can I create a project with this specific version (3.9.21) of Python? 
+
+ uv 
+ uv init --package --python "python==3.9.21" sandbox
+cd sandbox
+uv sync
+ 
+ Using CPython 3.13.2
+error: The requested interpreter resolved to Python 3.13.2, which is incompatible with the
+ project's Python requirement: `==3.9.21`
+
+=== KEY ANSWER ===
+I tried your steps in my macbook and they worked fine without any error. 
+ Your error sounds as if uv was installed via pip install uv under Python 3.13.2.
+Could that be? 
+ This is why Astral (who programmed uv ) warns not to install uv simply with pip install u
+v . Because then, the uv gets dependent on the particular Python version. But the point of
+ uv is that it should be in the level on top of the Python versions and manage them. 
+ Your uv seems to be installed under Python 3.13.2, thus fixed to it - which is suboptimal
+.
+And it has performance penalties - you are not using uv (Rust's) actual speed - but uv ins
+ide pip . 
+ The solution in this case would be: 
+ 
+ uninstall pip uninstall uv 
+ globally install uv 
+ 
+ # macos and linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# windows
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+ 
+ or just look in https://docs.astral.sh/uv/getting-started/installation/#__tabbed_1_2 
+ And with the global uv your steps should work without problems. 
+ -- 
+ Pip install might make only if e.g. you are in a Docker container where you know, there w
+ill be only one Python version forever. But even then, I wouldn't use pip install uv actua
+lly. 
+ Probably your solution 
+ I see the problem is, that you have to pin your Python version. @IRFANAASLAM was close to
+ the solution. 
+ First, however, you should check in your parent folder of your project, whether you accid
+entally ran there uv init in the past. Is there a pyproject.toml or .python-version file? 
+Or a .venv folder? If so, delete them all! Because they can interfere with anything you do
+ in your project folder - I've recently read. 
+ Second, in your work project folder - or your home project folder - the best is in both -
+ ensure that you do: 
+ uv python install 3.9.21
+uv python pin 3.9.21
+ 
+ uv python pin 3.9.21 would create a .python-version file in your computer.
+Transferring the .python-version file together with pyproject.toml and uv.lock would be su
+fficient to ensure the correct Python version for your project. 
+ A question would be: Is your home computer a Windows? And couldn't it be that there is a 
+problem with Python versions at home? (Does a 3.9.21 Python exist for your OS? - If not, i
+t could use 3.13.2 out of lack of the correct version - as the next fallback). If so, I wo
+uld highly recommend you, to use WSL2 (windows subsystem for Linux), where you can install
+ ubuntu or any other linux into your WSL virtual machine and run linux in windows - while 
+having all the files in your windows available. 
+ Ah I see you aid at home you installed using curl . That means - you have a macos? Probab
+ly with ARM architecture? - But I see it can't be the problem, because I have ARM and 3.9.
+21 exists there. 
+ You could e.g. in your work computer do: 
+ uv python pin 3.9.21
+uv lock 
+ 
+ This updates the .python-version and uv.lock file. 
+ At home then, transfer your pyproject.toml , uv.lock and .python-version file to your hom
+e project folder. No pyproject.toml file should be present in the parent folder(s) to be s
+ure. 
+ If you run now 
+ uv sync
+ 
+ It should sync correctly and recreate the project's environment. 
+ You have to use the pyproject.toml from your work.
+And the uv.lock and .python-version file. 
+ the .python-version file just contains the version number. Its content in this case is si
+mply "3.9.21". So one could also just generate it manually. 
+
+ uv 
+ pip install uv 
+ uv 
+ uv 
+ pip install uv 
+ uv 
+ uv 
+ uv 
+ uv 
+ uv 
+ pip 
+ pip uninstall uv 
+ uv 
+ # macos and linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# windows
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+ 
+ uv 
+ pip install uv 
+ uv init 
+ pyproject.toml 
+ .python-version 
+ .venv 
+ uv python install 3.9.21
+uv python pin 3.9.21
+ 
+ uv python pin 3.9.21 
+ .python-version 
+ .python-version 
+ pyproject.toml 
+ uv.lock 
+ curl 
+ uv python pin 3.9.21
+uv lock 
+ 
+ .python-version 
+ uv.lock 
+ pyproject.toml 
+ uv.lock 
+ .python-version 
+ pyproject.toml 
+ uv sync
+ 
+ .python-version
+

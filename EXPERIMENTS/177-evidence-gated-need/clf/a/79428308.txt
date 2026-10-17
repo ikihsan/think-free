@@ -1,0 +1,49 @@
+qid: 79428308
+view_count: 9125
+tags: javascript, laravel, npm, nvm
+key_score: 18
+
+=== TITLE ===
+Error downloading node 14.21.3/14.20.0 with NVM. The system cannot find the file specified
+
+=== QUESTION ===
+I want to install version 14 for an old project that uses that version. I use nvm and all 
+installations from 16 onwards work perfectly. 
+ But, in version 14.20.0 and 14.21.3, it fails and gives me this error: 
+ Usuario@DESKTOP-VMRUVSP MINGW64 ~
+$ nvm install 14.21.3
+Downloading node.js version 14.21.3 (64-bit)...
+Complete
+Downloading npm...
+Creating C:\Users\Usuario\AppData\Local\Temp\nvm-install-11959995\temp
+
+Downloading npm version 6.14.18... Complete
+Installing npm v6.14.18...
+error installing 14.21.3: open C:\Users\Usuario\AppData\Local\Temp\nvm-npm-2920922696\npm-
+v6.14.18.zip: The system cannot find the file specified.
+
+ 
+ Delete the temporary folders that start with nvm-install and nvm-npm and nothing, it keep
+s giving the error. So, I don't know what to do. 
+ What do you recommend I do? Thank you 
+ How to install Node version 14 
+
+ Usuario@DESKTOP-VMRUVSP MINGW64 ~
+$ nvm install 14.21.3
+Downloading node.js version 14.21.3 (64-bit)...
+Complete
+Downloading npm...
+Creating C:\Users\Usuario\AppData\Local\Temp\nvm-install-11959995\temp
+
+Downloading npm version 6.14.18... Complete
+Installing npm v6.14.18...
+error installing 14.21.3: open C:\Users\Usuario\AppData\Local\Temp\nvm-npm-2920922696\npm-
+v6.14.18.zip: The system cannot find the file specified.
+
+=== KEY ANSWER ===
+The issue is because in the NVM version 1.2.2 the temporary directory is refered as "tmp" 
+while the old one was "temp", so this issue will be fixed in NVM v1.2.3. 
+ Till the new version is available, you can use the older version of NVM (v1.1.12) Link to
+ download , from this version you can install node 14.21.3. 
+ Thank you
+

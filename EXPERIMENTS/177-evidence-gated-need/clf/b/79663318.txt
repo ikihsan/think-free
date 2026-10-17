@@ -1,0 +1,116 @@
+qid: 79663318
+view_count: 599
+tags: c++, gcc, c++20, c++-concepts, static-assert
+key_score: 4
+
+=== TITLE ===
+Is this concept satisfaction a bug in GCC or did I invoke undefined behavior?
+
+=== QUESTION ===
+Here's the test code: 
+ #include <concepts>
+
+template<typename T>
+concept Printable = requires(T obj) {
+ { obj.print() } -> std::same_as<void>;
+};
+
+template<Printable T>
+void func(const T& obj)
+{
+ obj.print();
+}
+
+class Foo
+{
+private:
+ void print() const { /* std::cout << "Foo" << std::endl; */ }
+
+public:
+ void bar() {
+ static_assert(Printable<Foo>);
+ func(*this);
+ }
+};
+ 
+ print() is a private member of Foo , so Foo shouldn't satisfy the concept Printable . But
+ within bar() , print() is accessible, and it seems it mislead GCC to believe Foo satisfie
+s Printable in the static_assert . 
+Additionally, it seems to fix/cache the value of Printable<Foo> to true, so in the line be
+low, func(*this) , GCC incorrectly tries to instanciate func<Foo> (believing Foo does sati
+sfy Printable ) then complains that print() is private. 
+ MSVC, on the other hand, report an error at static_assert because of Foo not satisfying P
+rintable 
+ clang 20.1.0 (the latest on godbolt as I'm writing this question) has the same behavior a
+s GCC, but the trunk build agrees with MSVC. 
+ Godbolt link with the latest versions of compilers at the time of writing this question 
+ Are GCC and non-trunk versions of clang in the wrong? Or perhaps did I invoke some undefi
+ned behavior? 
+
+ #include <concepts>
+
+template<typename T>
+concept Printable = requires(T obj) {
+ { obj.print() } -> std::same_as<void>;
+};
+
+template<Printable T>
+void func(const T& obj)
+{
+ obj.print();
+}
+
+class Foo
+{
+private:
+ void print() const { /* std::cout << "Foo" << std::endl; */ }
+
+public:
+ void bar() {
+ static_assert(Printable<Foo>);
+ func(*this);
+ }
+};
+ 
+ print() 
+ Foo 
+ Foo 
+ Printable 
+ bar() 
+ print() 
+ Foo 
+ Printable 
+ static_assert 
+ Printable<Foo> 
+ func(*this) 
+ func<Foo> 
+ Foo 
+ Printable 
+ print() 
+ static_assert 
+ Foo 
+ Printable
+
+=== KEY ANSWER ===
+A concept is a named constraint. Your concept is 
+ template<typename T>
+concept Printable = requires(T obj) {
+ { obj.print() } -> std::same_as<void>;
+};
+ 
+ So Printable means that obj.print() can be called. Since print() is private in your examp
+le and you expose it via another method, it seems to be a bug, as the expectation is to be
+ able to call the print() method directly and you cannot do an obj.print() . 
+
+ template<typename T>
+concept Printable = requires(T obj) {
+ { obj.print() } -> std::same_as<void>;
+};
+ 
+ Printable 
+ obj.print() 
+ print() 
+ private 
+ print() 
+ obj.print()
+

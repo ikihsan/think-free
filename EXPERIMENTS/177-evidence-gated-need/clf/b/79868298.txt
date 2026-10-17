@@ -1,0 +1,787 @@
+qid: 79868298
+view_count: 1915
+tags: c, assembly, x86, osdev, gdt
+key_score: 23
+
+=== TITLE ===
+Why is my kernel logging an exception and interrupt when I run it, attempting to enter use
+r mode?
+
+=== QUESTION ===
+I was following "The little book about OS development" . I've "completed" the basic idt, g
+dt and segmentation, but I believe there are errors, but I already tested running without 
+them and it still returns these errors. 
+ I'm using Bochs to emulate a 32-bit system, but when I enter user mode and run a basic 32
+-bit program that just moves 0xDEADBEEF to EAX, in user mode, my Bochs instantly reloads a
+nd reruns. 
+ In the ideal circumstances, there wouldn't be any interrupts and exception. In addition, 
+it would correctly fault, giving the correct errors when I run privileged assembly, like c
+li, lgdt, etc. Here are the two errors I'm seeing, 
+ 00158586416e[CPU0 ] exception(): 3rd (13) exception with no resolution, shutdown status i
+s 00h, resetting
+ 
+ and 
+ 00156991803i[BIOS ] *** int 15h function AX=00c0, BX=0000 not yet supported!
+00158586416e[CPU0 ] fetch_raw_descriptor: GDT: index (ff57) 1fea > limit (2f)
+00158586416e[CPU0 ] interrupt(): gate descriptor is not valid sys seg (vector=0x08)
+00158586416i[CPU0 ] CPU is in protected mode (active)
+ 
+ I cannot tell what the issue is. My current code can be found at the following link on th
+e branch, https://github.com/EworkAcc/x86-os/tree/os-9 . 
+ The bochslog.txt file is also on there. 
+ I will also provide the minimal functional code below: 
+ Makefile 
+ OBJECTS = loader.o drivers/IO/io.o memory/SEG/gdt.o drivers/INTERRUPTS/idt.o drivers/INTE
+RRUPTS/interrupt_handler.o kmain.o drivers/FB/fb_driver.o memory/SEG/seg_driver.o drivers/
+SP/sp_driver.o drivers/INTERRUPTS/interrupt_driver.o drivers/INTERRUPTS/pic_driver.o drive
+rs/INTERRUPTS/kb_driver.o memory/PAGING/common_driver.o memory/PAGING/ep.o memory/PAGING/k
+heap_driver.o memory/PAGING/paging_driver.o um.o
+CC = gcc
+CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
+ -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c
+LDFLAGS = -T link.ld -melf_i386
+AS = nasm
+ASFLAGS = -f elf32
+
+all: kernel.elf
+
+kernel.elf: $(OBJECTS)
+ ld $(LDFLAGS) $(OBJECTS) -o kernel.elf
+
+os.iso: kernel.elf
+ cp kernel.elf iso/boot/kernel.elf
+ genisoimage -R\
+ -b boot/grub/stage2_eltorito\
+ -no-emul-boot\
+ -boot-load-size 4\
+ -A os\
+ -input-charset utf8\
+ -quiet\
+ -boot-info-table\
+ -o os.iso\
+ iso
+
+run: os.iso
+ bochs -f bochsrc.txt -q
+
+%.o: %.c
+ $(CC) $(CFLAGS) $< -o $@
+
+%.o: %.s
+ $(AS) $(ASFLAGS) $< -o $@
+
+clean:
+ rm -rf *.o kernel.elf os.iso bochslog.txt co1.out
+ rm -rf iso/boot/kernel.elf
+ rm -rf drivers/*/*.o
+ rm -rf memory/*/*.o
+ rm -rf iso/modules/*.o
+ rm -rf user/*.o
+ 
+ um.s 
+ global enter_user_mode
+
+enter_user_mode:
+ cli
+
+ mov eax, [esp + 4]
+
+ mov ax, 0x23
+ mov ds, ax
+ mov es, ax
+ mov fs, ax
+ mov gs, ax
+
+ push 0x23
+ push 0x800000
+ pushf
+ push 0x1b
+ push eax
+
+ iret
+ 
+ kmain.c 
+ #include "multiboot.h"
+#include "drivers/IO/io.h"
+#include "drivers/SP/sp.h"
+#include "drivers/FB/fb.h"
+#include "drivers/INTERRUPTS/pic.h"
+#include "drivers/INTERRUPTS/interrupt.h"
+#include "drivers/INTERRUPTS/kb.h"
+#include "memory/PAGING/paging.h"
+#include "memory/SEG/seg.h"
+
+extern void enter_user_mode(unsigned int entry_point);
+
+int kmain(unsigned int ebx) {
+ multiboot_info_t *mbinfo = (multiboot_info_t *) ebx;
+ multiboot_module_t* modules = (multiboot_module_t *) mbinfo->mods_addr;
+ unsigned int address_of_module = modules->mod_start;
+
+ enter_user_mode(address_of_module);
+ return 0;
+}
+ 
+ loader.s 
+ global loader
+ MAGIC_NUMBER equ 0x1badb002
+ ALIGN_MODULES equ 0x00000001
+ CHECKSUM equ -(MAGIC_NUMBER + ALIGN_MODULES)
+ FLAGS equ 0x0
+
+KERNEL_STACK_SIZE equ 4096
+
+ section .bss
+ align 4
+ kernel_stack:
+ resb KERNEL_STACK_SIZE
+
+ section .text
+ align 4
+ dd MAGIC_NUMBER
+ dd ALIGN_MODULES
+ dd CHECKSUM
+ dd FLAGS
+
+ loader:
+ mov esp, kernel_stack + KERNEL_STACK_SIZE
+
+ push ebx
+
+ extern kmain
+
+ call kmain
+
+ .loop:
+ jmp .loop
+ 
+ multiboot.h 
+ #ifndef MULTIBOOT_HEADER
+
+#define MULTIBOOT_HEADER 1
+#define MULTIBOOT_SEARCH 8192
+#define MULTIBOOT_HEADER_ALIGN 4
+#define MULTIBOOT_HEADER_MAGIC 0x1BADB002
+#define MULTIBOOT_BOOTLOADER_MAGIC 0x2BADB002
+#define MULTIBOOT_MOD_ALIGN 0x00001000
+#define MULTIBOOT_INFO_ALIGN 0x00000004
+#define MULTIBOOT_PAGE_ALIGN 0x00000001
+#define MULTIBOOT_MEMORY_INFO 0x00000002
+#define MULTIBOOT_VIDEO_MODE 0x00000004
+#define MULTIBOOT_AOUT_KLUDGE 0x00010000
+#define MULTIBOOT_INFO_MEMORY 0x00000001
+#define MULTIBOOT_INFO_BOOTDEV 0x00000002
+#define MULTIBOOT_INFO_CMDLINE 0x00000004
+#define MULTIBOOT_INFO_MODS 0x00000008
+#define MULTIBOOT_INFO_AOUT_SYMS 0x00000010
+#define MULTIBOOT_INFO_ELF_SHDR 0X00000020
+#define MULTIBOOT_INFO_MEM_MAP 0x00000040
+#define MULTIBOOT_INFO_DRIVE_INFO 0x00000080
+#define MULTIBOOT_INFO_CONFIG_TABLE 0x00000100
+#define MULTIBOOT_INFO_BOOT_LOADER_NAME 0x00000200
+#define MULTIBOOT_INFO_APM_TABLE 0x00000400
+#define MULTIBOOT_INFO_VBE_INFO 0x00000800
+#define MULTIBOOT_INFO_FRAMEBUFFER_INFO 0x00001000
+
+#ifndef ASM_FILE
+
+typedef unsigned char multiboot_uint8_t;
+typedef unsigned short multiboot_uint16_t;
+typedef unsigned int multiboot_uint32_t;
+typedef unsigned long long multiboot_uint64_t;
+
+struct multiboot_header
+{
+ multiboot_uint32_t magic;
+ multiboot_uint32_t flags;
+ multiboot_uint32_t checksum;
+ multiboot_uint32_t header_addr;
+ multiboot_uint32_t load_addr;
+ multiboot_uint32_t load_end_addr;
+ multiboot_uint32_t bss_end_addr;
+ multiboot_uint32_t entry_addr;
+ multiboot_uint32_t mode_type;
+ multiboot_uint32_t width;
+ multiboot_uint32_t height;
+ multiboot_uint32_t depth;
+};
+
+struct multiboot_aout_symbol_table
+{
+ multiboot_uint32_t tabsize;
+ multiboot_uint32_t strsize;
+ multiboot_uint32_t addr;
+ multiboot_uint32_t reserved;
+};
+typedef struct multiboot_aout_symbol_table multiboot_aout_symbol_table_t;
+
+struct multiboot_elf_section_header_table
+{
+ multiboot_uint32_t num;
+ multiboot_uint32_t size;
+ multiboot_uint32_t addr;
+ multiboot_uint32_t shndx;
+};
+typedef struct multiboot_elf_section_header_table multiboot_elf_section_header_table_t;
+
+struct multiboot_info
+{
+ multiboot_uint32_t flags;
+ multiboot_uint32_t mem_lower;
+ multiboot_uint32_t mem_upper;
+ multiboot_uint32_t boot_device;
+ multiboot_uint32_t cmdline;
+ multiboot_uint32_t mods_count;
+ multiboot_uint32_t mods_addr;
+ union
+ {
+ multiboot_aout_symbol_table_t aout_sym;
+ multiboot_elf_section_header_table_t elf_sec;
+ } u;
+ multiboot_uint32_t mmap_length;
+ multiboot_uint32_t mmap_addr;
+ multiboot_uint32_t drives_length;
+ multiboot_uint32_t drives_addr;
+ multiboot_uint32_t config_table;
+ multiboot_uint32_t boot_loader_name;
+ multiboot_uint32_t apm_table;
+ multiboot_uint32_t vbe_control_info;
+ multiboot_uint32_t vbe_mode_info;
+ multiboot_uint16_t vbe_mode;
+ multiboot_uint16_t vbe_interface_seg;
+ multiboot_uint16_t vbe_interface_off;
+ multiboot_uint16_t vbe_interface_len;
+ multiboot_uint64_t framebuffer_addr;
+ multiboot_uint32_t framebuffer_pitch;
+ multiboot_uint32_t framebuffer_width;
+ multiboot_uint32_t framebuffer_height;
+ multiboot_uint8_t framebuffer_bpp;
+#define MULTIBOOT_FRAMEBUFFER_TYPE_INDEXED 0
+#define MULTIBOOT_FRAMEBUFFER_TYPE_RGB 1
+#define MULTIBOOT_FRAMEBUFFER_TYPE_EGA_TEXT 2
+ multiboot_uint8_t framebuffer_type;
+ union
+ {
+ struct
+ {
+ multiboot_uint32_t framebuffer_palette_addr;
+ multiboot_uint16_t framebuffer_palette_num_colors;
+ };
+ struct
+ {
+ multiboot_uint8_t framebuffer_red_field_position;
+ multiboot_uint8_t framebuffer_red_mask_size;
+ multiboot_uint8_t framebuffer_green_field_position;
+ multiboot_uint8_t framebuffer_green_mask_size;
+ multiboot_uint8_t framebuffer_blue_field_position;
+ multiboot_uint8_t framebuffer_blue_mask_size;
+ };
+ };
+};
+typedef struct multiboot_info multiboot_info_t;
+
+struct multiboot_color
+{
+ multiboot_uint8_t red;
+ multiboot_uint8_t green;
+ multiboot_uint8_t blue;
+};
+
+struct multiboot_mmap_entry
+{
+ multiboot_uint32_t size;
+ multiboot_uint64_t addr;
+ multiboot_uint64_t len;
+#define MULTIBOOT_MEMORY_AVAILABLE 1
+#define MULTIBOOT_MEMORY_RESERVED 2
+#define MULTIBOOT_MEMORY_ACPI_RECLAIMABLE 3
+#define MULTIBOOT_MEMORY_NVS 4
+#define MULTIBOOT_MEMORY_BADRAM 5
+ multiboot_uint32_t type;
+} __attribute__((packed));
+typedef struct multiboot_mmap_entry multiboot_memory_map_t;
+
+struct multiboot_mod_list
+{
+ multiboot_uint32_t mod_start;
+ multiboot_uint32_t mod_end;
+ multiboot_uint32_t cmdline;
+ multiboot_uint32_t pad;
+};
+typedef struct multiboot_mod_list multiboot_module_t;
+
+struct multiboot_apm_info
+{
+ multiboot_uint16_t version;
+ multiboot_uint16_t cseg;
+ multiboot_uint32_t offset;
+ multiboot_uint16_t cseg_16;
+ multiboot_uint16_t dseg;
+ multiboot_uint16_t flags;
+ multiboot_uint16_t cseg_len;
+ multiboot_uint16_t cseg_16_len;
+ multiboot_uint16_t dseg_len;
+};
+
+#endif
+
+#endif
+ 
+
+ 00158586416e[CPU0 ] exception(): 3rd (13) exception with no resolution, shutdown status i
+s 00h, resetting
+ 
+ 00156991803i[BIOS ] *** int 15h function AX=00c0, BX=0000 not yet supported!
+00158586416e[CPU0 ] fetch_raw_descriptor: GDT: index (ff57) 1fea > limit (2f)
+00158586416e[CPU0 ] interrupt(): gate descriptor is not valid sys seg (vector=0x08)
+00158586416i[CPU0 ] CPU is in protected mode (active)
+ 
+ OBJECTS = loader.o drivers/IO/io.o memory/SEG/gdt.o drivers/INTERRUPTS/idt.o drivers/INTE
+RRUPTS/interrupt_handler.o kmain.o drivers/FB/fb_driver.o memory/SEG/seg_driver.o drivers/
+SP/sp_driver.o drivers/INTERRUPTS/interrupt_driver.o drivers/INTERRUPTS/pic_driver.o drive
+rs/INTERRUPTS/kb_driver.o memory/PAGING/common_driver.o memory/PAGING/ep.o memory/PAGING/k
+heap_driver.o memory/PAGING/paging_driver.o um.o
+CC = gcc
+CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
+ -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c
+LDFLAGS = -T link.ld -melf_i386
+AS = nasm
+ASFLAGS = -f elf32
+
+all: kernel.elf
+
+kernel.elf: $(OBJECTS)
+ ld $(LDFLAGS) $(OBJECTS) -o kernel.elf
+
+os.iso: kernel.elf
+ cp kernel.elf iso/boot/kernel.elf
+ genisoimage -R\
+ -b boot/grub/stage2_eltorito\
+ -no-emul-boot\
+ -boot-load-size 4\
+ -A os\
+ -input-charset utf8\
+ -quiet\
+ -boot-info-table\
+ -o os.iso\
+ iso
+
+run: os.iso
+ bochs -f bochsrc.txt -q
+
+%.o: %.c
+ $(CC) $(CFLAGS) $< -o $@
+
+%.o: %.s
+ $(AS) $(ASFLAGS) $< -o $@
+
+clean:
+ rm -rf *.o kernel.elf os.iso bochslog.txt co1.out
+ rm -rf iso/boot/kernel.elf
+ rm -rf drivers/*/*.o
+ rm -rf memory/*/*.o
+ rm -rf iso/modules/*.o
+ rm -rf user/*.o
+ 
+ global enter_user_mode
+
+enter_user_mode:
+ cli
+
+ mov eax, [esp + 4]
+
+ mov ax, 0x23
+ mov ds, ax
+ mov es, ax
+ mov fs, ax
+ mov gs, ax
+
+ push 0x23
+ push 0x800000
+ pushf
+ push 0x1b
+ push eax
+
+ iret
+ 
+ #include "multiboot.h"
+#include "drivers/IO/io.h"
+#include "drivers/SP/sp.h"
+#include "drivers/FB/fb.h"
+#include "drivers/INTERRUPTS/pic.h"
+#include "drivers/INTERRUPTS/interrupt.h"
+#include "drivers/INTERRUPTS/kb.h"
+#include "memory/PAGING/paging.h"
+#include "memory/SEG/seg.h"
+
+extern void enter_user_mode(unsigned int entry_point);
+
+int kmain(unsigned int ebx) {
+ multiboot_info_t *mbinfo = (multiboot_info_t *) ebx;
+ multiboot_module_t* modules = (multiboot_module_t *) mbinfo->mods_addr;
+ unsigned int address_of_module = modules->mod_start;
+
+ enter_user_mode(address_of_module);
+ return 0;
+}
+ 
+ global loader
+ MAGIC_NUMBER equ 0x1badb002
+ ALIGN_MODULES equ 0x00000001
+ CHECKSUM equ -(MAGIC_NUMBER + ALIGN_MODULES)
+ FLAGS equ 0x0
+
+KERNEL_STACK_SIZE equ 4096
+
+ section .bss
+ align 4
+ kernel_stack:
+ resb KERNEL_STACK_SIZE
+
+ section .text
+ align 4
+ dd MAGIC_NUMBER
+ dd ALIGN_MODULES
+ dd CHECKSUM
+ dd FLAGS
+
+ loader:
+ mov esp, kernel_stack + KERNEL_STACK_SIZE
+
+ push ebx
+
+ extern kmain
+
+ call kmain
+
+ .loop:
+ jmp .loop
+ 
+ #ifndef MULTIBOOT_HEADER
+
+#define MULTIBOOT_HEADER 1
+#define MULTIBOOT_SEARCH 8192
+#define MULTIBOOT_HEADER_ALIGN 4
+#define MULTIBOOT_HEADER_MAGIC 0x1BADB002
+#define MULTIBOOT_BOOTLOADER_MAGIC 0x2BADB002
+#define MULTIBOOT_MOD_ALIGN 0x00001000
+#define MULTIBOOT_INFO_ALIGN 0x00000004
+#define MULTIBOOT_PAGE_ALIGN 0x00000001
+#define MULTIBOOT_MEMORY_INFO 0x00000002
+#define MULTIBOOT_VIDEO_MODE 0x00000004
+#define MULTIBOOT_AOUT_KLUDGE 0x00010000
+#define MULTIBOOT_INFO_MEMORY 0x00000001
+#define MULTIBOOT_INFO_BOOTDEV 0x00000002
+#define MULTIBOOT_INFO_CMDLINE 0x00000004
+#define MULTIBOOT_INFO_MODS 0x00000008
+#define MULTIBOOT_INFO_AOUT_SYMS 0x00000010
+#define MULTIBOOT_INFO_ELF_SHDR 0X00000020
+#define MULTIBOOT_INFO_MEM_MAP 0x00000040
+#define MULTIBOOT_INFO_DRIVE_INFO 0x00000080
+#define MULTIBOOT_INFO_CONFIG_TABLE 0x00000100
+#define MULTIBOOT_INFO_BOOT_LOADER_NAME 0x00000200
+#define MULTIBOOT_INFO_APM_TABLE 0x00000400
+#define MULTIBOOT_INFO_VBE_INFO 0x00000800
+#define MULTIBOOT_INFO_FRAMEBUFFER_INFO 0x00001000
+
+#ifndef ASM_FILE
+
+typedef unsigned char multiboot_uint8_t;
+typedef unsigned short multiboot_uint16_t;
+typedef unsigned int multiboot_uint32_t;
+typedef unsigned long long multiboot_uint64_t;
+
+struct multiboot_header
+{
+ multiboot_uint32_t magic;
+ multiboot_uint32_t flags;
+ multiboot_uint32_t checksum;
+ multiboot_uint32_t header_addr;
+ multiboot_uint32_t load_addr;
+ multiboot_uint32_t load_end_addr;
+ multiboot_uint32_t bss_end_addr;
+ multiboot_uint32_t entry_addr;
+ multiboot_uint32_t mode_type;
+ multiboot_uint32_t width;
+ multiboot_uint32_t height;
+ multiboot_uint32_t depth;
+};
+
+struct multiboot_aout_symbol_table
+{
+ multiboot_uint32_t tabsize;
+ multiboot_uint32_t strsize;
+ multiboot_uint32_t addr;
+ multiboot_uint32_t reserved;
+};
+typedef struct multiboot_aout_symbol_table multiboot_aout_symbol_table_t;
+
+struct multiboot_elf_section_header_table
+{
+ multiboot_uint32_t num;
+ multiboot_uint32_t size;
+ multiboot_uint32_t addr;
+ multiboot_uint32_t shndx;
+};
+typedef struct multiboot_elf_section_header_table multiboot_elf_section_header_table_t;
+
+struct multiboot_info
+{
+ multiboot_uint32_t flags;
+ multiboot_uint32_t mem_lower;
+ multiboot_uint32_t mem_upper;
+ multiboot_uint32_t boot_device;
+ multiboot_uint32_t cmdline;
+ multiboot_uint32_t mods_count;
+ multiboot_uint32_t mods_addr;
+ union
+ {
+ multiboot_aout_symbol_table_t aout_sym;
+ multiboot_elf_section_header_table_t elf_sec;
+ } u;
+ multiboot_uint32_t mmap_length;
+ multiboot_uint32_t mmap_addr;
+ multiboot_uint32_t drives_length;
+ multiboot_uint32_t drives_addr;
+ multiboot_uint32_t config_table;
+ multiboot_uint32_t boot_loader_name;
+ multiboot_uint32_t apm_table;
+ multiboot_uint32_t vbe_control_info;
+ multiboot_uint32_t vbe_mode_info;
+ multiboot_uint16_t vbe_mode;
+ multiboot_uint16_t vbe_interface_seg;
+ multiboot_uint16_t vbe_interface_off;
+ multiboot_uint16_t vbe_interface_len;
+ multiboot_uint64_t framebuffer_addr;
+ multiboot_uint32_t framebuffer_pitch;
+ multiboot_uint32_t framebuffer_width;
+ multiboot_uint32_t framebuffer_height;
+ multiboot_uint8_t framebuffer_bpp;
+#define MULTIBOOT_FRAMEBUFFER_TYPE_INDEXED 0
+#define MULTIBOOT_FRAMEBUFFER_TYPE_RGB 1
+#define MULTIBOOT_FRAMEBUFFER_TYPE_EGA_TEXT 2
+ multiboot_uint8_t framebuffer_type;
+ union
+ {
+ struct
+ {
+ multiboot_uint32_t framebuffer_palette_addr;
+ multiboot_uint16_t framebuffer_palette_num_colors;
+ };
+ struct
+ {
+ multiboot_uint8_t framebuffer_red_field_position;
+ multiboot_uint8_t framebuffer_red_mask_size;
+ multiboot_uint8_t framebuffer_green_field_position;
+ multiboot_uint8_t framebuffer_green_mask_size;
+ multiboot_uint8_t framebuffer_blue_field_position;
+ multiboot_uint8_t framebuffer_blue_mask_size;
+ };
+ };
+};
+typedef struct multiboot_info multiboot_info_t;
+
+struct multiboot_color
+{
+ multiboot_uint8_t red;
+ multiboot_uint8_t green;
+ multiboot_uint8_t blue;
+};
+
+struct multiboot_mmap_entry
+{
+ multiboot_uint32_t size;
+ multiboot_uint64_t addr;
+ multiboot_uint64_t len;
+#define MULTIBOOT_MEMORY_AVAILABLE 1
+#define MULTIBOOT_MEMORY_RESERVED 2
+#define MULTIBOOT_MEMORY_ACPI_RECLAIMABLE 3
+#define MULTIBOOT_MEMORY_NVS 4
+#define MULTIBOOT_MEMORY_BADRAM 5
+ multiboot_uint32_t type;
+} __attribute__((packed));
+typedef struct multiboot_mmap_entry multiboot_memory_map_t;
+
+struct multiboot_mod_list
+{
+ multiboot_uint32_t mod_start;
+ multiboot_uint32_t mod_end;
+ multiboot_uint32_t cmdline;
+ multiboot_uint32_t pad;
+};
+typedef struct multiboot_mod_list multiboot_module_t;
+
+struct multiboot_apm_info
+{
+ multiboot_uint16_t version;
+ multiboot_uint16_t cseg;
+ multiboot_uint32_t offset;
+ multiboot_uint16_t cseg_16;
+ multiboot_uint16_t dseg;
+ multiboot_uint16_t flags;
+ multiboot_uint16_t cseg_len;
+ multiboot_uint16_t cseg_16_len;
+ multiboot_uint16_t dseg_len;
+};
+
+#endif
+
+#endif
+
+=== KEY ANSWER ===
+TLDR for those who came here looking for clues when facing Bochs' log like fetch_raw_descr
+iptor: GDT: index (ff57) 1fea > limit (2f) : 
+ Start Bochs with the debugger enabled, execute show int & show dbg_all in the Bochs debug
+ger CLI, and then run your image. This would make Bochs to log all interrupts/exceptions; 
+if this error occurred during interrupt handling, you'll get some more clues into what was
+ happening. 
+ 
+ Now, to the question.
+First let's see the logs. 
+ 19849108391e[CPU0 ] fetch_raw_descriptor: GDT: index (ff57) 1fea > limit (2f)
+19849108391e[CPU0 ] interrupt(): gate descriptor is not valid sys seg (vector=0x08)
+ 
+ Vector 0x08 is a double fault vector. So presumably there was some exception, and the att
+empt to process it resulted in a double fault. Moreover, the attempt to process a double f
+ault
+also resulted in a fault, presumably because the trap segments value in IDT was not a vali
+d system segment. Something is wrong in your IDT; and also there was that first exception,
+ so something is wrong there too. 
+ 19849108391i[CPU0 ] | EAX=00100023...
+19849108391i[CPU0 ] | ESP=00800000...
+19849108391i[CPU0 ] | SEG sltr(index|ti|rpl) base limit G D
+19849108391i[CPU0 ] | CS:001b( 0003| 0| 3) 00000000 ffffffff 1 1
+19849108391i[CPU0 ] | DS:0023( 0004| 0| 3) 00000000 ffffffff 1 1
+19849108391i[CPU0 ] | SS:0023( 0004| 0| 3) 00000000 ffffffff 1 1
+19849108391i[CPU0 ] | EIP=00100023 (00100023)
+19849108391i[CPU0 ] | CR2=0x00100023
+19849108391i[CPU0 ] 0x0000000000100023>> or byte ptr ds:[esi-117], ah : 08668B
+ 
+ Ok, so the exception happens upon jump to User mode. CS is 0x1B as expected, and the rest
+ of the segments are 0x23 as expected. ESP is 0x800000 as expected. It seems the cross-pri
+vilege level iret did its job. The segment shadow contents looks fine as well. 
+ EIP looks wrong however. It points into the kernel, somewhere in the middle of an instruc
+tion. CR2 is the same as EIP which suggests the initial exception was a paging exception; 
+CPU couldn't read the code instruction (which is expected I guess if the kernel pages are 
+set as system). EAX is the same as EIP (and it holds the initial EIP value in enter_user_m
+ode , so probably the very first instruction faulted). 
+ 19849108391e[CPU0 ] exception(): 3rd (13) exception with no resolution, shutdown status i
+s 00h, resetting
+ 
+ This is the triple-fault reset, because a double-fault could not be processed. 
+ Ok, so 1) exception handling doesn't work, and it should(?) and 2) a bad EIP. 
+ That 0x23 in the end of EIP is highly suspect, because it matches the data segment value.
+ Surely enough, enter_user_mode is buggy: 
+ 00100b10 <enter_user_mode>:
+ 100b10: fa cli
+ 100b11: 8b 44 24 04 mov 0x4(%esp),%eax
+ 100b15: 66 b8 23 00 mov $0x23,%ax
+ 
+ EIP value gets loaded into eax , but then ax is also loaded with 0x23 which destroys half
+ of the value. Fix is trivial: simply use different registers; e.g. use 'dx' for the selec
+tor value. 
+ With that fixed, we get 
+ 19960859176i[CPU0 ] | EIP=00108000 (00108000)
+19960859176i[CPU0 ] | CR2=0x00108000
+19960859176i[CPU0 ] 0x0000000000108000>> mov eax, 0xdeadbeef : B8EFBEADDE
+ 
+ Ok, so now it faults at the actual usermode start. Why does it do that? Well, because it’
+s still a system-mode page. There is nothing in your code to prepare the actual user-mode 
+region of virtual addresses. From the book (para 11.2): 
+ 
+ There are a few things every user mode process needs:
+Page frames for code, data and stack. At the moment it suffices to allocate one page frame
+ for the stack and enough page frames to fit the program’s code. Don’t worry about setting
+ up a stack that can be grow and shrink at this point in time, focus on getting a basic im
+plementation work first.
+The binary from the GRUB module has to be copied to the page frames used for the programs 
+code.
+A page directory and page tables are needed to map the page frames described above into me
+mory. At least two page tables are needed, because the code and data should be mapped in a
+t 0x00000000 and increasing, and the stack should start just below the kernel, at 0xBFFFFF
+FB, growing towards lower addresses. The U/S flag has to be set to allow PL3 access. 
+ 
+ None of that has been done. There isn’t any stack space allocated, and there aren’t any u
+ser-mode pages to hold the user-space code. This fault is expected; the kernel just isn't 
+ready to run userspace. 
+ Ok, with that figured out, let's return to the IDT handling. Looking at interrupts_instal
+l_idt , it is immediately obvious that it could use some love. At least the internal excep
+tions handlers should be all filled up (also note exception 7 is not error-code bearing; t
+he list of such exceptions is provided in the book). It would be a good idea to add some h
+andling of the exceptions also; one common approach is to log an exception, CPU, state, et
+c. Well, see the Bochs log for an example. Your code could do something similar. 
+ I have to say the book has dropped the ball here. This is a tricky subject, and the book 
+gives two rough examples of C side (paragraph 6.3) and assembly side (paragraph 6.4) of in
+terrupt handler, but they are not compatible with each other! interrupt_handler has to be 
+called according to its declaration (or vice versa); kudos to you for fixing that (I am no
+t sure if struct ordering is correct though). 
+ All that said, the code does look fine at first glance. It should've been a page fault, w
+hich should've been handled at least somehow. Moreover, Bochs debugger can show IDT conten
+ts, and it's fine; the segment values are correct. Let's switch Bochs' debugging logs on a
+nd see what's happening in more details ("show int", "show dbg_all" in the Bochs debugger 
+CLI): 
+ CPU 0: Exception 0x0e - (#PF) page fault occurred (error_code=0x0005)
+CPU 0: Interrupt 0x0e occurred (error_code=0x0005)
+07358149912e[CPU0 ] fetch_raw_descriptor: GDT: index (ff57) 1fea > limit (2f)
+CPU 0: Exception 0x0a - (#TS) invalid TSS occurred (error_code=0xff51)
+CPU 0: Exception 0x08 - (#DF) double fault occurred (error_code=0x0000)
+CPU 0: Interrupt 0x08 occurred (error_code=0x0000)
+07358149912e[CPU0 ] fetch_raw_descriptor: GDT: index (ff57) 1fea > limit (2f)
+CPU 0: Exception 0x0a - (#TS) invalid TSS occurred (error_code=0xff51)
+ 
+ Ah yes, IDT itself is not an issue. Here we have a cross-privilege trap (switching from u
+ser-mode at ring 3 to kernel at ring 0). That involves switching the stack, and switching 
+the stack needs TSS (so the CPU has a place to store ring 3 SS/ESP and load ring 0 SS/ESP)
+. There isn’t any TSS set in the code, and therefore any exceptions in ring 3 would result
+ in a crash. Well, the book hints at such problems in paragraph 11.3: 
+ 
+ For now, we should have interrupts disabled, as it requires a little more work to get int
+er-privilege level interrupts to work properly (see the section “System calls”). 
+ 
+ And indeed, later on in section "system calls" (paragraph 13.2), it talks about setting u
+p TSS and why it is needed. Without that done, you have to rely on Bochs' debugger and log
+s to deal with any bugs. 
+
+ fetch_raw_descriptor: GDT: index (ff57) 1fea > limit (2f) 
+ show int 
+ show dbg_all 
+ 19849108391e[CPU0 ] fetch_raw_descriptor: GDT: index (ff57) 1fea > limit (2f)
+19849108391e[CPU0 ] interrupt(): gate descriptor is not valid sys seg (vector=0x08)
+ 
+ 19849108391i[CPU0 ] | EAX=00100023...
+19849108391i[CPU0 ] | ESP=00800000...
+19849108391i[CPU0 ] | SEG sltr(index|ti|rpl) base limit G D
+19849108391i[CPU0 ] | CS:001b( 0003| 0| 3) 00000000 ffffffff 1 1
+19849108391i[CPU0 ] | DS:0023( 0004| 0| 3) 00000000 ffffffff 1 1
+19849108391i[CPU0 ] | SS:0023( 0004| 0| 3) 00000000 ffffffff 1 1
+19849108391i[CPU0 ] | EIP=00100023 (00100023)
+19849108391i[CPU0 ] | CR2=0x00100023
+19849108391i[CPU0 ] 0x0000000000100023>> or byte ptr ds:[esi-117], ah : 08668B
+ 
+ enter_user_mode 
+ 19849108391e[CPU0 ] exception(): 3rd (13) exception with no resolution, shutdown status i
+s 00h, resetting
+ 
+ enter_user_mode 
+ 00100b10 <enter_user_mode>:
+ 100b10: fa cli
+ 100b11: 8b 44 24 04 mov 0x4(%esp),%eax
+ 100b15: 66 b8 23 00 mov $0x23,%ax
+ 
+ eax 
+ ax 
+ 19960859176i[CPU0 ] | EIP=00108000 (00108000)
+19960859176i[CPU0 ] | CR2=0x00108000
+19960859176i[CPU0 ] 0x0000000000108000>> mov eax, 0xdeadbeef : B8EFBEADDE
+ 
+ interrupts_install_idt 
+ interrupt_handler 
+ CPU 0: Exception 0x0e - (#PF) page fault occurred (error_code=0x0005)
+CPU 0: Interrupt 0x0e occurred (error_code=0x0005)
+07358149912e[CPU0 ] fetch_raw_descriptor: GDT: index (ff57) 1fea > limit (2f)
+CPU 0: Exception 0x0a - (#TS) invalid TSS occurred (error_code=0xff51)
+CPU 0: Exception 0x08 - (#DF) double fault occurred (error_code=0x0000)
+CPU 0: Interrupt 0x08 occurred (error_code=0x0000)
+07358149912e[CPU0 ] fetch_raw_descriptor: GDT: index (ff57) 1fea > limit (2f)
+CPU 0: Exception 0x0a - (#TS) invalid TSS occurred (error_code=0xff51)
+

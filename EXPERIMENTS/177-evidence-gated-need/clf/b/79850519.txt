@@ -1,0 +1,401 @@
+qid: 79850519
+view_count: 757
+tags: c++, c, language-lawyer, c-preprocessor
+key_score: 7
+
+=== TITLE ===
+Workarounds for using __has_include when it may or may not be defined - Is it valid to pas
+s __has_include as a macro argument?
+
+=== QUESTION ===
+Often, I'd like to chain preprocessor conditionals involving __has_include (defined in C++
+17 and C23, and supported in earlier versions as an extension by many compilers (GCC 4.9.2
+ and up, and Clang from at least 3.0.0)). A simple example looks something like this: 
+ #if defined(__has_include) && __has_include("header.h")
+ #include "header.h"
+#else
+ #include "backup-header.h"
+#endif
+ 
+ The problem is that this fails to compile for compilers/standards that don't support __ha
+s_include . The defined(__has_include) check doesn't help us because the phrase __has_incl
+ude("header.h") is not syntactically valid in the first place if __has_include is not defi
+ned. 
+ GCC's documentation suggests something like the following: 
+ #if defined __has_include
+# if __has_include (<stdatomic.h>)
+# include <stdatomic.h>
+# endif
+#endif
+ 
+ https://gcc.gnu.org/onlinedocs/cpp/_005f_005fhas_005finclude.html 
+ The problem with this is that it becomes difficult to chain the #else branch. If we were 
+to adapt it to our example, we need to define an additional macro to track whether the __h
+as_include succeeded, which makes the code much more verbose: 
+ #ifdef __has_include
+ #if __has_include("header.h")
+ #include "header.h"
+ #define HAS_INCLUDE_HEADER_H
+ #endif
+#endif
+
+#ifndef HAS_INCLUDE_HEADER_H
+ #include "backup-header.h"
+#endif
+
+#undef HAS_INCLUDE_HEADER_H
+ 
+ If we don't want to do that, a naive solution would be to add another layer of indirectio
+n: 
+ // This part can be done once in a common header
+#ifdef __has_include
+ #define MY_HAS_INCLUDE(Arg) __has_include(Arg)
+#else
+ #define MY_HAS_INCLUDE(Arg) 0
+#endif
+
+#if MY_HAS_INCLUDE("header.h")
+ #include "header.h"
+#else
+ #include "backup-header.h"
+#endif
+ 
+ This does work on many (all?) compilers, but unfortunately it isn't standard-compliant, a
+nd recent Clang will warn about it. The relevant passage from the standard is as follows: 
+ 
+ The expression that controls conditional inclusion shall be an integral constant expressi
+on except that identifiers (including those lexically identical to keywords) are interpret
+ed as described below and it may contain zero or more defined-macro-expressions and/or has
+-include-expressions and/or has-attribute-expressions as unary operator expressions. 
+ ... 
+ The #ifdef, #ifndef, #elifdef, and #elifndef directives, and the defined conditional incl
+usion operator, shall treat __has_include and __has_cpp_attribute as if they were the name
+s of defined macros. The identifiers __has_include and __has_cpp_attribute shall not appea
+r in any context not mentioned in this subclause. 
+ 
+ https://timsong-cpp.github.io/cppwp/n4950/cpp.cond 
+ (C23 has an essentially identical clause) 
+ My understanding is that this is saying that " __has_include can only be used in the cont
+rolling expression of an #if / #elif directive or as the argument to defined ", but I'm a 
+little fuzzy on the exact limits. 
+ 
+ I was thinking through a couple of workarounds, and was wondering whether any of them are
+ standard-compliant and would work. 
+ (A) Defining MY_HAS_INCLUDE as a macro without arguments instead of one that takes an arg
+ument silences Clang's warning, but I doubt this is actually valid since we're still writi
+ng the phrase __has_include outside of an #if condition. Is there any chance this is stand
+ard-compliant? 
+ // This part can be done once in a common header
+#ifdef __has_include
+ #define MY_HAS_INCLUDE __has_include
+#else
+ #define HAS_INCLUDE_STUB(Arg) 0
+ #define MY_HAS_INCLUDE HAS_INCLUDE_STUB
+#endif
+
+#if MY_HAS_INCLUDE("header.h")
+ #include "header.h"
+#else
+ #include "backup-header.h"
+#endif
+ 
+ (B) My most promising idea is this. Would wrapping a macro around the entire __has_includ
+e expression like this be valid? 
+ // This part can be done once in a common header
+#ifdef __has_include
+ #define IF_HAS_INCLUDE_SUPPORTED(Arg) Arg
+#else
+ #define IF_HAS_INCLUDE_SUPPORTED(Arg) 0
+#endif
+
+#if IF_HAS_INCLUDE_SUPPORTED(__has_include("header.h"))
+ #include "header.h"
+#else
+ #include "backup-header.h"
+#endif
+ 
+ (C) If it isn't valid for __has_include to be passed to a macro at all, would something l
+ike this be valid? In this case the __has_include phrase is only passed as the argument to
+ a macro in the case where it isn't defined. (Although this is so ugly that it's probably 
+not worth actually doing) 
+ // This part can be done once in a common header
+#ifdef __has_include
+ #define HAS_INCLUDE_TAKE_EMPTY_PAREN()
+ #define PRE_HAS_INCLUDE
+ #define POST_HAS_INCLUDE HAS_INCLUDE_TAKE_EMPTY_PAREN (
+#else
+ #define HAS_INCLUDE_CONSUMER(Arg) 0
+ #define PRE_HAS_INCLUDE HAS_INCLUDE_CONSUMER (
+ #define POST_HAS_INCLUDE
+#endif
+
+#if PRE_HAS_INCLUDE __has_include("header.h") POST_HAS_INCLUDE )
+ #include "header.h"
+#else
+ #include "backup-header.h"
+#endif
+ 
+ (D) A better version combining the above two workarounds. In this case IF_HAS_INCLUDE_SUP
+PORTED(__has_include("header.h")) either expands to 0 if __has_include is not supported, o
+r (__has_include("header.h")) in parens if it is. And in the case where __has_include is s
+upported, it's never passed as the argument to a macro. Is this valid? Surely it must be. 
+ // This part can be done once in a common header
+#ifdef __has_include
+ #define IF_HAS_INCLUDE_SUPPORTED
+#else
+ #define IF_HAS_INCLUDE_SUPPORTED(Arg) (0)
+#endif
+
+#if IF_HAS_INCLUDE_SUPPORTED(__has_include("header.h"))
+ #include "header.h"
+#else
+ #include "backup-header.h"
+#endif
+ 
+ 
+ Something that I've often seen done is defining __has_include itself if it isn't defined:
+ 
+ // This part can be done once in a common header
+#ifndef __has_include
+ #define __has_include(Arg) 0
+#endif
+
+#if __has_include("header.h")
+ #include "header.h"
+#else
+ #include "backup-header.h"
+#endif
+ 
+ This is still technically a violation of the standard (I think) since names beginning wit
+h double underscores are reserved. I also don't like it because it makes it difficult to s
+ee what's actually going on (since someone reading later code might not realize that we de
+fined __has_include ourselves), and it breaks the ability of later code to check whether _
+_has_include is actually supported using defined . 
+ Which, if any, of my proposed workarounds (or other solutions which function similarly) a
+re valid in C/C++? The example I gave of chaining if-else is merely an example, I am inter
+ested in general techniques for using __has_include in #if conditions when it may or may n
+ot be defined. 
+
+ __has_include 
+ #if defined(__has_include) && __has_include("header.h")
+ #include "header.h"
+#else
+ #include "backup-header.h"
+#endif
+ 
+ __has_include 
+ defined(__has_include) 
+ __has_include("header.h") 
+ __has_include 
+ #if defined __has_include
+# if __has_include (<stdatomic.h>)
+# include <stdatomic.h>
+# endif
+#endif
+ 
+ #else 
+ __has_include 
+ #ifdef __has_include
+ #if __has_include("header.h")
+ #include "header.h"
+ #define HAS_INCLUDE_HEADER_H
+ #endif
+#endif
+
+#ifndef HAS_INCLUDE_HEADER_H
+ #include "backup-header.h"
+#endif
+
+#undef HAS_INCLUDE_HEADER_H
+ 
+ // This part can be done once in a common header
+#ifdef __has_include
+ #define MY_HAS_INCLUDE(Arg) __has_include(Arg)
+#else
+ #define MY_HAS_INCLUDE(Arg) 0
+#endif
+
+#if MY_HAS_INCLUDE("header.h")
+ #include "header.h"
+#else
+ #include "backup-header.h"
+#endif
+ 
+ __has_include 
+ #if 
+ #elif 
+ defined 
+ MY_HAS_INCLUDE 
+ __has_include 
+ #if 
+ // This part can be done once in a common header
+#ifdef __has_include
+ #define MY_HAS_INCLUDE __has_include
+#else
+ #define HAS_INCLUDE_STUB(Arg) 0
+ #define MY_HAS_INCLUDE HAS_INCLUDE_STUB
+#endif
+
+#if MY_HAS_INCLUDE("header.h")
+ #include "header.h"
+#else
+ #include "backup-header.h"
+#endif
+ 
+ // This part can be done once in a common header
+#ifdef __has_include
+ #define IF_HAS_INCLUDE_SUPPORTED(Arg) Arg
+#else
+ #define IF_HAS_INCLUDE_SUPPORTED(Arg) 0
+#endif
+
+#if IF_HAS_INCLUDE_SUPPORTED(__has_include("header.h"))
+ #include "header.h"
+#else
+ #include "backup-header.h"
+#endif
+ 
+ __has_include 
+ __has_include 
+ // This part can be done once in a common header
+#ifdef __has_include
+ #define HAS_INCLUDE_TAKE_EMPTY_PAREN()
+ #define PRE_HAS_INCLUDE
+ #define POST_HAS_INCLUDE HAS_INCLUDE_TAKE_EMPTY_PAREN (
+#else
+ #define HAS_INCLUDE_CONSUMER(Arg) 0
+ #define PRE_HAS_INCLUDE HAS_INCLUDE_CONSUMER (
+ #define POST_HAS_INCLUDE
+#endif
+
+#if PRE_HAS_INCLUDE __has_include("header.h") POST_HAS_INCLUDE )
+ #include "header.h"
+#else
+ #include "backup-header.h"
+#endif
+ 
+ IF_HAS_INCLUDE_SUPPORTED(__has_include("header.h")) 
+ 0 
+ __has_include 
+ (__has_include("header.h")) 
+ __has_include 
+ // This part can be done once in a common header
+#ifdef __has_include
+ #define IF_HAS_INCLUDE_SUPPORTED
+#else
+ #define IF_HAS_INCLUDE_SUPPORTED(Arg) (0)
+#endif
+
+#if IF_HAS_INCLUDE_SUPPORTED(__has_include("header.h"))
+ #include "header.h"
+#else
+ #include "backup-header.h"
+#endif
+ 
+ __has_include 
+ // This part can be done once in a common header
+#ifndef __has_include
+ #define __has_include(Arg) 0
+#endif
+
+#if __has_include("header.h")
+ #include "header.h"
+#else
+ #include "backup-header.h"
+#endif
+ 
+ __has_include 
+ __has_include 
+ defined 
+ __has_include 
+ #if
+
+=== KEY ANSWER ===
+If you want to have a macro to use in place of __has_include on systems that do not suppor
+t it, and still follow the letter of the quoted piece of the standard, you should be able 
+to use pasting. 
+ #ifndef __has_include
+ #define HAS_INCLUDE(Arg) 0
+ #warning no "has include"
+#else
+ #define HAS_INCLUDE(Arg) __ ## has_include(Arg)
+#endif
+
+#if HAS_INCLUDE(<header.h>)
+ #include <header.h>
+#else
+ #include "backup-header.h"
+#endif
+ 
+ 
+ If you perform the same kind of complicated conditional checks that are needed to see if 
+you want to include a particular header file, that only vary by what headers you are check
+ing for, you can hide those checks in a generic wrapper header. This abstracts the __has_i
+nclude logic away so that the difficult construction of the checks is only done once and l
+ives in a single file. 
+ /* wrap-boiler-plate.h */
+/* NB: No pragma once, since this file is generic */
+#ifdef __has_include
+ #if __has_include(MY_HEADER)
+ #include MY_HEADER
+ #define HAS_INCLUDE_HEADER_H
+ #endif
+#endif
+
+#ifndef HAS_INCLUDE_HEADER_H
+ #include MY_BACKUP_HEADER
+#endif
+
+#undef HAS_INCLUDE_HEADER_H
+
+#undef MY_HEADER
+#undef MY_BACKUP_HEADER
+ 
+ Then, you have a wrapper header file instance that uses the generic one, which would name
+ the header being tested and the backup: 
+ /* wrapped-header.h */
+#pragma once
+#define MY_HEADER <header.h>
+#define MY_BACKUP_HEADER "backup-header.h"
+#include "wrap-boiler-plate.h"
+ 
+
+ __has_include 
+ #ifndef __has_include
+ #define HAS_INCLUDE(Arg) 0
+ #warning no "has include"
+#else
+ #define HAS_INCLUDE(Arg) __ ## has_include(Arg)
+#endif
+
+#if HAS_INCLUDE(<header.h>)
+ #include <header.h>
+#else
+ #include "backup-header.h"
+#endif
+ 
+ __has_include 
+ /* wrap-boiler-plate.h */
+/* NB: No pragma once, since this file is generic */
+#ifdef __has_include
+ #if __has_include(MY_HEADER)
+ #include MY_HEADER
+ #define HAS_INCLUDE_HEADER_H
+ #endif
+#endif
+
+#ifndef HAS_INCLUDE_HEADER_H
+ #include MY_BACKUP_HEADER
+#endif
+
+#undef HAS_INCLUDE_HEADER_H
+
+#undef MY_HEADER
+#undef MY_BACKUP_HEADER
+ 
+ /* wrapped-header.h */
+#pragma once
+#define MY_HEADER <header.h>
+#define MY_BACKUP_HEADER "backup-header.h"
+#include "wrap-boiler-plate.h"
+

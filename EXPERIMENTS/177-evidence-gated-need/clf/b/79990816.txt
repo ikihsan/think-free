@@ -1,0 +1,120 @@
+qid: 79990816
+view_count: 545
+tags: c++, c++20, lifetime, reinterpret-cast, stdlaunder
+key_score: 4
+
+=== TITLE ===
+Why is the pre-C++23 start_lifetime_as() function described in &quot;Taking A byte out of 
+C++&quot; not exhibiting Undefined Behavior?
+
+=== QUESTION ===
+In the talk "Taking a Byte Out of C++ - Avoiding Punning by Starting Lifetimes - Robert Le
+ahy - CppCon 2022" , the presenter shows the following code as a pre-C++23 alternative to 
+std::start_lifetime_as : 
+ template<typename T> 
+[[nodiscard]]
+T* start_lifetime_as(void* mem) noexcept{
+ auto bytes = new (mem) unsigned char[sizeof(T)];
+ auto ptr = reinterpret_cast<T*>(bytes); 
+ (void)*ptr; 
+ return ptr; 
+}
+ 
+ The first line of this function is valid. It's starting a new lifetime of an array of byt
+es in the location of memory where mem is pointing at. Whatever was in mem (i.e. some type
+ U ) is no longer valid unless we use std::launder to access the memory there (as far as I
+ understand, and this is explicitly said in the talk in a later example). 
+ On the second line, we reinterpret_cast<T*>(bytes) , which while I understand doing a rei
+nterpret_cast is in itself not UB here, doing anything with that object would appear to be
+ UB. The lifetime of object T has not started yet. Lifetimes of objects can't be started b
+y reinterpret_cast , AFAIK. 
+ On the third line, I have no clue why it is necessary. Even taking the previous lines at 
+face value, the presenter towards the end starts talking about how they could have used st
+d::launder instead, but because they didn't introduce std::launder yet and it would "be a 
+pretty weird" use of std::launder , they decided not to use it here. 
+ First, I don't understand how std::launder could be used. The object T still has not been
+ created yet, and second why does de-referencing a void casting seem to "create" the objec
+t lifetime, as implied by the author? 
+ I do understand type T must be an "implicit lifetime type" to work here, but I don't know
+ how that changes the situation with respect to UB, if at all. 
+
+ template<typename T> 
+[[nodiscard]]
+T* start_lifetime_as(void* mem) noexcept{
+ auto bytes = new (mem) unsigned char[sizeof(T)];
+ auto ptr = reinterpret_cast<T*>(bytes); 
+ (void)*ptr; 
+ return ptr; 
+}
+ 
+ mem 
+ mem 
+ U 
+ std::launder 
+ reinterpret_cast<T*>(bytes) 
+ reinterpret_cast 
+ T 
+ reinterpret_cast 
+ std::launder 
+ std::launder 
+ std::launder 
+ std::launder 
+ T 
+ void 
+ T
+
+=== KEY ANSWER ===
+The code leans on one C++20 feature it never names: implicit object creation (P0593). 
+ [intro.object]/10 : "An operation that begins the lifetime of an array of unsigned char o
+r std::byte implicitly creates objects within the region of storage occupied by the array"
+ — and that operation creates implicit-lifetime objects "if doing so would result in the p
+rogram having defined behavior." 
+ That clause is the trick. The abstract machine can retroactively create implicit-lifetime
+ objects, choosing whatever set keeps your program defined. No constructor runs; the objec
+t just takes on the bytes already sitting there. Exactly what you want for bytes off a soc
+ket or malloc . 
+ new (mem) unsigned char[sizeof(T)] begins the array's lifetime, so it's one of those crea
+ting operations. It'll produce a T there only if something later needs one, and only if T 
+is implicit-lifetime. 
+ reinterpret_cast<T*>(bytes) starts no lifetime, right. Pure pointer math. 
+ (void)*ptr; is the line that matters. *ptr is a T glvalue, and indirection needs a real T
+ at that address to be defined. That's the "need" that forces line 1 to create the T — so 
+its lifetime counts from there and ptr points to it. Drop the line and nothing demands a T
+ , so you'd return a pointer to nothing. It isn't constructing anything; it's supplying th
+e well-definedness the creation rule keys off. Hence the "the dereference creates it" feel
+ing. 
+ Same reason T has to be implicit-lifetime: that rule only ever creates those types. Other
+wise *ptr designates nothing and it's UB. 
+ std::launder wouldn't help — it doesn't create objects, it just defeats the optimiser's a
+ssumptions about what's at an address. The reinterpret_cast pointer already designates the
+ T once line 3 forces it to exist. launder is for recovering a pointer the compiler thinks
+ is stale, not this. 
+ Caveats if you copy it: mem sized and aligned for T , T implicit-lifetime, value is whate
+ver the bytes already hold. C++23's std::start_lifetime_as does all this for you. 
+
+ [intro.object]/10 
+ unsigned char 
+ std::byte 
+ malloc 
+ new (mem) unsigned char[sizeof(T)] 
+ T 
+ T 
+ reinterpret_cast<T*>(bytes) 
+ (void)*ptr; 
+ *ptr 
+ T 
+ T 
+ T 
+ ptr 
+ T 
+ T 
+ *ptr 
+ std::launder 
+ reinterpret_cast 
+ T 
+ launder 
+ mem 
+ T 
+ T 
+ std::start_lifetime_as
+

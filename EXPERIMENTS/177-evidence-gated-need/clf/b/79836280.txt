@@ -1,0 +1,263 @@
+qid: 79836280
+view_count: 997
+tags: windows, git, powershell, batch-file, timestamp
+key_score: 7
+
+=== TITLE ===
+Retain the exact modification timestamp of a file in a Git repository
+
+=== QUESTION ===
+I'm trying to persist the last modification timestamp of a set of files in a Git repositor
+y. I understand that Git doesn't natively support tracking filesystem metadata, so some so
+rt of customization is due. 
+ For purposes of illustration, consider the following repository structure: 
+ /
+├─ meta.inf
+├─+ doc
+│ └─ notes.md
+└─+ data
+ ├─ 1.csv
+ └─ 2.csv
+ 
+ Here is what I'm trying to accomplish: Before changes to the repository are to be materia
+lized, 
+ 
+ if any file under the data directory was modified, then
+ 
+ find the most recent filesystem modification timestamp among those modified files, and 
+ write that timestamp to meta.inf . 
+ 
+ 
+ 
+ How can this be done? 
+ Since this is inevitably going to require some amount of scripting (and setup), I'm looki
+ng for a solution that works on Windows, using batch and/or PowerShell as the scripting en
+vironment. 
+ 
+ Relaxing constraints 
+ Commenters alerted me to the fact that storing concepts (like filesystem metadata) in a G
+it repository that Git doesn't natively understand can lead to conflicts that cannot be un
+ambiguously resolved. To that end, I am fine with a solution that assumes a single source 
+of changes. 
+ 
+ Non-solutions 
+ This came up in comments, more than once, so I want to clarify that I'm not looking for s
+olutions that suggest using a Git commit object's timestamp as a proxy. While this may wor
+k "for most people" , it isn't suitable for my use case.
+The closely related Checking out old files WITH original create/modified timestamps fails 
+the "works on Windows" requirement. There's a lot of useful information over there that ca
+n be used to inspire a solution, but it doesn't directly answer my question. 
+
+ /
+├─ meta.inf
+├─+ doc
+│ └─ notes.md
+└─+ data
+ ├─ 1.csv
+ └─ 2.csv
+ 
+ data 
+ meta.inf
+
+=== KEY ANSWER ===
+Since you're looking for an event-based solution (updating a metadata file on commit), a c
+lient-side Git hook is needed, specifically a pre-commit hook. 
+ Note that Git on Windows comes with its own Bash shell and common Unix utilities, so a cr
+oss-platform solution is possible. 
+ However, the following proof-of-concept for Windows delegates the work to Windows PowerSh
+ell , via its powershell.exe CLI. 
+ 
+ It would even be easy to adapt the solution to Unix-like platforms (as an alternative to 
+a pure Bash solution), given the availability of PowerShell (Core) 7 , the modern, cross-p
+latform, install-on-demand edition: all it takes is to replace powershell.exe with pwsh in
+ the code below. 
+ 
+ Note that it is possible to make hook scripts run PowerShell code directly (rather than h
+aving to call the PowerShell CLI from a /bin/sh -interpreted script), though it requires a
+ workaround: see the bottom section. 
+ 
+ Either way, on Windows the assumption is that execution of PowerShell scripts has already
+ been allowed on a given target machine (on Unix -like platforms this isn't necessary), su
+ch as with one-time configuration command 
+ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -Force ; if not, you can enable scrip
+t execution ad hoc by adding -ExecutionPolicy Bypass to the CLI calls, assuming that there
+ aren't more restrictive GPO -based policies in place; see this answer for more informatio
+n. 
+ 
+ To also address the aspect of avoiding potential merge conflicts caused by meta.inf invol
+ving multiple repository clones, see VonC's helpful answer . 
+ 
+ 
+ 
+ Setting up the pre-commmit hook: 
+ 
+ From your repo's root directory, create file ./git/hooks/pre-commit , e.g., from PowerShe
+ll, with 
+ New-Item ./git/hooks/pre-commit 
+ 
+ Note: On Unix-like platforms you'd need to make this file executable , using 
+ chmod +x ./git/hooks/pre-commit , but this isn't needed on Windows (where you'd have to i
+nvoke the command from Git Bash if you were to invoke it; however, on Windows all files de
+fault to having the executable ( x ) permission from Git Bash's perspective). 
+ 
+ 
+ Place the following content in the file: 
+ 
+ 
+ #!/bin/sh
+
+# Among the files to be committed that reside in data/,
+# determine the most recent last-modified timestamp
+# and write it to 'meta.inf' and make the modified 'meta.inf' part of the commit.
+powershell.exe -noprofile -c '
+ git diff --cached --name-only data/ |
+ Get-Item -Force -ErrorAction Ignore |
+ Sort-Object -Property LastWriteTime |
+ Select-Object -Last 1 |
+ ForEach-Object {
+ "[data]", "MostRecentLastModified=$($_.LastWriteTime.ToString("o"))" |
+ Set-Content -ErrorAction Stop meta.inf
+ git add meta.inf
+ exit $LASTEXITCODE
+ }
+ exit 0
+'
+ 
+ Note: 
+ 
+ git diff --cached --name-only data/ ensures that only files in the data/ subdirectory tre
+e that are part of the ongoing commit are processed. 
+ 
+ The above assumes that meta.inf is expected to conform to the Inf file format, using the 
+self-chosen names [data] for the section and MostRecentLastModified for the key; adjust as
+ needed. 
+ 
+ The timestamp is using .NET's round-trip date-time string format; e.g. 
+ 2025-12-04T11:38:15.8774146-05:00 
+ 
+ Example meta.inf content: 
+ [data]
+MostRecentLastModified=2025-12-04T11:38:15.8774146-05:00
+ 
+ 
+ 
+ 
+ Alternative: Making Git hook scripts "speak" PowerShell directly: 
+ 
+ As discussed, the above uses a PowerShell CLI call from a /bin/sh -interpreted script, us
+ing the -c ( -Command ) parameter to pass the PowerShell code as an argument. 
+ 
+ Doing so comes with quoting challenges, because embedding ' chars. to pass through to Pow
+erShell inside a Bash '...' string is awkward ( '\'' ) 
+ 
+ Sadly, providing the code via stdin (which would allow using a verbatim Bash here-documen
+t) is not an option, because PowerShell exhibits unexpected pseudo-interactive behavior in
+ this case; see GitHub issue #3223 . 
+ 
+ 
+ 
+ Sadly, directly using a shebang line that targets PowerShell (e.g. #!/usr/bin/env powersh
+ell (WinPS) or #!/usr/bin/env pwsh ), does not work, for the reasons detailed in this answ
+er .
+However, the linked answer also demonstrates a workaround, which is applied below; for cro
+ss-platform and/or PowerShell (Core) 7 use, replace powershell with pwsh in the 2nd line o
+f code. 
+ 
+ If you'd like see direct support for PowerShell shebang lines in a future PS7 version (so
+me version post-v7.5.x), you can signal your interest by giving GitHub issue #26584 a 👍. 
+ 
+ 
+ 
+ #!/bin/sh
+tmpPs1Script="$(mktemp --suffix=.ps1)"; tail +3 "$0" > "$tmpPs1Script"; powershell -NoProf
+ile -File "$tmpPs1Script"; ec=$?; rm "$tmpPs1Script"; exit $ec
+
+# The two lines above in effect cause the rest of this file 
+# to be interpreted by PowerShell.
+
+git diff --cached --name-only data/ |
+ Get-Item -Force -ErrorAction Ignore |
+ Sort-Object -Property LastWriteTime |
+ Select-Object -Last 1 |
+ ForEach-Object {
+ "[data]", "MostRecentLastModified=$($_.LastWriteTime.ToString("o"))" |
+ Set-Content -ErrorAction Stop meta.inf
+ git add meta.inf
+ exit $LASTEXITCODE
+ }
+
+exit 0
+ 
+
+ pre-commit 
+ powershell.exe 
+ powershell.exe 
+ pwsh 
+ /bin/sh 
+ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -Force 
+ -ExecutionPolicy Bypass 
+ meta.inf 
+ pre-commmit 
+ ./git/hooks/pre-commit 
+ New-Item ./git/hooks/pre-commit 
+ chmod +x ./git/hooks/pre-commit 
+ x 
+ #!/bin/sh
+
+# Among the files to be committed that reside in data/,
+# determine the most recent last-modified timestamp
+# and write it to 'meta.inf' and make the modified 'meta.inf' part of the commit.
+powershell.exe -noprofile -c '
+ git diff --cached --name-only data/ |
+ Get-Item -Force -ErrorAction Ignore |
+ Sort-Object -Property LastWriteTime |
+ Select-Object -Last 1 |
+ ForEach-Object {
+ "[data]", "MostRecentLastModified=$($_.LastWriteTime.ToString("o"))" |
+ Set-Content -ErrorAction Stop meta.inf
+ git add meta.inf
+ exit $LASTEXITCODE
+ }
+ exit 0
+'
+ 
+ git diff --cached --name-only data/ 
+ data/ 
+ meta.inf 
+ [data] 
+ MostRecentLastModified 
+ 2025-12-04T11:38:15.8774146-05:00 
+ meta.inf 
+ [data]
+MostRecentLastModified=2025-12-04T11:38:15.8774146-05:00
+ 
+ /bin/sh 
+ -c 
+ -Command 
+ ' 
+ '...' 
+ '\'' 
+ #!/usr/bin/env powershell 
+ #!/usr/bin/env pwsh 
+ powershell 
+ pwsh 
+ #!/bin/sh
+tmpPs1Script="$(mktemp --suffix=.ps1)"; tail +3 "$0" > "$tmpPs1Script"; powershell -NoProf
+ile -File "$tmpPs1Script"; ec=$?; rm "$tmpPs1Script"; exit $ec
+
+# The two lines above in effect cause the rest of this file 
+# to be interpreted by PowerShell.
+
+git diff --cached --name-only data/ |
+ Get-Item -Force -ErrorAction Ignore |
+ Sort-Object -Property LastWriteTime |
+ Select-Object -Last 1 |
+ ForEach-Object {
+ "[data]", "MostRecentLastModified=$($_.LastWriteTime.ToString("o"))" |
+ Set-Content -ErrorAction Stop meta.inf
+ git add meta.inf
+ exit $LASTEXITCODE
+ }
+
+exit 0
+

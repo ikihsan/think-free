@@ -1,0 +1,139 @@
+qid: 80001437
+view_count: 698
+tags: python, python-typing
+key_score: 9
+
+=== TITLE ===
+Type hint a default return type used unless more specific overload exists
+
+=== QUESTION ===
+Let's say I have the function 
+ import numpy as np
+
+def foo(a: float | np.ndarray, b: float | np.ndarray,
+ c: float | np.ndarray, d: float | np.ndarray) -> float | np.ndarray:
+ return a * b + c * d
+ 
+ It only returns a float when all input parameters are float . As soon as one of them is a
+n array, an array is returned. How can I efficiently type hint that behavior? Using simple
+ overloads I have to specify five variants. 
+ from typing import overload
+
+@overload
+def foo(a: float, b: float, c: float, d: float) -> float: ...
+
+@overload
+def foo(a: np.ndarray, b: float | np.ndarray,
+ c: float | np.ndarray, d: float | np.ndarray) -> np.ndarray: ...
+
+@overload
+def foo(a: float | np.ndarray, b: np.ndarray,
+ c: float | np.ndarray, d: float | np.ndarray) -> np.ndarray: ...
+
+@overload
+def foo(a: float | np.ndarray, b: float | np.ndarray,
+ c: np.ndarray, d: float | np.ndarray) -> np.ndarray: ...
+
+@overload
+def foo(a: float | np.ndarray, b: float | np.ndarray,
+ c: float | np.ndarray, d: np.ndarray) -> np.ndarray: ...
+ 
+ which, besides being a hassle, is not very transparent. and the problem only gets worse f
+or more input parameters, of course. 
+ Is there a way to tell the type checker that, unless the first overload is satisfied, the
+ return type will always be an array? 
+
+ import numpy as np
+
+def foo(a: float | np.ndarray, b: float | np.ndarray,
+ c: float | np.ndarray, d: float | np.ndarray) -> float | np.ndarray:
+ return a * b + c * d
+ 
+ float 
+ float 
+ from typing import overload
+
+@overload
+def foo(a: float, b: float, c: float, d: float) -> float: ...
+
+@overload
+def foo(a: np.ndarray, b: float | np.ndarray,
+ c: float | np.ndarray, d: float | np.ndarray) -> np.ndarray: ...
+
+@overload
+def foo(a: float | np.ndarray, b: np.ndarray,
+ c: float | np.ndarray, d: float | np.ndarray) -> np.ndarray: ...
+
+@overload
+def foo(a: float | np.ndarray, b: float | np.ndarray,
+ c: np.ndarray, d: float | np.ndarray) -> np.ndarray: ...
+
+@overload
+def foo(a: float | np.ndarray, b: float | np.ndarray,
+ c: float | np.ndarray, d: np.ndarray) -> np.ndarray: ...
+
+=== KEY ANSWER ===
+I think that the best way to achieve what you want, if you really want to reduce the amoun
+t of overload you need, is to do an overload overlap at the cost of a potential type infer
+ence error. This is a tradeoff you might accept or not. See the answer from sterliakov for
+ more information: https://stackoverflow.com/a/74567241/6251742 
+ Here is an example that works without numpy installed, your IDE should tell you the retur
+n type expected for those two calls, and you can replace whatever you need to fit your use
+case: 
+ import typing
+
+
+@typing.overload
+def foo( # type: ignore[overload-overlap]
+ a: str, b: str, c: str, d: str
+) -> str: ...
+
+
+@typing.overload
+def foo(
+ a: str | int,
+ b: str | int,
+ c: str | int,
+ d: str | int,
+) -> int: ...
+
+
+def foo(a, b, c, d):
+ ...
+
+
+# If all arguments are of type string, then the revealed type will be str
+typing.reveal_type(foo("1", "2", "3", "4")) # str
+
+# If any of those args are of type int, the result will be int
+typing.reveal_type(foo("1", "2", "3", 4)) # int
+ 
+
+ import typing
+
+
+@typing.overload
+def foo( # type: ignore[overload-overlap]
+ a: str, b: str, c: str, d: str
+) -> str: ...
+
+
+@typing.overload
+def foo(
+ a: str | int,
+ b: str | int,
+ c: str | int,
+ d: str | int,
+) -> int: ...
+
+
+def foo(a, b, c, d):
+ ...
+
+
+# If all arguments are of type string, then the revealed type will be str
+typing.reveal_type(foo("1", "2", "3", "4")) # str
+
+# If any of those args are of type int, the result will be int
+typing.reveal_type(foo("1", "2", "3", 4)) # int
+

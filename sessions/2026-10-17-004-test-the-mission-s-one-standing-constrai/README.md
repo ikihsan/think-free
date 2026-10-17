@@ -33,7 +33,7 @@ _(none recorded)_
 
 ## Commands
 
-9 captured, 3 non-zero exit.
+10 captured, 3 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -46,6 +46,7 @@ _(none recorded)_
 | 9 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/census.py'] | 0 | 278 |
 | 10 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/roles.py'] | 1 | 835 |
 | 11 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/roles.py'] | 0 | 312 |
+| 12 | ['python3', 'EXPERIMENTS/177-evidence-gated-need/roles.py'] | 0 | 319 |
 
 ## Integrity
 
@@ -72,6 +73,7 @@ _(none recorded)_
 | 9 | 06:53:27 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/census.py |
 | 10 | 06:53:53 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/roles.py |
 | 11 | 06:54:03 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/roles.py |
+| 12 | 06:59:40 | command | $ python3 EXPERIMENTS/177-evidence-gated-need/roles.py |
 
 ## Reproduce this record
 

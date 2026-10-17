@@ -1,0 +1,140 @@
+qid: 79468329
+view_count: 10034
+tags: reactjs, tailwind-css, vite, daisyui
+key_score: 23
+
+=== TITLE ===
+Adding tailwindcss to an upgraded Vite v6 codebase causes ERROR Failed to resolve &quot;@t
+ailwindcss/vite&quot;
+
+=== QUESTION ===
+The Problem 
+ I have a very basic React + Vite web project (no backend/no APIs) that deploys to Github 
+pages. 
+ I was previously running Vite 5 and have just upgraded to Vite 6. The upgrade went smooth
+ly, no issues. Local runs and cloud deploy all work. 
+ Today, I've been trying to setup tailwindcss (and ultimately DaisyUI ) in this simple cod
+ebase but after following the official tailwindcss v4 docs here:
+ https://tailwindcss.com/docs/installation/using-vite 
+ Also following the official DaisyUI v5 Beta docs here:
+ https://v5.daisyui.com/docs/install/vite/ 
+ It should be a relatively simple process, but when I run npm run dev which just runs vite
+ I'm hit with the following error: 
+ ✘ [ERROR] Failed to resolve "@tailwindcss/vite". This package is ESM only but it was trie
+d to load by `require`. See https://vite.dev/guide/troubleshooting.html#this-package-is-es
+m-only for more details. [plugin externalize-deps]
+ 
+ 
+ 
+ What I've tried 
+ I've double checked vite.config.js : 
+ import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+ plugins: [react(), tailwindcss()],
+ base: "/",
+});
+ 
+ package.json also has the latest of these libraries as of today 26 Feb 2025: 
+ "dependencies": {
+ "@tailwindcss/vite": "^4.0.9",
+ "@testing-library/jest-dom": "^6.6.3",
+ "@testing-library/react": "^16.2.0",
+ "@testing-library/user-event": "^14.6.1",
+ "daisyui": "^5.0.0-beta.8",
+ "gh-pages": "^6.3.0",
+ "react": "^19.0.0",
+ "react-dom": "^19.0.0",
+ "react-icons": "^5.5.0",
+ "tailwindcss": "^4.0.9",
+ "web-vitals": "^4.2.4"
+ },
+ "devDependencies": {
+ "@vitejs/plugin-react": "^4.3.4",
+ "vite": "^6.2.0"
+ },
+ 
+ Checking NodeJS version shows node --version : 
+ v23.4.0
+ 
+ Followed the docs exactly as prescribed but no dice. Unsure if I've accidentally missed s
+omething in my upgrade from v5 to v6. 
+
+ npm run dev 
+ vite 
+ ✘ [ERROR] Failed to resolve "@tailwindcss/vite". This package is ESM only but it was trie
+d to load by `require`. See https://vite.dev/guide/troubleshooting.html#this-package-is-es
+m-only for more details. [plugin externalize-deps]
+ 
+ vite.config.js 
+ import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+ plugins: [react(), tailwindcss()],
+ base: "/",
+});
+ 
+ package.json 
+ "dependencies": {
+ "@tailwindcss/vite": "^4.0.9",
+ "@testing-library/jest-dom": "^6.6.3",
+ "@testing-library/react": "^16.2.0",
+ "@testing-library/user-event": "^14.6.1",
+ "daisyui": "^5.0.0-beta.8",
+ "gh-pages": "^6.3.0",
+ "react": "^19.0.0",
+ "react-dom": "^19.0.0",
+ "react-icons": "^5.5.0",
+ "tailwindcss": "^4.0.9",
+ "web-vitals": "^4.2.4"
+ },
+ "devDependencies": {
+ "@vitejs/plugin-react": "^4.3.4",
+ "vite": "^6.2.0"
+ },
+ 
+ node --version 
+ v23.4.0
+
+=== KEY ANSWER ===
+Ok! After writing this issue and trying a few things, my eyes missed that the error provid
+ed a link with some Vite documentation on the matter at: 
+ https://vite.dev/guide/troubleshooting.html#this-package-is-esm-only 
+ The Fix 
+ The quick fix to the above error was as simple as doing the following in the case of my p
+roject: 
+ 
+ Rename vite.config.js to vite.config.mjs 
+ 
+ Note the ending suffix changes from js to mjs . 
+ Now running npm run dev is a SUCCESS! 
+ 
+ Additional notes (the why) 
+ The main issue here was not the Vite upgrade. It's that the coding ecosystem is moving aw
+ay from CommonJS style towards ESM Modules (and that I'm behind on the latest and greatest
+). 
+ My vite.config.js is a CJS config file. 
+ Renaming it to vite.config.mjs turns it into an ESM config file. 
+ This changes how the libraries were being loaded up. Turns out the latest tailwindcss v4 
+is ESM-only now (according to that error message). So the CJS vite.config.js couldn't load
+ up the ESM Tailwindcss v4 (it was trying to use require which is standard CJS practice). 
+ There shouldn't be any issues changing it to an ESM config file instead of CJS as most mo
+dern libraries are headed that way, but if you are upgrading an older larger codebase with
+ dated libraries reliant on the CJS way take note this may cause breakage! 
+ Feel free to correct me or add more notes if anything is amiss here! Hopefully this helps
+ others who might stumble upon this issue. 
+
+ vite.config.js 
+ vite.config.mjs 
+ js 
+ mjs 
+ npm run dev 
+ vite.config.js 
+ vite.config.mjs 
+ vite.config.js 
+ require
+

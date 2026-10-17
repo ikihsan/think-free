@@ -66,6 +66,24 @@ def main():
                     "key_answer": r["key_text"],
                     "key_score": r["key_score"],
                 }, sort_keys=True) + "\n")
+        # AMENDMENT 4: one file per row, hard-wrapped. A single-line JSON row
+        # loses its question to a 2000-character line cap whenever the key
+        # answer carries a code block; that cost CLF batch a 18 of 50 rows.
+        os.makedirs(os.path.join(HERE, "clf", name), exist_ok=True)
+        for r in part:
+            path = os.path.join(HERE, "clf", name, "%d.txt" % r["qid"])
+            with open(path, "w") as fh:
+                fh.write("qid: %d\nview_count: %s\ntags: %s\nkey_score: %s\n\n"
+                         % (r["qid"], r["view_count"], ", ".join(r["tags"]),
+                            r["key_score"]))
+                for label, key in (("TITLE", "title"),
+                                   ("QUESTION", "question_text"),
+                                   ("KEY ANSWER", "key_text")):
+                    fh.write("=== %s ===\n" % label)
+                    for ln in (r[key] or "").split("\n") or [""]:
+                        for i in range(0, max(len(ln), 1), 90):
+                            fh.write(ln[i:i + 90] + "\n")
+                    fh.write("\n")
     with open(os.path.join(HERE, "clf_population.json"), "w") as fh:
         json.dump({"qids": [r["qid"] for r in pop],
                    "view_counts": [r["view_count"] for r in pop],

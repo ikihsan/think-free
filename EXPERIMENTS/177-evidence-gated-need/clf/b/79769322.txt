@@ -1,0 +1,209 @@
+qid: 79769322
+view_count: 656
+tags: c++, language-lawyer
+key_score: 13
+
+=== TITLE ===
+Is it legal to forward declare just some, but not all of the overloads?
+
+=== QUESTION ===
+I am working on a big project (Unreal Engine, but that's irrelevant here) where I want to 
+minimize the compile time (especially for live intellisense). So I am reducing header depe
+ndencies by replacing header includes with forward declarations where possible. 
+ I have a bunch of free functions overloads and for a particular file I know I only call o
+ne of them. But is it legal to just forward declare some, but not all of the overloads? 
+ // foo.cpp
+
+const char* foo(bool) { return "bool"; }
+const char* foo(int) { return "int"; }
+ 
+ If I include the header or if I declare all the overloads the source file calling foo loo
+ks like this (after preprocessor if using include): 
+ // main.cpp
+
+const char* foo(bool);
+const char* foo(int);
+
+int main()
+{
+ std::cout << foo(true) << std::endl; // "bool"
+}
+ 
+ Scenario 1: declare the overload that is the best fit 
+ If I declare just the overload I use it will look like this: 
+ // main.cpp
+
+const char* foo(bool);
+
+int main()
+{
+ std::cout << foo(true) << std::endl; // "bool"
+}
+ 
+ Is this legal? 
+ Scenario 2: declare the overload that is not the best fit 
+ And the more interesting question: what if my forward declared overload is not the better
+ fit. Is that legal? 
+ // main.cpp
+
+// no const char* foo(bool) declaration
+const char* foo(int);
+
+int main()
+{
+ // This calls `foo(int) overload
+ // But would have called `foo(bool)`
+ // if all the declarations would have been visible
+
+ std::cout << foo(true) << std::endl; // "int"
+}
+ 
+ Scenario 3: some overloads are inlined, declare the best fit one which is not inlined 
+ // foo.h
+
+const char* foo(bool);
+inline const char* foo(int) { return "int"; }
+
+// foo.h will be included in other TUs
+ 
+ // foo.cpp
+const char* foo(bool) { return "bool"; }
+ 
+ // main.cpp
+
+const char* foo(bool);
+
+int main()
+{
+ std::cout << foo(true) << std::endl; // "bool"
+}
+ 
+ Scenario 4: some overloads are inlined, declare not the best fit one which is not inlined
+ 
+ // foo.h
+
+inline const char* foo(bool) {return "bool"; }
+const char* foo(int);
+
+// foo.h will be included in other TUs
+ 
+ // foo.cpp
+const char* foo(int) { return "int"; }
+ 
+ // main.cpp
+
+const char* foo(int);
+
+int main()
+{
+ std::cout << foo(true) << std::endl; // "int"
+}
+ 
+ Except the inline cases, I believe it's legal, but since I've never encountered this situ
+ation, I am not completely sure. 
+ For the inline cases, I don't know. 
+ 
+ I am aware that even if this is legal it comes with a bunch of problems: 
+ 
+ wrongly assuming which overload would be chosen and forward declaring the wrong one 
+ modifying source.cpp has the potential to break main.cpp 
+ adding a better overload in source.cpp will not have effect in main.cpp and it will be di
+fficult to diagnose. 
+ 
+ However this question is not about "should I do this?", but about "am I allowed, i.e. is 
+it legal?" 
+
+ // foo.cpp
+
+const char* foo(bool) { return "bool"; }
+const char* foo(int) { return "int"; }
+ 
+ foo 
+ // main.cpp
+
+const char* foo(bool);
+const char* foo(int);
+
+int main()
+{
+ std::cout << foo(true) << std::endl; // "bool"
+}
+ 
+ // main.cpp
+
+const char* foo(bool);
+
+int main()
+{
+ std::cout << foo(true) << std::endl; // "bool"
+}
+ 
+ // main.cpp
+
+// no const char* foo(bool) declaration
+const char* foo(int);
+
+int main()
+{
+ // This calls `foo(int) overload
+ // But would have called `foo(bool)`
+ // if all the declarations would have been visible
+
+ std::cout << foo(true) << std::endl; // "int"
+}
+ 
+ // foo.h
+
+const char* foo(bool);
+inline const char* foo(int) { return "int"; }
+
+// foo.h will be included in other TUs
+ 
+ // foo.cpp
+const char* foo(bool) { return "bool"; }
+ 
+ // main.cpp
+
+const char* foo(bool);
+
+int main()
+{
+ std::cout << foo(true) << std::endl; // "bool"
+}
+ 
+ // foo.h
+
+inline const char* foo(bool) {return "bool"; }
+const char* foo(int);
+
+// foo.h will be included in other TUs
+ 
+ // foo.cpp
+const char* foo(int) { return "int"; }
+ 
+ // main.cpp
+
+const char* foo(int);
+
+int main()
+{
+ std::cout << foo(true) << std::endl; // "int"
+}
+ 
+ source.cpp 
+ main.cpp 
+ source.cpp 
+ main.cpp
+
+=== KEY ANSWER ===
+When you call a function and its overload is chosen, the linker demands that the function 
+exist, and a call to it is inserted. If you don't call a specific overload, the linker dem
+ands nothing. 
+ So for the most part, you only need declare the overloads that are actually called. 
+ There is one problem with this; in Scenario two, if the code in "main" was actually in a 
+header file (and hence defined inline), and two different cases it was included, and those
+ two different cases saw a different set of overloads, then you'd be violating the "one de
+finition rule"; two definitions of the same function disagree about its implementation. 
+ So relying on "picking the wrong overload" is fragile. 
+ Everything else is legal.
+

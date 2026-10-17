@@ -1,0 +1,65 @@
+qid: 80007784
+view_count: 1025
+tags: c++, syntax, operator-precedence, language-design, pointer-to-member
+key_score: 17
+
+=== TITLE ===
+Why does pointer-to-member dereference operator have lower precedence than regular member 
+access?
+
+=== QUESTION ===
+The expression a.b.*c.d is parsed as (a.b).*(c.d) due to the . operator having higher prec
+edence than the .* operator. Why do these operators have different precedence? What led to
+ this decision? What are the advantages? 
+
+ a.b.*c.d 
+ (a.b).*(c.d) 
+ . 
+ .*
+
+=== KEY ANSWER ===
+The . operator and the -> operator aren't normal infix operators because the right hand pa
+rt of either one is not a general expression (you aren't allowed to put anything in parent
+heses in there, unlike with regular infix operators). Rather, . <name> and -> <name> are p
+ostfix operators. Various operator precedence guides group . and -> together with infix op
+erators, but this is not entirely correct. 
+ (Language lawyer hat on) <name> is actually template_opt id-expression or, in C++26, also
+ a splice-expression . The standard doesn't use the term "postfix operator", it calls expr
+essions with . and -> at the top level "postfix expressions". (Language lawyer hat off) St
+ill if we call postfix ++ a postfix operator, it's reasonable to call -> <name> the same w
+ay, because it is grouped together with postfix ++ and postfix -- and "indexing" (e.g., ar
+rayName[5] ) and "function call". 
+ Postfix operators can have precedence like infix operators, but one cannot assign precede
+nce to . as if it were an infix operator. Rather, one must assign precedence to the whole 
+. <name> thing. Otherwise, things like a.b+c could parse to a.(b+c) which wouldn't make an
+y sense. 
+ In C++, all postfix operators have strictly higher precedence than all infix operators. T
+his is a reasonable decision shared by most if not all mainstream languages. 
+While it is theoretically possible to have a.*b.c to parse as (a.*b).c , this parse would 
+seem alien to C users which were the primary target audience of C++, and also would raise 
+many further questions about a.*b++ and the like. 
+
+ . 
+ -> 
+ . <name> 
+ -> <name> 
+ . 
+ -> 
+ <name> 
+ template_opt id-expression 
+ splice-expression 
+ . 
+ -> 
+ ++ 
+ -> <name> 
+ ++ 
+ -- 
+ arrayName[5] 
+ . 
+ . <name> 
+ a.b+c 
+ a.(b+c) 
+ a.*b.c 
+ (a.*b).c 
+ a.*b++
+

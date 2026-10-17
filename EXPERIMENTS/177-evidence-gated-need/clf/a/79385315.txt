@@ -1,0 +1,69 @@
+qid: 79385315
+view_count: 4656
+tags: android, flutter, firebase, google-maps, build.gradle
+key_score: 4
+
+=== TITLE ===
+SecurityException: Unknown calling package name &#39;com.google.android.gms&#39; in Flutte
+r
+
+=== QUESTION ===
+I'm encountering the following error in my Flutter project (Flutter 3.27.1, Java 17) while
+ using Google Maps and Firebase: 
+ E/GoogleApiManager( 9509): Failed to get service from broker.
+E/GoogleApiManager( 9509): java.lang.SecurityException: Unknown calling package name 'com.
+google.android.gms'.
+E/GoogleApiManager( 9509): at android.os.Parcel.createExceptionOrNull(Parcel.java:3011)
+E/GoogleApiManager( 9509): at android.os.Parcel.createException(Parcel.java:2995)
+E/GoogleApiManager( 9509): at android.os.Parcel.readException(Parcel.java:2978)
+E/GoogleApiManager( 9509): at android.os.Parcel.readException(Parcel.java:2920)
+E/GoogleApiManager( 9509): at apef.a(:com.google.android.gms@245034029@24.50.34 (190400-71
+3002902):36)
+E/GoogleApiManager( 9509): at apcm.z(:com.google.android.gms@245034029@24.50.34 (190400-71
+3002902):143)
+E/GoogleApiManager( 9509): at aokj.run(:com.google.android.gms@245034029@24.50.34 (190400-
+713002902):54)
+E/GoogleApiManager( 9509): at android.os.Handler.handleCallback(Handler.java:942)
+E/GoogleApiManager( 9509): at android.os.Handler.dispatchMessage(Handler.java:99)
+E/GoogleApiManager( 9509): at bvmf.my(:com.google.android.gms@245034029@24.50.34 (190400-7
+13002902):1)
+E/GoogleApiManager( 9509): at bvmf.dispatchMessage(:com.google.android.gms@245034029@24.50
+.34 (190400-713002902):5)
+E/GoogleApiManager( 9509): at android.os.Looper.loopOnce(Looper.java:201)
+E/GoogleApiManager( 9509): at android.os.Looper.loop(Looper.java:288)
+E/GoogleApiManager( 9509): at android.os.HandlerThread.run(HandlerThread.java:67)
+ 
+ 
+ I generated a new Google Maps API key and updated it in the AndroidManifest.xml file, but
+ the same error persists. 
+ 
+ Based on stackoverflow suggestions, I installed the Google Repository and Google Play Ser
+vices via the Android Studio SDK Manager (Tools > SDK Manager > SDK Tools). However, the i
+ssue still persists. 
+
+ E/GoogleApiManager( 9509): Failed to get service from broker.
+E/GoogleApiManager( 9509): java.lang.SecurityException: Unknown calling package name 'com.
+google.android.gms'.
+E/GoogleApiManager( 9509): at android.os.Parcel.createExceptionOrNull(Parcel.java:3011)
+E/GoogleApiManager( 9509): at android.os.Parcel.createException(Parcel.java:2995)
+E/GoogleApiManager( 9509): at android.os.Parcel.readException(Parcel.java:2978)
+E/GoogleApiManager( 9509): at android.os.Parcel.readException(Parcel.java:2920)
+E/GoogleApiManager( 9509): at apef.a(:com.google.android.gms@245034029@24.50.34 (190400-71
+3002902):36)
+E/GoogleApiManager( 9509): at apcm.z(:com.google.android.gms@245034029@24.50.34 (190400-71
+3002902):143)
+E/GoogleApiManager( 9509): at aokj.run(:com.google.android.gms@245034029@24.50.34 (190400-
+713002902):54)
+E/GoogleApiManager( 9509): at android.os.Handler.handleCallback(Handler.java:942)
+E/GoogleApiManager( 9509): at android.os.Handler.dispatchMessage(Handler.java:99)
+E/GoogleApiManager( 9509): at bvmf.my(:com.google.android.gms@245034029@24.50.34 (190400-7
+13002902):1)
+E/GoogleApiManager( 9509): at bvmf.dispatchMessage(:com.google.android.gms@245034029@24.50
+.34 (190400-713002902):5)
+E/GoogleApiManager( 9509): at android.os.Looper.loopOnce(Looper.java:201)
+E/GoogleApiManager( 9509): at android.os.Looper.loop(Looper.java:288)
+E/GoogleApiManager( 9509): at android.os.HandlerThread.run(HandlerThread.java:67)
+
+=== KEY ANSWER ===
+There is an open issue regarding these error logs. However, no fix yet.
+

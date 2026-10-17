@@ -1,0 +1,755 @@
+qid: 80008925
+view_count: 797
+tags: c, algorithm, visual-c++, benchmarking, icx
+key_score: 6
+
+=== TITLE ===
+Conditional debug print speeds up code execution in sum of two squares problem
+
+=== QUESTION ===
+A debug print line seems to make code execution unexpectedly faster. Commenting out a prin
+tf that is conditional on n<100 slows things down when n is much larger. 
+ How is the conditional print that never executes for n>100 speeding things up? 
+ This toy code arises from a question on Math SE What is the most efficient way to determi
+ne if a natural number N can be written as the sum of two squares? . It is a surprisingly 
+tough problem with a single thread unvectorised solution taking around 4 hours to count th
+em out to 10 9 . 
+ That question gives a naïve algorithm which is easy to check and asks if there is a faste
+r way. I thought that avoiding multiplies and sqrt in the main loop would
+speed it up even if it remains O(sqrt(N)). 
+ This is my first attempt. The odd thing was that my initial routine with a debug print in
+ for small n was actually faster than any of my later attempts to simplify and optimise it
+ once I had it working. 
+ The least subtle behaviour applying to both MSVC and Intel ICX compilers is that commenti
+ng out a debugging conditional printf slows things down! In the case of Intel ICX 2025.2.1
+ by almost 30% (MSVC by 2.5%). 
+ I'm at a loss to explain this. Intel generated code is also notably faster than MSVC. I m
+ay be missing something obvious. Timings table - power of 10 increase in N roughly increas
+es computation time by 32x. 
+ 
+ 
+ 
+ N 
+ count 
+ MSVC time/s 
+ MSVC debug time/s 
+ ICX time/s 
+ ICX debug time/s 
+ 
+ 
+ 
+ 
+ 10 
+ 7 
+ 0 
+ 0 
+ 0 
+ 0.001 
+ 
+ 
+ 100 
+ 43 
+ 0.001 
+ 0.001 
+ 0 
+ 0.002 
+ 
+ 
+ 1000 
+ 330 
+ 0.001 
+ 0.001 
+ 0 
+ 0.002 
+ 
+ 
+ 10000 
+ 2749 
+ 0.002 
+ 0.002 
+ 0 
+ 0.003 
+ 
+ 
+ 100000 
+ 24028 
+ 0.019 
+ 0.024 
+ 0.013 
+ 0.013 
+ 
+ 
+ 1000000 
+ 216341 
+ 0.474 
+ 0.473 
+ 0.409 
+ 0.297 
+ 
+ 
+ 10000000 
+ 1985459 
+ 13.402 
+ 12.915 
+ 11.726 
+ 7.835 
+ 
+ 
+ 100000000 
+ 18457846 
+ 410.982 
+ 398.544 
+ 368.854 
+ 245.783 
+ 
+ 
+ 
+ I had expected that deleting the debugging test code which prints a solution for N<100 wo
+uld speed things up. But the opposite was the case. I have repeated the timings several ti
+mes because I didn't believe what I was seeing. 
+ I also found that the fairly simple code for sum_2squares shown below is very hard to opt
+imise further (but that is a story for another question). This is the test code - most int
+eresting speed difference is on the Intel ICX 2025.2.1 compiler: 
+ #include <stdio.h>
+#include <math.h>
+#include <time.h>
+
+bool sum_2squares(unsigned int n)
+{
+ unsigned int a2, b2, delta_a, delta_b, sum, limit = (unsigned int) sqrt(n);
+ a2 = 0;
+ delta_a = 1;
+ b2 = limit * limit;
+ delta_b = 2 * limit - 1;
+ while (a2 <= n / 2)
+ {
+ sum = a2 + b2;
+ if (sum == n) // solution
+ {
+// if (n<100) printf("%u = %3u + %3u = %3u^2 + %u^2\n", n, a2, b2, (delta_a-1)/2, (delta_b
++1)/2); // commenting this debugging line slows it down!
+ return true;
+ }
+ a2 += delta_a;
+ delta_a += 2;
+ if (sum > n)
+ {
+ delta_a -= 2;
+ a2 -= delta_a;
+ b2 -= delta_b;
+ delta_b = delta_b - 2;
+ }
+ }
+ return n == sum;
+}
+
+int main()
+{
+ unsigned int count = 0;
+ unsigned int limit = 10;
+ time_t start, end;
+ start = clock();
+ printf("N\t count\t time/s\n");
+ for (unsigned int i = 1; i <= 10000000; i++) // runtime about 20s (gets 30x slower
+ {
+ if (sum_2squares(i)) count++;
+ if (i % limit == 0)
+ {
+ printf("%-9u %-9u ", i, count);
+ end = clock();
+ printf("%6.3f\n", (float)(end - start) / CLOCKS_PER_SEC);
+
+ limit *= 10;
+ }
+ }
+}
+ 
+ I'm using Intel ICX 2025.2.1 with +O3 and all gofaster options.
+On my local system MSVC with /O2 /Ob2 /Ot /Oi /Gy /arch:CORE-AVX2
+(everything else at standard defaults). On Godbolt just +O2 or +O3 for MS or Intel respect
+ively. Setting AVX2 or not doesn't make any obvious difference. Intel might vectorise it i
+f I gave it the right options. 
+ These are the respective assembler listings - apart from a different choice of working re
+gisters I haven't been able to spot anything odd. I've include addresses in the assembler 
+listing because I suspect it might be a branch target alignment issue. 
+ Intel ICX /O2 inlined code (in MS IDE) without debug printf 
+ if (sum_2squares(i)) count++;
+00007FF73C7610C7 C4 C1 3B 51 C0 vsqrtsd xmm0,xmm8,xmm8 
+00007FF73C7610CC C4 E1 FB 2C C8 vcvttsd2si rcx,xmm0 
+00007FF73C7610D1 8D 04 4D FF FF FF FF lea eax,[rcx*2-1] 
+00007FF73C7610D8 0F AF C9 imul ecx,ecx 
+00007FF73C7610DB 89 FA mov edx,edi 
+00007FF73C7610DD D1 EA shr edx,1 
+00007FF73C7610DF 41 B8 01 00 00 00 mov r8d,1 
+00007FF73C7610E5 45 31 C9 xor r9d,r9d 
+00007FF73C7610E8 EB 10 jmp main+0FAh (07FF73C7610FAh) 
+00007FF73C7610EA 66 0F 1F 44 00 00 nop word ptr [rax+rax] 
+00007FF73C7610F0 29 C1 sub ecx,eax 
+00007FF73C7610F2 83 C0 FE add eax,0FFFFFFFEh 
+00007FF73C7610F5 41 39 D1 cmp r9d,edx 
+00007FF73C7610F8 77 A6 ja main+0A0h (07FF73C7610A0h) 
+00007FF73C7610FA 45 8D 14 09 lea r10d,[r9+rcx] 
+00007FF73C7610FE 41 39 FA cmp r10d,edi 
+00007FF73C761101 74 9D je main+0A0h (07FF73C7610A0h) 
+00007FF73C761103 77 EB ja main+0F0h (07FF73C7610F0h) 
+00007FF73C761105 45 01 C1 add r9d,r8d 
+00007FF73C761108 41 83 C0 02 add r8d,2 
+00007FF73C76110C 41 39 D1 cmp r9d,edx 
+00007FF73C76110F 76 E9 jbe main+0FAh (07FF73C7610FAh) 
+00007FF73C761111 EB 8D jmp main+0A0h (07FF73C7610A0h) 
+00007FF73C761113 66 66 66 66 2E 0F 1F 84 00 00 00 00 00 nop word ptr cs:[rax+rax] 
+ 
+ Intel ICX /O2 inlined code (in MS IDE) with debug printf (longer) 
+ if (sum_2squares(i)) count++;
+00007FF7DB91115A C4 C1 3B 51 C0 vsqrtsd xmm0,xmm8,xmm8 
+00007FF7DB91115F C4 61 FB 2C C8 vcvttsd2si r9,xmm0 
+00007FF7DB911164 42 8D 04 4D FF FF FF FF lea eax,[r9*2-1] 
+00007FF7DB91116C 45 0F AF C9 imul r9d,r9d 
+00007FF7DB911170 89 FA mov edx,edi 
+00007FF7DB911172 D1 EA shr edx,1 
+00007FF7DB911174 B9 01 00 00 00 mov ecx,1 
+00007FF7DB911179 45 31 C0 xor r8d,r8d 
+00007FF7DB91117C EB 0D jmp main+0FBh (07FF7DB91118Bh) 
+00007FF7DB91117E 66 90 nop 
+00007FF7DB911180 41 29 C1 sub r9d,eax 
+00007FF7DB911183 83 C0 FE add eax,0FFFFFFFEh 
+00007FF7DB911186 41 39 D0 cmp r8d,edx 
+00007FF7DB911189 77 A5 ja main+0A0h (07FF7DB911130h) 
+00007FF7DB91118B 43 8D 1C 08 lea ebx,[r8+r9] 
+00007FF7DB91118F 39 FB cmp ebx,edi 
+00007FF7DB911191 74 1D je main+120h (07FF7DB9111B0h) 
+00007FF7DB911193 77 EB ja main+0F0h (07FF7DB911180h) 
+00007FF7DB911195 41 01 C8 add r8d,ecx 
+00007FF7DB911198 83 C1 02 add ecx,2 
+00007FF7DB91119B 41 39 D0 cmp r8d,edx 
+00007FF7DB91119E 76 EB jbe main+0FBh (07FF7DB91118Bh) 
+00007FF7DB9111A0 EB 8E jmp main+0A0h (07FF7DB911130h) 
+00007FF7DB9111A2 66 66 66 66 66 2E 0F 1F 84 00 00 00 00 00 nop word ptr cs:[rax+rax] 
+00007FF7DB9111B0 83 FF 63 cmp edi,63h 
+00007FF7DB9111B3 0F 87 77 FF FF FF ja main+0A0h (07FF7DB911130h) 
+00007FF7DB9111B9 FF C0 inc eax 
+00007FF7DB9111BB D1 E8 shr eax,1 
+00007FF7DB9111BD FF C9 dec ecx 
+00007FF7DB9111BF D1 E9 shr ecx,1 
+00007FF7DB9111C1 89 44 24 28 mov dword ptr [rsp+28h],eax 
+00007FF7DB9111C5 89 4C 24 20 mov dword ptr [rsp+20h],ecx 
+00007FF7DB9111C9 48 8D 0D C3 1F 00 00 lea rcx,[GS_ExceptionPointers+23h (07FF7DB913193h)] 
+00007FF7DB9111D0 89 FA mov edx,edi 
+00007FF7DB9111D2 E8 29 FE FF FF call printf (07FF7DB911000h) 
+00007FF7DB9111D7 E9 54 FF FF FF jmp main+0A0h (07FF7DB911130h) 
+00007FF7DB9111DC 0F 1F 40 00 nop dword ptr [rax] 
+ {
+ 
+ The timing behaviour is reproducible on Godbolt test range reduced for runtime <2s. Timin
+gs can be a bit erratic there.
+The speed difference is only about 10% on the latest 2026.0 version but still present. 
+ I'm guessing the test and branch which is never taken somehow prevents a pipeline stall. 
+But it is just a guess. I couldn't really spot an obvious cause. I'd like to understand be
+tter what is going on. Any other speed enhancements are welcome too. 
+ UPDATE:
+Guided by the disassembly and profiling I created a straightjacket to force the compiler t
+o generate code that allocates 64bit and 32 bit variables in the same fashion as the faste
+r conditional printf code. 
+ This has worked in the sense that the resulting code is now faster 7s vs 11s and uncommen
+ting the conditional printf line now adds 0.5s to the execution time. This is a useful res
+ult but is by no means a satisfactory answer. The compiler by default is generating substa
+ndard code for this admittedly strange branch dense code. The flaw appears to be in the co
+mpilers register allocation algorithm and/or branch target destination(s) when the simpler
+ code is presented to it. 
+ This also allowed a tidy of the logic with advantage (previously the code was crippled if
+ the addition to a2 was not in the outer loop. Original lines commented out below to show 
+the changes made. 
+ This is the latest go-faster version of sum_squares (needs #include <stdint.h>). 
+ bool sum_2squares(uint64_t n) //fastest found so far
+{
+ uint64_t a2, b2, limit = sqrt(n);;
+ uint64_t delta_a;
+ uint32_t delta_b, sum;
+ a2 = 0;
+ delta_a = 1;
+ b2 = limit * limit;
+ delta_b = 2 * limit - 1;
+ while (a2 <= n / 2)
+ {
+ sum = a2 + b2;
+ if (sum == n) // solution
+ {
+ // if (n<2) printf("%I64u = %I64u + %I64u = %I64u^2 + %u^2\n", n, a2, b2, (delta_a-1)/2, 
+(delta_b+1)/2); // slows down if not commented out (as expected)
+ return true;
+ }
+// a2 += delta_a;
+ if (sum > n)
+ {
+// a2 -= delta_a;
+ b2 -= delta_b;
+ delta_b = delta_b - 2;
+ }
+ else
+ { 
+ a2 += delta_a;
+ delta_a += 2;
+ } 
+ }
+ return n == sum;
+}
+
+ 
+ It includes the tweak of making delta_a 64 bit which was discovered by tweaking the code 
+one variable at a time to the other size. 
+ The code can be crippled by making either of the main outer variables base or i (for loop
+ counter) 64 bit.
+The code can be slowed down ~1s by making limit 32 bit.
+The code is almost agnostic about the width of sum, delta_A and delta_b. 
+ Having obtained what I though was the best possible code I then flipped each integer vari
+able type in turn from 32 to 64 bit or vice versa to measure the timing effect. Results ar
+e ranked by influence. 
+ 
+ 
+ 
+ variable 
+ 32 
+ 64 
+ flip time/s 
+ 
+ 
+ 
+ 
+ main base 
+ # 
+ 
+ 12.95 
+ 
+ 
+ main i 
+ # 
+ 
+ 12.05 
+ 
+ 
+ limit 
+ 
+ # 
+ 8.34 
+ 
+ 
+ a2 
+ 
+ # 
+ 7.47 
+ 
+ 
+ main count 
+ # 
+ 
+ 7.15 
+ 
+ 
+ b2 
+ 
+ # 
+ 7.15 
+ 
+ 
+ sum 
+ 
+ # 
+ 7.06 
+ 
+ 
+ delta_b 
+ # 
+ 
+ 7.0 
+ 
+ 
+ delta_a 
+ # 
+ 
+ 6.9 
+ 
+ 
+ original 
+ - 
+ - 
+ 7.08 
+ 
+ 
+ 
+ # indicates the type of the integer variable in the enhanced original code. 
+ The big surprise was that promoting delta_a to 64 bits speeds thing up slightly (not by m
+uch but enough to be measurable and reproducible). Behaviour may vary with platform and co
+mpiler - be interested to know if this version also runs faster on the M4/AMD/ARM CPUs. 
+ I'm aware there are lots of sum of two squares questions on SO already and that the Hermi
+te-Serret algorithm might be the method of choice here but in this question I am concerned
+ with the weird effect of a conditional print on the speed of a brute force attack. 
+
+ n<100 
+ n>100 
+ n 
+ sum_2squares 
+ #include <stdio.h>
+#include <math.h>
+#include <time.h>
+
+bool sum_2squares(unsigned int n)
+{
+ unsigned int a2, b2, delta_a, delta_b, sum, limit = (unsigned int) sqrt(n);
+ a2 = 0;
+ delta_a = 1;
+ b2 = limit * limit;
+ delta_b = 2 * limit - 1;
+ while (a2 <= n / 2)
+ {
+ sum = a2 + b2;
+ if (sum == n) // solution
+ {
+// if (n<100) printf("%u = %3u + %3u = %3u^2 + %u^2\n", n, a2, b2, (delta_a-1)/2, (delta_b
++1)/2); // commenting this debugging line slows it down!
+ return true;
+ }
+ a2 += delta_a;
+ delta_a += 2;
+ if (sum > n)
+ {
+ delta_a -= 2;
+ a2 -= delta_a;
+ b2 -= delta_b;
+ delta_b = delta_b - 2;
+ }
+ }
+ return n == sum;
+}
+
+int main()
+{
+ unsigned int count = 0;
+ unsigned int limit = 10;
+ time_t start, end;
+ start = clock();
+ printf("N\t count\t time/s\n");
+ for (unsigned int i = 1; i <= 10000000; i++) // runtime about 20s (gets 30x slower
+ {
+ if (sum_2squares(i)) count++;
+ if (i % limit == 0)
+ {
+ printf("%-9u %-9u ", i, count);
+ end = clock();
+ printf("%6.3f\n", (float)(end - start) / CLOCKS_PER_SEC);
+
+ limit *= 10;
+ }
+ }
+}
+ 
+ if (sum_2squares(i)) count++;
+00007FF73C7610C7 C4 C1 3B 51 C0 vsqrtsd xmm0,xmm8,xmm8 
+00007FF73C7610CC C4 E1 FB 2C C8 vcvttsd2si rcx,xmm0 
+00007FF73C7610D1 8D 04 4D FF FF FF FF lea eax,[rcx*2-1] 
+00007FF73C7610D8 0F AF C9 imul ecx,ecx 
+00007FF73C7610DB 89 FA mov edx,edi 
+00007FF73C7610DD D1 EA shr edx,1 
+00007FF73C7610DF 41 B8 01 00 00 00 mov r8d,1 
+00007FF73C7610E5 45 31 C9 xor r9d,r9d 
+00007FF73C7610E8 EB 10 jmp main+0FAh (07FF73C7610FAh) 
+00007FF73C7610EA 66 0F 1F 44 00 00 nop word ptr [rax+rax] 
+00007FF73C7610F0 29 C1 sub ecx,eax 
+00007FF73C7610F2 83 C0 FE add eax,0FFFFFFFEh 
+00007FF73C7610F5 41 39 D1 cmp r9d,edx 
+00007FF73C7610F8 77 A6 ja main+0A0h (07FF73C7610A0h) 
+00007FF73C7610FA 45 8D 14 09 lea r10d,[r9+rcx] 
+00007FF73C7610FE 41 39 FA cmp r10d,edi 
+00007FF73C761101 74 9D je main+0A0h (07FF73C7610A0h) 
+00007FF73C761103 77 EB ja main+0F0h (07FF73C7610F0h) 
+00007FF73C761105 45 01 C1 add r9d,r8d 
+00007FF73C761108 41 83 C0 02 add r8d,2 
+00007FF73C76110C 41 39 D1 cmp r9d,edx 
+00007FF73C76110F 76 E9 jbe main+0FAh (07FF73C7610FAh) 
+00007FF73C761111 EB 8D jmp main+0A0h (07FF73C7610A0h) 
+00007FF73C761113 66 66 66 66 2E 0F 1F 84 00 00 00 00 00 nop word ptr cs:[rax+rax] 
+ 
+ if (sum_2squares(i)) count++;
+00007FF7DB91115A C4 C1 3B 51 C0 vsqrtsd xmm0,xmm8,xmm8 
+00007FF7DB91115F C4 61 FB 2C C8 vcvttsd2si r9,xmm0 
+00007FF7DB911164 42 8D 04 4D FF FF FF FF lea eax,[r9*2-1] 
+00007FF7DB91116C 45 0F AF C9 imul r9d,r9d 
+00007FF7DB911170 89 FA mov edx,edi 
+00007FF7DB911172 D1 EA shr edx,1 
+00007FF7DB911174 B9 01 00 00 00 mov ecx,1 
+00007FF7DB911179 45 31 C0 xor r8d,r8d 
+00007FF7DB91117C EB 0D jmp main+0FBh (07FF7DB91118Bh) 
+00007FF7DB91117E 66 90 nop 
+00007FF7DB911180 41 29 C1 sub r9d,eax 
+00007FF7DB911183 83 C0 FE add eax,0FFFFFFFEh 
+00007FF7DB911186 41 39 D0 cmp r8d,edx 
+00007FF7DB911189 77 A5 ja main+0A0h (07FF7DB911130h) 
+00007FF7DB91118B 43 8D 1C 08 lea ebx,[r8+r9] 
+00007FF7DB91118F 39 FB cmp ebx,edi 
+00007FF7DB911191 74 1D je main+120h (07FF7DB9111B0h) 
+00007FF7DB911193 77 EB ja main+0F0h (07FF7DB911180h) 
+00007FF7DB911195 41 01 C8 add r8d,ecx 
+00007FF7DB911198 83 C1 02 add ecx,2 
+00007FF7DB91119B 41 39 D0 cmp r8d,edx 
+00007FF7DB91119E 76 EB jbe main+0FBh (07FF7DB91118Bh) 
+00007FF7DB9111A0 EB 8E jmp main+0A0h (07FF7DB911130h) 
+00007FF7DB9111A2 66 66 66 66 66 2E 0F 1F 84 00 00 00 00 00 nop word ptr cs:[rax+rax] 
+00007FF7DB9111B0 83 FF 63 cmp edi,63h 
+00007FF7DB9111B3 0F 87 77 FF FF FF ja main+0A0h (07FF7DB911130h) 
+00007FF7DB9111B9 FF C0 inc eax 
+00007FF7DB9111BB D1 E8 shr eax,1 
+00007FF7DB9111BD FF C9 dec ecx 
+00007FF7DB9111BF D1 E9 shr ecx,1 
+00007FF7DB9111C1 89 44 24 28 mov dword ptr [rsp+28h],eax 
+00007FF7DB9111C5 89 4C 24 20 mov dword ptr [rsp+20h],ecx 
+00007FF7DB9111C9 48 8D 0D C3 1F 00 00 lea rcx,[GS_ExceptionPointers+23h (07FF7DB913193h)] 
+00007FF7DB9111D0 89 FA mov edx,edi 
+00007FF7DB9111D2 E8 29 FE FF FF call printf (07FF7DB911000h) 
+00007FF7DB9111D7 E9 54 FF FF FF jmp main+0A0h (07FF7DB911130h) 
+00007FF7DB9111DC 0F 1F 40 00 nop dword ptr [rax] 
+ {
+ 
+ bool sum_2squares(uint64_t n) //fastest found so far
+{
+ uint64_t a2, b2, limit = sqrt(n);;
+ uint64_t delta_a;
+ uint32_t delta_b, sum;
+ a2 = 0;
+ delta_a = 1;
+ b2 = limit * limit;
+ delta_b = 2 * limit - 1;
+ while (a2 <= n / 2)
+ {
+ sum = a2 + b2;
+ if (sum == n) // solution
+ {
+ // if (n<2) printf("%I64u = %I64u + %I64u = %I64u^2 + %u^2\n", n, a2, b2, (delta_a-1)/2, 
+(delta_b+1)/2); // slows down if not commented out (as expected)
+ return true;
+ }
+// a2 += delta_a;
+ if (sum > n)
+ {
+// a2 -= delta_a;
+ b2 -= delta_b;
+ delta_b = delta_b - 2;
+ }
+ else
+ { 
+ a2 += delta_a;
+ delta_a += 2;
+ } 
+ }
+ return n == sum;
+}
+
+=== KEY ANSWER ===
+Instead of polluting the issue with extra calls to printf in the inner loop, let's just ad
+d some instrumentation to compute statistics. Here is a version that counts the number of 
+tests: 
+ #include <stdio.h>
+#include <math.h>
+#include <time.h>
+
+unsigned long stats[4];
+#define STAT(i) stats[i]++
+
+#ifndef STAT
+#define STAT(i)
+#endif
+
+bool sum_2squares(unsigned int n)
+{
+ unsigned int limit = (unsigned int)+sqrt(n);
+ unsigned int a2, b2, delta_a, delta_b, sum = 0;
+ a2 = 0;
+ delta_a = 1;
+ b2 = limit * limit;
+ delta_b = 2 * limit - 1;
+ sum = 0;
+ while (a2 <= n / 2) {
+ STAT(0);
+ sum = a2 + b2;
+ if (sum == n) { // solution
+ STAT(1);
+ return true;
+ }
+ a2 += delta_a;
+ delta_a += 2;
+ if (sum > n) {
+ STAT(2);
+ delta_a -= 2;
+ a2 -= delta_a;
+ b2 -= delta_b;
+ delta_b = delta_b - 2;
+ }
+ }
+ STAT(3);
+ return sum == n;
+}
+
+int main()
+{
+ unsigned int count = 0;
+ unsigned int limit = 10;
+ time_t start, end;
+ start = clock();
+ for (unsigned int i = 1; i <= 10000000; i++) { // runtime about 20s (gets 30x slower
+ if (sum_2squares(i)) count++;
+ if (i % limit) continue;
+ if (limit == 10) {
+ printf("N count time/s");
+ if (stats[0]) {
+ printf(" total loops alternations matches non-matches");
+ }
+ printf("\n");
+ }
+ printf("%-9u %-9u ", i, count);
+ end = clock();
+ printf("%6.3f", (double)(end - start) / CLOCKS_PER_SEC);
+ if (stats[0]) {
+ printf(" %12lu", stats[0]);
+ printf(" %12lu %5.2f%%", stats[2], stats[2] * 100.0 / stats[0]);
+ printf(" %8lu %6.3f%%", stats[1], stats[1] * 100.0 / stats[0]);
+ printf(" %8lu %6.3f%%", stats[3], stats[3] * 100.0 / stats[0]);
+ }
+ printf("\n");
+ limit *= 10;
+ }
+}
+ 
+ My timings with clang 17 on my M4-max laptop: 
+ 
+ without stats: 
+ 
+ N count time/s
+10 7 0.000
+100 43 0.000
+1000 330 0.000
+10000 2749 0.001
+100000 24028 0.026
+1000000 216341 0.437
+10000000 1985459 12.845
+ 
+ 
+ with stats: 
+ 
+ N count time/s total loops alternations matches non-matches
+10 7 0.000 18 0 0.00% 7 38.889% 3 16.667%
+100 43 0.000 538 96 17.84% 43 7.993% 57 10.595%
+1000 330 0.000 17222 4271 24.80% 330 1.916% 670 3.890%
+10000 2749 0.001 556366 150935 27.13% 2749 0.494% 7251 1.303%
+100000 24028 0.019 17895109 5002964 27.96% 24028 0.134% 75972 0.425%
+1000000 216341 0.271 573416191 162170695 28.28% 216341 0.038% 783659 0.137%
+10000000 1985459 7.038 18320889055 5209580480 28.44% 1985459 0.011% 8014541 0.044%
+ 
+ More code, yet almost twice as fast! 
+ My guess is we have a pathological case of branch misprediction with too many branches in
+ the same cache line: 
+ 
+ the first test is almost always false (branch only taken in 0.044% of tests at 10 7 . 
+ the second test is almost always false as well (branch taken except in 0.011% of tests at
+ 10 7 . 
+ the third test (alternations) is true in 28% of cases, so mispredicted more than half the
+ time. 
+ 
+ If the same prediction hardware is used for the third test and the second or first one (w
+hich may be duplicated at the end of the loop), the branch prediction is very ineffective.
+ Smaller code resulting in more branch misprediction, hence slower execution times. 
+ Branch prediction hardware is intrinsic to the actual hardware (Apple silicon M4-pro in m
+y case) and the behavior also depends on the code produced by the compiler, not only which
+ instructions are used but also and sometime predominantly its layout. 
+ I am a bit surprised that the compiler would not ensure optimal code layout to avoid this
+ pathological case of prediction interaction, but the timings seem to point to this explan
+ation. 
+ I am not an expert in these questions, @Peter could you confirm my predictions? 
+
+ printf 
+ #include <stdio.h>
+#include <math.h>
+#include <time.h>
+
+unsigned long stats[4];
+#define STAT(i) stats[i]++
+
+#ifndef STAT
+#define STAT(i)
+#endif
+
+bool sum_2squares(unsigned int n)
+{
+ unsigned int limit = (unsigned int)+sqrt(n);
+ unsigned int a2, b2, delta_a, delta_b, sum = 0;
+ a2 = 0;
+ delta_a = 1;
+ b2 = limit * limit;
+ delta_b = 2 * limit - 1;
+ sum = 0;
+ while (a2 <= n / 2) {
+ STAT(0);
+ sum = a2 + b2;
+ if (sum == n) { // solution
+ STAT(1);
+ return true;
+ }
+ a2 += delta_a;
+ delta_a += 2;
+ if (sum > n) {
+ STAT(2);
+ delta_a -= 2;
+ a2 -= delta_a;
+ b2 -= delta_b;
+ delta_b = delta_b - 2;
+ }
+ }
+ STAT(3);
+ return sum == n;
+}
+
+int main()
+{
+ unsigned int count = 0;
+ unsigned int limit = 10;
+ time_t start, end;
+ start = clock();
+ for (unsigned int i = 1; i <= 10000000; i++) { // runtime about 20s (gets 30x slower
+ if (sum_2squares(i)) count++;
+ if (i % limit) continue;
+ if (limit == 10) {
+ printf("N count time/s");
+ if (stats[0]) {
+ printf(" total loops alternations matches non-matches");
+ }
+ printf("\n");
+ }
+ printf("%-9u %-9u ", i, count);
+ end = clock();
+ printf("%6.3f", (double)(end - start) / CLOCKS_PER_SEC);
+ if (stats[0]) {
+ printf(" %12lu", stats[0]);
+ printf(" %12lu %5.2f%%", stats[2], stats[2] * 100.0 / stats[0]);
+ printf(" %8lu %6.3f%%", stats[1], stats[1] * 100.0 / stats[0]);
+ printf(" %8lu %6.3f%%", stats[3], stats[3] * 100.0 / stats[0]);
+ }
+ printf("\n");
+ limit *= 10;
+ }
+}
+ 
+ N count time/s
+10 7 0.000
+100 43 0.000
+1000 330 0.000
+10000 2749 0.001
+100000 24028 0.026
+1000000 216341 0.437
+10000000 1985459 12.845
+ 
+ N count time/s total loops alternations matches non-matches
+10 7 0.000 18 0 0.00% 7 38.889% 3 16.667%
+100 43 0.000 538 96 17.84% 43 7.993% 57 10.595%
+1000 330 0.000 17222 4271 24.80% 330 1.916% 670 3.890%
+10000 2749 0.001 556366 150935 27.13% 2749 0.494% 7251 1.303%
+100000 24028 0.019 17895109 5002964 27.96% 24028 0.134% 75972 0.425%
+1000000 216341 0.271 573416191 162170695 28.28% 216341 0.038% 783659 0.137%
+10000000 1985459 7.038 18320889055 5209580480 28.44% 1985459 0.011% 8014541 0.044%
+
