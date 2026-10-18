@@ -1,0 +1,38 @@
+{
+ "EVID_missed_vs_EVID_hit": {
+  "U": 27.0,
+  "exact_permutation_p": 1.0,
+  "median_x": 0.0536,
+  "median_y": 0.08335,
+  "n_x": 9,
+  "n_y": 6,
+  "note": "lower residual overlap = more divergent"
+ },
+ "EVID_missed_vs_SELF_hit": {
+  "U": 47.0,
+  "exact_permutation_p": 0.6439866634913075,
+  "median_x": 0.0536,
+  "median_y": 0.12129999999999999,
+  "n_x": 9,
+  "n_y": 12,
+  "note": "lower residual overlap = more divergent"
+ },
+ "SELF_missed_vs_SELF_hit": {
+  "U": 2.0,
+  "exact_permutation_p": 0.5384615384615384,
+  "median_x": 0.0,
+  "median_y": 0.12129999999999999,
+  "n_x": 1,
+  "n_y": 12,
+  "note": "lower residual overlap = more divergent"
+ },
+ "gate_bound": {
+  "measured_divergent_hit": 3,
+  "measured_divergent_missed": 4,
+  "n_hit": 6,
+  "n_missed": 9,
+  "true_rate_bound_hit_at_sensitivity_0p60": 0.8333,
+  "true_rate_bound_missed_at_sensitivity_0p60": 0.7407
+ },
+ "sensitivity_note": "tau was fitted at 0.05: the accepted detector fires only when the runner-up shares essentially no residual prescriptive token with the top answer. Calibration sensitivity was 0.6000, so the measured divergent count understates the true rate by roughly this factor."
+}

@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 """E182 stage 4: the prescriptive-overlap instrument, calibrated on the 10
-hand-read rows committed in AMENDMENT 1, then G2' on the other 50.
+hand-read rows committed in AMENDMENT 1, then G2' on the rest.
+
+AMENDMENT 2 residualises the token sets against the question's own tokens --
+P_residual(A) = P(A) minus P(question) -- and keeps AMENDMENT 1's fitting rule
+and acceptance bar unchanged. `--raw` reproduces the AMENDMENT 1 instrument for
+comparison.
 
 Reads no assistant answer and no arm label. Arm and verdict are joined only at
 the reporting step, after every label is computed.
 
-Usage: python3 overlap.py
+Usage: python3 overlap.py [--raw]
 """
 import html
 import json
@@ -102,9 +107,18 @@ def wilson(k, n, z=1.959963985):
 
 
 def main():
+    residual = "--raw" not in sys.argv
     bodies = json.load(open(os.path.join(HERE, "bodies.json")))
     states = {r["qid"]: r for r in json.load(
         open(os.path.join(HERE, "states.json")))["rows"]}
+    if residual:
+        # AMENDMENT 2: the question's own tokens are the reporter's vocabulary,
+        # not a prescription of a fix, so they leave both sides.
+        questions = {r["qid"]: r for r in json.load(open(os.path.join(
+            E177, "rows.json")))["rows"]}
+        qtok = {q: prescriptive(questions[q]["body"]) for q in bodies["qids"]}
+    else:
+        qtok = {q: set() for q in bodies["qids"]}
 
     labelled = []
     for q in bodies["qids"]:
@@ -119,8 +133,8 @@ def main():
                              else "runner_up_not_positive")
             labelled.append(row)
             continue
-        p0 = prescriptive(answers[0]["body"])
-        p1 = prescriptive(answers[1]["body"])
+        p0 = prescriptive(answers[0]["body"]) - qtok[q]
+        p1 = prescriptive(answers[1]["body"]) - qtok[q]
         row["eligible"] = True
         row["n_p0"], row["n_p1"] = len(p0), len(p1)
         row["only_in_p1"] = sorted(p1 - p0)[:12]
@@ -201,9 +215,10 @@ def main():
         a2 = sum(1 for r in sh if r["divergent"])
         g2["self_hit"] = [a2, len(sh)]
 
-    out = {"tau": tau, "instrument_accepted": accepted,
+    out = {"residualised_against_question": residual,
+           "tau": tau, "instrument_accepted": accepted,
            "calibration": [{"qid": r["qid"], "overlap": r["overlap"],
-                            "truth": HAND_READ[r["qid"]],
+                            "truth": r["truth"],
                             "n_p0": r["n_p0"], "n_p1": r["n_p1"]}
                            for r in cal],
            "gates": {"G5_repaired_instrument": g2},
@@ -212,6 +227,9 @@ def main():
         json.dump(out, fh, indent=1, sort_keys=True)
         fh.write("\n")
 
+    print("instrument: %s"
+          % ("residualised against the question (AMENDMENT 2)"
+             if residual else "raw overlap (AMENDMENT 1)"))
     print("calibration on %d hand-read rows" % len(cal))
     miss = [q for q in HAND_READ if q not in {r["qid"] for r in cal}]
     if miss:
@@ -248,5 +266,133 @@ def main():
     return 0
 
 
+def mwu_exact(a, b):
+    """Exact two-sided Mann-Whitney U on a continuous statistic.
+
+    Post-hoc power check, not the declared gate. The declared gate is a 0/1
+    label on n=9 vs n=6; the continuous statistic uses the same accepted
+    instrument and the same rows but does not throw away the ordering, so it
+    is the honest answer to "was this null just a small n".
+
+    Two-sided p counts permutations at least as far from U's centre
+    n1*n2/2 as the observed U. An earlier version of this function compared
+    against 0 instead of the centre, which returns p < 0.001 for an observed U
+    sitting exactly at the midpoint -- the arithmetic error F136 records in this
+    repository's own Fisher tails, repeated once here and caught by the
+    midpoint case being the one that matters.
+    """
+    import itertools
+    pool = sorted(a + b)
+    n1, n2 = len(a), len(b)
+    if not n1 or not n2:
+        return None, None
+    centre = n1 * n2 / 2.0
+
+    def rank_of(v):
+        i = pool.index(v)
+        j = i
+        while j + 1 < len(pool) and pool[j + 1] == v:
+            j += 1
+        return (i + j) / 2.0 + 1
+
+    def u_of(xs):
+        return sum(rank_of(v) for v in xs) - n1 * (n1 + 1) / 2.0
+
+    obs = u_of(a)
+    dev = abs(obs - centre)
+    total = cnt = 0
+    for combo in itertools.combinations(range(n1 + n2), n1):
+        idx = set(combo)
+        xs = [pool[k] for k in idx]
+        ys = [pool[k] for k in range(n1 + n2) if k not in idx]
+        total += 1
+        if abs(u_of(xs) - centre) >= dev - 1e-12:
+            cnt += 1
+    return obs, cnt / float(total)
+
+
+def power():
+    """Post-hoc power check on the continuous residual overlap.
+
+    Uses the accepted AMENDMENT 2 instrument and the same rows as G2'. Not the
+    declared gate: the declared gate is G2', and this is reported beside it so
+    the null carries an honest magnitude rather than only a p-value.
+    """
+    ov = json.load(open(os.path.join(HERE, "overlap.json")))
+    rows = [r for r in ov["rows"]
+            if r.get("overlap") is not None and not r["calibration"]]
+    em = [r["overlap"] for r in rows
+          if r["arm"] == "EVID" and not r["reached"]]
+    eh = [r["overlap"] for r in rows
+          if r["arm"] == "EVID" and r["reached"]]
+    sh = [r["overlap"] for r in rows
+          if r["arm"] == "SELF" and r["reached"]]
+    sm = [r["overlap"] for r in rows
+          if r["arm"] == "SELF" and not r["reached"]]
+
+    def med(xs):
+        s = sorted(xs)
+        n = len(s)
+        return None if not n else (s[n // 2] if n % 2 else
+                                    (s[n // 2 - 1] + s[n // 2]) / 2.0)
+
+    out = {}
+    for name, x, y in (("EVID_missed_vs_EVID_hit", em, eh),
+                       ("EVID_missed_vs_SELF_hit", em, sh),
+                       ("SELF_missed_vs_SELF_hit", sm, sh)):
+        if not x or not y:
+            out[name] = {"n_x": len(x), "n_y": len(y), "p": None}
+            continue
+        u, p = mwu_exact(x, y)
+        out[name] = {"n_x": len(x), "n_y": len(y),
+                     "median_x": med(x), "median_y": med(y),
+                     "U": u, "exact_permutation_p": p,
+                     "note": "lower residual overlap = more divergent"}
+
+    # How far from the gate's null would the measured rows have to move? The
+    # detector's calibration sensitivity is 0.60, so the honest bound on the
+    # true divergent count on the missed side is the measured count / 0.60.
+    div_eh = sum(1 for r in ov["rows"] if r.get("divergent")
+                 and r["arm"] == "EVID" and r["reached"] and not r["calibration"])
+    div_em = sum(1 for r in ov["rows"] if r.get("divergent")
+                 and r["arm"] == "EVID" and not r["reached"] and not r["calibration"])
+    n_em = len(em)
+    out["gate_bound"] = {
+        "measured_divergent_missed": div_em, "n_missed": n_em,
+        "measured_divergent_hit": div_eh, "n_hit": len(eh),
+        "true_rate_bound_missed_at_sensitivity_0p60": (
+            round(div_em / 0.60 / n_em, 4) if n_em else None),
+        "true_rate_bound_hit_at_sensitivity_0p60": (
+            round(div_eh / 0.60 / len(eh), 4) if eh else None),
+    }
+    out["sensitivity_note"] = (
+        "tau was fitted at 0.05: the accepted detector fires only when the "
+        "runner-up shares essentially no residual prescriptive token with the "
+        "top answer. Calibration sensitivity was 0.6000, so the measured "
+        "divergent count understates the true rate by roughly this factor.")
+
+    with open(os.path.join(HERE, "power.json"), "w") as fh:
+        json.dump(out, fh, indent=1, sort_keys=True)
+        fh.write("\n")
+    for k, v in out.items():
+        if k in ("sensitivity_note", "gate_bound") or "n_x" not in v:
+            continue
+        print("%-28s n=%d vs %d  median %.3f vs %.3f  U=%.1f  exact p=%s"
+              % (k, v["n_x"], v["n_y"], v["median_x"] if v["n_x"] else -1,
+                 v["median_y"] if v["n_y"] else -1, v.get("U", -1),
+                 ("%.4f" % v["exact_permutation_p"])
+                 if v.get("exact_permutation_p") is not None else "n/a"))
+    print()
+    print(out["sensitivity_note"])
+    print("gate bound at sensitivity 0.60: divergent rate on EVID missed could "
+          "be as high as %.4f, on EVID hit as high as %.4f"
+          % (out["gate_bound"]["true_rate_bound_missed_at_sensitivity_0p60"],
+             out["gate_bound"]["true_rate_bound_hit_at_sensitivity_0p60"]))
+    return 0
+
+
 if __name__ == "__main__":
+    if "--power" in sys.argv:
+        power()
+        sys.exit(0)
     sys.exit(main())

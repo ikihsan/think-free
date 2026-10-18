@@ -1,58 +1,58 @@
 {
  "calibration": [
   {
-   "n_p0": 29,
-   "n_p1": 3,
-   "overlap": 0.6667,
+   "n_p0": 3,
+   "n_p1": 1,
+   "overlap": 0.0,
    "qid": 79408101,
    "truth": "differ"
   },
   {
-   "n_p0": 66,
-   "n_p1": 11,
-   "overlap": 0.6364,
+   "n_p0": 65,
+   "n_p1": 9,
+   "overlap": 0.6667,
    "qid": 79556333,
    "truth": "differ"
   },
   {
-   "n_p0": 10,
-   "n_p1": 48,
-   "overlap": 0.125,
+   "n_p0": 8,
+   "n_p1": 45,
+   "overlap": 0.0889,
    "qid": 79589468,
    "truth": "same"
   },
   {
-   "n_p0": 24,
-   "n_p1": 13,
-   "overlap": 0.6923,
+   "n_p0": 20,
+   "n_p1": 10,
+   "overlap": 0.6,
    "qid": 79600161,
    "truth": "same"
   },
   {
-   "n_p0": 127,
-   "n_p1": 14,
-   "overlap": 0.7143,
+   "n_p0": 110,
+   "n_p1": 3,
+   "overlap": 1.0,
    "qid": 79663905,
    "truth": "same"
   },
   {
-   "n_p0": 26,
-   "n_p1": 11,
-   "overlap": 0.9091,
+   "n_p0": 8,
+   "n_p1": 1,
+   "overlap": 0.0,
    "qid": 79791886,
    "truth": "differ"
   },
   {
-   "n_p0": 13,
-   "n_p1": 14,
-   "overlap": 0.4286,
+   "n_p0": 7,
+   "n_p1": 6,
+   "overlap": 0.3333,
    "qid": 79796450,
    "truth": "same"
   },
   {
-   "n_p0": 54,
-   "n_p1": 28,
-   "overlap": 0.4643,
+   "n_p0": 26,
+   "n_p1": 12,
+   "overlap": 0.3333,
    "qid": 79824381,
    "truth": "differ"
   },
@@ -66,18 +66,35 @@
  ],
  "gates": {
   "G5_repaired_instrument": {
-   "balanced_accuracy_on_calibration": 0.65,
-   "eligible_rows": 0,
-   "instrument_accepted": false,
-   "tau": 0.67
+   "balanced_accuracy_on_calibration": 0.8,
+   "diff": -0.0556,
+   "eligible_rows": 28,
+   "evid_hit": [
+    3,
+    6
+   ],
+   "evid_missed": [
+    4,
+    9
+   ],
+   "fires": false,
+   "fisher_p": 1.0,
+   "instrument_accepted": true,
+   "odds_ratio": 0.8,
+   "self_hit": [
+    4,
+    12
+   ],
+   "tau": 0.05
   }
  },
- "instrument_accepted": false,
+ "instrument_accepted": true,
+ "residualised_against_question": true,
  "rows": [
   {
    "arm": "EVID",
    "calibration": false,
-   "divergent": null,
+   "divergent": true,
    "eligible": true,
    "n_answers": 5,
    "n_p0": 1,
@@ -101,7 +118,7 @@
   {
    "arm": "EVID",
    "calibration": false,
-   "divergent": null,
+   "divergent": true,
    "eligible": true,
    "n_answers": 5,
    "n_p0": 0,
@@ -130,7 +147,7 @@
   {
    "arm": "SELF",
    "calibration": false,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 5,
    "n_p0": 2,
@@ -148,7 +165,7 @@
   {
    "arm": "EVID",
    "calibration": false,
-   "divergent": null,
+   "divergent": true,
    "eligible": true,
    "n_answers": 5,
    "n_p0": 1,
@@ -168,11 +185,11 @@
   {
    "arm": "EVID",
    "calibration": false,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 8,
-   "n_p0": 12,
-   "n_p1": 9,
+   "n_p0": 8,
+   "n_p1": 6,
    "only_in_p0": [
     "PostCSS",
     "TailwindCSS",
@@ -180,7 +197,6 @@
     "node_modules",
     "postcss",
     "scss",
-    "tailwind.config.js",
     "upgrade"
    ],
    "only_in_p1": [
@@ -190,7 +206,7 @@
     "plugins",
     "vite"
    ],
-   "overlap": 0.4444,
+   "overlap": 0.1667,
    "qid": 79380514,
    "reached": true,
    "runner_up": 8,
@@ -221,11 +237,11 @@
   {
    "arm": "SELF",
    "calibration": false,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 6,
    "n_p0": 13,
-   "n_p1": 4,
+   "n_p1": 2,
    "only_in_p0": [
     "BYTE",
     "arr1",
@@ -241,11 +257,9 @@
     "volatile"
    ],
    "only_in_p1": [
-    "VLAs",
-    "alloca",
     "register"
    ],
-   "overlap": 0.25,
+   "overlap": 0.5,
    "qid": 79400684,
    "reached": true,
    "runner_up": 7,
@@ -265,29 +279,20 @@
   {
    "arm": "EVID",
    "calibration": true,
-   "divergent": null,
+   "divergent": true,
    "eligible": true,
    "n_answers": 4,
-   "n_p0": 29,
-   "n_p1": 3,
+   "n_p0": 3,
+   "n_p1": 1,
    "only_in_p0": [
-    "Independent",
-    "LICENSE",
-    "Language",
-    "Name",
-    "Operating",
-    "Programming",
-    "README.md",
     "SPDX",
-    "System",
-    "authors",
-    "classifiers",
-    "dependencies"
+    "files",
+    "pyproject.toml"
    ],
    "only_in_p1": [
     "show"
    ],
-   "overlap": 0.6667,
+   "overlap": 0.0,
    "qid": 79408101,
    "reached": true,
    "runner_up": 8,
@@ -324,11 +329,11 @@
   {
    "arm": "SELF",
    "calibration": false,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 7,
-   "n_p0": 42,
-   "n_p1": 23,
+   "n_p0": 36,
+   "n_p1": 17,
    "only_in_p0": [
     "FooValue_",
     "Java",
@@ -357,7 +362,7 @@
     "mCatStr",
     "move"
    ],
-   "overlap": 0.2609,
+   "overlap": 0.1176,
    "qid": 79442076,
    "reached": true,
    "runner_up": 4,
@@ -366,11 +371,11 @@
   {
    "arm": "SELF",
    "calibration": false,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 4,
-   "n_p0": 10,
-   "n_p1": 22,
+   "n_p0": 6,
+   "n_p1": 16,
    "only_in_p0": [
     "behavior",
     "scroll",
@@ -391,7 +396,7 @@
     "none",
     "scrollbar"
    ],
-   "overlap": 0.2727,
+   "overlap": 0.125,
    "qid": 79442978,
    "reached": true,
    "runner_up": 6,
@@ -400,25 +405,20 @@
   {
    "arm": "SELF",
    "calibration": false,
-   "divergent": null,
+   "divergent": true,
    "eligible": true,
    "n_answers": 3,
-   "n_p0": 7,
-   "n_p1": 8,
+   "n_p0": 3,
+   "n_p1": 7,
    "only_in_p0": [
     "CommonJS",
     "SUCCESS",
-    "require",
-    "troubleshooting.html",
-    "vite.config.js",
-    "vite.config.mjs",
-    "vite.dev"
+    "vite.config.mjs"
    ],
    "only_in_p1": [
     "ECMAScript",
     "line",
     "module",
-    "package.json",
     "private",
     "scripts",
     "true",
@@ -433,10 +433,10 @@
   {
    "arm": "EVID",
    "calibration": false,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 4,
-   "n_p0": 9,
+   "n_p0": 8,
    "n_p1": 2,
    "only_in_p0": [
     "IDEs",
@@ -445,7 +445,6 @@
     "VSCode",
     "intellisense",
     "scss",
-    "tailwindcss",
     "tailwindlabs"
    ],
    "only_in_p1": [
@@ -502,11 +501,11 @@
   {
    "arm": "EVID",
    "calibration": true,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 8,
-   "n_p0": 66,
-   "n_p1": 11,
+   "n_p0": 65,
+   "n_p1": 9,
    "only_in_p0": [
     "Apply",
     "Check",
@@ -522,12 +521,11 @@
     "crowbar"
    ],
    "only_in_p1": [
-    "developers.google.com",
     "light",
     "scheme",
     "solid"
    ],
-   "overlap": 0.6364,
+   "overlap": 0.6667,
    "qid": 79556333,
    "reached": false,
    "runner_up": 8,
@@ -537,11 +535,11 @@
   {
    "arm": "SELF",
    "calibration": false,
-   "divergent": null,
+   "divergent": true,
    "eligible": true,
    "n_answers": 9,
    "n_p0": 2,
-   "n_p1": 4,
+   "n_p1": 3,
    "only_in_p0": [
     "each",
     "make.unique"
@@ -549,7 +547,6 @@
    "only_in_p1": [
     "as.vector",
     "character",
-    "paste0",
     "vapply"
    ],
    "overlap": 0.0,
@@ -561,24 +558,24 @@
   {
    "arm": "EVID",
    "calibration": false,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 3,
-   "n_p0": 25,
-   "n_p1": 14,
+   "n_p0": 14,
+   "n_p1": 11,
    "only_in_p0": [
     "BRANCHNAME",
     "CaSe",
     "FETCH_HEAD",
     "NEITHER",
     "branch",
-    "branchname",
-    "cannot",
-    "create",
     "deleted",
-    "error",
-    "exists",
-    "grep"
+    "grep",
+    "info",
+    "local",
+    "none",
+    "remote",
+    "unable"
    ],
    "only_in_p1": [
     "Force",
@@ -587,13 +584,12 @@
     "fetch",
     "fsck",
     "full",
-    "github.com",
     "main",
     "pack",
     "strict",
     "switch"
    ],
-   "overlap": 0.2143,
+   "overlap": 0.0909,
    "qid": 79567126,
    "reached": false,
    "runner_up": 3,
@@ -613,11 +609,11 @@
   {
    "arm": "SELF",
    "calibration": true,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 3,
-   "n_p0": 10,
-   "n_p1": 48,
+   "n_p0": 8,
+   "n_p1": 45,
    "only_in_p0": [
     "get_hi",
     "get_lo",
@@ -631,14 +627,14 @@
     "afterwards",
     "alignas",
     "assign",
-    "auto",
     "behaves",
     "behavior",
     "bind",
     "bound",
-    "cast"
+    "cast",
+    "constexpr"
    ],
-   "overlap": 0.125,
+   "overlap": 0.0889,
    "qid": 79589468,
    "reached": true,
    "runner_up": 13,
@@ -648,11 +644,11 @@
   {
    "arm": "EVID",
    "calibration": true,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 7,
-   "n_p0": 24,
-   "n_p1": 13,
+   "n_p0": 20,
+   "n_p1": 10,
    "only_in_p0": [
     "EDIT",
     "ERROR",
@@ -664,8 +660,8 @@
     "both",
     "different",
     "drive.google.com",
-    "full",
-    "jJKMguzQ4"
+    "jJKMguzQ4",
+    "java9"
    ],
    "only_in_p1": [
     "DucLQ92",
@@ -673,7 +669,7 @@
     "build.gradle",
     "github.com"
    ],
-   "overlap": 0.6923,
+   "overlap": 0.6,
    "qid": 79600161,
    "reached": false,
    "runner_up": 6,
@@ -683,11 +679,11 @@
   {
    "arm": "EVID",
    "calibration": false,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 3,
-   "n_p0": 12,
-   "n_p1": 83,
+   "n_p0": 10,
+   "n_p1": 56,
    "only_in_p0": [
     "after",
     "defaultConfig",
@@ -701,7 +697,6 @@
     "Account",
     "Login",
     "Make",
-    "React",
     "ReactNativeAsyncStorage",
     "SafeAreaView",
     "Sign",
@@ -709,9 +704,10 @@
     "TextInput",
     "TouchableOpacity",
     "alert",
-    "async"
+    "await",
+    "catch"
    ],
-   "overlap": 0.0602,
+   "overlap": 0.0536,
    "qid": 79602687,
    "reached": false,
    "runner_up": 14,
@@ -720,11 +716,11 @@
   {
    "arm": "EVID",
    "calibration": false,
-   "divergent": null,
+   "divergent": true,
    "eligible": true,
    "n_answers": 2,
    "n_p0": 52,
-   "n_p1": 2,
+   "n_p1": 1,
    "only_in_p0": [
     "BasedOn",
     "Build",
@@ -740,7 +736,6 @@
     "Folder"
    ],
    "only_in_p1": [
-    "SLNX",
     "VisualStudio"
    ],
    "overlap": 0.0,
@@ -782,11 +777,11 @@
   {
    "arm": "EVID",
    "calibration": true,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 3,
-   "n_p0": 127,
-   "n_p1": 14,
+   "n_p0": 110,
+   "n_p1": 3,
    "only_in_p0": [
     "ALSO",
     "BarButtonItem",
@@ -801,13 +796,8 @@
     "Present",
     "STYLES"
    ],
-   "only_in_p1": [
-    "UIButton.Configuration.plain",
-    "cfg.image",
-    "createButton",
-    "systemRed"
-   ],
-   "overlap": 0.7143,
+   "only_in_p1": [],
+   "overlap": 1.0,
    "qid": 79663905,
    "reached": true,
    "runner_up": 2,
@@ -817,11 +807,11 @@
   {
    "arm": "EVID",
    "calibration": false,
-   "divergent": null,
+   "divergent": true,
    "eligible": true,
    "n_answers": 2,
-   "n_p0": 23,
-   "n_p1": 5,
+   "n_p0": 21,
+   "n_p1": 1,
    "only_in_p0": [
     "ByPass",
     "ExecutionPolicy",
@@ -837,11 +827,9 @@
     "linux"
    ],
    "only_in_p1": [
-    "mkdir",
-    "package",
-    "sandbox"
+    "mkdir"
    ],
-   "overlap": 0.4,
+   "overlap": 0.0,
    "qid": 79665976,
    "reached": true,
    "runner_up": 4,
@@ -861,7 +849,7 @@
   {
    "arm": "EVID",
    "calibration": false,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 8,
    "n_p0": 37,
@@ -903,15 +891,14 @@
   {
    "arm": "EVID",
    "calibration": false,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 3,
-   "n_p0": 15,
-   "n_p1": 19,
+   "n_p0": 13,
+   "n_p1": 15,
    "only_in_p0": [
     "activity",
     "application",
-    "attributionTag",
     "declared",
     "description",
     "empty",
@@ -922,17 +909,14 @@
     "AndroidManifest.xml",
     "Build.VERSION.SDK_INT",
     "Context",
-    "MediaPlayer.create",
-    "alarmResourceId",
     "audio",
     "audioAttributionContext",
     "audio_playback_attribution",
-    "mediaPlayer",
     "name",
     "plays",
     "strtings.xml"
    ],
-   "overlap": 0.3684,
+   "overlap": 0.4,
    "qid": 79721071,
    "reached": false,
    "runner_up": 4,
@@ -952,11 +936,11 @@
   {
    "arm": "SELF",
    "calibration": false,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 7,
-   "n_p0": 30,
-   "n_p1": 48,
+   "n_p0": 23,
+   "n_p1": 47,
    "only_in_p0": [
     "COMBINE",
     "Fe2O3",
@@ -967,9 +951,9 @@
     "__BYTE_ORDER__",
     "__ORDER_BIG_ENDIAN__",
     "break",
-    "change_light_intensity",
-    "change_volume",
-    "char"
+    "char",
+    "clauses",
+    "default"
    ],
    "only_in_p1": [
     "COMMAND_A",
@@ -985,7 +969,7 @@
     "commands",
     "comparison"
    ],
-   "overlap": 0.0833,
+   "overlap": 0.0638,
    "qid": 79733841,
    "reached": true,
    "runner_up": 12,
@@ -1016,18 +1000,18 @@
   {
    "arm": "SELF",
    "calibration": false,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 2,
-   "n_p0": 3,
-   "n_p1": 3,
+   "n_p0": 2,
+   "n_p1": 2,
    "only_in_p0": [
     "false"
    ],
    "only_in_p1": [
     "less"
    ],
-   "overlap": 0.6667,
+   "overlap": 0.5,
    "qid": 79760145,
    "reached": true,
    "runner_up": 9,
@@ -1036,7 +1020,7 @@
   {
    "arm": "SELF",
    "calibration": false,
-   "divergent": null,
+   "divergent": true,
    "eligible": true,
    "n_answers": 5,
    "n_p0": 1,
@@ -1059,11 +1043,11 @@
   {
    "arm": "EVID",
    "calibration": false,
-   "divergent": null,
+   "divergent": true,
    "eligible": true,
    "n_answers": 4,
    "n_p0": 4,
-   "n_p1": 88,
+   "n_p1": 87,
    "only_in_p0": [
     "FastAPI",
     "passlib",
@@ -1080,10 +1064,10 @@
     "SpellCheckingInspection",
     "Tries",
     "True",
-    "ValueError",
-    "Verify"
+    "Verify",
+    "_BCRYPT_ROUNDS"
    ],
-   "overlap": 0.0114,
+   "overlap": 0.0115,
    "qid": 79776559,
    "reached": false,
    "runner_up": 1,
@@ -1092,11 +1076,11 @@
   {
    "arm": "EVID",
    "calibration": false,
-   "divergent": null,
+   "divergent": true,
    "eligible": true,
    "n_answers": 5,
    "n_p0": 1,
-   "n_p1": 12,
+   "n_p1": 8,
    "only_in_p0": [
     "ai.google.dev"
    ],
@@ -1104,12 +1088,8 @@
     "GoogleGenAI",
     "apiKey",
     "const",
-    "flash",
-    "gemini",
-    "genai",
     "generative",
     "google",
-    "import",
     "latest",
     "modelName",
     "process.env.GEMINI_API_KEY"
@@ -1123,11 +1103,10 @@
   {
    "arm": "SELF",
    "calibration": false,
-   "divergent": null,
    "eligible": true,
    "n_answers": 3,
-   "n_p0": 9,
-   "n_p1": 4,
+   "n_p0": 6,
+   "n_p1": 0,
    "only_in_p0": [
     "GlennWillen",
     "Wall",
@@ -1136,41 +1115,36 @@
     "inttypes.h",
     "stdint.h"
    ],
-   "only_in_p1": [
-    "sizeof"
-   ],
-   "overlap": 0.75,
+   "only_in_p1": [],
+   "overlap": null,
    "qid": 79779696,
    "reached": true,
+   "reason": "runner_up_no_prescriptive_tokens",
    "runner_up": 9,
    "top": 23
   },
   {
    "arm": "EVID",
    "calibration": true,
-   "divergent": null,
+   "divergent": true,
    "eligible": true,
    "n_answers": 4,
-   "n_p0": 26,
-   "n_p1": 11,
+   "n_p0": 8,
+   "n_p1": 1,
    "only_in_p0": [
     "MSVC",
-    "NULL",
     "PRNG",
     "RAND_MAX",
-    "math.h",
     "msvc",
-    "pythag",
-    "rand",
-    "srand",
-    "stdlib.h",
-    "time",
-    "time.h"
+    "trunk",
+    "v19.latest",
+    "x86_64",
+    "yields"
    ],
    "only_in_p1": [
     "define"
    ],
-   "overlap": 0.9091,
+   "overlap": 0.0,
    "qid": 79791886,
    "reached": false,
    "runner_up": 12,
@@ -1180,31 +1154,25 @@
   {
    "arm": "SELF",
    "calibration": true,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 4,
-   "n_p0": 13,
-   "n_p1": 14,
+   "n_p0": 7,
+   "n_p1": 6,
    "only_in_p0": [
     "elems",
-    "myData",
     "ranges",
     "return",
     "to_MyData",
-    "vector",
     "zip_transform"
    ],
    "only_in_p1": [
     "const",
     "elem",
     "make_from_tuple",
-    "myData.emplace_back",
-    "str1",
-    "str2",
-    "str3",
     "zip_view"
    ],
-   "overlap": 0.4286,
+   "overlap": 0.3333,
    "qid": 79796450,
    "reached": true,
    "runner_up": 23,
@@ -1214,15 +1182,14 @@
   {
    "arm": "SELF",
    "calibration": false,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 4,
-   "n_p0": 89,
-   "n_p1": 35,
+   "n_p0": 78,
+   "n_p1": 27,
    "only_in_p0": [
     "ASCII",
     "Byte",
-    "CP_UTF8",
     "FILE",
     "Internal",
     "MySQL",
@@ -1230,8 +1197,9 @@
     "Reading",
     "SEEK_END",
     "SEEK_SET",
-    "SetConsoleOutputCP",
-    "Writing"
+    "Writing",
+    "_O_BINARY",
+    "_O_U16TEXT"
    ],
    "only_in_p1": [
     "D83D",
@@ -1247,7 +1215,7 @@
     "encoded",
     "hex_dump"
    ],
-   "overlap": 0.3714,
+   "overlap": 0.1852,
    "qid": 79802282,
    "reached": true,
    "runner_up": 3,
@@ -1267,11 +1235,11 @@
   {
    "arm": "EVID",
    "calibration": false,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 5,
-   "n_p0": 8,
-   "n_p1": 5,
+   "n_p0": 4,
+   "n_p1": 1,
    "only_in_p0": [
     "dotnet.exe",
     "list",
@@ -1309,40 +1277,36 @@
   {
    "arm": "SELF",
    "calibration": true,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 7,
-   "n_p0": 54,
-   "n_p1": 28,
+   "n_p0": 26,
+   "n_p1": 12,
    "only_in_p0": [
-    "Qchar4",
     "Qchar4Align",
     "Qchar4Size",
     "Qchar4_Construct",
-    "Qchar4_PopFront",
-    "Qchar4_PushBack",
     "Qint8Align",
     "Qint8Size",
     "__cplusplus",
-    "able",
-    "access",
-    "alignas"
+    "alignas",
+    "alignof",
+    "auto",
+    "bridge.cpp",
+    "bridge.h",
+    "endif"
    ],
    "only_in_p1": [
-    "MAX_LEN",
     "assume",
     "case",
-    "data",
     "drawn",
     "following",
     "generic",
     "header",
     "lines",
-    "readIdx",
-    "size_t",
     "special"
    ],
-   "overlap": 0.4643,
+   "overlap": 0.3333,
    "qid": 79824381,
    "reached": true,
    "runner_up": 5,
@@ -1352,7 +1316,7 @@
   {
    "arm": "EVID",
    "calibration": true,
-   "divergent": null,
+   "divergent": true,
    "eligible": true,
    "n_answers": 3,
    "n_p0": 8,
@@ -1380,30 +1344,26 @@
   {
    "arm": "SELF",
    "calibration": false,
-   "divergent": null,
+   "divergent": true,
    "eligible": true,
    "n_answers": 4,
-   "n_p0": 11,
-   "n_p1": 13,
+   "n_p0": 4,
+   "n_p1": 6,
    "only_in_p0": [
-    "Base",
     "concept",
     "cout",
     "even",
-    "isEven",
-    "override"
+    "isEven"
    ],
    "only_in_p1": [
     "ABIs",
     "class",
     "class.virtual",
     "const",
-    "include",
     "is_object_v",
-    "main",
-    "type_traits"
+    "main"
    ],
-   "overlap": 0.3846,
+   "overlap": 0.0,
    "qid": 79847613,
    "reached": true,
    "runner_up": 3,
@@ -1414,11 +1374,10 @@
    "calibration": false,
    "eligible": true,
    "n_answers": 2,
-   "n_p0": 16,
+   "n_p0": 14,
    "n_p1": 0,
    "only_in_p0": [
     "assignment",
-    "const",
     "constant",
     "error",
     "foo.bar",
@@ -1428,7 +1387,8 @@
     "member",
     "only",
     "pointer",
-    "printf"
+    "printf",
+    "read"
    ],
    "only_in_p1": [],
    "overlap": null,
@@ -1452,29 +1412,28 @@
   {
    "arm": "EVID",
    "calibration": false,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 2,
-   "n_p0": 17,
-   "n_p1": 3,
+   "n_p0": 12,
+   "n_p1": 2,
    "only_in_p0": [
     "GlassEffectContainer",
     "Image",
-    "SwiftUI",
     "UIKit",
-    "_UIReparentingView",
     "buttonStyle",
-    "content",
     "ellipsis",
     "fixes",
     "glass",
     "glassEffectUnion",
-    "label"
+    "menu",
+    "systemName",
+    "warning"
    ],
    "only_in_p1": [
     "sheet"
    ],
-   "overlap": 0.6667,
+   "overlap": 0.5,
    "qid": 79871713,
    "reached": false,
    "runner_up": 1,
@@ -1483,15 +1442,13 @@
   {
    "arm": "SELF",
    "calibration": false,
-   "divergent": null,
+   "divergent": false,
    "eligible": true,
    "n_answers": 4,
-   "n_p0": 7,
-   "n_p1": 3,
+   "n_p0": 3,
+   "n_p1": 1,
    "only_in_p0": [
-    "const",
     "long",
-    "unsigned",
     "va_arg"
    ],
    "only_in_p1": [],
@@ -1504,18 +1461,17 @@
   {
    "arm": "SELF",
    "calibration": false,
-   "divergent": null,
+   "divergent": true,
    "eligible": true,
    "n_answers": 2,
    "n_p0": 2,
-   "n_p1": 2,
+   "n_p1": 1,
    "only_in_p0": [
     "expr.const",
     "intro.progress"
    ],
    "only_in_p1": [
-    "notify_",
-    "wait"
+    "notify_"
    ],
    "overlap": 0.0,
    "qid": 80000170,
@@ -1524,5 +1480,5 @@
    "top": 21
   }
  ],
- "tau": 0.67
+ "tau": 0.05
 }
