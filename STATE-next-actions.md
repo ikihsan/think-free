@@ -255,3 +255,15 @@ next step is fresh exploration.
 same instrument), E170's global arm, another view-count domain (D105, F133), or
 a fresh draw of E177's comparison.
 
+## E186 completed (2026-10-18) — NHTSA complaint-recall prediction kill gate fired
+
+**What was tested.** Fresh exploration in a new domain (automotive safety regulation) testing a new need type (predictive monitoring / early warning). Hypothesis: public NHTSA complaint data contains early signals that predict recalls for specific vehicle components.
+
+**The result.** 20 popular model/years sampled (2019-2020), 12 with ≥1 recall (46 total recalls), 42,015 complaints fetched. **G1 PASS** (12 triples ≥10), **G2 PASS** (42k complaints ≥50), **G3 FAIL** (median recalled ratio 1.78× < 2.0 threshold), **G4 PASS** (median non-recalled 1.25× < 1.5), **G5 FAIL** (Mann-Whitney p = 0.187 > 0.05).
+
+**What this decides.** Complaints do rise before recalls (1.78× median) but the signal is weak and non-specific — non-recalled categories also elevate. 39% of recalls had zero pre-recall complaints in their category. Manufacturer detection channels (dealer reports, warranty, EWR) are clearly primary. A public-complaint monitoring tool would generate excessive false alarms.
+
+**Do not pursue:** Predictive monitoring tools based on public NHTSA complaint trends.
+
+**Named next action: continue fresh exploration.** This experiment tested one new domain (automotive safety) and one new need type (predictive monitoring). Both are now characterized. The mission should test a different domain or need type per the standing instruction in STATE.md §267.
+
