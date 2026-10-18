@@ -106,9 +106,21 @@ def wilson(k, n, z=1.959963985):
     return (max(0.0, ctr - half), min(1.0, ctr + half))
 
 
+def load_bodies(path):
+    """Read a dump written with the ALLOW directive as its first line.
+
+    See bodies.py: the corpus contains one public answer naming an environment
+    variable, and the scanner's generic assigned-credential rule cannot tell
+    that from a secret. The suppression is declared on the file and recorded.
+    """
+    with open(path) as fh:
+        text = "".join(line for line in fh if not line.startswith("#"))
+    return json.loads(text)
+
+
 def main():
     residual = "--raw" not in sys.argv
-    bodies = json.load(open(os.path.join(HERE, "bodies.json")))
+    bodies = load_bodies(os.path.join(HERE, "bodies.json"))
     states = {r["qid"]: r for r in json.load(
         open(os.path.join(HERE, "states.json")))["rows"]}
     if residual:

@@ -144,6 +144,19 @@ response carries `CF-Cache-Status` instead), so the first fetch's
 the *absence*, which is the finding; the quota audit runs through `/info`
 instead (231 → 227 for the whole experiment).
 
+**One secret-scanner false positive, declared rather than worked around.** One
+public answer in this corpus assigns an environment-variable *name* to a config
+key in a code sample — it carries no value — and the scanner's generic
+`assigned-credential` rule matches the value position. The raw capture
+`raw/se-bodies.jsonl` and the derived `bodies.json` both carry the tool's own
+per-file suppression directive, which is **recorded in the session log rather
+than applied silently**. The derived dump is now rebuilt from the raw capture
+by `bodies.py --rebuild-from-raw` — **zero requests** — so the two cannot drift
+apart; the rebuild was checked to reproduce the committed 203 answers
+byte-for-byte, and the deduplication it needs is by `(question_id,
+answer_id)`, because the raw capture holds two independent fetches that
+overlap.
+
 ## 6. What this decides
 
 **F136's SELF/EVID gap has no testable explanation left.** Four candidates, four

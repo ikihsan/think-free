@@ -27,6 +27,9 @@ UA = "think-free-e182/1.0"
 G5_QIDS = [79824381, 79408101, 79537353, 79796450, 79663905,
            79589468, 79791886, 79556333, 79843062, 79600161]
 
+# See bodies.py: the only match in this corpus is a public answer naming an
+# environment variable, and the suppression is declared and logged.
+ALLOW = "# origin-allow-secret-patterns: assigned-credential\n"
 
 def se(path, params, note=None):
     url = "%s/%s?%s" % (SE, path, urllib.parse.urlencode(params))
@@ -36,7 +39,11 @@ def se(path, params, note=None):
     with urllib.request.urlopen(req, timeout=60) as fh:
         body = json.loads(fh.read().decode("utf-8"))
     rec = {"url": url, "note": note, "body": body}
-    with open(os.path.join(RAW, "se-bodies.jsonl"), "a") as out:
+    target = os.path.join(RAW, "se-bodies.jsonl")
+    if not os.path.exists(target):
+        with open(target, "w") as out:
+            out.write(ALLOW)
+    with open(target, "a") as out:
         out.write(json.dumps(rec, sort_keys=True) + "\n")
     time.sleep(1.2)
     return body
