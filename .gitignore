@@ -161,5 +161,9 @@ think_free_test.py
 viewcount_crates.py
 collected_packages.jsonl
 
-# Raw data directory at root (experiment outputs)
-raw/
+# Raw data directory at root (experiment outputs).
+# Anchored: an unanchored `raw/` here is re-ignored by every later match and
+# silently defeats the negations above, so EXPERIMENTS/*/raw/*.jsonl stops
+# being trackable while protocols still promise an auditable capture.
+# Fixed 2026-10-18 (E181).
+/raw/
