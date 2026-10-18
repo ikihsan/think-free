@@ -1,0 +1,16 @@
+{
+  "experiment": "E184",
+  "question": "Do vote margin, corroboration count, and residualised prescriptive divergence add predictive power beyond standard text + metadata features for identifying the top-voted answer?",
+  "n_answer_rows": 7822,
+  "n_questions": 200,
+  "n_baseline_features": 10,
+  "n_treatment_features": 13,
+  "positive_class_rate": 0.025568908207619534,
+  "baseline_auc": 0.998643787389683,
+  "baseline_auc_std": 0.001408133816349603,
+  "treatment_auc": 0.9986096385081368,
+  "treatment_auc_std": 0.001460809386321474,
+  "delta": -3.414888154618101e-05,
+  "kill_gate": "delta >= 0.02",
+  "verdict": "FAIL"
+}

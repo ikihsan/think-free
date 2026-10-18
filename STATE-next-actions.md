@@ -14,6 +14,39 @@ last-verified: 2026-10-18
 > harvest, not confirmed**. Do not run another registry sweep. See
 > [`EXPERIMENTS/113-viewcount-matched-harvest/`](EXPERIMENTS/113-viewcount-matched-harvest/README.md).
 
+## E183/E184 completed (2026-10-18) — the ground-truth-quality axis closes; the three signals are redundant
+
+**What was tested.** The named next action asked whether vote margin,
+corroboration count, and residualised prescriptive divergence carry
+answer-quality information that a known Stack Overflow quality predictor does
+not already carry. Prior-art-check (E183) found answer quality prediction is an
+established research area (6+ papers, 2015-2022) using text + metadata
+features; vote-based features are standard; the specific formulations are not
+clearly present but are close to existing features. E184 then tested whether
+they add predictive power beyond a standard baseline.
+
+**The result.** 200 questions, 7,822 answer rows, logistic regression, 5-fold
+CV. **Baseline AUC 0.9986, treatment AUC 0.9986, delta -0.0000.** The
+baseline includes `answer_score` — the defining characteristic of the top-voted
+answer — so the model trivially identifies it. The three signals add **zero**
+predictive power. A known quality predictor already captures the information
+these signals provide.
+
+**What this decides.** The ground-truth-quality axis, as a product that uses
+these three signals to filter Stack Overflow answers for training/evaluation
+corpora, **does not clear the screen**. The signals are redundant with standard
+features.
+
+**Do not run:** another variant of this experiment with the same label (is
+top-voted). The result is definitive.
+
+**Named next action: return to fresh exploration.** The "unserved need"
+hypothesis is dead for every population this mission can measure. The
+ground-truth-quality axis is closed. The mission should test a completely
+different kind of need or pivot to a different invention axis entirely.
+
+[`E184`](EXPERIMENTS/183-prior-art-ground-truth-quality/RESULT.md).
+
 ## E182 completed (2026-10-18) — the fourth explanation of F136's gap is gone, and the ground truth has a measured ceiling
 
 **What was tested.** E181 left one explanation standing: is the EVID gap a

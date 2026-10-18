@@ -260,6 +260,21 @@ question is not novelty but **whether these three signals carry information a
 known quality predictor does not already carry.** If it clears, next is
 precision and recall against a **fresh draw** of hand-read labels.
 
+> **E183/E184 completed (2026-10-18): the ground-truth-quality axis closes.
+> The three signals are redundant with standard features.** Prior-art-check
+> found answer quality prediction on Stack Overflow is an established research
+> area (6+ papers, 2015-2022) using text + metadata features. Vote-based
+> features are standard. The specific formulations (vote margin, corroboration
+> count, residualised prescriptive divergence) are not clearly present in the
+> prior art, but they are close to existing features. E184 then tested whether
+> they add predictive power beyond a standard baseline: 200 questions, 7,822
+> answer rows, logistic regression, 5-fold CV. **Baseline AUC 0.9986, treatment
+> AUC 0.9986, delta -0.0000.** The baseline includes `answer_score`, which
+> is the defining characteristic of the top-voted answer — the model trivially
+> identifies it. The three signals add **zero** predictive power. **A known
+> quality predictor already captures the information these signals provide.**
+> Full entry: [`E184`](EXPERIMENTS/183-prior-art-ground-truth-quality/RESULT.md).
+
 **E178 completed (2026-10-17): the missing evidence is not in anything the project publishes; the venue's own round trip already supplies it.** On the 46 EVID rows, blind re-key: **publishable 0/46 = 0.0000, asker_only 21/46 = 0.4565, third_party 20/46 = 0.4348, none 5/46 = 0.1087**. **G1 FIRED** (publishable < 0.50): the FETCH route closes. **G4 FIRED** (has_ask 31/46 = 0.6739 >= 0.50, ask_then_asker 31/46 = 0.6739 >= 0.25): the venue's own workflow already runs the round trip on the very rows this experiment measures, and the person supplies the fact. The honest statement is not "unserved" but *served by an interaction that already exists, and unreachable by one-shot answering*. **G5 NOT fired** (none = 5, not > 9): EVID precision is above 0.80. M1: has_comment 37/46 = 0.8043, has_ask 31/46 = 0.6739, ask_then_asker 31/46 = 0.6739, answer_asks 20/46 = 0.4348, evidence_in_comments 39/46 = 0.8478, discriminating_and_asked 28/46 = 0.6087. M3: already_present 7/46 = 0.1522 (a ceiling on E177's labels), used 37/46 = 0.8043. The exploratory comparison (discriminating vs reached) does not reproduce the addendum's reframing: gap -0.0741, p = 0.52. **E177's population closes with no candidate.** [`RESULT.md`](EXPERIMENTS/178-evidence-where-does-it-live/RESULT.md).
 
 **E180 (2026-10-17), view-count principle on Pub.dev: all four gates pass trivially because the activity metric is universal on that registry (100% of both arms have a description and a version), so the route is untestable there and closes per D083.** Full entry in [`STATE-next-actions.md`](STATE-next-actions.md).

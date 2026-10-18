@@ -8,14 +8,15 @@ last-verified: 2026-10-18
 
 <!-- generated-by: origin; do not edit by hand -->
 
-426 recorded session(s). One `events.jsonl` per session, so concurrent
+427 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 401 older session(s) are in the directory listing.
+Showing the 25 most recent. 402 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-18-003-measure-whether-e177-s-ground-truth-is-c](2026-10-18-003-measure-whether-e177-s-ground-truth-is-c/README.md) | opencode | **unfinished** | Measure whether E177's ground truth is contestable where the assistant | 2026-10-18T01:34 |
+| [2026-10-18-004-prior-art-check-the-ground-truth-quality](2026-10-18-004-prior-art-check-the-ground-truth-quality/README.md) | unknown-agent | **unfinished** | Prior-art-check the ground-truth-quality axis: do vote margin, corrobo | 2026-10-18T03:19 |
+| [2026-10-18-003-measure-whether-e177-s-ground-truth-is-c](2026-10-18-003-measure-whether-e177-s-ground-truth-is-c/README.md) | opencode | worked | Measure whether E177's ground truth is contestable where the assistant | 2026-10-18T03:17 |
 | [2026-10-18-002-log-e181-s-two-undeclared-artifacts-that](2026-10-18-002-log-e181-s-two-undeclared-artifacts-that/README.md) | space-bunny-free | worked | Log E181's two undeclared artifacts that session finish reported | 2026-10-18T01:23 |
 | [2026-10-18-001-e181-test-whether-supplying-the-specific](2026-10-18-001-e181-test-whether-supplying-the-specific/README.md) | space-bunny-free | worked | E181: test whether supplying the specific missing fact closes the 0.40 | 2026-10-18T01:22 |
 | [2026-10-17-007-fresh-exploration-find-a-concrete-builda](2026-10-17-007-fresh-exploration-find-a-concrete-builda/README.md) | unknown-agent | partial | Fresh exploration: find a concrete, buildable need this mission has no | 2026-10-17T23:29 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 401 older session(s) are in the directory listing.
 | [2026-10-15-029-fresh-observation-in-a-new-domain-test-t](2026-10-15-029-fresh-observation-in-a-new-domain-test-t/README.md) | unknown-agent | worked | Fresh observation in a new domain: test the view-count principle on VS | 2026-10-15T23:45 |
 | [2026-10-15-028-fresh-observation-test-view-count-princi](2026-10-15-028-fresh-observation-test-view-count-princi/README.md) | unknown-agent | worked | Fresh observation: test view-count principle on Go module ecosystem (p | 2026-10-15T23:18 |
 | [2026-10-15-027-fresh-observation-in-an-untested-domain](2026-10-15-027-fresh-observation-in-an-untested-domain/README.md) | unknown-agent | worked | Fresh observation in an untested domain: job posting platforms (Linked | 2026-10-15T22:42 |
-| [2026-10-15-026-run-fresh-observation-experiment-t-0094](2026-10-15-026-run-fresh-observation-experiment-t-0094/README.md) | unknown-agent | worked | Run fresh observation experiment T-0094: test view-count principle acr | 2026-10-15T21:48 |
 
 
 ## Reading a session
