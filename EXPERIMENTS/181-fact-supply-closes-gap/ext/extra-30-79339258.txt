@@ -1,0 +1,29 @@
+TITLE: NVM installation error on Windows. Cannot find the npm file
+TAGS: node.js,windows,nvm
+QUESTION AS POSTED:
+I was using NVM to insall node js. But when i try to install this specific version `nvm install 14.17.3` it is not able to detect the npm file. the .zip file for npm is not found in the specified directory. 
+ `C:\Users\Infra>nvm install 14.17.3
+Downloading node.js version 14.17.3 (64-bit)...
+Complete
+Downloading npm...
+Creating C:\Users\Infra\AppData\Local\Temp\nvm-install-3421872285\temp
+
+Downloading npm version 6.14.13... Complete
+Installing npm v6.14.13...
+error installing 14.17.3: open C:\Users\Infra\AppData\Local\Temp\nvm-npm-2947621574\npm-v6.14.13.zip: The system cannot find the file specified.
+`
+
+COMMENTS ON THE QUESTION, in order:
+(none)
+
+COMMENTS ON THE ANSWER THAT WAS ACCEPTED, in order (the accepted answer itself is NOT shown to you):
+- [Tassisto] I wanted to install nvm install 14.21.3, couldn't find a solution with NVM
+- [Yasin Asadnezhad] It was better to explain more regarding rollback in the nvm version. How did you do? with which command?
+- [m.spyratos] @YasinAsadnezhad Just uninstall from programs and download the previous version from Github to reinstall
+- [Yogurtu] So it means we need a NVM for NVM now... a "NVMVM"
+- [Dave] One year later, still the only way forward, I mean backward
+- [bensaru] I'd like to install just nvm version 14. so put that command like `nvm install 14` but got the same error. How can I solve this problem?
+- [bensaru] @Tassisto Did you already find the solution? I tried to install nvm v14 like `nvm install 14` , got the same issue.
+- [Tassisto] No, I deleted NVM for good.
+- [Avinash] I am facing the same issue
+- [Chandana K M] This worked for me. Rolled back to 1.1.2.

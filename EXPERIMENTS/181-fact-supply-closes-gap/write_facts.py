@@ -62,6 +62,25 @@ FACTS = [
      "The reporter is on an early iOS 26 beta - beta 2 through beta 8 - not a release build.",
      "question_comments",
      "It's still not fixed as of Xcode 26/iOS 26 beta 2."),
+    # rows 21-30, read after AMENDMENT 2
+    (24, 79776559,
+     "The deployed environment has bcrypt 5.0.0, released 2025-09-25, which the question never states.",
+     "question_comments",
+     "Possibly related to a bug in the latest version of bcrypt, released 2025-09-25."),
+    (26, 79606837,
+     "Using SLNX needs the dotnet SDK 9.0.200 or higher, and Microsoft's own linked page still says "
+     "to wait until the format is more finalized before adopting it.",
+     "question_comments",
+     "the dotnet SDK version 9.0.200 or higher"),
+    (28, 79567126,
+     "On the reporter's Windows checkout, two remote branches on origin differ only in case, so the "
+     "lock file git names does not actually exist.",
+     "answer_comments",
+     "two remote branches on the origin differing in case"),
+    (30, 79339258,
+     "nvm-windows 1.1.2 is a version that installs node 14 cleanly; later versions fail on the npm zip.",
+     "answer_comments",
+     "This worked for me. Rolled back to 1.1.2."),
 ]
 
 NULLS = [
@@ -83,6 +102,18 @@ NULLS = [
                    "reporter's own install scope is never stated"),
     (19, 79818917, "the question already lists all four installed package versions, and the comment "
                    "names the module that fixed it, which is the resolution"),
+    (21, 79666817, "the comments carry the committee's direction and one reporter's opinion; no "
+                   "observation of the reporter's own build or toolchain is recorded"),
+    (22, 79385315, "the single question comment is another reporter saying it started the same day; "
+                   "no fact of the reporter's manifest, key or applicationId is supplied"),
+    (23, 79513015, "comments describe the answerer's own VS Code settings.json arrangement and a "
+                   "remedy; the reporter's editor configuration is never stated"),
+    (25, 79686551, "comments carry other reporters' Expo SDK versions and their build-properties "
+                   "snippets; the reporter's Expo version and build service are not stated"),
+    (27, 79358893, "comments establish that it is a wide Google-side incident tracked in an issue; "
+                   "that is the resolution, and no fact about the reporter's script is supplied"),
+    (29, 79721071, "one reporter says the error vanished for them after updating packages; no fact "
+                   "about the reporter's manifest or device is supplied"),
 ]
 
 

@@ -36,6 +36,7 @@ SE = "https://api.stackexchange.com/2.3"
 UA = "think-free-e181/1.0"
 SITE = "stackoverflow"
 N = 20
+ALL_N = 30
 
 E177 = "EXPERIMENTS/177-evidence-gated-need"
 E178 = "EXPERIMENTS/178-evidence-where-does-it-live"
@@ -146,8 +147,8 @@ def main():
     eligible = [q for q in evid
                 if q in have_q or rows[q]["key_answer_id"] in comments]
     ineligible = [q for q in evid if q not in eligible]
-    pop = eligible[:N]
-    assert len(pop) == N, "eligible population shorter than declared: %d" % len(pop)
+    pop = eligible[:ALL_N]
+    assert len(pop) == ALL_N, "eligible population shorter than declared: %d" % len(pop)
 
     manifest = []
     for i, qid in enumerate(pop, 1):
@@ -180,7 +181,7 @@ def main():
                     strip_html(c["body"])))
         else:
             lines.append("(none)")
-        path = os.path.join(EXTIN, "%02d-%d.txt" % (i, qid))
+        path = os.path.join(EXTIN, "%02d-%d.txt" % (i, qid)) if i <= 20 else os.path.join(EXTIN, "extra-%02d-%d.txt" % (i, qid))
         text = "\n".join(lines) + "\n"
         with open(path, "w") as fh:
             fh.write(text)
@@ -205,7 +206,7 @@ def main():
 
     digest = hashlib.sha256("".join(str(m["qid"]) for m in manifest)
                             .encode()).hexdigest()
-    out = {"n_requested": N,
+    out = {"n_requested": ALL_N, "n_declared_first_batch": N,
            "population_all_scored_evid": evid,
            "selection_rule": ("first 20 ELIGIBLE rows of E177's 30 scored EVID "
                               "rows in score/index.json order; that order is "
@@ -230,7 +231,7 @@ def main():
     with open(os.path.join(HERE, "population.json"), "w") as fh:
         json.dump(out, fh, indent=1, sort_keys=True)
     print("population %s" % digest)
-    print("rows with at least one comment: %d/20" % out["n_with_any_comment"])
+    print("rows with at least one comment: %d" % out["n_with_any_comment"])
     print("refetched answer comment sets: %d" % len(need))
 
 
