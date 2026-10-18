@@ -267,3 +267,15 @@ a fresh draw of E177's comparison.
 
 **Named next action: continue fresh exploration.** This experiment tested one new domain (automotive safety) and one new need type (predictive monitoring). Both are now characterized. The mission should test a different domain or need type per the standing instruction in STATE.md §267.
 
+## E187 completed (2026-10-18) — Clinical trial eligibility matching kill gate fired
+
+**What was tested.** Fresh exploration in a new domain (healthcare/clinical trials) testing a new need type (matching/recommendation). Hypothesis: ClinicalTrials.gov structured eligibility fields (condition, age, sex, location, exclusion keywords) can match patient profiles to recruiting trials with useful yield.
+
+**The result.** 100 synthetic patients across 20 conditions, 385 recruiting trials with complete eligibility data. Sequential filtering funnel: condition (median 16.5) → age (16.0) → sex (16.0) → **location (1.0)** → exclusion (0.0). **G1 PASS** (385 trials ≥30), **G2 FAIL** (35/100 patients with matches <80), **G3 FAIL** (median 0.0 <1), **G4 FAIL** (mean 0.5 <3), **G5 FAIL** (0% retention <10%).
+
+**What this decides.** Location filter is the dominant bottleneck (94% reduction) — most trials recruit in only 1-3 countries. Exclusion keywords in free text eliminate remaining matches. Only 4 of 20 conditions (breast cancer, prostate cancer, multiple sclerosis, atrial fibrillation) yield any median matches. A structured-field-only tool returns empty for 65% of patients.
+
+**Do not pursue:** Patient-trial matching tools based solely on ClinicalTrials.gov structured API fields.
+
+**Named next action: continue fresh exploration.** This experiment tested a new domain (healthcare/clinical trials) and a new need type (matching/recommendation). Both are now characterized. The mission should test a different domain or need type per the standing instruction in STATE.md §267.
+
