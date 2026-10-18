@@ -106,6 +106,25 @@ def main():
     # question comments: E178 fetched and committed these too (its fetch.py
     # stage 2), but comments.json only carries the answer-side ones, so they are
     # recovered from E178's raw capture rather than re-fetched.
+    #
+    # DEDUPLICATION, declared because it is not optional: E178's raw capture
+    # contains each comment id up to three times (1307 items, 649 distinct
+    # comment_ids; 306 ids appear exactly 3x and 46 exactly 2x), because its
+    # paging appended every page of the same URL to one file. Every comment set
+    # below is therefore keyed on comment_id and de-duplicated, or the B1 arm
+    # would paste each comment three times and the token comparison in G2 would
+    # be measuring a duplication artifact.
+    def dedupe(items):
+        seen = set()
+        out = []
+        for c in sorted(items, key=lambda c: c.get("creation_date", 0)):
+            cid = c.get("comment_id")
+            if cid in seen:
+                continue
+            seen.add(cid)
+            out.append(c)
+        return out
+
     raw_q = {}
     for line in open(os.path.join(E178, "raw", "se.jsonl")):
         r = json.loads(line)
@@ -113,6 +132,8 @@ def main():
             continue
         for c in r["body"].get("items", []):
             raw_q.setdefault(c["post_id"], []).append(c)
+    raw_q = dict((k, dedupe(v)) for k, v in raw_q.items())
+    comments = dict((k, dedupe(v)) for k, v in comments.items())
     have_q = set(raw_q)
 
     # (2) EXT inputs: question + both comment sets, never the accepted answer
@@ -199,6 +220,7 @@ def main():
            "ineligible": ineligible,
            "population": pop,
            "manifest": manifest,
+           "comment_dedup": "E178 raw contains each comment_id up to 3x (1307 items, 649 distinct); every set here is de-duplicated by comment_id",
            "n_with_any_comment": sum(1 for m in manifest if m["n_comments"] > 0),
            "refetched_answer_comment_sets": need,
            "question_comments_source": "E178 raw/se.jsonl, questions/*/comments",
