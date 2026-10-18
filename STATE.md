@@ -34,53 +34,42 @@ first to ask why**: the populations were public questions, the most-served
 class of human information need that exists.
 
 **The view-count principle's published passes are withdrawn, not confirmed.**
-D105 stopped the sweep and E113's matched-harvest control showed the effect is
-a harvest artifact (δ 0.826 → 0.075, stratified p = 0.183; the shared
-classifier labels 28% of a representative pool). Eighteen experiments across
-fourteen domains produced **0 candidates**, and E145–E167 added venues without
-a mechanism. Any "ALL GATES PASS" from that line is `untested` on a matched
-harvest (F116). **This file previously carried the opposite claim — that the
-principle works on five domains — which D105 had already made false; the stale
-sentence is corrected here rather than left for a reader to trip over.**
-**E091 then ran the one line that had stood blocked behind a false condition —
-"no GPT-4o or Claude API access" — which the protocol's own "or equivalent"
-clause, two prior runs, and the writing agent itself had already met. A real G0
-discrimination gate passed first (10/10 answerable answered, 10/10 unanswerable
-declined). On 20 highest-arrival Anova appliance threads a free general assistant
-serves 5 of 20 = 0.2500, CI95 [0.1119, 0.4687], rejecting E062's 0.85 for this venue
-outright, and **0 of 20 remedies is a self-contained program**. The reason is
-composition, not weakness: **13 of 20 = 0.65 of this venue's highest-arrival
-needs are bound to a vendor or a screwdriver**, and the assistant served 4 of 7
-answerable-class rows against 1 of 13 elsewhere (p = 0.0307). So **"unserved
-share" is a property of what a community owns, not of the community** — which
-retires the premise E062, E077, E082 and E084 were compared under, and means any
-future unserved-share screen must screen out vendor- and repair-bound needs,
-because arrival counts over-represent broken products. Running it also found the
-mission's own Fisher tail summing from the wrong term (a fabricated 22x
-significance, p 0.001354 against a true 0.030702) and a comparison row built from
-the population size (F114). No candidate; the Anova venue is closed as a route.**
+D105 stopped the sweep; E113's matched-harvest control showed the effect is a
+harvest artifact (δ 0.826 → 0.075, stratified p = 0.183; the shared classifier
+labels 28% of a representative pool), and eighteen experiments across fourteen
+domains produced **0 candidates**. Any "ALL GATES PASS" from that line is
+`untested` on a matched harvest (F116), and **the venues added afterwards
+(E145–E167) carry no mechanism.** Full text and the per-domain boundary list:
+[`STATE-next-actions.md`](STATE-next-actions.md) READ FIRST; control:
+[`E113`](EXPERIMENTS/113-viewcount-matched-harvest/README.md).
+**E091 then ran the one line blocked behind a false condition — "no GPT-4o or
+Claude API access", which the protocol's own "or equivalent" clause had already
+met.** With a real G0 discrimination gate passed first, a free general assistant
+served 5 of 20 = 0.2500 of Anova's highest-arrival appliance threads against
+E062's 0.85, and **0 of 20 remedies is a self-contained program** — because
+**13 of 20 = 0.65 are bound to a vendor or a screwdriver**, and the assistant
+served 4 of 7 answerable-class rows against 1 of 13 elsewhere (p = 0.0307). So
+**"unserved share" is a property of what a community owns, not of the
+community**, which retires the premise E062, E077, E082 and E084 were compared
+under. The run also found the mission's own Fisher tail summing from the wrong
+term (a fabricated 22x significance, p 0.001354 against a true 0.030702) and a
+comparison row built from the population size (F114). No candidate; the Anova
+venue is closed as a route.
 
-**E092 then ran the test E091's §6 named — is appliance-fault
-diagnosis a general need outside one vendor's forum — on Home
-Improvement Stack Exchange (707 unanswered `appliances` questions,
-66 of the top 150 by view_count diagnosis-shaped = 44.0%, 61 of 66
-answerable-class = 92.4% against Anova's 7/20, Fisher p = 4.7e-07),
-with G0 discrimination passed (10/10, 10/10) and attempts committed
-before any thread was read. A free general assistant served the
-answerable class at 30/37 = 0.8108, Wilson CI95 [0.6580, 0.9052] —
-K1's lower bound clears the declared 0.50, the share is
-indistinguishable from E062's 17/20 on non-software Stack Exchange
-(p = 0.764) and from Anova's own answerable class (p = 0.182), and
-**0 of 40 resolutions is a self-contained program** (F115, D104).
-The diagnosis line closes for good: the population is real, large,
-and reachable, but the strongest accessible alternative serves it,
-and the venue difference is composition measured directly in a
-second venue. E092 also corrected the record: E091's writeup
-mischaracterized E062's 17/20 population as "Steam" — the Steam arm
-was retired before any row was fetched, and the 17/20 was measured
-on six non-software Stack Exchange sites (12 of the top-20 on `diy`
-itself), which strengthens rather than weakens the composition
-reading.** No candidate.
+**E092 then ran the test E091's §6 named — is appliance-fault diagnosis a general
+need outside one vendor's forum — on Home Improvement Stack Exchange.** With G0
+passed and attempts committed before any thread was read, a free general
+assistant served the answerable class at **30/37 = 0.8108**, Wilson
+[0.6580, 0.9052] — indistinguishable from E062's 17/20 on non-software Stack
+Exchange (p = 0.764) and from Anova's own answerable class (p = 0.182) — and
+**0 of 40 resolutions is a self-contained program** (F115, D104). The diagnosis
+line closes for good: the population is real, large and reachable, the strongest
+accessible alternative serves it, and the venue difference is composition
+measured directly in a second venue. **E092 corrected E091's record** — E062's
+17/20 was on six non-software SE sites (12 of the top 20 on `diy` itself), not
+"Steam", which strengthens the composition reading rather than weakening it. Full
+entry: [`E092`](EXPERIMENTS/092-appliance-diagnosis/RESULT.md). No
+candidate.
 
 Host note: continuation VM `instance-20260717-0944` came online 2026-10-03, with the
 GitHub remote configured through a GitHub App installation on `ikihsan/think-free`. It
@@ -124,11 +113,9 @@ a measurement, and `preflight` stays unreleased.** The same run found the
 repository's own `doc lint` red on 467 violations while this file recorded it
 green (F127, D112).
 
-
 **E143 (2026-10-15), Cross Validated: 300/300 question-shaped, 0 execution-shaped, the answerable class (143 = 47.7%) served at 20/20 = 1.0000.** The program-shaped residue is a property of venue type: Stack Overflow had 2%, statistics venues have 0%. Full entry in [`STATE-next-actions.md`](STATE-next-actions.md).
 
 **E142 completed (2026-10-15): the CI-failure harvest is declined and `preflight` is shelved rather than extended.** E140's G5 run as a cheap pre-fetch survey over a 14-category superset returned **0 of 14** against a kill at ≥7 — no kill — but found that the top marketplace hit for "fix failed build" disclaims auto-fix in its own FAQ, the only asserted auto-repair is a narrow Java sub-case with 3 installs, and the structural prediction P1 gained no sourced support, so the protocol's second declared kill condition fired and the ~7,500-request harvest was declined. **E140 stays declared and unrun; nothing about the CI domain is closed.** [`RESULT-ARM-A.md`](EXPERIMENTS/142-cicd-incumbent-probe/RESULT-ARM-A.md).
-
 
 **Identifier collision, recorded not renumbered (2026-10-15).** `E140` names
 two different things, both committed on 2026-10-14: the **CI/CD pipeline
@@ -188,48 +175,41 @@ to any tally.
 **E175 completed (2026-10-17): the registry route derives the wrong repository,
 and its own declared kill fires.** 200 rows drawn by a committed seed, 145 with
 answers: **21 name a GitHub repository and 10 a specific tracker document — 0.1448
-and 0.0690 of answered rows**, the conditioning every rate in E168/E170/E174
-carries, now measured first and stated before the mechanism was. **G1 = 0 of 21 =
-0.0000**, Wilson [0.0000, 0.1546], declared kill 0.20, **20 `wrong_repo` and 1
-`not_in_registry`**: `hapijs/code` for `microsoft/vscode`, `rumpl/c` for
-`vs-solutionpersistence`, `christkv/node-git` for `powershell/powershell`. **A
-package registry is keyed by distributable name and a failure report carries a
-symptom name** — the projects that own fixes are applications, runtimes, standards
-bodies and working groups, and where a name *is* a registry name it is a common
-word owned by an unrelated package, so collision returns a confident wrong answer
-where an abstention would have been honest. **The zero was wrong four times**,
-each repair declared and committed before the next run, and G0's later runs are
-withdrawn as instrument-limited (`403 rate limit exceeded`, 60/hour). G2 is **not
-run**: stage two of a pipeline whose stage one is wrong 20 in 21 measures nothing.
-The step stays open and is redirected — a *project index* is the right source
-shape, those exist as prior art, so nothing is proposed to build (D117, F135).
-[`EXPERIMENTS/175-repo-from-report/RESULT.md`](EXPERIMENTS/175-repo-from-report/RESULT.md).
+and 0.0690 of answered rows.** **G1 = 0 of 21 = 0.0000**, Wilson
+[0.0000, 0.1546], declared kill 0.20, **20 `wrong_repo` and 1 `not_in_registry`**:
+`hapijs/code` for `microsoft/vscode`, `rumpl/c` for `vs-solutionpersistence`.
+**A package registry is keyed by distributable name and a failure report carries
+a symptom name** — the projects that own fixes are applications, runtimes,
+standards bodies and working groups, and where a name *is* a registry name it is
+a common word owned by an unrelated package, so collision returns a confident
+wrong answer where an abstention would have been honest. **The zero was wrong
+four times**, each repair declared and committed before the next run, and G0's
+later runs are withdrawn as instrument-limited (`403`, 60/hour). G2 is **not
+run**: stage two of a pipeline whose stage one is wrong 20 in 21 measures
+nothing. The step stays open and redirected — a *project index* is the right
+source shape, those exist as prior art, so nothing is proposed to build (D117,
+F135). [`E175`](EXPERIMENTS/175-repo-from-report/RESULT.md).
 **E177 completed (2026-10-17): the mission's only standing constraint is now measured, and it is supported.** Six service closures in a row each reported one number for a pool containing two kinds of question. Same venue, key, treatment and blinded readers; the only difference is whether the question contained the fact its own resolution depends on: **SELF 26/30 = 0.8667 [0.7032, 0.9469]; EVID 12/30 = 0.4000 [0.2459, 0.5768]; gap +0.4667, Fisher p = 0.000368**, against a bar of `gap >= 0.25` and `p < 0.05` declared before any answer body was read; four controls green. **0.4000 is the lowest rate a free general assistant has scored on a real question population here, and it was inside all six closure pools, unmeasured** (F136, D118). The class is **46 of the 100 highest-arrival rows carrying a key answer**, its failures spread across its kinds in proportion, so no mechanical sub-kind exists to check; **abstention was 0 of 30 against 0 of 30**, so the assistant answers confidently on exactly the questions whose evidence is absent and is wrong 60% of the time. Six instrument defects were declared, four before any measurement; the last left **every control green while the p-value was wrong by 2,700×**, because a reader protocol has no control on its arithmetic. A post-hoc pass flagged **7 of the 30 EVID labels** as indefensible — one wrong answer rather than absent evidence, one untestable row with no fix in existence, one mirror URL — so **CLF's precision on this population is ~0.77–0.87, not 1.0**; the headline is not recomputed, because dropping rows after seeing which arm scored is fitting. [`RESULT.md`](EXPERIMENTS/177-evidence-gated-need/RESULT.md).
-
 
 **F137 (2026-10-17, exploratory cross-tab): the round trip fails uniformly and the unserved residue is tiny.** A post-hoc cross-tab of `has_ask` against the M2 bucket (replicating E178's exact `is_ask` lexicon) shows the round trip's failure is **uniform across buckets** — 7/21 asker_only, 6/20 third_party, 2/5 none (overall 15/46 = 0.3261). It is not concentrated in asker_only, so there is no special asker-held-fact sub-population for an automated ask to uniquely serve. On the 30 scored EVID rows, the genuinely unserved residue (round trip failed AND assistant missed) is **7/30 = 0.2333**, and all 7 carry a key answer — they were served by a mechanism other than the assistant or the visible round trip. **The "automated ask" route has no buildable sub-population on Stack Overflow.**
 
 **F138 (2026-10-17, fresh observation): the round trip is stronger, not weaker, when the missing fact is personal.** On Personal Finance SE (`money.stackexchange.com`, the largest non-software SE site where high-arrival questions routinely turn on a personal fact), the top 30 highest-vote questions with answers were scored with E178's `is_ask` lexicon. **9/30 = 0.3000 lack a specific personal fact** (the money-SE analog of E177's EVID class), and **27/30 = 0.9000 carry a round-trip ask** — against SO's 31/46 = 0.6739. The round trip is **stronger** on money SE, not weaker: the venue asks more readily when the fact is sensitive. **F137's conclusion is confirmed on a second venue.** The "unserved need" hypothesis is dead for money SE too. Raw data: `/tmp/opencode/money_analysis.json`.
 
-**E181 completed (2026-10-18): the missing fact is not what is missing, and
-pasting the whole thread does not work either.** Four paired arms on one
-population, all answered and scored in one session, no arm label in any input
-file: question alone **7/14 = 0.5000**, question **+ the one extracted missing
-fact** **8/14 = 0.5714**, question **+ every comment on the thread verbatim**
-**9/14 = 0.6429**, placebo (a fact from a different row) 4/10. **Every paired
-comparison is null** - A1 vs A0 exact McNemar **p = 1.0**, and A0 vs B1 is **0
-for, 2 against**, so pasting the entire discussion never once beat answering the
-question alone. Two numbers survive: an extracted fact is a median **15.5 tokens
-against the thread's 232.5 (6.7%)**, and the comments name the deciding fact on
-**14/30 = 0.4667**, with **10 of the 16 nulls carrying the remedy itself** - so
-**the round trip runs to the solution, not to the fact**, which is the clause
-F137 and F138 were missing. **G4 FIRED**: the same reader re-scoring E177's own
-answers one day later **disagreed on 4 of 10**, so a one-reader reach rate here
-is not stable at +/-0.4 and **no absolute level in E181 may be compared with
-E177's 0.4000 or 0.8667**; only its within-session paired comparisons survive.
-**K1 fired** (14 rows carry a fact, declared floor 16), so G1-G3 and G5 are
-`not evaluable` and every arm is labelled exploratory. F136's population gap
-stands and is now unexplained rather than under-supplied (F139, D119).
+**E181 completed (2026-10-18): supplying the missing fact does not move the
+assistant, and pasting the thread does not either.** Four paired arms on one
+population, no arm label in any input file: question alone **7/14 = 0.5000**,
+**+ the one extracted missing fact** **8/14 = 0.5714**, **+ every comment on the
+thread verbatim** **9/14 = 0.6429**, placebo 4/10. **Every paired comparison is
+null** — A1 vs A0 exact McNemar **p = 1.0**, and A0 vs B1 is **0 for, 2 against**,
+so pasting the entire discussion never once beat answering the question alone.
+Two numbers survive: an extracted fact is a median **15.5 tokens against the
+thread's 232.5 (6.7%)**, and the comments name the deciding fact on
+**14/30 = 0.4667** with **10 of the 16 nulls carrying the remedy itself** — **the
+round trip runs to the solution, not to the fact**, the clause F137 and F138 were
+missing. **G4 FIRED** (same reader re-scoring E177's answers a day later
+disagreed on **4 of 10**), so **no absolute level in E181 is comparable with
+E177's**; **K1 fired** (14 rows against a declared floor of 16), so every arm is
+exploratory. Full entry: [`E181`](EXPERIMENTS/181-fact-supply-closes-gap/RESULT.md).
 
 **Named next action: ask whether the accepted answer is the *best* answer, not
 merely the *accepted* one.** Read the rows every arm missed and ask which it
@@ -240,14 +220,49 @@ community's chosen resolution is contestable, the EVID gap is a disagreement
 about answers rather than a deficit of context, and no context pipeline of any
 kind will close it.
 
-**Superseded by E181 (2026-10-18):** the named next action below was written when
-the EVID gap's *mechanism* was still an inference.
+> **RUN as E182 (2026-10-18); the question had to be corrected first.** The draw
+> is of questions that were *unanswered*, so `accepted_answer_id` is non-null on
+> **0 of 60** rows and the key answer is the **top-voted** one (F141). Corrected
+> and run with an instrument built for it: the ground truth on missed rows is no
+> more contested (**p = 1.0**) and no more divergent (**p = 1.0000**) than on
+> reached rows, on an instrument that cleared its own declared bar at **0.8000 /
+> specificity 1.0000**. Vote margin was **4 of 10** against hand-read labels, so
+> its earlier null was **withdrawn, not reported**. **The EVID line closes as a
+> capability limit.** [Full entry.](EXPERIMENTS/182-ground-truth-contest/RESULT.md)
+
+**Superseded by E181 and closed by E182 (2026-10-18):** the named next action
+below was written when the EVID gap's *mechanism* was still an inference.
 **Superseded (2026-10-18).** **Named next action: return to fresh exploration.** The EVID class is served by the venue's round trip across two venues of very different personal-fact sensitivity. The genuinely unserved residue is small and eventually answered in both. The "unserved need" hypothesis is dead for every population this mission can measure. The mission should either test a completely different kind of need (not evidence-gated questions) or pivot to a different invention axis entirely.
+
+> **E178 closed the fetch route** (`publishable` **0/46**; `has_ask` **0.6739**,
+> the venue's round trip already running). **F137/F138**: on money SE it runs
+> harder (**0.9000**). **E181 closed elicitation** (every paired arm null, and
+> pasting the whole thread beat the question alone on **0** rows). **E182 closed
+> the fourth and last explanation** — the correction note above.
+
+**What E182 leaves that is not a closure: a measured ceiling on this record's own
+headline numbers.** The ground truth behind every service rate here is
+**contested on 21.7%** of rows and **uncorroborated on 26.7%** — **48.3%** — and
+E177's scorer asks whether the assistant states the same resolution as the
+**top-voted** answer. That weakens hit and missed rows alike, so it explains
+**none** of the SELF/EVID *gap* and bounds every absolute *level* here,
+**0.8667 and 0.4000 included** (D120, F141).
+
+**Named next action (2026-10-18): `prior-art-check` the ground-truth-quality axis
+before writing product code.** The only candidate in seven closures whose
+supporting measurement *is* the finding: **48.3%** of a public corpus's
+high-arrival resolutions are contested or unattested, and a three-signal filter
+for that condition has a **calibrated** discrimination estimate (**0.8000** /
+specificity **1.0000**) and a **measured** prevalence. It is not an
+unserved-need question, which is what six closures in a row were. Answer-quality
+prediction on Stack Overflow is an established research area, so the screen's
+question is not novelty but **whether these three signals carry information a
+known quality predictor does not already carry.** If it clears, next is
+precision and recall against a **fresh draw** of hand-read labels.
 
 **E178 completed (2026-10-17): the missing evidence is not in anything the project publishes; the venue's own round trip already supplies it.** On the 46 EVID rows, blind re-key: **publishable 0/46 = 0.0000, asker_only 21/46 = 0.4565, third_party 20/46 = 0.4348, none 5/46 = 0.1087**. **G1 FIRED** (publishable < 0.50): the FETCH route closes. **G4 FIRED** (has_ask 31/46 = 0.6739 >= 0.50, ask_then_asker 31/46 = 0.6739 >= 0.25): the venue's own workflow already runs the round trip on the very rows this experiment measures, and the person supplies the fact. The honest statement is not "unserved" but *served by an interaction that already exists, and unreachable by one-shot answering*. **G5 NOT fired** (none = 5, not > 9): EVID precision is above 0.80. M1: has_comment 37/46 = 0.8043, has_ask 31/46 = 0.6739, ask_then_asker 31/46 = 0.6739, answer_asks 20/46 = 0.4348, evidence_in_comments 39/46 = 0.8478, discriminating_and_asked 28/46 = 0.6087. M3: already_present 7/46 = 0.1522 (a ceiling on E177's labels), used 37/46 = 0.8043. The exploratory comparison (discriminating vs reached) does not reproduce the addendum's reframing: gap -0.0741, p = 0.52. **E177's population closes with no candidate.** [`RESULT.md`](EXPERIMENTS/178-evidence-where-does-it-live/RESULT.md).
 
 **E180 (2026-10-17), view-count principle on Pub.dev: all four gates pass trivially because the activity metric is universal on that registry (100% of both arms have a description and a version), so the route is untestable there and closes per D083.** Full entry in [`STATE-next-actions.md`](STATE-next-actions.md).
-
 
 ## Dashboard
 
@@ -268,7 +283,6 @@ Full list, with the ceiling on each item and the reasoning behind it, is in
 [`STATE-next-actions.md`](STATE-next-actions.md); the standing constraints that hold
 whichever item is next are in
 [`STATE-constraints.md`](STATE-constraints.md).
-
 
 ## Capability evidence
 

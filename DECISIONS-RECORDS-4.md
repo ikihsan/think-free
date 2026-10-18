@@ -6,7 +6,7 @@ last-verified: 2026-10-18
 
 # Decisions — records (part 4)
 
-Decisions **D119**. Same invariant and shape as
+Decisions **D119, D120**. Same invariant and shape as
 [`DECISIONS-RECORDS-3.md`](DECISIONS-RECORDS-3.md): a choice that was genuinely
 open, the evidence behind it, the alternatives rejected, and the reason. Split on
 2026-10-18, not at the cap.
@@ -100,3 +100,70 @@ over rows already committed, with no new fetch.
   effect", and the budget is better spent on the contestability question, which
   is a *different* question rather than more of this one.
 - **Treat 0.5000 as the corrected 0.4000.** Rejected, and explicitly: G4 fired.
+
+## D120 — the EVID gap closes as a capability limit, and its ground truth carries a measured ceiling
+
+**Date:** 2026-10-18. **Session:** 2026-10-18-003. **Evidence:**
+[`EXPERIMENTS/182-ground-truth-contest/`](EXPERIMENTS/182-ground-truth-contest/RESULT.md),
+F141. **Supersedes nothing;** it closes the one explanation D119 deliberately left
+standing, and it bounds what any service rate in this record may be quoted as.
+
+**The choice.** D119 closed the input explanations and left the ground truth
+unexamined: *is the failure a retrieval-of-the-right-fact failure at all, or is
+it a disagreement with the community's chosen resolution?* D120 runs that
+question and finds **no**, twice, on an instrument that had to be built first.
+
+**What had to be corrected before it could be asked.** The question was carried
+in three documents as *"is the **accepted** answer the best answer, or merely
+the **accepted** one."* `accepted_answer_id` is non-null on **0 of the 60 scored
+rows** — E177's draw is of questions that were unanswered, and the key answer is
+the top-voted one. The runnable question is one word different (F141).
+
+**Two instruments, and the first one had to be destroyed.** Vote margin looked
+like a cheap non-judgemental proxy and was **4 of 10 against hand-read labels**,
+wrong in both directions at similar rates: "how do I do X" rows collect several
+implementations of one fix, and flat contradictions sit under wide margins.
+Raw prescriptive-token overlap was **rejected at 0.6500 balanced accuracy**
+against a bar of 0.80, with specificity at **0.5000 — chance**. The rejection is
+what identified the defect: shared *problem* vocabulary counted as shared
+*prescription*. Residualising against the question's own tokens reached **0.8000
+balanced accuracy at specificity 1.0000**, and the gate ran on it. **Neither the
+bar nor τ moved after a result was seen.**
+
+**Result.** EVID missed 4/9 `divergent` against EVID hit 3/6 — Fisher
+**p = 1.0**, OR 0.80. A post-hoc exact permutation test on the continuous
+statistic over the same rows and the same instrument returned **U exactly at
+`n₁n₂/2`, p = 1.0000**. Not a near-null.
+
+**Therefore F136's gap has no testable explanation left**, across four
+explanations and four independent closes: not publishable anywhere (E178, 0/46),
+already run by the venue's own round trip (E178, F137, F138), not moved by
+supplying the fact or the whole thread (E181, p = 1.0), and not a disagreement
+about resolutions (E182). What remains is that **the assistant reasons worse on
+questions whose resolution needs a fact the question omits** — a capability
+limit, which no context pipeline closes.
+
+**The number that changes how this record is read.** The ground truth behind
+every service rate here is `contested` on **21.7%** of rows and
+`uncorroborated` on **26.7%** — **48.3%**. E177's scorer asks whether the
+assistant states the same resolution as the **top-voted** answer. That weakens
+hit rows and missed rows alike, so it explains none of the SELF/EVID *gap* and
+puts a **measured ceiling on every absolute level in this record**, 0.8667 and
+0.4000 included.
+
+**Alternatives rejected, with reasons.**
+- **Report G2's first null as a closure.** Rejected: G5 had falsified the
+  instrument, and a null from an instrument that does not measure its construct
+  is indistinguishable from a real one. This is the most expensive available
+  mistake — it writes "the EVID gap is not a disagreement" on the strength of a
+  threshold already shown not to work.
+- **Keep iterating the instrument until something passes.** Rejected: a third
+  attempt with no pre-declared acceptance bar is a search for a p-value. Two
+  attempts, one declared bar, and the bar not touched after a result was seen.
+- **Quote G2′ as establishing the gap is not a disagreement.** Rejected on
+  coverage: 37 of 60 rows are labelled and **21 of the 30 EVID rows**, the
+  remaining 9 carry no usable comparison, and the accepted detector's
+  sensitivity is 0.6000. The claim is closed on the rows tested and `untested`
+  on the rest, and says so.
+- **Treat the 48.3% as invalidating E177.** Rejected: it bounds levels, not the
+  gap, and the gap's within-session comparisons are untouched.

@@ -197,5 +197,18 @@ rows every arm missed and asks whether the accepted answer is the *best*
 answer or merely the *accepted* one — one reader, no new fetch, and it is the
 only remaining explanation this population has.
 
+> **RUN as E182 (2026-10-18) — and the wording above named a field this
+> population does not contain, in three documents.** `accepted_answer_id` is
+> non-null on **0 of the 60 scored rows**: E177's draw is of questions that were
+> *unanswered*, the asker accepted nothing, and the key answer is the
+> **top-voted** one — which E177's own RESULT.md and AMENDMENT-2 already said
+> (F141). Corrected to *top-voted* and run with an instrument built for it, the
+> answer is **no**: the ground truth on the missed rows is no more contested
+> (**Fisher p = 1.0**) and no more divergent (**exact permutation p = 1.0000**)
+> than on the rows the assistant reached. **The EVID line closes as a capability
+> limit**, and 48.3% of this population's ground truth is contested or
+> uncorroborated, which bounds every absolute service rate in the record.
+> [`EXPERIMENTS/182-ground-truth-contest/`](EXPERIMENTS/182-ground-truth-contest/RESULT.md).
+
 Prior art: not screened, and not needed for a negative result. If a later
 experiment revives the elicitation direction, the screen is owed first.

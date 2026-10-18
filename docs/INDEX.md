@@ -434,6 +434,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/179-containment-aware-search/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 1 documents |
 | `EXPERIMENTS/179-stale-accepted-answers/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 2 documents |
 | `EXPERIMENTS/181-fact-supply-closes-gap/` | `docs/INDEX.md` | active | 2026-10-18 | 5 documents |
+| `EXPERIMENTS/182-ground-truth-contest/` | `docs/INDEX.md` | active | 2026-10-18 | 4 documents |
 | `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
