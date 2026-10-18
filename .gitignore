@@ -43,7 +43,7 @@ sessions/*/*
 !sessions/*/README.md
 
 # Experiment raw data is tracked; bulk re-fetchable inputs are not
-EXPERIMENTS/*/raw/
+EXPERIMENTS/*/raw/**
 !EXPERIMENTS/*/raw/*.jsonl
 !EXPERIMENTS/*/raw/*.tsv
 !EXPERIMENTS/*/raw/*.csv
