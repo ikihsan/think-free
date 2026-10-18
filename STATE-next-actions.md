@@ -47,6 +47,33 @@ different kind of need or pivot to a different invention axis entirely.
 
 [`E184`](EXPERIMENTS/183-prior-art-ground-truth-quality/RESULT.md).
 
+## E185 completed (2026-10-18) — knitting repair planner Stage A: local planner beats full-row rollback
+
+**What was tested.** Research C proposed a knitting repair planner that computes minimal-intervention fixes for localized errors. E185 implements the Stage A falsification experiment: 8 synthetic fixtures (4×4–7×7 knit/purl grids with single errors — dropped stitch, twisted stitch, wrong cable crossing, yarnover, wrong stitch type). Arms: A0 full-row rollback (release all loops in affected row), A1 local planner (prioritized BFS over release/reknit operations with boundary/yarn-order/pull-direction constraints), A2 exhaustive search (oracle, F1–F2 only).
+
+**The result.** G1 (completeness): A1 finds valid repair on **8/8** fixtures. G2 (improvement): A1 releases fewer loops than A0 on **6/8** = 0.75 (kill threshold 0.625). G3 (optimality): On F1, F2 (small enough for exhaustive search), A1 matches A2 exactly (gap 0). **Kill gate NOT FIRED.**
+
+| Fixture | Error | A0 releases | A1 releases | Improvement |
+|---------|-------|-------------|-------------|-------------|
+| F1 | dropped stitch | 1 | **0** | ✅ |
+| F2 | twisted stitch | 2 | **1** | ✅ |
+| F3 | wrong cable cross | 5 | **1** | ✅ |
+| F4 | extra yarnover | 3 | **1** | ✅ |
+| F5 | wrong stitch type | 3 | **1** | ✅ |
+| F6 | two dropped | 0 | 0 | ❌ (both minimal) |
+| F7 | mis-crossed cable | 5 | **1** | ✅ |
+| F8 | edge dropped | 0 | 0 | ❌ (both minimal) |
+
+The two non-improving fixtures are dropped-stitch cases where both approaches simply re-knit missing loops — no releases needed by either.
+
+**What this decides.** The computational mechanism for local knitting repair planning survives Stage A. A graph-based planner with constrained search finds strictly better interventions than full-row rollback for localized errors (twisted, crossed, extra, wrong-type). Dropped stitches are already minimal for both methods. Physical validation (Stage B per Research C) remains entirely untested.
+
+**Do not claim:** physical feasibility, user input burden, adoption, or product viability. This is a computational result only.
+
+**Named next action:** If pursuing knitting repair, run Stage B physical falsification (6–10 swatches, experienced knitter, measure correctness/time/distortion vs. tutorial/rollback). Otherwise, this axis joins the evidence base; mission continues fresh exploration per STATE.md §267.
+
+[`RESULT.md`](EXPERIMENTS/185-knitting-repair-planner-stage-a/RESULT.md).
+
 ## E182 completed (2026-10-18) — the fourth explanation of F136's gap is gone, and the ground truth has a measured ceiling
 
 **What was tested.** E181 left one explanation standing: is the EVID gap a
