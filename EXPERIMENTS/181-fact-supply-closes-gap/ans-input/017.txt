@@ -1,0 +1,6 @@
+TITLE: How to fix warning &quot;APK does not support 16 Kb devices&quot;
+TAGS: android,kotlin,native-code
+
+QUESTION AS POSTED:
+My project is using some external libraries which have native code. I've got warning from Google, about migrating my app to support 16 Kb pages. In apk analyser I noticed, that .so libraries were not compiled to support 16 kb. I have updated external libraries with latest versions with 16 Kb pages support. Warnings about those libraries disappeared, but I still see warning "Apk does not support 16 kb devices". Maybe this happens because I am analyzing apk, that was built under processor architecture which is not supporting 16 Kb pages size? 
+ How to solve this issue, help me please

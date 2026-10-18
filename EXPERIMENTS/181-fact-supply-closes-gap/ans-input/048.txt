@@ -1,0 +1,19 @@
+TITLE: Git debugging - &quot;error: could not delete references: cannot lock ref&quot; &quot;File exists&quot;
+TAGS: windows,git
+
+QUESTION AS POSTED:
+Different from other answers, I could find no results anywhere for this specific error: 
+ `git pull --prune
+
+error: could not delete references: cannot lock ref 'refs/remotes/origin/branchname': Unable to create 'C:/develop/repo/.git/refs/remotes/origin/branchname.lock': File exists.
+ 
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue. From github.com/repo
+` 
+ annoyingly, it is trying to cleanup 100s of branches that were deleted on the server... each time I run a pull or fetch, it does the same mass deletion, making no progress :(
+
+The reporter adds this:
+On the reporter's Windows checkout, two remote branches on origin differ only in case, so the lock file git names does not actually exist.

@@ -1,0 +1,17 @@
+TITLE: Tailwind CSS: &quot;npm error could not determine executable to run&quot;
+TAGS: javascript,npm,tailwind-css,vite,tailwind-css-4
+
+QUESTION AS POSTED:
+I've been using Tailwind CSS for my projects for a long time.
+Starting my new project, I installed the package and created the `tailwind.config.js` file via the command `npx tailwindcss init -p` , as I'm used to.
+But then I ran into an unexpected error – npm can't find the executable called by `npx tailwindcss` , even though I installed it. 
+ Reproducing the error message is as simple as running the following two commands from the root of the project : 
+ `$ npm install -D tailwindcss
+$ npx tailwindcss init -p
+
+ npm error could not determine executable to run
+ npm error A complete log of this run can be found in:
+ ...
+` 
+ 
+ Why am I running into this error when it used to work before?

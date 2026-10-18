@@ -1,0 +1,102 @@
+TITLE: Unable to tint a custom view in a UIBarButtonItem in iOS 26
+TAGS: ios,uikit,uibarbuttonitem,ios26
+
+QUESTION AS POSTED:
+Under iOS 26, the look of navigation bars and toolbars has changed quite a bit. I am running into an issue trying to tint the added items. For "standard" `UIBarButtonItem` instances, you simply set the `tintColor` and it works fine. For example: 
+ `let itemText = UIBarButtonItem(title: "Text")
+itemText.tintColor = .systemGreen
+` 
+ The text will appear green in a toolbar or navbar. Same works as expected if created with an SF Symbol image. 
+ The issue lies when I need to create a `UIBarButtonItem` with a custom view. I've experimented with `UIButton` , `UISegmentedControl` , and `UISwitch` . If I create and tint such controls and add them to the view controller's view, the colors work as expected. When the same colored controls are used with `UIBarButtonItem(customView:)` and added to a navbar or toolbar, then all colors are lost (oddly, except for the `UISwitch onTintColor` ). 
+ Am I missing the correct way to tint custom views used in this manner, or is this an issue with iOS 26? 
+ Here's some sample code to demonstrate the issue. Create a new iOS app storyboard project in Xcode 26. Setup the storyboard to display a navigation controller with a plain view controller as its root. Replace the ViewController code with the following: 
+ `import UIKit
+
+class ViewController: UIViewController {
+ func createButton() -> UIButton {
+ var cfg = UIButton.Configuration.plain()
+ cfg.image = UIImage(systemName: "eye")
+ let button = UIButton(configuration: cfg)
+
+ return button
+ }
+
+ func createSegment() -> UISegmentedControl {
+ let i1 = UIImage(systemName: "eye")!
+ let i2 = UIImage(systemName: "eye")!
+ let seg = UISegmentedControl(items: [i1, i2])
+ seg.selectedSegmentIndex = 0
+ return seg
+ }
+
+ override func viewDidLoad() {
+ super.viewDidLoad()
+
+ view.backgroundColor = .systemBackground
+
+ let b1 = createButton()
+ b1.tintColor = .systemRed
+ b1.translatesAutoresizingMaskIntoConstraints = false
+ view.addSubview(b1)
+
+ let s1 = createSegment()
+ s1.selectedSegmentTintColor = .systemYellow
+ s1.translatesAutoresizingMaskIntoConstraints = false
+ view.addSubview(s1)
+
+ let w1 = UISwitch()
+ w1.onTintColor = .systemCyan
+ w1.thumbTintColor = .systemPink
+ w1.translatesAutoresizingMaskIntoConstraints = false
+ view.addSubview(w1)
+
+ NSLayoutConstraint.activate([
+ b1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+ b1.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+ s1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+ s1.topAnchor.constraint(equalTo: b1.bottomAnchor, constant: 20),
+ w1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+ w1.topAnchor.constraint(equalTo: s1.bottomAnchor, constant: 20),
+ ])
+
+ // Despite all these attempts to set a color, the views in the navbar remain black
+ let b2 = createButton()
+ b2.tintColor = .systemRed // Nope
+ let nb1 = UIBarButtonItem(customView: b2)
+ nb1.tintColor = .systemYellow // Nope
+
+ let s2 = createSegment()
+ s2.selectedSegmentTintColor = .systemRed // Nope
+ let nb2 = UIBarButtonItem(customView: s2)
+ nb2.tintColor = .systemMint // Nope
+
+ let w2 = UISwitch()
+ w2.onTintColor = .systemCyan // This actually works
+ w2.thumbTintColor = .systemPink // But this doesn't
+ let nb3 = UIBarButtonItem(customView: w2)
+ nb3.tintColor = .systemBrown // Neither does this
+
+ let nb4 = UIBarButtonItem(title: "Text")
+ nb4.tintColor = .systemGreen // This works on the text if not changed below with the titleTextAttributes
+
+ navigationItem.rightBarButtonItems = [nb1, nb3]
+ navigationItem.leftBarButtonItems = [nb2, nb4]
+
+ self.navigationController?.navigationBar.tintColor = .systemRed // Nothing
+ self.navigationController?.navigationBar.barTintColor = .systemYellow // Nothing
+
+ // This works on the text color but not the others
+ self.navigationController?.navigationBar.standardAppearance.buttonAppearance.normal.titleTextAttributes = [ .foregroundColor : UIColor.systemPurple ]
+ }
+}
+` 
+ Run this on an iOS 26 simulator or device. The center of the screen will show a properly colored button, segmented control, and switch. 
+ The navigation bar will show a segmented control, some text, a switch, and a button. 
+ The text will have the appropriate color depending on which code is commented. But this does not involve a custom view. 
+ The switch retains its `onTintColor` but not the `thumbTintColor` . 
+ The button loses its `tintColor` . 
+ The segmented control loses its `selectSegmentTintColor` . 
+ Setting the `tintColor` of each `UIBarButtonItem` created with a custom view has no effect.
+
+The reporter adds this:
+The deployed environment has bcrypt 5.0.0, released 2025-09-25, which the question never states.

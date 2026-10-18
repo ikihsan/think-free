@@ -1,0 +1,18 @@
+TITLE: Create project with specific (downgraded) Python version
+TAGS: python,uv
+
+QUESTION AS POSTED:
+At work, I am running 3.9.21. At home, I am running Python 3.13.2 on Linux, but also use `uv` install Python 3.9.21 to be in sync with work. 
+ In my home machine, I created a new project: 
+ `uv init --package --python "python==3.9.21" sandbox
+cd sandbox
+uv sync
+` 
+ At this time, I got the following error: 
+ `Using CPython 3.13.2
+error: The requested interpreter resolved to Python 3.13.2, which is incompatible with the project's Python requirement: `==3.9.21`
+` 
+ How can I create a project with this specific version (3.9.21) of Python?
+
+The reporter adds this:
+uv on the home machine was installed by the curl installer, not by pip install.

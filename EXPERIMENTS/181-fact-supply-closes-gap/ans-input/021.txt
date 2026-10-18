@@ -1,0 +1,58 @@
+TITLE: Estimation for Pi is precise but inaccurate
+TAGS: c,math,montecarlo,pi
+
+QUESTION AS POSTED:
+My code reliably finds a precise (similar value every time) but in the region of 3.24 and 3.26. Competent mathematicians will note this around 0.1 away from an ideal Pi value. 
+ My code revolves around picking random points on a 10,000 x 10,000 grid. The hypotenuse with respect to (0,0) is calculated and if this hypotenuse is less than 10,000, the point is inside a theoretical circle with radius 10,000. 
+ The ratio of points inside and all points multiplied by 4 should give an estimation for Pi. 
+ `#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+
+int RandomNum(int min, int max);
+
+int main()
+{
+ int d = 0;
+ int n = 0;
+ srand(time(NULL));
+
+
+ for (int i =0; i < 10000; i++)
+ {
+ n++;
+ int xI = RandomNum(-10000, 10000);
+ //double xF = (double) xI/10000;
+ printf("\nx: %f", xI);
+
+ int yI = RandomNum(-10000, 10000);
+ //double yF = (double) yI/10000;
+ printf("\ny: %f", yI);
+
+ double pythag = sqrt(xI*xI+yI*yI);
+ printf("\nhyp: %f\n\n",pythag);
+
+ if (pythag < 10000)
+ {
+ d++;
+ }
+
+ }
+ printf("d = %d\n", d);
+ printf("n = %d\n", n);
+ double DNratio = (double) d/n;
+ double PiEstimate = DNratio * 4;
+ printf("Pi Estimate: %f", PiEstimate);
+ return 0;
+}
+int RandomNum(int min, int max)
+{
+ int r = rand()%(max - min + 1) + min;
+ return r;
+}
+
+//https://www.geeksforgeeks.org/c/generating-random-number-range-c/
+//https://www.tutorialspoint.com/c_standard_library/c_function_srand.htm
+
+`

@@ -1,0 +1,18 @@
+TITLE: NVM installation error on Windows. Cannot find the npm file
+TAGS: node.js,windows,nvm
+
+QUESTION AS POSTED:
+I was using NVM to insall node js. But when i try to install this specific version `nvm install 14.17.3` it is not able to detect the npm file. the .zip file for npm is not found in the specified directory. 
+ `C:\Users\Infra>nvm install 14.17.3
+Downloading node.js version 14.17.3 (64-bit)...
+Complete
+Downloading npm...
+Creating C:\Users\Infra\AppData\Local\Temp\nvm-install-3421872285\temp
+
+Downloading npm version 6.14.13... Complete
+Installing npm v6.14.13...
+error installing 14.17.3: open C:\Users\Infra\AppData\Local\Temp\nvm-npm-2947621574\npm-v6.14.13.zip: The system cannot find the file specified.
+`
+
+The reporter adds this:
+nvm-windows 1.1.2 is a version that installs node 14 cleanly; later versions fail on the npm zip.
