@@ -300,7 +300,4 @@ whichever item is next are in
 `git` 2.55.0. GitHub API, SQLite and arXiv HTTPS all 200; NumPy present, SciPy/pytest/Z3
 absent; `gh` absent. A VM's own numbers come from `tools/origin doctor`, which writes
 `.origin/doctor.json`; this one reports 2 CPUs, Python 3.8.10, `git` 2.25.1, and pushes via
-the GitHub App as `Ihsan Ai Server Bot`. **Unverified and not to be assumed:** fleet access,
-unattended supervision, GPU.
-
-*Honest limitations moved to [`STATE-history.md`](STATE-history.md).*
+the GitHub App as `Ihsan Ai Server Bot`. **Unverified:** fleet access, unattended supervision, GPU.

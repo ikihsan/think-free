@@ -195,6 +195,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `RESEARCH/E.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
 | `RESEARCH/EXPERIMENT-PROTOCOL.md/` | `docs/process/experiment-protocol.md` | archived | 2026-10-03 | 1 documents |
 | `RESEARCH/F.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
+| `RESEARCH/G.md/` | `RESEARCH.md` | sealed | 2026-10-18 | 1 documents |
 | `RESEARCH/PRIOR-ART-E065-E066-E067.md/` | `docs/INDEX.md` | active | 2026-10-08 | 1 documents |
 | `RESEARCH/PRIOR-ART-KNITTING.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
 | `RESEARCH/PRIOR-ART-ORIGIN.md/` | `RESEARCH.md` | sealed | 2026-10-04 | 1 documents |
@@ -435,6 +436,14 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/179-stale-accepted-answers/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 2 documents |
 | `EXPERIMENTS/181-fact-supply-closes-gap/` | `docs/INDEX.md` | active | 2026-10-18 | 5 documents |
 | `EXPERIMENTS/182-ground-truth-contest/` | `docs/INDEX.md` | active | 2026-10-18 | 4 documents |
+| `EXPERIMENTS/183-prior-art-ground-truth-quality/` | `docs/INDEX.md` | active | 2026-10-18 | 2 documents |
+| `EXPERIMENTS/185-knitting-repair-planner-stage-a/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-18 | 2 documents |
+| `EXPERIMENTS/186-diy-repair-advisor/` | `—` | — | — | 1 documents |
+| `EXPERIMENTS/186-garden-planting-planner/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-18 | 2 documents |
+| `EXPERIMENTS/186-nhtsa-complaint-recall-prediction/` | `docs/INDEX.md` | active | 2026-10-18 | owner: docs/INDEX.md |
+| `EXPERIMENTS/186-woodworking-repair-planner-stage-a/` | `—` | — | — | 2 documents |
+| `EXPERIMENTS/187-clinical-trial-matching/` | `docs/INDEX.md` | active | 2026-10-18 | owner: docs/INDEX.md |
+| `EXPERIMENTS/187-knitting-optimization/` | `EXPERIMENTS/README.md` | active | 2026-10-18 | 2 documents |
 | `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
