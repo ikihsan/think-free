@@ -61,6 +61,8 @@ IMPLICATIONS = {
             "DECISIONS-PUBLISHING.md",
             "DECISIONS-RECORDS.md",
             "DECISIONS-RECORDS-2.md",
+            "DECISIONS-RECORDS-3.md",
+            "DECISIONS-RECORDS-4.md",
         ),
     ),
     "experiment_result": ("all", ("HYPOTHESES.md", "FAILURES.md")),
