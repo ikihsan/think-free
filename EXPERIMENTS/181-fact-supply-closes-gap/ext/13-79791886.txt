@@ -1,0 +1,115 @@
+TITLE: Estimation for Pi is precise but inaccurate
+TAGS: c,math,montecarlo,pi
+QUESTION AS POSTED:
+My code reliably finds a precise (similar value every time) but in the region of 3.24 and 3.26. Competent mathematicians will note this around 0.1 away from an ideal Pi value. 
+ My code revolves around picking random points on a 10,000 x 10,000 grid. The hypotenuse with respect to (0,0) is calculated and if this hypotenuse is less than 10,000, the point is inside a theoretical circle with radius 10,000. 
+ The ratio of points inside and all points multiplied by 4 should give an estimation for Pi. 
+ `#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+
+int RandomNum(int min, int max);
+
+int main()
+{
+ int d = 0;
+ int n = 0;
+ srand(time(NULL));
+
+
+ for (int i =0; i < 10000; i++)
+ {
+ n++;
+ int xI = RandomNum(-10000, 10000);
+ //double xF = (double) xI/10000;
+ printf("\nx: %f", xI);
+
+ int yI = RandomNum(-10000, 10000);
+ //double yF = (double) yI/10000;
+ printf("\ny: %f", yI);
+
+ double pythag = sqrt(xI*xI+yI*yI);
+ printf("\nhyp: %f\n\n",pythag);
+
+ if (pythag < 10000)
+ {
+ d++;
+ }
+
+ }
+ printf("d = %d\n", d);
+ printf("n = %d\n", n);
+ double DNratio = (double) d/n;
+ double PiEstimate = DNratio * 4;
+ printf("Pi Estimate: %f", PiEstimate);
+ return 0;
+}
+int RandomNum(int min, int max)
+{
+ int r = rand()%(max - min + 1) + min;
+ return r;
+}
+
+//https://www.geeksforgeeks.org/c/generating-random-number-range-c/
+//https://www.tutorialspoint.com/c_standard_library/c_function_srand.htm
+
+`
+
+COMMENTS ON THE QUESTION, in order:
+- [Tangentially Perpendicular] What debugging have you done?
+- [Tangentially Perpendicular] What debugging have you done?
+- [Tangentially Perpendicular] What debugging have you done?
+- [mch] works in the compiler explorer: godbolt.org/z/j6jvxhE6T (I commented out the spamy printfs)
+- [mch] works in the compiler explorer: godbolt.org/z/j6jvxhE6T (I commented out the spamy printfs)
+- [mch] works in the compiler explorer: godbolt.org/z/j6jvxhE6T (I commented out the spamy printfs)
+- [Robby Cornelissen] Might be a bias in the PRNG used by `rand()` , so then it depends on which C library is being used. On the site mentioned by @mch, I get bad results with MSVC.
+- [Robby Cornelissen] Might be a bias in the PRNG used by `rand()` , so then it depends on which C library is being used. On the site mentioned by @mch, I get bad results with MSVC.
+- [Robby Cornelissen] Might be a bias in the PRNG used by `rand()` , so then it depends on which C library is being used. On the site mentioned by @mch, I get bad results with MSVC.
+- [Paul Palmpje] d/n is an integer divide, the result casted to a double. This is the problem I guess. Cast d and n to double before doing the division.
+- [Paul Palmpje] d/n is an integer divide, the result casted to a double. This is the problem I guess. Cast d and n to double before doing the division.
+- [Paul Palmpje] d/n is an integer divide, the result casted to a double. This is the problem I guess. Cast d and n to double before doing the division.
+- [Toby Speight] @PaulPalmpje, `(double)d / n` is a floating-point division, not integer.
+- [Toby Speight] @PaulPalmpje, `(double)d / n` is a floating-point division, not integer.
+- [Toby Speight] @PaulPalmpje, `(double)d / n` is a floating-point division, not integer.
+- [Robby Cornelissen] Maybe it's a modulo bias due to a small `RAND_MAX` in the C library that is used.
+- [Robby Cornelissen] Maybe it's a modulo bias due to a small `RAND_MAX` in the C library that is used.
+- [Robby Cornelissen] Maybe it's a modulo bias due to a small `RAND_MAX` in the C library that is used.
+- [Toby Speight] @Sam, you might do better with a uniform spread of points rather than random. In any case `rand() % N` has a slight bias, and perhaps you're seeing the effect of that?
+- [Toby Speight] @Sam, you might do better with a uniform spread of points rather than random. In any case `rand() % N` has a slight bias, and perhaps you're seeing the effect of that?
+- [Toby Speight] @Sam, you might do better with a uniform spread of points rather than random. In any case `rand() % N` has a slight bias, and perhaps you're seeing the effect of that?
+- [tshiono] I just increased the loop count up to 100000000, then the program yields 3.141467.
+- [tshiono] I just increased the loop count up to 100000000, then the program yields 3.141467.
+- [tshiono] I just increased the loop count up to 100000000, then the program yields 3.141467.
+- [Toby Speight] @LukeSharkey, I recommend that change (assuming platform's `int` is wide enough to represent 100000000) regardless of uniform/random choice.
+- [Toby Speight] @LukeSharkey, I recommend that change (assuming platform's `int` is wide enough to represent 100000000) regardless of uniform/random choice.
+- [Toby Speight] @LukeSharkey, I recommend that change (assuming platform's `int` is wide enough to represent 100000000) regardless of uniform/random choice.
+- [Paul Palmpje] @TobySpeight my bad... it's a long time ago I wrote C code. But it could have been a logical conclusion given that the fraction came out at around .25
+- [Paul Palmpje] @TobySpeight my bad... it's a long time ago I wrote C code. But it could have been a logical conclusion given that the fraction came out at around .25
+- [Paul Palmpje] @TobySpeight my bad... it's a long time ago I wrote C code. But it could have been a logical conclusion given that the fraction came out at around .25
+- [Eric Postpischil] @TobySpeight: Re “In any case `rand() % N` has a slight bias”: `rand() % N` has a huge bias. For OP’s case with `RAND_MAX` = 32,767 and `N` = 20,001, each value in [0, 12,766] is produced twice as often as each value in [12,767, 20,000].
+- [Eric Postpischil] @TobySpeight: Re “In any case `rand() % N` has a slight bias”: `rand() % N` has a huge bias. For OP’s case with `RAND_MAX` = 32,767 and `N` = 20,001, each value in [0, 12,766] is produced twice as often as each value in [12,767, 20,000].
+- [Eric Postpischil] @TobySpeight: Re “In any case `rand() % N` has a slight bias”: `rand() % N` has a huge bias. For OP’s case with `RAND_MAX` = 32,767 and `N` = 20,001, each value in [0, 12,766] is produced twice as often as each value in [12,767, 20,000].
+- [Toby Speight] @Eric, yes I forgot `RAND_MAX` is allowed to be as low as that (even when `INT_MAX` is significantly bigger).
+- [Toby Speight] @Eric, yes I forgot `RAND_MAX` is allowed to be as low as that (even when `INT_MAX` is significantly bigger).
+- [Toby Speight] @Eric, yes I forgot `RAND_MAX` is allowed to be as low as that (even when `INT_MAX` is significantly bigger).
+- [Ian Abbott] It won't help with the accuracy, but `sqrt(xI*xI+yI*yI)` can be simplified to `hypot(xI, yI)` , standardized in C99.
+- [Ian Abbott] It won't help with the accuracy, but `sqrt(xI*xI+yI*yI)` can be simplified to `hypot(xI, yI)` , standardized in C99.
+- [Ian Abbott] It won't help with the accuracy, but `sqrt(xI*xI+yI*yI)` can be simplified to `hypot(xI, yI)` , standardized in C99.
+- [Stef] If the square has side `2*10000` , and the disk has radius `10000` , then logically you should test `pythag <= 10000` , not `pythag < 10000` . And I advise defining a constant `RADIUS=10000` instead of repeating `10000` everywhere in your code. It will make it easier to change the radius later, and also avoid typo mistakes (100000 or 1000 instead of 10000), and will also make the code more readable ( `if pythag <= radius` is way easier to understand than `if pythag <= 10000` )
+- [Stef] If the square has side `2*10000` , and the disk has radius `10000` , then logically you should test `pythag <= 10000` , not `pythag < 10000` . And I advise defining a constant `RADIUS=10000` instead of repeating `10000` everywhere in your code. It will make it easier to change the radius later, and also avoid typo mistakes (100000 or 1000 instead of 10000), and will also make the code more readable ( `if pythag <= radius` is way easier to understand than `if pythag <= 10000` )
+- [Stef] If the square has side `2*10000` , and the disk has radius `10000` , then logically you should test `pythag <= 10000` , not `pythag < 10000` . And I advise defining a constant `RADIUS=10000` instead of repeating `10000` everywhere in your code. It will make it easier to change the radius later, and also avoid typo mistakes (100000 or 1000 instead of 10000), and will also make the code more readable ( `if pythag <= radius` is way easier to understand than `if pythag <= 10000` )
+- [n.m.is-an-unemployed-ai-agent] `sqrt` is a potential source of error, and is not needed. You want to check `x^2 + y^2 < r^2` instead.
+- [n.m.is-an-unemployed-ai-agent] `sqrt` is a potential source of error, and is not needed. You want to check `x^2 + y^2 < r^2` instead.
+- [n.m.is-an-unemployed-ai-agent] `sqrt` is a potential source of error, and is not needed. You want to check `x^2 + y^2 < r^2` instead.
+- [Weather Vane] Aside: Wikipedia's Approximations of π gives several `arctan` based methods which are fairly easy to code, and should be accurate to many digits after 10,000 iterations.
+- [Weather Vane] Aside: Wikipedia's Approximations of π gives several `arctan` based methods which are fairly easy to code, and should be accurate to many digits after 10,000 iterations.
+- [Weather Vane] Aside: Wikipedia's Approximations of π gives several `arctan` based methods which are fairly easy to code, and should be accurate to many digits after 10,000 iterations.
+
+COMMENTS ON THE ANSWER THAT WAS ACCEPTED, in order (the accepted answer itself is NOT shown to you):
+- [Toby Speight] Given that `RAND_MAX` is allowed to be as low as 32767, picking from range [-32767 .. 32768] using `%` could turn out equivalent to [-32767 .. 0]. Which works, but not the way you expect! A perverse implementation (with `RAND_MAX` = 49151, for example) could really confound your results. (And this all assumes that `rand()` is uniformly distributed, which the standard does not require).
+- [Robby Cornelissen] @TobySpeight Agreed. I was not suggesting this as a solution, just as a quick way to demonstrate the bias without changing too much of the original code.
+- [greg spears] Good stuff. Before I get even semi-serious with a `rand()` application/project, I test my compiler's `rand()` for even distribution with a frequency diagram of some sort. On that note, I think it's possible to improve your lot by creating a do-it-yourself 64-bit `rand()` by calling `rand()` 4X and shifting your 16-bit result into each quarter of your 64-bit int.
+- [Peter Cordes] @gregspears Yuck, libc `rand()` can be very slow; for example GNU libc uses a global state across all threads, so each call has to take/release a lock, making it at least 10x slower than it would be otherwise even in a single-threaded program, and destroying memory-level parallelism at least on x86 where atomic RMWs are a full barrier. Just use a known-good PRNG like `xoshiro256**` ( en.wikipedia.org/wiki/Xorshift#xoshiro256 **) that produces 64-bit output.
+- [Peter Cordes] @gregspears (I just tested again on my Arch Linux desktop. `rand()` does check if the whole program is single-threaded, in which case it avoids locking. So it's only 20% slower on Skylake than the deprecated `rand_r` with a pointer to an `unsigned int` seed, which is not too slower but bad quality. I tested with a caller that just stores the `rand()` results to a `volatile int` , for 100M iterations compiled with gcc -O2. Takes 0.5s for 100M calls to `rand()` at 4.0GHz on Skylake. In a program that starts a do-nothing thread first, it takes 1.5 seconds. So 10x was an over-estimate.)
+- [Zac67] You can optimize performance by calculating `x * x` only once per `x` loop.

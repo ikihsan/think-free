@@ -1,0 +1,27 @@
+TITLE: installing dotnet-ef dotnet tool throws error
+TAGS: .net,.net-core,entity-framework-core,dotnet-tool
+QUESTION AS POSTED:
+I’m trying to install the Entity Framework Core CLI tools globally using the .NET CLI command: 
+ `dotnet tool install --global dotnet-ef
+` 
+ However, the installation fails with the following error message: 
+ 
+ Tool 'dotnet-ef' failed to update due to the following: 
+ The settings file in the tool's NuGet package is invalid: Settings file 'DotnetToolSettings.xml' was not found in the package. 
+Tool 'dotnet-ef' failed to install. Contact the tool author for assistance. 
+ 
+ To reproduce, run `dotnet tool install --global dotnet-ef` in a terminal or command prompt. 
+ What I've tried 
+ 
+ Running `dotnet tool uninstall --global dotnet-ef` and reinstalling. 
+ 
+ Why is this error occurring, and how can I fix it so that `dotnet-ef` installs successfully?
+
+COMMENTS ON THE QUESTION, in order:
+(none)
+
+COMMENTS ON THE ANSWER THAT WAS ACCEPTED, in order (the accepted answer itself is NOT shown to you):
+- [Community] Your answer could be improved with additional supporting information. Please edit to add further details, such as citations or documentation, so that others can confirm that your answer is correct. You can find more information on how to write good answers in the help center .
+- [Christiaan] #dotnet.exe tool install --global dotnet-ef --version 9.0.11 Worked for me thanks!
+- [Luca] This does not work for me. I have .NET SDK 8 on Linux and want to install dotnet-ef 9.0.10. According to Microsoft (learn.microsoft.com/en-us/ef/core/miscellaneous/platforms) this should be compatible.
+- [Deullam Justi] @Luca I'm using the .NET SDK 8 and running the command "dotnet.exe tool install --global dotnet-ef --version 8.0.22". It worked for me because I'm using the NuGet packages of the Entity Framework 8.0.22.

@@ -1,0 +1,44 @@
+TITLE: .NET 10 version update generates BuildHost-net472 and BuildHost-netcore folder shortcuts
+TAGS: .net-8.0,.net-10.0,versionupgrade
+QUESTION AS POSTED:
+After updating a .NET Core app version from .NET 8 to .NET 10, BuildHost-net472 and BuildHost-netcore folder shortcuts appeared in both projects in the solution, then deleted and works well, they also appeared in published project files. Are those files important?
+
+COMMENTS ON THE QUESTION, in order:
+- [Sergey A Kryukov] I don't get these folders. It looks like it depends on your solution. Could you tell us their exact locations relative to your solution? Also, could you provide at least your Directory.Build.props, if you have it? Better yet, could you create an absolutely minimal solution that creates those directories and show it? Note that in a well-organized solution everything you can delete should go in output and intermediate output that you can consolidate in two places.
+- [Sergey A Kryukov] I don't get these folders. It looks like it depends on your solution. Could you tell us their exact locations relative to your solution? Also, could you provide at least your Directory.Build.props, if you have it? Better yet, could you create an absolutely minimal solution that creates those directories and show it? Note that in a well-organized solution everything you can delete should go in output and intermediate output that you can consolidate in two places.
+- [Sergey A Kryukov] I don't get these folders. It looks like it depends on your solution. Could you tell us their exact locations relative to your solution? Also, could you provide at least your Directory.Build.props, if you have it? Better yet, could you create an absolutely minimal solution that creates those directories and show it? Note that in a well-organized solution everything you can delete should go in output and intermediate output that you can consolidate in two places.
+- [Nodo] They are in each application in solution. I do not have Directory.Build.props.
+- [Nodo] They are in each application in solution. I do not have Directory.Build.props.
+- [Nodo] They are in each application in solution. I do not have Directory.Build.props.
+- [Sergey A Kryukov] Thank you for answering me, but let me repeat my question: could you provide the exact relative paths to `BuildHost-net472` and `BuildHost-netcore` , the paths relative to your solution files? As to `Directory.Build.props` , this is the only way to correctly isolate source code from everything else.
+- [Sergey A Kryukov] Thank you for answering me, but let me repeat my question: could you provide the exact relative paths to `BuildHost-net472` and `BuildHost-netcore` , the paths relative to your solution files? As to `Directory.Build.props` , this is the only way to correctly isolate source code from everything else.
+- [Sergey A Kryukov] Thank you for answering me, but let me repeat my question: could you provide the exact relative paths to `BuildHost-net472` and `BuildHost-netcore` , the paths relative to your solution files? As to `Directory.Build.props` , this is the only way to correctly isolate source code from everything else.
+- [Nodo] I edited my post and added screenshot you can check
+- [Nodo] I edited my post and added screenshot you can check
+- [Nodo] I edited my post and added screenshot you can check
+- [Sergey A Kryukov] Thank you for answering. However, Please don't post textual information in the form of pictures. Please see: Why should I not upload images of code/data/errors? If you still need an image, it can complement the textual information. Yes, file structure information should be purely textual. Where that picture comes from? I cannot see the file .slnx.
+- [Sergey A Kryukov] Thank you for answering. However, Please don't post textual information in the form of pictures. Please see: Why should I not upload images of code/data/errors? If you still need an image, it can complement the textual information. Yes, file structure information should be purely textual. Where that picture comes from? I cannot see the file .slnx.
+- [Sergey A Kryukov] Thank you for answering. However, Please don't post textual information in the form of pictures. Please see: Why should I not upload images of code/data/errors? If you still need an image, it can complement the textual information. Yes, file structure information should be purely textual. Where that picture comes from? I cannot see the file .slnx.
+- [Sergey A Kryukov] The file structure I wanted to see is the part of the file system on disk. Actually, I would like to see on just to the following strings: 1) simple name of .slnx, 2) relative path to `BuildHost-net472` and 3) relative path to `BuildHost-netcore` . Paths relative to the location of that .slnx file.
+- [Sergey A Kryukov] The file structure I wanted to see is the part of the file system on disk. Actually, I would like to see on just to the following strings: 1) simple name of .slnx, 2) relative path to `BuildHost-net472` and 3) relative path to `BuildHost-netcore` . Paths relative to the location of that .slnx file.
+- [Sergey A Kryukov] The file structure I wanted to see is the part of the file system on disk. Actually, I would like to see on just to the following strings: 1) simple name of .slnx, 2) relative path to `BuildHost-net472` and 3) relative path to `BuildHost-netcore` . Paths relative to the location of that .slnx file.
+- [null] @Nodo looks like these are added as links to the project. Could you please share the content of the `SdaApp.csproj` file and `Directory.Build.props` file in case you have one?
+- [null] @Nodo looks like these are added as links to the project. Could you please share the content of the `SdaApp.csproj` file and `Directory.Build.props` file in case you have one?
+- [null] @Nodo looks like these are added as links to the project. Could you please share the content of the `SdaApp.csproj` file and `Directory.Build.props` file in case you have one?
+- [Lazarito444_] I found out that those folders appear when installing EntityFrameworkCore.Design (Version >= 10), if I uninstall that package or downgrade the version to 9.x.x, the folders dissapear. Do you have EntityFrameworkCore.Design @10.x.x installed in your project?
+- [Lazarito444_] I found out that those folders appear when installing EntityFrameworkCore.Design (Version >= 10), if I uninstall that package or downgrade the version to 9.x.x, the folders dissapear. Do you have EntityFrameworkCore.Design @10.x.x installed in your project?
+- [Lazarito444_] I found out that those folders appear when installing EntityFrameworkCore.Design (Version >= 10), if I uninstall that package or downgrade the version to 9.x.x, the folders dissapear. Do you have EntityFrameworkCore.Design @10.x.x installed in your project?
+- [Nodo] Yes I have. Thanks
+- [Nodo] Yes I have. Thanks
+- [Nodo] Yes I have. Thanks
+- [user969172] I am getting the same, just after I installed EntityFrameworkCore.Design @10.x.x
+- [user969172] I am getting the same, just after I installed EntityFrameworkCore.Design @10.x.x
+- [user969172] I am getting the same, just after I installed EntityFrameworkCore.Design @10.x.x
+- [John Hsu] Please refer to github.com/dotnet/efcore/issues/36970
+- [John Hsu] Please refer to github.com/dotnet/efcore/issues/36970
+- [John Hsu] Please refer to github.com/dotnet/efcore/issues/36970
+
+COMMENTS ON THE ANSWER THAT WAS ACCEPTED, in order (the accepted answer itself is NOT shown to you):
+- [Nigel Belham] I also have the same issue. Project now includes pointers to BuildHost-net472 and BuildHost-netcore folders which are not of my creation or inclusion.
+- [user1704029] @NigelBelham again: these folders are projected from Nuget. See my approach to hide this in your solution.
+- [Nigel Belham] Thanks and your project file change hides these items.

@@ -1,0 +1,14 @@
+TITLE: How to style Google Maps PlaceAutocompleteElement to match existing form inputs?
+TAGS: javascript,google-maps,google-places-api,google-places-autocomplete
+QUESTION AS POSTED:
+I'm migrating from the legacy Google Places Autocomplete to the new PlaceAutocompleteElement in my Rails application. The new component is working functionally, but I can't get it to match the styling of my existing form inputs.
+Instead of enhancing my existing street address input field, the PlaceAutocompleteElement renders it as a completely separate input with Google's default styling, creating an inconsistent UI. 
+ Do you know how to remove the black border and change styles overall in https://developers.google.com/maps/documentation/javascript/examples/place-autocomplete-element#maps_place_autocomplete_element-javascript ? 
+ I can't find any example with styled widget. I found only for legacy places.
+
+COMMENTS ON THE QUESTION, in order:
+(none)
+
+COMMENTS ON THE ANSWER THAT WAS ACCEPTED, in order (the accepted answer itself is NOT shown to you):
+- [Thomas] This works! Pls note that you have to add this script before importing the google maps API
+- [codersquirrel] Also in case the new styles don't seem to take, I found that using :host as identifier does the trick: style.textContent = ` :host { background: transparent !important; color-scheme: normal !important; ... (Sorry, unfortunately styling comments does not work here it seems)

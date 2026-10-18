@@ -1,0 +1,32 @@
+TITLE: Did Android Gradle Plugin 8.12.0 deprecated compileSdk?
+TAGS: android,android-gradle-plugin,build.gradle
+QUESTION AS POSTED:
+Recently I updated my Android Gradle Plugin to version 8.12.0 the upgrade was smooth and effortless all the project got upgraded to new Agp version no errors all good. 
+ My project level Build.gradle file is looking a little bit awkward as I am seeing a strikethrough text on "compileSdk" and the summary stating that compileSdk is deprecated. It was strange because as I remember Google has shifted to "compileSdk" from "compileSdkVersion" which was deprecated some years ago. 
+ There was no clear documentation on the Internet. Each time I found only is that "compileSdkVersion" deprecated and "compileSdk" is the new keyword to use. 
+ `android {
+ compileSdk 36
+}
+` 
+ compileSdk showing a warning of deprecated in Android Studio
+Any suggestions please? 
+ I was expecting "compileSdk" is the accepted keyword but it is showing as deprecated in the Agp version 8.12.0. Although the project is compiling and working
+
+COMMENTS ON THE QUESTION, in order:
+- [CommonsWare] I just upgraded a project to AGP `8.12.0` . This project uses Kotlin scripts for Gradle ( `build.gradle.kts` ), and `compileSdk` is not showing up as deprecated.
+- [CommonsWare] I just upgraded a project to AGP `8.12.0` . This project uses Kotlin scripts for Gradle ( `build.gradle.kts` ), and `compileSdk` is not showing up as deprecated.
+- [CommonsWare] I just upgraded a project to AGP `8.12.0` . This project uses Kotlin scripts for Gradle ( `build.gradle.kts` ), and `compileSdk` is not showing up as deprecated.
+- [tyg] I can confirm this only happens when using Groovy for the build files.
+- [tyg] I can confirm this only happens when using Groovy for the build files.
+- [tyg] I can confirm this only happens when using Groovy for the build files.
+- [tyg] My guess is that it was caused by this commit: android.googlesource.com/platform/tools/base/+/…
+- [tyg] My guess is that it was caused by this commit: android.googlesource.com/platform/tools/base/+/…
+- [tyg] My guess is that it was caused by this commit: android.googlesource.com/platform/tools/base/+/…
+- [LanDenLabs] Try compileSdkVersion instead of compileSdk
+- [LanDenLabs] Try compileSdkVersion instead of compileSdk
+- [LanDenLabs] Try compileSdkVersion instead of compileSdk
+
+COMMENTS ON THE ANSWER THAT WAS ACCEPTED, in order (the accepted answer itself is NOT shown to you):
+- [alexismorin] This removed the warning for me, thanks! It's so weird that this one value has an = and all others don't.
+- [Cor] @alexismorin here, build.gradke.kts needs also for minSdk = 31, targetSdk = 36
+- [AndroWeed] Or, try to replace `compileSdk 36` with `compileSdkVersion 36` . It worked for me (no strikethrough text).

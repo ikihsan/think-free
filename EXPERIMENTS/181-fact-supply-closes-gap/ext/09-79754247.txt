@@ -1,0 +1,45 @@
+TITLE: How to fix warning &quot;APK does not support 16 Kb devices&quot;
+TAGS: android,kotlin,native-code
+QUESTION AS POSTED:
+My project is using some external libraries which have native code. I've got warning from Google, about migrating my app to support 16 Kb pages. In apk analyser I noticed, that .so libraries were not compiled to support 16 kb. I have updated external libraries with latest versions with 16 Kb pages support. Warnings about those libraries disappeared, but I still see warning "Apk does not support 16 kb devices". Maybe this happens because I am analyzing apk, that was built under processor architecture which is not supporting 16 Kb pages size? 
+ How to solve this issue, help me please
+
+COMMENTS ON THE QUESTION, in order:
+- [Robert] A good start would be to expand the lib folder in APK Explorer (shown in your screenshot) and check all contained files if they are 16KB aligned.
+- [Robert] A good start would be to expand the lib folder in APK Explorer (shown in your screenshot) and check all contained files if they are 16KB aligned.
+- [Robert] A good start would be to expand the lib folder in APK Explorer (shown in your screenshot) and check all contained files if they are 16KB aligned.
+- [Fedor] I have double checked it. All is OK. Yes, there was warning about native libraries, I have updated them with 16 Kb alignment. The warning disappeared. But i still can see this one warning on the screen, without any other warnings inside analyzer. I have expanded all folders, no warnings inside. The only thing - when I was using old native libs, I got warning in Android Studio after installing my app on device. Now after installing my app on device this warning is not appearing
+- [Fedor] I have double checked it. All is OK. Yes, there was warning about native libraries, I have updated them with 16 Kb alignment. The warning disappeared. But i still can see this one warning on the screen, without any other warnings inside analyzer. I have expanded all folders, no warnings inside. The only thing - when I was using old native libs, I got warning in Android Studio after installing my app on device. Now after installing my app on device this warning is not appearing
+- [Fedor] I have double checked it. All is OK. Yes, there was warning about native libraries, I have updated them with 16 Kb alignment. The warning disappeared. But i still can see this one warning on the screen, without any other warnings inside analyzer. I have expanded all folders, no warnings inside. The only thing - when I was using old native libs, I got warning in Android Studio after installing my app on device. Now after installing my app on device this warning is not appearing
+- [Robert] Is the apk file properly `zipalign` ed to `16` (KB) instead of `4` ?
+- [Robert] Is the apk file properly `zipalign` ed to `16` (KB) instead of `4` ?
+- [Robert] Is the apk file properly `zipalign` ed to `16` (KB) instead of `4` ?
+- [Fedor] How can I check this or align properly?
+- [Fedor] How can I check this or align properly?
+- [Fedor] How can I check this or align properly?
+- [Robert] stackoverflow.com/a/31470494/150978 Just use `16` instead of `4` as argument.
+- [Robert] stackoverflow.com/a/31470494/150978 Just use `16` instead of `4` as argument.
+- [Robert] stackoverflow.com/a/31470494/150978 Just use `16` instead of `4` as argument.
+- [hanrv user] hey i just check my apk for zipalign with 16 kb size but drawable and png files are not not aligned all the .so files are though
+- [hanrv user] hey i just check my apk for zipalign with 16 kb size but drawable and png files are not not aligned all the .so files are though
+- [hanrv user] hey i just check my apk for zipalign with 16 kb size but drawable and png files are not not aligned all the .so files are though
+- [Katazo] I have a similar problem, the store console has our app(s) flagged as not compatible with 16KB Memory page size but when I run the apk analyzer or zipalign, it doesn't show any issue
+- [Katazo] I have a similar problem, the store console has our app(s) flagged as not compatible with 16KB Memory page size but when I run the apk analyzer or zipalign, it doesn't show any issue
+- [Katazo] I have a similar problem, the store console has our app(s) flagged as not compatible with 16KB Memory page size but when I run the apk analyzer or zipalign, it doesn't show any issue
+- [oli0060] @Katazo I think this is also a bug. When we upload an app bundle with missing 16 KB page size support it correctly lists the .so files that needs to be aligned. After doing this (and checking with the `check_elf_alignment.sh` script from here it still displays that the app is not optimized. This time, however, with an empty list of .so files.
+- [oli0060] @Katazo I think this is also a bug. When we upload an app bundle with missing 16 KB page size support it correctly lists the .so files that needs to be aligned. After doing this (and checking with the `check_elf_alignment.sh` script from here it still displays that the app is not optimized. This time, however, with an empty list of .so files.
+- [oli0060] @Katazo I think this is also a bug. When we upload an app bundle with missing 16 KB page size support it correctly lists the .so files that needs to be aligned. After doing this (and checking with the `check_elf_alignment.sh` script from here it still displays that the app is not optimized. This time, however, with an empty list of .so files.
+- [mmm808] The issue I’m seeing is that when I build the debug variant, the APK has no warnings. But when I build the devRelease or rc variant, I start getting warnings..
+- [mmm808] The issue I’m seeing is that when I build the debug variant, the APK has no warnings. But when I build the devRelease or rc variant, I start getting warnings..
+- [mmm808] The issue I’m seeing is that when I build the debug variant, the APK has no warnings. But when I build the devRelease or rc variant, I start getting warnings..
+- [Ashish Jain] @Fedor , hey bro you find any solution for that , i face same issue
+- [Ashish Jain] @Fedor , hey bro you find any solution for that , i face same issue
+- [Ashish Jain] @Fedor , hey bro you find any solution for that , i face same issue
+- [Fedor] @AshishJain I have found out that this happens only with apk. With bundle everything is OK. So I uploaded bundle to GooglePlay
+- [Fedor] @AshishJain I have found out that this happens only with apk. With bundle everything is OK. So I uploaded bundle to GooglePlay
+- [Fedor] @AshishJain I have found out that this happens only with apk. With bundle everything is OK. So I uploaded bundle to GooglePlay
+
+COMMENTS ON THE ANSWER THAT WAS ACCEPTED, in order (the accepted answer itself is NOT shown to you):
+- [tyg] 2025.1.3 is now available as stable version.
+- [Ritsard] Can confirm, i just updated and its gone.
+- [ManojKumar] Addition to this, its recommended by Google to use AGP version 8.5.1 or higher for 16KB support. Even after all changes related to 16KB page size are done still we were facing an issue "Does not support 16KB page" size in PlayStore, After upgraded to AGP 8.6.0 it started working and issue resolved. Ref: developer.android.com/guide/practices/…
