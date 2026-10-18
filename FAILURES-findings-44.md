@@ -204,3 +204,75 @@ whole-thread arm and turned a declared token-cost comparison into a measurement
 of a duplication artifact. **Rule: a raw capture assembled by appending pages of
 the same URL is a set, not a log, and the first thing any reader of it should do
 is count distinct ids against item count.**
+
+## F141 — three documents asked a question about a field their own population does not contain
+
+**Date:** 2026-10-18. **Kind:** record defect found by executing a named next
+action, and a measured instrument ceiling. **Decides:** whether E181's last
+named explanation of F136's gap stays open, and what the absolute service rates
+in this record can mean.
+
+E177's population is drawn from questions that were **unanswered when drawn**, so
+the asker has accepted nothing. From E177's committed `rows.json`:
+`accepted_answer_id` is non-null on **3 of 181** drawn rows, **1 of 145** rows
+carrying a key answer has the key *be* the accepted one, and **0 of the 60
+scored rows have an accepted answer at all.**
+
+[`STATE.md`](STATE.md),
+[`STATE-next-actions.md`](STATE-next-actions.md) and
+[`E181's RESULT`](EXPERIMENTS/181-fact-supply-closes-gap/RESULT.md) all
+carried the next action as *"is the **accepted** answer the best answer, or
+merely the **accepted** one."* **The subject of that question is absent from the
+population it names.** E177 had already disclosed, in its own RESULT.md and in a
+pre-declared AMENDMENT-2, that the key was redefined as the **top-voted** answer
+precisely because acceptance could not key the declared n - and the next action
+was written against the superseded wording anyway, in three places, then carried
+into a RESULT as the last standing explanation of the record's central gap.
+
+The wording survived a rename, which is what makes this a failure of the record
+rather than a slip in one sentence: **a named next action must be re-checked
+against the population it will run on, and that check is a count against a
+committed field.** `accepted_answer_id` non-null on 0 of 60 answers it in one
+line.
+
+**The corrected question was answerable, and its answer was negative.** E182's
+accepted instrument found the ground truth on the rows the assistant missed is
+no more contested (Fisher p = 1.0) and no more divergent (exact permutation
+p = 1.0000, observed U exactly at the midpoint) than on the rows it reached. So
+the mislabelled question cost this session to find, and would have cost the next
+reader a false closure.
+
+**The run also produced a ceiling on the record's headline numbers.** The ground
+truth behind every service rate here is `contested` (a runner-up within a factor
+of two) on **21.7%** of rows and `uncorroborated` (one answer, nothing to
+disagree with) on **26.7%** - **48.3% contested or unattested.** E177's scorer
+asks whether the assistant states the same resolution as the top-voted answer.
+That weakens hit and missed rows alike, so it explains none of the SELF/EVID
+*gap*, and it puts a measured ceiling on every absolute *level* the mission has
+reported, 0.8667 and 0.4000 included.
+
+**Rule: a gate's unit is not interchangeable with its neighbour's** (D061's
+shape, one level out). `accepted` and `top-voted` are different fields with
+different populations behind them, and a protocol that redefines a key silently
+leaves every downstream sentence describing the old key.
+
+**Rule 2: a proxy for a construct must be validated against the construct, not
+against another proxy.** Vote margin looked like disagreement for the whole of
+E182's first arm and was 4 of 10 against hand-read labels - wrong in both
+directions at similar rates, so it is not a noisy proxy but no proxy at all.
+
+**Rule 3, and the one that paid: an instrument that fails its declared bar is a
+result.** Two overlap instruments ran; the first was rejected at 0.6500 balanced
+accuracy against a bar of 0.80 declared before either ran, and the rejection is
+what pointed at the defect - shared *problem* vocabulary counted as shared
+*prescription*. The second, residualised against the question's own tokens,
+reached 0.8000 with specificity 1.0000 and the gate ran on it. Neither the bar
+nor tau was touched after a result was seen.
+
+**Rule 4: the same arithmetic mistake survives a rename too.** The permutation
+test compared observed U against 0 instead of `n1*n2/2` and returned
+**p = 0.0004 for an observed U sitting exactly at the midpoint** - F136's own
+Fisher tail summed from the wrong term, made again in a different function,
+caught only because a perfectly null result is implausible enough to look at.
+**A p-value that looks too good deserves the same suspicion as one that looks too
+bad.**
