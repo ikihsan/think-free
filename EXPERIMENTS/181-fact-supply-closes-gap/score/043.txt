@@ -1,0 +1,13 @@
+PROPOSED ANSWER:
+Those BuildHost-net472 and BuildHost-netcore folders are not part of your solution and did not come from your project file. They are generated: in current tooling they are transient host projects created for design-time builds and legacy designers, materialised as project references under the solution directory, and they are regenerated on demand. So this is not a mistake in your .sln and nothing about your solution layout causes it. Two consequences. Do not hand-edit the solution file or try to delete the references - the next design-time operation recreates them. And treat them as intermediate output: they normally live under obj, so keep them out of source control and exclude the paths if your template globs the solution directory. If you need a clean tree for a build, clean the design-time intermediates rather than the folders.
+
+ACCEPTED ANSWER ON THE SITE:
+These folders are projected from the Nuget package (EntityFrameworkCore.Design). 
+ Seems like they are now needed for dotnet-ef operations (e.g. migrations). The folders are also copied to the publishing output, what I would consider a bug (they are not needed at runtime). 
+ At least you could hide them from the solution/project view by adding this section to your .csproj file(s): 
+ `<ItemGroup>
+ <Content Update="@(Content)">
+ <Visible Condition="'%(NuGetItemType)' == 'Content'">false</Visible>
+ </Content>
+</ItemGroup>
+`

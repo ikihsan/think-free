@@ -236,3 +236,24 @@ upstream is step 1 of an update, deliberately a human decision.
 # failure the generated-file check exists to prevent. Exempting it by path is the
 # smallest intervention that leaves that check in place.
 exempt: docs/INDEX.md
+# Regenerable reader-input fixtures for E181: the question and the comments as
+# `EXT` saw them (`ext/`), the rendered assistant inputs (`ans-input/`), and the
+# 62 blinded scoring pairs (`score/`). All three are written by a script from
+# committed captures and hold one document per row, so they are as long as the
+# threads are. Same class as `EXPERIMENTS/**/ans/*.txt` and
+# `EXPERIMENTS/**/clf/*/*.txt` above; the experiment's own `PROTOCOL.md`,
+# `READER-INSTRUCTION.md`, amendments and `RESULT.md` stay under the cap.
+exempt: EXPERIMENTS/**/ext/*.txt
+exempt: EXPERIMENTS/**/ext/extra-*.txt
+exempt: EXPERIMENTS/**/ans-input/*.txt
+exempt: EXPERIMENTS/181-fact-supply-closes-gap/score/*.txt
+# E178's blind-re-key reader inputs, one file per row, written by prep.py.
+exempt: EXPERIMENTS/**/reader/*/*.txt
+# Two experiment instruments, not documents. E178's score.py is 346 lines of
+# statistics over a committed re-key, and E099's run_experiment.py is 305 lines
+# of fetch-and-classify plus a report writer. The 300-line cap is a
+# documentation standard; it is not a statement about whether a script is long,
+# and splitting either one would move working code for no reader benefit. The
+# E130 prototype carries the same exemption.
+exempt: EXPERIMENTS/178-evidence-where-does-it-live/score.py
+exempt: EXPERIMENTS/099-fresh-observation-ha-needs/run_experiment.py

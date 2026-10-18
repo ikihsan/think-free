@@ -1,0 +1,6 @@
+PROPOSED ANSWER:
+The warning is not about the libraries any more and aligning more .so files will not clear it. It is an artefact-level warning, and what decides it is which artefact you are inspecting: it appears only in the apk, while an app bundle built from the same project is clean - people who switched to uploading the bundle saw it disappear. So verify the bundle as well and ship the .aab. If you want the apk clean too, check how that apk was produced: zipalign must have been run with -P 16 rather than the default 4, and a stale or differently-produced apk keeps the warning even with aligned libraries. Re-run alignment on the exact apk you are analysing, then confirm with zipalign -c -P 16 and check_elf_alignment.sh on the extracted libs.
+
+ACCEPTED ANSWER ON THE SITE:
+This might be a bug due to compressed libraries in Android Studio which was fixed with Android Studio Narwhal Feature Drop | 2025.1.3 Canary 2. See https://issuetracker.google.com/issues/431119350 for more information. 
+ As others mentioned, however, don't forget to zipalign your apk. Read more here: https://developer.android.com/tools/zipalign and

@@ -1,0 +1,9 @@
+PROPOSED ANSWER:
+Your own thread supplies the deciding detail: it is still happening on 26.3, so this is not something the early betas fixed. The transparent view is forced by the system when a custom inputAccessoryView is added, and it fits the system keyboard but not a custom inputView - your own simplified example is the minimal reproduction. No public API turns it off. The fix is to stop using UIToolbar as the accessory: build a plain UIView with Done as a UIButton, set its backgroundColor to .clear or .systemBackground, add it as textField.inputAccessoryView, set its frame, and keep the UIPickerView as inputView. That removes the system container from the picture. Since the behaviour is still present in 26.3 and has been cross-posted to Apple's developer forum, treat the workaround as the answer and keep the report open there.
+
+ACCEPTED ANSWER ON THE SITE:
+That gray Liquid Glass UI is the top of the keyboard. The documentation for UIInputView states 
+ 
+ The UIInputView class is designed to match the appearance of the standard system keyboard when used as an input view with a responder. 
+ 
+ It’s recommended to avoid applying a background to the input view (white and blue in these examples) to avoid covering up the system effects. This is how a “proper” input view + input accessory view looks on iOS 26:

@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-17
+last-verified: 2026-10-18
 -->
 
 # Next actions
@@ -13,6 +13,56 @@ last-verified: 2026-10-17
 > "ALL GATES PASS" below that came from this line is **`untested` on a matched
 > harvest, not confirmed**. Do not run another registry sweep. See
 > [`EXPERIMENTS/113-viewcount-matched-harvest/`](EXPERIMENTS/113-viewcount-matched-harvest/README.md).
+
+## E181 completed (2026-10-18) — supplying the missing fact moves nothing, and neither does pasting the thread
+
+**What was tested.** E177 measured the assistant at 0.4000 on questions whose
+resolution needs a fact they never state. The obvious product is: identify the
+fact, ask for it, close the gap. E181 ran that as four paired arms on one
+population, all answered and scored in one session, with no arm label in any
+input file and a leak assertion on every input.
+
+| arm | added context | reached | Wilson 95% |
+|---|---|---|---|
+| question only | — | 7/14 = 0.5000 | [0.2680, 0.7320] |
+| **+ the one extracted missing fact** | 15.5 median tokens | 8/14 = 0.5714 | [0.3259, 0.7862] |
+| **+ every comment on the thread, verbatim** | 232.5 median tokens | 9/14 = 0.6429 | [0.3876, 0.8366] |
+| + a fact from a different row (placebo) | 14.5 median tokens | 4/10 = 0.4000 | [0.1682, 0.6873] |
+
+**Every paired comparison is null.** Treatment vs floor: exact McNemar
+**p = 1.0**. Treatment vs whole thread: **p = 1.0**. Floor vs whole thread:
+**0 rows for, 2 against, p = 0.5** — *pasting the entire discussion never once
+beat answering the question alone.*
+
+**Two numbers survive.** An extracted fact is **6.7%** of the tokens of the
+thread it came from, so targeted elicitation would have been fifteen times
+cheaper than pasting; it simply is not the mechanism. And on all 30 of E177's
+EVID rows the comments name the deciding fact on **14/30 = 0.4667**, with **10 of
+the 16 nulls carrying the remedy itself** and 6 carrying another reporter's
+observation. **So F137 and F138 need one clause: the round trip runs to the
+solution, not to the fact, and on more than half of these rows the solution is
+what it delivers.**
+
+**Two findings about this record rather than about the world.**
+**G4 FIRED**: the same reader re-scoring E177's own answers one day later
+disagreed on **4 of 10** against a declared tolerance of 3, so a one-reader
+reach rate here is not stable at ±0.4, and **no absolute level in E181 may be
+compared with E177's 0.4000 or 0.8667** — only its within-session paired
+comparisons survive. **K1 fired** (14 rows carry a fact, declared floor 16), so
+G1–G3 and G5 are `not evaluable`, G5's blind re-read was partially executed,
+and every arm is labelled exploratory rather than a gate result.
+
+**What this decides.** The elicitation route for the EVID class closes. F136's
+population gap stands and is now *unexplained* rather than *under-supplied*.
+**Do not re-run:** a larger elicitation study on this population, or a
+"paste-the-thread" arm on it, or a placebo arm on it — all three were measured.
+
+**Named next action.** Read the rows every arm missed and ask whether the
+accepted answer is the **best** answer or merely the **accepted** one. One
+reader, no new fetch, and it is the only explanation this population has left:
+if the missed rows are rows where the community's chosen resolution is
+contestable, then the EVID gap is a disagreement about answers and no context
+pipeline of any kind will close it.
 
 ## Money SE fresh observation (2026-10-17) — the round trip is even stronger when missing facts are personal
 
@@ -52,6 +102,18 @@ next step is fresh exploration.
 **Do not run:** E176 as written (a third classification of the same rows by the
 same instrument), E170's global arm, another view-count domain (D105, F133), or
 a fresh draw of E177's comparison.
+
+## E180 completed (2026-10-17) — view-count principle on Pub.dev (Dart/Flutter package registry)
+
+**Fresh observation of the view-count principle on Pub.dev**, the package registry for Dart/Flutter. The experiment tested whether need-related packages have systematically higher activity metrics than random packages.
+
+**Result:** All four gates pass (G1-G4), but this is a **ceiling effect** — the activity metric (non-empty description AND version present) is universal on Pub.dev, holding for 100% of both need-related and random packages. The G1 ratio of 100.0% is trivially achieved regardless of classification. The view-count principle's boundary condition requires variation in the activity metric to produce meaningful discrimination; on Pub.dev, the metric is uniformly present, making the principle untestable by the active-rate differentiation mechanism.
+
+**Classification**: 50 need-related / 60 random = 110 total classified. All packages have both description and version present, eliminating binary discrimination.
+
+**Conclusion**: The view-count principle does not generalize to Pub.dev due to activity metric universality. This closes the Pub.dev route per D083. See `EXPERIMENTS/E180-pubdev-viewcount/RESULT.md` for full details.
+
+**Named next action per D083**: fresh observation in a domain this mission has not touched, chosen by stated rule rather than by comfort. Pub.dev has now been tested. Remaining untested domains include: container registries, scientific paper repositories, and other platforms with exposable but varied arrival metadata.
 
 ## E137 completed (2026-10-14) — cross-model agreement: third exact AGREE
 

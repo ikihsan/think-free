@@ -1,0 +1,5 @@
+PROPOSED ANSWER:
+The version of nvm-windows is what decides this: 1.1.2 installs node 14 cleanly, and the later releases fail while unpacking the bundled npm zip. The download of node itself completes because that part works; the failure is in the npm step after it, so the missing npm-vX.Y.Z.zip is not a leftover temp file and deleting nvm-install-* or nvm-npm-* will not help. Uninstall the current nvm-windows, install 1.1.2, and run nvm install 14 again. If you must stay on a current release, download the node 14.17.3 zip from nodejs.org, unpack it into your nvm directory as v14.17.3, and use nvm use - there is no command variant that avoids the failure, since nvm install 14 hits the same path. Expect to repeat this for any other project pinned to node 14.
+
+ACCEPTED ANSWER ON THE SITE:
+I was having the same problem. I even tried to change the node and npm mirror, but same error. I just rolled back to nvm version 1.1.12 and it worked just fine.

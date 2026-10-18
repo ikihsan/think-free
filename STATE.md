@@ -1,12 +1,12 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-17
+last-verified: 2026-10-18
 -->
 
 # Verified state
 
-Date: 2026-10-17, Asia/Kolkata. Phase: B. **Six service closures in a row
+Date: 2026-10-18, Asia/Kolkata. Phase: B. **Six service closures in a row
 measured a mixture and reported it as one number, and E177 has separated the two
 halves: the assistant reaches 0.8667 where a question carries the fact its own
 resolution depends on and 0.4000 where it does not** (F136, D118). The superseded
@@ -125,7 +125,7 @@ repository's own `doc lint` red on 467 violations while this file recorded it
 green (F127, D112).
 
 
-**E143 completed (2026-10-15): Cross Validated — the largest untouched venue — closes like the others; the program-shaped residue is zero.** On Cross Validated (`stats.stackexchange.com`, ~200k questions, chosen by a stated rule: the largest untouched non-software SE site where resolutions are plausibly self-contained artifacts), 300 unanswered recent questions (two arms: 200 votes + 100 creation) were screened. **300/300 are question-shaped; 0 are execution-shaped; the program-shaped residue (K3) is 0.** The answerable class (143 = 47.7%) is served by a free general assistant at **20/20 = 1.0000** (top-20 by view_count, Wilson CI95 [0.8389, 1.0000]), consistent with every other venue (E062 0.85, E092 0.81, E126 0.6750). The two arms differ by 2.0× in answerable share (57% vs 29%), confirming E126's stratum finding on a third venue. The program-shaped residue is a property of the venue type: SO had 2% (E126), CV has 0% — software venues attract write-me-a-program needs, statistics venues do not. The candidate-seat question is answered for the highest program-density untouched venue: no program-shaped population exists, and the answerable class is served at 1.0. [`EXPERIMENTS/143-crossvalidated-service-test/RESULT.md`](EXPERIMENTS/143-crossvalidated-service-test/RESULT.md).
+**E143 (2026-10-15), Cross Validated: 300/300 question-shaped, 0 execution-shaped, the answerable class (143 = 47.7%) served at 20/20 = 1.0000.** The program-shaped residue is a property of venue type: Stack Overflow had 2%, statistics venues have 0%. Full entry in [`STATE-next-actions.md`](STATE-next-actions.md).
 
 **E142 completed (2026-10-15): the CI-failure harvest is declined and `preflight` is shelved rather than extended.** E140's G5 run as a cheap pre-fetch survey over a 14-category superset returned **0 of 14** against a kill at ≥7 — no kill — but found that the top marketplace hit for "fix failed build" disclaims auto-fix in its own FAQ, the only asserted auto-repair is a narrow Java sub-case with 3 installs, and the structural prediction P1 gained no sourced support, so the protocol's second declared kill condition fired and the ~7,500-request harvest was declined. **E140 stays declared and unrun; nothing about the CI domain is closed.** [`RESULT-ARM-A.md`](EXPERIMENTS/142-cicd-incumbent-probe/RESULT-ARM-A.md).
 
@@ -161,48 +161,17 @@ mechanism and the tracker link is a citation. Two record corrections ride with
 it: E168's "`github.com` in 15 of 24" does not reproduce (12 by `href`, 13
 counting gists), and 7 of the 85 `vp=1` rows are no longer fetchable.
 
-**E170 completed (2026-10-16) — and its closure was withdrawn 2026-10-17 by
-E174.** E169 left one question — does the mechanism work at all — and GitHub's
-issue search is reachable from this host, so it was measured with queries
-committed before any fetch and two capability controls. **Both surfaces rank a
-known-present document**: `in:title "<the target's own title>"` returns the target
-at **rank 1 on 11 of 13 through the API and 10 of 13 through
-`github.com/search?type=issues`**. On that web surface, the developer's **quoted
-error string reaches the fix on 1 of the 8 rows that have a literal** (1/13 =
-0.0769 over all 13) and **component + symptom keywords reach it on 2 of 13 =
-0.1538**, Wilson [0.0433, 0.4223], paired McNemar **p = 1.0**, and this file
-recorded the line closed on those two arms. **E174 recomputed all seven arms from
-E170's own committed responses** (rank re-derived from the returned URL lists,
-never read from a stored rank; all seven reproduce, G1 pass; alignment proven
-from both sides — 97 of 97 records consumed, 0 leftover, 0 query-string or
-arm-label mismatches, G2 pass) and **the five arms E170 stored and did not report
-are the repo-scoped form of the same queries: 5/13 = 0.3846 each, union 6/13 =
-0.4615 [0.2321, 0.7086] against the global arms' 2/13 = 0.1538, with 4 rows
-scoped-only and 0 global-only, McNemar exact p = 0.125.** The best scoped point
-estimate clears E170's own declared **0.30** build bar; the Wilson lower bound
-(0.1771) does not, so it is a point estimate at n = 13, not an established
-effect. **E170's own G3 had declared in advance** that "if repo-scoped succeeds
-where global fails for both arms, the mechanism needs the developer to already
-know the repository, which is a product constraint and is recorded as one" — it
-did succeed for both arms and was recorded nowhere (F134). **E170's `RESULT.md`,
-F132, the `HYPOTHESES.md` status row and this file's claim are corrected in
-place.** What survives is the vocabulary measurement: **a failure report names
-the symptom and the environment; a fix states the cause and the change**; 0 of 13
-rows share a three-word run, and the forum thread serves the class because the
-responder writes answer-vocabulary inside the question's own document. What
-survives *with a number attached* is E169's own named incumbent — search the
-project's issue tracker with the error string — at a **median of one matching
-document in the whole repository**. **The line is `unresolved`, not closed**, and
-the incumbent is not falsified: E169 withdrew it on a *global*-search control
-failure (a target's own quoted title returns 17,033,706 hits), which is exactly
-what repo scoping removes. Five reproducible index defects stand for reuse: a
-bare number is an issue-number qualifier, a `word/word` token is a repository
-qualifier and returns `http_422`, the API does not honour quotes, queries above
-256 characters are rejected, and mining a document for its longest tokens selects
-URLs and image markup.
-[`EXPERIMENTS/170-fix-reachability-rank/RESULT.md`](EXPERIMENTS/170-fix-reachability-rank/RESULT.md) ·
-[`EXPERIMENTS/174-scoped-reach-recompute/RESULT.md`](EXPERIMENTS/174-scoped-reach-recompute/RESULT.md).
-
+**E170/E174 (2026-10-16/17), fix-reachability by ranked search: neither query form reaches the fix
+globally, and repo scoping is what makes it work at all.** `in:title` returns the target at rank 1
+on 11/13 by API and 10/13 on the web surface (both capability controls pass). The quoted error string
+reaches the fix on 1/8 rows, component+symptom on 2/13, paired McNemar p = 1.0. **E174 recomputed all
+seven arms from E170's own committed responses** and found the five it stored and did not report:
+repo-scoped, **5/13 = 0.3846 each, union 6/13 = 0.4615** against the global arms' 0.1538, McNemar
+p = 0.125. The best scoped point estimate clears E170's own declared 0.30 bar while its Wilson lower
+bound does not, so it is a point estimate at n = 13 and **the line is `unresolved`, not closed**.
+What survives is the vocabulary measurement - **a failure report names the symptom and the
+environment; a fix states the cause and the change**, 0 of 13 rows share a three-word run - and
+five reproducible index defects. Full entries in [`STATE-next-actions.md`](STATE-next-actions.md).
 **E174 completed (2026-10-17): the whole session's work was to check whether the
 record's fifteenth closure followed from its own evidence, and it did not.**
 `tools/x -- python3 EXPERIMENTS/174-scoped-reach-recompute/recompute.py` reads
@@ -237,15 +206,47 @@ shape, those exist as prior art, so nothing is proposed to build (D117, F135).
 [`EXPERIMENTS/175-repo-from-report/RESULT.md`](EXPERIMENTS/175-repo-from-report/RESULT.md).
 **E177 completed (2026-10-17): the mission's only standing constraint is now measured, and it is supported.** Six service closures in a row each reported one number for a pool containing two kinds of question. Same venue, key, treatment and blinded readers; the only difference is whether the question contained the fact its own resolution depends on: **SELF 26/30 = 0.8667 [0.7032, 0.9469]; EVID 12/30 = 0.4000 [0.2459, 0.5768]; gap +0.4667, Fisher p = 0.000368**, against a bar of `gap >= 0.25` and `p < 0.05` declared before any answer body was read; four controls green. **0.4000 is the lowest rate a free general assistant has scored on a real question population here, and it was inside all six closure pools, unmeasured** (F136, D118). The class is **46 of the 100 highest-arrival rows carrying a key answer**, its failures spread across its kinds in proportion, so no mechanical sub-kind exists to check; **abstention was 0 of 30 against 0 of 30**, so the assistant answers confidently on exactly the questions whose evidence is absent and is wrong 60% of the time. Six instrument defects were declared, four before any measurement; the last left **every control green while the p-value was wrong by 2,700×**, because a reader protocol has no control on its arithmetic. A post-hoc pass flagged **7 of the 30 EVID labels** as indefensible — one wrong answer rather than absent evidence, one untestable row with no fix in existence, one mirror URL — so **CLF's precision on this population is ~0.77–0.87, not 1.0**; the headline is not recomputed, because dropping rows after seeing which arm scored is fitting. [`RESULT.md`](EXPERIMENTS/177-evidence-gated-need/RESULT.md).
 
-**E178 completed (2026-10-17): the missing evidence is not in anything the project publishes; the venue's own round trip already supplies it.** On the 46 EVID rows, blind re-key: **publishable 0/46 = 0.0000, asker_only 21/46 = 0.4565, third_party 20/46 = 0.4348, none 5/46 = 0.1087**. **G1 FIRED** (publishable < 0.50): the FETCH route closes. **G4 FIRED** (has_ask 31/46 = 0.6739 >= 0.50, ask_then_asker 31/46 = 0.6739 >= 0.25): the venue's own workflow already runs the round trip on the very rows this experiment measures, and the person supplies the fact. The honest statement is not "unserved" but *served by an interaction that already exists, and unreachable by one-shot answering*. **G5 NOT fired** (none = 5, not > 9): EVID precision is above 0.80. **E177's population closes with no candidate.** [`RESULT.md`](EXPERIMENTS/178-evidence-where-does-it-live/RESULT.md).
 
 **F137 (2026-10-17, exploratory cross-tab): the round trip fails uniformly and the unserved residue is tiny.** A post-hoc cross-tab of `has_ask` against the M2 bucket (replicating E178's exact `is_ask` lexicon) shows the round trip's failure is **uniform across buckets** — 7/21 asker_only, 6/20 third_party, 2/5 none (overall 15/46 = 0.3261). It is not concentrated in asker_only, so there is no special asker-held-fact sub-population for an automated ask to uniquely serve. On the 30 scored EVID rows, the genuinely unserved residue (round trip failed AND assistant missed) is **7/30 = 0.2333**, and all 7 carry a key answer — they were served by a mechanism other than the assistant or the visible round trip. **The "automated ask" route has no buildable sub-population on Stack Overflow.**
 
 **F138 (2026-10-17, fresh observation): the round trip is stronger, not weaker, when the missing fact is personal.** On Personal Finance SE (`money.stackexchange.com`, the largest non-software SE site where high-arrival questions routinely turn on a personal fact), the top 30 highest-vote questions with answers were scored with E178's `is_ask` lexicon. **9/30 = 0.3000 lack a specific personal fact** (the money-SE analog of E177's EVID class), and **27/30 = 0.9000 carry a round-trip ask** — against SO's 31/46 = 0.6739. The round trip is **stronger** on money SE, not weaker: the venue asks more readily when the fact is sensitive. **F137's conclusion is confirmed on a second venue.** The "unserved need" hypothesis is dead for money SE too. Raw data: `/tmp/opencode/money_analysis.json`.
 
-**Named next action: return to fresh exploration.** The EVID class is served by the venue's round trip across two venues of very different personal-fact sensitivity. The genuinely unserved residue is small and eventually answered in both. The "unserved need" hypothesis is dead for every population this mission can measure. The mission should either test a completely different kind of need (not evidence-gated questions) or pivot to a different invention axis entirely.
+**E181 completed (2026-10-18): the missing fact is not what is missing, and
+pasting the whole thread does not work either.** Four paired arms on one
+population, all answered and scored in one session, no arm label in any input
+file: question alone **7/14 = 0.5000**, question **+ the one extracted missing
+fact** **8/14 = 0.5714**, question **+ every comment on the thread verbatim**
+**9/14 = 0.6429**, placebo (a fact from a different row) 4/10. **Every paired
+comparison is null** - A1 vs A0 exact McNemar **p = 1.0**, and A0 vs B1 is **0
+for, 2 against**, so pasting the entire discussion never once beat answering the
+question alone. Two numbers survive: an extracted fact is a median **15.5 tokens
+against the thread's 232.5 (6.7%)**, and the comments name the deciding fact on
+**14/30 = 0.4667**, with **10 of the 16 nulls carrying the remedy itself** - so
+**the round trip runs to the solution, not to the fact**, which is the clause
+F137 and F138 were missing. **G4 FIRED**: the same reader re-scoring E177's own
+answers one day later **disagreed on 4 of 10**, so a one-reader reach rate here
+is not stable at +/-0.4 and **no absolute level in E181 may be compared with
+E177's 0.4000 or 0.8667**; only its within-session paired comparisons survive.
+**K1 fired** (14 rows carry a fact, declared floor 16), so G1-G3 and G5 are
+`not evaluable` and every arm is labelled exploratory. F136's population gap
+stands and is now unexplained rather than under-supplied (F139, D119).
+
+**Named next action: ask whether the accepted answer is the *best* answer, not
+merely the *accepted* one.** Read the rows every arm missed and ask which it
+was. One reader, no new fetch, and it is the only explanation this population
+has left: supplying the correct fact and supplying the whole thread have both
+been measured and neither moved the rate. If the missed rows are rows where the
+community's chosen resolution is contestable, the EVID gap is a disagreement
+about answers rather than a deficit of context, and no context pipeline of any
+kind will close it.
+
+**Superseded by E181 (2026-10-18):** the named next action below was written when
+the EVID gap's *mechanism* was still an inference.
+**Superseded (2026-10-18).** **Named next action: return to fresh exploration.** The EVID class is served by the venue's round trip across two venues of very different personal-fact sensitivity. The genuinely unserved residue is small and eventually answered in both. The "unserved need" hypothesis is dead for every population this mission can measure. The mission should either test a completely different kind of need (not evidence-gated questions) or pivot to a different invention axis entirely.
 
 **E178 completed (2026-10-17): the missing evidence is not in anything the project publishes; the venue's own round trip already supplies it.** On the 46 EVID rows, blind re-key: **publishable 0/46 = 0.0000, asker_only 21/46 = 0.4565, third_party 20/46 = 0.4348, none 5/46 = 0.1087**. **G1 FIRED** (publishable < 0.50): the FETCH route closes. **G4 FIRED** (has_ask 31/46 = 0.6739 >= 0.50, ask_then_asker 31/46 = 0.6739 >= 0.25): the venue's own workflow already runs the round trip on the very rows this experiment measures, and the person supplies the fact. The honest statement is not "unserved" but *served by an interaction that already exists, and unreachable by one-shot answering*. **G5 NOT fired** (none = 5, not > 9): EVID precision is above 0.80. M1: has_comment 37/46 = 0.8043, has_ask 31/46 = 0.6739, ask_then_asker 31/46 = 0.6739, answer_asks 20/46 = 0.4348, evidence_in_comments 39/46 = 0.8478, discriminating_and_asked 28/46 = 0.6087. M3: already_present 7/46 = 0.1522 (a ceiling on E177's labels), used 37/46 = 0.8043. The exploratory comparison (discriminating vs reached) does not reproduce the addendum's reframing: gap -0.0741, p = 0.52. **E177's population closes with no candidate.** [`RESULT.md`](EXPERIMENTS/178-evidence-where-does-it-live/RESULT.md).
+
+**E180 (2026-10-17), view-count principle on Pub.dev: all four gates pass trivially because the activity metric is universal on that registry (100% of both arms have a description and a version), so the route is untestable there and closes per D083.** Full entry in [`STATE-next-actions.md`](STATE-next-actions.md).
 
 
 ## Dashboard

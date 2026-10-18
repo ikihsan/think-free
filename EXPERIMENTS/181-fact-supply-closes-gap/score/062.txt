@@ -1,0 +1,29 @@
+PROPOSED ANSWER:
+That is the cause, and it explains why nothing you delete helps. Two remote branches on origin differ only in case, and because the Windows filesystem is case-insensitive git cannot create the .lock file for the ref it wants while the sibling occupies that name - so the lock file git complains about does not exist in the first place. Do not kill processes or delete locks; find the collision with git for-each-ref refs/remotes/origin, looking for names that differ only by case, then rename or delete one of them on the server and prune locally. This also appears as a failed git fetch, since fetch walks the entire remote ref set, and the same collision is behind both reports filed on Git for Windows (issues 5378 and 5900). Until it is resolved, fetching only the branches you need avoids the walk.
+
+ACCEPTED ANSWER ON THE SITE:
+Looking in the folder, C:/develop/repo/.git/refs/remotes/origin/ there are no lock files. 
+ There are no other git processes or anti-virus programs running (a typical culprit). 
+ What I ended up doing was search (insensitive, -i) for the branch: 
+ `git pull --prune | grep -i branchname` 
+ ` - [deleted] (none) -> origin/BRANCHNAME
+ - [deleted] (none) -> origin/branchname
+` 
+ What I discovered, there was two branches on the server with the same name attempting to be deleted. NEITHER was on my machine. "List Remote" command helps here. 
+ `git ls-remote | grep -i xyz
+` 
+ What this means for Windows systems which have CaSe in-Sensitive file-systems, you cannot have two files with the same name in the directory. Git is trying to create both ".lock' files, but only 1 can exist, so it fails with "File exists" error message. 
+ The error message is misleading... the solution (aside from re-cloning) is to delete all references to the branch refs from your hidden .git folder. Those refs are stored in 3 files in my case: 
+ `.git/info/refs` 
+ `.git/packed-refs` 
+ `.git/FETCH_HEAD` 
+ I used the SED command to remove the lines in-place 
+ `sed -i '\|dev-1234$|Id' .git/info/refs .git/packed-refs .git/FETCH_HEAD
+` 
+ --- similar error message which gets more search hits, if you have a local branch (dev-1) with one case, and upstream changes to the other (DEV-1) case --- 
+ `error: cannot lock ref 'refs/remotes/origin/DEV-1': 'refs/remotes/origin/DEV-1' exists; cannot create 'refs/remotes/origin/DEV-1'` 
+ `! [new branch] DEV-1 -> origin/DEV-1 (unable to update local ref)` 
+ solution to that was easier, as you can delete the local ref from C:/develop/repo/.git/refs/remotes/origin/ before pulling again (it exists as a real file) 
+ -- lastly, there is 1 more use-case, the server has both uppercase and lowercase, and they are NOT in the process of deletion -- 
+ I couldn't find a workaround in that use-case, the branch must be deleted by the owner or admin 
+ git push --delete origin branchname

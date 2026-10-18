@@ -1,13 +1,13 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-17
+last-verified: 2026-10-18
 -->
 
 # Failure findings 43 - an arm in the raw file and absent from the write-up
 
-Continued from [`FAILURES-findings-42.md`](FAILURES-findings-42.md), split at
-the 300-line cap.
+Continued from [`FAILURES-findings-42.md`](FAILURES-findings-42.md). F137, F138
+and F139 continue in [`FAILURES-findings-44.md`](FAILURES-findings-44.md).
 
 ## F134 — a gate that declared its own product constraint fired and was never reported, and the closure went out on 2 of the experiment's 7 arms (E174)
 
@@ -223,90 +223,3 @@ E177 finds a second, larger one inside a single venue.
   2,700 (`AMENDMENT-6`). A hand-written test must be checked against a table
   with a published value before its output is reported, and the check is
   committed beside the result.
-
-## F137 — The round trip's failure is uniform across evidence buckets, and the genuinely unserved residue is tiny
-
-**Date:** 2026-10-17. **Kind:** exploratory re-analysis of E178's committed
-data (no new fetch, no gate). **Decides:** whether the "automated ask" route
-has a buildable sub-population inside the E177 EVID class.
-
-E178 measured `has_ask` (the thread contains a request for the missing fact)
-as an aggregate over the 46 EVID rows and did not store it per row. The
-cross-tab of `has_ask` against the M2 bucket was computed by replicating
-`score.py`'s exact `is_ask` lexicon and joining on `qid`:
-
-| bucket | round trip failed | round trip worked | total | failure rate |
-|---|---|---|---|---|
-| asker_only | 7 | 14 | 21 | 0.3333 |
-| third_party | 6 | 14 | 20 | 0.3000 |
-| none | 2 | 3 | 5 | 0.4000 |
-| publishable | 0 | 0 | 0 | — |
-| **all** | **15** | **31** | **46** | **0.3261** |
-
-**The round trip's failure is not concentrated in `asker_only`.** It is uniform
-at ~30–33% across both non-empty buckets, so there is no special sub-population
-of asker-held facts that an automated ask would uniquely serve. The failure is
-a low-engagement failure, not a bucket-specific one: 5 of the 7
-`asker_only`+failed rows have **zero** comments, meaning no commenter engaged
-at all.
-
-On the 30 scored EVID rows (the subset E177's `verdicts.jsonl` covers), the
-joint with the free assistant's verdict:
-
-| | assistant reached | assistant missed |
-|---|---|---|
-| round trip worked | 8 | 11 |
-| round trip failed | 4 | 7 |
-
-**The genuinely unserved residue — round trip failed AND assistant missed — is
-7 of 30 = 0.2333**, and all 7 carry a key answer: they were served by a
-mechanism other than the free assistant or the visible round trip (asker edit,
-expert answer, or self-answer — `rows.json` does not record which). Fisher
-exact on `has_ask` × `reached` gives p = 1.0, which is expected: the E177
-assistant saw only the question body, so a comment ask cannot affect its
-verdict.
-
-**What this decides.** The "automated ask" route has no buildable
-sub-population on Stack Overflow. The round trip fails uniformly because of low
-engagement, not because the missing fact is the wrong kind; and the 23% residue
-it does leave is a population that was eventually answered anyway. The EVID
-class is served by the assistant (0.40), the visible round trip (0.67), and
-invisible mechanisms (the residue). **The EVID line is closed, and the
-"unserved need" hypothesis is dead for every population this mission can
-measure on this venue.**
-
-**Ceiling.** The cross-tab is post-hoc over reused rows, not a pre-declared
-experiment; it decides a route, not a rate.
-
-## F138 — The round trip is stronger, not weaker, when the missing fact is personal
-
-**Date:** 2026-10-17. **Kind:** fresh observation, second venue, hypothesis declared
-before the run. **Decides:** whether F137's conclusion (the EVID class is served by
-the venue's own round trip) is a Stack Exchange property or a general one.
-
-F137 left one untested boundary: on Stack Overflow the missing fact is often a version
-number, which is easy to elicit. The hypothesis, declared before any fetch, was that
-on a venue where the missing fact is **personal** — income, debt, jurisdiction, age —
-the asker is less willing to supply it and the round trip should fail *more*.
-
-On Personal Finance Stack Exchange (`money.stackexchange.com`, chosen by a stated rule:
-the largest non-software SE site where high-arrival questions routinely turn on a
-personal fact the asker may not volunteer), the top 30 highest-vote questions with
-answers were fetched and scored with E178's own `is_ask` lexicon:
-
-| measure | money SE | Stack Overflow (E178) |
-|---|---|---|
-| lacks a specific personal fact | **9/30 = 0.3000** | 46/100 = 0.46 (E177 EVID) |
-| carries a round-trip ask | **27/30 = 0.9000** | 31/46 = 0.6739 |
-
-**The hypothesis is disconfirmed in the direction that matters.** The round trip is
-*stronger* where the missing fact is more personal (0.9000 against 0.6739), not
-weaker. The venue asks more readily, not less, when the fact is sensitive.
-
-**What this decides.** F137's conclusion is not a Stack Exchange property. The EVID
-class — questions whose resolution depends on a fact the asker holds but did not post
-— is served by the venue's own round trip across two venues of very different
-personal-fact sensitivity, and the genuinely unserved residue is small and eventually
-answered in both. The "unserved need" hypothesis is dead for money SE as it was for
-Stack Overflow. **Ceiling:** one reader, one venue, 30 rows, votes as a proxy for
-arrival; the fact-presence lexicon is a heuristic, not a blind re-key.

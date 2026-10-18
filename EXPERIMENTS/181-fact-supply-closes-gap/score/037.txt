@@ -1,0 +1,11 @@
+PROPOSED ANSWER:
+That is the missing piece: the environment is running bcrypt 5.0.0, released 2025-09-25, and its stricter length checking is being applied to a value that is not your password. So the 13-byte figure you logged is measuring something other than what reaches the verify call in the deployed app. Inspect type() and len() of the exact object passed to hash/verify at the point of use in the deployed build, not the local one - a wrapper object or a pre-hashed value is the usual culprit. Pinning bcrypt to 4.3.0 to confirm is a legitimate diagnostic here, since it isolates the version change, but it is not the fix and you should not ship it as one. Never truncate to 72 bytes, since that silently weakens every password. There is an open upstream issue on passlib for this compatibility gap.
+
+ACCEPTED ANSWER ON THE SITE:
+I ran into the same issue recently on a previously stable app, and it turned out to be related to the latest `bcrypt` release. A change in behavior between `passlib` and `bcrypt` seems to have caused problems even when the input was well under the 72-byte limit. 
+ What solved it for me was pinning `bcrypt` to version 4.3.0 , instead of allowing the upgrade to 5.0.0 (released on 2025-09-25). After making that change, the errors stopped. 
+ For example, in Python you can update `requirements.txt` from: 
+ `bcrypt` 
+ to: 
+ `bcrypt==4.3.0` 
+ This ensures your environment uses the last known stable version. If you’re working with another stack (React, FastAPI, etc.), the same principle applies — make sure you’re not pulling in bcrypt 5.0.0 until compatibility issues are resolved.

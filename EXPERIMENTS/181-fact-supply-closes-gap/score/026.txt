@@ -1,0 +1,6 @@
+PROPOSED ANSWER:
+Two separate requirements must both hold, and per-library warnings can clear while the APK-level warning remains. The .so files must be linked with 16 KB-compatible page alignment (NDK r27 or newer, or an explicit -Wl,-z,max-page-size=16384), and the APK must store them uncompressed and zip-aligned to 16384 so the loader can map them directly. Set android.useLegacyPackaging=false with AGP 8.5.1 or newer and confirm the merged manifest carries that value. Verify with the APK Analyzer alignment check and zipalign -c -P 16 -v 4 on the final APK, and confirm every native library, including transitive ones, is 16 KB aligned; the build machine's page size does not matter.
+
+ACCEPTED ANSWER ON THE SITE:
+This might be a bug due to compressed libraries in Android Studio which was fixed with Android Studio Narwhal Feature Drop | 2025.1.3 Canary 2. See https://issuetracker.google.com/issues/431119350 for more information. 
+ As others mentioned, however, don't forget to zipalign your apk. Read more here: https://developer.android.com/tools/zipalign and

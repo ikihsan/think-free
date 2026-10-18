@@ -1,0 +1,13 @@
+PROPOSED ANSWER:
+That single line is the whole diagnosis: your resolved Metro config has unstable_enablePackageExports set to false, so Firebase 11's subpath entry points are being resolved through the legacy fields instead of the exports map, and the failure surfaces as a confusing registration error. Fix it by importing the entry points that work under that resolution - pull app and auth from '@firebase/app' rather than 'firebase/app', and audit every other firebase subpath the same way. Or turn exports on: in metro.config.js, getDefaultConfig(__dirname), then resolver.sourceExts.push('cjs') and set resolver.unstable_enablePackageExports, and export that config. Delete node_modules and restart after any metro.config change. Neither file renames nor cache clears help, because the resolver never reaches your code.
+
+ACCEPTED ANSWER ON THE SITE:
+Instead of using expo-dev client, I continued to use expo go. I simply added the following line in my metro.config.js file: 
+ `const defaultConfig = getDefaultConfig(__dirname);
+
+defaultConfig.resolver.sourceExts.push('cjs');
+
+// This is the new line you should add in, after the previous lines
+defaultConfig.resolver.unstable_enablePackageExports = false;
+` 
+ After that, I didn't seem to get the error "Component auth has not been registered yet".

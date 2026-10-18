@@ -1,0 +1,5 @@
+PROPOSED ANSWER:
+The npm zip that cannot be found is part of the nvm-windows release payload, not something left in your temp directory, so clearing nvm-install-* and nvm-npm-* cannot help - the download of node itself completes and the failure is in the npm step that follows. The practical route is to roll nvm-windows back to a version that installs node 14 cleanly. Uninstall the current nvm-windows, install an older release, and retry. If you must stay on a current version, download the node 14.17.3 Windows zip from nodejs.org, unpack it into your nvm directory as v14.17.3, and use nvm use 14.17.3 - nvm accepts a directory it did not create. Be aware this is a workaround: later nvm-windows versions keep failing here, so any project pinned to node 14 will keep needing it.
+
+ACCEPTED ANSWER ON THE SITE:
+I was having the same problem. I even tried to change the node and npm mirror, but same error. I just rolled back to nvm version 1.1.12 and it worked just fine.

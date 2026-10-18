@@ -1,0 +1,120 @@
+PROPOSED ANSWER:
+Two things from this thread. First, the behaviour you are seeing is a beta regression - inherited tint for a custom view is documented as unreliable and iOS 26 overrides it more aggressively, so keep the Feedback Assistant reports going. Second, there is still a supported API: only a prominent UIBarButtonItem tints, and to tint a glass UIButton you need the prominentGlass or prominentClearGlass configuration, not plain or glass, with a clear background and the image tinted via withTintColor(.alwaysTemplate) while the bar button otherwise controls the tint. A prominent bar item tints its whole background, which is not what you asked for here. Expect some of this to work only on a physical device on the newest beta, so verify there. Set colours directly rather than relying on inheritance, and do not use UIBarButtonItem(tintColor:) to reach a custom view.
+
+ACCEPTED ANSWER ON THE SITE:
+It is a really frustrating situation and here is what has worked for me: 
+ 
+ `baseForegroundColor` and `imageColorTransformer` works only if `UIButton.Configuration` is `.clearGlass` or `.prominentClearGlass` 
+ 
+ 
+ THIS WORKS FOR ALL STYLES as stated in mhammad's answer 
+ `withTintColor` and `withRenderingMode(.alwaysOriginal)` 
+ `config.image = UIImage(systemName: "star")?.withTintColor(.magenta) .withRenderingMode(.alwaysOriginal)
+` 
+ 
+ 
+ THIS ALSO WORKS FOR ALL STYLES take a snapshot of your custom view (UIGraphicsImageRenderer) and use `UIBarButtonItem(image: snapshot-of-custom-view)` or set `self.image = snapshot-of-custom-view` property if you are using custom class with a `tintColor` for `UIBarButtonItem` . 
+ `final class BarButtonItem: UIBarButtonItem {
+// ...
+ init() {
+ self.image = UIGraphicsImageRenderer(size: button.intrinsicContentSize).image { [weak button] c in
+ button?.layer.render(in: c.cgContext)
+ }
+ tintColor = .systemOrange
+ }
+}
+` 
+ 
+ 
+ 
+ FULL CODE: 
+ `//: A UIKit based Playground for presenting user interface
+
+import UIKit
+import PlaygroundSupport
+
+@MainActor
+func makeButton(_ config: UIButton.Configuration, title: String) -> UIButton {
+ var config = config
+ config.title = title
+ config.contentInsets = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
+ config.imagePlacement = .top
+ config.cornerStyle = .capsule
+ config.baseForegroundColor = .green
+ config.imageColorTransformer = .init({ _ in
+ UIColor.systemPink
+ })
+ config.titleTextAttributesTransformer = .init({ c in
+ var c = c
+ c.foregroundColor = .blue
+ return c
+ })
+ config.baseBackgroundColor = .systemYellow
+ config.image = .init(systemName: "star", withConfiguration: UIImage.SymbolConfiguration(scale: .small))
+// Solution 2. Using image renderingMode and tint
+// config.image = .init(systemName: "star", withConfiguration: UIImage.SymbolConfiguration(scale: .small))?.withTintColor(.magenta) .withRenderingMode(.alwaysOriginal)
+ let v = UIButton(configuration: config)
+ v.tintColor = .blue
+ return v
+}
+
+final class BarButtonItem: UIBarButtonItem {
+ private let button: UIButton!
+ 
+ init(_ config: UIButton.Configuration, title: String) {
+ button = makeButton(config, title: title)
+ super.init()
+ sharesBackground = false
+
+// Solution 1 and 2. Use customView
+ customView = button
+
+// Solution 3. Use snapshot image from custom view
+ // let image = UIGraphicsImageRenderer(size: button.intrinsicContentSize).image { [weak button] c in
+ // button?.layer.render(in: c.cgContext)
+ // }
+ // tintColor = .systemOrange
+ // self.image = image
+ }
+ 
+ required init?(coder: NSCoder) {
+ fatalError("init(coder:) has not been implemented")
+ }
+}
+
+@MainActor
+func makeBar(_ items: [UIBarButtonItem], w: CGFloat = 800) -> UINavigationBar {
+ var item = UINavigationItem()
+ item.leftBarButtonItems = items
+ var bar = UINavigationBar()
+ bar.items = [item]
+ return bar
+}
+
+// Present the view controller in the Live View window
+var stack = UIStackView()
+stack.axis = .vertical
+stack.alignment = .fill
+stack.addArrangedSubview(makeBar([
+ BarButtonItem(.plain(), title: "plain"),
+ BarButtonItem(.gray(), title: "gray"),
+ BarButtonItem(.tinted(), title: "tinted"),
+ BarButtonItem(.filled(), title: "filled"),
+ BarButtonItem(.borderless(), title: "borderless"),
+]))
+stack.addArrangedSubview(makeBar([
+ BarButtonItem(.bordered(), title: "bordered"),
+ BarButtonItem(.borderedTinted(), title: "borderedTinted"),
+ BarButtonItem(.borderedProminent(), title: "borderedProminent"),
+]))
+stack.addArrangedSubview(makeBar([
+ BarButtonItem(.clearGlass(), title: "clearGlass"),
+ BarButtonItem(.glass(), title: "glass"),
+ BarButtonItem(.prominentGlass(), title: "prominentGlass"),
+ BarButtonItem(.prominentClearGlass(), title: "prominentClearGlass"),
+]))
+var hStack = UIStackView(frame: .init(origin: .zero, size: .init(width: 800, height: 400)))
+hStack.addArrangedSubview(stack)
+hStack.alignment = .top
+PlaygroundPage.current.liveView = hStack
+`

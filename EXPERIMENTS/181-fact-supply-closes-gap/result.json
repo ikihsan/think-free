@@ -1,0 +1,151 @@
+{
+ "arms": {
+  "A0": {
+   "n": 14,
+   "rate": 0.5,
+   "reached": 7,
+   "wilson95": [
+    0.2679920244814136,
+    0.7320079755185864
+   ]
+  },
+  "A1": {
+   "n": 14,
+   "rate": 0.5714285714285714,
+   "reached": 8,
+   "wilson95": [
+    0.32590644574827493,
+    0.7861920109921633
+   ]
+  },
+  "B1": {
+   "n": 14,
+   "rate": 0.6428571428571429,
+   "reached": 9,
+   "wilson95": [
+    0.38764423098563805,
+    0.8365526824952387
+   ]
+  },
+  "C1": {
+   "n": 10,
+   "rate": 0.4,
+   "reached": 4,
+   "wilson95": [
+    0.16818032967113522,
+    0.6873262303202639
+   ]
+  },
+  "P": {
+   "n": 10,
+   "rate": 0.3,
+   "reached": 3,
+   "wilson95": [
+    0.10779126738101565,
+    0.6032218526017827
+   ]
+  }
+ },
+ "cost": {
+  "A1_over_B1": 0.06666666666666667,
+  "median_added_tokens": {
+   "A1": 15.5,
+   "B1": 232.5,
+   "C1": 14.5
+  },
+  "n": 14
+ },
+ "drift_check": {
+  "agree": 6,
+  "disagree": 4,
+  "g4_declared_tolerance": 3,
+  "n": 10,
+  "rows": [
+   [
+    79339258,
+    false,
+    false
+   ],
+   [
+    79380514,
+    true,
+    true
+   ],
+   [
+    79567126,
+    false,
+    true
+   ],
+   [
+    79602687,
+    false,
+    false
+   ],
+   [
+    79606837,
+    true,
+    false
+   ],
+   [
+    79663905,
+    true,
+    false
+   ],
+   [
+    79665976,
+    true,
+    false
+   ],
+   [
+    79718097,
+    true,
+    true
+   ],
+   [
+    79754247,
+    false,
+    false
+   ],
+   [
+    79776559,
+    false,
+    false
+   ]
+  ]
+ },
+ "fact_supply_rate": 0.4666666666666667,
+ "fact_supply_wilson95": [
+  0.3023238890435784,
+  0.6385770038378349
+ ],
+ "gates": "not evaluable: K1 fired at n=14 rows carrying a fact (declared floor 16)",
+ "n_pairs": 62,
+ "n_rows_read_by_EXT": 30,
+ "n_rows_with_extractable_fact": 14,
+ "pairwise": {
+  "A0_vs_B1": {
+   "a_wins": 0,
+   "b_wins": 2,
+   "mcnemar_exact_two_sided": 0.5,
+   "n": 14
+  },
+  "A1_vs_A0": {
+   "a_wins": 2,
+   "b_wins": 1,
+   "mcnemar_exact_two_sided": 1.0,
+   "n": 14
+  },
+  "A1_vs_B1": {
+   "a_wins": 0,
+   "b_wins": 1,
+   "mcnemar_exact_two_sided": 1.0,
+   "n": 14
+  },
+  "A1_vs_C1": {
+   "a_wins": 1,
+   "b_wins": 1,
+   "mcnemar_exact_two_sided": 1.0,
+   "n": 10
+  }
+ }
+}

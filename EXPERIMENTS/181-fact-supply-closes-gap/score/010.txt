@@ -1,0 +1,13 @@
+PROPOSED ANSWER:
+This is a Metro package-exports problem, not an Expo or Firebase version problem. Two people on Expo 53.0.5 and 53.0.6 with React Native 0.79.2 and firebase 11.6.1 hit it and resolved it the same way. First, log your resolved Metro config and read unstable_enablePackageExports. If it is false, either import app and auth from '@firebase/app' instead of 'firebase/app' and audit the rest of your firebase subpath imports, or force exports on in metro.config.js - getDefaultConfig(__dirname), resolver.sourceExts.push('cjs'), resolver.unstable_enablePackageExports = false, and export that config. Delete node_modules and restart after changing metro.config. Renaming firebase.js and clearing caches cannot help. If you later see NoClassDefFoundError for com/arthenica style classes, that is a separate packaging question.
+
+ACCEPTED ANSWER ON THE SITE:
+Instead of using expo-dev client, I continued to use expo go. I simply added the following line in my metro.config.js file: 
+ `const defaultConfig = getDefaultConfig(__dirname);
+
+defaultConfig.resolver.sourceExts.push('cjs');
+
+// This is the new line you should add in, after the previous lines
+defaultConfig.resolver.unstable_enablePackageExports = false;
+` 
+ After that, I didn't seem to get the error "Component auth has not been registered yet".

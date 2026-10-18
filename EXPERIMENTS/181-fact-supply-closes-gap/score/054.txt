@@ -1,0 +1,11 @@
+PROPOSED ANSWER:
+The environment is on bcrypt 5.0.0, released 2025-09-25, and that version's stricter length checking is what trips on a value that is not your password - so the 13-byte log line is measuring something else. Downgrading to bcrypt 4.3.0 makes it go away, which confirms the version as the trigger, but pinning is a diagnostic rather than a fix and people in this thread push back on exactly that: the right outcome is a compatible bcrypt, not a hardcoded version. Separately, inspect type() and len() of the exact object passed to the hash/verify call in the deployed app, because a wrapper object or an already-hashed value is the other common cause. Never truncate to 72 bytes - that weakens every password. On the dependency side, adopting bcrypt_sha256 is what passlib's own issue proposes for long passphrases. Keep testing across environments once this is settled.
+
+ACCEPTED ANSWER ON THE SITE:
+I ran into the same issue recently on a previously stable app, and it turned out to be related to the latest `bcrypt` release. A change in behavior between `passlib` and `bcrypt` seems to have caused problems even when the input was well under the 72-byte limit. 
+ What solved it for me was pinning `bcrypt` to version 4.3.0 , instead of allowing the upgrade to 5.0.0 (released on 2025-09-25). After making that change, the errors stopped. 
+ For example, in Python you can update `requirements.txt` from: 
+ `bcrypt` 
+ to: 
+ `bcrypt==4.3.0` 
+ This ensures your environment uses the last known stable version. If you’re working with another stack (React, FastAPI, etc.), the same principle applies — make sure you’re not pulling in bcrypt 5.0.0 until compatibility issues are resolved.

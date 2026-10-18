@@ -1,0 +1,44 @@
+PROPOSED ANSWER:
+The ABI detail from another thread does not apply to this code. Two things here are real. First, srand(time(NULL)) is seeded once per second, so two runs inside the same second return the identical sequence - determinism, not accuracy. Second, rand() % N is only uniform when RAND_MAX + 1 is an exact multiple of N; with a typical RAND_MAX of 32767 and N = 20001, values in the lower part of the range come up markedly more often, and since a Monte Carlo estimate is an average over samples, that skew biases it. With 10000 iterations the standard error is about 0.015, so the resolution is coarse as well. Draw in doubles - rand() / ((double)RAND_MAX + 1.0) - and compare x*x + y*y against r*r, which avoids both the modulo and the sqrt.
+
+ACCEPTED ANSWER ON THE SITE:
+The behavior you're seeing is most likely the result of a modulo bias, due to the small `RAND_MAX` value that is being used by the specific C library/compiler's implementation of the `rand()` function. 
+ I get similar results to yours when testing with MSVC ( `x86 msvc v19.latest` ), where the `RAND_MAX` value is just 32,767 . Using a modulo 10,000 operation ( `% 10000` ) on the output of `rand()` will generate "random" numbers with a very significant bias towards the lower numbers. (1) This causes more points to fall within your circle than you would normally expect, and results in an inflated estimated value of π. (2) 
+ To demonstrate this: if we pick the random values between 0 and 32,767 and compare the hypotenuse with that value, we eliminate the modulo bias altogether, and the results much more closely approach the value of π as can be seen here : (3) 
+ `#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+
+int main()
+{
+ int d = 0;
+ int n = 0;
+ srand(time(NULL));
+
+ for (int i =0; i < 10000; i++)
+ {
+ n++;
+ int xI = rand();
+ int yI = rand();
+
+ double pythag = sqrt(xI*xI + yI*yI);
+
+ if (pythag <= RAND_MAX)
+ {
+ d++;
+ }
+ }
+ 
+ printf("d = %d\n", d);
+ printf("n = %d\n", n);
+ double DNratio = ((double) d)/n;
+ double PiEstimate = DNratio * 4;
+ printf("Pi Estimate: %f", PiEstimate); // yields ≈3.14
+ return 0;
+}
+` 
+ 
+ (1) Your implementation actually seems to be doing modulo 20,001 , resulting in an even bigger bias. For a `RAND_MAX` value of 32,767 , the `rand() % 20001` operation produces numbers in the interval [0 .. 12,766] twice as often as numbers in the interval [12,767 .. 20,000] . 
+ (2) When using a compiler with a larger `RAND_MAX` value (like `x86_64 gcc (trunk)` where it's 2,147,483,647 ), the bias is much less noticeable, but still there. 
+ (3) This of course doesn't negate the effects of the relatively small random sample size, and the inherent bias of the PRNG itself.

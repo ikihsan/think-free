@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-17
+last-verified: 2026-10-18
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -342,6 +342,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/092-appliance-diagnosis/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-11 | 2 documents |
 | `EXPERIMENTS/092-comparison-forum-vs-websearch/` | `docs/INDEX.md` | active | 2026-10-11 | 3 documents |
 | `EXPERIMENTS/092-viewcount-maven/` | `EXPERIMENTS/092-viewcount-maven` | active | 2026-10-11 | Status: Experiment in progress. |
+| `EXPERIMENTS/093-discrimination-test/` | `docs/INDEX.md` | active | 2026-10-17 | 1 documents |
 | `EXPERIMENTS/093-fresh-observation-lab-instrument-errors/` | `docs/INDEX.md` | active | 2026-10-11 | 3 documents |
 | `EXPERIMENTS/093-viewcount-docker/` | `EXPERIMENTS/093-viewcount-docker` | active | 2026-10-11 | Status: Experiment in progress. |
 | `EXPERIMENTS/094-k8s-discourse-viewcount/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-11 | owner: EXPERIMENTS/PLAN.md |
@@ -355,6 +356,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/098-aviation-discrimination-test/` | `docs/INDEX.md` | active | 2026-10-10 | 2 documents |
 | `EXPERIMENTS/098-home-assistant-fresh/` | `docs/INDEX.md` | active | 2026-10-11 | 2 documents |
 | `EXPERIMENTS/098-viewcount-sf/` | `EXPERIMENTS/098-viewcount-sf` | active | 2026-10-11 | Status: Experiment in progress. |
+| `EXPERIMENTS/099-fresh-observation-ha-needs/` | `docs/INDEX.md` | active | 2026-10-17 | 1 documents |
 | `EXPERIMENTS/099-medical-device-discrimination/` | `docs/INDEX.md` | active | 2026-10-10 | 1 documents |
 | `EXPERIMENTS/099-viewcount-superuser/` | `EXPERIMENTS/099-viewcount-superuser` | active | 2026-10-11 | Status: Experiment in progress. |
 | `EXPERIMENTS/100-lab-instrument-error-codes/` | `docs/INDEX.md` | active | 2026-10-11 | Session: 2026-10-11-007, VM instance-20260717-0947, observed 2026-10-11. |
@@ -429,6 +431,9 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/175-repo-from-report/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 4 documents |
 | `EXPERIMENTS/177-evidence-gated-need/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 8 documents |
 | `EXPERIMENTS/178-evidence-where-does-it-live/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 5 documents |
+| `EXPERIMENTS/179-containment-aware-search/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 1 documents |
+| `EXPERIMENTS/179-stale-accepted-answers/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 2 documents |
+| `EXPERIMENTS/181-fact-supply-closes-gap/` | `docs/INDEX.md` | active | 2026-10-18 | 5 documents |
 | `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
@@ -439,6 +444,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/E162-mozilla-addons-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E172-discourse-viewcount/` | `docs/INDEX.md` | active | 2026-10-16 | 2 documents |
 | `EXPERIMENTS/E173-github-discussions-viewcount/` | `docs/INDEX.md` | active | 2026-10-16 | 2 documents |
+| `EXPERIMENTS/E179-math-se-ask-patterns/` | `docs/INDEX.md` | active | 2026-10-17 | 1 documents |
+| `EXPERIMENTS/E180-pubdev-viewcount/` | `docs/INDEX.md` | active | 2026-10-17 | 2 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/e138-viewcount-discrimination/` | `docs/INDEX.md` | active | 2026-10-14 | 1 documents |
