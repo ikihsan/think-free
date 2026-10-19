@@ -447,7 +447,11 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/196-federal-spend-metered/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 5 documents |
 | `EXPERIMENTS/197-funded-award-count/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 3 documents |
 | `EXPERIMENTS/197-recipient-read-extension/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 1 documents |
+| `EXPERIMENTS/198-recipient-read/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 2 documents |
+| `EXPERIMENTS/199-candidate-screen-small-team/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 1 documents |
 | `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/200-recipient-size-segments/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 1 documents |
+| `EXPERIMENTS/201-combined-size-name-screen/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 1 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E149-github-repo-viewcount-followup/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |

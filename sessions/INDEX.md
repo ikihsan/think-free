@@ -8,14 +8,15 @@ last-verified: 2026-10-19
 
 <!-- generated-by: origin; do not edit by hand -->
 
-455 recorded session(s). One `events.jsonl` per session, so concurrent
+456 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 430 older session(s) are in the directory listing.
+Showing the 25 most recent. 431 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-19-011-fresh-exploration-in-a-new-domain-identi](2026-10-19-011-fresh-exploration-in-a-new-domain-identi/README.md) | unknown-agent | **unfinished** | Fresh exploration in a new domain: identify a practical problem with m | 2026-10-19T11:38 |
+| [2026-10-19-012-apply-vendor-concentration-screen-method](2026-10-19-012-apply-vendor-concentration-screen-method/README.md) | unknown-agent | **unfinished** | Apply vendor concentration screen methodology to PyPI ecosystem to fin | 2026-10-19T12:43 |
+| [2026-10-19-011-fresh-exploration-in-a-new-domain-identi](2026-10-19-011-fresh-exploration-in-a-new-domain-identi/README.md) | unknown-agent | worked | Fresh exploration in a new domain: identify a practical problem with m | 2026-10-19T12:32 |
 | [2026-10-19-010-continue-e199-e201-candidate-screen-seri](2026-10-19-010-continue-e199-e201-candidate-screen-seri/README.md) | unknown-agent | worked | Continue E199-E201 candidate screen series and decide continuation | 2026-10-19T11:28 |
 | [2026-10-19-009-run-recipient-read-on-usaspending-gov-fo](2026-10-19-009-run-recipient-read-on-usaspending-gov-fo/README.md) | unknown-agent | worked | Run recipient read on USAspending.gov for 5 IT PSC codes to identify w | 2026-10-19T10:47 |
 | [2026-10-19-008-complete-e197-recipient-read-for-remaini](2026-10-19-008-complete-e197-recipient-read-for-remaini/README.md) | unknown-agent | worked | Complete E197 recipient read for remaining IT codes 7A21, 7030, D304 | 2026-10-19T10:23 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 430 older session(s) are in the directory listing.
 | [2026-10-18-011-build-diy-repair-advisor-prototype-to-cl](2026-10-18-011-build-diy-repair-advisor-prototype-to-cl/README.md) | unknown-agent | worked | Build DIY Repair Advisor prototype to classify home repair questions i | 2026-10-18T13:56 |
 | [2026-10-18-010-prior-art-check-on-knitting-repair-plann](2026-10-18-010-prior-art-check-on-knitting-repair-plann/README.md) | unknown-agent | worked | Prior-art check on knitting repair planning tools before deciding on S | 2026-10-18T11:45 |
 | [2026-10-18-009-extend-knitting-repair-planner-experimen](2026-10-18-009-extend-knitting-repair-planner-experimen/README.md) | unknown-agent | worked | Extend knitting repair planner experiment with computational experimen | 2026-10-18T11:30 |
-| [2026-10-18-008-fresh-exploration-identify-a-new-inventi](2026-10-18-008-fresh-exploration-identify-a-new-inventi/README.md) | unknown-agent | worked | Fresh exploration: identify a new invention axis outside the public-Q& | 2026-10-18T08:58 |
 
 
 ## Reading a session
