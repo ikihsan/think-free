@@ -55,7 +55,7 @@ _(none recorded)_
 | check | result |
 |---|---|
 | session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 4450 |
+| undeclared file changes | 6488 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
@@ -114,18 +114,18 @@ _(none recorded)_
 | 38 | 06:38:42 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/083-3dprint-fault-codes/raw/topics_discourse_ubuntu_com.jsonl |
 | 39 | 06:38:42 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/083-3dprint-fault-codes/raw/topics_forum_arduino_cc.jsonl |
 | 40 | 06:38:42 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/083-3dprint-fault-codes/raw/topics_forum_creality_com.jsonl |
-| 4455 | 07:44:00 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/197-funded-award-count/raw/a1_4220_asc_p7_asc.json |
-| 4456 | 07:44:00 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/197-funded-award-count/raw/a1_4220_asc_p7_asc.meta.json |
-| 4457 | 07:44:00 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/197-funded-award-count/raw/a1_4470_asc_p1_asc.json |
-| 4458 | 07:44:00 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/197-funded-award-count/raw/a1_4470_asc_p1_asc.meta.json |
-| 4459 | 07:44:00 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/197-funded-award-count/raw/a1_4470_asc_p2_asc.json |
-| 4460 | 07:54:17 | artifact | wrote EXPERIMENTS/197-funded-award-count/raw/a1_4220_asc_p7_asc.json |
-| 4461 | 07:54:29 | artifact | wrote EXPERIMENTS/197-funded-award-count/raw/a1_4220_asc_p7_asc.meta.json |
-| 4462 | 07:54:59 | artifact | wrote EXPERIMENTS/197-funded-award-count/raw/a1_4470_asc_p1_asc.json |
-| 4463 | 07:54:59 | artifact | wrote EXPERIMENTS/197-funded-award-count/raw/a1_4470_asc_p2_asc.json |
-| 4464 | 07:55:00 | artifact | wrote EXPERIMENTS/197-funded-award-count/raw/a1_4470_asc_p1_asc.meta.json |
+| 6493 | 08:06:01 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/197-funded-award-count/raw/a1_5895_asc_p14_asc.json |
+| 6494 | 08:06:01 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/197-funded-award-count/raw/a1_5895_asc_p14_asc.meta.json |
+| 6495 | 08:06:01 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/197-funded-award-count/raw/a1_5895_asc_p1_asc.json |
+| 6496 | 08:06:01 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/197-funded-award-count/raw/a1_5895_asc_p1_asc.meta.json |
+| 6497 | 08:06:02 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/197-funded-award-count/raw/a1_5895_asc_p29_asc.json |
+| 6498 | 08:06:02 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/197-funded-award-count/raw/a1_5895_asc_p29_asc.meta.json |
+| 6499 | 08:06:02 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/197-funded-award-count/raw/a1_5895_asc_p36_asc.json |
+| 6500 | 08:06:02 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/197-funded-award-count/raw/a1_5895_asc_p36_asc.meta.json |
+| 6501 | 08:06:02 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/197-funded-award-count/raw/a1_5895_asc_p39_asc.json |
+| 6502 | 08:06:03 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/197-funded-award-count/raw/a1_5895_asc_p39_asc.meta.json |
 
-_4414 middle events omitted; see `events.jsonl`._
+_6452 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

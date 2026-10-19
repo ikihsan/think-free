@@ -8,13 +8,19 @@ last-verified: 2026-10-19
 
 <!-- generated-by: origin; do not edit by hand -->
 
-449 recorded session(s). One `events.jsonl` per session, so concurrent
+455 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 424 older session(s) are in the directory listing.
+Showing the 25 most recent. 430 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-19-011-fresh-exploration-in-a-new-domain-identi](2026-10-19-011-fresh-exploration-in-a-new-domain-identi/README.md) | unknown-agent | **unfinished** | Fresh exploration in a new domain: identify a practical problem with m | 2026-10-19T11:38 |
+| [2026-10-19-010-continue-e199-e201-candidate-screen-seri](2026-10-19-010-continue-e199-e201-candidate-screen-seri/README.md) | unknown-agent | worked | Continue E199-E201 candidate screen series and decide continuation | 2026-10-19T11:28 |
+| [2026-10-19-009-run-recipient-read-on-usaspending-gov-fo](2026-10-19-009-run-recipient-read-on-usaspending-gov-fo/README.md) | unknown-agent | worked | Run recipient read on USAspending.gov for 5 IT PSC codes to identify w | 2026-10-19T10:47 |
+| [2026-10-19-008-complete-e197-recipient-read-for-remaini](2026-10-19-008-complete-e197-recipient-read-for-remaini/README.md) | unknown-agent | worked | Complete E197 recipient read for remaining IT codes 7A21, 7030, D304 | 2026-10-19T10:23 |
+| [2026-10-19-007-run-pyfix-prototype-experiment-and-recor](2026-10-19-007-run-pyfix-prototype-experiment-and-recor/README.md) | unknown-agent | worked | Run pyfix prototype experiment and record results | 2026-10-19T09:20 |
+| [2026-10-19-006-run-recipient-read-experiment-for-remain](2026-10-19-006-run-recipient-read-experiment-for-remain/README.md) | unknown-agent | partial | Run recipient read experiment for remaining 3 IT codes (7A21, 7030, D3 | 2026-10-19T08:29 |
 | [2026-10-19-005-e197-settle-whether-e196-s-25-code-addre](2026-10-19-005-e197-settle-whether-e196-s-25-code-addre/README.md) | unknown-agent | **unfinished** | E197: settle whether E196's 25 code-addressed federal cells hold real  | 2026-10-19T05:11 |
 | [2026-10-19-004-repair-the-documentation-obligation-e196](2026-10-19-004-repair-the-documentation-obligation-e196/README.md) | unknown-agent | worked | Repair the documentation obligation E196's session closed with: add th | 2026-10-19T05:01 |
 | [2026-10-19-003-e196-address-us-federal-spend-by-product](2026-10-19-003-e196-address-us-federal-spend-by-product/README.md) | unknown-agent | worked | E196: address US federal spend by product and service code (PSC) rathe | 2026-10-19T04:43 |
@@ -34,12 +40,6 @@ Showing the 25 most recent. 424 older session(s) are in the directory listing.
 | [2026-10-18-010-prior-art-check-on-knitting-repair-plann](2026-10-18-010-prior-art-check-on-knitting-repair-plann/README.md) | unknown-agent | worked | Prior-art check on knitting repair planning tools before deciding on S | 2026-10-18T11:45 |
 | [2026-10-18-009-extend-knitting-repair-planner-experimen](2026-10-18-009-extend-knitting-repair-planner-experimen/README.md) | unknown-agent | worked | Extend knitting repair planner experiment with computational experimen | 2026-10-18T11:30 |
 | [2026-10-18-008-fresh-exploration-identify-a-new-inventi](2026-10-18-008-fresh-exploration-identify-a-new-inventi/README.md) | unknown-agent | worked | Fresh exploration: identify a new invention axis outside the public-Q& | 2026-10-18T08:58 |
-| [2026-10-18-007-repair-the-red-tree-left-by-the-e183-e18](2026-10-18-007-repair-the-red-tree-left-by-the-e183-e18/README.md) | unknown-agent | worked | Repair the red tree left by the E183/E184 session, commit that closure | 2026-10-18T08:30 |
-| [2026-10-18-006-build-classifier-v4-prototype](2026-10-18-006-build-classifier-v4-prototype/README.md) | unknown-agent | worked | build classifier v4 prototype | 2026-10-18T06:00 |
-| [2026-10-18-005-fresh-exploration-find-a-concrete-proble](2026-10-18-005-fresh-exploration-find-a-concrete-proble/README.md) | unknown-agent | worked | Fresh exploration: find a concrete problem domain with accessible data | 2026-10-18T03:55 |
-| [2026-10-18-004-prior-art-check-the-ground-truth-quality](2026-10-18-004-prior-art-check-the-ground-truth-quality/README.md) | unknown-agent | worked | Prior-art-check the ground-truth-quality axis: do vote margin, corrobo | 2026-10-18T03:41 |
-| [2026-10-18-003-measure-whether-e177-s-ground-truth-is-c](2026-10-18-003-measure-whether-e177-s-ground-truth-is-c/README.md) | opencode | worked | Measure whether E177's ground truth is contestable where the assistant | 2026-10-18T03:17 |
-| [2026-10-18-002-log-e181-s-two-undeclared-artifacts-that](2026-10-18-002-log-e181-s-two-undeclared-artifacts-that/README.md) | space-bunny-free | worked | Log E181's two undeclared artifacts that session finish reported | 2026-10-18T01:23 |
 
 
 ## Reading a session

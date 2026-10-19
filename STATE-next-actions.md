@@ -64,11 +64,10 @@ The money axis now has all four coordinates: **buyer** (federal agencies),
 low enough that a small program could win direct awards without being a
 subcontractor to a prime.
 
-**Named next action:** a candidate screen on the money axis. The screen asks:
-*which of these five codes, or which sub-segment within them, admits a program
-that a small team could build and sell?* The screen inputs are the 98,640
-purchases, the 9,977 vendors, the agency breakdown (E197 panel D), and the
-award descriptions (readable via `spending_by_award/` with the same filters).
+**Named next action:** candidate screen on the money axis — COMPLETED across E199-E201.
+E199 (name-pattern: prime_integrator moderately less concentrated), E200 (size-screen: small sub-segment extremely fragmented 1.5-5.8% top-10 share), E201 (combined size+name: 7A21/small/prime_integrator at 1.7% = absolute best entry point). Screen question resolved; no further screen needed on this axis.
+
+**New next priority:** explore a fresh observation in a different domain, since the federal contracting money axis candidate screen series is complete and the screen question is answered with stable, conclusive findings across three experiments.
 
 **Do not run:** the keyword form of this axis (closed by E195); an award-amount
 filter on the recipient endpoint (E197 probe.py finding 2); a re-run of E197

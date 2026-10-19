@@ -446,6 +446,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/195-spend-axis-probe/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 3 documents |
 | `EXPERIMENTS/196-federal-spend-metered/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 5 documents |
 | `EXPERIMENTS/197-funded-award-count/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 3 documents |
+| `EXPERIMENTS/197-recipient-read-extension/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 1 documents |
 | `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
