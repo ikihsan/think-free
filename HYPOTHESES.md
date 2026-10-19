@@ -35,8 +35,17 @@ read without a control, a counting rule, a disclosure floor, the shape of a
 corpus's tail, and a screen's own verdict. All seven moved to
 [`HYPOTHESES-experiments.md`](HYPOTHESES-experiments.md) on 2026-10-09 at this
 file's line cap. None produced a candidate; each named what its own instrument
-had actually measured, and a reader asking that question should not have to load
-the live candidate index to get it.
+had actually measured.
+
+**E196 tested a screen, not a candidate, and is the first money-axis
+measurement.** D122 routed the axis through spend because price is unreachable;
+E196 addressed that spend by the buyer's own taxonomy and asked whether it is
+metered at program scale. **G4 fires on 25 of the top 100 US federal contract
+codes** — five IT/software cells (`DA01` $94.91B, `DA10` $33.01B, `7A21`
+$29.21B, `7030` $25.83B, `D304` $20.37B) account for **$203.32B bought in tens
+of thousands of separate sub-$40k purchases** — and **F143 constrains it: nine of
+the 25 clear only because their 10,000th award carries no money.** An award count
+is not a purchase count here. See [`RESULT.md`](EXPERIMENTS/196-federal-spend-metered/RESULT.md).
 
 **E034 tested a generator, not a candidate** (`EXPERIMENTS/034-reask-tail/`,
 T-0078). Its declared kill gate A4: if no two tags with `tail` n ≥ 50 have
@@ -187,6 +196,7 @@ this. Evidence:
 | Universal local-first sync layer | `RESEARCH/D.md` | Rejected: invariants not preserved | — |
 | Recurring-payment detection on real bank exports | `EXPERIMENTS/065-recurring-expense-detection/` E065, `EXPERIMENTS/066-berka-real-validation/` E066, `EXPERIMENTS/072-merchant-noise-raw/` E072, `EXPERIMENTS/073-piecewise-price/` E073 | **Line closed** (`FAILURES.md` F185, F186): on 36 real exports E065's detector scores recall 0.394 / F1 0.160; the piecewise-constant repair F185 named scores recall 0.455 / F1 0.197 — strictly better on every count but short of both predeclared gates (G1 recall ≥ 0.50, G2 F1 margin ≥ +0.05). Recovers 2 of 14 CV-gate misses. **No usefulness or differentiation claim; the incumbent ships the feature** | Nothing to build. The remaining 12 misses need a richer model (drift, seasonality) or are not recurring; the line is closed on this population |
 | Duplicate-closure rate of the score tail, and the worklist over it | `EXPERIMENTS/034-reask-tail/` E034, `EXPERIMENTS/036-search-backlog/` E036 | **The measurement stands and the candidate is prior art** (`FAILURES.md` F057, F059): pooled tail 0.1352 against the `Active` tab's 0.0303, per-tag 0.0000–0.4300, and the ordering plus the label both arrive from one unauthenticated `/search/advanced` query | **Nothing to build.** The one gap F059 names — whether the *rendered* site exposes this against the API — needs a browser or a user, not a request |
+| Money axis: what an organisation already pays for, addressed by code (`EXPERIMENTS/196-federal-spend-metered/` E196) | D122, D123, from E193/E194/E195 | **Open, and the first money-sized addressable population in this record.** G3 fires (p = 0.00416): toptier PSC families are distinguishable in median award size. G4 fires on 25 of 100 codes, `DA01`/`DA10`/`7A21`/`7030`/`D304` together $203.32B in tens of thousands of sub-$40k purchases. **F143 bounds it: an award count is not a purchase count** — `R499`'s 50,000th award is $51.93 | Bisect the ascending award order for the rank at which amounts turn positive, all 100 codes; then read recipients under the same filter. **No candidate, no usefulness claim and no adoption claim** |
 | Version-pinned technical-failure retrieval | `EXPERIMENTS/168-version-pinned-need/` E168, `EXPERIMENTS/170-fix-reachability-rank/` E170, `EXPERIMENTS/174-scoped-reach-recompute/` E174 | **Closure withdrawn 2026-10-17 (E174, F134): it was decided on 2 of E170's 7 arms.** What stands: the class is **28.4%** of a high-arrival pool, the assistant serves its high-arrival end at **0.4583**, and a published fix shares **no three-word run** with the post (0/13). What does not: "neither lexical query reaches it". The **repo-scoped** form of the same queries reaches **5/13 = 0.3846** against the global arms' 0.0769 and 0.1538 — union **6/13 = 0.4615** vs **2/13 = 0.1538**, **4 rows scoped-only and 0 global-only**, McNemar exact **p = 0.125** — which clears E170's declared 0.30 bar on the point estimate while its Wilson lower bound (0.1771) does not | **The mechanism is the incumbent's, and it works at the scope E170 left out.** The surviving constraint is the one E170's G3 predicted and nobody recorded: the search needs the **repository**, and a failure report usually does not name it. **E175** asks whether the repository can be derived mechanically from the report — registry-backed, no search engine. Until that is measured, retrieval on this class is `unresolved`, not closed |
 
 ## Candidates awaiting a falsification experiment
@@ -236,65 +246,8 @@ when* clauses.
 4. Nothing here has a user. Every usefulness statement is `inferred` or
    `speculative` until a real person is observed.
 
-## Candidate under consideration: ArXiv computational reproducibility (E067)
+## Candidates awaiting a falsification experiment, continued
 
-### H-01 — ArXiv reproducibility: a tool can generate machine-runnable environment specs from partial information
-
-**Observation:** E067 measured 34 ArXiv computational papers with code links (sampled from 1,682 papers with code links, 10.9% of 15,397 harvested). Only 4/34 (11.8%) had machine-runnable specs (A1), 1/34 (2.9%) partial (A2), 11/34 (32.4%) docs-only (A3), 18/34 (52.9%) no env info (A4). All four kill gates passed: population ≥20 (34), severity A1<0.50 (0.118), differentiation A4>0.10 (0.529), baseline A5≤code-link (0≤0.118). `observed`.
-
-**Mechanism:** A deterministic tool analyzes a paper's GitHub repository (source code, any existing config files, paper metadata like submission date) and generates a complete, pinned environment specification (conda `environment.yml` or `requirements.txt` with all `==` versions) that installs and runs the paper's main computational entry point.
-
-**Assumptions:**
-1. Source code imports and runtime behavior reveal sufficient version constraints
-2. Paper submission date correlates with compatible package versions
-3. Main entry point is identifiable (README, `main.py`, `__main__.py`, or setup.py `entry_points`)
-4. A clean virtual environment can test install + smoke test within resource limits
-5. The generated spec's correctness is verifiable by execution, not static analysis
-
-**Prior art:** `repo2docker`/`binder` (builds Docker from existing config files, doesn't invent pinned versions), `pipreqs` (infers imports, no version pinning), `conda-lock`/`poetry lock`/`pip-tools` (resolve from existing specs, don't generate from scratch), `reprozip` (captures runtime deps, needs working env first). **Claimed difference:** Generates complete pinned spec from minimal/no starting spec, with install+run verification.
-
-**Strongest objection:** Information insufficiency — two repos with identical `requirements.txt` (`numpy`, `pandas` unpinned) may need different pinned versions (`numpy==1.21.0` vs `numpy>=1.20`). Static analysis cannot distinguish; tool must run trials or abstain. Version search space is large; compute cost may be prohibitive.
-
-**Kill gate:** On a held-out sample of 20 A2+A3 papers (partial/docs-only env info), the tool generates specs that **install successfully** (≥80% install success rate) **and pass a smoke test** (import main module, run `--help` or minimal execution) for **≥30% of papers**. Baseline (`repo2docker` + latest versions) must achieve <15% on same metric. If tool's install+run rate ≤ baseline + 10pp, abandon.
-
-**Baseline:** `repo2docker` (v2024) run on each repo with no version constraints (uses latest compatible), followed by smoke test. Also: manual version selection by author (upper bound, not run here).
-
-**Experiment:** `EXPERIMENTS/079-arxiv-reproducibility/` — harvest 20 new A2+A3 papers (stride sample from E067's population), run tool and baseline, measure install+run success. Reproduction: `cd EXPERIMENTS/079-arxiv-reproducibility && python3 run.py --sample 20 --gate`.
-
-**Result:** `observed` (witness: FAIL as predicted), `untested` (full experiment)
-
-**Uncertainty:** Whether version search via trial installation is feasible within time budget; whether smoke test (import + `--help`) correlates with full computational reproducibility; whether paper date heuristics narrow version space enough.
-
-**Decision:** `hold` — witness passed (demonstrated information-sufficiency bound), full experiment infrastructure ready but not executed due to environment constraints (needs `python3.8-venv`). Tool prototype over-generates packages from import extraction; static analysis alone cannot resolve version ambiguity without trial installs.
-
-**Reconsider when:** A cheaper version-inference method is found that passes the witness, or trial installation infrastructure is available. The witness FAIL is a structural bound, not an implementation defect.
-
-### Candidate under consideration: Food recall purchase matching (E080)
-
-#### H-01 — Food recall matching: a tool can match consumer purchases against FDA/USDA recall data
-
-**Observation:** FDA publishes recall data with UPC, lot codes, best-by dates, distribution patterns. Consumers have purchase records (receipts, loyalty exports). Matching them could warn consumers of recalled products. `observed` that recall data exists and purchase records exist.
-
-**Mechanism:** Match purchase records to recall records using UPC (exact or prefix), product name (fuzzy), lot code, best-by date. A match triggers a warning.
-
-**Assumptions:**
-1. Purchase records contain sufficient identifiers (UPC, product name, date, store)
-2. Recall records contain matchable identifiers (UPC, lot codes, best-by dates, distribution)
-3. Matching logic can handle real-world noise (truncated UPCs, store brands, missing lot codes)
-4. False alarms (warning on non-recalled products) are more damaging than missed recalls
-
-**Prior Art:** Store loyalty programs (Kroger, Safeway, Costco) notify members of recalls on purchased items. FDA recall API exists. Apps like "Food Recalls" show lists but don't match purchases. Claimed difference: universal matching across any purchase source, not store-specific.
-
-**Strongest Objection:** Receipts rarely contain full UPCs or lot codes. Store brands have different UPCs than national brands. Consumers won't manually enter purchases. The matching problem is harder than it appears.
-
-**Kill Gate:** On synthetic fixtures with known ground truth (3 formats × 30 purchases each, 15 recalled), the tool achieves precision ≥80%, recall ≥60% on ≥2 formats, specificity = 1.0. Baseline (random matching) must achieve <10% on same metric.
-
-**Baseline:** Random matching of purchases to recalls.
-
-**Experiment:** `EXPERIMENTS/080-food-recall-matching/` — generate synthetic fixtures with guaranteed identifier linkage, run matching, evaluate gates. Reproduction: `cd EXPERIMENTS/080-food-recall-matching && python3 run.py --gate`.
-
-**Result:** `observed` (synthetic: PASS on 5/5 seeds), `untested` (real-world)
-
-**Uncertainty:** Whether real receipts/loyalty exports have sufficient identifier coverage; whether store-brand UPC divergence breaks matching; whether FDA recall UPC sparsity (~40%) makes matching infeasible; whether consumers would use such a tool.
-
-**Decision:** `hold` — mechanism passes synthetic kill gates but real-world identifier linkage is the unaddressed bottleneck. Loyalty programs already serve their members. Not a candidate for product engineering.
+The ArXiv computational-reproducibility entry (E067) moved to
+[`HYPOTHESES-candidates-3.md`](HYPOTHESES-candidates-3.md) on 2026-10-19
+at this file's line cap, to make room for the money-axis entry above.
