@@ -34,7 +34,45 @@ unit and budget all known at once, for the first time.
 of this axis (closed by E195); any `rank_p × 100` checkpoint (refused past page
 500).
 
-## E196 completed (2026-10-19) — the money axis now has a money-sized, code-addressed list, and the next instrument is named
+## E198 completed (2026-10-19) — the vendor landscape is fragmented: 9,977 distinct companies, top 10 per code hold 34.5%–57.6%
+
+**What was tested.** E197 established five IT/software cells carrying $203.32B
+across 98,640 funded purchases ≤ $100k. E198 read the recipient endpoint
+(`spending_by_category/recipient/` under the same `psc_codes` filter) for all
+five codes to name who is paid.
+
+**The result.** **15,210 recipient records across 9,977 distinct companies** for
+the five codes. G1 PASS (all five codes return well-formed paginated lists).
+G2 PASS (survives): total distinct recipients 9,977 ≥ 20; top-10 share per
+code: DA01 34.5%, DA10 35.8%, 7A21 48.9%, 7030 38.4%, D304 57.6% — all ≤ 80%
+kill threshold. Controls C1–C4 all PASS (recipient sums match cell totals within
+0.02%, no unused filters, zero controls hold).
+
+| code | cell total | purchases $1–$100k | recipients | distinct | top-10 share |
+|---|---:|---:|---:|---:|---:|
+| `DA01` | $94.91B | 14,719 | 3,610 | 3,112 | 34.5% |
+| `DA10` | $33.01B | 16,477 | 3,651 | 3,089 | 35.8% |
+| `7A21` | $29.21B | 32,747 | 3,977 | 3,384 | 48.9% |
+| `7030` | $25.83B | 14,033 | 3,917 | 3,298 | 38.4% |
+| `D304` | $20.37B | 20,664 | 1,155 | 1,004 | 57.6% |
+
+**What this decides.** The vendor landscape is **fragmented**, not concentrated.
+The money axis now has all four coordinates: **buyer** (federal agencies),
+**unit** (98,640 funded purchases ≤ $100k), **budget** ($203.32B),
+**vendor** (9,977 distinct companies, top 10 hold 41.4% aggregate). This is a
+**genuine market at the scale a small program operates at** — concentration is
+low enough that a small program could win direct awards without being a
+subcontractor to a prime.
+
+**Named next action:** a candidate screen on the money axis. The screen asks:
+*which of these five codes, or which sub-segment within them, admits a program
+that a small team could build and sell?* The screen inputs are the 98,640
+purchases, the 9,977 vendors, the agency breakdown (E197 panel D), and the
+award descriptions (readable via `spending_by_award/` with the same filters).
+
+**Do not run:** the keyword form of this axis (closed by E195); an award-amount
+filter on the recipient endpoint (E197 probe.py finding 2); a re-run of E197
+panels on the same parameters.
 
 **What was tested.** D122 routed the money axis through spend because price is
 unreachable; E195 proved the endpoint answers and that a keyword's money belongs
