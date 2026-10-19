@@ -1,0 +1,40 @@
+{
+ "request": {
+  "_capture": "priors100k_DA10_98_DA10_98_asc",
+  "fields": [
+   "Award ID",
+   "Award Amount",
+   "Description",
+   "generated_unique_award_id",
+   "Awarding Agency"
+  ],
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "DA10"
+   ],
+   "time_period": [
+    {
+     "end_date": "2025-12-31",
+     "start_date": "2020-01-01"
+    }
+   ]
+  },
+  "limit": 100,
+  "order": "asc",
+  "page": 98,
+  "sort": "Award Amount",
+  "subawards": false
+ },
+ "response": {
+  "bytes": 37357,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+  "sha256": "e54113a54739070ad215a5be1efbce6a88c73855a93840fbc67e3849a4cbf5b1",
+  "status": 200
+ }
+}

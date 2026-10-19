@@ -1,0 +1,40 @@
+{
+ "request": {
+  "_capture": "priors100k_7A21_57_7A21_57_asc",
+  "fields": [
+   "Award ID",
+   "Award Amount",
+   "Description",
+   "generated_unique_award_id",
+   "Awarding Agency"
+  ],
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "7A21"
+   ],
+   "time_period": [
+    {
+     "end_date": "2025-12-31",
+     "start_date": "2020-01-01"
+    }
+   ]
+  },
+  "limit": 100,
+  "order": "asc",
+  "page": 57,
+  "sort": "Award Amount",
+  "subawards": false
+ },
+ "response": {
+  "bytes": 35113,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+  "sha256": "410c1d421fad3717901bdfc167c990fb7667206d3b50d8848899adeb4f3b90dd",
+  "status": 200
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "request": {
+  "_capture": "recipsmall_DA01_132_DA01_132_asc",
+  "fields": [
+   "Award ID",
+   "Award Amount",
+   "Description",
+   "generated_unique_award_id",
+   "Awarding Agency"
+  ],
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "DA01"
+   ],
+   "time_period": [
+    {
+     "end_date": "2025-12-31",
+     "start_date": "2020-01-01"
+    }
+   ]
+  },
+  "limit": 100,
+  "order": "asc",
+  "page": 132,
+  "sort": "Award Amount",
+  "subawards": false
+ },
+ "response": {
+  "bytes": 38231,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+  "sha256": "9b45b9a73ef5c1afe4b98182188499d909f516b139baf76bdd49d81d3207bdf1",
+  "status": 200
+ }
+}
