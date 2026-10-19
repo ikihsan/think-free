@@ -6,79 +6,71 @@ last-verified: 2026-10-19
 
 # Next actions
 
-## E193/E194 + F142/D121/D122 completed (2026-10-19) — the money axis is opened, and the prototype-shaped gate is retired as a screen
+## E196 completed (2026-10-19) — the money axis now has a money-sized, code-addressed list, and the next instrument is named
 
-**What was tested.** Two things, in this order. E193 probed ten candidate sources
-for a *price* signal with four controls; E194 then scanned twelve pre-declared
-recurring household jobs against the one that answered. F142 recovered why the
-record had no money evidence at all: **twelve of seventeen sessions on 2026-10-18
-captured zero commands and declared zero artifacts**, six of them planner-shaped
-Stage-A gates of which four reported a pass, none touching a price or a user.
+**What was tested.** D122 routed the money axis through spend because price is
+unreachable; E195 proved the endpoint answers and that a keyword's money belongs
+to a different industry than the word. E196 addressed the same money by
+**product and service code** — the buyer's own taxonomy — and asked the question
+that makes it a screen rather than a ranking: **is the money bought in many
+small separate purchases, at a scale a program could sit in front of?**
 
-**The result.** Every price-bearing marketplace is **hard-blocked from this
-host** — Etsy, eBay and Reddit `403`, DuckDuckGo `202`, Census key-gated — while
-the iTunes Search API answers. E194's twelve jobs hold **286 on-topic apps and 6
-paid (2.1%)**; nine jobs have no paid app at all; the single high-demand paid row
-is **`TurboScan™ Pro`, a PDF scanner matching the word *receipt***. G2 fired in both
-panels (the API returns ~4 junk free apps for a nonsense term), so this is
-**descriptive, not a gate result**. F142's structural finding is the harder one:
-a gate whose population, baseline and oracle share an author **cannot fire on
-anything outside the model**.
+**The result.** Top 100 PSC base codes, FY2020–FY2025, `spending_level: awards`,
+**$5.65T across 100 codes.** **G2 PASS** (7 of 7 zero-control checks), **G3 fires**
+(H = 40.63, **p = 0.00416**, 21 families, 91 codes — the families are
+distinguishable, so the metering is a property of the code), **G4 fires on 25 of
+100**, **G1 FAIL** and **G5 not evaluated**, both for reasons below.
 
-**What this decides.** **D121** retires the Stage-A computational gate as a
-candidate screen: no prototype-shaped candidate is written until its protocol
-names one measurement taken from outside the session that invents it.
-**D122** routes the money axis through **spend** — USAspending contract amounts
-and Comtrade trade values, both `200` from this host, neither ever used here —
-because price is not reachable.
+**25 codes hold at least 10,000 separate awards of $100,000 or less inside a
+cell of at least $1B**, and the densest cluster is IT and software:
+`DA01` app-development support ($94.91B, 27,425 awards, 10,000th award
+**$27,519**), `DA10` app development SaaS ($33.01B, 26,656, **$30,903**), `7A21`
+business application software ($29.21B, 50,777, **$14,313**), `7030` IT software
+($25.83B, 24,492, **$40,320**), `D304` telecommunications ($20.37B, 29,072,
+**$11,544**). **$203.32B bought in tens of thousands of separate sub-$40k
+purchases** — the first money-sized addressable population this record has
+produced, and still not a candidate.
 
-**Do not run:** another consumer app-store scan as a prevalence estimate (fifteen
-hand-declared terms bound nothing outside themselves); a re-run of any 2026-10-18
-planner; a Stage A for the knitting candidate (closed by F009 on 2026-10-03).
+**The finding that decides the next experiment (F143, D123).** Nine of the 25
+clear only because their 10,000th award carries no money, and at the measured
+instrument ceiling — `spending_by_award` answers 200 for page 500 and 422 for
+page 501, so **the 50,000th award is the deepest any code can be read to** —
+`R499` ("Support-Professional: Other", $270.27B, 302,317 awards) has its
+50,000th award at **$51.93-$52.04**. **Half a million federal award records
+worth about fifty dollars each.** An award count is not a purchase count here,
+and the error runs in the direction that manufactures markets.
 
-**Named next action.** Measure what an organisation **already pays for** in a
-domain where a program could displace a metered unit, and let that measurement
-screen candidates. **E195 has already run this probe: USAspending answers from
-this host with no key and returns award rows carrying amounts and descriptions,
-so the axis is open.** G3 failed on two terms — `knitting` returned **$3.58M of
-combat uniforms**, `laundry` $112,839 of base laundry service — which earns the
-rule that a spend screen must **read the descriptions on the rows it sums**. Next:
-a declared scan addressed by **product and service code (PSC/NAICS)** rather than
-by keyword, because the keyword form is closed as declared, and re-running it with
-the same words is exactly the repair this record keeps refusing. Every total must
-be reported beside its industry distribution.
+**G1's failure is an instrument ceiling, not a source defect.** The nine codes
+with more than 100,000 awards — exactly `R499`, `6505`, `R706`, `9130`, `6515`,
+`1560`, `8915`, `8905`, `6640` — have no median stratum because the endpoint
+refuses past page 500. All their counts and rank checkpoints to 10,000 returned
+`200`, and no request carried an ignored-filter message.
 
-> **READ FIRST (2026-10-12).** The view-count domain sweep is **STOPPED**
-> (E113, F116, D105). E113's matched-harvest control of E107 showed the
-> effect is a harvest artifact (δ 0.826 → 0.075, stratified p=0.183) and the
-> shared classifier labels only 28% of a representative pool. Every
-> "ALL GATES PASS" below that came from this line is **`untested` on a matched
-> harvest, not confirmed**. Do not run another registry sweep. See
-> [`EXPERIMENTS/113-viewcount-matched-harvest/`](EXPERIMENTS/113-viewcount-matched-harvest/README.md).
+**G5 is not evaluated, and the reason is structural.** `Y1` construction passes
+(`construct` ratio **11.1**, `remodel` **20.0**) and `S2` housekeeping passes
+(`cleaning` 5.88, `custodial` 50.0, `guard` 2.38), so **the code-addressed read
+is not procurement vocabulary** — E195's `TurboScan` defect does not recur. The
+`3` arm **had no members**: no `3`-prefixed code reached the head-100, so no
+keyword can clear a 2× base rate over an empty set. `PROTOCOL.md` declared
+thresholds and a `not evaluable` rule for G3 and G4 and **none for G5**.
 
-## E183/E184 completed (2026-10-18) — the ground-truth-quality axis closes; the three signals are redundant
+**Named next action — bisect the funded-award count, for all 100 codes.**
+Bisect the ascending award order for the rank at which amounts turn positive.
+About ten requests per code, exactly, and it returns the number the mission
+actually needs: how many records carry money, i.e. how many things a program
+could displace. It settles whether the $203.32B in the table above is tens of
+thousands of real purchases or tens of thousands of records. Once that is
+exact, `spending_by_category/recipient/` under the same `psc_codes` filter —
+**verified reachable from this host** — names who is paid for the small
+purchases. **Buyer, unit and budget, all known at once, for the first time.**
 
-**What was tested.** Whether vote margin, corroboration count, and residualised
-prescriptive divergence carry answer-quality information a known Stack Overflow
-quality predictor does not already carry. E183's prior-art check found the area
-established (6+ papers, 2015-2022, text + metadata features; vote-based features
-standard). E184 tested whether the three signals add predictive power.
+**Do not run:** the keyword form of this axis (E195, G3 fired against it); a
+longer tail walk (superseded by AMENDMENT-3's order statistics); any
+`rank_p x 100` checkpoint (refused past page 500); or a re-run of panel 2 on the
+same parameters — `client.call` reuses any capture whose stored request key
+matches, so it is free and would return the same bytes.
 
-**The result.** 200 questions, 7,822 answer rows, logistic regression, 5-fold CV.
-**Baseline AUC 0.9986, treatment AUC 0.9986, delta −0.0000.** The baseline
-includes `answer_score` — the defining characteristic of the top-voted answer —
-so the model trivially identifies it, and the three signals add **zero**
-predictive power.
 
-**What this decides.** The ground-truth-quality axis, as a product filtering
-Stack Overflow answers for training/evaluation corpora, **does not clear the
-screen**.
-
-**Do not run:** another variant with the same label (is top-voted); the result
-is definitive. **Named next action — taken 2026-10-19 as E193/E194:** return to
-fresh exploration, on an axis with no money evidence in it at all.
-
-[`RESULT.md`](EXPERIMENTS/183-prior-art-ground-truth-quality/RESULT.md).
 
 ## E185 completed (2026-10-18) — knitting repair planner Stage A: local planner beats full-row rollback
 
@@ -277,4 +269,3 @@ structured-field-only tool returns empty for 65% of patients. **Do not pursue**
 patient-trial matching on structured API fields alone. **Named next action — taken
 2026-10-19 as E193/E194/E195:** fresh exploration on an axis carrying no money
 evidence at all, which is what D121 and D122 now require of every candidate.
-

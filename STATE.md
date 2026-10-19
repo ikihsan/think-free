@@ -143,30 +143,17 @@ F135). [`E175`](EXPERIMENTS/175-repo-from-report/RESULT.md).
 
 **F138 (2026-10-17, fresh observation): the round trip is stronger, not weaker, when the missing fact is personal.** On Personal Finance SE (`money.stackexchange.com`, the largest non-software SE site where high-arrival questions routinely turn on a personal fact), the top 30 highest-vote questions with answers were scored with E178's `is_ask` lexicon. **9/30 = 0.3000 lack a specific personal fact** (the money-SE analog of E177's EVID class), and **27/30 = 0.9000 carry a round-trip ask** — against SO's 31/46 = 0.6739. The round trip is **stronger** on money SE, not weaker: the venue asks more readily when the fact is sensitive. **F137's conclusion is confirmed on a second venue.** The "unserved need" hypothesis is dead for money SE too. Raw data: `/tmp/opencode/money_analysis.json`.
 
-**E181 completed (2026-10-18): supplying the missing fact does not move the
-assistant, and pasting the thread does not either.** Four paired arms on one
-population, no arm label in any input file: question alone **7/14 = 0.5000**,
-**+ the one extracted missing fact** **8/14 = 0.5714**, **+ every comment on the
-thread verbatim** **9/14 = 0.6429**, placebo 4/10. **Every paired comparison is
-null** — A1 vs A0 exact McNemar **p = 1.0**, and A0 vs B1 is **0 for, 2 against**,
-so pasting the entire discussion never once beat answering the question alone.
-Two numbers survive: an extracted fact is a median **15.5 tokens against the
-thread's 232.5 (6.7%)**, and the comments name the deciding fact on
-**14/30 = 0.4667** with **10 of the 16 nulls carrying the remedy itself** — **the
-round trip runs to the solution, not to the fact**, the clause F137 and F138 were
-missing. **G4 FIRED** (same reader re-scoring E177's answers a day later
-disagreed on **4 of 10**), so **no absolute level in E181 is comparable with
-E177's**; **K1 fired** (14 rows against a declared floor of 16), so every arm is
-exploratory. Full entry: [`E181`](EXPERIMENTS/181-fact-supply-closes-gap/RESULT.md).
-
-**Named next action: ask whether the accepted answer is the *best* answer, not
-merely the *accepted* one.** Read the rows every arm missed and ask which it
-was. One reader, no new fetch, and it is the only explanation this population
-has left: supplying the correct fact and supplying the whole thread have both
-been measured and neither moved the rate. If the missed rows are rows where the
-community's chosen resolution is contestable, the EVID gap is a disagreement
-about answers rather than a deficit of context, and no context pipeline of any
-kind will close it.
+**E181 completed (2026-10-18) and superseded by E182: supplying the missing fact
+does not move the assistant, and pasting the thread does not either.** Four paired
+arms, one population, no arm label in any input file: question alone 7/14 = 0.5000,
++ the extracted missing fact 8/14 = 0.5714, + every comment verbatim 9/14 = 0.6429,
+placebo 4/10. **Every paired comparison is null** (exact McNemar p = 1.0), and
+pasting the entire discussion beat answering the question alone on **0** rows. The
+comments name the deciding fact on 14/30 = 0.4667, with 10 of the 16 nulls carrying
+the remedy itself — **the round trip runs to the solution, not to the fact.**
+**G4 FIRED** (the same reader disagreed with itself on 4 of 10), so no absolute
+level in E181 may be compared with E177's. Full entry:
+[`E181`](EXPERIMENTS/181-fact-supply-closes-gap/RESULT.md).
 
 > **RUN as E182 (2026-10-18); the question had to be corrected first.** The draw
 > is of questions that were *unanswered*, so `accepted_answer_id` is non-null on
@@ -178,8 +165,12 @@ kind will close it.
 > its earlier null was **withdrawn, not reported**. **The EVID line closes as a
 > capability limit.** [Full entry.](EXPERIMENTS/182-ground-truth-contest/RESULT.md)
 
-**Superseded by E181 and closed by E182 (2026-10-18):** the named next action
-below was written when the EVID gap's *mechanism* was still an inference.
+**Superseded by E181 and closed by E182 (2026-10-18).** The named next action
+that stood here — read the rows every arm missed and ask whether the
+community's chosen resolution is contestable — was run as E182, whose record is
+the blockquote above, and those 11 lines were removed from this file on
+2026-10-19 rather than left as a directive a cold session could re-run.
+
 **Superseded (2026-10-18).** **Named next action: return to fresh exploration.** The EVID class is served by the venue's round trip across two venues of very different personal-fact sensitivity. The genuinely unserved residue is small and eventually answered in both. The "unserved need" hypothesis is dead for every population this mission can measure. The mission should either test a completely different kind of need (not evidence-gated questions) or pivot to a different invention axis entirely.
 
 > **E178 closed the fetch route** (`publishable` **0/46**; `has_ask` **0.6739**,
@@ -256,19 +247,28 @@ instrument. **D122: the money axis runs through spend (USAspending, Comtrade, bo
 
 **E195 (2026-10-19): the spend axis D122 named is open, and a keyword's money
 belongs to a different industry than the word.** `api.usaspending.gov` answers
-from this host with no key and returns award rows carrying numeric amounts and
-free-text descriptions: `laundry` **5 rows / $112,839** (all *"LAUNDRY SERVICE FOR
-THEIR OCS TRAINING"*), `knitting` **5 rows / $3,582,719** — all *"FIRE RESISTANT
-ENVIRONMENTAL ENSEMBLES AND OTHER CAMOUFLAGE COMBAT UNIFORM CLOTHING ITEMS"*,
-*"RRB ARMY PHYSICAL FITNESS UNIFORMS"*. **G2 PASS, G3 FAIL:** the ratio is 0.031,
-the opposite of the declared expectation, because the word bought military
-clothing. **A spend screen that sums amounts measures procurement vocabulary, not
-markets** — E194's `TurboScan`-matched-*receipt* defect in a second source, and a
-rule now earned: read the descriptions, report the industry distribution beside
-every total. Two of the probe's own defects are declared, the second being **a G3
-that passed on 0 ÷ 0**, a gate satisfied by an empty denominator; **G4** now
-requires both arms to return an amount before G3 is evaluable. Full entry in
+with no key; `knitting` returned **$3,582,719**, all combat uniforms. **A spend
+screen that sums amounts measures procurement vocabulary, not markets** — read
+the descriptions, report the industry distribution beside every total. Two of
+its own defects declared, one **a G3 that passed on 0 ÷ 0**. Full entry in
 [`E195`](EXPERIMENTS/195-spend-axis-probe/RESULT.md).
+
+**E196 completed (2026-10-19): federal contract spend addressed by code is
+metered, and "ten thousand awards" is not "ten thousand purchases."** The top
+100 PSC codes (FY2020–FY2025, `awards` level) carry **$5.65T**; **25 hold
+≥ 10,000 separate awards of ≤ $100,000 inside a cell of ≥ $1B**, and the densest
+cluster is IT and software — `DA01` $94.91B, `DA10` $33.01B, `7A21` $29.21B,
+`7030` $25.83B, `D304` $20.37B: $203.32B bought in tens of thousands of separate
+sub-$40k purchases**, the first money-sized addressable population here (D123).
+G3 fires (H = 40.63, p = 0.00416); G1 fails and G5 is **not evaluated**, both
+instrument-side. **F143: nine of the 25 clear only on records carrying no money,
+and `spending_by_award` refuses past page 500, so `R499`'s 50,000th award is
+$51.93 — half a million records worth about fifty dollars inside a $270B cell.**
+Three declared amendments; four instrument defects, one a Kruskal–Wallis that
+produced a negative H and would have closed the axis with every other control
+green. Next: bisect the ascending order for the rank at which amounts turn
+positive. Full entry in
+[`E196`](EXPERIMENTS/196-federal-spend-metered/RESULT.md).
 
 ## Dashboard
 

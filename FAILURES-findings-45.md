@@ -139,3 +139,46 @@ committed; it proposes the same Stage-A shape and carries the same structural
 limit, which is worth knowing *before* its Stage A is run rather than after.
 It does not claim any of the six experiments' findings are false — they are
 **unevidenced**, which is a weaker and more accurate word than wrong.
+## F143 — a federal "award" is not a purchase, and the difference is large enough to decide which cells are real
+
+**Observed** 2026-10-19 on `instance-20260717-0947`, in
+[E196](EXPERIMENTS/196-federal-spend-metered/RESULT.md).
+
+E196's G4 fired on 25 of the top 100 US federal contract codes: each holds at
+least 10,000 separate awards of $100,000 or less inside a cell of at least $1B.
+The screen that produced it was declared, ran, and was recomputed from committed
+bytes. **Nine of the 25 clear only because their 10,000th-smallest award carries
+no money** — `R499` $9.98, `6505` $0.01, `R706` $9.75, `6515` and `1560` $0.00,
+`5342` $36.30, `8915` $23.10, `6640` $6.94, `9130` $53.40 — and the pattern is
+not a rounding of the screen, it is the structure of the data. At the
+instrument's ceiling, measured by bisection (`raw/pagecap.json`),
+`spending_by_award` answers 200 for page 500 and 422 for page 501, so **the
+50,000th award is the deepest any code can be read to**: `R499`'s 50,000th is
+**$51.93 – $52.04**, `R706`'s is $43.56 – $43.71, `8915`'s is $57.21 – $57.28.
+Half a million federal award records worth about fifty dollars each, inside a
+$270B cell.
+
+**Why this is recorded as a finding and not as a caveat.** A count of awards is
+the most natural thing any screen counts and it is wrong here by an unknown
+factor in the direction that manufactures markets. Nine cells would have been
+reported as containing 10,000 small purchases each. `R425` ($334.19B, 10,000th
+award $79,430) and `7A21` ($29.21B, 10,000th award $14,313) survive; the
+distinction between them and `R499` is not visible in any award count this
+source offers.
+
+**The rule.** A unit that a screen counts must be a unit a candidate can
+displace, and the screen must **state whether the records behind it were
+funded**. Where a data source admits unfunded or deobligated records, an award
+count is not a purchase count, and neither is a contract count, an obligation
+count, or a line-item count. The funded count is obtainable exactly — bisect the
+ascending award order for the rank at which amounts turn positive, about ten
+requests per code — and a screen that instead lengthens a walk has chosen the
+expensive wrong answer. This is the fourth instance in this record of a gate
+exercised over a population it had not established (E017 `H2`, E195 D7, E196 G5's
+empty `3` arm), and the first where the unestablished population **manufactured
+a positive**.
+
+**What it does not say.** It does not say the nine cells are worthless, and it
+does not say the other sixteen are opportunities. It says a screen cannot tell
+them apart, so nothing downstream of a count can be sized until the count is
+over funded records.

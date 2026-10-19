@@ -1,0 +1,56 @@
+{
+  "G1_instrument_facts": true,
+  "G2_detail": {
+    "C1_nonsense_psc_returns_200_zero": true,
+    "C2_nonsense_keyword_returns_200_empty": true,
+    "C3_keyword_filter_is_used": true
+  },
+  "G2_zero_control": true,
+  "checks": {
+    "C1_nonsense_psc_returns_200_zero": {
+      "contracts": 0,
+      "pass": true,
+      "status": 200,
+      "unused_filter_messages": []
+    },
+    "C2_nonsense_keyword_returns_200_empty": {
+      "pass": true,
+      "results_returned": 0,
+      "status": 200
+    },
+    "C3_keyword_filter_is_used": {
+      "pass": true,
+      "unused_filter_messages": []
+    },
+    "C4_asc_order_is_ascending": {
+      "first": -11448.0,
+      "last": 0.0,
+      "n": 100,
+      "pass": true,
+      "status": 200
+    },
+    "C5_limit_above_100_refused": {
+      "pass": true,
+      "status": 422
+    },
+    "C6_endpoints_agree_on_existence": {
+      "award_count_status": 200,
+      "awards": 42347,
+      "category_status": 200,
+      "code": "R425",
+      "pass": true,
+      "total_obligated_awards_level": 334192539564.25
+    },
+    "C7_smallest_awards_are_not_all_money": {
+      "cutoff": 100000.0,
+      "min": -11448.0,
+      "of_which_positive": 0,
+      "of_which_zero_or_negative": 100,
+      "pass": true,
+      "rows_at_or_below_cutoff": 100
+    }
+  },
+  "experiment": "E196",
+  "host_python": "3.8.10",
+  "panel": 1
+}

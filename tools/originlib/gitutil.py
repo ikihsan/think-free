@@ -188,8 +188,29 @@ def is_ignored(path: str) -> bool:
     Declaring an ignored file is always a mistake: build output is reproducible
     from the source that is being declared, and recording it adds noise to the
     record without adding evidence.
+
+    **The exit code is not the answer.** `git check-ignore` exits 0 for a path
+    whose last matching pattern is a *negation* — `!EXPERIMENTS/*/raw/*.json` —
+    exactly as it does for a genuinely ignored path, so the original
+    `check-ignore --quiet` returned True for the repository's own raw captures
+    and `session artifact --dir EXPERIMENTS/nnn-…/` printed
+    "skipped (gitignored)" for evidence that git would have tracked. Measured on
+    git 2.25.1: a negated path prints the same way and exits the same way; only
+    the leading `!` on the `-v` line distinguishes them.
     """
-    return run(["check-ignore", "--quiet", "--", path]).returncode == 0
+    proc = run(["check-ignore", "--verbose", "--", path])
+    if proc.returncode != 0:
+        return False  # no pattern matched: git would track it
+    out = proc.stdout or ""
+    if isinstance(out, bytes):
+        out = out.decode("utf-8", "replace")
+    # `check-ignore --verbose` prints "<source>:<lineno>:<pattern>\t<path>".
+    # The leading `!` is on the *pattern*, not on the line, so the `!` check
+    # has to come after the last colon -- checking the line's first character
+    # finds the source filename and answers False for every path.
+    before_tab = out.split("\t", 1)[0].strip()
+    pattern = before_tab.rsplit(":", 1)[-1] if ":" in before_tab else before_tab
+    return not pattern.startswith("!")
 
 
 def host_identity() -> tuple[str, str]:

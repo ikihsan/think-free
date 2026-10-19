@@ -1,0 +1,2320 @@
+{
+  "G1": false,
+  "G2": true,
+  "G3": {
+    "H": 40.62560917343529,
+    "alpha": 0.01,
+    "codes": 91,
+    "codes_with_median_le_0": 0,
+    "families": 21,
+    "fire": true,
+    "p": 0.004159970955651661,
+    "pass": false,
+    "test": "kruskal_wallis",
+    "those_codes": []
+  },
+  "G4": {
+    "bar": 1000000000.0,
+    "best_uncensored": {
+      "code": "AC33"
+    },
+    "censored_codes": [
+      "R425",
+      "Q201",
+      "R499",
+      "6505",
+      "R706",
+      "M1JZ",
+      "R408",
+      "D399",
+      "DA01",
+      "J015",
+      "2840",
+      "1680",
+      "G007",
+      "1420",
+      "9130",
+      "S206",
+      "R799",
+      "AC13",
+      "5840",
+      "Y1JZ",
+      "6515",
+      "J016",
+      "1560",
+      "D318",
+      "S216",
+      "4470",
+      "Q403",
+      "DA10",
+      "F999",
+      "5865",
+      "4220",
+      "Y1PZ",
+      "Q999",
+      "R699",
+      "AC32",
+      "7A21",
+      "1550",
+      "2320",
+      "Y1AA",
+      "7030",
+      "F108",
+      "C219",
+      "J999",
+      "J028",
+      "J998",
+      "Z2JZ",
+      "D304",
+      "D301",
+      "D316",
+      "5342",
+      "5895",
+      "8915",
+      "Y1AZ",
+      "DF01",
+      "8905",
+      "1440",
+      "Y1LB",
+      "AD92",
+      "Z2AA",
+      "S112",
+      "V124",
+      "U099",
+      "6640"
+    ],
+    "codes_clearing_bar": 25,
+    "codes_clearing_rank_and_total": [
+      {
+        "at_least_that_many_awards_at_or_below": 79430.06,
+        "awards": 42347,
+        "block_max": 79430.06,
+        "code": "R425",
+        "name": "SUPPORT- PROFESSIONAL: ENGINEERING/TECHNICAL",
+        "rank": 10000,
+        "total": 334192539564.25
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 9.98,
+        "awards": 302317,
+        "block_max": 9.98,
+        "code": "R499",
+        "name": "SUPPORT- PROFESSIONAL: OTHER",
+        "rank": 10000,
+        "total": 270272218433.97
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 0.01,
+        "awards": 3078116,
+        "block_max": 0.01,
+        "code": "6505",
+        "name": "DRUGS AND BIOLOGICALS",
+        "rank": 10000,
+        "total": 174888573669.9
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 9.75,
+        "awards": 238191,
+        "block_max": 9.75,
+        "code": "R706",
+        "name": "SUPPORT- MANAGEMENT: LOGISTICS SUPPORT",
+        "rank": 10000,
+        "total": 146262394719.2
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 27519.02,
+        "awards": 27425,
+        "block_max": 27519.02,
+        "code": "DA01",
+        "name": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SUPPORT SERVICES (LABOR)",
+        "rank": 10000,
+        "total": 94907194244.7
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 73711.84,
+        "awards": 15756,
+        "block_max": 73711.84,
+        "code": "2840",
+        "name": "GAS TURBINES AND JET ENGINES, AIRCRAFT, PRIME MOVING; AND COMPONENTS",
+        "rank": 10000,
+        "total": 76397912944.03
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 807.15,
+        "awards": 71312,
+        "block_max": 807.15,
+        "code": "1680",
+        "name": "MISCELLANEOUS AIRCRAFT ACCESSORIES AND COMPONENTS",
+        "rank": 10000,
+        "total": 59594333852.61
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 53.4,
+        "awards": 1247029,
+        "block_max": 53.4,
+        "code": "9130",
+        "name": "LIQUID PROPELLANTS AND FUELS, PETROLEUM BASE",
+        "rank": 10000,
+        "total": 48636751819.28
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 11445.0,
+        "awards": 21452,
+        "block_max": 11445.0,
+        "code": "S206",
+        "name": "HOUSEKEEPING- GUARD",
+        "rank": 10000,
+        "total": 47304440878.73
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 0.0,
+        "awards": 3012003,
+        "block_max": 0.0,
+        "code": "6515",
+        "name": "MEDICAL AND SURGICAL INSTRUMENTS, EQUIPMENT, AND SUPPLIES",
+        "rank": 10000,
+        "total": 42405271989.0
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 0.0,
+        "awards": 131644,
+        "block_max": 0.0,
+        "code": "1560",
+        "name": "AIRFRAME STRUCTURAL COMPONENTS",
+        "rank": 10000,
+        "total": 37877260812.89
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 45080.03,
+        "awards": 15920,
+        "block_max": 45080.03,
+        "code": "S216",
+        "name": "HOUSEKEEPING- FACILITIES OPERATIONS SUPPORT",
+        "rank": 10000,
+        "total": 34801117386.98
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 30903.32,
+        "awards": 26656,
+        "block_max": 30903.32,
+        "code": "DA10",
+        "name": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SOFTWARE AS A SERVICE",
+        "rank": 10000,
+        "total": 33007133517.22
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 247.91,
+        "awards": 89901,
+        "block_max": 247.91,
+        "code": "4220",
+        "name": "MARINE LIFESAVING AND DIVING EQUIPMENT",
+        "rank": 10000,
+        "total": 32452051636.39
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 60838.0,
+        "awards": 19441,
+        "block_max": 60838.0,
+        "code": "Q999",
+        "name": "MEDICAL- OTHER",
+        "rank": 10000,
+        "total": 31095320608.85
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 14312.7,
+        "awards": 50777,
+        "block_max": 14312.7,
+        "code": "7A21",
+        "name": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)",
+        "rank": 10000,
+        "total": 29208311675.93
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 10603.25,
+        "awards": 23594,
+        "block_max": 10603.25,
+        "code": "2320",
+        "name": "TRUCKS AND TRUCK TRACTORS, WHEELED",
+        "rank": 10000,
+        "total": 27609016859.2
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 40320.63,
+        "awards": 24492,
+        "block_max": 40320.63,
+        "code": "7030",
+        "name": "INFORMATION TECHNOLOGY SOFTWARE",
+        "rank": 10000,
+        "total": 25830343900.35
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 11544.0,
+        "awards": 29072,
+        "block_max": 11544.0,
+        "code": "D304",
+        "name": "IT AND TELECOM- TELECOMMUNICATIONS AND TRANSMISSION",
+        "rank": 10000,
+        "total": 20366570464.27
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 36.3,
+        "awards": 35044,
+        "block_max": 36.3,
+        "code": "5342",
+        "name": "HARDWARE, WEAPON SYSTEM",
+        "rank": 10000,
+        "total": 18874015900.62
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 23.1,
+        "awards": 4807422,
+        "block_max": 23.1,
+        "code": "8915",
+        "name": "FRUITS AND VEGETABLES",
+        "rank": 10000,
+        "total": 18660613558.44
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 204.84,
+        "awards": 440857,
+        "block_max": 204.84,
+        "code": "8905",
+        "name": "MEAT, POULTRY, AND FISH",
+        "rank": 10000,
+        "total": 17863152897.71
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 57487.0,
+        "awards": 23147,
+        "block_max": 57487.0,
+        "code": "Z2AA",
+        "name": "REPAIR OR ALTERATION OF OFFICE BUILDINGS",
+        "rank": 10000,
+        "total": 16230724820.06
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 86286.08,
+        "awards": 14321,
+        "block_max": 86286.08,
+        "code": "U099",
+        "name": "EDUCATION/TRAINING- OTHER",
+        "rank": 10000,
+        "total": 15546979262.38
+      },
+      {
+        "at_least_that_many_awards_at_or_below": 6.94,
+        "awards": 1450656,
+        "block_max": 6.94,
+        "code": "6640",
+        "name": "LABORATORY EQUIPMENT AND SUPPLIES",
+        "rank": 10000,
+        "total": 15488031956.32
+      }
+    ],
+    "codes_with_a_10k_checkpoint_at_or_below_cutoff": [
+      "R425",
+      "R499",
+      "6505",
+      "R706",
+      "DA01",
+      "2840",
+      "1680",
+      "9130",
+      "S206",
+      "6515",
+      "1560",
+      "S216",
+      "DA10",
+      "4220",
+      "Q999",
+      "7A21",
+      "2320",
+      "7030",
+      "D304",
+      "5342",
+      "8915",
+      "8905",
+      "Z2AA",
+      "U099",
+      "6640"
+    ],
+    "codes_with_censored_tail": 63,
+    "cutoff": 100000.0,
+    "fire": true,
+    "min_rank": 10000,
+    "min_total_usd": 1000000000.0,
+    "pass": true,
+    "profile": [
+      {
+        "awards": 2250,
+        "checkpoint": null,
+        "code": "1510",
+        "name": "AIRCRAFT, FIXED WING",
+        "profile": {
+          "100": 6165.0,
+          "1000": 1500000.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 523618604555.48
+      },
+      {
+        "awards": 22,
+        "checkpoint": null,
+        "code": "M181",
+        "name": "OPER OF GOVT R&D GOCO FACILITIES",
+        "profile": {
+          "100": 48063737196.35,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 335987235005.74
+      },
+      {
+        "awards": 42347,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 79430.06,
+          "block_max": 79430.06,
+          "rank": 10000
+        },
+        "code": "R425",
+        "name": "SUPPORT- PROFESSIONAL: ENGINEERING/TECHNICAL",
+        "profile": {
+          "100": 0.0,
+          "1000": 1118.92,
+          "10000": 79430.06,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 334192539564.25
+      },
+      {
+        "awards": 18551,
+        "checkpoint": null,
+        "code": "Q201",
+        "name": "MEDICAL- MANAGED HEALTHCARE",
+        "profile": {
+          "100": 0.0,
+          "1000": 149.52,
+          "10000": 108328.0,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 271767551245.12
+      },
+      {
+        "awards": 302317,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 9.98,
+          "block_max": 9.98,
+          "rank": 10000
+        },
+        "code": "R499",
+        "name": "SUPPORT- PROFESSIONAL: OTHER",
+        "profile": {
+          "100": 0.0,
+          "1000": 0.0,
+          "10000": 9.98,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 270272218433.97
+      },
+      {
+        "awards": 602,
+        "checkpoint": null,
+        "code": "1905",
+        "name": "COMBAT SHIPS AND LANDING VESSELS",
+        "profile": {
+          "100": 161251.0,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 254843607360.25
+      },
+      {
+        "awards": 1182,
+        "checkpoint": null,
+        "code": "1410",
+        "name": "GUIDED MISSILES",
+        "profile": {
+          "100": 8214.38,
+          "1000": 84324024.3,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 192234162099.63
+      },
+      {
+        "awards": 3078116,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 0.01,
+          "block_max": 0.01,
+          "rank": 10000
+        },
+        "code": "6505",
+        "name": "DRUGS AND BIOLOGICALS",
+        "profile": {
+          "100": 0.0,
+          "1000": 0.0,
+          "10000": 0.01,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 174888573669.9
+      },
+      {
+        "awards": 238191,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 9.75,
+          "block_max": 9.75,
+          "rank": 10000
+        },
+        "code": "R706",
+        "name": "SUPPORT- MANAGEMENT: LOGISTICS SUPPORT",
+        "profile": {
+          "100": 0.0,
+          "1000": 0.0,
+          "10000": 9.75,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 146262394719.2
+      },
+      {
+        "awards": 1197,
+        "checkpoint": null,
+        "code": "M1JZ",
+        "name": "OPERATION OF MISCELLANEOUS BUILDINGS",
+        "profile": {
+          "100": 6283.93,
+          "1000": 196619.38,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 144994449338.17
+      },
+      {
+        "awards": 1131,
+        "checkpoint": null,
+        "code": "1520",
+        "name": "AIRCRAFT, ROTARY WING",
+        "profile": {
+          "100": 72008.84,
+          "1000": 57535863.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 124362412891.5
+      },
+      {
+        "awards": 29213,
+        "checkpoint": null,
+        "code": "R408",
+        "name": "SUPPORT- PROFESSIONAL: PROGRAM MANAGEMENT/SUPPORT",
+        "profile": {
+          "100": 0.0,
+          "1000": 4462.7,
+          "10000": 184829.04,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 123685424465.55
+      },
+      {
+        "awards": 13902,
+        "checkpoint": null,
+        "code": "D399",
+        "name": "IT AND TELECOM- OTHER IT AND TELECOMMUNICATIONS",
+        "profile": {
+          "100": 0.0,
+          "1000": 1182.52,
+          "10000": 2044280.0,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 110871572422.45
+      },
+      {
+        "awards": 27425,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 27519.02,
+          "block_max": 27519.02,
+          "rank": 10000
+        },
+        "code": "DA01",
+        "name": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SUPPORT SERVICES (LABOR)",
+        "profile": {
+          "100": 0.0,
+          "1000": 541.09,
+          "10000": 27519.02,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 94907194244.7
+      },
+      {
+        "awards": 7027,
+        "checkpoint": null,
+        "code": "J015",
+        "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- AIRCRAFT AND AIRFRAME STRUCTURAL COMPONENTS",
+        "profile": {
+          "100": 0.0,
+          "1000": 4784.9,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 83609721216.57
+      },
+      {
+        "awards": 15756,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 73711.84,
+          "block_max": 73711.84,
+          "rank": 10000
+        },
+        "code": "2840",
+        "name": "GAS TURBINES AND JET ENGINES, AIRCRAFT, PRIME MOVING; AND COMPONENTS",
+        "profile": {
+          "100": 0.0,
+          "1000": 0.0,
+          "10000": 73711.84,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 76397912944.03
+      },
+      {
+        "awards": 736,
+        "checkpoint": null,
+        "code": "AC15",
+        "name": "NATIONAL DEFENSE R&D SVCS; DEPARTMENT OF DEFENSE - MILITARY; R&D FACILITIES & MAJ EQUIP",
+        "profile": {
+          "100": 101056.97,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 71398654083.82
+      },
+      {
+        "awards": 71312,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 807.15,
+          "block_max": 807.15,
+          "rank": 10000
+        },
+        "code": "1680",
+        "name": "MISCELLANEOUS AIRCRAFT ACCESSORIES AND COMPONENTS",
+        "profile": {
+          "100": 0.0,
+          "1000": 0.0,
+          "10000": 807.15,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 59594333852.61
+      },
+      {
+        "awards": 2413,
+        "checkpoint": null,
+        "code": "G007",
+        "name": "SOCIAL- GOVERNMENT HEALTH INSURANCE PROGRAMS",
+        "profile": {
+          "100": 10593.9,
+          "1000": 53252.07,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 58167859890.9
+      },
+      {
+        "awards": 1479,
+        "checkpoint": null,
+        "code": "1420",
+        "name": "GUIDED MISSILE COMPONENTS",
+        "profile": {
+          "100": 0.0,
+          "1000": 80130.6,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 48855031980.05
+      },
+      {
+        "awards": 1247029,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 53.4,
+          "block_max": 53.4,
+          "rank": 10000
+        },
+        "code": "9130",
+        "name": "LIQUID PROPELLANTS AND FUELS, PETROLEUM BASE",
+        "profile": {
+          "100": 0.0,
+          "1000": 0.0,
+          "10000": 53.4,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 48636751819.28
+      },
+      {
+        "awards": 21452,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 11445.0,
+          "block_max": 11445.0,
+          "rank": 10000
+        },
+        "code": "S206",
+        "name": "HOUSEKEEPING- GUARD",
+        "profile": {
+          "100": 0.0,
+          "1000": 0.0,
+          "10000": 11445.0,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 47304440878.73
+      },
+      {
+        "awards": 1811,
+        "checkpoint": null,
+        "code": "AZ11",
+        "name": "R&D- OTHER RESEARCH AND DEVELOPMENT (BASIC RESEARCH)",
+        "profile": {
+          "100": 34478.68,
+          "1000": 796082.35,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 45773920743.48
+      },
+      {
+        "awards": 13866,
+        "checkpoint": null,
+        "code": "R799",
+        "name": "SUPPORT- MANAGEMENT: OTHER",
+        "profile": {
+          "100": 0.0,
+          "1000": 5520.0,
+          "10000": 857308.74,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 45556145562.21
+      },
+      {
+        "awards": 6110,
+        "checkpoint": null,
+        "code": "AC13",
+        "name": "NATIONAL DEFENSE R&D SERVICES; DEPARTMENT OF DEFENSE - MILITARY; EXPERIMENTAL DEVELOPMENT",
+        "profile": {
+          "100": 500.0,
+          "1000": 500.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 45491125416.8
+      },
+      {
+        "awards": 2714,
+        "checkpoint": null,
+        "code": "5840",
+        "name": "RADAR EQUIPMENT, EXCEPT AIRBORNE",
+        "profile": {
+          "100": 172.19,
+          "1000": 41084.95,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 44925950886.77
+      },
+      {
+        "awards": 9896,
+        "checkpoint": null,
+        "code": "Y1JZ",
+        "name": "CONSTRUCTION OF MISCELLANEOUS BUILDINGS",
+        "profile": {
+          "100": 0.0,
+          "1000": 5992.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 44437399663.33
+      },
+      {
+        "awards": 316,
+        "checkpoint": null,
+        "code": "2350",
+        "name": "COMBAT, ASSAULT, AND TACTICAL VEHICLES, TRACKED",
+        "profile": {
+          "100": 166545.85,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 43723469210.13
+      },
+      {
+        "awards": 3012003,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 0.0,
+          "block_max": 0.0,
+          "rank": 10000
+        },
+        "code": "6515",
+        "name": "MEDICAL AND SURGICAL INSTRUMENTS, EQUIPMENT, AND SUPPLIES",
+        "profile": {
+          "100": 0.0,
+          "1000": 0.0,
+          "10000": 0.0,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 42405271989.0
+      },
+      {
+        "awards": 1410,
+        "checkpoint": null,
+        "code": "AR22",
+        "name": "R&D- SPACE: SCIENCE/APPLICATIONS (APPLIED RESEARCH/EXPLORATORY DEVELOPMENT)",
+        "profile": {
+          "100": 49528.83,
+          "1000": 8486189.15,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 41320230830.96
+      },
+      {
+        "awards": 9937,
+        "checkpoint": null,
+        "code": "J016",
+        "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- AIRCRAFT COMPONENTS AND ACCESSORIES",
+        "profile": {
+          "100": 0.0,
+          "1000": 4956.74,
+          "10000": 8821412144.17,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 40047204593.15
+      },
+      {
+        "awards": 131644,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 0.0,
+          "block_max": 0.0,
+          "rank": 10000
+        },
+        "code": "1560",
+        "name": "AIRFRAME STRUCTURAL COMPONENTS",
+        "profile": {
+          "100": 0.0,
+          "1000": 0.0,
+          "10000": 0.0,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 37877260812.89
+      },
+      {
+        "awards": 1223,
+        "checkpoint": null,
+        "code": "AC23",
+        "name": "NATIONAL DEFENSE R&D SERVICES; ATOMIC ENERGY DEFENSE ACTIVITIES; EXPERIMENTAL DEVELOPMENT",
+        "profile": {
+          "100": 124984.0,
+          "1000": 14017380.03,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 36970865160.38
+      },
+      {
+        "awards": 213,
+        "checkpoint": null,
+        "code": "AC24",
+        "name": "NATIONAL DEFENSE R&D SERVICES; ATOMIC ENERGY DEFENSE ACTIVITIES; R&D ADMINISTRATIVE EXPENSES",
+        "profile": {
+          "100": 4912301.71,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 36596829996.65
+      },
+      {
+        "awards": 6587,
+        "checkpoint": null,
+        "code": "D318",
+        "name": "IT AND TELECOM- INTEGRATED HARDWARE/SOFTWARE/SERVICES SOLUTIONS, PREDOMINANTLY SERVICES",
+        "profile": {
+          "100": 0.0,
+          "1000": 3482.15,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 36485058477.94
+      },
+      {
+        "awards": 15920,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 45080.03,
+          "block_max": 45080.03,
+          "rank": 10000
+        },
+        "code": "S216",
+        "name": "HOUSEKEEPING- FACILITIES OPERATIONS SUPPORT",
+        "profile": {
+          "100": 0.0,
+          "1000": 2054.99,
+          "10000": 45080.03,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 34801117386.98
+      },
+      {
+        "awards": 954,
+        "checkpoint": null,
+        "code": "4470",
+        "name": "NUCLEAR REACTORS",
+        "profile": {
+          "100": 874.44,
+          "1000": 14977753062.48,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 33886528787.97
+      },
+      {
+        "awards": 127,
+        "checkpoint": null,
+        "code": "M1HA",
+        "name": "OPERATION OF GOVERNMENT-OWNED CONTRACTOR-OPERATED (GOCO) R&D FACILITIES",
+        "profile": {
+          "100": 25266647.0,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 33664030219.26
+      },
+      {
+        "awards": 1452,
+        "checkpoint": null,
+        "code": "Q403",
+        "name": "MEDICAL- EVALUATION/SCREENING",
+        "profile": {
+          "100": 1319.64,
+          "1000": 293464.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 33114884194.64
+      },
+      {
+        "awards": 26656,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 30903.32,
+          "block_max": 30903.32,
+          "rank": 10000
+        },
+        "code": "DA10",
+        "name": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SOFTWARE AS A SERVICE",
+        "profile": {
+          "100": 0.0,
+          "1000": 2314.1,
+          "10000": 30903.32,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 33007133517.22
+      },
+      {
+        "awards": 10975,
+        "checkpoint": null,
+        "code": "F999",
+        "name": "OTHER ENVIRONMENTAL SERVICES",
+        "profile": {
+          "100": 0.0,
+          "1000": 5400.0,
+          "10000": 2922843.47,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 32694873603.68
+      },
+      {
+        "awards": 3538,
+        "checkpoint": null,
+        "code": "5865",
+        "name": "ELECTRONIC COUNTERMEASURES, COUNTER-COUNTERMEASURES AND QUICK REACTION CAPABILITY EQUIPMENT",
+        "profile": {
+          "100": 0.0,
+          "1000": 16298.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 32559598906.26
+      },
+      {
+        "awards": 89901,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 247.91,
+          "block_max": 247.91,
+          "rank": 10000
+        },
+        "code": "4220",
+        "name": "MARINE LIFESAVING AND DIVING EQUIPMENT",
+        "profile": {
+          "100": 0.0,
+          "1000": 21.86,
+          "10000": 247.91,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 32452051636.39
+      },
+      {
+        "awards": 2,
+        "checkpoint": null,
+        "code": "M159",
+        "name": "OPER OF GOVT OTHER INDUSTRIAL BLDG",
+        "profile": {
+          "100": 27617040104.1,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 32432744596.99
+      },
+      {
+        "awards": 4162,
+        "checkpoint": null,
+        "code": "Y1PZ",
+        "name": "CONSTRUCTION OF OTHER NON-BUILDING FACILITIES",
+        "profile": {
+          "100": 0.0,
+          "1000": 44776.13,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 31647557731.85
+      },
+      {
+        "awards": 19441,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 60838.0,
+          "block_max": 60838.0,
+          "rank": 10000
+        },
+        "code": "Q999",
+        "name": "MEDICAL- OTHER",
+        "profile": {
+          "100": 0.0,
+          "1000": 61.05,
+          "10000": 60838.0,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 31095320608.85
+      },
+      {
+        "awards": 725,
+        "checkpoint": null,
+        "code": "2355",
+        "name": "COMBAT, ASSAULT, AND TACTICAL VEHICLES, WHEELED",
+        "profile": {
+          "100": 33744.79,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 30945438314.84
+      },
+      {
+        "awards": 18398,
+        "checkpoint": null,
+        "code": "R699",
+        "name": "SUPPORT- ADMINISTRATIVE: OTHER",
+        "profile": {
+          "100": 0.0,
+          "1000": 3110.2,
+          "10000": 169958.36,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 30705785673.13
+      },
+      {
+        "awards": 9532,
+        "checkpoint": null,
+        "code": "AC32",
+        "name": "NATIONAL DEFENSE R&D SERVICES; DEFENSE-RELATED ACTIVITIES; APPLIED RESEARCH",
+        "profile": {
+          "100": 15000.0,
+          "1000": 49982.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 30155844520.71
+      },
+      {
+        "awards": 376,
+        "checkpoint": null,
+        "code": "V126",
+        "name": "TRANSPORTATION/TRAVEL/RELOCATION- TRANSPORTATION: SPACE TRANSPORTATION/LAUNCH",
+        "profile": {
+          "100": 170308.0,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 29917830158.4
+      },
+      {
+        "awards": 233,
+        "checkpoint": null,
+        "code": "1425",
+        "name": "GUIDED MISSILE SYSTEMS, COMPLETE",
+        "profile": {
+          "100": 6344593.0,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 29781670427.46
+      },
+      {
+        "awards": 50777,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 14312.7,
+          "block_max": 14312.7,
+          "rank": 10000
+        },
+        "code": "7A21",
+        "name": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)",
+        "profile": {
+          "100": 0.0,
+          "1000": 156.66,
+          "10000": 14312.7,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 29208311675.93
+      },
+      {
+        "awards": 33,
+        "checkpoint": null,
+        "code": "1904",
+        "name": "SUBMARINES",
+        "profile": {
+          "100": 16238775949.0,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 29079001040.73
+      },
+      {
+        "awards": 2012,
+        "checkpoint": null,
+        "code": "1550",
+        "name": "UNMANNED AIRCRAFT",
+        "profile": {
+          "100": 9418.02,
+          "1000": 96850.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 29078297698.09
+      },
+      {
+        "awards": 23594,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 10603.25,
+          "block_max": 10603.25,
+          "rank": 10000
+        },
+        "code": "2320",
+        "name": "TRUCKS AND TRUCK TRACTORS, WHEELED",
+        "profile": {
+          "100": 0.0,
+          "1000": 128.88,
+          "10000": 10603.25,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 27609016859.2
+      },
+      {
+        "awards": 3911,
+        "checkpoint": null,
+        "code": "Y1AA",
+        "name": "CONSTRUCTION OF OFFICE BUILDINGS",
+        "profile": {
+          "100": 0.0,
+          "1000": 49500.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 27246721981.46
+      },
+      {
+        "awards": 24492,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 40320.63,
+          "block_max": 40320.63,
+          "rank": 10000
+        },
+        "code": "7030",
+        "name": "INFORMATION TECHNOLOGY SOFTWARE",
+        "profile": {
+          "100": 0.0,
+          "1000": 1230.78,
+          "10000": 40320.63,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 25830343900.35
+      },
+      {
+        "awards": 12561,
+        "checkpoint": null,
+        "code": "F108",
+        "name": "ENVIRONMENTAL SYSTEMS PROTECTION- ENVIRONMENTAL REMEDIATION",
+        "profile": {
+          "100": 0.0,
+          "1000": 2700.08,
+          "10000": 431979.07,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 24646591146.93
+      },
+      {
+        "awards": 9,
+        "checkpoint": null,
+        "code": "1901",
+        "name": "AIRCRAFT CARRIERS",
+        "profile": {
+          "100": 6651038755.11,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 24263183045.34
+      },
+      {
+        "awards": 23531,
+        "checkpoint": null,
+        "code": "C219",
+        "name": "ARCHITECT AND ENGINEERING- GENERAL: OTHER",
+        "profile": {
+          "100": 0.0,
+          "1000": 1829.23,
+          "10000": 185552.19,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 23975000979.45
+      },
+      {
+        "awards": 3172,
+        "checkpoint": null,
+        "code": "D302",
+        "name": "IT AND TELECOM- SYSTEMS DEVELOPMENT",
+        "profile": {
+          "100": 11965.06,
+          "1000": 426588.46,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 23669061671.0
+      },
+      {
+        "awards": 2099,
+        "checkpoint": null,
+        "code": "AR11",
+        "name": "SPACE R&D SERVICES; SPACE FLIGHT, RESEARCH AND SUPPORTING ACTIVITIES; BASIC RESEARCH",
+        "profile": {
+          "100": 38505.98,
+          "1000": 392244.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 23356663655.62
+      },
+      {
+        "awards": 1224,
+        "checkpoint": null,
+        "code": "J069",
+        "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- TRAINING AIDS AND DEVICES",
+        "profile": {
+          "100": 9000.0,
+          "1000": 23978435.98,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 22732230658.72
+      },
+      {
+        "awards": 1,
+        "checkpoint": null,
+        "code": "AR62",
+        "name": "R&D- SPACE: STATION (APPLIED RESEARCH/EXPLORATORY DEVELOPMENT)",
+        "profile": {
+          "100": 22653589199.84,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 22653589199.84
+      },
+      {
+        "awards": 12167,
+        "checkpoint": null,
+        "code": "J999",
+        "name": "NON-NUCLEAR SHIP REPAIR (WEST)",
+        "profile": {
+          "100": 0.0,
+          "1000": 4290.0,
+          "10000": 467025.0,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 22184475359.37
+      },
+      {
+        "awards": 2275,
+        "checkpoint": null,
+        "code": "J028",
+        "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- ENGINES, TURBINES, AND COMPONENTS",
+        "profile": {
+          "100": 929.08,
+          "1000": 89450.88,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 21867686422.85
+      },
+      {
+        "awards": 2070,
+        "checkpoint": null,
+        "code": "R710",
+        "name": "SUPPORT- MANAGEMENT: FINANCIAL",
+        "profile": {
+          "100": 3865.91,
+          "1000": 686537.1,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 21679127384.29
+      },
+      {
+        "awards": 7391,
+        "checkpoint": null,
+        "code": "J998",
+        "name": "NON-NUCLEAR SHIP REPAIR (EAST)",
+        "profile": {
+          "100": 0.0,
+          "1000": 11568.51,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 21365697668.49
+      },
+      {
+        "awards": 614,
+        "checkpoint": null,
+        "code": "AC14",
+        "name": "NATIONAL DEFENSE R&D SERVICES; DEPARTMENT OF DEFENSE - MILITARY; R&D ADMINISTRATIVE EXPENSES",
+        "profile": {
+          "100": 183794.04,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 21290301417.55
+      },
+      {
+        "awards": 20860,
+        "checkpoint": null,
+        "code": "Z2JZ",
+        "name": "REPAIR OR ALTERATION OF MISCELLANEOUS BUILDINGS",
+        "profile": {
+          "100": 0.0,
+          "1000": 3955.23,
+          "10000": 150000.0,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 21217834008.07
+      },
+      {
+        "awards": 29072,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 11544.0,
+          "block_max": 11544.0,
+          "rank": 10000
+        },
+        "code": "D304",
+        "name": "IT AND TELECOM- TELECOMMUNICATIONS AND TRANSMISSION",
+        "profile": {
+          "100": 0.0,
+          "1000": 17.5,
+          "10000": 11544.0,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 20366570464.27
+      },
+      {
+        "awards": 1681,
+        "checkpoint": null,
+        "code": "AZ12",
+        "name": "R&D- OTHER RESEARCH AND DEVELOPMENT (APPLIED RESEARCH/EXPLORATORY DEVELOPMENT)",
+        "profile": {
+          "100": 51791.67,
+          "1000": 2761705.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 19827384561.01
+      },
+      {
+        "awards": 413,
+        "checkpoint": null,
+        "code": "1325",
+        "name": "BOMBS",
+        "profile": {
+          "100": 501915.57,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 19547107864.53
+      },
+      {
+        "awards": 1814,
+        "checkpoint": null,
+        "code": "D301",
+        "name": "IT AND TELECOM- FACILITY OPERATION AND MAINTENANCE",
+        "profile": {
+          "100": 6715.5,
+          "1000": 567784.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 19479427146.74
+      },
+      {
+        "awards": 3809,
+        "checkpoint": null,
+        "code": "D316",
+        "name": "IT AND TELECOM- TELECOMMUNICATIONS NETWORK MANAGEMENT",
+        "profile": {
+          "100": 0.0,
+          "1000": 13142.88,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 19473038566.59
+      },
+      {
+        "awards": 591,
+        "checkpoint": null,
+        "code": "AC61",
+        "name": "R&D- DEFENSE SYSTEM: ELECTRONICS/COMMUNICATION EQUIPMENT (BASIC RESEARCH)",
+        "profile": {
+          "100": 167375.6,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 19165232825.55
+      },
+      {
+        "awards": 6509,
+        "checkpoint": null,
+        "code": "AC12",
+        "name": "NATIONAL DEFENSE R&D SERVICES; DEPARTMENT OF DEFENSE - MILITARY; APPLIED RESEARCH",
+        "profile": {
+          "100": 40000.0,
+          "1000": 240155.88,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 19032370270.57
+      },
+      {
+        "awards": 35044,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 36.3,
+          "block_max": 36.3,
+          "rank": 10000
+        },
+        "code": "5342",
+        "name": "HARDWARE, WEAPON SYSTEM",
+        "profile": {
+          "100": 0.0,
+          "1000": 0.0,
+          "10000": 36.3,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 18874015900.62
+      },
+      {
+        "awards": 11611,
+        "checkpoint": null,
+        "code": "5895",
+        "name": "MISCELLANEOUS COMMUNICATION EQUIPMENT",
+        "profile": {
+          "100": 0.0,
+          "1000": 441.5,
+          "10000": 484842.53,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 18660703551.4
+      },
+      {
+        "awards": 4807422,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 23.1,
+          "block_max": 23.1,
+          "rank": 10000
+        },
+        "code": "8915",
+        "name": "FRUITS AND VEGETABLES",
+        "profile": {
+          "100": 0.0,
+          "1000": 6.7,
+          "10000": 23.1,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 18660613558.44
+      },
+      {
+        "awards": 3191,
+        "checkpoint": null,
+        "code": "Y1AZ",
+        "name": "CONSTRUCTION OF OTHER ADMINISTRATIVE FACILITIES AND SERVICE BUILDINGS",
+        "profile": {
+          "100": 0.0,
+          "1000": 66777.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 18603129786.25
+      },
+      {
+        "awards": 3447,
+        "checkpoint": null,
+        "code": "DF01",
+        "name": "IT AND TELECOM - IT MANAGEMENT SUPPORT SERVICES (LABOR)",
+        "profile": {
+          "100": 5000.0,
+          "1000": 113744.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 18373339455.4
+      },
+      {
+        "awards": 3594,
+        "checkpoint": null,
+        "code": "9660",
+        "name": "PRECIOUS METALS PRIMARY FORMS",
+        "profile": {
+          "100": 319406.75,
+          "1000": 2930779.69,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 18187715433.0
+      },
+      {
+        "awards": 1372,
+        "checkpoint": null,
+        "code": "AD93",
+        "name": "R&D- DEFENSE OTHER: OTHER (ADVANCED DEVELOPMENT)",
+        "profile": {
+          "100": 100000.0,
+          "1000": 7726252.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 18095536787.46
+      },
+      {
+        "awards": 2,
+        "checkpoint": null,
+        "code": "Y181",
+        "name": "CONSTRUCT/R&D - GOCO FACILITIES",
+        "profile": {
+          "100": 17883024035.27,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 17883616825.77
+      },
+      {
+        "awards": 440857,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 204.84,
+          "block_max": 204.84,
+          "rank": 10000
+        },
+        "code": "8905",
+        "name": "MEAT, POULTRY, AND FISH",
+        "profile": {
+          "100": 0.0,
+          "1000": 45.4,
+          "10000": 204.84,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 17863152897.71
+      },
+      {
+        "awards": 2388,
+        "checkpoint": null,
+        "code": "1440",
+        "name": "LAUNCHERS, GUIDED MISSILE",
+        "profile": {
+          "100": 0.0,
+          "1000": 4998.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 17711567780.09
+      },
+      {
+        "awards": 1747,
+        "checkpoint": null,
+        "code": "D307",
+        "name": "IT AND TELECOM- IT STRATEGY AND ARCHITECTURE",
+        "profile": {
+          "100": 23659.68,
+          "1000": 2224811.38,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 17664853589.6
+      },
+      {
+        "awards": 17,
+        "checkpoint": null,
+        "code": "1810",
+        "name": "SPACE VEHICLES",
+        "profile": {
+          "100": 4538059864.9,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 17405705903.19
+      },
+      {
+        "awards": 1441,
+        "checkpoint": null,
+        "code": "AC33",
+        "name": "NATIONAL DEFENSE R&D SERVICES; DEFENSE-RELATED ACTIVITIES; EXPERIMENTAL DEVELOPMENT",
+        "profile": {
+          "100": 66500.0,
+          "1000": 1957853.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 17228534373.09
+      },
+      {
+        "awards": 4283,
+        "checkpoint": null,
+        "code": "Y1LB",
+        "name": "CONSTRUCTION OF HIGHWAYS, ROADS, STREETS, BRIDGES, AND RAILWAYS",
+        "profile": {
+          "100": 0.0,
+          "1000": 59940.25,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 16914129678.67
+      },
+      {
+        "awards": 4325,
+        "checkpoint": null,
+        "code": "AD92",
+        "name": "R&D- DEFENSE OTHER: OTHER (APPLIED RESEARCH/EXPLORATORY DEVELOPMENT)",
+        "profile": {
+          "100": 24997.0,
+          "1000": 204198.0,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 16400516954.96
+      },
+      {
+        "awards": 203,
+        "checkpoint": null,
+        "code": "L014",
+        "name": "TECHNICAL REPRESENTATIVE- GUIDED MISSILES",
+        "profile": {
+          "100": 3472171.67,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 16297786560.51
+      },
+      {
+        "awards": 23147,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 57487.0,
+          "block_max": 57487.0,
+          "rank": 10000
+        },
+        "code": "Z2AA",
+        "name": "REPAIR OR ALTERATION OF OFFICE BUILDINGS",
+        "profile": {
+          "100": 0.0,
+          "1000": 4029.9,
+          "10000": 57487.0,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 16230724820.06
+      },
+      {
+        "awards": 7604,
+        "checkpoint": null,
+        "code": "S112",
+        "name": "UTILITIES- ELECTRIC",
+        "profile": {
+          "100": 0.0,
+          "1000": 9294.92,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 15996594841.36
+      },
+      {
+        "awards": 1984,
+        "checkpoint": null,
+        "code": "V124",
+        "name": "TRANSPORTATION/TRAVEL/RELOCATION- TRANSPORTATION: MARINE CHARTER",
+        "profile": {
+          "100": 3700.0,
+          "1000": 31801.91,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 15976680441.83
+      },
+      {
+        "awards": 3,
+        "checkpoint": null,
+        "code": "AR33",
+        "name": "R&D- SPACE: FLIGHT (ADVANCED DEVELOPMENT)",
+        "profile": {
+          "100": 15578682243.1,
+          "1000": null,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 15801120624.22
+      },
+      {
+        "awards": 1220,
+        "checkpoint": null,
+        "code": "AC22",
+        "name": "NATIONAL DEFENSE R&D SERVICES; ATOMIC ENERGY DEFENSE ACTIVITIES; APPLIED RESEARCH",
+        "profile": {
+          "100": 139999.0,
+          "1000": 4929527.16,
+          "10000": null,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 15796705669.16
+      },
+      {
+        "awards": 14321,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 86286.08,
+          "block_max": 86286.08,
+          "rank": 10000
+        },
+        "code": "U099",
+        "name": "EDUCATION/TRAINING- OTHER",
+        "profile": {
+          "100": 0.0,
+          "1000": 3500.0,
+          "10000": 86286.08,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 15546979262.38
+      },
+      {
+        "awards": 1450656,
+        "checkpoint": {
+          "at_least_that_many_awards_at_or_below": 6.94,
+          "block_max": 6.94,
+          "rank": 10000
+        },
+        "code": "6640",
+        "name": "LABORATORY EQUIPMENT AND SUPPLIES",
+        "profile": {
+          "100": 0.0,
+          "1000": 0.0,
+          "10000": 6.94,
+          "100000": null,
+          "1000000": null
+        },
+        "total": 15488031956.32
+      }
+    ],
+    "restated_by_amendment3": true,
+    "top10_small_purchase_sum": [
+      {
+        "awards": 566,
+        "censored": true,
+        "code": "AD92",
+        "name": "R&D- DEFENSE OTHER: OTHER (APPLIED RESEARCH/EXPLORATORY DEVELOPMENT)",
+        "sum": 25100061.92,
+        "total": 16400516954.96
+      },
+      {
+        "awards": 572,
+        "censored": true,
+        "code": "AC32",
+        "name": "NATIONAL DEFENSE R&D SERVICES; DEFENSE-RELATED ACTIVITIES; APPLIED RESEARCH",
+        "sum": 23489335.28,
+        "total": 30155844520.71
+      },
+      {
+        "awards": 278,
+        "censored": false,
+        "code": "AC33",
+        "name": "NATIONAL DEFENSE R&D SERVICES; DEFENSE-RELATED ACTIVITIES; EXPERIMENTAL DEVELOPMENT",
+        "sum": 20413108.28000001,
+        "total": 17228534373.09
+      },
+      {
+        "awards": 565,
+        "censored": true,
+        "code": "D301",
+        "name": "IT AND TELECOM- FACILITY OPERATION AND MAINTENANCE",
+        "sum": 17869763.219999995,
+        "total": 19479427146.74
+      },
+      {
+        "awards": 340,
+        "censored": false,
+        "code": "D302",
+        "name": "IT AND TELECOM- SYSTEMS DEVELOPMENT",
+        "sum": 15345606.58999999,
+        "total": 23669061671.0
+      },
+      {
+        "awards": 251,
+        "censored": false,
+        "code": "AZ11",
+        "name": "R&D- OTHER RESEARCH AND DEVELOPMENT (BASIC RESEARCH)",
+        "sum": 14611894.879999995,
+        "total": 45773920743.48
+      },
+      {
+        "awards": 266,
+        "censored": false,
+        "code": "AR11",
+        "name": "SPACE R&D SERVICES; SPACE FLIGHT, RESEARCH AND SUPPORTING ACTIVITIES; BASIC RESEARCH",
+        "sum": 14068680.129999999,
+        "total": 23356663655.62
+      },
+      {
+        "awards": 379,
+        "censored": false,
+        "code": "R710",
+        "name": "SUPPORT- MANAGEMENT: FINANCIAL",
+        "sum": 13602180.550000006,
+        "total": 21679127384.29
+      },
+      {
+        "awards": 246,
+        "censored": false,
+        "code": "AC12",
+        "name": "NATIONAL DEFENSE R&D SERVICES; DEPARTMENT OF DEFENSE - MILITARY; APPLIED RESEARCH",
+        "sum": 13242936.719999999,
+        "total": 19032370270.57
+      },
+      {
+        "awards": 323,
+        "censored": false,
+        "code": "1510",
+        "name": "AIRCRAFT, FIXED WING",
+        "sum": 11706014.45,
+        "total": 523618604555.48
+      }
+    ]
+  },
+  "G5": {
+    "base_rate_denominator_codes": 100,
+    "families": {
+      "3": {
+        "arms": {
+          "construct": {
+            "arm_codes": 0,
+            "arm_rate": 0.0,
+            "base_rate": 0.09,
+            "pass": false,
+            "ratio": 0.0
+          },
+          "rehabilitat": {
+            "arm_codes": 0,
+            "arm_rate": 0.0,
+            "base_rate": 0.0,
+            "pass": false,
+            "ratio": null
+          },
+          "remodel": {
+            "arm_codes": 0,
+            "arm_rate": 0.0,
+            "base_rate": 0.02,
+            "pass": false,
+            "ratio": 0.0
+          },
+          "renovat": {
+            "arm_codes": 0,
+            "arm_rate": 0.0,
+            "base_rate": 0.0,
+            "pass": false,
+            "ratio": null
+          },
+          "repair": {
+            "arm_codes": 0,
+            "arm_rate": 0.0,
+            "base_rate": 0.51,
+            "pass": false,
+            "ratio": 0.0
+          }
+        },
+        "codes": [],
+        "codes_enough_descriptions": [],
+        "excluded_for_thin_description": [],
+        "label": ""
+      },
+      "S2": {
+        "arms": {
+          "cleaning": {
+            "arm_codes": 2,
+            "arm_rate": 1.0,
+            "base_rate": 0.17,
+            "pass": true,
+            "ratio": 5.88235294117647
+          },
+          "custodial": {
+            "arm_codes": 1,
+            "arm_rate": 0.5,
+            "base_rate": 0.01,
+            "pass": true,
+            "ratio": 50.0
+          },
+          "guard": {
+            "arm_codes": 1,
+            "arm_rate": 0.5,
+            "base_rate": 0.21,
+            "pass": true,
+            "ratio": 2.380952380952381
+          },
+          "housekeep": {
+            "arm_codes": 0,
+            "arm_rate": 0.0,
+            "base_rate": 0.0,
+            "pass": false,
+            "ratio": null
+          },
+          "janitor": {
+            "arm_codes": 0,
+            "arm_rate": 0.0,
+            "base_rate": 0.0,
+            "pass": false,
+            "ratio": null
+          }
+        },
+        "codes": [
+          "S206",
+          "S216"
+        ],
+        "codes_enough_descriptions": [
+          "S206",
+          "S216"
+        ],
+        "excluded_for_thin_description": [],
+        "label": "HOUSEKEEPING- GUARD"
+      },
+      "Y1": {
+        "arms": {
+          "construct": {
+            "arm_codes": 5,
+            "arm_rate": 1.0,
+            "base_rate": 0.09,
+            "pass": true,
+            "ratio": 11.11111111111111
+          },
+          "rehabilitat": {
+            "arm_codes": 0,
+            "arm_rate": 0.0,
+            "base_rate": 0.0,
+            "pass": false,
+            "ratio": null
+          },
+          "remodel": {
+            "arm_codes": 2,
+            "arm_rate": 0.4,
+            "base_rate": 0.02,
+            "pass": true,
+            "ratio": 20.0
+          },
+          "renovat": {
+            "arm_codes": 0,
+            "arm_rate": 0.0,
+            "base_rate": 0.0,
+            "pass": false,
+            "ratio": null
+          },
+          "repair": {
+            "arm_codes": 5,
+            "arm_rate": 1.0,
+            "base_rate": 0.51,
+            "pass": false,
+            "ratio": 1.9607843137254901
+          }
+        },
+        "codes": [
+          "Y1JZ",
+          "Y1PZ",
+          "Y1AA",
+          "Y1AZ",
+          "Y181",
+          "Y1LB"
+        ],
+        "codes_enough_descriptions": [
+          "Y1JZ",
+          "Y1PZ",
+          "Y1AA",
+          "Y1AZ",
+          "Y1LB"
+        ],
+        "excluded_for_thin_description": [
+          "Y181"
+        ],
+        "label": "CONSTRUCTION OF MISCELLANEOUS BUILDINGS"
+      }
+    },
+    "fire": false,
+    "pass": false
+  },
+  "codes_measured": 100,
+  "codes_with_unused_filter_message": [],
+  "declared": {
+    "G4_bar": 1000000000.0,
+    "G5_ratio": 2.0,
+    "cutoff": 100000.0,
+    "kw_alpha": 0.01
+  },
+  "families": {
+    "1": {
+      "awards": 214705,
+      "codes": 14,
+      "label": "AIRCRAFT, FIXED WING",
+      "median_of_medians": 1972566.5,
+      "small_n": 2318,
+      "small_sum": 45859449.46,
+      "total": 1408251947311.84
+    },
+    "2": {
+      "awards": 40391,
+      "codes": 4,
+      "label": "GAS TURBINES AND JET ENGINES, AIRCRAFT, PRIME MOVING; AND COMPONENTS",
+      "median_of_medians": 491507.75,
+      "small_n": 439,
+      "small_sum": 8493061.64,
+      "total": 178675837328.2
+    },
+    "4": {
+      "awards": 90855,
+      "codes": 2,
+      "label": "NUCLEAR REACTORS",
+      "median_of_medians": 24066.199999999997,
+      "small_n": 649,
+      "small_sum": 3573364.650000001,
+      "total": 66338580424.36
+    },
+    "5": {
+      "awards": 52907,
+      "codes": 4,
+      "label": "RADAR EQUIPMENT, EXCEPT AIRBORNE",
+      "median_of_medians": 56155.5425,
+      "small_n": 954,
+      "small_sum": 3929530.6399999997,
+      "total": 115020269245.04999
+    },
+    "6": {
+      "awards": 7540775,
+      "codes": 3,
+      "label": "DRUGS AND BIOLOGICALS",
+      "median_of_medians": null,
+      "small_n": 0,
+      "small_sum": 0.0,
+      "total": 232781877615.22
+    },
+    "7": {
+      "awards": 75269,
+      "codes": 2,
+      "label": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)",
+      "median_of_medians": 55709.03,
+      "small_n": 7,
+      "small_sum": 13.68,
+      "total": 55038655576.28
+    },
+    "8": {
+      "awards": 5248279,
+      "codes": 2,
+      "label": "FRUITS AND VEGETABLES",
+      "median_of_medians": null,
+      "small_n": 115,
+      "small_sum": 591.14,
+      "total": 36523766456.149994
+    },
+    "9": {
+      "awards": 1250623,
+      "codes": 2,
+      "label": "LIQUID PROPELLANTS AND FUELS, PETROLEUM BASE",
+      "median_of_medians": 4301975.13,
+      "small_n": 46,
+      "small_sum": 1301902.19,
+      "total": 66824467252.28
+    },
+    "A": {
+      "awards": 40891,
+      "codes": 18,
+      "label": "NATIONAL DEFENSE R&D SVCS; DEPARTMENT OF DEFENSE - MILITARY; R&D FACILITIES & MAJ EQUIP",
+      "median_of_medians": 1359485.5,
+      "small_n": 3454,
+      "small_sum": 142454332.18,
+      "total": 516355427091.8301
+    },
+    "C": {
+      "awards": 23531,
+      "codes": 1,
+      "label": "ARCHITECT AND ENGINEERING- GENERAL: OTHER",
+      "median_of_medians": 250229.995,
+      "small_n": 0,
+      "small_sum": 0.0,
+      "total": 23975000979.45
+    },
+    "D": {
+      "awards": 117631,
+      "codes": 10,
+      "label": "IT AND TELECOM- OTHER IT AND TELECOMMUNICATIONS",
+      "median_of_medians": 180852.54499999998,
+      "small_n": 3347,
+      "small_sum": 54169261.44999998,
+      "total": 394297249555.91003
+    },
+    "F": {
+      "awards": 23536,
+      "codes": 2,
+      "label": "OTHER ENVIRONMENTAL SERVICES",
+      "median_of_medians": 90884.38,
+      "small_n": 486,
+      "small_sum": 607121.59,
+      "total": 57341464750.61
+    },
+    "G": {
+      "awards": 2413,
+      "codes": 1,
+      "label": "SOCIAL- GOVERNMENT HEALTH INSURANCE PROGRAMS",
+      "median_of_medians": 66186.01500000001,
+      "small_n": 583,
+      "small_sum": 10488721.240000008,
+      "total": 58167859890.9
+    },
+    "J": {
+      "awards": 40021,
+      "codes": 6,
+      "label": "MAINT/REPAIR/REBUILD OF EQUIPMENT- AIRCRAFT AND AIRFRAME STRUCTURAL COMPONENTS",
+      "median_of_medians": 133613.40250000003,
+      "small_n": 2549,
+      "small_sum": 19156818.86,
+      "total": 211807015919.15
+    },
+    "L": {
+      "awards": 203,
+      "codes": 1,
+      "label": "TECHNICAL REPRESENTATIVE- GUIDED MISSILES",
+      "median_of_medians": 476916.625,
+      "small_n": 29,
+      "small_sum": 711891.25,
+      "total": 16297786560.51
+    },
+    "M": {
+      "awards": 1348,
+      "codes": 4,
+      "label": "OPER OF GOVT R&D GOCO FACILITIES",
+      "median_of_medians": 6579534039.405,
+      "small_n": 598,
+      "small_sum": 7856552.189999998,
+      "total": 547078459160.16003
+    },
+    "Q": {
+      "awards": 39444,
+      "codes": 3,
+      "label": "MEDICAL- MANAGED HEALTHCARE",
+      "median_of_medians": 56973.770000000004,
+      "small_n": 533,
+      "small_sum": 6891238.050000002,
+      "total": 335977756048.61
+    },
+    "R": {
+      "awards": 646402,
+      "codes": 7,
+      "label": "SUPPORT- PROFESSIONAL: ENGINEERING/TECHNICAL",
+      "median_of_medians": 447289.75,
+      "small_n": 901,
+      "small_sum": 13998954.480000006,
+      "total": 972353635802.6
+    },
+    "S": {
+      "awards": 44976,
+      "codes": 3,
+      "label": "HOUSEKEEPING- GUARD",
+      "median_of_medians": 23408.6,
+      "small_n": 600,
+      "small_sum": 582798.8499999997,
+      "total": 98102153107.07
+    },
+    "U": {
+      "awards": 14321,
+      "codes": 1,
+      "label": "EDUCATION/TRAINING- OTHER",
+      "median_of_medians": 37352.75,
+      "small_n": 122,
+      "small_sum": 93597.43000000002,
+      "total": 15546979262.38
+    },
+    "V": {
+      "awards": 2360,
+      "codes": 2,
+      "label": "TRANSPORTATION/TRAVEL/RELOCATION- TRANSPORTATION: SPACE TRANSPORTATION/LAUNCH",
+      "median_of_medians": 1461317.41,
+      "small_n": 638,
+      "small_sum": 6853797.160000002,
+      "total": 45894510600.23
+    },
+    "Y": {
+      "awards": 25445,
+      "codes": 6,
+      "label": "CONSTRUCTION OF MISCELLANEOUS BUILDINGS",
+      "median_of_medians": 318615.8975,
+      "small_n": 2019,
+      "small_sum": 19539461.93,
+      "total": 156732555667.33
+    },
+    "Z": {
+      "awards": 44007,
+      "codes": 2,
+      "label": "REPAIR OR ALTERATION OF MISCELLANEOUS BUILDINGS",
+      "median_of_medians": 123996.125,
+      "small_n": 510,
+      "small_sum": 657454.1700000002,
+      "total": 37448558828.13
+    }
+  },
+  "grand_total_awards_level": 5646831814434.253,
+  "head_unused_filter_messages": [],
+  "panel2_unused_filter_messages_in_count_requests": 0,
+  "population": 100,
+  "verdict": {
+    "G1_source_shape": false,
+    "G2_zero_control": true,
+    "G3_discrimination": true,
+    "G4_addressability": true,
+    "G5_description_control": false,
+    "axis_closed": true
+  },
+  "wall_seconds": 1546.0
+}
