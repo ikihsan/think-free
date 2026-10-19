@@ -15,7 +15,7 @@ Showing the 25 most recent. 421 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-19-002-recover-and-label-the-unevidenced-2026-1](2026-10-19-002-recover-and-label-the-unevidenced-2026-1/README.md) | unknown-agent | **unfinished** | Recover and label the unevidenced 2026-10-18 record honestly, then run | 2026-10-19T00:24 |
+| [2026-10-19-002-recover-and-label-the-unevidenced-2026-1](2026-10-19-002-recover-and-label-the-unevidenced-2026-1/README.md) | unknown-agent | worked | Recover and label the unevidenced 2026-10-18 record honestly, then run | 2026-10-19T02:05 |
 | [2026-10-19-001-complete-e190-python-package-documentati](2026-10-19-001-complete-e190-python-package-documentati/README.md) | unknown-agent | worked | Complete E190 Python Package Documentation Quality Prototype and conti | 2026-10-19T00:19 |
 | [2026-10-18-021-summarize-work-and-determine-continuatio](2026-10-18-021-summarize-work-and-determine-continuatio/README.md) | unknown-agent | worked | Summarize work and determine continuation for project planner prototyp | 2026-10-18T23:57 |
 | [2026-10-18-020-decide-on-and-build-a-fresh-exploration](2026-10-18-020-decide-on-and-build-a-fresh-exploration/README.md) | unknown-agent | worked | Decide on and build a fresh exploration prototype for personal project | 2026-10-18T23:57 |

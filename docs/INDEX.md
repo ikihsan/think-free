@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-18
+last-verified: 2026-10-19
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -82,6 +82,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md`](../sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session 2026-10-08-013, VM instance-20260717-0944, 2026-10-08. Defect 24. |
 | [`sessions/2026-10-10-008-synthesize-5-domain-unserved-fraction-me/synthesis.md`](../sessions/2026-10-10-008-synthesize-5-domain-unserved-fraction-me/synthesis.md) | `—` | — | — | ## Observation |
 | [`sessions/2026-10-10-009-measure-6th-domain-hvac/synthesis.md`](../sessions/2026-10-10-009-measure-6th-domain-hvac/synthesis.md) | `—` | — | — | ## Observation |
+| [`sessions/2026-10-18-020-decide-on-and-build-a-fresh-exploration/decision.md`](../sessions/2026-10-18-020-decide-on-and-build-a-fresh-exploration/decision.md) | `—` | — | — | Session: 2026-10-18-020-decide-on-and-build-a-fresh-exploration |
 | [`sessions/README.md`](../sessions/README.md) | `docs/INDEX.md` | active | 2026-10-03 | The append-only record of every working session in this repository. |
 
 ## tasks
@@ -438,12 +439,11 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/182-ground-truth-contest/` | `docs/INDEX.md` | active | 2026-10-18 | 4 documents |
 | `EXPERIMENTS/183-prior-art-ground-truth-quality/` | `docs/INDEX.md` | active | 2026-10-18 | 2 documents |
 | `EXPERIMENTS/185-knitting-repair-planner-stage-a/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-18 | 2 documents |
-| `EXPERIMENTS/186-diy-repair-advisor/` | `—` | — | — | 1 documents |
-| `EXPERIMENTS/186-garden-planting-planner/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-18 | 2 documents |
 | `EXPERIMENTS/186-nhtsa-complaint-recall-prediction/` | `docs/INDEX.md` | active | 2026-10-18 | owner: docs/INDEX.md |
-| `EXPERIMENTS/186-woodworking-repair-planner-stage-a/` | `—` | — | — | 2 documents |
 | `EXPERIMENTS/187-clinical-trial-matching/` | `docs/INDEX.md` | active | 2026-10-18 | owner: docs/INDEX.md |
-| `EXPERIMENTS/187-knitting-optimization/` | `EXPERIMENTS/README.md` | active | 2026-10-18 | 2 documents |
+| `EXPERIMENTS/193-source-capability-probe/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 3 documents |
+| `EXPERIMENTS/194-appstore-demand-scan/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 3 documents |
+| `EXPERIMENTS/195-spend-axis-probe/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 3 documents |
 | `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |

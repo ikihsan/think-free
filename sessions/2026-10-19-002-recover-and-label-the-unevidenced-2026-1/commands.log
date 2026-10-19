@@ -193,3 +193,46 @@ Traceback (most recent call last):
 NameError: name 'get_repair_candidates' is not defined
 ------------------------------------------------------------------------------
 exit: 1  duration_ms: 996  redactions: none
+==============================================================================
+[seq 16] 2026-10-19T01:39:41+00:00
+$ python3 EXPERIMENTS/195-spend-axis-probe/probe.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+stackexchange            control   200   capture   bytes=804     {"items":[{"tags":["qt","qpainter"],"owner":{"account_id":44
+openalex                 control   200   capture   bytes=13743   {"meta": {"notice": "No API key, so this request shares one 
+github                   control   200   capture   bytes=424     {"resources":{"code_search":{"limit":60,"remaining":60,"rese
+usaspending_agencies     spend     200   capture   bytes=52950   {"results":[{"agency_id":1525,"toptier_code":"247","abbrevia
+comtrade                 spend     200   capture   bytes=966     {"elapsedTime":"0.07 secs","count":1,"data":[{"typeCode":"C"
+usaspending_laundry      spend     422   error     bytes=74      {"detail":"Missing value: 'filters|award_type_codes' is a re
+usaspending_knitting     spend     422   error     bytes=74      {"detail":"Missing value: 'filters|award_type_codes' is a re
+
+G1_control_integrity         PASS
+G2_spend_axis_usable         FAIL
+G3_keyword_discriminates     PASS
+rows carrying a numeric award amount: False
+laundry/knitting amount ratio: inf
+wrote /home/ubuntu/think-free/EXPERIMENTS/195-spend-axis-probe/raw/probe.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6099  redactions: none
+==============================================================================
+[seq 17] 2026-10-19T01:40:16+00:00
+$ python3 EXPERIMENTS/195-spend-axis-probe/probe2.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+usaspending_laundry    200   capture  results=5     amount_rows=5    total=112839.14
+      - LAUNDRY SERVICE FOR THEIR OCS TRAINING.
+      - TY 22 OCS LAUNDRY SERVICE FOR 225 PAX
+      - TY 21 OCS LAUNDRY SERVICE FOR 225 PAX
+usaspending_knitting   200   capture  results=5     amount_rows=5    total=3582719.3600000003
+      - RECRUIT SUSTAINMENT PROGRAM (RSP) ENHANCEMENT ITEMS
+      - FIRE RESISTANT ENVIRONMENTAL ENSEMBLES AND OTHER CAMOUFLAGE COMBAT UNIFORM CLOTHING ITEMS.
+      - RRB ARMY PHYSICAL FITNESS UNIFORMS
+
+G1_control_integrity             PASS
+G2_spend_axis_usable             PASS
+G3_keyword_discriminates         FAIL
+G4_both_arms_return_amounts      PASS
+G3 evaluable: True (laundry=112839.14 knitting=3582719.3600000003)
+wrote /home/ubuntu/think-free/EXPERIMENTS/195-spend-axis-probe/raw/probe2.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2491  redactions: none
