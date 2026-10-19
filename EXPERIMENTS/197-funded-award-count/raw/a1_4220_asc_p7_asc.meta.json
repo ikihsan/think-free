@@ -1,0 +1,39 @@
+{
+ "request": {
+  "fields": [
+   "Award ID",
+   "Award Amount",
+   "Description",
+   "generated_unique_award_id",
+   "Awarding Agency"
+  ],
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "4220"
+   ],
+   "time_period": [
+    {
+     "end_date": "2025-12-31",
+     "start_date": "2020-01-01"
+    }
+   ]
+  },
+  "limit": 100,
+  "order": "asc",
+  "page": 7,
+  "sort": "Award Amount",
+  "subawards": false
+ },
+ "response": {
+  "bytes": 33528,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+  "sha256": "73fd481849b275f1eeaf9eb772ba3a4f0a6fafb8e8207722a3e2688405758744",
+  "status": 200
+ }
+}

@@ -8,13 +8,14 @@ last-verified: 2026-10-19
 
 <!-- generated-by: origin; do not edit by hand -->
 
-448 recorded session(s). One `events.jsonl` per session, so concurrent
+449 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 423 older session(s) are in the directory listing.
+Showing the 25 most recent. 424 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-19-005-e197-settle-whether-e196-s-25-code-addre](2026-10-19-005-e197-settle-whether-e196-s-25-code-addre/README.md) | unknown-agent | **unfinished** | E197: settle whether E196's 25 code-addressed federal cells hold real  | 2026-10-19T05:11 |
 | [2026-10-19-004-repair-the-documentation-obligation-e196](2026-10-19-004-repair-the-documentation-obligation-e196/README.md) | unknown-agent | worked | Repair the documentation obligation E196's session closed with: add th | 2026-10-19T05:01 |
 | [2026-10-19-003-e196-address-us-federal-spend-by-product](2026-10-19-003-e196-address-us-federal-spend-by-product/README.md) | unknown-agent | worked | E196: address US federal spend by product and service code (PSC) rathe | 2026-10-19T04:43 |
 | [2026-10-19-002-recover-and-label-the-unevidenced-2026-1](2026-10-19-002-recover-and-label-the-unevidenced-2026-1/README.md) | unknown-agent | worked | Recover and label the unevidenced 2026-10-18 record honestly, then run | 2026-10-19T02:05 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 423 older session(s) are in the directory listing.
 | [2026-10-18-004-prior-art-check-the-ground-truth-quality](2026-10-18-004-prior-art-check-the-ground-truth-quality/README.md) | unknown-agent | worked | Prior-art-check the ground-truth-quality axis: do vote margin, corrobo | 2026-10-18T03:41 |
 | [2026-10-18-003-measure-whether-e177-s-ground-truth-is-c](2026-10-18-003-measure-whether-e177-s-ground-truth-is-c/README.md) | opencode | worked | Measure whether E177's ground truth is contestable where the assistant | 2026-10-18T03:17 |
 | [2026-10-18-002-log-e181-s-two-undeclared-artifacts-that](2026-10-18-002-log-e181-s-two-undeclared-artifacts-that/README.md) | space-bunny-free | worked | Log E181's two undeclared artifacts that session finish reported | 2026-10-18T01:23 |
-| [2026-10-18-001-e181-test-whether-supplying-the-specific](2026-10-18-001-e181-test-whether-supplying-the-specific/README.md) | space-bunny-free | worked | E181: test whether supplying the specific missing fact closes the 0.40 | 2026-10-18T01:22 |
 
 
 ## Reading a session

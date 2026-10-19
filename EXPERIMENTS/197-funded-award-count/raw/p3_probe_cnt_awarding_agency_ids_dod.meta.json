@@ -1,0 +1,33 @@
+{
+ "request": {
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "awarding_agency_ids": [
+    "dod"
+   ],
+   "psc_codes": [
+    "DA01"
+   ],
+   "time_period": [
+    {
+     "end_date": "2025-12-31",
+     "start_date": "2020-01-01"
+    }
+   ]
+  },
+  "limit": 1,
+  "page": 1,
+  "subawards": false
+ },
+ "response": {
+  "bytes": 605,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_award_count/",
+  "sha256": "84a354cac44b296ca8b23fea4aa8dce57254c5b8b724802e640029586a3f52b2",
+  "status": 200
+ }
+}

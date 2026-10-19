@@ -68,6 +68,25 @@ term (a fabricated 22x significance, p 0.001354 against a true 0.030702) and a
 comparison row built from the population size (F114). No candidate; the Anova
 venue is closed as a route.
 
+## E134-E143 — the `preflight` release-readiness line, closed
+
+**The `preflight` line (E134-E141) reached four exact agreements and found
+nothing to ship.** E134 pointed it at a real `lm-evaluation-harness` v0.4.4 run
+on `piqa`/`openbookqa`/`wikitext`: G1, G2, G3 passed, G4 failed, and the row
+recomputation R1 agreed with every printed rate, 7 metrics on the local run and
+200 rows of a third-party published run. **The declared failure condition fired
+as written: Arm A was clean, so `preflight` had no observed external value and
+the release question closed (D111).** E135-E138 then reached four exact AGREEs on
+published HELM lite v1.0.0 cells. **E141 then asked whether the harness's own
+scorer marks correct answers wrong — and the gate fired.** Over 2,874 rows: 6
+scored-wrong rows are mathematically equal to the reference, all six confirmed
+by hand, pooled 0.377%; the primary cell 1.626% against a declared 2.0% **and**
+5 rows. **A check that fires on 0.4% of rows is not worth shipping as a gate —
+`preflight` stays unreleased.** E142-E143 closed the CI-failure harvest (declined,
+kill gate fired) and the Cross Validated answerability line (300/300
+question-shaped, 0 execution-shaped, answerable class served at 1.0000). Full
+entries in [`STATE-next-actions.md`](STATE-next-actions.md).
+
 ## E092 — appliance-fault diagnosis outside one vendor's forum
 
 **E092 then ran the test E091's §6 named — is appliance-fault diagnosis a general

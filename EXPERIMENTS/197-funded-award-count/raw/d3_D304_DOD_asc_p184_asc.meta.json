@@ -1,0 +1,46 @@
+{
+ "request": {
+  "fields": [
+   "Award ID",
+   "Award Amount",
+   "Description",
+   "generated_unique_award_id",
+   "Awarding Agency"
+  ],
+  "filters": {
+   "agencies": [
+    {
+     "name": "Department of Defense",
+     "tier": "toptier",
+     "type": "awarding"
+    }
+   ],
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "D304"
+   ],
+   "time_period": [
+    {
+     "end_date": "2025-12-31",
+     "start_date": "2020-01-01"
+    }
+   ]
+  },
+  "limit": 100,
+  "order": "asc",
+  "page": 184,
+  "sort": "Award Amount",
+  "subawards": false
+ },
+ "response": {
+  "bytes": 34050,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+  "sha256": "1987dffb8de22ff60b58b30f11d268625c0860497246df94d772c189451ba34d",
+  "status": 200
+ }
+}

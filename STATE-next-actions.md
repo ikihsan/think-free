@@ -6,6 +6,34 @@ last-verified: 2026-10-19
 
 # Next actions
 
+## E197 completed (2026-10-19) — E196's "purchases" are purchases: 98.6% of federal award records carry money
+
+**What was tested.** E196 §2 reported five IT/software cells carrying $203.32B
+"bought in tens of thousands of separate sub-$40k purchases," and F143/D123
+recorded that nine of the 25 cells clearing the addressability gate clear it only
+because their 10,000th-smallest award carries no money. E197 counted the awards
+that carry money (≥ $1) per code by bisecting the ascending award order, for all
+100 PSC codes, with an independent descending arm on the 25 G4 codes.
+
+**The result.** Median `funded_fraction` = **0.9862** over 100 codes. **12 of 25**
+E196 G4 codes clear ≥10,000 funded awards ≤ $100k (G4 survives, ≥10). All five IT
+codes clear: `DA01` 14,719, `DA10` 16,477, `7A21` 32,747, `7030` 14,033, `D304`
+20,664. The descending arm agrees exactly on all 13 comparable codes (12 censored
+at the 500-page ceiling — G5 fails on censoring, not disagreement). G6: no
+vocabulary confound (all five IT codes below 2× ratio). **F143's concern is
+resolved: an award count IS a purchase count here.**
+
+**What this decides.** E196's headline — "$203.32B bought in tens of thousands of
+separate sub-$40k purchases" — survives. The money axis now has a confirmed,
+funded-purchase population. **Named next action:** the recipient read
+(`spending_by_category/recipient/` under the same `psc_codes` filter) names
+**who is paid** for the 14,000–32,000 small purchases in each IT cell — buyer,
+unit and budget all known at once, for the first time.
+
+**Do not run:** a re-run of panels A/B on the same parameters; the keyword form
+of this axis (closed by E195); any `rank_p × 100` checkpoint (refused past page
+500).
+
 ## E196 completed (2026-10-19) — the money axis now has a money-sized, code-addressed list, and the next instrument is named
 
 **What was tested.** D122 routed the money axis through spend because price is

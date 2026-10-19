@@ -1,0 +1,30 @@
+{
+ "request": {
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "J016"
+   ],
+   "time_period": [
+    {
+     "end_date": "2025-12-31",
+     "start_date": "2020-01-01"
+    }
+   ]
+  },
+  "limit": 1,
+  "page": 1,
+  "subawards": false
+ },
+ "response": {
+  "bytes": 442,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_award_count/",
+  "sha256": "ce884a30e113c9e2193ac1106eed7d32344ebed050d1b615be8ec82bb224e744",
+  "status": 200
+ }
+}

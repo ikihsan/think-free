@@ -1,0 +1,37 @@
+{
+ "request": {
+  "filters": {
+   "agencies": [
+    {
+     "name": "Department of Homeland Security",
+     "tier": "toptier",
+     "type": "awarding"
+    }
+   ],
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "7A21"
+   ],
+   "time_period": [
+    {
+     "end_date": "2025-12-31",
+     "start_date": "2020-01-01"
+    }
+   ]
+  },
+  "limit": 1,
+  "page": 1,
+  "subawards": false
+ },
+ "response": {
+  "bytes": 442,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_award_count/",
+  "sha256": "2d4856333aaf4b4ebcb3b7d365c0385bb0f5898c14264def2cacbe3f2d33003d",
+  "status": 200
+ }
+}

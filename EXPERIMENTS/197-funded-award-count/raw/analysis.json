@@ -1,0 +1,1689 @@
+{
+ "controls": {
+  "C1": [
+   {
+    "ok": true,
+    "page": 1,
+    "rows": 0,
+    "status": 200,
+    "unused_filters": []
+   },
+   {
+    "ok": true,
+    "page": 500,
+    "rows": 0,
+    "status": 200,
+    "unused_filters": []
+   }
+  ],
+  "C2": [
+   {
+    "ok": true,
+    "page": 1,
+    "rows": 0,
+    "status": 422,
+    "unused_filters": []
+   }
+  ],
+  "C3": [
+   {
+    "ok": true,
+    "order": "asc",
+    "pages": [
+     {
+      "max": 0.0,
+      "min": -105898.16,
+      "page": 1,
+      "pairs": [],
+      "rows": 100,
+      "status": 200
+     },
+     {
+      "max": 171.76,
+      "min": 99.92,
+      "page": 5,
+      "pairs": [
+       {
+        "ok": true,
+        "vs_page": 1
+       }
+      ],
+      "rows": 100,
+      "status": 200
+     },
+     {
+      "max": 7373.76,
+      "min": 7082.21,
+      "page": 50,
+      "pairs": [
+       {
+        "ok": true,
+        "vs_page": 5
+       }
+      ],
+      "rows": 100,
+      "status": 200
+     },
+     {
+      "max": 99999.0,
+      "min": 97292.6,
+      "page": 150,
+      "pairs": [
+       {
+        "ok": true,
+        "vs_page": 50
+       }
+      ],
+      "rows": 100,
+      "status": 200
+     }
+    ],
+    "rule": "ascending: max(p) <= min(p+1)"
+   },
+   {
+    "ok": true,
+    "order": "desc",
+    "pages": [
+     {
+      "max": 2120623737.86,
+      "min": 115521340.2,
+      "page": 1,
+      "pairs": [],
+      "rows": 100,
+      "status": 200
+     },
+     {
+      "max": 40133471.62,
+      "min": 34112494.99,
+      "page": 5,
+      "pairs": [
+       {
+        "ok": true,
+        "vs_page": 1
+       }
+      ],
+      "rows": 100,
+      "status": 200
+     },
+     {
+      "max": 1895629.2,
+      "min": 1814398.0,
+      "page": 50,
+      "pairs": [
+       {
+        "ok": true,
+        "vs_page": 5
+       }
+      ],
+      "rows": 100,
+      "status": 200
+     },
+     {
+      "max": 50111.73,
+      "min": 49208.69,
+      "page": 150,
+      "pairs": [
+       {
+        "ok": true,
+        "vs_page": 50
+       }
+      ],
+      "rows": 100,
+      "status": 200
+     }
+    ],
+    "rule": "descending: max(p) >= min(p+1)"
+   }
+  ],
+  "C4": {
+   "ignored_filter_messages": [],
+   "ok": true
+  },
+  "C5": {
+   "codes_where_funded_exceeds_total": [],
+   "codes_without_a_usable_count": [],
+   "ok": true
+  },
+  "C6": {
+   "e196": [
+    "1560",
+    "1680",
+    "2320",
+    "2840",
+    "4220",
+    "5342",
+    "6505",
+    "6515",
+    "6640",
+    "7030",
+    "7A21",
+    "8905",
+    "8915",
+    "9130",
+    "D304",
+    "DA01",
+    "DA10",
+    "Q999",
+    "R425",
+    "R499",
+    "R706",
+    "S206",
+    "S216",
+    "U099",
+    "Z2AA"
+   ],
+   "e196_count": 25,
+   "here": [
+    "1560",
+    "1680",
+    "2320",
+    "2840",
+    "4220",
+    "5342",
+    "6505",
+    "6515",
+    "6640",
+    "7030",
+    "7A21",
+    "8905",
+    "8915",
+    "9130",
+    "D304",
+    "DA01",
+    "DA10",
+    "Q999",
+    "R425",
+    "R499",
+    "R706",
+    "S206",
+    "S216",
+    "U099",
+    "Z2AA"
+   ],
+   "match": true
+  },
+  "C7": {
+   "disagreements": 0,
+   "ok": true,
+   "rows_checked": 566,
+   "unreadable": 0
+  }
+ },
+ "experiment": "E197",
+ "gates": {
+  "G1": {
+   "measured": 100,
+   "not_evaluated": false,
+   "pass": true,
+   "population": 100,
+   "question": "exact, uncensored, filter-clean funded count",
+   "threshold": 98
+  },
+  "G2": {
+   "C1_nonexistent_code": true,
+   "C2_malformed_code": true,
+   "pass": true
+  },
+  "G3": {
+   "bar": 0.5,
+   "median": 0.986201487060435,
+   "n_codes": 100,
+   "quintiles": [
+    0.9685523590683581,
+    0.986201487060435,
+    0.9954216922927619
+   ],
+   "statistic": "median over codes of funded_ge_1 / n_total",
+   "verdict": "the record's headline survives as purchases"
+  },
+  "G4": {
+   "clearing": 12,
+   "kills_at": 5,
+   "of": 25,
+   "question": "codes with at least 10,000 awards in [$1, $100,000]",
+   "rows": [
+    {
+     "clears_10000": true,
+     "code": "7A21",
+     "funded_ge_1": 50170,
+     "n_total": 50777,
+     "purchases_1_100k": 32747
+    },
+    {
+     "clears_10000": true,
+     "code": "5342",
+     "funded_ge_1": 33164,
+     "n_total": 35044,
+     "purchases_1_100k": 32347
+    },
+    {
+     "clears_10000": true,
+     "code": "D304",
+     "funded_ge_1": 28104,
+     "n_total": 29072,
+     "purchases_1_100k": 20664
+    },
+    {
+     "clears_10000": true,
+     "code": "2320",
+     "funded_ge_1": 23180,
+     "n_total": 23594,
+     "purchases_1_100k": 18217
+    },
+    {
+     "clears_10000": true,
+     "code": "DA10",
+     "funded_ge_1": 26312,
+     "n_total": 26656,
+     "purchases_1_100k": 16477
+    },
+    {
+     "clears_10000": true,
+     "code": "DA01",
+     "funded_ge_1": 27143,
+     "n_total": 27424,
+     "purchases_1_100k": 14719
+    },
+    {
+     "clears_10000": true,
+     "code": "7030",
+     "funded_ge_1": 23898,
+     "n_total": 24492,
+     "purchases_1_100k": 14033
+    },
+    {
+     "clears_10000": true,
+     "code": "S206",
+     "funded_ge_1": 19360,
+     "n_total": 21452,
+     "purchases_1_100k": 13386
+    },
+    {
+     "clears_10000": true,
+     "code": "Z2AA",
+     "funded_ge_1": 22857,
+     "n_total": 23147,
+     "purchases_1_100k": 12121
+    },
+    {
+     "clears_10000": true,
+     "code": "S216",
+     "funded_ge_1": 15579,
+     "n_total": 15920,
+     "purchases_1_100k": 11306
+    },
+    {
+     "clears_10000": true,
+     "code": "Q999",
+     "funded_ge_1": 18457,
+     "n_total": 19441,
+     "purchases_1_100k": 11202
+    },
+    {
+     "clears_10000": true,
+     "code": "R425",
+     "funded_ge_1": 41652,
+     "n_total": 42346,
+     "purchases_1_100k": 10591
+    },
+    {
+     "clears_10000": false,
+     "code": "U099",
+     "funded_ge_1": 13841,
+     "n_total": 14321,
+     "purchases_1_100k": 9964
+    },
+    {
+     "clears_10000": false,
+     "code": "2840",
+     "funded_ge_1": 14751,
+     "n_total": 15756,
+     "purchases_1_100k": 9591
+    },
+    {
+     "clears_10000": false,
+     "code": "1560",
+     "funded_ge_1": 119711,
+     "n_total": 131644,
+     "purchases_1_100k": null
+    },
+    {
+     "clears_10000": false,
+     "code": "1680",
+     "funded_ge_1": 67864,
+     "n_total": 71312,
+     "purchases_1_100k": null
+    },
+    {
+     "clears_10000": false,
+     "code": "4220",
+     "funded_ge_1": 89365,
+     "n_total": 89901,
+     "purchases_1_100k": null
+    },
+    {
+     "clears_10000": false,
+     "code": "6505",
+     "funded_ge_1": 3064143,
+     "n_total": 3078116,
+     "purchases_1_100k": null
+    },
+    {
+     "clears_10000": false,
+     "code": "6515",
+     "funded_ge_1": 2998635,
+     "n_total": 3012004,
+     "purchases_1_100k": null
+    },
+    {
+     "clears_10000": false,
+     "code": "6640",
+     "funded_ge_1": 1448091,
+     "n_total": 1450656,
+     "purchases_1_100k": null
+    },
+    {
+     "clears_10000": false,
+     "code": "8905",
+     "funded_ge_1": 440279,
+     "n_total": 440857,
+     "purchases_1_100k": null
+    },
+    {
+     "clears_10000": false,
+     "code": "8915",
+     "funded_ge_1": 4806910,
+     "n_total": 4807422,
+     "purchases_1_100k": null
+    },
+    {
+     "clears_10000": false,
+     "code": "9130",
+     "funded_ge_1": 1243758,
+     "n_total": 1247029,
+     "purchases_1_100k": null
+    },
+    {
+     "clears_10000": false,
+     "code": "R499",
+     "funded_ge_1": 296381,
+     "n_total": 302317,
+     "purchases_1_100k": null
+    },
+    {
+     "clears_10000": false,
+     "code": "R706",
+     "funded_ge_1": 234862,
+     "n_total": 238191,
+     "purchases_1_100k": null
+    }
+   ],
+   "survives_at": 10,
+   "verdict": "survives: the money is in small funded purchases"
+  },
+  "G5": {
+   "C3_sort_direction": true,
+   "C4_no_ignored_filter": true,
+   "C7_tieback": true,
+   "agreements": 13,
+   "compared": 13,
+   "disagreements": [],
+   "pass": false,
+   "rows": [
+    {
+     "ascending": 119711,
+     "code": "1560",
+     "descending": null,
+     "status": "not comparable (a censored arm)"
+    },
+    {
+     "ascending": 67864,
+     "code": "1680",
+     "descending": null,
+     "status": "not comparable (a censored arm)"
+    },
+    {
+     "agree": true,
+     "ascending": 23180,
+     "code": "2320",
+     "descending": 23180,
+     "difference": 0
+    },
+    {
+     "agree": true,
+     "ascending": 14751,
+     "code": "2840",
+     "descending": 14751,
+     "difference": 0
+    },
+    {
+     "ascending": 89365,
+     "code": "4220",
+     "descending": null,
+     "status": "not comparable (a censored arm)"
+    },
+    {
+     "agree": true,
+     "ascending": 33164,
+     "code": "5342",
+     "descending": 33164,
+     "difference": 0
+    },
+    {
+     "ascending": 3064143,
+     "code": "6505",
+     "descending": null,
+     "status": "not comparable (a censored arm)"
+    },
+    {
+     "ascending": 2998635,
+     "code": "6515",
+     "descending": null,
+     "status": "not comparable (a censored arm)"
+    },
+    {
+     "ascending": 1448091,
+     "code": "6640",
+     "descending": null,
+     "status": "not comparable (a censored arm)"
+    },
+    {
+     "agree": true,
+     "ascending": 23898,
+     "code": "7030",
+     "descending": 23898,
+     "difference": 0
+    },
+    {
+     "ascending": 50170,
+     "code": "7A21",
+     "descending": null,
+     "status": "not comparable (a censored arm)"
+    },
+    {
+     "ascending": 440279,
+     "code": "8905",
+     "descending": null,
+     "status": "not comparable (a censored arm)"
+    },
+    {
+     "ascending": 4806910,
+     "code": "8915",
+     "descending": null,
+     "status": "not comparable (a censored arm)"
+    },
+    {
+     "ascending": 1243758,
+     "code": "9130",
+     "descending": null,
+     "status": "not comparable (a censored arm)"
+    },
+    {
+     "agree": true,
+     "ascending": 28104,
+     "code": "D304",
+     "descending": 28104,
+     "difference": 0
+    },
+    {
+     "agree": true,
+     "ascending": 27143,
+     "code": "DA01",
+     "descending": 27143,
+     "difference": 0
+    },
+    {
+     "agree": true,
+     "ascending": 26312,
+     "code": "DA10",
+     "descending": 26312,
+     "difference": 0
+    },
+    {
+     "agree": true,
+     "ascending": 18457,
+     "code": "Q999",
+     "descending": 18457,
+     "difference": 0
+    },
+    {
+     "agree": true,
+     "ascending": 41652,
+     "code": "R425",
+     "descending": 41652,
+     "difference": 0
+    },
+    {
+     "ascending": 296381,
+     "code": "R499",
+     "descending": null,
+     "status": "not comparable (a censored arm)"
+    },
+    {
+     "ascending": 234862,
+     "code": "R706",
+     "descending": null,
+     "status": "not comparable (a censored arm)"
+    },
+    {
+     "agree": true,
+     "ascending": 19360,
+     "code": "S206",
+     "descending": 19360,
+     "difference": 0
+    },
+    {
+     "agree": true,
+     "ascending": 15579,
+     "code": "S216",
+     "descending": 15579,
+     "difference": 0
+    },
+    {
+     "agree": true,
+     "ascending": 13841,
+     "code": "U099",
+     "descending": 13841,
+     "difference": 0
+    },
+    {
+     "agree": true,
+     "ascending": 22857,
+     "code": "Z2AA",
+     "descending": 22857,
+     "difference": 0
+    }
+   ],
+   "threshold": 23
+  },
+  "G6": {
+   "arms": [
+    {
+     "code": "DA01",
+     "funded_rows": 100,
+     "funded_share": 0.17,
+     "head_rows": 100,
+     "head_share": 0.25,
+     "ratio": 0.68,
+     "status": "below the declared ratio",
+     "tokens": [
+      "application",
+      "business",
+      "development",
+      "labor",
+      "support",
+      "telecom"
+     ]
+    },
+    {
+     "code": "DA10",
+     "funded_rows": 100,
+     "funded_share": 0.37,
+     "head_rows": 100,
+     "head_share": 0.26,
+     "ratio": 1.423076923076923,
+     "status": "below the declared ratio",
+     "tokens": [
+      "application",
+      "business",
+      "development",
+      "service",
+      "software",
+      "telecom"
+     ]
+    },
+    {
+     "code": "7A21",
+     "funded_rows": 100,
+     "funded_share": 0.37,
+     "head_rows": 100,
+     "head_share": 0.38,
+     "ratio": 0.9736842105263158,
+     "status": "below the declared ratio",
+     "tokens": [
+      "application",
+      "business",
+      "license",
+      "perpetual",
+      "software",
+      "telecom"
+     ]
+    },
+    {
+     "code": "7030",
+     "funded_rows": 100,
+     "funded_share": 0.42,
+     "head_rows": 100,
+     "head_share": 0.26,
+     "ratio": 1.6153846153846152,
+     "status": "below the declared ratio",
+     "tokens": [
+      "information",
+      "software",
+      "technology"
+     ]
+    },
+    {
+     "code": "D304",
+     "funded_rows": 100,
+     "funded_share": 0.01,
+     "head_rows": 100,
+     "head_share": 0.03,
+     "ratio": 0.33333333333333337,
+     "status": "below the declared ratio",
+     "tokens": [
+      "telecom",
+      "telecommunications",
+      "transmission"
+     ]
+    }
+   ],
+   "evaluated": 5,
+   "verdict": "fail"
+  }
+ },
+ "head_table": [
+  {
+   "code": "7A21",
+   "funded_fraction": 0.9880457687535695,
+   "funded_ge_1": 50170,
+   "n_total": 50777,
+   "purchases_1_100k": 32747
+  },
+  {
+   "code": "5342",
+   "funded_fraction": 0.9463531560324164,
+   "funded_ge_1": 33164,
+   "n_total": 35044,
+   "purchases_1_100k": 32347
+  },
+  {
+   "code": "D304",
+   "funded_fraction": 0.9667033571821684,
+   "funded_ge_1": 28104,
+   "n_total": 29072,
+   "purchases_1_100k": 20664
+  },
+  {
+   "code": "2320",
+   "funded_fraction": 0.9824531660591675,
+   "funded_ge_1": 23180,
+   "n_total": 23594,
+   "purchases_1_100k": 18217
+  },
+  {
+   "code": "DA10",
+   "funded_fraction": 0.987094837935174,
+   "funded_ge_1": 26312,
+   "n_total": 26656,
+   "purchases_1_100k": 16477
+  },
+  {
+   "code": "DA01",
+   "funded_fraction": 0.9897535005834306,
+   "funded_ge_1": 27143,
+   "n_total": 27424,
+   "purchases_1_100k": 14719
+  },
+  {
+   "code": "7030",
+   "funded_fraction": 0.9757471827535522,
+   "funded_ge_1": 23898,
+   "n_total": 24492,
+   "purchases_1_100k": 14033
+  },
+  {
+   "code": "S206",
+   "funded_fraction": 0.9024799552489279,
+   "funded_ge_1": 19360,
+   "n_total": 21452,
+   "purchases_1_100k": 13386
+  },
+  {
+   "code": "Z2AA",
+   "funded_fraction": 0.9874713785803776,
+   "funded_ge_1": 22857,
+   "n_total": 23147,
+   "purchases_1_100k": 12121
+  },
+  {
+   "code": "S216",
+   "funded_fraction": 0.9785804020100503,
+   "funded_ge_1": 15579,
+   "n_total": 15920,
+   "purchases_1_100k": 11306
+  },
+  {
+   "code": "Q999",
+   "funded_fraction": 0.9493853196852013,
+   "funded_ge_1": 18457,
+   "n_total": 19441,
+   "purchases_1_100k": 11202
+  },
+  {
+   "code": "R425",
+   "funded_fraction": 0.9836112029471497,
+   "funded_ge_1": 41652,
+   "n_total": 42346,
+   "purchases_1_100k": 10591
+  },
+  {
+   "code": "U099",
+   "funded_fraction": 0.9664827875148384,
+   "funded_ge_1": 13841,
+   "n_total": 14321,
+   "purchases_1_100k": 9964
+  },
+  {
+   "code": "2840",
+   "funded_fraction": 0.9362147753236862,
+   "funded_ge_1": 14751,
+   "n_total": 15756,
+   "purchases_1_100k": 9591
+  },
+  {
+   "code": "Q201",
+   "funded_fraction": 0.9495984043986847,
+   "funded_ge_1": 17616,
+   "n_total": 18551,
+   "purchases_1_100k": 8751
+  },
+  {
+   "code": "Z2JZ",
+   "funded_fraction": 0.9808245445829339,
+   "funded_ge_1": 20460,
+   "n_total": 20860,
+   "purchases_1_100k": 7934
+  },
+  {
+   "code": "R699",
+   "funded_fraction": 0.9764104793999347,
+   "funded_ge_1": 17964,
+   "n_total": 18398,
+   "purchases_1_100k": 7758
+  },
+  {
+   "code": "5895",
+   "funded_fraction": 0.9423822237533374,
+   "funded_ge_1": 10942,
+   "n_total": 11611,
+   "purchases_1_100k": 7616
+  },
+  {
+   "code": "J999",
+   "funded_fraction": 0.9862743486479822,
+   "funded_ge_1": 12000,
+   "n_total": 12167,
+   "purchases_1_100k": 7530
+  },
+  {
+   "code": "F108",
+   "funded_fraction": 0.9718971419472971,
+   "funded_ge_1": 12208,
+   "n_total": 12561,
+   "purchases_1_100k": 7312
+  },
+  {
+   "code": "R408",
+   "funded_fraction": 0.9825077876287954,
+   "funded_ge_1": 28702,
+   "n_total": 29213,
+   "purchases_1_100k": 6574
+  },
+  {
+   "code": "C219",
+   "funded_fraction": 0.9682121456801666,
+   "funded_ge_1": 22783,
+   "n_total": 23531,
+   "purchases_1_100k": 6211
+  },
+  {
+   "code": "D399",
+   "funded_fraction": 0.9722342109049058,
+   "funded_ge_1": 13516,
+   "n_total": 13902,
+   "purchases_1_100k": 5545
+  },
+  {
+   "code": "R799",
+   "funded_fraction": 0.9755517092167892,
+   "funded_ge_1": 13527,
+   "n_total": 13866,
+   "purchases_1_100k": 5251
+  },
+  {
+   "code": "J016",
+   "funded_fraction": 0.980175103149844,
+   "funded_ge_1": 9740,
+   "n_total": 9937,
+   "purchases_1_100k": 5249
+  },
+  {
+   "code": "F999",
+   "funded_fraction": 0.9670219549968115,
+   "funded_ge_1": 10615,
+   "n_total": 10977,
+   "purchases_1_100k": 4530
+  },
+  {
+   "code": "J998",
+   "funded_fraction": 0.9756460560140712,
+   "funded_ge_1": 7211,
+   "n_total": 7391,
+   "purchases_1_100k": 3149
+  },
+  {
+   "code": "S112",
+   "funded_fraction": 0.9656759600210415,
+   "funded_ge_1": 7343,
+   "n_total": 7604,
+   "purchases_1_100k": 3103
+  },
+  {
+   "code": "J015",
+   "funded_fraction": 0.9716806603102319,
+   "funded_ge_1": 6828,
+   "n_total": 7027,
+   "purchases_1_100k": 3069
+  },
+  {
+   "code": "Y1JZ",
+   "funded_fraction": 0.9568512530315278,
+   "funded_ge_1": 9469,
+   "n_total": 9896,
+   "purchases_1_100k": 2985
+  },
+  {
+   "code": "AC32",
+   "funded_fraction": 0.9970625262274444,
+   "funded_ge_1": 9504,
+   "n_total": 9532,
+   "purchases_1_100k": 2754
+  },
+  {
+   "code": "D318",
+   "funded_fraction": 0.9638682252922423,
+   "funded_ge_1": 6349,
+   "n_total": 6587,
+   "purchases_1_100k": 2731
+  },
+  {
+   "code": "AC13",
+   "funded_fraction": 0.9973817705776469,
+   "funded_ge_1": 6095,
+   "n_total": 6111,
+   "purchases_1_100k": 2705
+  },
+  {
+   "code": "1440",
+   "funded_fraction": 0.8852596314907872,
+   "funded_ge_1": 2114,
+   "n_total": 2388,
+   "purchases_1_100k": 1759
+  },
+  {
+   "code": "D316",
+   "funded_fraction": 0.9611446573903912,
+   "funded_ge_1": 3661,
+   "n_total": 3809,
+   "purchases_1_100k": 1733
+  },
+  {
+   "code": "5865",
+   "funded_fraction": 0.9516676088185415,
+   "funded_ge_1": 3367,
+   "n_total": 3538,
+   "purchases_1_100k": 1574
+  },
+  {
+   "code": "G007",
+   "funded_fraction": 0.9929548280149192,
+   "funded_ge_1": 2396,
+   "n_total": 2413,
+   "purchases_1_100k": 1457
+  },
+  {
+   "code": "Y1PZ",
+   "funded_fraction": 0.9596347909658818,
+   "funded_ge_1": 3994,
+   "n_total": 4162,
+   "purchases_1_100k": 1344
+  },
+  {
+   "code": "5840",
+   "funded_fraction": 0.971997052321297,
+   "funded_ge_1": 2638,
+   "n_total": 2714,
+   "purchases_1_100k": 1324
+  },
+  {
+   "code": "Y1AA",
+   "funded_fraction": 0.9695729992329327,
+   "funded_ge_1": 3792,
+   "n_total": 3911,
+   "purchases_1_100k": 1250
+  },
+  {
+   "code": "V124",
+   "funded_fraction": 0.9873991935483871,
+   "funded_ge_1": 1959,
+   "n_total": 1984,
+   "purchases_1_100k": 1207
+  },
+  {
+   "code": "Y1LB",
+   "funded_fraction": 0.9757179547046463,
+   "funded_ge_1": 4179,
+   "n_total": 4283,
+   "purchases_1_100k": 1196
+  },
+  {
+   "code": "Y1AZ",
+   "funded_fraction": 0.9486054528361015,
+   "funded_ge_1": 3027,
+   "n_total": 3191,
+   "purchases_1_100k": 1003
+  },
+  {
+   "code": "1550",
+   "funded_fraction": 0.9781312127236581,
+   "funded_ge_1": 1968,
+   "n_total": 2012,
+   "purchases_1_100k": 968
+  },
+  {
+   "code": "J028",
+   "funded_fraction": 0.9657142857142857,
+   "funded_ge_1": 2197,
+   "n_total": 2275,
+   "purchases_1_100k": 960
+  },
+  {
+   "code": "1420",
+   "funded_fraction": 0.9296822177146721,
+   "funded_ge_1": 1375,
+   "n_total": 1479,
+   "purchases_1_100k": 925
+  },
+  {
+   "code": "DF01",
+   "funded_fraction": 0.9889759210908036,
+   "funded_ge_1": 3409,
+   "n_total": 3447,
+   "purchases_1_100k": 923
+  },
+  {
+   "code": "M1JZ",
+   "funded_fraction": 0.9924812030075187,
+   "funded_ge_1": 1188,
+   "n_total": 1197,
+   "purchases_1_100k": 895
+  },
+  {
+   "code": "4470",
+   "funded_fraction": 0.9716981132075472,
+   "funded_ge_1": 927,
+   "n_total": 954,
+   "purchases_1_100k": 806
+  },
+  {
+   "code": "Q403",
+   "funded_fraction": 0.9538567493112947,
+   "funded_ge_1": 1385,
+   "n_total": 1452,
+   "purchases_1_100k": 766
+  },
+  {
+   "code": "AD92",
+   "funded_fraction": 0.9921387283236994,
+   "funded_ge_1": 4291,
+   "n_total": 4325,
+   "purchases_1_100k": 642
+  },
+  {
+   "code": "D301",
+   "funded_fraction": 0.9807056229327453,
+   "funded_ge_1": 1779,
+   "n_total": 1814,
+   "purchases_1_100k": 595
+  },
+  {
+   "code": "R710",
+   "funded_fraction": 0.9681159420289855,
+   "funded_ge_1": 2004,
+   "n_total": 2070,
+   "purchases_1_100k": 375
+  },
+  {
+   "code": "J069",
+   "funded_fraction": 0.9869281045751634,
+   "funded_ge_1": 1208,
+   "n_total": 1224,
+   "purchases_1_100k": 363
+  },
+  {
+   "code": "1410",
+   "funded_fraction": 0.9796954314720813,
+   "funded_ge_1": 1158,
+   "n_total": 1182,
+   "purchases_1_100k": 344
+  },
+  {
+   "code": "D302",
+   "funded_fraction": 0.9861286254728878,
+   "funded_ge_1": 3128,
+   "n_total": 3172,
+   "purchases_1_100k": 339
+  },
+  {
+   "code": "1510",
+   "funded_fraction": 0.9777777777777777,
+   "funded_ge_1": 2200,
+   "n_total": 2250,
+   "purchases_1_100k": 315
+  },
+  {
+   "code": "AR11",
+   "funded_fraction": 0.9947594092424964,
+   "funded_ge_1": 2088,
+   "n_total": 2099,
+   "purchases_1_100k": 262
+  },
+  {
+   "code": "D307",
+   "funded_fraction": 0.9885518030910132,
+   "funded_ge_1": 1727,
+   "n_total": 1747,
+   "purchases_1_100k": 250
+  },
+  {
+   "code": "AC33",
+   "funded_fraction": 0.9972241498959056,
+   "funded_ge_1": 1437,
+   "n_total": 1441,
+   "purchases_1_100k": 250
+  },
+  {
+   "code": "AC12",
+   "funded_fraction": 0.9989245659855585,
+   "funded_ge_1": 6502,
+   "n_total": 6509,
+   "purchases_1_100k": 239
+  },
+  {
+   "code": "AZ11",
+   "funded_fraction": 0.9917172832689122,
+   "funded_ge_1": 1796,
+   "n_total": 1811,
+   "purchases_1_100k": 235
+  },
+  {
+   "code": "2355",
+   "funded_fraction": 0.9889655172413793,
+   "funded_ge_1": 717,
+   "n_total": 725,
+   "purchases_1_100k": 165
+  },
+  {
+   "code": "AZ12",
+   "funded_fraction": 0.9892920880428316,
+   "funded_ge_1": 1663,
+   "n_total": 1681,
+   "purchases_1_100k": 152
+  },
+  {
+   "code": "AR22",
+   "funded_fraction": 0.9865248226950355,
+   "funded_ge_1": 1391,
+   "n_total": 1410,
+   "purchases_1_100k": 142
+  },
+  {
+   "code": "1520",
+   "funded_fraction": 0.9938107869142352,
+   "funded_ge_1": 1124,
+   "n_total": 1131,
+   "purchases_1_100k": 113
+  },
+  {
+   "code": "AC15",
+   "funded_fraction": 0.9959239130434783,
+   "funded_ge_1": 733,
+   "n_total": 736,
+   "purchases_1_100k": 96
+  },
+  {
+   "code": "AD93",
+   "funded_fraction": 0.9978134110787172,
+   "funded_ge_1": 1369,
+   "n_total": 1372,
+   "purchases_1_100k": 96
+  },
+  {
+   "code": "1905",
+   "funded_fraction": 1.0,
+   "funded_ge_1": 602,
+   "n_total": 602,
+   "purchases_1_100k": 92
+  },
+  {
+   "code": "2350",
+   "funded_fraction": 0.9873417721518988,
+   "funded_ge_1": 312,
+   "n_total": 316,
+   "purchases_1_100k": 73
+  },
+  {
+   "code": "V126",
+   "funded_fraction": 0.9601063829787234,
+   "funded_ge_1": 361,
+   "n_total": 376,
+   "purchases_1_100k": 63
+  },
+  {
+   "code": "AC14",
+   "funded_fraction": 0.993485342019544,
+   "funded_ge_1": 610,
+   "n_total": 614,
+   "purchases_1_100k": 63
+  },
+  {
+   "code": "AC22",
+   "funded_fraction": 0.9983606557377049,
+   "funded_ge_1": 1218,
+   "n_total": 1220,
+   "purchases_1_100k": 60
+  },
+  {
+   "code": "1325",
+   "funded_fraction": 0.9903147699757869,
+   "funded_ge_1": 409,
+   "n_total": 413,
+   "purchases_1_100k": 51
+  },
+  {
+   "code": "9660",
+   "funded_fraction": 0.9947134112409571,
+   "funded_ge_1": 3575,
+   "n_total": 3594,
+   "purchases_1_100k": 46
+  },
+  {
+   "code": "AC23",
+   "funded_fraction": 1.0,
+   "funded_ge_1": 1223,
+   "n_total": 1223,
+   "purchases_1_100k": 41
+  },
+  {
+   "code": "L014",
+   "funded_fraction": 0.9852216748768473,
+   "funded_ge_1": 200,
+   "n_total": 203,
+   "purchases_1_100k": 29
+  },
+  {
+   "code": "AC61",
+   "funded_fraction": 0.9966159052453468,
+   "funded_ge_1": 589,
+   "n_total": 591,
+   "purchases_1_100k": 20
+  },
+  {
+   "code": "AC24",
+   "funded_fraction": 0.9953051643192489,
+   "funded_ge_1": 212,
+   "n_total": 213,
+   "purchases_1_100k": 12
+  },
+  {
+   "code": "M1HA",
+   "funded_fraction": 1.0,
+   "funded_ge_1": 127,
+   "n_total": 127,
+   "purchases_1_100k": 7
+  },
+  {
+   "code": "1425",
+   "funded_fraction": 0.9914163090128756,
+   "funded_ge_1": 231,
+   "n_total": 233,
+   "purchases_1_100k": 7
+  },
+  {
+   "code": "1904",
+   "funded_fraction": 1.0,
+   "funded_ge_1": 33,
+   "n_total": 33,
+   "purchases_1_100k": 7
+  },
+  {
+   "code": "1810",
+   "funded_fraction": 1.0,
+   "funded_ge_1": 17,
+   "n_total": 17,
+   "purchases_1_100k": 1
+  },
+  {
+   "code": "M181",
+   "funded_fraction": 1.0,
+   "funded_ge_1": 22,
+   "n_total": 22,
+   "purchases_1_100k": 0
+  },
+  {
+   "code": "R499",
+   "funded_fraction": 0.9803649811290798,
+   "funded_ge_1": 296381,
+   "n_total": 302317,
+   "purchases_1_100k": null
+  },
+  {
+   "code": "6505",
+   "funded_fraction": 0.9954605349505996,
+   "funded_ge_1": 3064143,
+   "n_total": 3078116,
+   "purchases_1_100k": null
+  },
+  {
+   "code": "R706",
+   "funded_fraction": 0.9860238212191057,
+   "funded_ge_1": 234862,
+   "n_total": 238191,
+   "purchases_1_100k": null
+  },
+  {
+   "code": "1680",
+   "funded_fraction": 0.9516490913170293,
+   "funded_ge_1": 67864,
+   "n_total": 71312,
+   "purchases_1_100k": null
+  },
+  {
+   "code": "9130",
+   "funded_fraction": 0.997376965571771,
+   "funded_ge_1": 1243758,
+   "n_total": 1247029,
+   "purchases_1_100k": null
+  },
+  {
+   "code": "6515",
+   "funded_fraction": 0.9955614268772551,
+   "funded_ge_1": 2998635,
+   "n_total": 3012004,
+   "purchases_1_100k": null
+  },
+  {
+   "code": "1560",
+   "funded_fraction": 0.9093540153747987,
+   "funded_ge_1": 119711,
+   "n_total": 131644,
+   "purchases_1_100k": null
+  },
+  {
+   "code": "4220",
+   "funded_fraction": 0.9940378861191755,
+   "funded_ge_1": 89365,
+   "n_total": 89901,
+   "purchases_1_100k": null
+  },
+  {
+   "code": "M159",
+   "funded_fraction": 1.0,
+   "funded_ge_1": 2,
+   "n_total": 2,
+   "purchases_1_100k": 0
+  },
+  {
+   "code": "1901",
+   "funded_fraction": 1.0,
+   "funded_ge_1": 9,
+   "n_total": 9,
+   "purchases_1_100k": 0
+  },
+  {
+   "code": "AR62",
+   "funded_fraction": 1.0,
+   "funded_ge_1": 1,
+   "n_total": 1,
+   "purchases_1_100k": 0
+  },
+  {
+   "code": "8915",
+   "funded_fraction": 0.9998934980120322,
+   "funded_ge_1": 4806910,
+   "n_total": 4807422,
+   "purchases_1_100k": null
+  },
+  {
+   "code": "Y181",
+   "funded_fraction": 1.0,
+   "funded_ge_1": 2,
+   "n_total": 2,
+   "purchases_1_100k": 0
+  },
+  {
+   "code": "8905",
+   "funded_fraction": 0.9986889172679576,
+   "funded_ge_1": 440279,
+   "n_total": 440857,
+   "purchases_1_100k": null
+  },
+  {
+   "code": "AR33",
+   "funded_fraction": 1.0,
+   "funded_ge_1": 3,
+   "n_total": 3,
+   "purchases_1_100k": 0
+  },
+  {
+   "code": "6640",
+   "funded_fraction": 0.9982318344252531,
+   "funded_ge_1": 1448091,
+   "n_total": 1450656,
+   "purchases_1_100k": null
+  }
+ ],
+ "panel_d_exploratory": [
+  {
+   "agency": "Department of Defense",
+   "agency_code": "DOD",
+   "agency_share_of_cell": 30065615657.92,
+   "censored_funded": false,
+   "code": "DA01",
+   "funded_fraction": 0.9948862330498736,
+   "funded_ge_1": 17315,
+   "n_total": 17404,
+   "purchases_1_100k": 11575,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of Veterans Affairs",
+   "agency_code": "VA",
+   "agency_share_of_cell": 15765945232.4,
+   "censored_funded": false,
+   "code": "DA01",
+   "funded_fraction": 0.9875904860392968,
+   "funded_ge_1": 955,
+   "n_total": 967,
+   "purchases_1_100k": 342,
+   "unused_filters": []
+  },
+  {
+   "agency": "General Services Administration",
+   "agency_code": "GSA",
+   "agency_share_of_cell": 12929609251.5,
+   "censored_funded": false,
+   "code": "DA01",
+   "funded_fraction": 0.9071332436069987,
+   "funded_ge_1": 674,
+   "n_total": 743,
+   "purchases_1_100k": 246,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of Health and Human Services",
+   "agency_code": "HHS",
+   "agency_share_of_cell": 10426467082.91,
+   "censored_funded": false,
+   "code": "DA01",
+   "funded_fraction": 0.9901896664486592,
+   "funded_ge_1": 1514,
+   "n_total": 1529,
+   "purchases_1_100k": 383,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of Homeland Security",
+   "agency_code": "DHS",
+   "agency_share_of_cell": 7078293030.29,
+   "censored_funded": false,
+   "code": "DA01",
+   "funded_fraction": 0.9891411648568608,
+   "funded_ge_1": 1002,
+   "n_total": 1013,
+   "purchases_1_100k": 201,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of Defense",
+   "agency_code": "DOD",
+   "agency_share_of_cell": 12609981361.38,
+   "censored_funded": false,
+   "code": "DA10",
+   "funded_fraction": 0.9888055646125421,
+   "funded_ge_1": 9098,
+   "n_total": 9201,
+   "purchases_1_100k": 5766,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of Veterans Affairs",
+   "agency_code": "VA",
+   "agency_share_of_cell": 6396798757.18,
+   "censored_funded": false,
+   "code": "DA10",
+   "funded_fraction": 0.9825697211155379,
+   "funded_ge_1": 1973,
+   "n_total": 2008,
+   "purchases_1_100k": 944,
+   "unused_filters": []
+  },
+  {
+   "agency": "General Services Administration",
+   "agency_code": "GSA",
+   "agency_share_of_cell": 2586370682.65,
+   "censored_funded": false,
+   "code": "DA10",
+   "funded_fraction": 0.9923780487804879,
+   "funded_ge_1": 651,
+   "n_total": 656,
+   "purchases_1_100k": 236,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of Homeland Security",
+   "agency_code": "DHS",
+   "agency_share_of_cell": 1840070679.57,
+   "censored_funded": false,
+   "code": "DA10",
+   "funded_fraction": 0.9854620976116303,
+   "funded_ge_1": 949,
+   "n_total": 963,
+   "purchases_1_100k": 401,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of Agriculture",
+   "agency_code": "USDA",
+   "agency_share_of_cell": 1655788351.53,
+   "censored_funded": false,
+   "code": "DA10",
+   "funded_fraction": 0.9770642201834863,
+   "funded_ge_1": 426,
+   "n_total": 436,
+   "purchases_1_100k": 212,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of Defense",
+   "agency_code": "DOD",
+   "agency_share_of_cell": 15298500038.31,
+   "censored_funded": false,
+   "code": "7A21",
+   "funded_fraction": 0.9907982987076722,
+   "funded_ge_1": 24227,
+   "n_total": 24452,
+   "purchases_1_100k": 15760,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of Homeland Security",
+   "agency_code": "DHS",
+   "agency_share_of_cell": 2714723592.83,
+   "censored_funded": false,
+   "code": "7A21",
+   "funded_fraction": 0.9927750410509031,
+   "funded_ge_1": 3023,
+   "n_total": 3045,
+   "purchases_1_100k": 1481,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of Health and Human Services",
+   "agency_code": "HHS",
+   "agency_share_of_cell": 1751573906.26,
+   "censored_funded": false,
+   "code": "7A21",
+   "funded_fraction": 0.9856923863055698,
+   "funded_ge_1": 3858,
+   "n_total": 3914,
+   "purchases_1_100k": 2575,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of State",
+   "agency_code": "DOS",
+   "agency_share_of_cell": 1246115181.87,
+   "censored_funded": false,
+   "code": "7A21",
+   "funded_fraction": 0.9704545454545455,
+   "funded_ge_1": 2989,
+   "n_total": 3080,
+   "purchases_1_100k": 2533,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of Veterans Affairs",
+   "agency_code": "VA",
+   "agency_share_of_cell": 1040119106.76,
+   "censored_funded": false,
+   "code": "7A21",
+   "funded_fraction": 0.9846596356663471,
+   "funded_ge_1": 1027,
+   "n_total": 1043,
+   "purchases_1_100k": 588,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of Defense",
+   "agency_code": "DOD",
+   "agency_share_of_cell": 11099465840.81,
+   "censored_funded": false,
+   "code": "7030",
+   "funded_fraction": 0.9826439409686136,
+   "funded_ge_1": 9455,
+   "n_total": 9622,
+   "purchases_1_100k": 5606,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of Homeland Security",
+   "agency_code": "DHS",
+   "agency_share_of_cell": 2636375835.57,
+   "censored_funded": false,
+   "code": "7030",
+   "funded_fraction": 0.9838308457711443,
+   "funded_ge_1": 2373,
+   "n_total": 2412,
+   "purchases_1_100k": 1302,
+   "unused_filters": []
+  },
+  {
+   "agency": "Social Security Administration",
+   "agency_code": "SSA",
+   "agency_share_of_cell": 1899286081.34,
+   "censored_funded": false,
+   "code": "7030",
+   "funded_fraction": 0.9966887417218543,
+   "funded_ge_1": 301,
+   "n_total": 302,
+   "purchases_1_100k": 121,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of the Treasury",
+   "agency_code": "TREAS",
+   "agency_share_of_cell": 1524523944.26,
+   "censored_funded": false,
+   "code": "7030",
+   "funded_fraction": 0.984267453294002,
+   "funded_ge_1": 1001,
+   "n_total": 1017,
+   "purchases_1_100k": 459,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of State",
+   "agency_code": "DOS",
+   "agency_share_of_cell": 1259455932.45,
+   "censored_funded": false,
+   "code": "7030",
+   "funded_fraction": 0.9451510333863276,
+   "funded_ge_1": 1189,
+   "n_total": 1258,
+   "purchases_1_100k": 943,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of Defense",
+   "agency_code": "DOD",
+   "agency_share_of_cell": 13073158338.27,
+   "censored_funded": false,
+   "code": "D304",
+   "funded_fraction": 0.9668753787113714,
+   "funded_ge_1": 23935,
+   "n_total": 24755,
+   "purchases_1_100k": 17630,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of Veterans Affairs",
+   "agency_code": "VA",
+   "agency_share_of_cell": 2990060865.96,
+   "censored_funded": false,
+   "code": "D304",
+   "funded_fraction": 0.9448123620309051,
+   "funded_ge_1": 428,
+   "n_total": 453,
+   "purchases_1_100k": 216,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of the Treasury",
+   "agency_code": "TREAS",
+   "agency_share_of_cell": 1090095692.06,
+   "censored_funded": false,
+   "code": "D304",
+   "funded_fraction": 0.9712643678160919,
+   "funded_ge_1": 169,
+   "n_total": 174,
+   "purchases_1_100k": 59,
+   "unused_filters": []
+  },
+  {
+   "agency": "Social Security Administration",
+   "agency_code": "SSA",
+   "agency_share_of_cell": 610419304.45,
+   "censored_funded": false,
+   "code": "D304",
+   "funded_fraction": 1.0,
+   "funded_ge_1": 5,
+   "n_total": 5,
+   "purchases_1_100k": 3,
+   "unused_filters": []
+  },
+  {
+   "agency": "Department of Homeland Security",
+   "agency_code": "DHS",
+   "agency_share_of_cell": 447265891.05,
+   "censored_funded": false,
+   "code": "D304",
+   "funded_fraction": 0.9478827361563518,
+   "funded_ge_1": 291,
+   "n_total": 307,
+   "purchases_1_100k": 159,
+   "unused_filters": []
+  }
+ ]
+}

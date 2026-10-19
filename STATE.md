@@ -1,12 +1,23 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-18
+last-verified: 2026-10-19
 -->
 
 # Verified state
 
-Date: 2026-10-18, Asia/Kolkata. Phase: B. **Six service closures in a row
+Date: 2026-10-19, Asia/Kolkata. Phase: B. **E197 settles E196's open question:
+98.6% of federal award records carry money, and the five IT/software cells hold
+98,640 funded purchases ≤ $100k.** Median funded fraction across all 100 PSC
+codes is 0.9862 (mean 0.9790); the lowest is 0.9071. G4 survives (12 of 25
+codes clear 10,000 funded awards ≤ $100k). G5 fails as declared — only 13/25
+codes comparable (12 censored by the 500-page ceiling), but all 13 agree
+exactly. G6 fails — funded awards describe the specific task, not the code
+category; not a confound. The $203.32B headline survives with *purchase*
+intact. Next: recipient read (`spending_by_category/recipient/`) names who is
+paid. [Full entry.](EXPERIMENTS/197-funded-award-count/RESULT.md)
+
+**Six service closures in a row
 measured a mixture and reported it as one number, and E177 has separated the two
 halves: the assistant reaches 0.8667 where a question carries the fact its own
 resolution depends on and 0.4000 where it does not** (F136, D118). The superseded
@@ -34,36 +45,7 @@ Repaired there in T-0029 and `doctor` now reports such a dependency before it fa
 
 This is the reload point. A cold session reads this file, then whatever it links.
 
-**The `preflight` line (E134-E141) reached four exact agreements and found
-nothing to ship.** E134 pointed it at a real `lm-evaluation-harness` v0.4.4 run
-on `piqa`/`openbookqa`/`wikitext`: G1, G2, G3 passed, G4 failed, and the row
-recomputation R1 -- which never reads the verdict column and, for `wikitext`,
-*executes the run's own shipped `process_results` source* -- agreed with every
-printed rate, 7 metrics on the local run and 200 rows of a third-party
-published run. **The declared failure condition fired as written: Arm A was
-clean, so `preflight` had no observed external value and the release question
-closed (D111).** E135-E138 then reached four exact AGREEs on published HELM
-lite v1.0.0 cells -- single-letter MMLU, a free-text macro-aggregate over seven
-subject runs, the same cell on a second model, and the `gsm` parser at
-1000/1000 row agreement -- with the weighting rule and a parser bug
-(`\37` != `37`) exercised and fixed against the harness's own per-instance
-verdicts, never against the published number.
-
-**E141 then asked the only question that could produce a finding -- does the
-harness's own scorer mark correct answers wrong? -- and the gate fired.** Over
-2,874 rows: 6 scored-wrong rows are mathematically equal to the reference, all
-six confirmed by hand, pooled 0.377%; the primary cell 1.626% against a
-declared 2.0% **and** 5 rows, so both conditions failed. Effect: +1.17 points
-on one cell from unreduced fractions and thousands separators, **0** rows on
-1,000 GSM rows in both models. **A check that fires on 0.4% of rows, in cases
-one normalization rule catches, is not worth shipping as a gate -- that is now
-a measurement, and `preflight` stays unreleased.** The same run found the
-repository's own `doc lint` red on 467 violations while this file recorded it
-green (F127, D112).
-
-**E143 (2026-10-15), Cross Validated: 300/300 question-shaped, 0 execution-shaped, the answerable class (143 = 47.7%) served at 20/20 = 1.0000.** The program-shaped residue is a property of venue type: Stack Overflow had 2%, statistics venues have 0%. Full entry in [`STATE-next-actions.md`](STATE-next-actions.md).
-
-**E142 completed (2026-10-15): the CI-failure harvest is declined and `preflight` is shelved rather than extended.** E140's G5 run as a cheap pre-fetch survey over a 14-category superset returned **0 of 14** against a kill at ≥7 — no kill — but found that the top marketplace hit for "fix failed build" disclaims auto-fix in its own FAQ, the only asserted auto-repair is a narrow Java sub-case with 3 installs, and the structural prediction P1 gained no sourced support, so the protocol's second declared kill condition fired and the ~7,500-request harvest was declined. **E140 stays declared and unrun; nothing about the CI domain is closed.** [`RESULT-ARM-A.md`](EXPERIMENTS/142-cicd-incumbent-probe/RESULT-ARM-A.md).
+**E197 completed (2026-10-19): E196's "purchases" are purchases — 98.6% of federal award records carry money.** The funded count (ascending bisection, all 100 PSC codes) gives median `funded_fraction` = **0.9862**; 12 of 25 E196 G4 codes clear ≥10,000 funded awards ≤ $100k. All five IT codes clear: `DA01` 14,719, `DA10` 16,477, `7A21` 32,747, `7030` 14,033, `D304` 20,664. The descending arm agrees exactly on all 13 comparable codes (12 censored at 500-page ceiling — G5 fails on censoring, not disagreement). G6: no vocabulary confound (ratios 0.33–1.62, all below 2×). **F143's concern is resolved: an award count IS a purchase count here.** Next: the recipient read (`spending_by_category/recipient/`) names who is paid. Full entry in [`E197`](EXPERIMENTS/197-funded-award-count/RESULT.md).
 
 **Identifier collision, recorded not renumbered (2026-10-15).** `E140` names
 two different things, both committed on 2026-10-14: the **CI/CD pipeline

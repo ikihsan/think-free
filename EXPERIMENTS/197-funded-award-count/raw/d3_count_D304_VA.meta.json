@@ -1,0 +1,37 @@
+{
+ "request": {
+  "filters": {
+   "agencies": [
+    {
+     "name": "Department of Veterans Affairs",
+     "tier": "toptier",
+     "type": "awarding"
+    }
+   ],
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "D304"
+   ],
+   "time_period": [
+    {
+     "end_date": "2025-12-31",
+     "start_date": "2020-01-01"
+    }
+   ]
+  },
+  "limit": 1,
+  "page": 1,
+  "subawards": false
+ },
+ "response": {
+  "bytes": 441,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_award_count/",
+  "sha256": "1a2e0e0eab4b335bdbecb1fa361ee89124e73127b2177303b13379ce5ff01f71",
+  "status": 200
+ }
+}

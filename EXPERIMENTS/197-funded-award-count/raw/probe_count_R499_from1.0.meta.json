@@ -1,0 +1,33 @@
+{
+ "request": {
+  "filters": {
+   "award_amounts": {
+    "from": 1.0
+   },
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "R499"
+   ],
+   "time_period": [
+    {
+     "end_date": "2025-12-31",
+     "start_date": "2020-01-01"
+    }
+   ]
+  },
+  "limit": 1,
+  "page": 1,
+  "subawards": false
+ },
+ "response": {
+  "bytes": 98,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_award_count/",
+  "sha256": "e4edfc32db3db7279f2243178030bb333a919e84caff6c16406a5eac2db6b824",
+  "status": 400
+ }
+}

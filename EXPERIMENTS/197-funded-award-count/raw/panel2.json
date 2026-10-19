@@ -1,0 +1,637 @@
+{
+ "C1_nonexistent_code": [
+  {
+   "ok": true,
+   "page": 1,
+   "rows": 0,
+   "status": 200,
+   "unused_filters": []
+  },
+  {
+   "ok": true,
+   "page": 500,
+   "rows": 0,
+   "status": 200,
+   "unused_filters": []
+  }
+ ],
+ "C2_malformed_code": [
+  {
+   "ok": true,
+   "page": 1,
+   "rows": 0,
+   "status": 422,
+   "unused_filters": []
+  }
+ ],
+ "C3_sort_direction": [
+  {
+   "ok": true,
+   "order": "asc",
+   "pages": [
+    {
+     "max": 0.0,
+     "min": -105898.16,
+     "page": 1,
+     "pairs": [],
+     "rows": 100,
+     "status": 200
+    },
+    {
+     "max": 171.76,
+     "min": 99.92,
+     "page": 5,
+     "pairs": [
+      {
+       "ok": true,
+       "vs_page": 1
+      }
+     ],
+     "rows": 100,
+     "status": 200
+    },
+    {
+     "max": 7373.76,
+     "min": 7082.21,
+     "page": 50,
+     "pairs": [
+      {
+       "ok": true,
+       "vs_page": 5
+      }
+     ],
+     "rows": 100,
+     "status": 200
+    },
+    {
+     "max": 99999.0,
+     "min": 97292.6,
+     "page": 150,
+     "pairs": [
+      {
+       "ok": true,
+       "vs_page": 50
+      }
+     ],
+     "rows": 100,
+     "status": 200
+    }
+   ],
+   "rule": "ascending: max(p) <= min(p+1)"
+  },
+  {
+   "ok": true,
+   "order": "desc",
+   "pages": [
+    {
+     "max": 2120623737.86,
+     "min": 115521340.2,
+     "page": 1,
+     "pairs": [],
+     "rows": 100,
+     "status": 200
+    },
+    {
+     "max": 40133471.62,
+     "min": 34112494.99,
+     "page": 5,
+     "pairs": [
+      {
+       "ok": true,
+       "vs_page": 1
+      }
+     ],
+     "rows": 100,
+     "status": 200
+    },
+    {
+     "max": 1895629.2,
+     "min": 1814398.0,
+     "page": 50,
+     "pairs": [
+      {
+       "ok": true,
+       "vs_page": 5
+      }
+     ],
+     "rows": 100,
+     "status": 200
+    },
+    {
+     "max": 50111.73,
+     "min": 49208.69,
+     "page": 150,
+     "pairs": [
+      {
+       "ok": true,
+       "vs_page": 50
+      }
+     ],
+     "rows": 100,
+     "status": 200
+    }
+   ],
+   "rule": "descending: max(p) >= min(p+1)"
+  }
+ ],
+ "C6_population_matches_e196": {
+  "e196": [
+   "1560",
+   "1680",
+   "2320",
+   "2840",
+   "4220",
+   "5342",
+   "6505",
+   "6515",
+   "6640",
+   "7030",
+   "7A21",
+   "8905",
+   "8915",
+   "9130",
+   "D304",
+   "DA01",
+   "DA10",
+   "Q999",
+   "R425",
+   "R499",
+   "R706",
+   "S206",
+   "S216",
+   "U099",
+   "Z2AA"
+  ],
+  "e196_count": 25,
+  "here": [
+   "1560",
+   "1680",
+   "2320",
+   "2840",
+   "4220",
+   "5342",
+   "6505",
+   "6515",
+   "6640",
+   "7030",
+   "7A21",
+   "8905",
+   "8915",
+   "9130",
+   "D304",
+   "DA01",
+   "DA10",
+   "Q999",
+   "R425",
+   "R499",
+   "R706",
+   "S206",
+   "S216",
+   "U099",
+   "Z2AA"
+  ],
+  "match": true
+ },
+ "experiment": "E197",
+ "panel": "B",
+ "panel_b": [
+  {
+   "code": "1560",
+   "desc": {
+    "blocks_before_turn": 500,
+    "censored": true,
+    "lower_bound": 50000,
+    "n": null,
+    "order": "desc",
+    "reason": "the turning page lies past the 500-page ceiling, so this is a lower bound on the count",
+    "t": 1,
+    "turn_page": null,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": null,
+   "n_total": 131644,
+   "unused_filters": []
+  },
+  {
+   "code": "1680",
+   "desc": {
+    "blocks_before_turn": 500,
+    "censored": true,
+    "lower_bound": 50000,
+    "n": null,
+    "order": "desc",
+    "reason": "the turning page lies past the 500-page ceiling, so this is a lower bound on the count",
+    "t": 1,
+    "turn_page": null,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": null,
+   "n_total": 71312,
+   "unused_filters": []
+  },
+  {
+   "code": "2320",
+   "desc": {
+    "blocks_before_turn": 231,
+    "censored": false,
+    "lower_bound": 23180,
+    "n": 23180,
+    "order": "desc",
+    "reason": "exact count over the turning block",
+    "rows_in_turn_block": 80,
+    "t": 1,
+    "turn_page": 232,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": 23180,
+   "n_total": 23594,
+   "unused_filters": []
+  },
+  {
+   "code": "2840",
+   "desc": {
+    "blocks_before_turn": 147,
+    "censored": false,
+    "lower_bound": 14751,
+    "n": 14751,
+    "order": "desc",
+    "reason": "exact count over the turning block",
+    "rows_in_turn_block": 51,
+    "t": 1,
+    "turn_page": 148,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": 14751,
+   "n_total": 15756,
+   "unused_filters": []
+  },
+  {
+   "code": "4220",
+   "desc": {
+    "blocks_before_turn": 500,
+    "censored": true,
+    "lower_bound": 50000,
+    "n": null,
+    "order": "desc",
+    "reason": "the turning page lies past the 500-page ceiling, so this is a lower bound on the count",
+    "t": 1,
+    "turn_page": null,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": null,
+   "n_total": 89901,
+   "unused_filters": []
+  },
+  {
+   "code": "5342",
+   "desc": {
+    "blocks_before_turn": 331,
+    "censored": false,
+    "lower_bound": 33164,
+    "n": 33164,
+    "order": "desc",
+    "reason": "exact count over the turning block",
+    "rows_in_turn_block": 64,
+    "t": 1,
+    "turn_page": 332,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": 33164,
+   "n_total": 35044,
+   "unused_filters": []
+  },
+  {
+   "code": "6505",
+   "desc": {
+    "blocks_before_turn": 500,
+    "censored": true,
+    "lower_bound": 50000,
+    "n": null,
+    "order": "desc",
+    "reason": "the turning page lies past the 500-page ceiling, so this is a lower bound on the count",
+    "t": 1,
+    "turn_page": null,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": null,
+   "n_total": 3078116,
+   "unused_filters": []
+  },
+  {
+   "code": "6515",
+   "desc": {
+    "blocks_before_turn": 500,
+    "censored": true,
+    "lower_bound": 50000,
+    "n": null,
+    "order": "desc",
+    "reason": "the turning page lies past the 500-page ceiling, so this is a lower bound on the count",
+    "t": 1,
+    "turn_page": null,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": null,
+   "n_total": 3012004,
+   "unused_filters": []
+  },
+  {
+   "code": "6640",
+   "desc": {
+    "blocks_before_turn": 500,
+    "censored": true,
+    "lower_bound": 50000,
+    "n": null,
+    "order": "desc",
+    "reason": "the turning page lies past the 500-page ceiling, so this is a lower bound on the count",
+    "t": 1,
+    "turn_page": null,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": null,
+   "n_total": 1450656,
+   "unused_filters": []
+  },
+  {
+   "code": "7030",
+   "desc": {
+    "blocks_before_turn": 238,
+    "censored": false,
+    "lower_bound": 23898,
+    "n": 23898,
+    "order": "desc",
+    "reason": "exact count over the turning block",
+    "rows_in_turn_block": 98,
+    "t": 1,
+    "turn_page": 239,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": 23898,
+   "n_total": 24492,
+   "unused_filters": []
+  },
+  {
+   "code": "7A21",
+   "desc": {
+    "blocks_before_turn": 500,
+    "censored": true,
+    "lower_bound": 50000,
+    "n": null,
+    "order": "desc",
+    "reason": "the turning page lies past the 500-page ceiling, so this is a lower bound on the count",
+    "t": 1,
+    "turn_page": null,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": null,
+   "n_total": 50777,
+   "unused_filters": []
+  },
+  {
+   "code": "8905",
+   "desc": {
+    "blocks_before_turn": 500,
+    "censored": true,
+    "lower_bound": 50000,
+    "n": null,
+    "order": "desc",
+    "reason": "the turning page lies past the 500-page ceiling, so this is a lower bound on the count",
+    "t": 1,
+    "turn_page": null,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": null,
+   "n_total": 440857,
+   "unused_filters": []
+  },
+  {
+   "code": "8915",
+   "desc": {
+    "blocks_before_turn": 500,
+    "censored": true,
+    "lower_bound": 50000,
+    "n": null,
+    "order": "desc",
+    "reason": "the turning page lies past the 500-page ceiling, so this is a lower bound on the count",
+    "t": 1,
+    "turn_page": null,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": null,
+   "n_total": 4807422,
+   "unused_filters": []
+  },
+  {
+   "code": "9130",
+   "desc": {
+    "blocks_before_turn": 500,
+    "censored": true,
+    "lower_bound": 50000,
+    "n": null,
+    "order": "desc",
+    "reason": "the turning page lies past the 500-page ceiling, so this is a lower bound on the count",
+    "t": 1,
+    "turn_page": null,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": null,
+   "n_total": 1247029,
+   "unused_filters": []
+  },
+  {
+   "code": "D304",
+   "desc": {
+    "blocks_before_turn": 281,
+    "censored": false,
+    "lower_bound": 28104,
+    "n": 28104,
+    "order": "desc",
+    "reason": "exact count over the turning block",
+    "rows_in_turn_block": 4,
+    "t": 1,
+    "turn_page": 282,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": 28104,
+   "n_total": 29072,
+   "unused_filters": []
+  },
+  {
+   "code": "DA01",
+   "desc": {
+    "blocks_before_turn": 271,
+    "censored": false,
+    "lower_bound": 27143,
+    "n": 27143,
+    "order": "desc",
+    "reason": "exact count over the turning block",
+    "rows_in_turn_block": 43,
+    "t": 1,
+    "turn_page": 272,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": 27143,
+   "n_total": 27424,
+   "unused_filters": []
+  },
+  {
+   "code": "DA10",
+   "desc": {
+    "blocks_before_turn": 263,
+    "censored": false,
+    "lower_bound": 26312,
+    "n": 26312,
+    "order": "desc",
+    "reason": "exact count over the turning block",
+    "rows_in_turn_block": 12,
+    "t": 1,
+    "turn_page": 264,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": 26312,
+   "n_total": 26656,
+   "unused_filters": []
+  },
+  {
+   "code": "Q999",
+   "desc": {
+    "blocks_before_turn": 184,
+    "censored": false,
+    "lower_bound": 18457,
+    "n": 18457,
+    "order": "desc",
+    "reason": "exact count over the turning block",
+    "rows_in_turn_block": 57,
+    "t": 1,
+    "turn_page": 185,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": 18457,
+   "n_total": 19441,
+   "unused_filters": []
+  },
+  {
+   "code": "R425",
+   "desc": {
+    "blocks_before_turn": 416,
+    "censored": false,
+    "lower_bound": 41652,
+    "n": 41652,
+    "order": "desc",
+    "reason": "exact count over the turning block",
+    "rows_in_turn_block": 52,
+    "t": 1,
+    "turn_page": 417,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": 41652,
+   "n_total": 42346,
+   "unused_filters": []
+  },
+  {
+   "code": "R499",
+   "desc": {
+    "blocks_before_turn": 500,
+    "censored": true,
+    "lower_bound": 50000,
+    "n": null,
+    "order": "desc",
+    "reason": "the turning page lies past the 500-page ceiling, so this is a lower bound on the count",
+    "t": 1,
+    "turn_page": null,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": null,
+   "n_total": 302317,
+   "unused_filters": []
+  },
+  {
+   "code": "R706",
+   "desc": {
+    "blocks_before_turn": 500,
+    "censored": true,
+    "lower_bound": 50000,
+    "n": null,
+    "order": "desc",
+    "reason": "the turning page lies past the 500-page ceiling, so this is a lower bound on the count",
+    "t": 1,
+    "turn_page": null,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": null,
+   "n_total": 238191,
+   "unused_filters": []
+  },
+  {
+   "code": "S206",
+   "desc": {
+    "blocks_before_turn": 193,
+    "censored": false,
+    "lower_bound": 19360,
+    "n": 19360,
+    "order": "desc",
+    "reason": "exact count over the turning block",
+    "rows_in_turn_block": 60,
+    "t": 1,
+    "turn_page": 194,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": 19360,
+   "n_total": 21452,
+   "unused_filters": []
+  },
+  {
+   "code": "S216",
+   "desc": {
+    "blocks_before_turn": 155,
+    "censored": false,
+    "lower_bound": 15579,
+    "n": 15579,
+    "order": "desc",
+    "reason": "exact count over the turning block",
+    "rows_in_turn_block": 79,
+    "t": 1,
+    "turn_page": 156,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": 15579,
+   "n_total": 15920,
+   "unused_filters": []
+  },
+  {
+   "code": "U099",
+   "desc": {
+    "blocks_before_turn": 138,
+    "censored": false,
+    "lower_bound": 13841,
+    "n": 13841,
+    "order": "desc",
+    "reason": "exact count over the turning block",
+    "rows_in_turn_block": 41,
+    "t": 1,
+    "turn_page": 139,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": 13841,
+   "n_total": 14321,
+   "unused_filters": []
+  },
+  {
+   "code": "Z2AA",
+   "desc": {
+    "blocks_before_turn": 228,
+    "censored": false,
+    "lower_bound": 22857,
+    "n": 22857,
+    "order": "desc",
+    "reason": "exact count over the turning block",
+    "rows_in_turn_block": 57,
+    "t": 1,
+    "turn_page": 229,
+    "unused_filters": []
+   },
+   "desc_funded_ge_1": 22857,
+   "n_total": 23147,
+   "unused_filters": []
+  }
+ ]
+}
