@@ -254,6 +254,22 @@ alternatives are already dense — F096's "already served" arriving through a di
 instrument. **D122: the money axis runs through spend (USAspending, Comtrade, both
 `200`) rather than price.**
 
+**E195 (2026-10-19): the spend axis D122 named is open, and a keyword's money
+belongs to a different industry than the word.** `api.usaspending.gov` answers
+from this host with no key and returns award rows carrying numeric amounts and
+free-text descriptions: `laundry` **5 rows / $112,839** (all *"LAUNDRY SERVICE FOR
+THEIR OCS TRAINING"*), `knitting` **5 rows / $3,582,719** — all *"FIRE RESISTANT
+ENVIRONMENTAL ENSEMBLES AND OTHER CAMOUFLAGE COMBAT UNIFORM CLOTHING ITEMS"*,
+*"RRB ARMY PHYSICAL FITNESS UNIFORMS"*. **G2 PASS, G3 FAIL:** the ratio is 0.031,
+the opposite of the declared expectation, because the word bought military
+clothing. **A spend screen that sums amounts measures procurement vocabulary, not
+markets** — E194's `TurboScan`-matched-*receipt* defect in a second source, and a
+rule now earned: read the descriptions, report the industry distribution beside
+every total. Two of the probe's own defects are declared, the second being **a G3
+that passed on 0 ÷ 0**, a gate satisfied by an empty denominator; **G4** now
+requires both arms to return an amount before G3 is evaluable. Full entry in
+[`E195`](EXPERIMENTS/195-spend-axis-probe/RESULT.md).
+
 ## Dashboard
 
 See [`STATE-dashboard.md`](STATE-dashboard.md).

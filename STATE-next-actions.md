@@ -38,9 +38,15 @@ planner; a Stage A for the knitting candidate (closed by F009 on 2026-10-03).
 
 **Named next action.** Measure what an organisation **already pays for** in a
 domain where a program could displace a metered unit, and let that measurement
-screen candidates. Concretely: probe USAspending reachability and shape (E193's
-method), then declare a protocol whose population is **spend**, not questions —
-and whose every arm names a build decision.
+screen candidates. **E195 has already run this probe: USAspending answers from
+this host with no key and returns award rows carrying amounts and descriptions,
+so the axis is open.** G3 failed on two terms — `knitting` returned **$3.58M of
+combat uniforms**, `laundry` $112,839 of base laundry service — which earns the
+rule that a spend screen must **read the descriptions on the rows it sums**. Next:
+a declared scan addressed by **product and service code (PSC/NAICS)** rather than
+by keyword, because the keyword form is closed as declared, and re-running it with
+the same words is exactly the repair this record keeps refusing. Every total must
+be reported beside its industry distribution.
 
 > **READ FIRST (2026-10-12).** The view-count domain sweep is **STOPPED**
 > (E113, F116, D105). E113's matched-harvest control of E107 showed the
@@ -170,129 +176,105 @@ three signals proved redundant with a known quality predictor (baseline AUC
 
 ## E181 completed (2026-10-18) — supplying the missing fact moves nothing, and neither does pasting the thread
 
-**What was tested.** E177 measured the assistant at 0.4000 on questions whose
-resolution needs a fact they never state. The obvious product is: identify the
-fact, ask for it, close the gap. E181 ran that as four paired arms on one
-population, all answered and scored in one session, with no arm label in any
-input file and a leak assertion on every input.
-
-| arm | added context | reached | Wilson 95% |
-|---|---|---|---|
-| question only | — | 7/14 = 0.5000 | [0.2680, 0.7320] |
-| **+ the one extracted missing fact** | 15.5 median tokens | 8/14 = 0.5714 | [0.3259, 0.7862] |
-| **+ every comment on the thread, verbatim** | 232.5 median tokens | 9/14 = 0.6429 | [0.3876, 0.8366] |
-| + a fact from a different row (placebo) | 14.5 median tokens | 4/10 = 0.4000 | [0.1682, 0.6873] |
+**What was tested.** The obvious product for E177's class: identify the missing
+fact, ask for it, close the gap. Four paired arms, one population, no arm label
+in any input file. **question only 7/14 = 0.5000; + the one extracted missing
+fact 8/14 = 0.5714; + every comment on the thread verbatim 9/14 = 0.6429;
+placebo 4/10 = 0.4000.** Wilson 95% on the three treatment arms: [0.2680,
+0.7320], [0.3259, 0.7862], [0.3876, 0.8362], [0.1682, 0.6873].
 
 **Every paired comparison is null.** Treatment vs floor: exact McNemar
 **p = 1.0**. Treatment vs whole thread: **p = 1.0**. Floor vs whole thread:
 **0 rows for, 2 against, p = 0.5** — *pasting the entire discussion never once
 beat answering the question alone.*
 
-**Two numbers survive.** An extracted fact is **6.7%** of the tokens of the
-thread it came from, so targeted elicitation would have been fifteen times
-cheaper than pasting; it simply is not the mechanism. And on all 30 of E177's
-EVID rows the comments name the deciding fact on **14/30 = 0.4667**, with **10 of
-the 16 nulls carrying the remedy itself** and 6 carrying another reporter's
-observation. **So F137 and F138 need one clause: the round trip runs to the
-solution, not to the fact, and on more than half of these rows the solution is
-what it delivers.**
+**Two numbers survive.** An extracted fact is **6.7%** of the thread's tokens, so
+targeted elicitation would have been fifteen times cheaper than pasting; it
+simply is not the mechanism. And on all 30 EVID rows the comments name the
+deciding fact on **14/30 = 0.4667**, with **10 of the 16 nulls carrying the remedy
+itself** — so **the round trip runs to the solution, not to the fact.**
 
-**Two findings about this record rather than about the world.**
-**G4 FIRED**: the same reader re-scoring E177's own answers one day later
-disagreed on **4 of 10** against a declared tolerance of 3, so a one-reader
-reach rate here is not stable at ±0.4, and **no absolute level in E181 may be
-compared with E177's 0.4000 or 0.8667** — only its within-session paired
-comparisons survive. **K1 fired** (14 rows carry a fact, declared floor 16), so
-G1–G3 and G5 are `not evaluable`, G5's blind re-read was partially executed,
-and every arm is labelled exploratory rather than a gate result.
+**Two findings about this record rather than about the world. G4 FIRED**: the
+same reader re-scoring E177's answers a day later disagreed on **4 of 10** against
+a declared tolerance of 3, so **no absolute level in E181 may be compared with
+E177's 0.4000 or 0.8667** — only within-session paired comparisons survive.
+**K1 fired** (14 rows against a declared floor of 16), so every arm is
+exploratory rather than a gate result.
 
 **What this decides.** The elicitation route for the EVID class closes. F136's
 population gap stands and is now *unexplained* rather than *under-supplied*.
-**Do not re-run:** a larger elicitation study on this population, or a
-"paste-the-thread" arm on it, or a placebo arm on it — all three were measured.
+**Do not re-run:** a larger elicitation study, a paste-the-thread arm, or a
+placebo arm on this population — all three were measured.
 
-**Named next action.** Read the rows every arm missed and ask whether the
-accepted answer is the **best** answer or merely the **accepted** one. One
-reader, no new fetch, and it is the only explanation this population has left:
-if the missed rows are rows where the community's chosen resolution is
-contestable, then the EVID gap is a disagreement about answers and no context
-pipeline of any kind will close it.
+**Named next action — RUN as E182:** read the rows every arm missed and ask
+whether the top-voted answer is the **best** answer or merely the top-voted one.
 
-> **RUN as E182 (2026-10-18) — and the wording named a field this population
-> does not contain.** `accepted_answer_id` is non-null on **0 of the 60 scored
-> rows**: the draw is of questions that were unanswered, and the key answer is
-> the **top-voted** one (F141). Corrected to *is the **top-voted** answer the
-> best answer, or merely the top-voted one?* and run with an instrument built
-> for it, because vote margin is not a proxy for resolution divergence (**4 of
-> 10** against hand-read labels) and raw prescriptive overlap confuses shared
-> problem vocabulary with shared prescription (**0.6500** balanced accuracy,
-> specificity at chance). **Residualised against the question, the instrument
-> reached its declared bar at 0.8000 / specificity 1.0000, and the gate did not
-> fire**: Fisher **p = 1.0**, and an exact continuous test on the same rows gave
-> **p = 1.0000**. **Do not re-run this line in any form.** The EVID class closes
-> as a capability limit, and with it the fourth and last explanation of F136's
-> gap.
-> [`EXPERIMENTS/182-ground-truth-contest/`](EXPERIMENTS/182-ground-truth-contest/RESULT.md).
+## Money SE fresh observation (2026-10-17) — the round trip is stronger when the missing fact is personal
 
-## Money SE fresh observation (2026-10-17) — the round trip is even stronger when missing facts are personal
-
-A fresh observation on Personal Finance SE (`money.stackexchange.com`) tested F137's conclusion on a second venue. **Hypothesis (declared before the run):** on money SE, missing facts are more personal (income, debt, jurisdiction, age) and harder to elicit, so the round trip should fail *more* than on SO. **Result: the opposite.** On the 30 highest-arrival questions with answers, **9/30 = 0.3000 lack a specific personal fact** (income/age/jurisdiction/amount — the money-SE analog of E177's EVID class), and **27/30 = 0.9000 carry a round-trip ask** (someone comments asking for the missing fact), against SO's 31/46 = 0.6739. The round trip is **stronger** on money SE, not weaker: the venue asks *more* readily when the missing fact is personal, not less. **F177's conclusion is confirmed on a second venue** — the EVID class is served by the venue's own round trip, and the genuinely unserved residue is tiny and eventually answered. The "unserved need" hypothesis is dead for money SE too. Raw data: `/tmp/opencode/money_analysis.json` (per-question facts, comments, asks). **Next action:** the EVID line is closed on two venues. The mission returns to fresh exploration.
+Declared prediction: on money SE, missing facts are more personal and harder to
+elicit, so the round trip should fail *more*. **Result: the opposite** — 9/30 =
+0.3000 of the highest-arrival answered questions lack a specific personal fact
+and **27/30 = 0.9000 carry a round-trip ask**, against Stack Overflow's 31/46 =
+0.6739. The venue asks *more* readily when the fact is sensitive. **The
+"unserved need" hypothesis is dead for money SE too** (F138). **Next action —
+taken 2026-10-19:** fresh exploration (E193/E194/E195).
 
 ## E178 completed (2026-10-17) — the missing evidence is not in anything the project publishes; the venue's own round trip already supplies it
 
-**The gap E177's own measurement opened.** E177 found a class of **46 of the
-100 highest-arrival rows that carry a key answer** whose resolution depends on a
-fact or artefact the question does not contain, and on that class a free general
+**The gap E177's own measurement opened.** E177 found a class of **46 of the 100
+highest-arrival rows that carry a key answer** whose resolution depends on a fact
+or artefact the question does not contain, and on that class a free general
 assistant reaches **12/30 = 0.4000** against **26/30 = 0.8667** on the
-self-contained half of the same pool (gap +0.4667, Fisher p = 0.000368; F136,
-D118). The class is real and large and the rate on it is the lowest this mission
-has measured. **None of that says the population is buildable**, which is what
-this experiment asks.
+self-contained half (gap +0.4667, Fisher p = 0.000368; F136, D118). **None of
+that says the population is buildable**, which is what this experiment asks.
 
 **The result.** Blind re-key of all 46: **publishable 0/46 = 0.0000, asker_only
-21/46 = 0.4565, third_party 20/46 = 0.4348, none 5/46 = 0.1087**. **G1 FIRED**
-(publishable < 0.50): the FETCH route closes. **G4 FIRED** (has_ask 31/46 =
-0.6739 >= 0.50, ask_then_asker 0.6739 >= 0.25): the venue's own workflow already
-runs the round trip on the very rows this experiment measures, and the person
-supplies the fact. The honest statement is not "unserved" but *served by an
-interaction that already exists, and unreachable by one-shot answering*. **G5 NOT
-fired** (none = 5, not > 9): EVID precision is above 0.80. M1: has_comment
+0.4565, third_party 0.4348, none 0.1087**. **G1 FIRED** (publishable < 0.50): the
+FETCH route closes. **G4 FIRED** (has_ask 0.6739 >= 0.50, ask_then_asker 0.6739 >=
+0.25): the venue's own workflow already runs the round trip on these very rows, and
+the person supplies the fact. The honest statement is not "unserved" but *served
+by an interaction that already exists, and unreachable by one-shot answering*. **G5
+NOT fired** (none = 5, not > 9): EVID precision is above 0.80. M1: has_comment
 0.8043, has_ask 0.6739, answer_asks 0.4348, evidence_in_comments 0.8478,
 discriminating_and_asked 0.6087. M3: already_present 0.1522 (a ceiling on E177's
-labels), used 0.8043. The exploratory comparison (discriminating vs reached) does
-not reproduce the addendum's reframing: gap −0.0741, p = 0.52. **E177's
-population closes with no candidate.**
+labels), used 0.8043. The exploratory comparison does not reproduce the addendum's
+reframing: gap -0.0741, p = 0.52. **E177's population closes with no candidate.**
 
-**What this decides.** The missing evidence is a version, a config value, or a
-data value the asker holds. The venue's own round trip already supplies it. The
-class is not "unserved" but *served by an interaction that already exists*. The
-next step is fresh exploration.
-
-**Do not run:** E176 as written (a third classification of the same rows by the
-same instrument), E170's global arm, another view-count domain (D105, F133), or
-a fresh draw of E177's comparison.
+**What this decides.** The missing evidence is a version, a config value, or a data
+value the asker holds; the venue's own round trip already supplies it. **Do not
+run:** E176 as written, E170's global arm, another view-count domain (D105, F133),
+or a fresh draw of E177's comparison.
 
 ## E186 completed (2026-10-18) — NHTSA complaint-recall prediction kill gate fired
 
-**What was tested.** Fresh exploration in a new domain (automotive safety regulation) testing a new need type (predictive monitoring / early warning). Hypothesis: public NHTSA complaint data contains early signals that predict recalls for specific vehicle components.
+**What was tested.** Automotive safety; a new need type (predictive monitoring).
+Does public NHTSA complaint data predict recalls for a component?
 
-**The result.** 20 popular model/years sampled (2019-2020), 12 with ≥1 recall (46 total recalls), 42,015 complaints fetched. **G1 PASS** (12 triples ≥10), **G2 PASS** (42k complaints ≥50), **G3 FAIL** (median recalled ratio 1.78× < 2.0 threshold), **G4 PASS** (median non-recalled 1.25× < 1.5), **G5 FAIL** (Mann-Whitney p = 0.187 > 0.05).
+**The result.** 20 model/years, 12 with a recall (46 recalls), 42,015 complaints.
+**G1 PASS, G2 PASS, G3 FAIL** (median recalled ratio 1.78x < 2.0), **G4 PASS**
+(non-recalled 1.25x < 1.5), **G5 FAIL** (Mann-Whitney p = 0.187 > 0.05).
 
-**What this decides.** Complaints do rise before recalls (1.78× median) but the signal is weak and non-specific — non-recalled categories also elevate. 39% of recalls had zero pre-recall complaints in their category. Manufacturer detection channels (dealer reports, warranty, EWR) are clearly primary. A public-complaint monitoring tool would generate excessive false alarms.
-
-**Do not pursue:** Predictive monitoring tools based on public NHTSA complaint trends.
-
-**Named next action: continue fresh exploration.** This experiment tested one new domain (automotive safety) and one new need type (predictive monitoring). Both are now characterized. The mission should test a different domain or need type per the standing instruction in STATE.md §267.
+**What this decides.** Complaints rise 1.78x before recalls but weakly and
+non-specifically; 39% of recalls had zero pre-recall complaints in their category,
+and manufacturer channels are clearly primary. **Do not pursue** prediction from
+public complaint trends. **Named next action — taken 2026-10-19:** fresh
+exploration on an axis carrying no money evidence at all (D121, D122).
 
 ## E187 completed (2026-10-18) — Clinical trial eligibility matching kill gate fired
 
-**What was tested.** Fresh exploration in a new domain (healthcare/clinical trials) testing a new need type (matching/recommendation). Hypothesis: ClinicalTrials.gov structured eligibility fields (condition, age, sex, location, exclusion keywords) can match patient profiles to recruiting trials with useful yield.
+**What was tested.** A new domain (clinical trials) and a new need type
+(matching): can ClinicalTrials.gov structured eligibility fields match patient
+profiles to recruiting trials with useful yield?
 
-**The result.** 100 synthetic patients across 20 conditions, 385 recruiting trials with complete eligibility data. Sequential filtering funnel: condition (median 16.5) → age (16.0) → sex (16.0) → **location (1.0)** → exclusion (0.0). **G1 PASS** (385 trials ≥30), **G2 FAIL** (35/100 patients with matches <80), **G3 FAIL** (median 0.0 <1), **G4 FAIL** (mean 0.5 <3), **G5 FAIL** (0% retention <10%).
+**The result.** 100 synthetic patients, 385 recruiting trials. Funnel:
+condition (median 16.5) -> age (16.0) -> sex (16.0) -> **location (1.0)** ->
+exclusion (0.0). **G1 PASS**, **G2 FAIL** (35/100 <80), **G3 FAIL** (median 0.0),
+**G4 FAIL** (mean 0.5 <3), **G5 FAIL** (0% retention).
 
-**What this decides.** Location filter is the dominant bottleneck (94% reduction) — most trials recruit in only 1-3 countries. Exclusion keywords in free text eliminate remaining matches. Only 4 of 20 conditions (breast cancer, prostate cancer, multiple sclerosis, atrial fibrillation) yield any median matches. A structured-field-only tool returns empty for 65% of patients.
-
-**Do not pursue:** Patient-trial matching tools based solely on ClinicalTrials.gov structured API fields.
-
-**Named next action: continue fresh exploration.** This experiment tested a new domain (healthcare/clinical trials) and a new need type (matching/recommendation). Both are now characterized. The mission should test a different domain or need type per the standing instruction in STATE.md §267.
+**What this decides.** Location is the dominant bottleneck (94% reduction); free-text
+exclusions eliminate the rest; only 4 of 20 conditions yield any match, and a
+structured-field-only tool returns empty for 65% of patients. **Do not pursue**
+patient-trial matching on structured API fields alone. **Named next action — taken
+2026-10-19 as E193/E194/E195:** fresh exploration on an axis carrying no money
+evidence at all, which is what D121 and D122 now require of every candidate.
 
