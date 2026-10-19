@@ -1,0 +1,56 @@
+{
+  "experiment": "E193",
+  "host_python": "3.8.10",
+  "panel": 2,
+  "rows": [
+    {
+      "bytes": 50478,
+      "content_type": "text/javascript; charset=utf-8",
+      "excerpt": "   {  \"resultCount\":5,  \"results\": [ { \"screenshotUrls\":[ \"https://is1-ssl.mzstatic.com/image/thumb/PurpleSource122/v4/41/30/52/413052db-e1fe-2fb5-209a-72c292afdc98/9a1f336f-def2-46f6-a4e3-b36196fec08",
+      "method": "GET",
+      "role": "demand",
+      "sha256": "044e49f7c86eb6f5a5696480b4f4ada68fe611a5179f071d3d6035509305b2f8",
+      "source": "itunes",
+      "status": 200,
+      "url": "https://itunes.apple.com/search?term=knitting+repair&entity=software&limit=5&country=us",
+      "verdict": "capture"
+    },
+    {
+      "bytes": 1306,
+      "content_type": "application/json; charset=UTF-8",
+      "excerpt": "{   \"error\": {     \"code\": 429,     \"message\": \"Quota exceeded for quota metric 'Queries' and limit 'Queries per day' of service 'books.googleapis.com' for consumer 'project_number:624717413613'.\",   ",
+      "method": "GET",
+      "role": "demand",
+      "sha256": "a6938f12e4a95c68ad8dfe823112af5d5c7f93cdaf47274d3fd7c022c62a6241",
+      "source": "gbooks",
+      "status": 429,
+      "url": "https://www.googleapis.com/books/v1/volumes?q=knitting+repair&maxResults=5",
+      "verdict": "error"
+    },
+    {
+      "bytes": 966,
+      "content_type": "application/json; charset=utf-8",
+      "excerpt": "{\"elapsedTime\":\"0.25 secs\",\"count\":1,\"data\":[{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20230101,\"refYear\":2023,\"refMonth\":52,\"period\":\"2023\",\"reporterCode\":842,\"reporterISO\":null,\"reporterDesc\":nul",
+      "method": "GET",
+      "role": "demand",
+      "sha256": "0cd73d5123543ec2ca67b549559b331d4f81dbb4679ad8de08314a421a1baf4e",
+      "source": "comtrade",
+      "status": 200,
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2023&reporterCode=842&cmdCode=590110&flowCode=M&partnerCode=0",
+      "verdict": "capture"
+    },
+    {
+      "bytes": 341,
+      "content_type": "application/json; charset=utf-8",
+      "excerpt": "{\"errors\":[{\"message\":\"Cannot query field \\\"totalTransactions\\\" on type \\\"AccountStats\\\".\",\"locations\":[{\"line\":1,\"column\":46}],\"extensions\":{\"code\":\"GRAPHQL_VALIDATION_FAILED\"}},{\"message\":\"Cannot qu",
+      "method": "POST",
+      "role": "demand",
+      "sha256": "fe118a495cd2350011877d6e45de201144521f9264413532cd909ed9a04e0caf",
+      "source": "opencollective",
+      "status": 400,
+      "url": "https://api.opencollective.com/graphql",
+      "verdict": "error"
+    }
+  ],
+  "user_agent": "think-free-research/0.1 (+repository evidence probe)"
+}
