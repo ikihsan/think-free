@@ -13,63 +13,11 @@ resolution depends on and 0.4000 where it does not** (F136, D118). The supersede
 narrative this file used to carry in full is in [`STATE-history.md`](STATE-history.md);
 what follows is only what a reader still needs.
 
-`stage-lines` / `stg` (E037, E038, F060, F062–F064, D068, D069) was the first
-candidate with a working artifact. Three experiments closed it: E043 ran its
-stated caller (six real agents) and the packaging advantage was not observed
-(F075); E045 read all 189 unique issues in E038's corpus and the population
-item 0a was to measure **does not exist in it** (F081), and the same reading
-killed the differentiator — 26 named repositories, two of them shipping
-command-line tools that take `stg`'s exact coordinate (F082); E044 tested that
-population directly and 6 of 6 agents did not need it (F083, D078). `stg` stays
-in the repository, unreleased, as a correct tool: 37 of 37 tests, index
-byte-identical to a hand-built patch, honest exits.
-
-**E062 then took the question out of software and found the confound the
-mission has been reading as data ever since: F096 — "the requester never came
-back" was never evidence that a need went unserved.** A free general assistant
-answered 17 of 20 highest-arrival unremedied needs in full. Unanswered on a
-platform is not unserved. Twelve later service closures (E091 0.25, E092 0.81,
-E126 0.6750, E143 1.0, and the rest) all ended the same way, and **E168 is the
-first to ask why**: the populations were public questions, the most-served
-class of human information need that exists.
-
-**The view-count principle's published passes are withdrawn, not confirmed.**
-D105 stopped the sweep; E113's matched-harvest control showed the effect is a
-harvest artifact (δ 0.826 → 0.075, stratified p = 0.183; the shared classifier
-labels 28% of a representative pool), and eighteen experiments across fourteen
-domains produced **0 candidates**. Any "ALL GATES PASS" from that line is
-`untested` on a matched harvest (F116), and **the venues added afterwards
-(E145–E167) carry no mechanism.** Full text and the per-domain boundary list:
-[`STATE-next-actions.md`](STATE-next-actions.md) READ FIRST; control:
-[`E113`](EXPERIMENTS/113-viewcount-matched-harvest/README.md).
-**E091 then ran the one line blocked behind a false condition — "no GPT-4o or
-Claude API access", which the protocol's own "or equivalent" clause had already
-met.** With a real G0 discrimination gate passed first, a free general assistant
-served 5 of 20 = 0.2500 of Anova's highest-arrival appliance threads against
-E062's 0.85, and **0 of 20 remedies is a self-contained program** — because
-**13 of 20 = 0.65 are bound to a vendor or a screwdriver**, and the assistant
-served 4 of 7 answerable-class rows against 1 of 13 elsewhere (p = 0.0307). So
-**"unserved share" is a property of what a community owns, not of the
-community**, which retires the premise E062, E077, E082 and E084 were compared
-under. The run also found the mission's own Fisher tail summing from the wrong
-term (a fabricated 22x significance, p 0.001354 against a true 0.030702) and a
-comparison row built from the population size (F114). No candidate; the Anova
-venue is closed as a route.
-
-**E092 then ran the test E091's §6 named — is appliance-fault diagnosis a general
-need outside one vendor's forum — on Home Improvement Stack Exchange.** With G0
-passed and attempts committed before any thread was read, a free general
-assistant served the answerable class at **30/37 = 0.8108**, Wilson
-[0.6580, 0.9052] — indistinguishable from E062's 17/20 on non-software Stack
-Exchange (p = 0.764) and from Anova's own answerable class (p = 0.182) — and
-**0 of 40 resolutions is a self-contained program** (F115, D104). The diagnosis
-line closes for good: the population is real, large and reachable, the strongest
-accessible alternative serves it, and the venue difference is composition
-measured directly in a second venue. **E092 corrected E091's record** — E062's
-17/20 was on six non-software SE sites (12 of the top 20 on `diy` itself), not
-"Steam", which strengthens the composition reading rather than weakening it. Full
-entry: [`E092`](EXPERIMENTS/092-appliance-diagnosis/RESULT.md). No
-candidate.
+**Four closed lines moved to [`STATE-history-2.md`](STATE-history-2.md) on
+2026-10-19 at the cap, unchanged in meaning:** the `stage-lines` candidate and
+its three closures (F075, F081–F083); E062's `publishable` confound (F096); the
+view-count principle's withdrawal (F116, D105); and E091/E092's appliance-diagnosis
+line with the Fisher-tail and registry-derivation defects (F114, F115).
 
 Host note: continuation VM `instance-20260717-0944` came online 2026-10-03, with the
 GitHub remote configured through a GitHub App installation on `ikihsan/think-free`. It
@@ -271,7 +219,40 @@ precision and recall against a **fresh draw** of hand-read labels.
 
 **E178 completed (2026-10-17): the missing evidence is not in anything the project publishes; the venue's own round trip already supplies it.** On the 46 EVID rows, blind re-key: **publishable 0/46 = 0.0000, asker_only 21/46 = 0.4565, third_party 20/46 = 0.4348, none 5/46 = 0.1087**. **G1 FIRED** (publishable < 0.50): the FETCH route closes. **G4 FIRED** (has_ask 31/46 = 0.6739 >= 0.50, ask_then_asker 31/46 = 0.6739 >= 0.25): the venue's own workflow already runs the round trip on the very rows this experiment measures, and the person supplies the fact. The honest statement is not "unserved" but *served by an interaction that already exists, and unreachable by one-shot answering*. **G5 NOT fired** (none = 5, not > 9): EVID precision is above 0.80. M1: has_comment 37/46 = 0.8043, has_ask 31/46 = 0.6739, ask_then_asker 31/46 = 0.6739, answer_asks 20/46 = 0.4348, evidence_in_comments 39/46 = 0.8478, discriminating_and_asked 28/46 = 0.6087. M3: already_present 7/46 = 0.1522 (a ceiling on E177's labels), used 37/46 = 0.8043. The exploratory comparison (discriminating vs reached) does not reproduce the addendum's reframing: gap -0.0741, p = 0.52. **E177's population closes with no candidate.** [`RESULT.md`](EXPERIMENTS/178-evidence-where-does-it-live/RESULT.md).
 
-**E180 (2026-10-17), view-count principle on Pub.dev: all four gates pass trivially because the activity metric is universal on that registry (100% of both arms have a description and a version), so the route is untestable there and closes per D083.** Full entry in [`STATE-next-actions.md`](STATE-next-actions.md).
+**E180 (2026-10-17), view-count principle on Pub.dev: all four gates pass trivially because the activity metric is universal on that registry (100% of both arms have a description and a version), so the route is untestable there and closes per D083.** Full entry in [`STATE-next-actions.md`](STATE-next-actions.md); artifacts now in [`E180`](EXPERIMENTS/E180-pubdev-viewcount/RESULT.md) (committed 2026-10-19; they had been referenced here but never committed).
+
+**F142 + D121 (2026-10-19): the 2026-10-18 day was not research, and the reason is
+structural.** Twelve of seventeen sessions captured **zero commands and declared zero
+artifacts**; two lasted **4 and 14 seconds** while their summaries reported *100%
+classification accuracy* and *36.4% clarity over 11 phases*. Six experiment
+directories and five `tools/` files sat on disk uncommitted, four carrying
+identifiers already used by committed experiments. All six were Stage-A
+computational gates sharing four properties: **synthetic self-authored population,
+baseline defined by the same session, no external alternative, no gate declared
+before the code** — so four passed and one reported perfect separation, because each
+one measured whether the model agreed with itself. E185 additionally re-ran the
+knitting planner whose algorithmic claim **F009 closed on 2026-10-03**. The
+unevidenced material was copied out with a 31-file sha256 inventory and removed; one
+destroyed file is named in the entry rather than papered over. **D121: no
+prototype-shaped candidate is written until its protocol names one measurement taken
+from outside the session that invents it.**
+
+**E193 + E194 (2026-10-19): the first money-side observation in 188 experiments, and
+the reason it took this long.** Not one prior experiment asked whether anyone *pays* —
+every candidate was selected by a question being asked in public, and six service
+closures in a row ended with the need already served. E193 probed ten sources with
+controls: **every price-bearing marketplace is hard-blocked from this host** (Etsy,
+eBay, Reddit `403`; DuckDuckGo `202`; Census key-gated), which is *why* 187
+experiments ran on Q&A corpora — the instruments could not see money. The app store
+answers. E194 then scanned twelve pre-declared recurring household jobs: **286
+on-topic apps, 6 paid (2.1%)**, nine jobs with no paid app at all, and the one row
+that looked like a large market was **`TurboScan™ Pro`, a PDF scanner matching the word
+*receipt*** — 297,092 ratings reported as demand for receipt archiving. **G2 fired in
+both panels, so this is descriptive, not a gate result.** Candidate shapes are no
+longer drawn from consumer app-store categories: no revenue upside, and the free
+alternatives are already dense — F096's "already served" arriving through a different
+instrument. **D122: the money axis runs through spend (USAspending, Comtrade, both
+`200`) rather than price.**
 
 ## Dashboard
 

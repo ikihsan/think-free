@@ -1,0 +1,141 @@
+==============================================================================
+[seq 2] 2026-10-18T22:51:18+00:00
+$ python3 EXPERIMENTS/186-nhtsa-complaint-recall-prediction/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+E186: NHTSA Complaint-Recall Predictive Relationship
+============================================================
+
+Fetching 2020 Toyota Camry...
+  Recalls: 2, Complaints: 1375
+
+Fetching 2019 Toyota Corolla...
+  Recalls: 0, Complaints: 1025
+
+Fetching 2019 Honda Accord...
+  Recalls: 2, Complaints: 3480
+
+Fetching 2020 Honda CR-V...
+  Recalls: 3, Complaints: 1775
+
+Fetching 2019 Ford F-150...
+  Recalls: 4, Complaints: 305
+
+Fetching 2020 Ford Escape...
+  Recalls: 10, Complaints: 7695
+
+Fetching 2019 Chevrolet Silverado...
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/186-nhtsa-complaint-recall-prediction/run.py", line 433, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/186-nhtsa-complaint-recall-prediction/run.py", line 334, in main
+    recalls = fetch_recalls(make, model, year)
+  File "EXPERIMENTS/186-nhtsa-complaint-recall-prediction/run.py", line 134, in fetch_recalls
+    data = fetch_json(url)
+  File "EXPERIMENTS/186-nhtsa-complaint-recall-prediction/run.py", line 115, in fetch_json
+    with urllib.request.urlopen(req, timeout=30) as response:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 93107  redactions: none
+==============================================================================
+[seq 3] 2026-10-18T22:55:31+00:00
+$ python3 EXPERIMENTS/186-nhtsa-complaint-recall-prediction/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+E186: NHTSA Complaint-Recall Predictive Relationship
+============================================================
+
+Fetching 2020 Toyota Camry...
+  Recalls: 2, Complaints: 1375
+
+Fetching 2019 Toyota Corolla...
+  Recalls: 0, Complaints: 1025
+
+Fetching 2019 Honda Accord...
+  Recalls: 2, Complaints: 3480
+
+Fetching 2020 Honda CR-V...
+  Recalls: 3, Complaints: 1775
+
+Fetching 2019 Ford F-150...
+  Recalls: 4, Complaints: 305
+
+Fetching 2020 Ford Escape...
+  Recalls: 10, Complaints: 7695
+
+Fetching 2019 Chevrolet Silverado...
+  Error fetching recalls: HTTP Error 400: Bad Request
+  Error fetching complaints page 0: HTTP Error 400: Bad Request
+  Recalls: 0, Complaints: 0
+
+Fetching 2020 Chevrolet Equinox...
+  Recalls: 2, Complaints: 1570
+
+Fetching 2019 Nissan Altima...
+  Recalls: 3, Complaints: 1165
+
+Fetching 2020 Nissan Rogue...
+  Recalls: 0, Complaints: 760
+
+Fetching 2019 Hyundai Elantra...
+  Recalls: 0, Complaints: 1255
+
+Fetching 2020 Hyundai Tucson...
+  Recalls: 1, Complaints: 890
+
+Fetching 2019 Kia Optima...
+  Recalls: 0, Complaints: 1060
+
+Fetching 2020 Kia Sportage...
+  Recalls: 1, Complaints: 810
+
+Fetching 2019 Subaru Outback...
+  Recalls: 0, Complaints: 5180
+
+Fetching 2020 Subaru Forester...
+  Error fetching recalls: HTTP Error 400: Bad Request
+  Recalls: 0, Complaints: 3010
+
+Fetching 2019 Mazda CX-5...
+  Recalls: 1, Complaints: 1350
+
+Fetching 2019 Jeep Grand Cherokee...
+  Recalls: 6, Complaints: 1850
+
+Fetching 2019 Ram 1500...
+  Recalls: 11, Complaints: 7460
+
+Fetching 2019 GMC Sierra...
+  Error fetching recalls: HTTP Error 400: Bad Request
+  Error fetching complaints page 0: HTTP Error 400: Bad Request
+  Recalls: 0, Complaints: 0
+
+============================================================
+GATE EVALUATION
+============================================================
+G1 (sample adequacy ≥10): 12 triples with recalls -> PASS
+G2 (complaint volume ≥50): 42015 total complaints -> PASS
+G3 (median recalled ratio ≥2.0): 1.78 -> FAIL
+G4 (median non-recalled ratio <1.5): 1.25 -> PASS
+G5 (Mann-Whitney p<0.05): U=1624.0, p=0.1867 -> FAIL
+
+OVERALL: KILL GATE FIRED
+
+Results saved to results.json
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 227123  redactions: none

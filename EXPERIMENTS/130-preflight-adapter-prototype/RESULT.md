@@ -7,7 +7,7 @@ last-verified: 2026-10-13
 # E130 RESULT — preflight adapter prototype on a third harness format
 
 Run 2026-10-13 on `instance-20260717-0947`, Python 3.8.10. Protocol:
-`PROTOCOL.md` (named in this sentence on 2026-10-13 and never written), raw output [`results.json`](results.json),
+`PROTOCOL.md` (named in this sentence on 2026-10-13 and never written), raw output `results.json` (not in the repository),
 adapter in [`adapters/`](adapters), test harness in [`test-harness/`](test-harness),
 tests `test_adapter.py` (named here and never written) — adapter prototype for a third harness
 format, measuring the adapter tax and the preflight concordance check.

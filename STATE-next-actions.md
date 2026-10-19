@@ -1,10 +1,46 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-18
+last-verified: 2026-10-19
 -->
 
 # Next actions
+
+## E193/E194 + F142/D121/D122 completed (2026-10-19) — the money axis is opened, and the prototype-shaped gate is retired as a screen
+
+**What was tested.** Two things, in this order. E193 probed ten candidate sources
+for a *price* signal with four controls; E194 then scanned twelve pre-declared
+recurring household jobs against the one that answered. F142 recovered why the
+record had no money evidence at all: **twelve of seventeen sessions on 2026-10-18
+captured zero commands and declared zero artifacts**, six of them planner-shaped
+Stage-A gates of which four reported a pass, none touching a price or a user.
+
+**The result.** Every price-bearing marketplace is **hard-blocked from this
+host** — Etsy, eBay and Reddit `403`, DuckDuckGo `202`, Census key-gated — while
+the iTunes Search API answers. E194's twelve jobs hold **286 on-topic apps and 6
+paid (2.1%)**; nine jobs have no paid app at all; the single high-demand paid row
+is **`TurboScan™ Pro`, a PDF scanner matching the word *receipt***. G2 fired in both
+panels (the API returns ~4 junk free apps for a nonsense term), so this is
+**descriptive, not a gate result**. F142's structural finding is the harder one:
+a gate whose population, baseline and oracle share an author **cannot fire on
+anything outside the model**.
+
+**What this decides.** **D121** retires the Stage-A computational gate as a
+candidate screen: no prototype-shaped candidate is written until its protocol
+names one measurement taken from outside the session that invents it.
+**D122** routes the money axis through **spend** — USAspending contract amounts
+and Comtrade trade values, both `200` from this host, neither ever used here —
+because price is not reachable.
+
+**Do not run:** another consumer app-store scan as a prevalence estimate (fifteen
+hand-declared terms bound nothing outside themselves); a re-run of any 2026-10-18
+planner; a Stage A for the knitting candidate (closed by F009 on 2026-10-03).
+
+**Named next action.** Measure what an organisation **already pays for** in a
+domain where a program could displace a metered unit, and let that measurement
+screen candidates. Concretely: probe USAspending reachability and shape (E193's
+method), then declare a protocol whose population is **spend**, not questions —
+and whose every arm names a build decision.
 
 > **READ FIRST (2026-10-12).** The view-count domain sweep is **STOPPED**
 > (E113, F116, D105). E113's matched-harvest control of E107 showed the
@@ -16,61 +52,52 @@ last-verified: 2026-10-18
 
 ## E183/E184 completed (2026-10-18) — the ground-truth-quality axis closes; the three signals are redundant
 
-**What was tested.** The named next action asked whether vote margin,
-corroboration count, and residualised prescriptive divergence carry
-answer-quality information that a known Stack Overflow quality predictor does
-not already carry. Prior-art-check (E183) found answer quality prediction is an
-established research area (6+ papers, 2015-2022) using text + metadata
-features; vote-based features are standard; the specific formulations are not
-clearly present but are close to existing features. E184 then tested whether
-they add predictive power beyond a standard baseline.
+**What was tested.** Whether vote margin, corroboration count, and residualised
+prescriptive divergence carry answer-quality information a known Stack Overflow
+quality predictor does not already carry. E183's prior-art check found the area
+established (6+ papers, 2015-2022, text + metadata features; vote-based features
+standard). E184 tested whether the three signals add predictive power.
 
-**The result.** 200 questions, 7,822 answer rows, logistic regression, 5-fold
-CV. **Baseline AUC 0.9986, treatment AUC 0.9986, delta -0.0000.** The
-baseline includes `answer_score` — the defining characteristic of the top-voted
-answer — so the model trivially identifies it. The three signals add **zero**
-predictive power. A known quality predictor already captures the information
-these signals provide.
+**The result.** 200 questions, 7,822 answer rows, logistic regression, 5-fold CV.
+**Baseline AUC 0.9986, treatment AUC 0.9986, delta −0.0000.** The baseline
+includes `answer_score` — the defining characteristic of the top-voted answer —
+so the model trivially identifies it, and the three signals add **zero**
+predictive power.
 
-**What this decides.** The ground-truth-quality axis, as a product that uses
-these three signals to filter Stack Overflow answers for training/evaluation
-corpora, **does not clear the screen**. The signals are redundant with standard
-features.
+**What this decides.** The ground-truth-quality axis, as a product filtering
+Stack Overflow answers for training/evaluation corpora, **does not clear the
+screen**.
 
-**Do not run:** another variant of this experiment with the same label (is
-top-voted). The result is definitive.
+**Do not run:** another variant with the same label (is top-voted); the result
+is definitive. **Named next action — taken 2026-10-19 as E193/E194:** return to
+fresh exploration, on an axis with no money evidence in it at all.
 
-**Named next action: return to fresh exploration.** The "unserved need"
-hypothesis is dead for every population this mission can measure. The
-ground-truth-quality axis is closed. The mission should test a completely
-different kind of need or pivot to a different invention axis entirely.
-
-[`E184`](EXPERIMENTS/183-prior-art-ground-truth-quality/RESULT.md).
+[`RESULT.md`](EXPERIMENTS/183-prior-art-ground-truth-quality/RESULT.md).
 
 ## E185 completed (2026-10-18) — knitting repair planner Stage A: local planner beats full-row rollback
 
-**What was tested.** Research C proposed a knitting repair planner that computes minimal-intervention fixes for localized errors. E185 implements the Stage A falsification experiment: 8 synthetic fixtures (4×4–7×7 knit/purl grids with single errors — dropped stitch, twisted stitch, wrong cable crossing, yarnover, wrong stitch type). Arms: A0 full-row rollback (release all loops in affected row), A1 local planner (prioritized BFS over release/reknit operations with boundary/yarn-order/pull-direction constraints), A2 exhaustive search (oracle, F1–F2 only).
+**What was tested.** 8 synthetic fixtures (4×4–7×7 grids, single errors). A0
+full-row rollback, A1 local planner (prioritized BFS with boundary and
+yarn-order constraints), A2 exhaustive oracle on F1–F2.
 
-**The result.** G1 (completeness): A1 finds valid repair on **8/8** fixtures. G2 (improvement): A1 releases fewer loops than A0 on **6/8** = 0.75 (kill threshold 0.625). G3 (optimality): On F1, F2 (small enough for exhaustive search), A1 matches A2 exactly (gap 0). **Kill gate NOT FIRED.**
+**The result.** G1 **8/8** repairs found; G2 A1 releases fewer loops than A0 on
+**6/8 = 0.75** (kill threshold 0.625); G3 A1 matches A2 exactly on F1–F2. **Kill
+gate NOT FIRED.** Per-fixture A0→A1 releases: dropped stitch 1→**0**, twisted
+2→**1**, wrong cable cross 5→**1**, extra yarnover 3→**1**, wrong stitch type
+3→**1**, two dropped 0→0, mis-crossed cable 5→**1**, edge dropped 0→0. The two
+non-improving fixtures are dropped-stitch cases where both approaches simply
+re-knit missing loops.
 
-| Fixture | Error | A0 releases | A1 releases | Improvement |
-|---------|-------|-------------|-------------|-------------|
-| F1 | dropped stitch | 1 | **0** | ✅ |
-| F2 | twisted stitch | 2 | **1** | ✅ |
-| F3 | wrong cable cross | 5 | **1** | ✅ |
-| F4 | extra yarnover | 3 | **1** | ✅ |
-| F5 | wrong stitch type | 3 | **1** | ✅ |
-| F6 | two dropped | 0 | 0 | ❌ (both minimal) |
-| F7 | mis-crossed cable | 5 | **1** | ✅ |
-| F8 | edge dropped | 0 | 0 | ❌ (both minimal) |
-
-The two non-improving fixtures are dropped-stitch cases where both approaches simply re-knit missing loops — no releases needed by either.
-
-**What this decides.** The computational mechanism for local knitting repair planning survives Stage A. A graph-based planner with constrained search finds strictly better interventions than full-row rollback for localized errors (twisted, crossed, extra, wrong-type). Dropped stitches are already minimal for both methods. Physical validation (Stage B per Research C) remains entirely untested.
-
-**Do not claim:** physical feasibility, user input burden, adoption, or product viability. This is a computational result only.
-
-**Named next action:** If pursuing knitting repair, run Stage B physical falsification (6–10 swatches, experienced knitter, measure correctness/time/distortion vs. tutorial/rollback). Otherwise, this axis joins the evidence base; mission continues fresh exploration per STATE.md §267.
+**What this decides — superseded 2026-10-19; read F142 first.** The mechanism
+survives its own Stage A, and that is all it establishes. The candidate's
+algorithmic-advantage claim was closed by **F009 on 2026-10-03**
+(`RESEARCH/PRIOR-ART-KNITTING.md`): minimum-cost repair under constraints,
+decomposed over independent regions and emitted as an ordered sequence, is
+published work from 2007 to 2026. The fixture population, the A0 baseline and
+the A2 oracle were all written by the same session, so the gate measures
+self-consistency (D121). **Do not run its Stage B**, and do not read "kill gate
+NOT FIRED" as a live candidate. Physical feasibility, user input burden,
+adoption and product viability were never tested.
 
 [`RESULT.md`](EXPERIMENTS/185-knitting-repair-planner-stage-a/RESULT.md).
 
@@ -103,20 +130,18 @@ and the gate ran on it. Neither the bar nor τ moved after a result was seen.
 
 | arm | rows | `divergent` |
 |---|---|---|
-| EVID missed | 9 | 4 |
-| EVID hit | 6 | 3 |
-| SELF hit (reference) | 12 | 4 |
+| EVID missed / EVID hit / SELF hit | 9 / 6 / 12 | 4 / 3 / 4 |
 
 **G2′ did not fire: Fisher exact p = 1.0, OR 0.80, diff −0.0556.** A post-hoc
 exact permutation test on the continuous statistic, same instrument, same rows:
 median residual overlap **0.054 against 0.083**, **U exactly at `n₁n₂/2`,
 p = 1.0000** — not a near-null.
 
-**Coverage is the real ceiling and is stated rather than smoothed.** Of 60 rows,
-16 are `single_answer`, 2 have a runner-up scoring ≤ 0, and 5 more are conceptual
-rows with no prescription to compare. **37 of 60 rows are labelled and 21 of the
-30 EVID rows**; the remaining 9 EVID rows are `untested`. The accepted detector
-has sensitivity 0.6000, and the bound it implies straddles both arms.
+**Coverage is the real ceiling.** Of 60 rows, 16 are `single_answer`, 2 have a
+runner-up scoring ≤ 0, and 5 are conceptual rows with no prescription to
+compare: **37 of 60 rows are labelled, 21 of the 30 EVID rows**; the other 9 are
+`untested`. The accepted detector has sensitivity 0.6000, and the bound it
+implies straddles both arms.
 
 **What this decides.** With E178 (`publishable` 0/46, `has_ask` 0.6739), F137 /
 F138 (0.9000 on money SE) and E181 (every paired arm null), **all four
@@ -137,18 +162,11 @@ That weakens hit and missed rows alike, so it explains **none** of the SELF/EVID
 **Do not run:** any re-test of resolution divergence on this population; vote
 margin as a disagreement proxy; a third overlap instrument.
 
-**Named next action: `prior-art-check` the ground-truth-quality axis before
-writing product code.** A public corpus consumed as training and evaluation data
-has **48.3%** of its high-arrival resolutions contested or unattested, and a
-three-signal filter — vote margin, corroboration count, residualised prescriptive
-divergence — now has a **calibrated** discrimination estimate (0.8000 /
-specificity 1.0000) and a **measured** prevalence. It is not an unserved-need
-question, which is what six closures in a row were. Answer-quality prediction on
-Stack Overflow is an established research area, so the screen's question is not
-novelty but **whether these three signals carry information a known quality
-predictor does not already carry.** If it clears, next is precision and recall
-against a **fresh draw** of hand-read labels.
-[`EXPERIMENTS/182-ground-truth-contest/RESULT.md`](EXPERIMENTS/182-ground-truth-contest/RESULT.md).
+**Named next action — closed 2026-10-18, do not run:** `prior-art-check` the
+ground-truth-quality axis before writing product code. Done as E183/E184; the
+three signals proved redundant with a known quality predictor (baseline AUC
+0.9986, treatment 0.9986, delta −0.0000), so that axis is closed.
+[`RESULT.md`](EXPERIMENTS/182-ground-truth-contest/RESULT.md).
 
 ## E181 completed (2026-10-18) — supplying the missing fact moves nothing, and neither does pasting the thread
 
@@ -234,17 +252,16 @@ this experiment asks.
 **The result.** Blind re-key of all 46: **publishable 0/46 = 0.0000, asker_only
 21/46 = 0.4565, third_party 20/46 = 0.4348, none 5/46 = 0.1087**. **G1 FIRED**
 (publishable < 0.50): the FETCH route closes. **G4 FIRED** (has_ask 31/46 =
-0.6739 >= 0.50, ask_then_asker 31/46 = 0.6739 >= 0.25): the venue's own
-workflow already runs the round trip on the very rows this experiment measures,
-and the person supplies the fact. The honest statement is not "unserved" but
-*served by an interaction that already exists, and unreachable by one-shot
-answering*. **G5 NOT fired** (none = 5, not > 9): EVID precision is above 0.80.
-M1: has_comment 37/46 = 0.8043, has_ask 31/46 = 0.6739, ask_then_asker 31/46 =
-0.6739, answer_asks 20/46 = 0.4348, evidence_in_comments 39/46 = 0.8478,
-discriminating_and_asked 28/46 = 0.6087. M3: already_present 7/46 = 0.1522 (a
-ceiling on E177's labels), used 37/46 = 0.8043. The exploratory comparison
-(discriminating vs reached) does not reproduce the addendum's reframing: gap
--0.0741, p = 0.52. **E177's population closes with no candidate.**
+0.6739 >= 0.50, ask_then_asker 0.6739 >= 0.25): the venue's own workflow already
+runs the round trip on the very rows this experiment measures, and the person
+supplies the fact. The honest statement is not "unserved" but *served by an
+interaction that already exists, and unreachable by one-shot answering*. **G5 NOT
+fired** (none = 5, not > 9): EVID precision is above 0.80. M1: has_comment
+0.8043, has_ask 0.6739, answer_asks 0.4348, evidence_in_comments 0.8478,
+discriminating_and_asked 0.6087. M3: already_present 0.1522 (a ceiling on E177's
+labels), used 0.8043. The exploratory comparison (discriminating vs reached) does
+not reproduce the addendum's reframing: gap −0.0741, p = 0.52. **E177's
+population closes with no candidate.**
 
 **What this decides.** The missing evidence is a version, a config value, or a
 data value the asker holds. The venue's own round trip already supplies it. The

@@ -1,0 +1,303 @@
+==============================================================================
+[seq 2] 2026-10-18T03:44:03+00:00
+$ python3 -c 
+import urllib.request, json
+url = 'https://api.clinicaltrials.gov/v2/studies?pageSize=1&query.term=cancer'
+req = urllib.request.Request(url, headers={'Accept': 'application/json'})
+resp = urllib.request.urlopen(req, timeout=10)
+print('status:', resp.status)
+data = json.loads(resp.read())
+print('totalCount:', data.get('totalCount', 'N/A'))
+if data.get('studies'):
+    s = data['studies'][0]
+    print('sample keys:', list(s.keys())[:10])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/urllib/request.py", line 1354, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/usr/lib/python3.8/http/client.py", line 1256, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1302, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1251, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1011, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.8/http/client.py", line 951, in send
+    self.connect()
+  File "/usr/lib/python3.8/http/client.py", line 1418, in connect
+    super().connect()
+  File "/usr/lib/python3.8/http/client.py", line 922, in connect
+    self.sock = self._create_connection(
+  File "/usr/lib/python3.8/socket.py", line 787, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<string>", line 5, in <module>
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.8/urllib/request.py", line 542, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 1397, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/usr/lib/python3.8/urllib/request.py", line 1357, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -2] Name or service not known>
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1119  redactions: none
+==============================================================================
+[seq 3] 2026-10-18T03:44:05+00:00
+$ python3 -c 
+import urllib.request, json
+url = 'https://api.fda.gov/device/recount.json?limit=1'
+req = urllib.request.Request(url, headers={'Accept': 'application/json'})
+resp = urllib.request.urlopen(req, timeout=10)
+print('status:', resp.status)
+data = json.loads(resp.read())
+print('total:', data.get('meta', {}).get('results', {}).get('total', 'N/A'))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "<string>", line 5, in <module>
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2918  redactions: none
+==============================================================================
+[seq 4] 2026-10-18T03:44:37+00:00
+$ python3 -c 
+import socket
+domains = [
+    'api.stackexchange.com',
+    'api.crossref.org',
+    'export.arxiv.org',
+    'api.github.com',
+    'api.clinicaltrials.gov',
+    'api.fda.gov',
+    'api.usda.gov',
+    'api.eia.gov',
+    'api.worldbank.org',
+    'api.ncbi.nlm.nih.gov',
+    'api.openalex.org',
+    'api.semanticscholar.org',
+]
+for d in domains:
+    try:
+        ip = socket.gethostbyname(d)
+        print(f'{d}: {ip}')
+    except Exception as e:
+        print(f'{d}: FAIL ({e})')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+api.stackexchange.com: 198.252.206.16
+api.crossref.org: 100.27.84.37
+export.arxiv.org: 199.232.107.42
+api.github.com: 20.207.73.85
+api.clinicaltrials.gov: FAIL ([Errno -2] Name or service not known)
+api.fda.gov: 3.32.1.168
+api.usda.gov: FAIL ([Errno -2] Name or service not known)
+api.eia.gov: 3.32.1.168
+api.worldbank.org: 172.64.145.25
+api.ncbi.nlm.nih.gov: 34.107.134.59
+api.openalex.org: 172.66.159.136
+api.semanticscholar.org: 18.172.64.74
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 12842  redactions: none
+==============================================================================
+[seq 5] 2026-10-18T03:45:08+00:00
+$ python3 -c 
+import urllib.request, json
+url = 'https://api.openalex.org/works?per-page=1&search=machine+learning'
+req = urllib.request.Request(url, headers={'Accept': 'application/json', 'User-Agent': 'origin-research/1.0 (mailto:test@example.com)'})
+resp = urllib.request.urlopen(req, timeout=15)
+data = json.loads(resp.read())
+print('meta:', data.get('meta', {}))
+if data.get('results'):
+    w = data['results'][0]
+    print('work keys:', list(w.keys())[:20])
+    print('title:', w.get('title', 'N/A')[:80])
+    print('cited_by_count:', w.get('cited_by_count'))
+    print('publication_year:', w.get('publication_year'))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+meta: {'notice': 'No API key, so this request shares one free daily budget ($0.10) with everyone on your network\'s IP address. Get a free key with its own $1/day at https://openalex.org/settings/api and add api_key=YOUR_KEY to your requests. An AI agent can get one for its user in one call: POST https://api.openalex.org/api-keys with {"email": "<your user\'s email>"}; we email them a link, and the key works once they click it. Docs for agents: https://help.openalex.org/llms.txt', 'count': 6078027, 'db_response_time_ms': 316, 'page': 1, 'per_page': 1, 'groups_count': None, 'x_query': {'oql': 'get works where full text has (machine learning)', 'x_new_oql': 'get works with (machine learning) in the full text', 'oqo': {'get_rows': 'works', 'filter_rows': [{'column_id': 'fulltext.search', 'value': 'machine learning', 'operator': 'has'}]}, 'url': '/works?filter=fulltext.search:machine learning&per_page=1'}, 'cost_usd': 0.001}
+work keys: ['id', 'doi', 'title', 'display_name', 'relevance_score', 'publication_year', 'publication_date', 'ids', 'language', 'primary_location', 'volume', 'type', 'indexed_in', 'open_access', 'authorships', 'institutions', 'countries_distinct_count', 'institutions_distinct_count', 'corresponding_author_ids', 'corresponding_institution_ids']
+title: Machine Learning
+cited_by_count: 821
+publication_year: 2021
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1777  redactions: none
+==============================================================================
+[seq 6] 2026-10-18T03:46:01+00:00
+$ python3 -c 
+import urllib.request, json
+# World Bank API
+url = 'https://api.worldbank.org/v2/country/all/indicator/NY.GDP.MKTP.CD?format=json&per_page=1&date=2020'
+req = urllib.request.Request(url, headers={'Accept': 'application/json'})
+resp = urllib.request.urlopen(req, timeout=15)
+data = json.loads(resp.read())
+print('World Bank data:', data[1][0]['value'] if data[1] else 'N/A')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+World Bank data: 938546103425.609
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1997  redactions: none
+==============================================================================
+[seq 7] 2026-10-18T03:46:02+00:00
+$ python3 -c 
+import urllib.request, json
+# PubMed API
+url = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=cancer&retmax=1&retmode=json'
+req = urllib.request.Request(url, headers={'Accept': 'application/json'})
+resp = urllib.request.urlopen(req, timeout=15)
+data = json.loads(resp.read())
+print('PubMed count:', data.get('esearchresult', {}).get('count', 'N/A'))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+PubMed count: 5723860
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2697  redactions: none
+==============================================================================
+[seq 8] 2026-10-18T03:47:08+00:00
+$ python3 -c 
+import urllib.request, json
+# Get a specific work with all metadata
+url = 'https://api.openalex.org/works/W2741809807'
+req = urllib.request.Request(url, headers={'Accept': 'application/json', 'User-Agent': 'origin-research/1.0'})
+resp = urllib.request.urlopen(req, timeout=15)
+data = json.loads(resp.read())
+print('title:', data.get('title', 'N/A'))
+print('cited_by_count:', data.get('cited_by_count'))
+print('publication_year:', data.get('publication_year'))
+print('open_access:', data.get('open_access'))
+print('type:', data.get('type'))
+print('topics:', [t.get('display_name') for t in data.get('topics', [])[:5]])
+print('keywords:', [k.get('display_name') for k in data.get('keywords', [])[:5]])
+print('concepts:', [c.get('display_name') for c in data.get('concepts', [])[:5]])
+print('grants:', data.get('grants', []))
+print('datasets:', data.get('datasets', []))
+print('has_fulltext:', data.get('has_fulltext'))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+title: The state of OA: a large-scale analysis of the prevalence and impact of Open Access articles
+cited_by_count: 1213
+publication_year: 2018
+open_access: {'is_oa': True, 'oa_status': 'gold', 'oa_url': 'https://doi.org/10.7717/peerj.4375', 'any_repository_has_fulltext': True}
+type: article
+topics: ['Academic Publishing and Open Access', 'scientometrics and bibliometrics research', 'Publishing and Scholarly Communication']
+keywords: ['open access', 'Crossref DOIs', 'Web of Science', 'Unpaywall', 'bronze open access']
+concepts: ['Citation', 'License', 'Scholarly communication', 'Web of science', 'Bibliometrics']
+grants: []
+datasets: []
+has_fulltext: False
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1341  redactions: none
+==============================================================================
+[seq 9] 2026-10-18T03:50:02+00:00
+$ python3 -c 
+import urllib.request, json
+# Check if OpenAlex has retraction data
+url = 'https://api.openalex.org/works?filter=retracted:true&per-page=1'
+req = urllib.request.Request(url, headers={'Accept': 'application/json', 'User-Agent': 'origin-research/1.0'})
+resp = urllib.request.urlopen(req, timeout=15)
+data = json.loads(resp.read())
+print('total retracted works:', data.get('meta', {}).get('count', 'N/A'))
+if data.get('results'):
+    w = data['results'][0]
+    print('title:', w.get('title', 'N/A')[:80])
+    print('publication_year:', w.get('publication_year'))
+    print('cited_by_count:', w.get('cited_by_count'))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "<string>", line 6, in <module>
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1422  redactions: none
+==============================================================================
+[seq 10] 2026-10-18T03:50:16+00:00
+$ python3 -c 
+import urllib.request, json
+# Search for retracted papers
+url = 'https://api.openalex.org/works?search=retracted&per-page=1'
+req = urllib.request.Request(url, headers={'Accept': 'application/json', 'User-Agent': 'origin-research/1.0'})
+resp = urllib.request.urlopen(req, timeout=15)
+data = json.loads(resp.read())
+print('total:', data.get('meta', {}).get('count', 'N/A'))
+if data.get('results'):
+    w = data['results'][0]
+    print('title:', w.get('title', 'N/A')[:80])
+    print('publication_year:', w.get('publication_year'))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+total: 424846
+title: RETRACTED ARTICLE: The Nature of Creativity
+publication_year: 2006
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1518  redactions: none
+==============================================================================
+[seq 11] 2026-10-18T03:52:49+00:00
+$ python3 -c 
+import urllib.request, json
+# Get retracted papers
+url = 'https://api.openalex.org/works?search=retracted&per-page=5&select=id,title,publication_year,cited_by_count,open_access'
+req = urllib.request.Request(url, headers={'Accept': 'application/json', 'User-Agent': 'origin-research/1.0'})
+resp = urllib.request.urlopen(req, timeout=15)
+data = json.loads(resp.read())
+print('total retracted:', data.get('meta', {}).get('count', 'N/A'))
+for w in data.get('results', [])[:3]:
+    print(f'  - {w["title"][:60]} ({w["publication_year"]}, cited: {w["cited_by_count"]})')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+total retracted: 424846
+  - RETRACTED ARTICLE: The Nature of Creativity (2006, cited: 1497)
+  - Retracted: Growing up in a Recession (2013, cited: 480)
+  - Retracted Science and the Retraction Index (2011, cited: 405)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1020  redactions: none

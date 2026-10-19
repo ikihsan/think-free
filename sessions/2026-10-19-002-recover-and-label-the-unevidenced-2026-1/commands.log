@@ -1,0 +1,195 @@
+==============================================================================
+[seq 2] 2026-10-19T00:25:05+00:00
+$ python3 EXPERIMENTS/193-source-capability-probe/probe.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+stackexchange   control  200   capture   bytes=775      nonws=763      
+github          control  200   refusal   bytes=55       nonws=55       
+openalex        control  200   capture   bytes=16973    nonws=15686    
+duckduckgo      control  202   error     bytes=14252    nonws=9658     
+reddit          demand   403   error     bytes=190240   nonws=189312   
+etsy            demand   403   error     bytes=468      nonws=468      
+ebay            demand   403   error     bytes=1832     nonws=1775     
+opencollective  demand   400   error     bytes=169      nonws=162      
+census_cbp      demand   200   capture   bytes=8531     nonws=5896     
+datagov         demand   404   error     bytes=36       nonws=34       
+G1 control integrity (>=3 of 4 captures): FAIL
+G2 usable demand sources (>=2 of 6 captures): FAIL
+wrote /home/ubuntu/think-free/EXPERIMENTS/193-source-capability-probe/raw/probe.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7360  redactions: none
+==============================================================================
+[seq 3] 2026-10-19T00:25:44+00:00
+$ python3 EXPERIMENTS/193-source-capability-probe/probe2.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+itunes          200  capture   bytes=50478    
+gbooks          429  error     bytes=1306     
+comtrade        200  capture   bytes=966      
+opencollective  400  error     bytes=341      
+G2-panel2 (>=2 of 4 captures): PASS  [2 captured]
+panel 1's failure stands; this panel is additive
+wrote /home/ubuntu/think-free/EXPERIMENTS/193-source-capability-probe/raw/probe2.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5260  redactions: none
+==============================================================================
+[seq 8] 2026-10-19T00:27:40+00:00
+$ python3 EXPERIMENTS/194-appstore-demand-scan/scan.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+fetched todo                     role=control_positive  status=200 results=154
+fetched password manager         role=control_positive  status=200 results=163
+fetched zzqxqv glorb tapestry    role=control_negative  status=200 results=114
+fetched shift schedule           role=difficulty        status=200 results=197
+fetched receipt scanner          role=difficulty        status=200 results=187
+fetched warranty tracker         role=difficulty        status=200 results=180
+fetched home inventory           role=difficulty        status=200 results=192
+fetched meal plan                role=difficulty        status=200 results=191
+fetched pet medication           role=difficulty        status=200 results=188
+fetched chore chart              role=difficulty        status=200 results=193
+fetched moving checklist         role=difficulty        status=200 results=184
+fetched plant watering           role=difficulty        status=200 results=194
+fetched reading list             role=difficulty        status=200 results=172
+fetched sourdough                role=difficulty        status=200 results=189
+fetched pool care                role=difficulty        status=200 results=168
+repeat pool care                count 168 -> 168  first5_identical=True
+repeat sourdough                count 189 -> 189  first5_identical=True
+
+term                       paid   free     med$   ratings_pd      top1_pd
+todo                          2     48     5.49        28015        28015
+password manager              7     43     5.99        15849         6461
+zzqxqv glorb tapestry         6     44     7.99           91           75
+shift schedule                1     49     3.99           71           71
+receipt scanner               2     48     7.49       297103       297093
+warranty tracker              3     47     0.99            2            2
+home inventory                3     47     3.99           29           28
+meal plan                     1     49     3.99        15651        15651
+pet medication                0     50     None            0            0
+chore chart                   0     50     None            0            0
+moving checklist              2     48 1.9900000000000002          798          494
+plant watering                0     50     None            0            0
+reading list                  0     50     None            0            0
+sourdough                     3     47     3.99           73           40
+pool care                     2     48 10.989999999999998          147          134
+
+G1_positive_controls           PASS
+G2_negative_control            FAIL
+G3_money_exists                FAIL
+G4_thin_supply_high_demand     PASS
+G5_fetch_reproducible          PASS
+thin-supply rows: ['receipt scanner']
+wrote /home/ubuntu/think-free/EXPERIMENTS/194-appstore-demand-scan/raw/scan.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 66088  redactions: none
+==============================================================================
+[seq 9] 2026-10-19T00:28:37+00:00
+$ python3 EXPERIMENTS/194-appstore-demand-scan/scan2.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+fetched todo                     control_positive status=200 resultCount=23 returned=23
+fetched password manager         control_positive status=200 resultCount=21 returned=21
+fetched zzqxqv glorbwump         control_negative status=200 resultCount=4 returned=4
+fetched shift schedule           difficulty status=200 resultCount=25 returned=25
+fetched receipt scanner          difficulty status=200 resultCount=23 returned=23
+fetched warranty tracker         difficulty status=200 resultCount=22 returned=22
+fetched home inventory           difficulty status=200 resultCount=25 returned=25
+fetched meal plan                difficulty status=200 resultCount=21 returned=21
+fetched pet medication           difficulty status=200 resultCount=24 returned=24
+fetched chore chart              difficulty status=200 resultCount=25 returned=25
+fetched moving checklist         difficulty status=200 resultCount=24 returned=24
+fetched plant watering           difficulty status=200 resultCount=23 returned=23
+fetched reading list             difficulty status=200 resultCount=24 returned=24
+fetched sourdough                difficulty status=200 resultCount=25 returned=25
+fetched pool care                difficulty status=200 resultCount=25 returned=25
+repeat pool care                resultCount 25 -> 25 identical5=True
+repeat sourdough                resultCount 25 -> 25 identical5=True
+
+term                       ret  rel%  paid   med$   medrat   ratings_pd   pd_ex_top1
+todo                        23 0.1304     1   9.99    28015        28015            0
+password manager            21   1.0     3   4.99     4358        11041         4580
+zzqxqv glorbwump             4   0.0     0   None     None            0            0
+shift schedule              25  0.84     0   None     None            0            0
+receipt scanner             23 0.6957     1  12.99   297092       297092            0
+warranty tracker            22   1.0     2   0.99      1.0            2            0
+home inventory              25  0.92     1   3.99        0            0            0
+meal plan                   21 0.7619     0   None     None            0            0
+pet medication              24 0.5833     0   None     None            0            0
+chore chart                 25  0.48     0   None     None            0            0
+moving checklist            24  0.75     1   2.99      494          494            0
+plant watering              23 0.9565     0   None     None            0            0
+reading list                24 0.625     0   None     None            0            0
+sourdough                   25  0.68     1   2.99       40           40            0
+pool care                   25   0.8     0   None     None            0            0
+
+G1_positive_controls           PASS
+G2_negative_control            FAIL
+G3_money_exists                FAIL
+G4_thin_supply_high_demand     PASS
+G5_fetch_reproducible          PASS
+G6_relevance_in_every_row      FAIL
+thin-supply rows: ['receipt scanner'] ; rows failing G6: ['pet medication', 'chore chart']
+wrote /home/ubuntu/think-free/EXPERIMENTS/194-appstore-demand-scan/raw/scan2.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 14474  redactions: none
+==============================================================================
+[seq 12] 2026-10-19T00:38:41+00:00
+$ python3 EXPERIMENTS/185-knitting-repair-planner-stage-a/knitting_graph.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/185-knitting-repair-planner-stage-a/knitting_graph.py", line 16, in <module>
+    from graph_model import (LoopType, PullDirection, Loop, KnitGraph, loop_id)
+ImportError: cannot import name 'loop_id' from 'graph_model' (/home/ubuntu/think-free/EXPERIMENTS/185-knitting-repair-planner-stage-a/graph_model.py)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1905  redactions: none
+==============================================================================
+[seq 13] 2026-10-19T00:38:54+00:00
+$ python3 EXPERIMENTS/185-knitting-repair-planner-stage-a/knitting_graph.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+F1_stockinette_dropped: valid=False, errors=['Loop r1c2 yarn_order 6 != position 5', 'Loop r1c3 yarn_order 7 != position 6', 'Loop r2c0 yarn_order 8 != position 7', 'Loop r2c1 yarn_order 9 != position 8', 'Loop r2c2 yarn_order 10 != position 9', 'Loop r2c3 yarn_order 11 != position 10', 'Loop r3c0 yarn_order 12 != position 11', 'Loop r3c1 yarn_order 13 != position 12', 'Loop r3c2 yarn_order 14 != position 13', 'Loop r3c3 yarn_order 15 != position 14'], detected=1
+  - {'type': 'dropped_stitch', 'location': (1, 1), 'loop_id': 'r1c1'}
+F2_rib_twisted: valid=True, errors=[], detected=1
+  - {'type': 'twisted_stitch', 'location': (1, 2), 'loop_id': 'r1c2'}
+F3_cable_wrong_cross: valid=True, errors=[], detected=1
+  - {'type': 'wrong_cable_crossing', 'location': (4, 2), 'loop_id': 'r4c2'}
+F4_stockinette_yarnover: valid=True, errors=[], detected=1
+  - {'type': 'extra_yarnover', 'location': (2, 2), 'loop_id': 'r2c2'}
+F5_stockinette_wrong_type: valid=True, errors=[], detected=1
+  - {'type': 'twisted_stitch', 'location': (2, 2), 'loop_id': 'r2c2'}
+F6_stockinette_two_dropped: valid=False, errors=['Loop r0c1 references missing neighbor r1c1 in direction below', 'Loop r0c2 references missing neighbor r1c2 in direction below', 'Loop r1c0 references missing neighbor r1c1 in direction right', 'Loop r1c3 references missing neighbor r1c2 in direction left', 'Loop r2c1 references missing neighbor r1c1 in direction above', 'Loop r2c2 references missing neighbor r1c2 in direction above', 'Loop r1c3 yarn_order 7 != position 5', 'Loop r2c0 yarn_order 8 != position 6', 'Loop r2c1 yarn_order 9 != position 7', 'Loop r2c2 yarn_order 10 != position 8', 'Loop r2c3 yarn_order 11 != position 9', 'Loop r3c0 yarn_order 12 != position 10', 'Loop r3c1 yarn_order 13 != position 11', 'Loop r3c2 yarn_order 14 != position 12', 'Loop r3c3 yarn_order 15 != position 13'], detected=2
+  - {'type': 'dropped_stitch', 'location': (1, 1), 'loop_id': 'r1c1'}
+  - {'type': 'dropped_stitch', 'location': (1, 2), 'loop_id': 'r1c2'}
+F7_cable_mis_cross_3: valid=True, errors=[], detected=1
+  - {'type': 'wrong_cable_crossing', 'location': (4, 2), 'loop_id': 'r4c2'}
+F8_garter_dropped_edge: valid=False, errors=['Loop r0c1 references missing neighbor r0c0 in direction left', 'Loop r1c0 references missing neighbor r0c0 in direction above', 'Loop r0c1 yarn_order 1 != position 0', 'Loop r0c2 yarn_order 2 != position 1', 'Loop r0c3 yarn_order 3 != position 2', 'Loop r1c0 yarn_order 4 != position 3', 'Loop r1c1 yarn_order 5 != position 4', 'Loop r1c2 yarn_order 6 != position 5', 'Loop r1c3 yarn_order 7 != position 6', 'Loop r2c0 yarn_order 8 != position 7', 'Loop r2c1 yarn_order 9 != position 8', 'Loop r2c2 yarn_order 10 != position 9', 'Loop r2c3 yarn_order 11 != position 10', 'Loop r3c0 yarn_order 12 != position 11', 'Loop r3c1 yarn_order 13 != position 12', 'Loop r3c2 yarn_order 14 != position 13', 'Loop r3c3 yarn_order 15 != position 14'], detected=1
+  - {'type': 'dropped_stitch', 'location': (0, 0), 'loop_id': 'r0c0'}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 195  redactions: none
+==============================================================================
+[seq 14] 2026-10-19T00:39:19+00:00
+$ python3 EXPERIMENTS/185-knitting-repair-planner-stage-a/planner.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+=== F1_stockinette_dropped ===
+  4x4 stockinette with one dropped stitch at (1,1)
+  Graph valid: False
+  Validation errors: ['Loop r1c2 yarn_order 6 != position 5', 'Loop r1c3 yarn_order 7 != position 6', 'Loop r2c0 yarn_order 8 != position 7', 'Loop r2c1 yarn_order 9 != position 8', 'Loop r2c2 yarn_order 10 != position 9', 'Loop r2c3 yarn_order 11 != position 10', 'Loop r3c0 yarn_order 12 != position 11', 'Loop r3c1 yarn_order 13 != position 12', 'Loop r3c2 yarn_order 14 != position 13', 'Loop r3c3 yarn_order 15 != position 14']
+  Detected errors: 1
+    - dropped_stitch at (1, 1)
+  A0 (full-row rollback): released=1, reknit=2, valid=True, repaired=True, time=0.7ms
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/185-knitting-repair-planner-stage-a/planner.py", line 200, in <module>
+    results = run_experiment()
+  File "EXPERIMENTS/185-knitting-repair-planner-stage-a/planner.py", line 92, in run_experiment
+    state_a1 = local_planner_search(error_graph, correct_graph, errors, max_steps=30)
+  File "/home/ubuntu/think-free/EXPERIMENTS/185-knitting-repair-planner-stage-a/planner_search.py", line 38, in local_planner_search
+    candidates = get_repair_candidates(error_graph, errors, max_radius=2)
+NameError: name 'get_repair_candidates' is not defined
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 996  redactions: none

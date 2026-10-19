@@ -1,0 +1,433 @@
+==============================================================================
+[seq 3] 2026-10-18T01:35:41+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/fetch.py --limit 20
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population: 60 scored qids from E177's verdicts
+  capped to 20 for this run
+  chunk 1: qids 79468329..79733841 -> 62 answers, quota None
+scores.json: 20 of 20 rows carry an answer score vector
+population digest ccd25cd9f2e92d75
+quota remaining: None
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1805  redactions: none
+==============================================================================
+[seq 4] 2026-10-18T01:36:15+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population: 60 scored qids from E177's verdicts
+quota before: 231 (backoff None)
+  chunk 1: qids 79468329..79733841 -> 62 answers
+  chunk 2: qids 79871713..79665976 -> 75 answers
+  chunk 3: qids 79818917..79339258 -> 66 answers
+quota after: 227
+scores.json: 60 of 60 rows carry an answer score vector
+population digest 6d9dc98d9ebab601
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8695  redactions: none
+==============================================================================
+[seq 5] 2026-10-18T01:36:43+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/analyse.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population 60 rows, 60 complete score vectors
+G4 population stable: PASS (59 of 60 reproduced)
+   drift qid 79408101: answers 4->4, key score 9->10
+G1 population measured: PASS (60 >= 55)
+
+state            overall            EVID miss       EVID hit        SELF hit       SELF miss
+contested       13/60=0.217    4/18=0.222    3/12=0.250    6/26=0.231    0/4 =0.000  
+decisive        29/60=0.483   10/18=0.556    5/12=0.417   13/26=0.500    1/4 =0.250  
+unopposed        2/60=0.033    0/18=0.000    0/12=0.000    2/26=0.077    0/4 =0.000  
+uncorroborated  16/60=0.267    4/18=0.222    4/12=0.333    5/26=0.192    3/4 =0.750  
+
+G3 prevalence contested >= 0.25: FAIL (13/60 = 0.2167, Wilson [0.1312, 0.3362])
+K1 uncorroborated >= 0.50 -> kill: not fired (16/60 = 0.2667)
+
+G2 differential: EVID missed 4/18 contested vs EVID hit 3/12
+   diff -0.0278, Fisher p 1, odds ratio 0.8571 -> does not fire
+
+rows digest 0f7573b196b7b3b8
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 202  redactions: none
+==============================================================================
+[seq 6] 2026-10-18T01:37:23+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/g5_fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  qid 79824381: 7 answers, scores.json said top=6 ru=5 -> 6/5
+  qid 79408101: 4 answers, scores.json said top=10 ru=8 -> 10/8
+  qid 79537353: 5 answers, scores.json said top=15 ru=12 -> 15/12
+  qid 79796450: 4 answers, scores.json said top=34 ru=23 -> 34/23
+  qid 79663905: 3 answers, scores.json said top=3 ru=2 -> 3/2
+  qid 79589468: 3 answers, scores.json said top=27 ru=13 -> 27/13
+  qid 79791886: 4 answers, scores.json said top=25 ru=12 -> 25/12
+  qid 79556333: 8 answers, scores.json said top=18 ru=8 -> 18/8
+  qid 79843062: 3 answers, scores.json said top=23 ru=10 -> 23/10
+  qid 79600161: 7 answers, scores.json said top=14 ru=6 -> 14/6
+g5-bodies.json: 10 rows
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 16442  redactions: none
+==============================================================================
+[seq 7] 2026-10-18T01:38:37+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/bodies.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population: 60 qids
+  chunk 1: qids 79335513..79537353 -> 70 answers
+  chunk 2: qids 79556333..79754247 -> 68 answers
+  chunk 3: qids 79760145..80000170 -> 65 answers
+bodies.json: 60 rows, 203 answers total
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5092  redactions: none
+==============================================================================
+[seq 8] 2026-10-18T01:39:00+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/overlap.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+calibration on 9 hand-read rows
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/182-ground-truth-contest/overlap.py", line 245, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/182-ground-truth-contest/overlap.py", line 218, in main
+    r["truth"], "differ" if r["overlap"] <= tau else "same"))
+KeyError: 'truth'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 912  redactions: none
+==============================================================================
+[seq 9] 2026-10-18T01:39:12+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/overlap.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+calibration on 9 hand-read rows
+  hand-read rows with no usable comparison: [79537353] -> [('runner_up_no_prescriptive_tokens', 5, 15, 12)]
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/182-ground-truth-contest/overlap.py", line 251, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/182-ground-truth-contest/overlap.py", line 224, in main
+    r["truth"], "differ" if r["overlap"] <= tau else "same"))
+KeyError: 'truth'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 624  redactions: none
+==============================================================================
+[seq 10] 2026-10-18T01:39:24+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/overlap.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+calibration on 9 hand-read rows
+  hand-read rows with no usable comparison: [79537353] -> [('runner_up_no_prescriptive_tokens', 5, 15, 12)]
+  qid 79843062  overlap 0.0000  (8 vs 1 tokens)  truth differ -> differ
+  qid 79589468  overlap 0.1250  (10 vs 48 tokens)  truth same   -> differ
+  qid 79796450  overlap 0.4286  (13 vs 14 tokens)  truth same   -> differ
+  qid 79824381  overlap 0.4643  (54 vs 28 tokens)  truth differ -> differ
+  qid 79556333  overlap 0.6364  (66 vs 11 tokens)  truth differ -> differ
+  qid 79408101  overlap 0.6667  (29 vs 3 tokens)  truth differ -> differ
+  qid 79600161  overlap 0.6923  (24 vs 13 tokens)  truth same   -> same
+  qid 79663905  overlap 0.7143  (127 vs 14 tokens)  truth same   -> same
+  qid 79791886  overlap 0.9091  (26 vs 11 tokens)  truth differ -> same
+tau = 0.67, balanced accuracy 0.6500 (sens 0.8000, spec 0.5000, cm (4, 2, 2, 1))
+instrument REJECTED -- G2 is not_evaluated (bar balanced accuracy >= 0.80)
+ineligible rows: {'single_answer': 16, 'runner_up_not_positive': 2}
+
+G2'  not evaluable: {'eligible_rows': 0, 'tau': 0.67, 'balanced_accuracy_on_calibration': 0.65, 'instrument_accepted': False}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 224  redactions: none
+==============================================================================
+[seq 11] 2026-10-18T01:40:19+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/overlap.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+instrument: residualised against the question (AMENDMENT 2)
+calibration on 9 hand-read rows
+  hand-read rows with no usable comparison: [79537353] -> [('runner_up_no_prescriptive_tokens', 5, 15, 12)]
+  qid 79408101  overlap 0.0000  (3 vs 1 tokens)  truth differ -> differ
+  qid 79791886  overlap 0.0000  (8 vs 1 tokens)  truth differ -> differ
+  qid 79843062  overlap 0.0000  (8 vs 1 tokens)  truth differ -> differ
+  qid 79589468  overlap 0.0889  (8 vs 45 tokens)  truth same   -> same
+  qid 79796450  overlap 0.3333  (7 vs 6 tokens)  truth same   -> same
+  qid 79824381  overlap 0.3333  (26 vs 12 tokens)  truth differ -> same
+  qid 79600161  overlap 0.6000  (20 vs 10 tokens)  truth same   -> same
+  qid 79556333  overlap 0.6667  (65 vs 9 tokens)  truth differ -> same
+  qid 79663905  overlap 1.0000  (110 vs 3 tokens)  truth same   -> same
+tau = 0.05, balanced accuracy 0.8000 (sens 0.6000, spec 1.0000, cm (3, 0, 4, 2))
+instrument ACCEPTED (bar balanced accuracy >= 0.80)
+ineligible rows: {'single_answer': 16, 'runner_up_not_positive': 2}
+
+G2'  EVID missed 4/9 divergent vs EVID hit 3/6
+     diff -0.0556  Fisher p 1  OR 0.8000 -> does not fire
+     reference SELF hit 4/12 = 0.3333
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 207  redactions: none
+==============================================================================
+[seq 12] 2026-10-18T01:41:03+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/overlap.py --power
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+EVID_missed_vs_EVID_hit      n=9 vs 6  median 0.054 vs 0.083  U=27.0  exact p=0.0004
+EVID_missed_vs_SELF_hit      n=9 vs 12  median 0.054 vs 0.121  U=47.0  exact p=0.0014
+SELF_missed_vs_SELF_hit      n=1 vs 12  median 0.000 vs 0.121  U=2.0  exact p=0.6154
+
+tau was fitted at 0.05: the accepted detector fires only when the runner-up shares essentially no residual prescriptive token with the top answer. Calibration sensitivity was 0.6000, so the measured divergent count understates the true rate by roughly this factor.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 9157  redactions: none
+==============================================================================
+[seq 13] 2026-10-18T01:41:38+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/overlap.py --power
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+EVID_missed_vs_EVID_hit      n=9 vs 6  median 0.054 vs 0.083  U=27.0  exact p=1.0000
+EVID_missed_vs_SELF_hit      n=9 vs 12  median 0.054 vs 0.121  U=47.0  exact p=0.6440
+SELF_missed_vs_SELF_hit      n=1 vs 12  median 0.000 vs 0.121  U=2.0  exact p=0.5385
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/182-ground-truth-contest/overlap.py", line 396, in <module>
+    power()
+  File "EXPERIMENTS/182-ground-truth-contest/overlap.py", line 381, in power
+    % (k, v["n_x"], v["n_y"], v["median_x"] if v["n_x"] else -1,
+KeyError: 'n_x'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 9593  redactions: none
+==============================================================================
+[seq 14] 2026-10-18T01:41:59+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/overlap.py --power
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+EVID_missed_vs_EVID_hit      n=9 vs 6  median 0.054 vs 0.083  U=27.0  exact p=1.0000
+EVID_missed_vs_SELF_hit      n=9 vs 12  median 0.054 vs 0.121  U=47.0  exact p=0.6440
+SELF_missed_vs_SELF_hit      n=1 vs 12  median 0.000 vs 0.121  U=2.0  exact p=0.5385
+
+tau was fitted at 0.05: the accepted detector fires only when the runner-up shares essentially no residual prescriptive token with the top answer. Calibration sensitivity was 0.6000, so the measured divergent count understates the true rate by roughly this factor.
+gate bound at sensitivity 0.60: divergent rate on EVID missed could be as high as 0.7407, on EVID hit as high as 0.8333
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 10531  redactions: none
+==============================================================================
+[seq 16] 2026-10-18T01:45:16+00:00
+$ python3 -c 
+import subprocess
+for f in ['STATE.md','STATE-next-actions.md','FAILURES.md','FAILURES-findings-44.md','DECISIONS.md','DECISIONS-RECORDS-4.md','EXPERIMENTS/181-fact-supply-closes-gap/RESULT.md','EXPERIMENTS/182-ground-truth-contest/RESULT.md','EXPERIMENTS/182-ground-truth-contest/PROTOCOL.md','EXPERIMENTS/182-ground-truth-contest/AMENDMENT-1.md','EXPERIMENTS/182-ground-truth-contest/AMENDMENT-2.md']:
+    n=sum(1 for _ in open(f))
+    flag='OVER' if n>300 else ''
+    print('%-58s %4d %s' % (f,n,flag))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+STATE.md                                                    332 OVER
+STATE-next-actions.md                                       304 OVER
+FAILURES.md                                                 238 
+FAILURES-findings-44.md                                     278 
+DECISIONS.md                                                138 
+DECISIONS-RECORDS-4.md                                      169 
+EXPERIMENTS/181-fact-supply-closes-gap/RESULT.md            214 
+EXPERIMENTS/182-ground-truth-contest/RESULT.md              224 
+EXPERIMENTS/182-ground-truth-contest/PROTOCOL.md            154 
+EXPERIMENTS/182-ground-truth-contest/AMENDMENT-1.md         132 
+EXPERIMENTS/182-ground-truth-contest/AMENDMENT-2.md          99 
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 151  redactions: none
+==============================================================================
+[seq 17] 2026-10-18T01:57:47+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/tieback.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+OK   population is 60 rows                                60
+OK   G4 reproduced 59 of 60                               59
+OK   contested 13/60 = 0.2167                             13/60
+OK   uncorroborated 16/60 = 0.2667                        16/60
+OK   48.3% contested-or-uncorroborated                    0.48333333333333334
+OK   first-arm G2 p == 1.0                                1.0
+OK   first-arm G2 diff -0.0278                            -0.0278
+OK   first-arm G2 did not fire                            False
+OK   residual instrument accepted                         
+OK   balanced accuracy 0.8000                             0.8
+OK   tau 0.05                                             0.05
+OK   G2' did not fire                                     False
+OK   G2' fisher p == 1.0                                  1.0
+OK   G2' evid missed [4, 9]                               [4, 9]
+OK   G2' evid hit [3, 6]                                  [3, 6]
+OK   9 calibration rows                                   9
+OK   calibration is 5 differ / 4 same (one row has no comparison) {'differ': 5, 'same': 4}
+OK   exact permutation p == 1.0                           1.0
+OK   observed U is the centre                             U=27.0 centre=27.0
+OK   37 of 60 rows labelled                               37
+OK   21 of 30 EVID rows labelled                          21
+OK   16 single-answer rows                                16
+OK   5 eligible rows with no runner-up prescription       5
+OK   RESULT.md states '13/60 = **0.2167**'                absent
+OK   RESULT.md states '16/60 = 0.2667'                    absent
+OK   RESULT.md states '**48.3%**'                         absent
+OK   RESULT.md states '**p = 1.0**'                       absent
+OK   RESULT.md states '**p = 1.0000**'                    absent
+OK   RESULT.md states '0.8000'                            absent
+OK   RESULT.md states '**37 of 60 rows are labelled, and 21 of the 30 EVID rows.**' absent
+OK   RESULT.md states '4 of 10'                           absent
+
+31 claims, 0 failed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 276  redactions: none
+==============================================================================
+[seq 33] 2026-10-18T02:01:26+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/bodies.py --rebuild-from-raw
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rebuilt bodies.json from raw: 60 rows, 251 answers, 0 requests
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 286  redactions: none
+==============================================================================
+[seq 34] 2026-10-18T02:01:43+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/bodies.py --rebuild-from-raw
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rebuilt bodies.json from raw: 60 rows, 203 answers, 0 requests
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 275  redactions: none
+==============================================================================
+[seq 35] 2026-10-18T02:01:49+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/overlap.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+instrument: residualised against the question (AMENDMENT 2)
+calibration on 9 hand-read rows
+  hand-read rows with no usable comparison: [79537353] -> [('runner_up_no_prescriptive_tokens', 5, 15, 12)]
+  qid 79408101  overlap 0.0000  (3 vs 1 tokens)  truth differ -> differ
+  qid 79791886  overlap 0.0000  (8 vs 1 tokens)  truth differ -> differ
+  qid 79843062  overlap 0.0000  (8 vs 1 tokens)  truth differ -> differ
+  qid 79589468  overlap 0.0889  (8 vs 45 tokens)  truth same   -> same
+  qid 79796450  overlap 0.3333  (7 vs 6 tokens)  truth same   -> same
+  qid 79824381  overlap 0.3333  (26 vs 12 tokens)  truth differ -> same
+  qid 79600161  overlap 0.6000  (20 vs 10 tokens)  truth same   -> same
+  qid 79556333  overlap 0.6667  (65 vs 9 tokens)  truth differ -> same
+  qid 79663905  overlap 1.0000  (110 vs 3 tokens)  truth same   -> same
+tau = 0.05, balanced accuracy 0.8000 (sens 0.6000, spec 1.0000, cm (3, 0, 4, 2))
+instrument ACCEPTED (bar balanced accuracy >= 0.80)
+ineligible rows: {'single_answer': 16, 'runner_up_not_positive': 2}
+
+G2'  EVID missed 4/9 divergent vs EVID hit 3/6
+     diff -0.0556  Fisher p 1  OR 0.8000 -> does not fire
+     reference SELF hit 4/12 = 0.3333
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 210  redactions: none
+==============================================================================
+[seq 36] 2026-10-18T02:02:01+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/overlap.py --power
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+EVID_missed_vs_EVID_hit      n=9 vs 6  median 0.054 vs 0.083  U=27.0  exact p=1.0000
+EVID_missed_vs_SELF_hit      n=9 vs 12  median 0.054 vs 0.121  U=47.0  exact p=0.6440
+SELF_missed_vs_SELF_hit      n=1 vs 12  median 0.000 vs 0.121  U=2.0  exact p=0.5385
+
+tau was fitted at 0.05: the accepted detector fires only when the runner-up shares essentially no residual prescriptive token with the top answer. Calibration sensitivity was 0.6000, so the measured divergent count understates the true rate by roughly this factor.
+gate bound at sensitivity 0.60: divergent rate on EVID missed could be as high as 0.7407, on EVID hit as high as 0.8333
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 10800  redactions: none
+==============================================================================
+[seq 57] 2026-10-18T02:04:09+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/overlap.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+instrument: residualised against the question (AMENDMENT 2)
+calibration on 9 hand-read rows
+  hand-read rows with no usable comparison: [79537353] -> [('runner_up_no_prescriptive_tokens', 5, 15, 12)]
+  qid 79408101  overlap 0.0000  (3 vs 1 tokens)  truth differ -> differ
+  qid 79791886  overlap 0.0000  (8 vs 1 tokens)  truth differ -> differ
+  qid 79843062  overlap 0.0000  (8 vs 1 tokens)  truth differ -> differ
+  qid 79589468  overlap 0.0889  (8 vs 45 tokens)  truth same   -> same
+  qid 79796450  overlap 0.3333  (7 vs 6 tokens)  truth same   -> same
+  qid 79824381  overlap 0.3333  (26 vs 12 tokens)  truth differ -> same
+  qid 79600161  overlap 0.6000  (20 vs 10 tokens)  truth same   -> same
+  qid 79556333  overlap 0.6667  (65 vs 9 tokens)  truth differ -> same
+  qid 79663905  overlap 1.0000  (110 vs 3 tokens)  truth same   -> same
+tau = 0.05, balanced accuracy 0.8000 (sens 0.6000, spec 1.0000, cm (3, 0, 4, 2))
+instrument ACCEPTED (bar balanced accuracy >= 0.80)
+ineligible rows: {'single_answer': 16, 'runner_up_not_positive': 2}
+
+G2'  EVID missed 4/9 divergent vs EVID hit 3/6
+     diff -0.0556  Fisher p 1  OR 0.8000 -> does not fire
+     reference SELF hit 4/12 = 0.3333
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 216  redactions: none
+==============================================================================
+[seq 58] 2026-10-18T02:04:20+00:00
+$ python3 EXPERIMENTS/182-ground-truth-contest/power.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+EVID_missed_vs_EVID_hit      n=9 vs 6  median 0.054 vs 0.083  U=27.0 (centre 27.0)  exact p=1.0000
+EVID_missed_vs_SELF_hit      n=9 vs 12  median 0.054 vs 0.121  U=47.0 (centre 54.0)  exact p=0.6440
+SELF_missed_vs_SELF_hit      n=1 vs 12  median 0.000 vs 0.121  U=2.0 (centre 6.0)  exact p=0.5385
+
+tau was fitted at 0.05: the accepted detector fires only when the runner-up shares essentially no residual prescriptive token with the top answer. Calibration sensitivity was 0.6000, so the measured divergent count understates the true rate by roughly this factor. The bound it implies straddles both arms and therefore carries no information about which is larger.
+gate bound at sensitivity 0.60: divergent rate on EVID missed could be as high as 0.7407, on EVID hit as high as 0.8333
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 9700  redactions: none
+==============================================================================
+[seq 62] 2026-10-18T02:33:35+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+................................................................................../home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................F....................................................................................................................................................................................................................................................................................../home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+......................................................................................................................................................................................................................................116-viewcount-classifier-prototype: 586 probes identical
+118-pypi-viewcount-matched-harvest: 546 probes identical
+119-hexpm-viewcount-matched-harvest: 646 probes identical
+..................................................................................
+======================================================================
+FAIL: test_the_mission_record_list_covers_every_decision_file (test_decision_files.DecisionFileListTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_decision_files.py", line 101, in test_the_mission_record_list_covers_every_decision_file
+    self.assertEqual(sorted(self.on_disk() - listed), [], "a decision file no session obligation reaches")
+AssertionError: Lists differ: ['DECISIONS-RECORDS-3.md', 'DECISIONS-RECORDS-4.md'] != []
+
+First list contains 2 additional elements.
+First extra element 0:
+'DECISIONS-RECORDS-3.md'
+
+- ['DECISIONS-RECORDS-3.md', 'DECISIONS-RECORDS-4.md']
++ [] : a decision file no session obligation reaches
+
+----------------------------------------------------------------------
+Ran 845 tests in 785.088s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 786763  redactions: none

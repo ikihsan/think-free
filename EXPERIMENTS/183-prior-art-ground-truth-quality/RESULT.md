@@ -8,7 +8,7 @@ last-verified: 2026-10-18
 
 **Date:** 2026-10-18
 **Experiment:** `e184_experiment.py`
-**Raw results:** `results.json`
+**Raw results:** `raw/e184-results.json`
 
 ## Question
 
