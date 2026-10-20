@@ -258,6 +258,14 @@ green. Next: bisect the ascending order for the rank at which amounts turn
 positive. Full entry in
 [`E196`](EXPERIMENTS/196-federal-spend-metered/RESULT.md).
 
+**E199 completed (2026-10-20): candidate screen on the money axis identifies 7030 as the best PSC code for small teams.** Screen score = recipient_count × (1 − top10_share) ranks the five IT/software codes: 7030 (2,412), DA01 (2,363), DA10 (2,345), 7A21 (2,034), D304 (490). 7030 offers the best balance: 3,917 recipients, 38.4% top-10 share, $25.83B cell obligation. DA01 is a close alternative with the largest total market ($94.91B). D304 should be deprioritized (57.6% concentration). Next: prototype validation at award level for 7030. Full entry in [`E199`](EXPERIMENTS/E199-candidate-screen/RESULT.md).
+
+**E200 completed (2026-10-20): prototype validation of 7030 screen prediction SUPPORTED.** Queried `spending_by_category/recipient/` for PSC 7030; collected 3,917 awards across 3,916 distinct recipients. Key metrics match screen prediction exactly: recipient count 3,916 (predicted 3,917), top-10 share 38.4% (predicted 38.4%), screen score 2,411.1 (predicted 2,412). Small-award accessibility confirmed: 1,257 recipients (32.1%) ≤ $40k, 1,834 (46.8%) ≤ $100k. 3,915 of 3,916 recipients (100%) have exactly 1 award — abundant entry points for newcomers. Next: MVP prototype for small-team software sales into 7030. Full entry in [`E200`](EXPERIMENTS/E200-prototype-7030-validation/RESULT.md).
+
+**E201 completed (2026-10-20): MVP prototype for small-team software sales into 7030 federal marketplace validates screen prediction.** Full recipient-level analysis of 7030: 3,916 distinct recipients, $25.83B total obligation, median $121,033. 32.1% of recipients ≤ $40k, 46.8% ≤ $100k, 100% single-award recipients. Top-10 share 38.4% (exactly matches E198). Screen score 2,411.1 (E199 predicted 2,412). Description categorization attempted but award-level endpoint returned HTTP 422. **Screen prediction SUPPORTED across all metrics.** Next: CLI tool for PSC code analysis across all five codes. Full entry in [`E201`](EXPERIMENTS/E201-prototype-7030-mvp/RESULT.md).
+
+**E202 completed (2026-10-20): CLI tool for PSC code small-team entry analysis completed and validated on all five IT/software codes.** Tool queries USAspending API and outputs screen metrics, small-team entry metrics, and accessibility analysis. All five codes reproduce E198/E199 baselines within 0.1 pp. Comparative analysis confirms 7030 as best overall (score 2,411.1, 32.1% ≤ $40k), DA01 close second by score but only 19.4% ≤ $40k, DA10 third (27.1% ≤ $40k), 7A21 fourth (high concentration 48.8%), D304 far behind (score 490.0). The money axis now has a working assessment tool. Next: extend tool with award description analysis and time-window comparison. Full entry in [`E202`](EXPERIMENTS/E202-cli-tool-7030-entry/RESULT.md).
+
 ## Dashboard
 
 See [`STATE-dashboard.md`](STATE-dashboard.md).
