@@ -302,7 +302,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/071-pip-name-guard-prototype/` | `docs/INDEX.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/071-viewcount-denominator/` | `docs/INDEX.md` | complete | 2026-10-09 | Date: 2026-10-09 · Session: 2026-10-09-002 · Status: complete — |
 | `EXPERIMENTS/072-fresh-observation-protocol/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 met, G3 measured, G4 not applicable to prototype |
-| `EXPERIMENTS/072-git-file-presence/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 |  |
+| `EXPERIMENTS/072-git-file-presence/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/072-merchant-noise-raw/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 did not fire. No |
 | `EXPERIMENTS/072-npm-view-count-prototype/` | `docs/INDEX.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/073-piecewise-price/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 fail. The pwc repair |
@@ -488,6 +488,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/197-recipient-read-extension/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 1 documents |
 | `EXPERIMENTS/198-recipient-read/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 2 documents |
 | `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/223-award-description-terms/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-20 | 1 documents |
+| `EXPERIMENTS/224-fresh-domain-observation/` | `EXPERIMENTS/224-fresh-domain-observation/INDEX.md` | active | 2026-10-20 | 1 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E149-github-repo-viewcount-followup/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |

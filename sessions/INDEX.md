@@ -3,18 +3,20 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-19
+last-verified: 2026-10-20
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
 
-525 recorded session(s). One `events.jsonl` per session, so concurrent
+527 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 500 older session(s) are in the directory listing.
+Showing the 25 most recent. 502 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-20-002-e224-fresh-domain-observation-per-projec](2026-10-20-002-e224-fresh-domain-observation-per-projec/README.md) | unknown-agent |  | E224 fresh domain observation per project direction | 2026-10-20T12:16 |
+| [2026-10-20-001-e223-e224-transition](2026-10-20-001-e223-e224-transition/README.md) | unknown-agent | worked | E223 E224 transition | 2026-10-20T12:02 |
 | [2026-10-19-006-run-recipient-read-experiment-for-remain](2026-10-19-006-run-recipient-read-experiment-for-remain/README.md) | unknown-agent | partial | Run recipient read experiment for remaining 3 IT codes (7A21, 7030, D3 | 2026-10-19T08:29 |
 | [2026-10-19-005-e197-settle-whether-e196-s-25-code-addre](2026-10-19-005-e197-settle-whether-e196-s-25-code-addre/README.md) | unknown-agent | **unfinished** | E197: settle whether E196's 25 code-addressed federal cells hold real  | 2026-10-19T05:11 |
 | [2026-10-19-002-recover-and-label-the-unevidenced-2026-1](2026-10-19-002-recover-and-label-the-unevidenced-2026-1/README.md) | unknown-agent | worked | Recover and label the unevidenced 2026-10-18 record honestly, then run | 2026-10-19T02:05 |
@@ -38,8 +40,6 @@ Showing the 25 most recent. 500 older session(s) are in the directory listing.
 | [2026-10-18-005-fresh-exploration-find-a-concrete-proble](2026-10-18-005-fresh-exploration-find-a-concrete-proble/README.md) | unknown-agent | worked | Fresh exploration: find a concrete problem domain with accessible data | 2026-10-18T03:55 |
 | [2026-10-18-004-prior-art-check-the-ground-truth-quality](2026-10-18-004-prior-art-check-the-ground-truth-quality/README.md) | unknown-agent | worked | Prior-art-check the ground-truth-quality axis: do vote margin, corrobo | 2026-10-18T03:41 |
 | [2026-10-18-003-measure-whether-e177-s-ground-truth-is-c](2026-10-18-003-measure-whether-e177-s-ground-truth-is-c/README.md) | opencode | worked | Measure whether E177's ground truth is contestable where the assistant | 2026-10-18T03:17 |
-| [2026-10-18-002-log-e181-s-two-undeclared-artifacts-that](2026-10-18-002-log-e181-s-two-undeclared-artifacts-that/README.md) | space-bunny-free | worked | Log E181's two undeclared artifacts that session finish reported | 2026-10-18T01:23 |
-| [2026-10-18-001-e181-test-whether-supplying-the-specific](2026-10-18-001-e181-test-whether-supplying-the-specific/README.md) | space-bunny-free | worked | E181: test whether supplying the specific missing fact closes the 0.40 | 2026-10-18T01:22 |
 
 
 ## Reading a session

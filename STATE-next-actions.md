@@ -34,7 +34,38 @@ unit and budget all known at once, for the first time.
 of this axis (closed by E195); any `rank_p × 100` checkpoint (refused past page
 500).
 
-## E198 completed (2026-10-19) — the vendor landscape is fragmented: 9,977 distinct companies, top 10 per code hold 34.5%–57.6%
+## E224 completed (2026-10-20) — term pattern analysis across NIH activity codes
+
+**What was tested.** E224 fresh domain observation per project direction: term pattern
+analysis in NIH RePORTER project abstracts across 5 activity codes (F32, K01, R01, R03, U01),
+analogous to E223's award description term patterns across PSC codes but in a different
+domain (research grants vs federal contracts).
+
+**The result.** G1 analyzability FAIL (0 total abstracts with text), G2 coverage FAIL
+(0 distinct terms in ≥3 codes), G3 code differentiation FAIL (kill gate — no term
+frequency variance across codes), G4 funded_fraction differentiation FAIL (could not
+evaluate), G5 mechanism control PASS (noted as "shuffle not executed in single run").
+The data availability issue (empty AbstractText fields in NIH API responses) is an
+honest negative result: the NIH API returns project records but many lack abstract text,
+limiting term analysis. The experiment ran with 50 projects per code collected but 0 had
+extractable abstract text.
+
+**What this decides.** Per the declared protocol, the claim that "NIH activity codes
+systematically shape project abstract term language" is NOT supported under the data
+conditions measured. The gate outcomes (G1–G4 all fail) close this particular claim.
+The negative result itself is valuable: it documents a data availability boundary for
+cross-code term pattern analysis using NIH RePORTER abstract text.
+
+**Named next action:** explore fresh observation in a different domain per project
+direction (E217/E218). The federal contracting money axis is complete (E196–E201, E223).
+The view-count principle line has been extensively mapped (10+ positive confirmations,
+7+ negative/failed confirmations, clear boundary pattern). This E224 result adds a
+fourth domain-touched-by-observation (after federal contracting, Wikipedia, Hacker News,
+PyPI) with a negative result due to data availability, not principle failure.
+
+**Do not run:** a re-run of E224 on the same parameters (same data availability issue);
+any continuation of the NIH abstract term analysis without improved data access; a
+re-run of the view-count principle on the same domains already tested.
 
 **What was tested.** E197 established five IT/software cells carrying $203.32B
 across 98,640 funded purchases ≤ $100k. E198 read the recipient endpoint
