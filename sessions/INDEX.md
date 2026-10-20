@@ -8,13 +8,19 @@ last-verified: 2026-10-15
 
 <!-- generated-by: origin; do not edit by hand -->
 
-394 recorded session(s). One `events.jsonl` per session, so concurrent
+400 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 369 older session(s) are in the directory listing.
+Showing the 25 most recent. 375 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-15-008-understand-current-state-and-choose-next](2026-10-15-008-understand-current-state-and-choose-next/README.md) | unknown-agent | worked | understand current state and choose next investigation | 2026-10-15T16:37 |
+| [2026-10-15-007-continue-think-free-mission-e164-complet](2026-10-15-007-continue-think-free-mission-e164-complet/README.md) | unknown-agent | worked | Continue Think Free mission - E164 complete, plan E165/Hackage experim | 2026-10-15T14:38 |
+| [2026-10-15-006-finalize-e164-conclusions-and-plan-d083](2026-10-15-006-finalize-e164-conclusions-and-plan-d083/README.md) | unknown-agent | worked | Finalize E164 conclusions and plan D083 fresh observation | 2026-10-15T14:37 |
+| [2026-10-15-005-continue-think-free-autonomous-invention](2026-10-15-005-continue-think-free-autonomous-invention/README.md) | unknown-agent | worked | Continue Think Free autonomous invention mission, record E164 experime | 2026-10-15T14:37 |
+| [2026-10-15-004-continue-from-e162-e161-completion-choos](2026-10-15-004-continue-from-e162-e161-completion-choos/README.md) | unknown-agent | worked | Continue from E162/E161 completion - choose next fresh observation or  | 2026-10-15T14:32 |
+| [2026-10-15-003-size-the-only-class-a-deterministic-acce](2026-10-15-003-size-the-only-class-a-deterministic-acce/README.md) | unknown-agent | worked | size the only class a deterministic accessibility tool could ever serv | 2026-10-15T07:56 |
 | [2026-10-15-002-measure-whether-real-accessibility-defec](2026-10-15-002-measure-whether-real-accessibility-defec/README.md) | unknown-agent | worked | measure whether real accessibility defects are deterministically repai | 2026-10-15T04:37 |
 | [2026-10-15-001-prior-art-and-demand-evidence-for-a-dete](2026-10-15-001-prior-art-and-demand-evidence-for-a-dete/README.md) | opencode | worked | prior-art and demand evidence for a deterministic CSV type-coercion ch | 2026-10-15T01:36 |
 | [2026-10-14-038-investigate-recurring-payment-detection](2026-10-14-038-investigate-recurring-payment-detection/README.md) | unknown-agent | worked | Investigate recurring payment detection on real modern bank exports wi | 2026-10-15T00:13 |
@@ -34,12 +40,6 @@ Showing the 25 most recent. 369 older session(s) are in the directory listing.
 | [2026-10-14-024-finalize-e078-prototype-and-decision-rec](2026-10-14-024-finalize-e078-prototype-and-decision-rec/README.md) | unknown-agent | worked | Finalize E078 prototype and decision record | 2026-10-14T20:35 |
 | [2026-10-14-023-record-continuation-decision-for-e078-pr](2026-10-14-023-record-continuation-decision-for-e078-pr/README.md) | unknown-agent | worked | Record continuation decision for E078 prototype | 2026-10-14T20:35 |
 | [2026-10-14-022-record-continuation-decision-for-e078-pr](2026-10-14-022-record-continuation-decision-for-e078-pr/README.md) | unknown-agent | worked | Record continuation decision for E078 prototype | 2026-10-14T20:34 |
-| [2026-10-14-021-finish-e078-need-classification-prototyp](2026-10-14-021-finish-e078-need-classification-prototyp/README.md) | unknown-agent | worked | Finish E078 need-classification prototype and record decision | 2026-10-14T20:34 |
-| [2026-10-14-020-fresh-observation-view-count-principle-o](2026-10-14-020-fresh-observation-view-count-principle-o/README.md) | unknown-agent | worked | fresh observation: view-count principle on Hackage Haskell packages pe | 2026-10-14T20:10 |
-| [2026-10-14-019-record-continuation-decision-for-ventila](2026-10-14-019-record-continuation-decision-for-ventila/README.md) | unknown-agent | worked | record continuation decision for ventilation prototype and choose next | 2026-10-14T20:04 |
-| [2026-10-14-018-prototype-second-sensor-ventilation-diag](2026-10-14-018-prototype-second-sensor-ventilation-diag/README.md) | unknown-agent | worked | prototype second-sensor ventilation diagnosis tool from F008 surviving | 2026-10-14T20:02 |
-| [2026-10-14-017-finalize-work-and-document-decision-for](2026-10-14-017-finalize-work-and-document-decision-for/README.md) | unknown-agent | worked | Finalize work and document decision for next phase | 2026-10-14T19:47 |
-| [2026-10-14-016-analyze-patterns-across-11-experiment-do](2026-10-14-016-analyze-patterns-across-11-experiment-do/README.md) | unknown-agent | worked | Analyze patterns across 11 experiment domains to identify view-count p | 2026-10-14T19:46 |
 
 
 ## Reading a session

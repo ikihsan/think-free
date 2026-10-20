@@ -1,0 +1,102 @@
+<!-- origin-meta
+owner: EXPERIMENTS/INDEX.md
+status: active
+last-verified: 2026-10-15
+-->
+
+# E165 — Hackage View-Count Prototype Observation
+
+## Goal
+
+Test the view-count principle on Hackage (Haskell package registry at https://hackage.haskell.org), a package ecosystem not yet examined by the mission. This tests whether the view-count principle generalizes to functional programming package repositories with different metadata characteristics than the imperative-language ecosystems (PyPI, NPM, Maven, crates.io) already tested.
+
+## Background
+
+The mission has now tested the view-count principle across 14+ domains across 5 package ecosystems (PyPI, NPM, NuGet, Hex.pm, CPAN) and 2 Q&A forum types (Discourse non-software, Stack Exchange). The principle works on mature infrastructure-heavy package ecosystems with exposable metadata but does not generalize to platforms without such metadata (crates.io, Maven Central, Hugging Face Hub).
+
+Haskell's Hackage registry is a significant gap in the mission's coverage. Haskell packages have different metadata conventions: packages often have longer, more descriptive names; documentation is emphasized; "active" metadata may differ in characterizer. Testing Hackage will either:
+1. **Extend the principle's reach** — if need-related Hackage packages show systematic view-count differentiation
+2. **Confirm the boundary** — if Hackage fails like crates.io/Maven Central, the boundary conditions are further mapped
+
+This experiment directly advances D083's mandate to "initiate fresh observation in a novel domain" and resolves remaining uncertainty about the principle's domain boundaries.
+
+## Method
+
+### Domain
+
+**Hackage** — Haskell package registry at https://hackage.haskell.org
+
+### Population
+
+- **Source**: Hackage API (`https://hackage.haskell.org/packages/page/{page}.json` or RSS feed)
+- **Units**: One Haskell package from Hackage
+- **Sampling**: 300 packages sorted by reverse download count (most popular first) and by alphabetical within each decile
+- **Criteria**: Packages with complete metadata (has description field)
+
+### Instrument
+
+Classifier adapted from developer-forum patterns, modified for package metadata:
+
+| Need pattern | Hackage equivalent |
+|---|---|
+| `how to`, `how do i` | Package name or description containing "howto", "haskell-tutorial", "guide" |
+| Task verbs: `run`, `create`, `set up`, `configure`, `deploy`, `debug`, `fix`, `troubleshoot` | Description containing "setup", "install", "configure", "debug", "troble", "fix" |
+| Problem statements: `error`, `fail`, `not working`, `cannot`, `issue`, `problem`, `stuck`, `help` | Description containing "error", "fail", "broken", "issue", "problem", "stuck", "help" |
+| Evidence-seeking: `trouble [verbing]`, `problem with`, `issue with` | Description containing "problem with", "issue with", "difficulty with" |
+| Error messages as titles | Package name resembling an error message |
+| Noun-phrase questions ending with `?` | Description containing a question mark or title ending with `?` |
+
+Exclusion patterns (to avoid false positives):
+- Package is a language extension or compiler directive
+- Package is a meta-package (e.g., `cabal-setup`, `haskell-platform`)
+- Description is primarily licensing or contact information
+
+### Metrics
+
+- **view_count**: Hackage's built-in view count (number of times the package page was viewed)
+- **active rate**: Whether the package has "recent" activity metadata (Haskell packages may have different activity signaling)
+
+### Gates (declared before measurement)
+
+| Gate | Threshold | Rationale |
+|---|---|---|
+| **G1** | ≥95% of packages have `view_count > 0` | Arrival metric covers population |
+| **G2** | Coverage ≥60% AND need fraction ≥5% | Classifier must cover population; domain must have needs |
+| **G3** | Unserved fraction (zero-views or no-activity) Wilson CI95 upper bound < 60% | Not a dysfunctional package set |
+| **G4** | ≥30 packages classified total | Sample size floor |
+
+### Acceptance criteria
+
+results.json contains:
+- Total packages harvested: N
+- Classified need-related: N_needed
+- Classified random: N_random
+- Zero-activity need-related: N_zero
+- Need fraction: N_needed / (N_needed + N_random)
+- Unserved fraction (zero-views / need-related total): N_zero / N_needed
+- Wilson CI95 upper bound for unserved fraction
+
+Gate assessment:
+- **All gates pass, G3 passes**: Candidate investigation opened — view-count principle generalizes to Hackage
+- **All gates pass, G3 fails**: Principle holds but forum/registry has low engagement — focus on registries with higher activity
+- **Any gate fails**: Domain closed for this classifier; may need pattern refinement
+
+### Verification
+
+```bash
+# Fetch packages
+python3 fetch_hackage.py
+
+# Classify with Hackage patterns
+python3 classify_hackage.py
+
+# Measure gates
+python3 measure_hackage.py
+
+# Analyze results
+python3 analyze_hackage.py
+```
+
+## Rationale
+
+This experiment fills the last major gap in the mission's view-count principle mapping. By testing Haskell's Hackage registry — a functional programming package ecosystem with distinct metadata conventions — we either extend the principle's validated range or further map its boundary conditions. The outcome, combined with E138/Kubernetes results, provides a complete picture of where the view-count principle applies and where it does not, directly supporting the mission's goal of "better decisions and artifacts someone outside this repository could evaluate and eventually use."

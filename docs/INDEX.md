@@ -182,6 +182,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0094-harvest-public-issue-trackers-and-practitioner-d.md`](../tasks/T-0094-harvest-public-issue-trackers-and-practitioner-d.md) | `tasks/INDEX.md` | active | 2026-10-13 | ## Goal |
 | [`tasks/T-0095-improve-preflight-usability-and-documentation.md`](../tasks/T-0095-improve-preflight-usability-and-documentation.md) | `tasks/INDEX.md` | active | 2026-10-13 | id: T-0095 |
 | [`tasks/T-0096-e161-measure-how-often-a-real-spreadsheet-engine.md`](../tasks/T-0096-e161-measure-how-often-a-real-spreadsheet-engine.md) | `tasks/INDEX.md` | active | 2026-10-15 | ## Note on the verify command |
+| [`tasks/T-0097-e164-measure-the-damaging-cell-rate-of-a-real-sp.md`](../tasks/T-0097-e164-measure-the-damaging-cell-rate-of-a-real-sp.md) | `tasks/INDEX.md` | active | 2026-10-15 | ## Goal |
 
 ## RESEARCH
 
@@ -436,6 +437,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/160-medical-diagnosis-classification/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/161-csv-spreadsheet-coercion/` | `docs/INDEX.md` | active | 2026-10-15 | Method, files and how to re-run. The numbers and the verdict are in |
 | `EXPERIMENTS/162-a11y-deterministic-repair/` | `docs/INDEX.md` | active | 2026-10-15 | Method, files and how to re-run. The numbers and the verdict are in |
+| `EXPERIMENTS/163-a11y-content-defect-composition/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |

@@ -139,6 +139,11 @@ EXPERIMENTS/090-reverse-index/baseline-cache/
 # record is the lockfile, not the tree. Tracking the bytes would put 31 MB of
 # vendored JavaScript into every commit that touches this experiment.
 node_modules/
+# A trailing slash does not match a symlink, and E163 reaches E162's install
+# through one (`163-*/node_modules -> 162-*/node_modules`). Without this line
+# git would track a single pointer whose target is already ignored, and the
+# documentation gate would walk 1,862 vendored files through it.
+node_modules
 
 # E162's fetched corpus: 27 third-party pages (2.7 MB), re-fetchable with
 # `node EXPERIMENTS/162-a11y-deterministic-repair/fetch.js`. The record is

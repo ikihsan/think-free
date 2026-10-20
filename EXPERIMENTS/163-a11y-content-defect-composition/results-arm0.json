@@ -1,0 +1,5190 @@
+{
+ "arm": "0-union",
+ "pages": [
+  {
+   "id": "162:A0-01f7ac0c",
+   "frame": "A",
+   "url": "https://www.gov.uk/",
+   "sha256": "bcca71c00ff9152c863564bd7892823e84dee5b0ddb6cce11671518031fa9523",
+   "bytes": 85520,
+   "instances": 3,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<a data-module=\"govuk-skip-link\" class=\"gem-c-skip-link govuk-skip-link govuk-!-display-none-print\" href=\"#content\">Skip to main content</a>"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<h2 class=\"gem-c-feedback__form-heading\">Help us improve GOV.UK</h2>"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<p id=\"survey_explanation\" class=\"gem-c-feedback__form-paragraph\">"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:A1-5322146a",
+   "frame": "A",
+   "url": "https://www.camden.gov.uk/",
+   "sha256": "ab48a1baf5b2d0509093fbe033d530489ddf5ad74d6b3dbecf504ac63517f1f1",
+   "bytes": 124293,
+   "instances": 6,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "landmark-banner-is-top-level",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header role=\"banner\">"
+    },
+    {
+     "id": "landmark-contentinfo-is-top-level",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<footer class=\"lbcamden-footer\" role=\"contentinfo\">"
+    },
+    {
+     "id": "landmark-main-is-top-level",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<main class=\"govuk-main-wrapper \" role=\"main\">"
+    },
+    {
+     "id": "landmark-no-duplicate-main",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"layout-content portlet-layout\" id=\"main-content\" role=\"main\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"layout-content portlet-layout\" id=\"main-content\" role=\"main\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"govuk-cookie-banner\" data-nosnippet=\"\" role=\"region\" aria-label=\"Cookie banner\">"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:A2-f5c0fd45",
+   "frame": "A",
+   "url": "https://www.westminster.gov.uk/",
+   "sha256": "dda86c79965cd9bacb136352fef15146355742c47cd637198e47d120c6a564a4",
+   "bytes": 78380,
+   "instances": 1,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"col-md-12\">"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:A3-83d6fca4",
+   "frame": "A",
+   "url": "https://www.birmingham.gov.uk/",
+   "sha256": "a74a66447065fa158f23b7afeafe9d172b8622a2730becca501dea9276941264",
+   "bytes": 61903,
+   "instances": 0,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [],
+   "arm": "1"
+  },
+  {
+   "id": "162:A5-330c6451",
+   "frame": "A",
+   "url": "https://www.southwark.gov.uk/",
+   "sha256": "5e114fa703c1dc8d3a0a25df26f7fc8198fcaf2e0d79400dd27d82581b75cfe0",
+   "bytes": 61362,
+   "instances": 0,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [],
+   "arm": "1"
+  },
+  {
+   "id": "162:A6-fbce86ec",
+   "frame": "A",
+   "url": "https://www.leeds.gov.uk/",
+   "sha256": "c672decc98da1bb6c035af7be718c81538e059638d15cf049d5624b333088034",
+   "bytes": 136920,
+   "instances": 0,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [],
+   "arm": "1"
+  },
+  {
+   "id": "162:A7-a56fe7dd",
+   "frame": "A",
+   "url": "https://www.bristol.gov.uk/",
+   "sha256": "25f681242b8a6937da52070395600b4e59a334a5b43e57482d3c37e94610e52f",
+   "bytes": 44838,
+   "instances": 1,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<h3><a href=\"/council/statistics-census-information/quality-of-life-in-bristol\">Quality of Life Survey 2026</a></h3>"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:B8-c028434c",
+   "frame": "B",
+   "url": "https://www.usa.gov/",
+   "sha256": "7ba279fef86c9e790a1b4a2bb5f9b9e872f5c03a2c60834434c9b5f9b8d12615",
+   "bytes": 48647,
+   "instances": 4,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "landmark-banner-is-top-level",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"usa-banner__header\" role=\"banner\">"
+    },
+    {
+     "id": "landmark-no-duplicate-banner",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header class=\"usa-header usa-header--extended\" id=\"header\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header class=\"usa-header usa-header--extended\" id=\"header\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<form id=\"usagov_all_gov-mobile\" class=\"usa-search usa-search--small\" action=\"https://search.usa.gov/search\" method=\"get\" name=\"usagov_all_gov-mobile\" accept-charset=\"UTF-8\" role=\"search\">"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:B10-6b15a600",
+   "frame": "B",
+   "url": "https://www.nps.gov/index.htm",
+   "sha256": "2331b8b1c8477e63b4b82c3efd884b04f24610aed71066f127efb4d051d9fee0",
+   "bytes": 72051,
+   "instances": 8,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "html": "<div class=\"modal fade\" id=\"outdated-browser\" tabindex=\"-1\" role=\"dialog\">\n</div>"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<form id=\"GlobalHeaderSearch\" class=\"GlobalHeader__Search\" action=\"/search/\" method=\"GET\" role=\"search\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav id=\"GlobalNav\" class=\"GlobalNav usaGlobalNav\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div id=\"HERO\" class=\"HeroHomepage Hero\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"HomepageHeroNavs__Divider mb-2 mb-md-0\">\n<hr aria-hidden=\"true\">OR<hr aria-hidden=\"true\">\n</div>"
+    },
+    {
+     "id": "role-img-alt",
+     "impact": "serious",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "html": "<div class=\"picturefill-background\" role=\"img\" style=\"background-image: url('/common/uploads/hero_home/pwr/promo/E2E4D5E6-A70A-A146-F8EE2EB9340224F2.jpg?mode=crop&quality=90&width=1024&height=300');\" aria-label=\"\">"
+    },
+    {
+     "id": "role-img-alt",
+     "impact": "serious",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "html": "<div class=\"picturefill-background\" role=\"img\" style=\"background-image: url('/common/commonspot/templates/images/promos/npf-blue-bg.jpg');\" aria-label=\"\">\n</div>"
+    },
+    {
+     "id": "role-img-alt",
+     "impact": "serious",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "html": "<div class=\"picturefill-background\" role=\"img\" style=\"background-image: url('/common/commonspot/templates/images/promos/GLAC1_Sunset_TimRains_960.jpg');\" aria-label=\"\">\n</div>"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:B11-b47d02cb",
+   "frame": "B",
+   "url": "https://www.cdc.gov/index.html",
+   "sha256": "d00ee07195e97121b4901d0cb36d45c0262b60e8aa68b510978001adc2b83a42",
+   "bytes": 60763,
+   "instances": 13,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "landmark-contentinfo-is-top-level",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<footer>"
+    },
+    {
+     "id": "landmark-no-duplicate-banner",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header class=\"container cdc-header\">\n\t<div data-cdc-site-alert=\"\"></div>\n<script src=\"/TemplatePackage/5.0/js/modules/banner.js\"></script>\n</header>"
+    },
+    {
+     "id": "landmark-no-duplicate-contentinfo",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<footer class=\"container cdc-footer noindex\" role=\"contentinfo\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header class=\"container cdc-header\">\n\t<div data-cdc-site-alert=\"\"></div>\n<script src=\"/TemplatePackage/5.0/js/modules/banner.js\"></script>\n</header>"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav class=\"mobile-navbar\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<form id=\"cdc-desktop-search-form\" aria-labelledby=\"cdc-desktop-search-toggle\" accept-charset=\"UTF-8\" action=\"https://search.cdc.gov/search/\" class=\"cdc-header-search-form\" method=\"get\" autocomplete=\"off\" role=\"search\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<footer class=\"container cdc-footer noindex\" role=\"contentinfo\">"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"cdc-mobile-search-toggle\" class=\"nav-link\" href=\"#\" aria-controls=\"cdc-mobile-search-form\"><i class=\"cdc-fa-magnifying-glass me-2\"></i></a>"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div id=\"skipmenu\">\n\t\t<a class=\"skippy visually-hidden-focusable\" href=\"#content\">Skip to site content</a>\n\t\t<a class=\"skippy visually-hidden-focusable\" href=\"#headerSearch\">Skip to search</a>\n\t</div>"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"carousel-inner\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<span data-bs-target=\"#hero-carousel\" data-bs-slide-to=\"0\" class=\"active\" aria-current=\"true\" aria-label=\"Ebola Situation Summary\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<span data-bs-target=\"#hero-carousel\" data-bs-slide-to=\"1\" class=\"\" aria-current=\"true\" aria-label=\"Screening for Breast Cancer\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<span data-bs-target=\"#hero-carousel\" data-bs-slide-to=\"2\" class=\"\" aria-current=\"true\" aria-label=\"Respiratory Illnesses\">"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:B12-1a6fa6ca",
+   "frame": "B",
+   "url": "https://www.nyc.gov/main",
+   "sha256": "99f859af182c9afaf88a5cba13871d517dbc8c918bf842d9adcab9431fc07769",
+   "bytes": 531641,
+   "instances": 2,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-valid-attr-value",
+     "impact": "critical",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "html": "<button type=\"button\" class=\"nyc-button\" data-variant=\"primary\" aria-controls=\"modal-murDuCCb0j\">"
+    },
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<h3><span>Wednesday,</span><span>October 14, 2026</span></h3>"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:B13-4c4bbc05",
+   "frame": "B",
+   "url": "https://www.chicago.gov/city/en.html",
+   "sha256": "45a2b1ff1d5ad9674dfca67bb30e1b6350890ecda6dddd6f7c135ecc0648d100",
+   "bytes": 72626,
+   "instances": 3,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "frame-title",
+     "impact": "serious",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.i",
+      "TTv5",
+      "TT12.d",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-2.1.1"
+     ],
+     "html": "<iframe title=\"\" class=\"embed-responsive-item cds-featured-video\" src=\"\" width=\"800\" height=\"600\" allowfullscreen=\"allowfullscreen\">\n            </iframe>"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav role=\"navigation\" class=\"cds-nav\" data-swiftype-index=\"false\" data-elastic-exclude=\"\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div id=\"homepage-banner\" class=\"jumbotron jumbotron-bg-cover w-100 d-flex align-items-center \">"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:B14-272e12f4",
+   "frame": "B",
+   "url": "https://www.seattle.gov/",
+   "sha256": "cc6004305606cb6fbd0818bf8c2e46d0e9b6fcf51544496d2d516b3a2f1fe36a",
+   "bytes": 45401,
+   "instances": 0,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [],
+   "arm": "1"
+  },
+  {
+   "id": "162:B15-746a659e",
+   "frame": "B",
+   "url": "https://www.michigan.gov/som",
+   "sha256": "3aa096d99d207b9b5eb9828be8beb093b1fc3144070a1448447af9850e14bca5",
+   "bytes": 184708,
+   "instances": 1,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "frame-title",
+     "impact": "serious",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.i",
+      "TTv5",
+      "TT12.d",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-2.1.1"
+     ],
+     "html": "<iframe src=\"https://www.youtube.com/embed/xbtXsORiW_g?rel=0\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe>"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:C16-cf7f0197",
+   "frame": "C",
+   "url": "https://docs.djangoproject.com/en/5.0/",
+   "sha256": "ad56264387dc25bdbbf37e5861e4bce65b861a2568ba429d00e6ce6eb134a72e",
+   "bytes": 53773,
+   "instances": 2,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div id=\"outdated-warning\" class=\"doc-floating-warning\">\n      This document is for an insecure version of Django that is no longer supported. Please upgrade to a newer release!\n    </div>"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<section class=\"copy-banner\">\n      <div class=\"container \n  container--flex container--flex--wrap--mobile\n\">\n        \n  <p><a href=\"https://docs.djangoproject.com/en/5.0/\">Documentation</a></p>\n\n      </div>\n    </section>"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:C17-70ed1f95",
+   "frame": "C",
+   "url": "https://docs.pytest.org/en/stable/",
+   "sha256": "96781e73a1f051ae4f2edbb67386e38be9d3aece38ac6d4b15bc7e0a2e190857",
+   "bytes": 31975,
+   "instances": 6,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-required-attr",
+     "impact": "critical",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "html": "<p class=\"caption\" role=\"heading\"><span class=\"caption-text\">About the project</span></p>"
+    },
+    {
+     "id": "aria-required-attr",
+     "impact": "critical",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "html": "<p class=\"caption\" role=\"heading\"><span class=\"caption-text\">Useful links</span></p>"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<aside class=\"sidebar-drawer\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<input type=\"checkbox\" class=\"sidebar-toggle\" name=\"__navigation\" id=\"__navigation\" aria-label=\"Toggle site navigation sidebar\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<input type=\"checkbox\" class=\"sidebar-toggle\" name=\"__toc\" id=\"__toc\" aria-label=\"Toggle table of contents sidebar\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<span>Back to top</span>"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:C18-beb24676",
+   "frame": "C",
+   "url": "https://click.palletsprojects.com/en/stable/",
+   "sha256": "c2c206738d0ba1e9cd2c6df86ef262c584161bc5aa9c77cfdd1b7e19fa9d4f00",
+   "bytes": 15424,
+   "instances": 1,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<h3>Project Links</h3>"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:C19-212ad8c1",
+   "frame": "C",
+   "url": "https://docs.astral.sh/uv/",
+   "sha256": "7c3325cc75ae6fc6ee89470e3f51b59336c7037d5bfd98f859bf0a7111b618a5",
+   "bytes": 83236,
+   "instances": 98,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">"
+    },
+    {
+     "id": "aria-progressbar-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag111",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "html": "<div class=\"md-progress\" data-md-component=\"progress\" role=\"progressbar\"></div>"
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav class=\"md-nav md-nav--secondary\" aria-label=\"Table of contents\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav class=\"md-nav\" data-md-level=\"1\" aria-labelledby=\"__nav_2_label\" aria-expanded=\"false\">"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-0-1\" name=\"__codelineno-0-1\" href=\"#__codelineno-0-1\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-1-1\" name=\"__codelineno-1-1\" href=\"#__codelineno-1-1\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-1\" name=\"__codelineno-2-1\" href=\"#__codelineno-2-1\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-2\" name=\"__codelineno-2-2\" href=\"#__codelineno-2-2\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-3\" name=\"__codelineno-2-3\" href=\"#__codelineno-2-3\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-4\" name=\"__codelineno-2-4\" href=\"#__codelineno-2-4\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-5\" name=\"__codelineno-2-5\" href=\"#__codelineno-2-5\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-6\" name=\"__codelineno-2-6\" href=\"#__codelineno-2-6\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-7\" name=\"__codelineno-2-7\" href=\"#__codelineno-2-7\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-8\" name=\"__codelineno-2-8\" href=\"#__codelineno-2-8\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-9\" name=\"__codelineno-2-9\" href=\"#__codelineno-2-9\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-10\" name=\"__codelineno-2-10\" href=\"#__codelineno-2-10\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-11\" name=\"__codelineno-2-11\" href=\"#__codelineno-2-11\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-12\" name=\"__codelineno-2-12\" href=\"#__codelineno-2-12\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-13\" name=\"__codelineno-2-13\" href=\"#__codelineno-2-13\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-14\" name=\"__codelineno-2-14\" href=\"#__codelineno-2-14\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-15\" name=\"__codelineno-2-15\" href=\"#__codelineno-2-15\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-16\" name=\"__codelineno-2-16\" href=\"#__codelineno-2-16\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-17\" name=\"__codelineno-2-17\" href=\"#__codelineno-2-17\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-18\" name=\"__codelineno-2-18\" href=\"#__codelineno-2-18\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-19\" name=\"__codelineno-2-19\" href=\"#__codelineno-2-19\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-20\" name=\"__codelineno-2-20\" href=\"#__codelineno-2-20\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-21\" name=\"__codelineno-2-21\" href=\"#__codelineno-2-21\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-22\" name=\"__codelineno-2-22\" href=\"#__codelineno-2-22\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-2-23\" name=\"__codelineno-2-23\" href=\"#__codelineno-2-23\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-3-1\" name=\"__codelineno-3-1\" href=\"#__codelineno-3-1\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-3-2\" name=\"__codelineno-3-2\" href=\"#__codelineno-3-2\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-3-3\" name=\"__codelineno-3-3\" href=\"#__codelineno-3-3\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-3-4\" name=\"__codelineno-3-4\" href=\"#__codelineno-3-4\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-4-1\" name=\"__codelineno-4-1\" href=\"#__codelineno-4-1\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-4-2\" name=\"__codelineno-4-2\" href=\"#__codelineno-4-2\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-4-3\" name=\"__codelineno-4-3\" href=\"#__codelineno-4-3\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-4-4\" name=\"__codelineno-4-4\" href=\"#__codelineno-4-4\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-5-1\" name=\"__codelineno-5-1\" href=\"#__codelineno-5-1\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-5-2\" name=\"__codelineno-5-2\" href=\"#__codelineno-5-2\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-5-3\" name=\"__codelineno-5-3\" href=\"#__codelineno-5-3\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-5-4\" name=\"__codelineno-5-4\" href=\"#__codelineno-5-4\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-5-5\" name=\"__codelineno-5-5\" href=\"#__codelineno-5-5\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-5-6\" name=\"__codelineno-5-6\" href=\"#__codelineno-5-6\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-5-7\" name=\"__codelineno-5-7\" href=\"#__codelineno-5-7\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-5-8\" name=\"__codelineno-5-8\" href=\"#__codelineno-5-8\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-5-9\" name=\"__codelineno-5-9\" href=\"#__codelineno-5-9\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-5-10\" name=\"__codelineno-5-10\" href=\"#__codelineno-5-10\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-5-11\" name=\"__codelineno-5-11\" href=\"#__codelineno-5-11\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-5-12\" name=\"__codelineno-5-12\" href=\"#__codelineno-5-12\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-5-13\" name=\"__codelineno-5-13\" href=\"#__codelineno-5-13\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-5-14\" name=\"__codelineno-5-14\" href=\"#__codelineno-5-14\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-6-1\" name=\"__codelineno-6-1\" href=\"#__codelineno-6-1\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-6-2\" name=\"__codelineno-6-2\" href=\"#__codelineno-6-2\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-6-3\" name=\"__codelineno-6-3\" href=\"#__codelineno-6-3\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-6-4\" name=\"__codelineno-6-4\" href=\"#__codelineno-6-4\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-6-5\" name=\"__codelineno-6-5\" href=\"#__codelineno-6-5\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-6-6\" name=\"__codelineno-6-6\" href=\"#__codelineno-6-6\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-6-7\" name=\"__codelineno-6-7\" href=\"#__codelineno-6-7\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-6-8\" name=\"__codelineno-6-8\" href=\"#__codelineno-6-8\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-7-1\" name=\"__codelineno-7-1\" href=\"#__codelineno-7-1\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-7-2\" name=\"__codelineno-7-2\" href=\"#__codelineno-7-2\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-7-3\" name=\"__codelineno-7-3\" href=\"#__codelineno-7-3\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-7-4\" name=\"__codelineno-7-4\" href=\"#__codelineno-7-4\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-7-5\" name=\"__codelineno-7-5\" href=\"#__codelineno-7-5\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-7-6\" name=\"__codelineno-7-6\" href=\"#__codelineno-7-6\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-7-7\" name=\"__codelineno-7-7\" href=\"#__codelineno-7-7\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-7-8\" name=\"__codelineno-7-8\" href=\"#__codelineno-7-8\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-8-1\" name=\"__codelineno-8-1\" href=\"#__codelineno-8-1\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-8-2\" name=\"__codelineno-8-2\" href=\"#__codelineno-8-2\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-8-3\" name=\"__codelineno-8-3\" href=\"#__codelineno-8-3\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-8-4\" name=\"__codelineno-8-4\" href=\"#__codelineno-8-4\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-8-5\" name=\"__codelineno-8-5\" href=\"#__codelineno-8-5\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-8-6\" name=\"__codelineno-8-6\" href=\"#__codelineno-8-6\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-8-7\" name=\"__codelineno-8-7\" href=\"#__codelineno-8-7\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-8-8\" name=\"__codelineno-8-8\" href=\"#__codelineno-8-8\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-8-9\" name=\"__codelineno-8-9\" href=\"#__codelineno-8-9\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-8-10\" name=\"__codelineno-8-10\" href=\"#__codelineno-8-10\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-9-1\" name=\"__codelineno-9-1\" href=\"#__codelineno-9-1\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-9-2\" name=\"__codelineno-9-2\" href=\"#__codelineno-9-2\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-10-1\" name=\"__codelineno-10-1\" href=\"#__codelineno-10-1\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-10-2\" name=\"__codelineno-10-2\" href=\"#__codelineno-10-2\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-10-3\" name=\"__codelineno-10-3\" href=\"#__codelineno-10-3\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-10-4\" name=\"__codelineno-10-4\" href=\"#__codelineno-10-4\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-11-1\" name=\"__codelineno-11-1\" href=\"#__codelineno-11-1\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-11-2\" name=\"__codelineno-11-2\" href=\"#__codelineno-11-2\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-11-3\" name=\"__codelineno-11-3\" href=\"#__codelineno-11-3\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-11-4\" name=\"__codelineno-11-4\" href=\"#__codelineno-11-4\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-12-1\" name=\"__codelineno-12-1\" href=\"#__codelineno-12-1\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-12-2\" name=\"__codelineno-12-2\" href=\"#__codelineno-12-2\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-12-3\" name=\"__codelineno-12-3\" href=\"#__codelineno-12-3\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-12-4\" name=\"__codelineno-12-4\" href=\"#__codelineno-12-4\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-12-5\" name=\"__codelineno-12-5\" href=\"#__codelineno-12-5\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-12-6\" name=\"__codelineno-12-6\" href=\"#__codelineno-12-6\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a id=\"__codelineno-12-7\" name=\"__codelineno-12-7\" href=\"#__codelineno-12-7\"></a>"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"md-progress\" data-md-component=\"progress\" role=\"progressbar\"></div>"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:C20-ce701bd7",
+   "frame": "C",
+   "url": "https://fastapi.tiangolo.com/",
+   "sha256": "99271486ca26d5f953df2b82b9bfc748d17fe400b8bee16dd997597b2516f872",
+   "bytes": 154014,
+   "instances": 29,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-progressbar-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag111",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "html": "<div class=\"md-progress\" data-md-component=\"progress\" role=\"progressbar\"></div>"
+    },
+    {
+     "id": "aria-prohibited-attr",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "html": "<label class=\"md-overlay\" for=\"__drawer\" aria-label=\"Navigation\"></label>"
+    },
+    {
+     "id": "aria-prohibited-attr",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "html": "<label class=\"md-header__button md-icon\" for=\"__drawer\" aria-label=\"Navigation\">\n      \n      <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z\"></path></svg>\n    </label>"
+    },
+    {
+     "id": "aria-prohibited-attr",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "html": "<label class=\"md-header__button md-icon\" for=\"__search\" aria-label=\"Search\">"
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "html": "<img src=\"https://typer.tiangolo.com/img/logo-margin/logo-margin-vector.svg\" style=\"width: 20%;\">"
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle \" type=\"checkbox\" id=\"__nav_3\">"
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle \" type=\"checkbox\" id=\"__nav_3_4\">"
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle \" type=\"checkbox\" id=\"__nav_3_4_29\">"
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle \" type=\"checkbox\" id=\"__nav_3_4_30\">"
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle \" type=\"checkbox\" id=\"__nav_3_5\">"
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle \" type=\"checkbox\" id=\"__nav_3_5_12\">"
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle \" type=\"checkbox\" id=\"__nav_3_8\">"
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle \" type=\"checkbox\" id=\"__nav_3_9\">"
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle \" type=\"checkbox\" id=\"__nav_4\">"
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle \" type=\"checkbox\" id=\"__nav_4_17\">"
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle \" type=\"checkbox\" id=\"__nav_5\">"
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle \" type=\"checkbox\" id=\"__nav_6\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav class=\"md-nav md-nav--secondary\" aria-label=\"On this page\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav class=\"md-nav\" aria-label=\"Sponsors\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav class=\"md-nav\" aria-label=\"Example\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav class=\"md-nav\" aria-label=\"Example upgrade\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav class=\"md-nav\" aria-label=\"Deploy your app (optional)\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav class=\"md-nav\" aria-label=\"Dependencies\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav class=\"md-nav\" data-md-level=\"1\" aria-labelledby=\"__nav_3_label\" aria-expanded=\"false\">"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a href=\"https://typer.tiangolo.com\"><img src=\"https://typer.tiangolo.com/img/logo-margin/logo-margin-vector.svg\" style=\"width: 20%;\"></a>"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<label class=\"md-overlay\" for=\"__drawer\" aria-label=\"Navigation\"></label>"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"md-progress\" data-md-component=\"progress\" role=\"progressbar\"></div>"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:C21-83c002ac",
+   "frame": "C",
+   "url": "https://docs.python.org/3/",
+   "sha256": "a4c387ba940b287330e0f79969d194b86d04b412c5a2269316b47a1b35156b2f",
+   "bytes": 19625,
+   "instances": 6,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<h3>Download</h3>"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<form role=\"search\" class=\"search\" action=\"search.html\" method=\"get\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"related\" role=\"navigation\" aria-label=\"Related\">"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a href=\"\"></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a href=\"\"></a>"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"footer\">"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:C22-ef9ae6b8",
+   "frame": "C",
+   "url": "https://nodejs.org/docs/latest/api/",
+   "sha256": "7216a99949ea844c93a0bf2ff2311d652d15f153cb9229cb6719592c574bd1ab",
+   "bytes": 18733,
+   "instances": 2,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-allowed-role",
+     "impact": "minor",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "html": "<details role=\"navigation\" id=\"toc\" open=\"\"><summary>Table of contents</summary><ul>\n<li><a href=\"index.html#index\">Index</a></li>\n</ul></details>"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div role=\"navigation\" id=\"column2\" class=\"interior\">"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:A23-90fb937a",
+   "frame": "A",
+   "url": "https://www.gov.wales/",
+   "sha256": "df2f16305c06576d64ebb47d3b510fd59e9d864312ec67ef9892dac69e4260b1",
+   "bytes": 29927,
+   "instances": 1,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "landmark-no-duplicate-banner",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div role=\"banner\" id=\"wg_cookie\" class=\"wg_cookie\" aria-label=\"Cookies on GOV.WALES\">"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:A24-5c8502b8",
+   "frame": "A",
+   "url": "https://www.reading.gov.uk/",
+   "sha256": "0f76ee52813f89071953567384f9c2f76a4dab36ba154c95ce5e790ebe34c2f8",
+   "bytes": 30753,
+   "instances": 20,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Waste and recycling\" src=\"https://images.reading.gov.uk/2020/09/recycle.svg\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Council Tax\" src=\"https://images.reading.gov.uk/2022/02/pound-sterling.png\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Housing\" src=\"https://images.reading.gov.uk/2020/09/house.svg\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Vehicles, roads and transport\" src=\"https://images.reading.gov.uk/2020/09/highway.svg\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Adult social care and public health\" src=\"https://images.reading.gov.uk/2020/09/respect.svg\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Benefits and financial support\" src=\"https://images.reading.gov.uk/2024/12/benefitsicon.svg\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Work for us\" src=\"https://images.reading.gov.uk/2021/10/job.png\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Planning and building control\" src=\"https://images.reading.gov.uk/2020/09/scheme.svg\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Contact us\" src=\"https://images.reading.gov.uk/2021/10/speech-bubble2.png\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Leisure\" src=\"https://images.reading.gov.uk/2020/09/run.svg\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"The council and democracy\" src=\"https://images.reading.gov.uk/2020/09/parliament.svg\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Business\" src=\"https://images.reading.gov.uk/2020/09/food-and-restaurant.svg\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Births, deaths and ceremonies\" src=\"https://images.reading.gov.uk/2020/09/dove.svg\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Nuisance, animals and pests\" src=\"https://images.reading.gov.uk/2021/12/bark.png\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Children and education\" src=\"https://images.reading.gov.uk/2020/09/abc.svg\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"About Reading\" src=\"https://images.reading.gov.uk/2021/10/lion.png\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Climate and pollution\" src=\"https://images.reading.gov.uk/2021/12/planet-earth.png\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Community safety\" src=\"https://images.reading.gov.uk/2021/12/alarm.png\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "image-redundant-alt",
+     "impact": "minor",
+     "tags": [
+      "cat.text-alternatives",
+      "best-practice"
+     ],
+     "html": "<img alt=\"Services for disabled people\" src=\"https://images.reading.gov.uk/2022/12/disabled.png\" loading=\"lazy\" class=\"rbc-tile__header-icon\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<section aria-label=\"Notification\" class=\"notification-container\" style=\"padding:0\" data-v-67b00a50=\"\" data-v-2a6cf527=\"\"><!----></section>"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:B25-88c159b3",
+   "frame": "B",
+   "url": "https://www.dol.gov/",
+   "sha256": "f4b8a58e7308771d01651a998299e85dd91cb1c2fa215a249fc8d6846ae461ff",
+   "bytes": 86885,
+   "instances": 4,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "landmark-banner-is-top-level",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header class=\"usa-banner__header\" aria-label=\"Official United States Government Website Disclaimer\">"
+    },
+    {
+     "id": "landmark-no-duplicate-banner",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header class=\"cd-main-header header cf usa-header usa-header-extended\" role=\"banner\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div role=\"search\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div id=\"block-pagetitle-2\">"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:B26-a6dfaa5e",
+   "frame": "B",
+   "url": "https://www.phoenix.gov/",
+   "sha256": "a9da2145fcd19ccd14980d6b155b22c94240bb2c80496ccbeaf329bdf4032a82",
+   "bytes": 466912,
+   "instances": 5,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-allowed-attr",
+     "impact": "critical",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "html": "<div id=\"alert-body-alert-card-4eb38df29e\" class=\"cmp-alert-card__content\" aria-expanded=\"false\">"
+    },
+    {
+     "id": "aria-prohibited-attr",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "html": "<div class=\"header__logo\" aria-label=\"City of Phoenix\" href=\"/content/phoenix/us/en.html\">"
+    },
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<h3 class=\"heading-link\">\n                                <a data-cmp-clickable=\"\" href=\"https://www.phoenix.gov/residents/pay-bill.html\">\n                                    Make a Payment\n                                </a>\n                            </h3>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a class=\"nav-header__menu-esc nav-header__menu-esc--logo\" href=\"#main-nav-btn\">\n                        <span class=\"cmp-button__text visually-hidden\" aria-hidden=\"true\">Back</span>\n                    </a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a class=\"nav-header__back\" href=\"#\">"
+    }
+   ],
+   "arm": "1"
+  },
+  {
+   "id": "162:C27-5ec9204b",
+   "frame": "C",
+   "url": "https://pydantic.dev/docs/",
+   "sha256": "beb0300b763aada1763aa140bd633913d5fdf0a83ccffd57ca788815874583fa",
+   "bytes": 51232,
+   "instances": 0,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [],
+   "arm": "1"
+  },
+  {
+   "id": "162:C28-971046a8",
+   "frame": "C",
+   "url": "https://docs.ansible.com/",
+   "sha256": "b1d2b0a9eaca3257353fd3953abc81951bad2c47df465bfedf2e55e6968d454f",
+   "bytes": 23586,
+   "instances": 0,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [],
+   "arm": "1"
+  },
+  {
+   "id": "001-297ed4bd",
+   "frame": "A",
+   "url": "https://www.gov.uk/search/news-and-communications",
+   "sha256": "297ed4bd5996e99bf81d5aedc35a057f5f9118bcb847aed6387d2e2e9b0bb611",
+   "bytes": 448781,
+   "arm": "2",
+   "instances": 3,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<a data-module=\"govuk-skip-link\" class=\"gem-c-skip-link govuk-skip-link govuk-!-display-none-print\" href=\"#content\">Skip to main content</a>"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<h2 class=\"gem-c-feedback__form-heading\">Help us improve GOV.UK</h2>"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<p id=\"survey_explanation\" class=\"gem-c-feedback__form-paragraph\">"
+    }
+   ]
+  },
+  {
+   "id": "002-2cd354cb",
+   "frame": "A",
+   "url": "https://www.gov.uk/search/guidance-and-regulation",
+   "arm": "2",
+   "error": "Error: axe timeout"
+  },
+  {
+   "id": "003-0a808a0c",
+   "frame": "A",
+   "url": "https://www.camden.gov.uk/search",
+   "sha256": "0a808a0cadc0ec7c72faea689f43b14d6740d6c68bbce8519764156063076e99",
+   "bytes": 118419,
+   "arm": "2",
+   "instances": 7,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<h3 data-lfr-editable-id=\"follow-us-text\" data-lfr-editable-type=\"text\">\n\t\t\t\t\t\tFollow us on social media\n\t\t\t\t\t</h3>"
+    },
+    {
+     "id": "landmark-banner-is-top-level",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header role=\"banner\">"
+    },
+    {
+     "id": "landmark-contentinfo-is-top-level",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<footer class=\"lbcamden-footer\" role=\"contentinfo\">"
+    },
+    {
+     "id": "landmark-main-is-top-level",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<main class=\"govuk-main-wrapper \" role=\"main\">"
+    },
+    {
+     "id": "landmark-no-duplicate-main",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"layout-content portlet-layout\" id=\"main-content\" role=\"main\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"layout-content portlet-layout\" id=\"main-content\" role=\"main\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"govuk-cookie-banner\" data-nosnippet=\"\" role=\"region\" aria-label=\"Cookie banner\">"
+    }
+   ]
+  },
+  {
+   "id": "004-02c1bec9",
+   "frame": "A",
+   "url": "https://www.camden.gov.uk/contact-camden",
+   "sha256": "02c1bec916879111e52bb4e70bccbcc6f2acc4eeddf9e1d01cc473bc5e32f60c",
+   "bytes": 124154,
+   "arm": "2",
+   "instances": 6,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "landmark-banner-is-top-level",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header role=\"banner\">"
+    },
+    {
+     "id": "landmark-contentinfo-is-top-level",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<footer class=\"lbcamden-footer\" role=\"contentinfo\">"
+    },
+    {
+     "id": "landmark-main-is-top-level",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<main class=\"govuk-main-wrapper \" role=\"main\">"
+    },
+    {
+     "id": "landmark-no-duplicate-main",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"layout-content portlet-layout\" id=\"main-content\" role=\"main\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"layout-content portlet-layout\" id=\"main-content\" role=\"main\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"govuk-cookie-banner\" data-nosnippet=\"\" role=\"region\" aria-label=\"Cookie banner\">"
+    }
+   ]
+  },
+  {
+   "id": "005-8099265d",
+   "frame": "A",
+   "url": "https://www.westminster.gov.uk/report-it",
+   "sha256": "8099265d80f9ff82e27952f5abc3411a7a0488958a8da75b42e32c34d9f8ee48",
+   "bytes": 55402,
+   "arm": "2",
+   "instances": 2,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav>"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"col-md-12\">"
+    }
+   ]
+  },
+  {
+   "id": "006-f6a6a48e",
+   "frame": "A",
+   "url": "https://www.westminster.gov.uk/benefits/apply-local-support-payment",
+   "sha256": "f6a6a48e5cece446cbf970306afb03acd7184ca2ce69dd534556d2cab17edc3a",
+   "bytes": 40644,
+   "arm": "2",
+   "instances": 2,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav>"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"col-md-12\">"
+    }
+   ]
+  },
+  {
+   "id": "007-e68d6614",
+   "frame": "A",
+   "url": "https://www.birmingham.gov.uk/info/20110/report_road_and_pavement_issues",
+   "sha256": "e68d6614dedc6e82a405819ab40bb5b5580b6eaa6c3e01d7815f7a745f558ff3",
+   "bytes": 54370,
+   "arm": "2",
+   "instances": 0,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": []
+  },
+  {
+   "id": "008-0ec66bf7",
+   "frame": "A",
+   "url": "https://www.birmingham.gov.uk/accessibility",
+   "sha256": "0ec66bf70616d6c2cbf475f0a5cbc1961cc75c7b6c2a810e901b6e3a00336de0",
+   "bytes": 58064,
+   "arm": "2",
+   "instances": 0,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": []
+  },
+  {
+   "id": "009-aff2ae10",
+   "frame": "A",
+   "url": "https://www.southwark.gov.uk/about-council/contact-us",
+   "sha256": "aff2ae108c7a7f3d68892558cb905e462083537ee63db3c03812a4c674298854",
+   "bytes": 65124,
+   "arm": "2",
+   "instances": 0,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": []
+  },
+  {
+   "id": "010-ba7c2364",
+   "frame": "A",
+   "url": "https://www.southwark.gov.uk/about-council/transparency/freedom-information-data-protection-and-open-data/privacy-notices-1",
+   "sha256": "ba7c2364c7b21d5f795f3b5c0d5ac82793c6087857250db557daeb8923eb2e80",
+   "bytes": 38752,
+   "arm": "2",
+   "instances": 0,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": []
+  },
+  {
+   "id": "011-91e63cc8",
+   "frame": "A",
+   "url": "https://www.leeds.gov.uk/apply-report-or-pay",
+   "sha256": "91e63cc851cf9f3c00f6406952b6a3b9d5f8c9886d0098b08340e849352f8656",
+   "bytes": 94455,
+   "arm": "2",
+   "instances": 9,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "empty-heading",
+     "impact": "minor",
+     "tags": [
+      "cat.name-role-value",
+      "best-practice"
+     ],
+     "html": "<h3></h3>"
+    },
+    {
+     "id": "empty-heading",
+     "impact": "minor",
+     "tags": [
+      "cat.name-role-value",
+      "best-practice"
+     ],
+     "html": "<h3></h3>"
+    },
+    {
+     "id": "empty-heading",
+     "impact": "minor",
+     "tags": [
+      "cat.name-role-value",
+      "best-practice"
+     ],
+     "html": "<h3></h3>"
+    },
+    {
+     "id": "empty-heading",
+     "impact": "minor",
+     "tags": [
+      "cat.name-role-value",
+      "best-practice"
+     ],
+     "html": "<h3></h3>"
+    },
+    {
+     "id": "empty-heading",
+     "impact": "minor",
+     "tags": [
+      "cat.name-role-value",
+      "best-practice"
+     ],
+     "html": "<h3></h3>"
+    },
+    {
+     "id": "empty-heading",
+     "impact": "minor",
+     "tags": [
+      "cat.name-role-value",
+      "best-practice"
+     ],
+     "html": "<h3></h3>"
+    },
+    {
+     "id": "empty-heading",
+     "impact": "minor",
+     "tags": [
+      "cat.name-role-value",
+      "best-practice"
+     ],
+     "html": "<h3></h3>"
+    },
+    {
+     "id": "empty-heading",
+     "impact": "minor",
+     "tags": [
+      "cat.name-role-value",
+      "best-practice"
+     ],
+     "html": "<h3></h3>"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"localgov-alert-banner__content\">"
+    }
+   ]
+  },
+  {
+   "id": "012-d7fb52a2",
+   "frame": "A",
+   "url": "https://www.leeds.gov.uk/housing/council-housing-information-for-tenants/report-a-repair",
+   "sha256": "d7fb52a227ad6b78192fd27edb4bb06e2ce171644d5bd85c6d2d533816eae1da",
+   "bytes": 59793,
+   "arm": "2",
+   "instances": 0,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": []
+  },
+  {
+   "id": "013-d274f357",
+   "frame": "A",
+   "url": "https://www.bristol.gov.uk/residents/streets-travel/report-a-street-issue",
+   "sha256": "d274f357352b6cb9144ed14ba9d53c765248646847d97bbf788411ec5bbfac10",
+   "bytes": 32773,
+   "arm": "2",
+   "instances": 1,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<h3><a href=\"/residents/streets-travel/report-a-street-issue/flytipping\">Flytipping </a></h3>"
+    }
+   ]
+  },
+  {
+   "id": "014-3ab9efc6",
+   "frame": "A",
+   "url": "https://www.bristol.gov.uk/council/statistics-census-information/quality-of-life-in-bristol",
+   "sha256": "3ab9efc69d6c9bd2df5eb4979622aa0b555cd21c0d3fcba88ae06dd1cb204831",
+   "bytes": 43509,
+   "arm": "2",
+   "instances": 0,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": []
+  },
+  {
+   "id": "015-30ac857d",
+   "frame": "B",
+   "url": "https://www.usa.gov/site-issue-report-form",
+   "sha256": "30ac857d723fd741c6b490306108a2dc30c5350dc0407a0dffd207d783b0e9eb",
+   "bytes": 43335,
+   "arm": "2",
+   "instances": 5,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "landmark-banner-is-top-level",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"usa-banner__header\" role=\"banner\">"
+    },
+    {
+     "id": "landmark-no-duplicate-banner",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header class=\"usa-header usa-header--extended\" id=\"header\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header class=\"usa-header usa-header--extended\" id=\"header\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<form id=\"usagov_all_gov-mobile\" class=\"usa-search usa-search--small\" action=\"https://search.usa.gov/search\" method=\"get\" name=\"usagov_all_gov-mobile\" accept-charset=\"UTF-8\" role=\"search\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"paragraph paragraph--type--uswds-alert paragraph--view-mode--default paragraph--id--2703 usa-alert usa-alert--slim usa-alert--no-icon usa-alert--info\" role=\"region\" aria-label=\"Information\" data-analytics=\"site-banner\">"
+    }
+   ]
+  },
+  {
+   "id": "016-bf0c9c5f",
+   "frame": "B",
+   "url": "https://www.usa.gov/accessibility-policy",
+   "sha256": "bf0c9c5fc6e25976e36d9621ffbe2219884f81ac5b352add19f048848681a29c",
+   "bytes": 44358,
+   "arm": "2",
+   "instances": 4,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "landmark-banner-is-top-level",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"usa-banner__header\" role=\"banner\">"
+    },
+    {
+     "id": "landmark-no-duplicate-banner",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header class=\"usa-header usa-header--extended\" id=\"header\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header class=\"usa-header usa-header--extended\" id=\"header\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<form id=\"usagov_all_gov-mobile\" class=\"usa-search usa-search--small\" action=\"https://search.usa.gov/search\" method=\"get\" name=\"usagov_all_gov-mobile\" accept-charset=\"UTF-8\" role=\"search\">"
+    }
+   ]
+  },
+  {
+   "id": "017-c90a3b11",
+   "frame": "B",
+   "url": "https://www.nps.gov/subjects/rockformations/index.htm",
+   "sha256": "c90a3b11f59c768f743726931499ed07869c8f217d6b843c222bf2e746c0c03b",
+   "bytes": 41360,
+   "arm": "2",
+   "instances": 8,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "html": "<div class=\"modal fade\" id=\"outdated-browser\" tabindex=\"-1\" role=\"dialog\">\n</div>"
+    },
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<h4 class=\"modal-title visually-hidden\" id=\"modal-contact-us-label\">Contact Us</h4>"
+    },
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<h3>Tools</h3>"
+    },
+    {
+     "id": "landmark-no-duplicate-banner",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header class=\"usa-banner__header\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"GlobalHeader usaGlobalHeader\" role=\"banner\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<form id=\"GlobalHeaderSearch\" class=\"GlobalHeader__Search\" action=\"/search/\" method=\"GET\" role=\"search\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav id=\"GlobalNav\" class=\"GlobalNav usaGlobalNav\">"
+    },
+    {
+     "id": "svg-img-alt",
+     "impact": "serious",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.5"
+     ],
+     "html": "<svg class=\"usa-icon nps-hero-card__arrow\" focusable=\"false\" role=\"img\">\n<use href=\"/theme/assets/vendor/npsds/packages/icons/dist/sprite.svg#arrow_forward\"></use>\n</svg>"
+    }
+   ]
+  },
+  {
+   "id": "018-5d41dc96",
+   "frame": "B",
+   "url": "https://www.nps.gov/media/multimedia-search.htm",
+   "sha256": "5d41dc962c94c25e98fd0ab011fa72871e31b49364a897f7688abd214859bc26",
+   "bytes": 31872,
+   "arm": "2",
+   "instances": 4,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "html": "<div class=\"modal fade\" id=\"outdated-browser\" tabindex=\"-1\" role=\"dialog\">\n</div>"
+    },
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<h4 class=\"modal-title visually-hidden\" id=\"modal-contact-us-label\">Contact Us</h4>"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<form id=\"GlobalHeaderSearch\" class=\"GlobalHeader__Search\" action=\"/search/\" method=\"GET\" role=\"search\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav id=\"GlobalNav\" class=\"GlobalNav usaGlobalNav\">"
+    }
+   ]
+  },
+  {
+   "id": "019-7a0df729",
+   "frame": "B",
+   "url": "https://www.cdc.gov/clean-hands/data-research/facts-stats/",
+   "sha256": "7a0df729002aaada39f83f097e2eb5df3fcaffeff422c7d384f86c600a36c6b6",
+   "bytes": 75083,
+   "arm": "2",
+   "instances": 11,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "html": "<div class=\"page-share-popup\" id=\"page-share-popup\" role=\"dialog\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<form action=\"https://search.cdc.gov/search/\" method=\"GET\" class=\"cdc-header__search\" role=\"search\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"cdc-megamenu\" role=\"navigation\">"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a href=\"#\" class=\"page-share-facebook\"><span class=\"cdc-icon-facebook\"></span></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a href=\"#\" class=\"page-share-linkedin\"><span class=\"cdc-icon-linkedin\"></span></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a href=\"#\" class=\"page-share-twitter\"><span class=\"cdc-icon-twitter\"></span></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a href=\"#\" class=\"page-share-syndication\"><span class=\"cdc-icon-rss\"></span></a>"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"cdc-site-gov-notice noindex noprint\" aria-label=\"Official website of the United States government\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"col-lg-3 site-footer__heading\n\t\t\t\t\t\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"row site-footer__links\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<a href=\"https://tools.cdc.gov/campaignproxyservice/subscriptions.aspx?topic_id=USCDC_425\">Sign up for Email Updates</a>"
+    }
+   ]
+  },
+  {
+   "id": "020-106df40f",
+   "frame": "B",
+   "url": "https://www.cdc.gov/tobacco/tobacco-features/surgeon-generals-report.html",
+   "sha256": "106df40f6cf456b2ab14d46d71864dcce322c775b288a2d9eb777baa24628746",
+   "bytes": 71257,
+   "arm": "2",
+   "instances": 13,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-allowed-attr",
+     "impact": "critical",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "html": "<div class=\"accordion-header\" aria-expanded=\"false\" aria-controls=\"mobilemenu-related\">"
+    },
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "html": "<div class=\"page-share-popup\" id=\"page-share-popup\" role=\"dialog\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<form action=\"https://search.cdc.gov/search/\" method=\"GET\" class=\"cdc-header__search\" role=\"search\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<div class=\"cdc-megamenu\" role=\"navigation\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<aside class=\"page-right-rail__static noindex\" role=\"complementary\">"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a href=\"#\" class=\"page-share-facebook\"><span class=\"cdc-icon-facebook\"></span></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a href=\"#\" class=\"page-share-linkedin\"><span class=\"cdc-icon-linkedin\"></span></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a href=\"#\" class=\"page-share-twitter\"><span class=\"cdc-icon-twitter\"></span></a>"
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "html": "<a href=\"#\" class=\"page-share-syndication\"><span class=\"cdc-icon-rss\"></span></a>"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"cdc-site-gov-notice noindex noprint\" aria-label=\"Official website of the United States government\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"col-lg-3 site-footer__heading\n\t\t\thas-home-link\t\t\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"row site-footer__links\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<a href=\"https://tools.cdc.gov/campaignproxyservice/subscriptions.aspx?topic_id=USCDC_957\">Sign up for Email Updates</a>"
+    }
+   ]
+  },
+  {
+   "id": "021-f2aac349",
+   "frame": "B",
+   "url": "https://www.nyc.gov/main/your-government/contact-nyc-government",
+   "arm": "2",
+   "error": "Error: axe timeout"
+  },
+  {
+   "id": "022-8b61a0a9",
+   "frame": "B",
+   "url": "https://www.nyc.gov/main/forms/website-feedback",
+   "arm": "2",
+   "error": "Error: axe timeout"
+  },
+  {
+   "id": "023-ecf52018",
+   "frame": "B",
+   "url": "https://www.chicago.gov/city/en/sites/cannabis-information-center/home.html",
+   "sha256": "ecf52018587dd609efc80fe88cdb49cc00d689298c11f1bf6c0654335fc3d73a",
+   "bytes": 24153,
+   "arm": "2",
+   "instances": 6,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-allowed-attr",
+     "impact": "critical",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "html": "<a class=\"usa-accordion-button usa-banner-button\" aria-expanded=\"false\" aria-controls=\"gov-banner\"><span class=\"usa-banner-button-text\" style=\"color: #000000;\">Here’s how you know</span></a>"
+    },
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<h5 class=\"card-title\">Consumption&nbsp;&amp; Possession</h5>"
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "html": "<img src=\"/content/dam/city/sites/cannabis/LOGO-CHICAGO-horizontal.png\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav class=\"usa-nav\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<header class=\"usa-banner-header usa-banner-header-expanded\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"container-fluid content-container\">"
+    }
+   ]
+  },
+  {
+   "id": "024-dcf389b0",
+   "frame": "B",
+   "url": "https://www.chicago.gov/city/en/depts/oem/supp_info/report-suspicious-activity.html",
+   "sha256": "dcf389b07344e7ec5f71b5f0163f6d9a08243c7f335655dba0ba4ce511a8c23d",
+   "bytes": 61193,
+   "arm": "2",
+   "instances": 8,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-required-children",
+     "impact": "critical",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag131",
+      "EN-301-549",
+      "EN-9.1.3.1",
+      "RGAAv4",
+      "RGAA-9.3.1"
+     ],
+     "html": "<div class=\"dropdown-menu col-sm-8\" role=\"menu\" style=\"height:100vh !important\">"
+    },
+    {
+     "id": "frame-title",
+     "impact": "serious",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.i",
+      "TTv5",
+      "TT12.d",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-2.1.1"
+     ],
+     "html": "<iframe class=\"embed-responsive-item\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"https://www.google.com/maps/embed/v1/place?key=AIzaSyBOgE8FCk-FPgzMDaSFcuw9ZPkrqVULrd8&amp;q=121 N LaSalle St+Chicago+IL&amp;zoom=13\">\n                                    </iframe>"
+    },
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<h3 class=\"mb-3\"><i class=\"far fa-envelope mr-3\"></i>Contact us</h3>"
+    },
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<h3>\"If You See Something, Say Something™- <a href=\"/content/dam/city/depts/oemc/supp_info/SeeSomethingSaySomething.pdf\" target=\"_blank\" title=\"See Something Say Something\">Report Suspicious Activity</a></h3>"
+    },
+    {
+     "id": "landmark-no-duplicate-banner",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header role=\"banner\" id=\"cds-header\" class=\"cds-header section\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header role=\"banner\" id=\"cds-header\" class=\"cds-header section\">"
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<nav role=\"navigation\" class=\"cds-nav\" data-swiftype-index=\"false\" data-elastic-exclude=\"\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<div class=\"h3\">Connect With OEMC</div>"
+    }
+   ]
+  },
+  {
+   "id": "025-12108d9e",
+   "frame": "B",
+   "url": "https://www.seattle.gov/searchresults",
+   "sha256": "12108d9e6bc6e07237afd1147673a38fb13bc8ca250aa56207e883ccf20ef3ea",
+   "bytes": 462624,
+   "arm": "2",
+   "instances": 0,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": []
+  },
+  {
+   "id": "026-6d071fc2",
+   "frame": "B",
+   "url": "https://www.seattle.gov/pay-or-apply",
+   "sha256": "6d071fc25e4cac309bbedb85b70f8cec8ccb9531b462e2653f7f861a69c7862a",
+   "bytes": 53318,
+   "arm": "2",
+   "instances": 2,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "landmark-no-duplicate-banner",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "html": "<header class=\"bg_blue fixed top hasMegaMenu\">"
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "html": "<figure>\n                <picture>\n                    <img src=\"/images/Departments/CSC/central-csc-banner.jpg\" alt=\"City staff assisting a customer at a service counter\">\n                </picture>\n            </figure>"
+    }
+   ]
+  },
+  {
+   "id": "027-396c6558",
+   "frame": "B",
+   "url": "https://www.michigan.gov/som/government/state-license-search",
+   "sha256": "396c655848277c14cda47c0e9f84e5a7ceb9dc5a1473d1b233408dd2105f04bf",
+   "bytes": 119587,
+   "arm": "2",
+   "instances": 1,
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "button-name",
+     "impact": "critical",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.9.1"
+     ],
+     "html": "<button type=\"button\" class=\"close mobile-accordion-close\"><span class=\"close-icon-x\"></span></button>"
+    }
+   ]
+  }
+ ],
+ "incomplete": {
+  "color-contrast": 21,
+  "landmark-one-main": 16,
+  "page-has-heading-one": 16,
+  "aria-valid-attr-value": 19,
+  "label-content-name-mismatch": 15,
+  "aria-hidden-focus": 10,
+  "aria-prohibited-attr": 27,
+  "frame-tested": 3
+ }
+}

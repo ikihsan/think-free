@@ -1,0 +1,158 @@
+==============================================================================
+[seq 2] 2026-10-15T04:39:55+00:00
+$ node EXPERIMENTS/163-a11y-content-defect-composition/fetch.js
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+1	A	1	https://www.gov.uk/search/news-and-communications
+2	A	2	https://www.gov.uk/search/guidance-and-regulation
+3	A	1	https://www.camden.gov.uk/search
+4	A	2	https://www.camden.gov.uk/contact-camden
+5	A	1	https://www.westminster.gov.uk/report-it
+6	A	2	https://www.westminster.gov.uk/benefits/apply-local-support-payment
+7	A	1	https://www.birmingham.gov.uk/info/20110/report_road_and_pavement_issues
+8	A	2	https://www.birmingham.gov.uk/accessibility
+9	A	1	https://www.southwark.gov.uk/about-council/contact-us
+10	A	2	https://www.southwark.gov.uk/about-council/transparency/freedom-information-data-protection-and-open-data/privacy-notices-1
+11	A	1	https://www.leeds.gov.uk/apply-report-or-pay
+12	A	2	https://www.leeds.gov.uk/housing/council-housing-information-for-tenants/report-a-repair
+13	A	1	https://www.bristol.gov.uk/residents/streets-travel/report-a-street-issue
+14	A	2	https://www.bristol.gov.uk/council/statistics-census-information/quality-of-life-in-bristol
+15	B	1	https://www.usa.gov/site-issue-report-form
+16	B	2	https://www.usa.gov/accessibility-policy
+17	B	1	https://www.nps.gov/subjects/rockformations/index.htm
+18	B	2	https://www.nps.gov/media/multimedia-search.htm
+19	B	1	https://www.cdc.gov/clean-hands/data-research/facts-stats/
+20	B	2	https://www.cdc.gov/tobacco/tobacco-features/surgeon-generals-report.html
+21	B	1	https://www.nyc.gov/main/your-government/contact-nyc-government
+22	B	2	https://www.nyc.gov/main/forms/website-feedback
+skip https://www.chicago.gov/content/city/en/svcs/iwantto.apply_for.html -> 403
+skip https://www.chicago.gov/content/city/en/svcs/iwantto.report_file.html -> 403
+skip https://www.chicago.gov/content/city/en/depts/mopd/supp_info/accessibilitycitywide.html -> 403
+23	B	1	https://www.chicago.gov/city/en/sites/cannabis-information-center/home.html
+24	B	2	https://www.chicago.gov/city/en/depts/oem/supp_info/report-suspicious-activity.html
+25	B	1	https://www.seattle.gov/searchresults
+26	B	2	https://www.seattle.gov/pay-or-apply
+27	B	1	https://www.michigan.gov/som/government/state-license-search
+28	B	2	https://www.michigan.gov/som/government/local-government-form-search
+29	C	1	https://docs.djangoproject.com/en/5.0/topics/db/search/
+30	C	2	https://docs.djangoproject.com/en/5.0/topics/forms/
+31	C	1	https://docs.pytest.org/en/stable/example/reportingdemo.html
+32	C	2	https://docs.pytest.org/en/stable/contact.html
+host undefined: 0 qualifying page(s)
+33	C	1	https://docs.astral.sh/uv/reference/policies/platforms/
+host undefined: 1 qualifying page(s)
+34	C	1	https://fastapi.tiangolo.com/tutorial/request-forms/
+35	C	2	https://fastapi.tiangolo.com/tutorial/request-form-models/
+36	C	1	https://docs.python.org/3/search.html
+host undefined: 1 qualifying page(s)
+37	C	1	https://nodejs.org/docs/latest/api/report.html
+host undefined: 1 qualifying page(s)
+38	A	1	https://www.gov.wales/announcements/search
+skip https://www.gov.wales/statistics-and-research -> 202
+39	A	2	https://www.gov.wales/contact-us
+40	A	1	https://www.reading.gov.uk/council/accessibility/
+41	A	2	https://www.reading.gov.uk/waste-and-recycling/report-a-missed-bin/
+42	B	1	https://www.dol.gov/general/contact
+43	B	2	https://www.dol.gov/general/forms
+44	B	1	https://www.phoenix.gov/administration/departments/police/contact-us.html
+45	B	2	https://www.phoenix.gov/administration/departments/publictransit/transit-programs/rider-information/dial-a-ride.html
+host undefined: 0 qualifying page(s)
+host undefined: 0 qualifying page(s)
+
+45 pages from 27 hosts -> /home/ubuntu/think-free/EXPERIMENTS/163-a11y-content-defect-composition/corpus-manifest.json
+
+
+[stderr]
+Could not parse CSS stylesheet
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 62383  redactions: none
+==============================================================================
+[seq 4] 2026-10-15T04:52:03+00:00
+$ tools/origin task new --goal E164: measure the damaging-cell rate of a real spreadsheet engine's CSV round-trip over a larger sample of public-body CSVs from data.gov.uk --verify PYTHONPATH=tools:tests python3 -m unittest discover -s EXPERIMENTS/164-csv-damage-prevalence -t EXPERIMENTS/164-csv-damage-prevalence --rationale E161 measured the mechanism on 20 files: damage is real but concentrated (Census Gazetteer 36,697 leading-zero cells, 9.5%; two Camden registers 0 damaging cells). The frame-D sample of two files cannot say whether the dangerous class is common in files people actually open. E161 names this measurement as its next action. --steps Declare frame rule before fetching; fetch a larger data.gov.uk sample; round-trip every file through LibreOffice headless; classify damaging vs recoverable-by-eye; cross-check csvsafe's damaging flag against engine ground truth; write RESULT.md with per-file rates and the decision it informs --acceptance Every fetched file has sha256 in a manifest written before analysis; per-file and aggregate damaging-cell rates reported; csvsafe precision/recall on the new frame reported --preconditions libreoffice-calc installed (verified 6.4.7.2); network access to data.gov.uk --rollback Work is confined to EXPERIMENTS/164-csv-damage-prevalence/ in a feature worktree; no shared files modified
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+created T-0097  T-0097-e164-measure-the-damaging-cell-rate-of-a-real-sp.md
+  number allocated from: origin/research/origin@c0de733 and this working tree (highest T-0097)
+  verify: PYTHONPATH=tools:tests python3 -m unittest discover -s EXPERIMENTS/164-csv-damage-prevalence -t EXPERIMENTS/164-csv-damage-prevalence
+  publish with: git add -A && git commit -m "task: create T-0097 ..." && git push
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 66500  redactions: none
+==============================================================================
+[seq 6] 2026-10-15T06:46:58+00:00
+$ python3 /tmp/opencode/priorart163_probe.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+github queries: 16, npm queries: 5
+  a11y triage                            total=9
+  accessibility triage                   total=147
+  wcag triage                            total=10
+  a11y prioritization                    total=12
+  accessibility prioritization           total=381
+  axe prioritize                         total=12
+  wcag violations report                 total=32
+  a11y audit report                      total=78
+  accessibility violations ranking       total=0
+  wcag false positive                    total=3
+  wcag report tool                       total=83
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 23205  redactions: none
+==============================================================================
+[seq 7] 2026-10-15T06:57:35+00:00
+$ node EXPERIMENTS/163-a11y-content-defect-composition/run-oracle.js
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+001-297ed4bd     3 violations (A)
+002-2cd354cb ERROR Error: axe timeout
+003-0a808a0c     7 violations (A)
+004-02c1bec9     6 violations (A)
+005-8099265d     2 violations (A)
+006-f6a6a48e     2 violations (A)
+007-e68d6614     0 violations (A)
+008-0ec66bf7     0 violations (A)
+009-aff2ae10     0 violations (A)
+010-ba7c2364     0 violations (A)
+011-91e63cc8     9 violations (A)
+012-d7fb52a2     0 violations (A)
+013-d274f357     1 violations (A)
+014-3ab9efc6     0 violations (A)
+015-30ac857d     5 violations (B)
+016-bf0c9c5f     4 violations (B)
+017-c90a3b11     8 violations (B)
+018-5d41dc96     4 violations (B)
+019-7a0df729    11 violations (B)
+020-106df40f    13 violations (B)
+021-f2aac349 ERROR Error: axe timeout
+022-8b61a0a9 ERROR Error: axe timeout
+023-ecf52018     6 violations (B)
+024-dcf389b0     8 violations (B)
+
+
+[stderr]
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Could not parse CSS stylesheet
+Could not parse CSS stylesheet
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+------------------------------------------------------------------------------
+exit: 143  duration_ms: 8235913  redactions: none

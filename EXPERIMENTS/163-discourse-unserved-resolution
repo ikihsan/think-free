@@ -1,0 +1,123 @@
+<!-- origin-meta
+owner: EXPERIMENTS/INDEX.md
+status: active
+last-verified: 2026-10-15
+-->
+
+# E163 — Discourse Unserved Need Self-Resolution Experiment
+
+## Goal
+
+Re-analyze E138 Prometheus Discourse data to estimate the "truly unserved" fraction by identifying and excluding self-resolved topics (where the user resolved their own need without community response), giving a more accurate measure of needs that genuinely require community assistance.
+
+## Background
+
+E138 found that 89.1% of need-related topics (110/110) had zero replies. However, the E138 result noted: "The zero-reply metric is likely inappropriate for this forum — many topics may be: self-resolved without replies, answered via edits to the first post, answered via low-traffic forum natural rates, Discourse 'solved' plugin not used / not captured by reply_count."
+
+This experiment tests whether excluding self-resolved topics brings the unserved fraction below the G3 gate threshold of 60%.
+
+## Method
+
+### Data
+
+From `data_prometheus.jsonl` and `data_prometheus_classified.jsonl` of E138:
+- 300 total topics harvested
+- 110 classified as "need-related" (the rest were classified "random" or "excluded")
+- Each topic has: `id`, `title`, `cooked` (HTML post content), `reply_count`, `posts_count`, `view_count`, `classification`, `matched_patterns`
+
+### Self-Resolution Patterns
+
+I search the `cooked` HTML content of each need-related topic for clear self-resolution indicators. Patterns that strongly suggest the user resolved the issue themselves without community help:
+
+| Pattern | Rationale |
+|---|---|
+| `never mind` / `nevermind` | Classic phrase when user finds answer and posts "never mind" |
+| `problem solved` | User declares issue resolved |
+| `figured it out` | User discovered the solution themselves |
+| `works for me` | User reports it works, often closing the topic |
+| `it's working` | Variation of resolution report |
+| `<mark>solved</mark>` / `**solved**` / `[solved]` | Discourse solution markup (may not be present but worth checking) |
+| `case closed` | Less common but clear resolution signal |
+
+A topic is classified as "self-resolved" if ANY of these patterns match in its `cooked` content. Each pattern is checked case-insensitively against the full cooked HTML.
+
+### Acceptance criteria
+
+Results.json contains:
+- Total need-related topics: 110
+- Self-resolved topics (matching any pattern): N1
+- Truly unserved (need-related, zero replies, NOT self-resolved): N2
+- Unserved fraction (N2 / need-related total): percentage
+- Wilson CI95 upper bound for the unserved fraction
+
+Gate assessment:
+- G3 PASS: upper bound < 60% — forum is not dysfunctional when self-resolved topics excluded
+- G3 FAIL: upper bound ≥ 60% — even after exclusion, forum remains dysfunctional
+
+### Verification
+
+```bash
+python3 -c "
+import json, re, math
+from statistics import WilsonScoreInterval
+
+# Read data
+with open('data_prometheus_classified.jsonl') as f:
+    classified = [json.loads(line) for line in f]
+
+# Get need-related topics
+need_topics = [t for t in classified if t['classification'] == 'need']
+
+# Self-resolution patterns
+patterns = [
+    r'never mind',
+    r'problem solved',
+    r'figured it out',
+    r'works for me',
+    r"it's working",
+]
+
+self_resolved = 0
+for topic in need_topics:
+    cooked = topic['cooked'].lower()
+    for p in patterns:
+        if re.search(p, cooked):
+            self_resolved += 1
+            break
+
+zero_reply = [t for t in need_topics if t['reply_count'] == 0]
+unserved_not_self = [t for t in zero_reply if t not in [t for t in need_topics if any(re.search(p, t['cooked'].lower()) for p in patterns])]
+
+# Calculate fraction
+unserved_count = len(unserved_not_self)
+unserved_frac = unserved_count / len(need_topics) if need_topics else 0
+
+# Wilson score interval
+n = len(need_topics)
+p = unserved_frac
+# Wilson interval: (p + z^2/(2n) ± z * sqrt(p(1-p)/n + z^2/(4n^2)) / (1 + z^2/n)
+# using z = 1.96 for 95% CI
+z = 1.96
+center = p + z*z/(2*n)
+margin = z * math.sqrt(p*(1-p)/n + z*z/(4*n*n))
+upper = (center + margin) / (1 + z*z/n)
+
+print(f'Need-related topics: {len(need_topics)}')
+print(f'Self-resolved: {self_resolved}')
+print(f'Zero reply topics: {len(zero_reply)}')
+print(f'Truly unserved (zero reply, not self-resolved): {unserved_count}')
+print(f'Unserved fraction: {unserved_frac:.4f} ({unserved_count}/{len(need_topics)})')
+print(f'Wilson CI95 upper bound: {upper:.4f}')
+print(f'G3 gate PASS if upper < 0.60')
+"
+```
+
+## Notes
+
+This experiment uses only the existing E138 dataset — no new data needs to be fetched. It directly addresses the E138 finding that the zero-reply metric is an imperfect proxy for truly unserved needs, and tests whether a content-based self-resolution filter produces a more accurate unserved fraction.
+
+The outcome will either:
+1. **Pass G3** (upper bound < 60%): The forum is not dysfunctional when self-resolved topics are excluded, opening the door to candidate investigation per D083
+2. **Fail G3** (upper bound ≥ 60%): Even excluding self-resolved topics, the forum remains dysfunctional — the view-count principle may not generalize productively here
+
+Either result advances the mission by resolving a key uncertainty in the view-count principle's applicability to developer forums.
