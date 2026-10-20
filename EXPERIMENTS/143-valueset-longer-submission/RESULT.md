@@ -139,7 +139,7 @@ The scope is now measured more precisely:
 > cite values from supporting documents not in the CFR amendments. The
 > instrument is section-limited.
 
-**F126 (extended).** E141 showed the pre-pass's coverage is a property of
+**F145 (extended).** E141 showed the pre-pass's coverage is a property of
 a genre's writing conventions. E142 showed its exactness is also
 genre-dependent. E143 adds: **its exactness is section-dependent within a
 genre.** The SUMMARY and SUPPLEMENTARY INFORMATION are both

@@ -1,0 +1,23 @@
+pid: g0c-79753103-79673093
+
+=== LEFT ===
+Yes. 
+ The attributes are hints to the compiler for optimization. There are two main things that
+ the compiler can do with this: 
+ 
+ It can arrange the code so that the branch predictor's default choice (i.e. what to do if
+ there's no history for the branch) takes the likely path. The common heuristic you hear a
+bout is that backwards branches (target instruction is earlier than branch instruction) ar
+e assumed to be taken (they look like loops, which are typically repeated more often than 
+ended) and forward branches are assumed to not be taken. 
+ 
+ It can put unlikely code far away from the likely code in a process called "outlining", s
+o that the instructions that are unlikely to be executed anyway don't take up space in the
+ instruction cache.
+
+=== RIGHT ===
+Removing the following sections in 
+ .metadata\.plugins\org.eclipse.jdt.ui\dialog_settings.xml 
+ did the trick for me: 
+ <section name="completion_proposal_size"> 
+<section name="quick_assist_proposal_size">

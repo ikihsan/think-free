@@ -1,0 +1,39 @@
+qid: 79873559
+view_count: 1242
+tags: android-studio, intellij-idea
+key_score: 4
+
+=== TITLE ===
+Android Studio 2025.2.3 - Freezing issue when switching branches
+
+=== QUESTION ===
+Recently, in the latest stable feature drop version of Android Studio. When switching bran
+ches using the plugin within the IDE, the application freezes strangely. Problems occur du
+ring synchronisation. 
+ 
+ I couldn't find any known issues regarding this matter in the official Android Studio doc
+umentation. Any workaround solutions you may have would be greatly appreciated. 
+ Version - Build Info; 
+ Android Studio Otter 3 Feature Drop | 2025.2.3
+Build #AI-252.28238.7.2523.14688667, built on January 9, 2026
+Runtime version: 21.0.9+10-b1038.78 aarch64 (JCEF 122.1.9)
+VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o.
+ 
+ Edit; 
+ The problem mentioned has been resolved for me with the version. 
+ 
+ Android Studio Panda 1 | 2025.3.1 Build
+#AI-253.29346.138.2531.14850935, built on 7 February 2026 
+ 
+ Kind regards 
+
+ Android Studio Otter 3 Feature Drop | 2025.2.3
+Build #AI-252.28238.7.2523.14688667, built on January 9, 2026
+Runtime version: 21.0.9+10-b1038.78 aarch64 (JCEF 122.1.9)
+VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o.
+
+=== KEY ANSWER ===
+I had same problem. Fixed by downgrading to Android Studio Otter 2 Feature Drop | 2025.2.2
+ Patch 1. 
+ https://issuetracker.google.com/issues/465165108
+

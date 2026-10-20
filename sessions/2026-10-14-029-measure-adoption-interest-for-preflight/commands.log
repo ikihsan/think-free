@@ -1,0 +1,1154 @@
+==============================================================================
+[seq 2] 2026-10-14T18:05:18+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Search GitHub for issues related to evaluation harness silent failures
+query = 'evaluation harness silent failure OR wrong metric OR join key mismatch OR false positive rate'
+url = f'https://api.github.com/search/issues?q={urllib.parse.quote(query)}&per_page=30'
+req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+try:
+    with urllib.request.urlopen(req, timeout=30) as response:
+        data = json.load(response)
+        print(f'Total results: {data["total_count"]}')
+        for item in data['items'][:10]:
+            print(f'- {item["repository_url"]}/{item["number"]}: {item["title"]}')
+except Exception as e:
+    print(f'Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Total results: 11214
+- https://api.github.com/repos/hoiekim/turnip-ml/19: feat(training): add holdout evaluation script with deterministic JSON report
+- https://api.github.com/repos/MythologIQ-Labs-LLC/agent-memory/771: [Evaluation][Quality-first] Measure whether the right governed memory is actually served for the caller's task
+- https://api.github.com/repos/dyphn1/Docuvia/508: [Test][Impact] Harden benchmark honesty with negative/worst-case corpus and epistemic metrics
+- https://api.github.com/repos/Oleksii-debug/Autosport/1189: [P1][SCIENCE][#634/#638] Strategy-specific external-validity evaluator over frozen EvaluationUniverse
+- https://api.github.com/repos/Oleksii-debug/Autosport/1282: [P1][SCIENCE/ECONOMICS][TEST_PROTOCOL_READY] Frozen market-implied + NO_ACTION baseline qualification
+- https://api.github.com/repos/roccho-org/ops/450: proof(ci): separate-runner Winnow bounded relevance and terminal-only join (#449)
+- https://api.github.com/repos/PrimeIntellect-ai/prime-agent/3185: port the swarm starvation eval harness
+- https://api.github.com/repos/spiceai/spiceai/15066: feat: store and query OTLP metrics as time series
+- https://api.github.com/repos/aether-bench/sentry__sentry-greptile__aether-v22__PR3__20261012/1: feat(upsampling) - Support upsampled error count with performance optimizations
+- https://api.github.com/repos/Jevelopers-neatHack-2026/creative-engine/16: [CE-09][P0] Inspect artwork and recommend bounded repairs through evidence-based JEV quality triage
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7436  redactions: none
+==============================================================================
+[seq 3] 2026-10-14T18:05:49+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Search for issues about evaluation metric bugs, silent failures
+queries = [
+    'evaluation metric bug silent wrong score',
+    'lm-evaluation-harness bug silent failure',
+    'eval harness join key mismatch',
+    'evaluation false positive rate control arm',
+    'leaderboard score recomputation mismatch',
+    'HELM evaluation bug metric',
+    'open-llm-leaderboard evaluation error',
+]
+
+for query in queries:
+    url = f'https://api.github.com/search/issues?q={urllib.parse.quote(query)}&per_page=10'
+    req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as response:
+            data = json.load(response)
+            print(f'Query: {query}')
+            print(f'  Total: {data["total_count"]}')
+            for item in data['items'][:3]:
+                print(f'  - {item["repository_url"]}/{item["number"]}: {item["title"][:80]}')
+    except Exception as e:
+        print(f'Query: {query} - Error: {e}')
+    print()
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Query: evaluation metric bug silent wrong score
+  Total: 18129
+  - https://api.github.com/repos/Philosopher0707/autopipe/1: fix(core): stop ML steps computing the wrong result silently
+  - https://api.github.com/repos/comet-ml/opik/8634: [SDK] An unknown BLEU smoothing_method silently scores without smoothing, while 
+  - https://api.github.com/repos/allenai/olmo-eval/396: Add FairStress evaluation task
+
+Query: lm-evaluation-harness bug silent failure
+  Total: 132
+  - https://api.github.com/repos/Africa-Deep-Tech-Foundation/adtc-profiler/4: accuracy.py passes an invalid base_url=local to lm_eval — accuracy gate fails si
+  - https://api.github.com/repos/agentculture/unsloth-cli/29: feat: full benchmark suite — named eval suites, compare --base, bench (MMLU), ho
+  - https://api.github.com/repos/UKGovernmentBEIS/inspect_evals/2136: fix(math): surface an unusable antlr4 runtime instead of scoring every sample wr
+
+Query: eval harness join key mismatch
+  Total: 12032
+  - https://api.github.com/repos/ChristianV997/MarketOS/486: test(eval): fixture-only product opportunity research evaluation harness
+  - https://api.github.com/repos/DominicBurkart/nanna-coder/721: feat(eval): end-to-end SDLC orchestrator eval (issue #657)
+  - https://api.github.com/repos/assistant-ui/assistant-ui/9043: Add durable eval-dashboard evidence for prompt evals
+
+Query: evaluation false positive rate control arm
+  Total: 15194
+  - https://api.github.com/repos/PKU-Alignment/VLA-Arena/34: Is there a benign control arm alongside the safety scores?
+  - https://api.github.com/repos/dushyant-mishra/sea-ad-jepa-agent/250: V79 detection-geometry localization implementation + corrected-TRAIN diagnostic
+  - https://api.github.com/repos/JDeun/SchemaRouter/1211: Research: author-aligned SafeActBench V1 evidence-gate evaluation
+
+Query: leaderboard score recomputation mismatch
+  Total: 297
+  - https://api.github.com/repos/ShishirPatil/gorilla/1265: [BFCL] Unable to reproduce the scores on the online leaderboard for Qwen3-32B (F
+  - https://api.github.com/repos/snowfoxbuilds/SilverquiLLM-bench/66: Operationalize the candidate contract: promote/publish gates, batch scheduler, l
+  - https://api.github.com/repos/ThinkFlowLab/system1-omni/131: bench: preserve complete serving evidence and offline summaries
+
+Query: HELM evaluation bug metric
+  Total: 6425
+  - https://api.github.com/repos/kyverno/kyverno/17977: fix(chart): use metering.port in metrics NetworkPolicy ingress rules
+  - https://api.github.com/repos/odigos-io/odigos/5999: feat(instrumentor): trace surge evaluator (5/8)
+  - https://api.github.com/repos/OneUptime/oneuptime/4793: Kubernetes metric monitor: `All Values` fires before a full 15-minute rolling wi
+
+Query: open-llm-leaderboard evaluation error
+  Total: 134
+  - https://api.github.com/repos/eval-hub/eval-hub-contrib/109: feat(lm-eval): add standalone lm-evaluation-harness adapter
+  - https://api.github.com/repos/HodeTech/ForgeLM/120: Benchmark gate averages whatever rows lm-eval returned instead of the configured
+  - https://api.github.com/repos/edward-lcl/eval-evidence/8: research: what evidence is required to reconstruct an evaluation claim
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 13958  redactions: none
+==============================================================================
+[seq 4] 2026-10-14T18:06:18+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Look at specific relevant issues
+urls = [
+    'https://api.github.com/repos/eval-hub/eval-hub-contrib/109',
+    'https://api.github.com/repos/HodeTech/ForgeLM/120',
+    'https://api.github.com/repos/edward-lcl/eval-evidence/8',
+    'https://api.github.com/repos/UKGovernmentBEIS/inspect_evals/2136',
+    'https://api.github.com/repos/comet-ml/opik/8634',
+]
+
+for url in urls:
+    req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as response:
+            data = json.load(response)
+            print(f'{data["html_url"]}: {data["title"]}')
+            print(f'  State: {data["state"]}, Comments: {data["comments"]}')
+            print(f'  Body preview: {data["body"][:300] if data["body"] else "(empty)"}')
+            print()
+    except Exception as e:
+        print(f'{url} - Error: {e}')
+        print()
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+https://api.github.com/repos/eval-hub/eval-hub-contrib/109 - Error: HTTP Error 404: Not Found
+
+https://api.github.com/repos/HodeTech/ForgeLM/120 - Error: HTTP Error 404: Not Found
+
+https://api.github.com/repos/edward-lcl/eval-evidence/8 - Error: HTTP Error 404: Not Found
+
+https://api.github.com/repos/UKGovernmentBEIS/inspect_evals/2136 - Error: HTTP Error 404: Not Found
+
+https://api.github.com/repos/comet-ml/opik/8634 - Error: HTTP Error 404: Not Found
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2372  redactions: none
+==============================================================================
+[seq 5] 2026-10-14T18:06:35+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Search lm-evaluation-harness repo issues directly
+url = 'https://api.github.com/repos/EleutherAI/lm-evaluation-harness/issues?state=all&per_page=50'
+req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+try:
+    with urllib.request.urlopen(req, timeout=30) as response:
+        data = json.load(response)
+        print(f'Total issues fetched: {len(data)}')
+        for item in data[:20]:
+            print(f'- #{item["number"]}: {item["title"][:100]}')
+            if 'bug' in [l['name'] for l in item.get('labels', [])]:
+                print(f'  LABEL: bug')
+except Exception as e:
+    print(f'Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Total issues fetched: 50
+- #4388: Honor bare xpu, hpu, and npu device names in HFLM
+- #4387: Exclude prompt tokens from Neuron generation stop criteria
+- #4386: HFLM ignores bare xpu, hpu, and npu device names
+- #4385: Neuron stop criteria match the prompt and truncate generation after one token
+- #4384: fix(metrics): run the trailing partial chunk in bootstrap_stderr
+- #4383: Add SPaRC (spatial pathfinding puzzles)
+- #4382: fix(anthropic-chat): support current Claude models (sampling params, thinking blocks)
+- #4381: fix(afrobench): avoid doubled target_delimiter on MC prompts
+- #4380: Feature request - LongMemEval Oracle - Evidence Evaluation
+- #4379: Fix flexible-extract regex matching digit-less tokens like $., $$, ...
+- #4378: fix(hf): consolidate rolling likelihood progress bars
+- #4377: test(scripts): cover results-directory table generation
+- #4376: test(watsonx): cover credential validation
+- #4375: gsm8k "flexible-extract" can extract "$.", "$$" or "..." instead of the final number
+- #4374: Fix textsynth backend to read Instance.args; add test coverage (ref #1613) 
+- #4373: fix(gsm8k): keep the last digit in the CoT strict-match answer
+- #4372: Fix overlapping model arguments in LM factory configuration
+- #4371: fix(tasks): use real newlines in arc_challenge_chat and jsonschema_bench prompts
+- #4370: arc_challenge_chat and jsonschema_bench send literal "\n" to the model (single-quoted doc_to_text)
+- #4369: Fix greedy token matching in the SGLang generate API
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4745  redactions: none
+==============================================================================
+[seq 6] 2026-10-14T18:07:03+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Search for bug issues in lm-evaluation-harness
+url = 'https://api.github.com/repos/EleutherAI/lm-evaluation-harness/issues?state=all&labels=bug&per_page=100'
+req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+try:
+    with urllib.request.urlopen(req, timeout=30) as response:
+        data = json.load(response)
+        print(f'Bug issues: {len(data)}')
+        for item in data[:30]:
+            title = item['title'].lower()
+            if any(kw in title for kw in ['metric', 'score', 'silent', 'wrong', 'incorrect', 'mismatch', 'join', 'key', 'aggregate', 'false positive', 'control']):
+                print(f'  #{item["number"]}: {item["title"]} [RELEVANT]')
+            else:
+                print(f'  #{item["number"]}: {item["title"]}')
+except Exception as e:
+    print(f'Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Error: IncompleteRead(557056 bytes read)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 12926  redactions: none
+==============================================================================
+[seq 7] 2026-10-14T18:07:18+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Search for bug issues in lm-evaluation-harness with smaller page
+url = 'https://api.github.com/repos/EleutherAI/lm-evaluation-harness/issues?state=all&labels=bug&per_page=30'
+req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+try:
+    with urllib.request.urlopen(req, timeout=30) as response:
+        data = json.load(response)
+        print(f'Bug issues: {len(data)}')
+        for item in data:
+            title = item['title'].lower()
+            if any(kw in title for kw in ['metric', 'score', 'silent', 'wrong', 'incorrect', 'mismatch', 'join', 'key', 'aggregate', 'false positive', 'control', 'extract', 'parse']):
+                print(f'  #{item["number"]}: {item["title"]} [RELEVANT]')
+            else:
+                print(f'  #{item["number"]}: {item["title"]}')
+except Exception as e:
+    print(f'Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Bug issues: 30
+  #3314: Custom aggregation ignored when metric function name doesn't match return keys [RELEVANT]
+  #3231: Redundant space in combination of fewshots and gen_prefix
+  #3096: Tokenizer Merges Built on the Fly When gguf_file Is Set, Even If External Tokenizer Is Provided
+  #3075: 0.4.8 -> 0.4.9: TypeError: argument 'add_special_tokens': 'NoneType' object cannot be converted 'PyBool'
+  #3046: Cache fails when repeats are greater than 1
+  #3026: Issue with quantization_config argument
+  #3005: zeno_visualize.py can't parse model_args [RELEVANT]
+  #3004: backward compatibility for unitxt (and others) after adding question_suffix to `task.fewshot_context` in #2876
+  #3001: DROP task doesn't work on 0.4.8 on PyPI
+  #2986: unitxt with local-chat-completions gets stuck forever
+  #2984: `RuntimeError` when running eval on Winogrande train set
+  #2963: Ruler QA tasks do not work for `max_seq_lengths` < 4096
+  #2945: mmlu pro generation_kwargs until Q: -> Question:
+  #2920: clean up process results
+  #2907: GPQA Preprocessing Function Results in Incorrect Physics Equations [RELEVANT]
+  #2880: [VLLM V1] Prompt length of xxx is longer than the maximum model length of xxx
+  #2800: generate_until vs loglikelihood
+  #2780: mmlu_pro bug in fewshot + chat_template
+  #2758: HF `batch_size=auto` unreliable
+  #2715: Different models on same tasks gives same results when cache is active
+  #2695: Fix: Inconsistent spacing in arithmetic tasks affects few-shot performance
+  #2674: Assert "vLLM only supports CUDA" is not true
+  #2618: Can't find the dataset lighteval/MATH-Hard in the huggingface
+  #2579: Chat template not being used despite passing `--apply_chat_template` option
+  #2553: [BUG] lm-eval does not know how to control context length when using the OpenAI API [RELEVANT]
+  #2511: mmlu_flan_cot_zeroshot breaks after running the generation to 100%.   bbh_cot_zeroshot breaks after loading the model.
+  #2498: [Performance significantly drop when increase the batch_size]
+  #2494: hf mamba failing with generate tasks 
+  #2460: `mmlu_flan` tasks fail
+  #2451: AssertionError: Error: number of fewshot samples requested exceeds the 8 that are available.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1070  redactions: none
+==============================================================================
+[seq 8] 2026-10-14T18:08:01+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Get details of relevant issues
+relevant = [3314, 3005, 2907, 2553, 3004, 3001, 2984, 2963, 2780, 2715, 2695, 2618, 2511, 2498, 2494, 2460, 2451]
+
+for num in relevant:
+    url = f'https://api.github.com/repos/EleutherAI/lm-evaluation-harness/issues/{num}'
+    req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as response:
+            data = json.load(response)
+            print(f'#{data["number"]}: {data["title"]}')
+            print(f'  State: {data["state"]}, Comments: {data["comments"]}')
+            body = data.get('body') or ''
+            print(f'  Body: {body[:400]}')
+            print()
+    except Exception as e:
+        print(f'#{num} - Error: {e}')
+        print()
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+#3314: Custom aggregation ignored when metric function name doesn't match return keys
+  State: closed, Comments: 1
+  Body: When creating a custom aggregation and metric function for a task, the aggregation function is not triggered instead it goes to default mean aggregation.
+k=[1,3,5]
+
+utils.py
+```
+def agg(arr):
+    return sum(arr)
+
+def pass_at_k(references: list[str], predictions: list[list[str]], k: list[int] = None):
+    global compute_
+    assert k is not None
+    if isinstance(k, int):
+        k = [k]
+    res = 
+
+#3005: zeno_visualize.py can't parse model_args
+  State: closed, Comments: 2
+  Body: ``` python
+            model_args = re.sub(
+                r"[\"<>:/\|\\?\*\[\]]+",
+                "__",
+                json.load(
+                    open(Path(args.data_path, model, latest_results), encoding="utf-8")
+                )["config"]["model_args"],
+```
+At zeno_visualize.py:90
+The model_args can be a String, but it can also be a json, according to /lm_eval/__main__.py:96
+``` python
+
+
+#2907: GPQA Preprocessing Function Results in Incorrect Physics Equations
+  State: closed, Comments: 1
+  Body: https://github.com/EleutherAI/lm-evaluation-harness/blob/2a41c02e7a43819ce86c272eb47f313706451bb6/lm_eval/tasks/gpqa/generative/utils.py#L7C1-L14C16
+
+
+```json
+{
+    "id":171,
+    "Question":"Two stars are being studied. It has been observed that iron atoms in the photosphere of star_1 are twice as excited in a specific energy level when compared to the iron atoms in star_2. In fact, the energy dif
+
+#2553: [BUG] lm-eval does not know how to control context length when using the OpenAI API
+  State: closed, Comments: 1
+  Body: Hello! lm-eval does not know how to control context length when using the OpenAI API.
+
+If the length of the input context is about `8000` tokens and the number of new tokens is `256` (this is the default value in lm_eval), then lm_eval will attempt to send such a request via the `OpenAI API`, resulting in a `“400 Bad Request”` error if the maximum possible length on the server is `8192` tokens. 
+
+#3004: backward compatibility for unitxt (and others) after adding question_suffix to `task.fewshot_context` in #2876
+  State: closed, Comments: 2
+  Body: `unitext` gives a TypeError as it doesn't expect the param, we added in #2876 
+
+#3001: DROP task doesn't work on 0.4.8 on PyPI
+  State: closed, Comments: 4
+  Body: When I run the following command:
+
+lm_eval \
+    --model hf \
+    --model_args pretrained=... \
+    --tasks drop \
+    --batch_size auto \
+    --device auto \
+    --output_path ... \
+    --write_out \
+    --show_config \
+
+I consistently get this error:
+
+Traceback (most recent call last):
+  File "/data/afontana/my_env/bin/lm_eval", line 8, in <module>
+    sys.exit(cli_evaluate())
+             ^^^^^
+
+#2984: `RuntimeError` when running eval on Winogrande train set
+  State: closed, Comments: 1
+  Body: When running lm_eval on the training set of Winogrande, I run into the following error:
+
+```bash
+2025-05-14:02:00:06 INFO     [evaluator_utils:210] Request: Instance(request_type='loglikelihood', doc={'sentence': "Ian volunteered to eat Dennis's menudo after already having a bowl because _ despised eating intestine.", 'option1': 'Ian', 'option2': 'Dennis', 'answer': '2'}, arguments=("Ian volunteer
+
+#2963: Ruler QA tasks do not work for `max_seq_lengths` < 4096
+  State: closed, Comments: 11
+  Body: when `max_seq_lengths` is set to 2048, the program will hang on a `while true` loop forever.  4096 or beyond works normally
+
+#2780: mmlu_pro bug in fewshot + chat_template
+  State: closed, Comments: 1
+  Body: Hi. 
+using chat_template option in mmlu_pro makes awkward input, which user question contains answer content
+(lm_harness commit hash 4890e881031a8ff00fd3136f938c4cf1ae101de4)
+```
+{'role': 'system', 'content': 'you are a helpful assistant\n\nThe following are multiple choice questions (with answers) about biology. Think step by step and then finish your answer with "the answer is (X)" where X is th
+
+#2715: Different models on same tasks gives same results when cache is active
+  State: open, Comments: 4
+  Body: Executing the same task with same configs on two different models produces same identical resulting metrics when using cache. If I don't use cache I get the correct results (different metrics). Is cache working properly?
+
+
+To reproduce the problem:
+```
+lm_eval --model hf \
+    --model_args pretrained=Qwen/Qwen2.5-3B \
+    --tasks hellaswag \
+    --device cuda:0 \
+    --batch_size 1 \
+    --limit 1
+
+#2695: Fix: Inconsistent spacing in arithmetic tasks affects few-shot performance
+  State: closed, Comments: 2
+  Body: Hi all, I discovered this issue while reproducing arithmetic task results. Here are the details:
+
+### Description
+The arithmetic tasks show inconsistent behavior between zero-shot and few-shot evaluations due to a spacing issue in the example construction. Few-shot examples should maintain consistent spacing with evaluation examples, leading to expected improvements in few-shot performance.
+
+### C
+
+#2618: Can't find the dataset lighteval/MATH-Hard in the huggingface
+  State: closed, Comments: 12
+  Body: when I run the code to get the results of the tasks in the open llm leaderboard v2, I can't find lighteval/MATH-Hard in the huggingface, how should I solve this problem?
+Thanks！
+
+#2511: mmlu_flan_cot_zeroshot breaks after running the generation to 100%.   bbh_cot_zeroshot breaks after loading the model.
+  State: closed, Comments: 1
+  Body: I tried running some CoT zeroshot evaluations, but they both failed. Am I doing something wrong?
+
+
+### Command for mmlu_flan_cot_zeroshot
+
+```
+accelerate launch \
+    --multi_gpu \
+    --num_processes 4 \
+    -m lm_eval \
+    --model hf \
+    --apply_chat_template \
+    --tasks mmlu_flan_cot_zeroshot \
+    --batch_size 16 \
+    --model_args pretrained=/home/hidelord/models/meta-llama
+
+#2498: [Performance significantly drop when increase the batch_size]
+  State: closed, Comments: 1
+  Body: Hello, I use the latest and v0.4.3 version of lm_eval and I find the weird phenomena on `llama-3.2-3B`
+The following is my script:
+```
+BATCH_SIZE=256
+
+torchrun --nproc-per-node=8 --no-python lm_eval \
+    --model_args pretrained=meta-llama/Llama-3.2-3B \
+    --tasks gsm8k_cot \
+    --batch_size BATCH_SIZE 
+```
+
+[llama-3.2-3B] Nodes=1, GPUs=8, llama
+
+```
+batch_size=1
+|  Tasks  |Versi
+
+#2494: hf mamba failing with generate tasks 
+  State: closed, Comments: 1
+  Body: Here's an error i get. I was able to resolve by just removing "attention_mask" from generate_kwargs here: https://github.com/EleutherAI/lm-evaluation-harness/blob/main/lm_eval/models/huggingface.py#L857
+Although I'm not sure how this fix will affect other models. I am using the 0.4.4 version of the eval harness, but it doesn't look like it's fixed in the latest version either?
+
+```
+(perplexity
+
+#2460: `mmlu_flan` tasks fail
+  State: closed, Comments: 5
+  Body: I'm new to this library. I installed the library as instructed on the README page. Running: 
+```python
+lm_eval --model hf --model_args pretrained=gpt2 --tasks mmlu_flan_cot_zeroshot
+```
+results in the following error:
+```
+INFO:lm-eval:Verbosity set to INFO
+INFO:lm-eval:The tag 'arc_ca' is already registered as a group, this tag will not be registered. This may affect tasks you want to call.
+
+#2451: AssertionError: Error: number of fewshot samples requested exceeds the 8 that are available.
+  State: closed, Comments: 2
+  Body: When I try to use **few-shots** in CommonsenseQA, I wrote a YAML file in this location [[I'm the YAML file]](https://github.com/Here1sWqW/seeeeee/blob/main/commonsense_qa_cot_8shot.yaml). After that, I used this command [[I'm the command]](https://github.com/Here1sWqW/seeeeee/blob/main/run_llamma3OnCsqa_8shot.sh) to run the process, but it **asserts that the number of few-shot samples requested ex
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 9996  redactions: none
+==============================================================================
+[seq 9] 2026-10-14T18:08:14+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Search for issues about metric/aggregation bugs in lm-evaluation-harness
+url = 'https://api.github.com/search/issues?q=repo:EleutherAI/lm-evaluation-harness+metric+aggregation+OR+wrong+score+OR+silent+OR+incorrect+metric&per_page=30'
+req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+try:
+    with urllib.request.urlopen(req, timeout=30) as response:
+        data = json.load(response)
+        print(f'Total: {data["total_count"]}')
+        for item in data['items'][:15]:
+            print(f'  #{item["number"]}: {item["title"]} (state: {item["state"]})')
+except Exception as e:
+    print(f'Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Total: 803
+  #4322: Size-weighted group metrics use another metric's sample count (state: open)
+  #4062: Unscorable samples silently leave the metric denominator, inflating headline scores (state: open)
+  #4281: Warn when metric_list names a metric the output type never emits (state: open)
+  #4310: fix(masakhapos): make acc_score aggregation work (state: open)
+  #4319: [Bug] nanmean in metrics.py silently shrinks denominator without reporting excluded count (state: open)
+  #4324: fix(groups): use metric-specific sample counts (state: open)
+  #4236: Custom group aggregation callables are accepted but ignored (state: open)
+  #4333: Warn when a group's declared aggregate metric matches no task results (state: open)
+  #4221: perf(metrics): bootstrap binary f1 and mcc stderr from confusion counts (state: open)
+  #4320: fix(metrics): report effective denominator for value-dropping aggregations (state: open)
+  #4171: Shared tasks are double-counted in nested group aggregation (state: open)
+  #4090: fix(metrics): report a boundary interval where the stderr degenerates to 0.0 (state: open)
+  #4067: fix(metrics): brier_score crash on docs with different choice counts (state: open)
+  #4004: test(metrics): cover the aggregation functions selected from task YAML (state: open)
+  #4303: fix: preserve variable reference counts in translation metrics (state: open)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1068  redactions: none
+==============================================================================
+[seq 10] 2026-10-14T18:08:38+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Get details of the most relevant issues
+relevant = [4062, 4281, 4236, 4333, 4319, 4322, 4324, 4171, 4090]
+
+for num in relevant:
+    url = f'https://api.github.com/repos/EleutherAI/lm-evaluation-harness/issues/{num}'
+    req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as response:
+            data = json.load(response)
+            print(f'#{data["number"]}: {data["title"]}')
+            print(f'  State: {data["state"]}, Comments: {data["comments"]}')
+            body = data.get('body') or ''
+            print(f'  Body: {body[:500]}')
+            print()
+    except Exception as e:
+        print(f'#{num} - Error: {e}')
+        print()
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+#4062: Unscorable samples silently leave the metric denominator, inflating headline scores
+  State: open, Comments: 9
+  Body: ## Summary
+
+`lm_eval/evaluator.py` evaluate() collects metrics like this:
+
+```python
+metrics = task.process_results(doc, [req.filtered_resps[filter_key] for req in requests])
+...
+for metric, value in metrics.items():
+    acc["raw_metrics"][(metric, filter_key)].append(value)
+```
+
+If a task's `process_results` returns an empty dict, or omits a metric key, for a given document (a natural way for a task author to say "could not score this one": refusal, unparseable answer, empty extraction), that d
+
+#4281: Warn when metric_list names a metric the output type never emits
+  State: open, Comments: 1
+  Body: Refs #4255.
+
+A task that lists a metric its output type can't compute gets no column for it and nothing in the logs. The example from the issue is `acc_all` on a `multiple_choice` task: `process_results` only emits the keys hardcoded in that branch, so `acc_all` is silently dropped and the results table looks the same as if it had never been asked for.
+
+This adds a warning when the task is built:
+
+```
+[Task: my_task] metric_list asks for ['acc_all'], which output_type=multiple_choice does not co
+
+#4236: Custom group aggregation callables are accepted but ignored
+  State: open, Comments: 0
+  Body: ### Problem
+
+`AggMetricConfig` explicitly accepts a callable as its `aggregation`, but `Group.aggregate()` never invokes it. Every group metric is routed through the built-in mean helper regardless of the configured callable.
+
+### Reproduction
+
+```python
+from types import SimpleNamespace
+
+from lm_eval.api.group import AggMetricConfig, Group
+
+
+group = Group(
+    "example",
+    aggregate_metric_list=[
+        AggMetricConfig(
+            metric="acc",
+            aggregation=max,
+            weigh
+
+#4333: Warn when a group's declared aggregate metric matches no task results
+  State: open, Comments: 1
+  Body: Group.aggregate() already warns when an explicitly listed filter has no values in any leaf task, but with filter auto-discovery (filter_list=None, the default) a declared metric that no task emits discovers zero filters and is skipped silently. The group then reports no score for that metric with nothing in the logs pointing at the config mismatch (see #3986, where mmlu_flan_cot_zeroshot declares acc but its tasks emit exact_match).
+
+Log the same style of warning when auto-discovery finds no f
+
+#4319: [Bug] nanmean in metrics.py silently shrinks denominator without reporting excluded count
+  State: open, Comments: 3
+  Body: ## Description
+
+In `lm_eval/api/metrics.py` (lines 28-31), the `nanmean` function silently excludes NaN values from the mean without reporting how many were excluded:
+
+```python
+def nanmean(arr):
+    if len(arr) == 0 or all(np.isnan(arr)):
+        return np.nan
+    return np.nanmean(arr)
+```
+
+## Impact
+
+If any questions produce NaN scores (e.g., due to empty predictions or generation failures), the effective denominator shrinks from N to N - N_nan without any indication in the output. This can i
+
+#4322: Size-weighted group metrics use another metric's sample count
+  State: open, Comments: 1
+  Body: ## Description
+
+Size-weighted group aggregation uses a task's single `sample_len` for every metric, even when that task produced different numbers of values for different metrics.
+
+This biases group scores toward tasks whose unrelated metric has the largest count. The point estimate and its pooled uncertainty are both weighted with the wrong denominator.
+
+## How it happens
+
+Task aggregation records each metric/filter length internally but returns only the maximum as `sample_len`. Group aggregati
+
+#4324: fix(groups): use metric-specific sample counts
+  State: open, Comments: 1
+  Body: ## Summary
+
+- retain per-metric sample counts in task results
+- use each metric/filter's own count for size-weighted group scores and pooled uncertainty
+- fall back to task-level sample length for older or manually constructed results
+- add task-count and group-weighting regression coverage
+- apply behavior-neutral lint cleanup required in the touched aggregation modules
+
+Fixes #4322
+
+## Related work
+
+PR #4320 records counts for values excluded inside `nanmean`; this change addresses differing r
+
+#4171: Shared tasks are double-counted in nested group aggregation
+  State: open, Comments: 0
+  Body: ## Problem
+
+A hierarchical group can contain sibling subgroups that reference the same leaf task. The task is evaluated once, but the parent group's aggregate counts its result once for every path through the hierarchy.
+
+For example:
+
+```text
+root
+├── subgroup_a
+│   └── shared_task
+└── subgroup_b
+    ├── shared_task
+    └── other_task
+```
+
+Suppose the task results are:
+
+| Task | Samples | `acc,none` |
+| --- | ---: | ---: |
+| `shared_task` | 100 | 0.0 |
+| `other_task` | 200 | 1.0 |
+
+The parent cu
+
+#4090: fix(metrics): report a boundary interval where the stderr degenerates to 0.0
+  State: open, Comments: 13
+  Body: Fixes #4070.
+
+Following up on @fabio-rovai's analysis, with a narrower scope than either variant proposed there.
+
+## The problem
+
+An all-zero (or all-one) score vector has zero sample variance, so `mean_stderr` returns exactly `0.0` at any sample size, and `bootstrap_stderr` agrees because every resample of zeros is zeros. A model that scores 0 on a task is therefore published as `0.0 ± 0.0000` whether it was measured on 25 documents or on 5000 — two claims with very different evidence behind th
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4827  redactions: none
+==============================================================================
+[seq 11] 2026-10-14T18:09:11+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Search for evaluation verification/reproducibility issues in other repos
+queries = [
+    'repo:open-llm-leaderboard evaluation bug OR metric OR score',
+    'repo:stanford-crfm/helm evaluation bug OR metric OR score OR recomputation',
+    'repo:lmsys/chatbot-arena evaluation bug OR metric OR score',
+    'evaluation reproducibility verification tool',
+    'leaderboard score verification tool',
+]
+
+for query in queries:
+    url = f'https://api.github.com/search/issues?q={urllib.parse.quote(query)}&per_page=10'
+    req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as response:
+            data = json.load(response)
+            print(f'Query: {query}')
+            print(f'  Total: {data["total_count"]}')
+            for item in data['items'][:5]:
+                print(f'  - {item["repository_url"]}/{item["number"]}: {item["title"][:100]}')
+    except Exception as e:
+        print(f'Query: {query} - Error: {e}')
+    print()
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Query: repo:open-llm-leaderboard evaluation bug OR metric OR score - Error: HTTP Error 422: Unprocessable Entity
+
+Query: repo:stanford-crfm/helm evaluation bug OR metric OR score OR recomputation
+  Total: 211
+  - https://api.github.com/repos/stanford-crfm/helm/4344: Judge score extraction can read a score planted by the model being evaluated
+  - https://api.github.com/repos/stanford-crfm/helm/4364: fix(metrics): compute binary exact_match on multiple-choice ties (#4363)
+  - https://api.github.com/repos/stanford-crfm/helm/4340: Four metric sites convert undefined or unparseable inputs to definite scores; float_equiv's docstrin
+  - https://api.github.com/repos/stanford-crfm/helm/4353: feat(finproof-bench): Add FinProof Bench — BFSI adversarial guardrail evaluation scenario
+  - https://api.github.com/repos/stanford-crfm/helm/4351: MedCalc-Bench: `lab` and `dosage` instances (35% of the test set) are always scored 0 because check_
+
+Query: repo:lmsys/chatbot-arena evaluation bug OR metric OR score - Error: HTTP Error 422: Unprocessable Entity
+
+Query: evaluation reproducibility verification tool
+  Total: 15616
+  - https://api.github.com/repos/Kane11378/llm-evaluation-measurement-integrity/1: Finalize v1.1.0 reproducibility archive documentation
+  - https://api.github.com/repos/Aftergraph/intelligence-systems-research/102: RADAR-2026-W37 — Verification and evaluation-integrity integration
+  - https://api.github.com/repos/Chrishem2003/notion-live-analyzer/10: Build NEMA-AGORA environmental reporting pilot + governed intelligence
+  - https://api.github.com/repos/luciferprosun/AIOA-spArkHAT/14: Open call: security reviewers, reproducibility testers and research collaborators
+  - https://api.github.com/repos/immortal-flower/dip-project1-anime-face/2: Complete B Cascade experiments and final evaluation
+
+Query: leaderboard score verification tool
+  Total: 8030
+  - https://api.github.com/repos/aniruddhaadak80/skills/273: [Feature] Skill quality scoring and leaderboards
+  - https://api.github.com/repos/Promptless/promptless.ai/1141: Add Agent Score free tool: landing page and server-rendered score reports
+  - https://api.github.com/repos/autumngeorge-star/bloons/136: feat: JSON Leaderboard Score Manager & Event-Driven Score Tracking
+  - https://api.github.com/repos/ofektest12-rgb/Tic-Tac-Toe/1: Add AI opponent, NxN boards, persistent scores and online leaderboard
+  - https://api.github.com/repos/nwh4h5nbnt-cmyk/Claude/2: Track cumulative scores across a party-mode tournament
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3388  redactions: none
+==============================================================================
+[seq 12] 2026-10-14T18:09:36+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Get details of relevant HELM issues
+relevant = [4344, 4364, 4340, 4351]
+
+for num in relevant:
+    url = f'https://api.github.com/repos/stanford-crfm/helm/issues/{num}'
+    req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as response:
+            data = json.load(response)
+            print(f'#{data["number"]}: {data["title"]}')
+            print(f'  State: {data["state"]}, Comments: {data["comments"]}')
+            body = data.get('body') or ''
+            print(f'  Body: {body[:500]}')
+            print()
+    except Exception as e:
+        print(f'#{num} - Error: {e}')
+        print()
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+#4344: Judge score extraction can read a score planted by the model being evaluated
+  State: open, Comments: 0
+  Body: One-line mechanism: the evaluated model's completion is interpolated into the judge prompt with no escaping, and the judge's verdict is then recovered by a first-match regex over the judge's entire free-form response, so a score string planted by the evaluated model wins whenever the judge quotes the answer it is grading.
+
+## Summary
+
+Several HELM judge paths extract a numeric verdict from the judge's response with an unanchored first-match regex (or first-match JSON pattern). At the same time, 
+
+#4364: fix(metrics): compute binary exact_match on multiple-choice ties (#4363)
+  State: open, Comments: 0
+  Body: ## Problem
+
+In `src/helm/benchmark/metrics/basic_metrics.py` (`BasicReferenceMetric.evaluate_references`), the multiple-choice exact match score was previously computed as:
+
+```python
+argmax_references = np.flatnonzero(reference_scores >= np.max(reference_scores))
+predicted_index = argmax_references[0].item()
+exact_match_score = len(set(answers).intersection(argmax_references)) / len(argmax_references)
+```
+
+When multiple references tie for the highest predicted probability, `argmax_references` c
+
+#4340: Four metric sites convert undefined or unparseable inputs to definite scores; float_equiv's docstring and runtime warning both state a value it does not return
+  State: open, Comments: 1
+  Body: I have been auditing scoring code across several evaluation frameworks and found four sites in HELM I wanted to raise before writing about them, in case I have misread any of them or they are intended. All line numbers are at commit `63754d05db6f874e`.
+
+I want to say up front that `float_equiv`'s docstring already flags the function as *"mostly-correct"* and lists ways it is wrong — that candour is how I found it, and this issue is about documentation drifting from code, not about anyone being c
+
+#4351: MedCalc-Bench: `lab` and `dosage` instances (35% of the test set) are always scored 0 because check_in_range does not recognize those categories
+  State: open, Comments: 0
+  Body: **File:** `src/helm/benchmark/metrics/medcalc_bench_metrics.py`, `MedCalcBenchMetric.check_in_range`
+**Checked against:** `main` @ `63754d0`
+
+### Summary
+
+`evaluate_generation` routes every category other than `risk` / `severity` / `diagnosis` to `check_in_range`. `check_in_range` only handles `date` and `["dosage conversion", "physical"]`; anything else hits `raise ValueError(f"Category {category} not supported")`, which is inside the same `try` whose `except ValueError: return 0` swallows it. 
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2228  redactions: none
+==============================================================================
+[seq 13] 2026-10-14T18:09:58+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Search for existing evaluation verification tools
+queries = [
+    'evaluation harness verification tool',
+    'lm-eval verification preflight',
+    'eval score verification',
+    'benchmark score audit tool',
+    'evaluation metric audit',
+]
+
+for query in queries:
+    url = f'https://api.github.com/search/repositories?q={urllib.parse.quote(query)}&per_page=10'
+    req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as response:
+            data = json.load(response)
+            print(f'Query: {query}')
+            print(f'  Total repos: {data["total_count"]}')
+            for item in data['items'][:5]:
+                print(f'  - {item["full_name"]}: {item["description"][:100] if item["description"] else "(no description)"}')
+    except Exception as e:
+        print(f'Query: {query} - Error: {e}')
+    print()
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Query: evaluation harness verification tool
+  Total repos: 17
+  - Sakikoo0/codekeel: CodeKeel, a modular coding agent harness with typed tools, sandboxed workspaces, context management,
+  - Mohammedibrahim111/mcp-agent-evaluation-harness: Deterministic MCP tools and verification for evaluating software engineering agents.
+  - yuyangzheng-git/LLM-platform: Multi-model LLM chat platform with tool-calling agents, enable_tools A/B control and a claim-verific
+  - anilandcode/rag-citation-tool: Citation-grounded RAG platform - production-ready pipeline with hybrid search, citation verification
+  - QiQiyzhu/repopilot: Coding agent harness with bounded tools, MCP, executable verification and auditable evaluation evide
+
+Query: lm-eval verification preflight
+  Total repos: 0
+
+Query: eval score verification
+  Total repos: 69
+  - mboss37/claude-launchpad: Consistent developer experience for Claude Code. Sprint tracking, config scoring, auto-fix, and beha
+  - s-smits/docs-to-eval: docs-to-eval builds tailor-made evaluation sets from raw documentation and scores model outputs with
+  - latchkey-dev/gusset: Deterministic blast radius for every change. Verified impact on every PR, self-updating architecture
+  - leoncuhk/evaloop: Evaluation-driven autonomous development: a harness for agent loops whose acceptance criterion is a 
+  - niftynihal/eval-scores-verification: (no description)
+
+Query: benchmark score audit tool
+  Total repos: 28
+  - Deepak710/SeBAz: Tool to check compliance with CIS Linux Benchmarks, specifically Distribution Independent, Debian 9 
+  - testmachine-ai/web3-bountiability-benchmark: Benchmark for web3 audit-finding validation tools: 878 Sherlock contest findings with human-judge se
+  - deepmehta11/researchaudio-scorecard: Free browser-local AI evaluation tools, benchmark audits, agent security checklists, and cost calcul
+  - Mastertactician23/linux-cis-hardening-auditor: Python tool that audits Linux systems against CIS benchmarks and produces a scored compliance report
+  - Darthvader2618/cloud-misconfiguration-auditor: A Python tool that audits AWS infrastructure against CIS benchmarks and surfaces misconfigurations w
+
+Query: evaluation metric audit
+  Total repos: 143
+  - benikigai/nightshift: Controlled agent harness for lights-out software work: persistent Ralph Loops, evaluator backpressur
+  - Anirudh2141-DS/LLM-Reliability-Evaluation-and-Council-Chat: Reproducible evaluation and governance framework for RAG-LLM systems. Runs controlled experiments ac
+  - AmirhosseinHonardoust/KPI-Trap-Lab: A hands-on lab showing how “improving” a single metric (AUC/accuracy/F1) can worsen real-world outco
+  - cmangun/healthcare-rag-platform: Production HIPAA-compliant RAG for healthcare. PHI detection, guardrails, FDA audit logging, and eva
+  - DanHiigara/llm-evaluation-harness: Auditable LLM evaluation harness with deterministic metrics and pluggable judge abstractions.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4859  redactions: none
+==============================================================================
+[seq 14] 2026-10-14T18:10:32+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Search for discussions about evaluation harness problems on forums
+queries = [
+    'site:reddit.com lm-evaluation-harness bug silent failure',
+    'site:reddit.com evaluation metric wrong score',
+    'site:news.ycombinator.com lm-eval evaluation',
+    'site:github.com "silent failure" evaluation harness',
+    'lm-eval silent metric bug',
+]
+
+for query in queries:
+    url = f'https://api.github.com/search/issues?q={urllib.parse.quote(query)}&per_page=10'
+    req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as response:
+            data = json.load(response)
+            print(f'Query: {query}')
+            print(f'  Total: {data["total_count"]}')
+            for item in data['items'][:5]:
+                print(f'  - {item["repository_url"]}/{item["number"]}: {item["title"][:100]}')
+    except Exception as e:
+        print(f'Query: {query} - Error: {e}')
+    print()
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Query: site:reddit.com lm-evaluation-harness bug silent failure
+  Total: 0
+
+Query: site:reddit.com evaluation metric wrong score
+  Total: 3
+  - https://api.github.com/repos/redact-secret/redact-secret/860: Epic: Research 50 provider credential candidates for Beta.11
+  - https://api.github.com/repos/saurabhav88/EnviousWispr/538: SEO — active work backlog (authority + outreach); state in seo-work-tracker.md
+  - https://api.github.com/repos/quazfenton/binG/63: Deeesktop
+
+Query: site:news.ycombinator.com lm-eval evaluation
+  Total: 0
+
+Query: site:github.com "silent failure" evaluation harness
+  Total: 177
+  - https://api.github.com/repos/NVIDIA/Model-Optimizer/2166: Add Puzzletron v2 GPU quality baseline
+  - https://api.github.com/repos/protoLabsAI/protoLab/34: lab: Qwen3.8 replica pair → Swift cutover, serving guards, Jev rungs 0–1, Ornith-1.5 quants, eval-ha
+  - https://api.github.com/repos/ekson73/multi-agent-os/455: feat(harness-concierge): multi-harness MCP registry + harness-mcp-sync executor
+  - https://api.github.com/repos/ddutchie/cairn/217: fix(chat): task tool chips show success; chats with images resume after restart
+  - https://api.github.com/repos/NVIDIA-NeMo/nemo-helix/2209: feat(evaluator): run Fabric harnesses on Harbor tasks that ship no Python
+
+Query: lm-eval silent metric bug
+  Total: 560
+  - https://api.github.com/repos/EleutherAI/lm-evaluation-harness/4319: [Bug] nanmean in metrics.py silently shrinks denominator without reporting excluded count
+  - https://api.github.com/repos/SemiAnalysisAI/InferenceX/3790: feat(evals): add CRUXEval lm-eval tasks loadable through EVAL_TASKS_DIR
+  - https://api.github.com/repos/skothr/llm-surgeon/11: Benchmark: perplexity window, few-shot provenance, acc vs acc_norm, coherence metric
+  - https://api.github.com/repos/vllm-project/vllm/61287: [Bugfix][Reload] Reload fixes, and a refit-equals-fresh harness
+  - https://api.github.com/repos/NVIDIA/Model-Optimizer/1577: generate_context_logits returns truncated logits when KV prefix cache is enabled, causing silently w
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5348  redactions: none
+==============================================================================
+[seq 15] 2026-10-14T18:11:03+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Search for discussions about leaderboard reproducibility, score verification
+queries = [
+    'leaderboard score verification tool lm-eval',
+    'reproduce leaderboard score evaluation',
+    'evaluation score audit tool',
+    'benchmark score verification',
+    'eval harness validation tool',
+]
+
+for query in queries:
+    url = f'https://api.github.com/search/issues?q={urllib.parse.quote(query)}&per_page=10'
+    req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as response:
+            data = json.load(response)
+            print(f'Query: {query}')
+            print(f'  Total: {data["total_count"]}')
+            for item in data['items'][:5]:
+                print(f'  - {item["repository_url"]}/{item["number"]}: {item["title"][:100]}')
+    except Exception as e:
+        print(f'Query: {query} - Error: {e}')
+    print()
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Query: leaderboard score verification tool lm-eval
+  Total: 52
+  - https://api.github.com/repos/evaleval/every_eval_ever/220: feat: add sayf-eval results-record converter
+  - https://api.github.com/repos/Imbernoulli/MLS-Bench/103: Close agent-forgeable metrics and broken scoring in 61 tasks
+  - https://api.github.com/repos/marin-community/marin/8151: [eval] Marin Eval Policy (August 2026)
+  - https://api.github.com/repos/EleutherAI/lm-evaluation-harness/3749: Feature request: canonical reproducibility-bundle export in scripts/
+  - https://api.github.com/repos/marin-community/marin/9566: [DRAFT] Eval Policy 09-29 for Review
+
+Query: reproduce leaderboard score evaluation
+  Total: 4672
+  - https://api.github.com/repos/Mercor-Intelligence/apex_loop_truncated_tools_agent/34: Unable to Reproduce the Reported Results
+  - https://api.github.com/repos/mbzuai-oryx/KITAB-Bench/10: Leaderboard submission: YaiGlobal Parser — four tasks, 5,949 samples, reproducible
+  - https://api.github.com/repos/ggozad/haiku.rag/709: Add the EnterpriseRAG-Bench evaluation dataset
+  - https://api.github.com/repos/IBM/AssetOpsBench/501: feat(evaluation): add reproducible accessible leaderboard charts
+  - https://api.github.com/repos/RLinf/LaWAM/10: Question about RoboTwin 2.0 Leaderboard C2R Evaluation
+
+Query: evaluation score audit tool
+  Total: 72653
+  - https://api.github.com/repos/timerloggedout-spec/termux-monorepo/1204: ⚡ Bolt: optimize live catalog feed evaluation and scoring
+  - https://api.github.com/repos/Unjuno/agent-interface/6173: [Research] Run-scoped answer-surface audit for scored agent tool access
+  - https://api.github.com/repos/Cairn-ink/cairn-memory/411: Add offline card-plan first-answer scoring
+  - https://api.github.com/repos/JDeun/SchemaRouter/1212: research: preregister author-aligned SafeActBench V1 evaluation
+  - https://api.github.com/repos/salma-remyx/harvey-labs/26: Add claim audit gate to rubric scoring
+
+Query: benchmark score verification
+  Total: 239941
+  - https://api.github.com/repos/danieloculus0-bot/BEAN/72: Benchmark verification: audit independent five-specialist scorecards
+  - https://api.github.com/repos/Anikethh/ResearchGym/4: External agent verification benchmark: small interoperability test?
+  - https://api.github.com/repos/Shishir435/ollama-client/467: Fix benchmark scoring, deadlines, and nightly evidence
+  - https://api.github.com/repos/Ludion-ai/ludion/69: Harden sync privacy and benchmark verification
+  - https://api.github.com/repos/hedgerow-dev/rowan/18: Hunt: make static inventory, verification outcomes, and discovery scores explicit
+
+Query: eval harness validation tool
+  Total: 65597
+  - https://api.github.com/repos/openai/openai-cookbook/3160: Fix eval harness cleanup and result validation
+  - https://api.github.com/repos/SaCH-PRO/KEYFLOWOS/151: KF-META-HARNESS-EVAL-CONVERGENCE-001 — surgical harness engineering + eval architecture convergence
+  - https://api.github.com/repos/Nasiko-Labs/nasiko/229: [compact-tools] implement compact tool schema encoding, decoding, and evaluation harness
+  - https://api.github.com/repos/openai/evals/1832: Proposal: harness-level failure attribution in eval reports (model vs harness vs eval definition)
+  - https://api.github.com/repos/bassamfaraj-spec/i-have-adhd/4: Harden eval harness validation against malformed resume keys
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4395  redactions: none
+==============================================================================
+[seq 16] 2026-10-14T18:11:17+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Get details of relevant issues
+relevant = [3749, 1832]
+
+for num in relevant:
+    if num == 3749:
+        url = f'https://api.github.com/repos/EleutherAI/lm-evaluation-harness/issues/{num}'
+    else:
+        url = f'https://api.github.com/repos/openai/evals/issues/{num}'
+    req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as response:
+            data = json.load(response)
+            print(f'#{data["number"]}: {data["title"]}')
+            print(f'  State: {data["state"]}, Comments: {data["comments"]}')
+            body = data.get('body') or ''
+            print(f'  Body: {body[:500]}')
+            print()
+    except Exception as e:
+        print(f'#{num} - Error: {e}')
+        print()
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+#3749: Feature request: canonical reproducibility-bundle export in scripts/
+  State: open, Comments: 12
+  Body: ## What's already there
+
+\`--output_path\` already saves \`git_hash\`, task versions, model config, and per-sample outputs via \`--log_samples\`. \`--check_integrity\` validates task definitions. \`scripts/model_comparator.py\` and \`scripts/regression.py\` show the existing pattern for post-processing tools.
+
+## What's missing
+
+A lightweight canonical hash of results for cross-run comparison. The hashing utilities in \`utils.py\` (SHA256, deterministic ordering) exist but aren't surfaced in the
+
+#1832: Proposal: harness-level failure attribution in eval reports (model vs harness vs eval definition)
+  State: open, Comments: 2
+  Body: When an eval run produces failures, there's currently no way to tell from the results where each failure originated. `Recorder.record_error` in `evals/record.py` writes exception type and message as opaque events, and the final report only aggregates metrics — so a run whose harness misfired (broken tool wiring, a scorer expectation that silently no-ops) and a run where the model genuinely can't do the task can look identical. The fixes are completely different (fix the harness vs. revisit the e
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1221  redactions: none
+==============================================================================
+[seq 17] 2026-10-14T18:11:57+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Check evaleval/every_eval_ever repo
+url = 'https://api.github.com/repos/evaleval/every_eval_ever'
+req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+try:
+    with urllib.request.urlopen(req, timeout=30) as response:
+        data = json.load(response)
+        print(f'Repo: {data["full_name"]}')
+        print(f'Description: {data["description"]}')
+        print(f'Stars: {data["stargazers_count"]}')
+        print(f'Topics: {data["topics"]}')
+except Exception as e:
+    print(f'Error: {e}')
+
+print()
+
+# Check issue #220
+url = 'https://api.github.com/repos/evaleval/every_eval_ever/issues/220'
+req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+try:
+    with urllib.request.urlopen(req, timeout=30) as response:
+        data = json.load(response)
+        print(f'Issue #{data["number"]}: {data["title"]}')
+        body = data.get('body') or ''
+        print(f'Body: {body[:500]}')
+except Exception as e:
+    print(f'Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Repo: evaleval/every_eval_ever
+Description: Every Eval Ever is a shared schema and crowdsourced eval database. It defines a standardized metadata format for storing AI evaluation results — from leaderboard scrapes and research papers to local evaluation runs — so that results from different frameworks can be compared, reproduced, and reused.
+Stars: 137
+Topics: ['agent-evaluation', 'ai-evaluation', 'evaluations', 'infra', 'llm-evaluation']
+
+Issue #220: feat: add sayf-eval results-record converter
+Body: ## What
+
+Adds a converter for **[sayf-eval](https://pypi.org/project/sayf-eval/)** — a model-agnostic cybersecurity LLM-evaluation framework — so its results can be ingested into the Every Eval Ever schema:
+
+```bash
+every_eval_ever convert sayf_eval --log_path <sayf-eval output dir> --output_dir data
+```
+
+sayf-eval writes a canonical *results record* per run that embeds the full pipeline configuration (decoding params, `<think>` handling, denominator policy, judge model) and per-task dataset pro
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1344  redactions: none
+==============================================================================
+[seq 18] 2026-10-14T18:12:14+00:00
+$ python3 -c 
+import json
+import urllib.request
+import urllib.parse
+
+# Check MLS-Bench issue #103
+url = 'https://api.github.com/repos/Imbernoulli/MLS-Bench/issues/103'
+req = urllib.request.Request(url, headers={'Accept': 'application/vnd.github.v3+json'})
+try:
+    with urllib.request.urlopen(req, timeout=30) as response:
+        data = json.load(response)
+        print(f'Issue #{data["number"]}: {data["title"]}')
+        print(f'State: {data["state"]}, Comments: {data["comments"]}')
+        body = data.get('body') or ''
+        print(f'Body: {body[:500]}')
+except Exception as e:
+    print(f'Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Issue #103: Close agent-forgeable metrics and broken scoring in 61 tasks
+State: open, Comments: 0
+Body: ## Summary
+
+An audit of all 140 tasks found submissions that out-score every correct baseline without doing the task. This PR closes those in two rounds. Every fix is identical in `tasks/<t>` and the three rendered bundles (`harbor/tasks-{docker,daytona,modal}`), and the `dataset.toml` digests are regenerated.
+
+- **Round 1** (commits f6209d5e, c0861550): fixes 61 tasks. The first commit message says "59 tasks"; 61 is correct.
+- **Round 2** (commits eaa9d599, f1960e04): nine independent reviewers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1399  redactions: none

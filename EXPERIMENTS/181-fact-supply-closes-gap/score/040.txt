@@ -1,0 +1,9 @@
+PROPOSED ANSWER:
+The other thread's detail does not bear on this. What you are seeing is a system-inserted container: assign both a custom inputAccessoryView and a custom inputView to the same UITextField and UIKit inserts a grey view between them, and in iOS 26 it is rendered with the Liquid Glass material. Your minimal red/blue example is the clean reproduction, and it is not your constraints or your colours. No public API removes that container. Work around it by not using UIToolbar as the accessory - make inputAccessoryView a plain UIView with a clear or systemBackground colour, add your own Done button, size it yourself - and keep the picker as inputView. hidesSharedBackground is not the switch you want; it governs the bar item's own background.
+
+ACCEPTED ANSWER ON THE SITE:
+That gray Liquid Glass UI is the top of the keyboard. The documentation for UIInputView states 
+ 
+ The UIInputView class is designed to match the appearance of the standard system keyboard when used as an input view with a responder. 
+ 
+ It’s recommended to avoid applying a background to the input view (white and blue in these examples) to avoid covering up the system effects. This is how a “proper” input view + input accessory view looks on iOS 26:

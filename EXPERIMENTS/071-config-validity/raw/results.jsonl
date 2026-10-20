@@ -1,0 +1,5 @@
+{"path": "/home/ubuntu/think-free/EXPERIMENTS/071-config-validity/config_full.yaml", "outcome": "pass", "detail": "keys:['database', 'logging', 'server'],found:['database', 'logging', 'other', 'server']"}
+{"path": "/home/ubuntu/think-free/EXPERIMENTS/071-config-validity/config_missing_server.yaml", "outcome": "fail", "detail": "missing:['server']"}
+{"path": "/home/ubuntu/think-free/EXPERIMENTS/071-config-validity/config_missing_logging.yaml", "outcome": "fail", "detail": "missing:['logging']"}
+{"path": "/home/ubuntu/think-free/EXPERIMENTS/071-config-validity/config_empty.yaml", "outcome": "fail", "detail": "empty_file"}
+{"path": "/home/ubuntu/think-free/EXPERIMENTS/071-config-validity/config_extras.yaml", "outcome": "pass", "detail": "keys:['database', 'logging', 'server'],found:['database', 'extra', 'logging', 'server']"}

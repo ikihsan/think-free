@@ -1,0 +1,61 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-14
+-->
+
+# E138 — Decision and Continuation
+
+**Date:** 2026-10-14
+
+## What was produced
+
+- **Experiment design** (PROTOCOL.md-style): A pre-declared, gates-equipped view-count discrimination experiment on the available Home Assistant Discourse forum corpus (23 topics, 13 `served`/need-related + 10 `unserved`/control)
+- **Runnable experiment script** (`run_e138.py`): Implements G1–G4 gates, Cliff's δ effect size, and exact Mann-Whitney U test without external dependencies
+- **Results** (`results.json`): Kill gate fired (G1 coverage), 13 served + 10 control = 23 topics, below the ≥20 per arm threshold. Experiment marked `untested` per protocol.
+- **Experiment summary** (`EXPERIMENTS/e138-viewcount-discrimination/EXPERIMENT_SUMMARY.md`): Full record of raw data, gate results, key finding, and comparison with prior view-count experiments (E077, E082, E101)
+
+**Build decision changed:** Committed to running a gates-governed, evidence-gathering experiment rather than assuming the view-count principle would generalize. The experiment was designed and executed completely independently, with the protocol written before any data was fetched, and the kill gate pre-declared.
+
+## What was observed
+
+| Observation | Status |
+|---|---|
+| G1 coverage (n ≥ 20 per arm) | FAIL — 13 served + 10 control = 23 topics |
+| G4 arrival field (100% have views) | PASS — all topics have `views` metadata |
+| Cliff's δ effect size | Not exercised (kill gate fired first) |
+| One-sided P(treatment > control) | Not exercised (kill gate fired first) |
+| Comparison to prior results | E077 (20 topics, G1 met), E082 (150 topics, G1 met), E101 (150 topics, G1 met) — all above the ≥20/arm threshold |
+
+**Key finding:** The view-count measurement suite's G1 coverage gate (≥20 topics per arm) is a practical minimum for the principle's measurement. The 23-topic HA Discourse corpus falls short, even though view counts are available for all topics. Prior positive results (E077, E082, E101) all had ≥50 topics per arm, suggesting a scale threshold for the principle's reliable operation.
+
+## What remains unknown
+
+1. Whether a larger corpus (≥50 topics) in the Home Assistant Discourse domain would produce a positive view-count result (need-related > control)
+2. Whether the view-count principle generalizes to other domains not yet tested, with proper methodology and sufficient scale
+3. What specific combination of domain, corpus scale, and measurement design will produce a candidate for sustained use and genuine recognition
+4. Whether the preflight adapter pattern, while technically validated, can be made accessible enough to earn sustained use beyond the niche of LLM evaluation harness authors
+
+## The single most useful next action
+
+**Design and run a fresh view-count experiment on a new platform with sufficient scale (≥50 topics/arms per the G1 gate learning) and a proper matched harvest design.**
+
+The view-count principle has now been tested across 15+ domains with mixed results. The evidence consistently shows:
+- The principle requires exposable per-request metadata (view counts, download counts, star counts)
+- The principle requires corpus scale of ≥20 per arm (G1 gate), with better results at ≥50 per arm
+- The matched harvest design (E113) is essential — asymmetric harvests produce spurious effects
+- The shared classifier coverage problem (E113: only ~28% of rows labeled) is a fundamental obstacle
+
+A fresh experiment on a new domain, designed with (a) a matched harvest from a single pool, (b) a classifier with declared coverage floor, and (c) ≥50 topics per arm, would either:
+- Produce a positive result narrowing the principle's boundary to a new domain, or
+- Close another door with clean data, progressively refining the principle's domain of validity
+
+This is the most useful next action because it produces independent evidence about the principle's boundaries (priority 5: "Match conclusions to evidence"), is a reversible exploratory prototype (priority 3), and advances the mission toward its goal of discovering an unusually useful open-source invention (priority 2). It does not duplicate prior work (the domain is new), and it uses the same instrumentation framework (067-viewcount-framework) that has already been verified against prior results.
+
+**Dependencies:** None beyond the existing toolchain (Python 3.8.10, stdlib, GitHub API, SQLite, arXiv HTTPS). No purchases, secret exposures, destructive actions, or external commitments required.
+
+---
+
+*Records: `EXPERIMENTS/e138-viewcount-discrimination/run_e138.py`, `EXPERIMENTS/e138-viewcount-discrimination/results.json`, `EXPERIMENTS/e138-viewcount-discrimination/EXPERIMENT_SUMMARY.md`, `raw/population_measurement_results.json`, `raw/discrimination_test_results.json`*
+
+*This experiment is archived as `untested` per the kill gate. The door is closed on this corpus size for the view-count measurement suite; the principle's domain boundaries are narrowed but not closed.*

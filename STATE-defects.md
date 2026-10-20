@@ -283,3 +283,17 @@ Numbering is continuous and never reused, so a solved defect keeps its number an
     `session verify` still reports the double end as a note, which is the evidence
     the repair fired. **Ceiling:** the lock orders processes on one machine, not
     a VM racing another over a pushed-but-unpulled tree.
+
+27. **Two decision-log splits were never added to the three lists that name
+    them, so the suite has been red since 2026-10-14 and a `decision` event
+    could not be satisfied by the file it changed** (solved in session
+    2026-10-18-003). `DECISIONS-RECORDS-3.md` (D116–D118, commit `2b12543d`)
+    and `DECISIONS-RECORDS-4.md` (D119, commit `109b4c14`) were created without
+    adding either to `paths.MISSION_RECORDS`, `reconcile.IMPLICATIONS["decision"]`
+    or `tests/test_decision_files.py`. The suite's own gate went red and
+    **nobody read it**, and — the one that matters — `reconcile` resolves a
+    `decision` event against that tuple, so a session whose only decision
+    record was D119's file was reported as an integrity error against a file
+    the event had in fact changed. **Repair:** both added to all three lists;
+    the suite is green on it. **Ceiling:** the lists are hand-maintained, and a
+    fourth copy in `DECISIONS.md`'s index rows is reached only by the lint.

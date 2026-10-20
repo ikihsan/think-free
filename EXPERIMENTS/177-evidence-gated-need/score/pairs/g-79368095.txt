@@ -1,0 +1,20 @@
+pid: g-79368095
+
+=== LEFT ===
+Yes, via the Keyboard Shortcuts editor: Ctrl+K Ctrl+S, search chat, and find the view comm
+ands such as View: Toggle Chat (workbench.action.toggle.chat) or View: Open Chat (workbenc
+h.action.chat.open), then assign a chord. Recent versions ship Ctrl+Alt+I / Cmd+Alt+I for 
+chat. If nothing appears, the Copilot Chat extension may not be installed or enabled, in w
+hich case the commands are absent: install or enable GitHub Copilot Chat and reload the wi
+ndow. You can also write the binding directly in keybindings.json, and use View: Reset Vie
+w Locations to recover the layout after dragging the panel to zero width.
+
+=== RIGHT ===
+You can use the shortcut to "Toggle Secondary Side Bar" 
+ Ctrl + Alt + B
+ 
+ or click this 
+ 
+ (Windows/English) 
+
+ Ctrl + Alt + B

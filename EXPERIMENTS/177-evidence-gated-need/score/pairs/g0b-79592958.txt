@@ -1,0 +1,65 @@
+pid: g0b-79592958
+
+=== LEFT ===
+The reason this works is because the inner lambda is non-capturing , so it is implicitly c
+onvertible to a C-style function pointer, which has no concept of object const-ness as the
+re is no this parameter present. 
+ The outer exec lambda sees that fn does not have a const function call operator, but it d
+oes have a const conversion operator, so exec is able to first convert fn into a function 
+pointer, and then call it through that pointer. 
+ Online Demo 
+ If you add a capture to the inner lambda and then try to modify its value via mutable , t
+he code will not compile as expected, eg: 
+ int main()
+{
+ auto exec = []( auto const &fn ) { fn(); }; // <-- fails
+ exec( [i=1]() mutable { i = 2; } );
+}
+ 
+ Online Demo 
+
+ this 
+ exec 
+ fn 
+ const 
+ const 
+ exec 
+ fn 
+ mutable 
+ int main()
+{
+ auto exec = []( auto const &fn ) { fn(); }; // <-- fails
+ exec( [i=1]() mutable { i = 2; } );
+}
+
+=== RIGHT ===
+The reason this works is because the inner lambda is non-capturing , so it is implicitly c
+onvertible to a C-style function pointer, which has no concept of object const-ness as the
+re is no this parameter present. 
+ The outer exec lambda sees that fn does not have a const function call operator, but it d
+oes have a const conversion operator, so exec is able to first convert fn into a function 
+pointer, and then call it through that pointer. 
+ Online Demo 
+ If you add a capture to the inner lambda and then try to modify its value via mutable , t
+he code will not compile as expected, eg: 
+ int main()
+{
+ auto exec = []( auto const &fn ) { fn(); }; // <-- fails
+ exec( [i=1]() mutable { i = 2; } );
+}
+ 
+ Online Demo 
+
+ this 
+ exec 
+ fn 
+ const 
+ const 
+ exec 
+ fn 
+ mutable 
+ int main()
+{
+ auto exec = []( auto const &fn ) { fn(); }; // <-- fails
+ exec( [i=1]() mutable { i = 2; } );
+}

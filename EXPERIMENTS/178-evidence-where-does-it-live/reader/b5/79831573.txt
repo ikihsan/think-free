@@ -1,0 +1,77 @@
+qid: 79831573
+tags: c++, gcc, constexpr
+
+=== TITLE ===
+constexpr self-referencing struct
+
+=== QUESTION ===
+Consider the following simplified code: 
+ template <class T> class Foo {
+ T t;
+ const T* t_ptr;
+public:
+ constexpr Foo(T t): t(t), t_ptr(&this->t) {}
+ constexpr Foo(const Foo& foo): t(foo.t), t_ptr(&this->t) {}
+ constexpr T get_t() const {
+ return *t_ptr;
+ }
+};
+template <class T> constexpr Foo<T> foo(T t) {
+ return Foo<T>(t);
+}
+
+constexpr auto f = foo(1);
+static_assert(f.get_t() == 1);
+ 
+ It successfully compiles with Clang and MSVC but GCC 15 reports an error : 
+ <source>:16:25: error: non-constant condition for static assertion
+ 16 | static_assert(f.get_t() == 1);
+ | ~~~~~~~~~~^~~~
+<source>:16:22: in 'constexpr' expansion of 'f.Foo<int>::get_t()'
+<source>:8:17: error: the value of 'f' is not usable in a constant expression
+ 8 | return *t_ptr;
+ | ^~~~~
+<source>:15:16: note: 'f' used in its own initializer
+ 15 | constexpr auto f = foo(1);
+ | ^
+Compiler returned: 1
+ 
+ Is this code valid? Is this a bug in GCC? Is there a workaround to make constexpr structs
+ that contain a pointer to its own member work? 
+
+ template <class T> class Foo {
+ T t;
+ const T* t_ptr;
+public:
+ constexpr Foo(T t): t(t), t_ptr(&this->t) {}
+ constexpr Foo(const Foo& foo): t(foo.t), t_ptr(&this->t) {}
+ constexpr T get_t() const {
+ return *t_ptr;
+ }
+};
+template <class T> constexpr Foo<T> foo(T t) {
+ return Foo<T>(t);
+}
+
+constexpr auto f = foo(1);
+static_assert(f.get_t() == 1);
+ 
+ <source>:16:25: error: non-constant condition for static assertion
+ 16 | static_assert(f.get_t() == 1);
+ | ~~~~~~~~~~^~~~
+<source>:16:22: in 'constexpr' expansion of 'f.Foo<int>::get_t()'
+<source>:8:17: error: the value of 'f' is not usable in a constant expression
+ 8 | return *t_ptr;
+ | ^~~~~
+<source>:15:16: note: 'f' used in its own initializer
+ 15 | constexpr auto f = foo(1);
+ | ^
+Compiler returned: 1
+
+=== KEY ANSWER (highest scored) ===
+I think it is a gcc bug. 
+ Some variants pass when calling constructors directly Demo 
+ I think gcc badly implements the note from copy_elision (code "similar" to yours). 
+ 
+ In constant expression and constant initialization, copy elision is never performed.
+

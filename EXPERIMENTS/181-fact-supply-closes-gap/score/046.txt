@@ -1,0 +1,11 @@
+PROPOSED ANSWER:
+The library is telling the truth about the value it received, so that value is not the 13-character password you logged. Most likely you are hashing a wrapper object or something else entirely (a token, a pre-hashed value, serialized bytes), so inspect type() and len() of the exact object passed to the hash/verify call inside the deployed app, not the variable you think you pass. Another possibility is a passlib/bcrypt version mismatch where the backend behaves differently in the container than locally. Never work around it by truncating to 72 bytes, since that silently weakens every password. Fix the value being passed, and consider the bcrypt_sha256 scheme if you must support long passphrases.
+
+ACCEPTED ANSWER ON THE SITE:
+I ran into the same issue recently on a previously stable app, and it turned out to be related to the latest `bcrypt` release. A change in behavior between `passlib` and `bcrypt` seems to have caused problems even when the input was well under the 72-byte limit. 
+ What solved it for me was pinning `bcrypt` to version 4.3.0 , instead of allowing the upgrade to 5.0.0 (released on 2025-09-25). After making that change, the errors stopped. 
+ For example, in Python you can update `requirements.txt` from: 
+ `bcrypt` 
+ to: 
+ `bcrypt==4.3.0` 
+ This ensures your environment uses the last known stable version. If you’re working with another stack (React, FastAPI, etc.), the same principle applies — make sure you’re not pulling in bcrypt 5.0.0 until compatibility issues are resolved.

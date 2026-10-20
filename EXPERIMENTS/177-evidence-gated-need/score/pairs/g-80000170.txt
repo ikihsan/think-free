@@ -1,0 +1,22 @@
+pid: g-80000170
+
+=== LEFT ===
+In constant evaluation there is only the thread doing the evaluation, so no other thread c
+an notify, and blocking would deadlock the compiler. The C++26 wording is written on that 
+premise: these operations must not block during constant evaluation, so a wait that would 
+block is treated as returning immediately, effectively a spurious wake. Practical conseque
+nces: never write a constexpr function whose progress depends on wait unblocking, and trea
+t the atomic's value as the only meaningful state. I would verify the exact wording for yo
+ur toolchain against [atomics.types.operations] as amended, since the phrasing has been re
+vised during the C++26 process and a stricter implementation may diagnose rather than retu
+rn.
+
+=== RIGHT ===
+This is explained in the proposal 
+ 
+ Wait and notify operations should work during constant evaluation as expected in a single
+-threaded environment. Notify will be noop and wait-ing for a different value will be a de
+adlock which should result in constant evaluation failure according to [expr.const#5.7] an
+ expression that would exceed the implementation-defined limits as every check for the val
+ue is considered [intro.progress#4] continous executing of execution steps while waiting f
+or the condition.

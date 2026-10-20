@@ -1,0 +1,24 @@
+{
+  "codes_rebuilt": 100,
+  "committed_verdict": {
+    "G1_source_shape": false,
+    "G2_zero_control": true,
+    "G3_discrimination": true,
+    "G4_addressability": true,
+    "G5_description_control": false,
+    "axis_closed": true
+  },
+  "gates_agree_with_committed_run": {
+    "G3": true,
+    "G4": true,
+    "G5": true,
+    "families_rollup": true
+  },
+  "recomputed_verdict": {
+    "G3": true,
+    "G3_p": 0.004159970955651661,
+    "G4": true,
+    "G5": false
+  },
+  "script": "recompute.py"
+}

@@ -1,0 +1,129 @@
+qid: 79583661
+view_count: 2161
+tags: c++, c++23
+key_score: 19
+
+=== TITLE ===
+Using std::format to create compile time objects with constexpr
+
+=== QUESTION ===
+std::format insists that its format string argument should be a compile time constant. 
+ I thought this was so that std::format could be used to create compile time constant valu
+es. 
+ However, having tried the following example, I found that the code does not compile. 
+ #include <format>
+
+int main() {
+
+ constexpr auto zero = 0;
+ constexpr auto my_string = std::format("{}", zero);
+ return 0;
+}
+ 
+ I attempted to compile this with 
+ $ g++ main.cpp -std=c++23
+ 
+ and obtained the following error output 
+ main.cpp: In function ‘int main()’:
+main.cpp:6:43: error: call to non-‘constexpr’ function ‘std::string std::format(format_str
+ing<_Args ...>, _Args&& ...) [with _Args = {const int&}; string = __cxx11::basic_string<ch
+ar>; format_string<_Args ...> = basic_format_string<char, const int&>]’
+ 6 | constexpr auto my_string = std::format("{}", zero);
+ | ~~~~~~~~~~~^~~~~~~~~~~~
+In file included from main.cpp:1:
+/usr/include/c++/14/format:4293:5: note: ‘std::string std::format(format_string<_Args ...>
+, _Args&& ...) [with _Args = {const int&}; string = __cxx11::basic_string<char>; format_st
+ring<_Args ...> = basic_format_string<char, const int&>]’ declared here
+ 4293 | format(format_string<_Args...> __fmt, _Args&&... __args)
+ 
+ It seems as if std::format cannot be used as a constexpr after all. 
+ Is there a solution, or a workaround, to this? Or am I simply missing something which can
+ make this work. 
+ 
+ Comment: As pointed out in the comments and answer, part of the reason why this isn't so 
+is because std::string allocates its data on the heap. I guess what I am actually looking 
+for is something which returns a const char * const , rather than strictly a std::string t
+ype. In other words, the data should be stored statically within the compiled executable. 
+
+ std::format 
+ std::format 
+ #include <format>
+
+int main() {
+
+ constexpr auto zero = 0;
+ constexpr auto my_string = std::format("{}", zero);
+ return 0;
+}
+ 
+ $ g++ main.cpp -std=c++23
+ 
+ main.cpp: In function ‘int main()’:
+main.cpp:6:43: error: call to non-‘constexpr’ function ‘std::string std::format(format_str
+ing<_Args ...>, _Args&& ...) [with _Args = {const int&}; string = __cxx11::basic_string<ch
+ar>; format_string<_Args ...> = basic_format_string<char, const int&>]’
+ 6 | constexpr auto my_string = std::format("{}", zero);
+ | ~~~~~~~~~~~^~~~~~~~~~~~
+In file included from main.cpp:1:
+/usr/include/c++/14/format:4293:5: note: ‘std::string std::format(format_string<_Args ...>
+, _Args&& ...) [with _Args = {const int&}; string = __cxx11::basic_string<char>; format_st
+ring<_Args ...> = basic_format_string<char, const int&>]’ declared here
+ 4293 | format(format_string<_Args...> __fmt, _Args&&... __args)
+ 
+ std::format 
+ constexpr 
+ std::string 
+ const char * const 
+ std::string
+
+=== KEY ANSWER ===
+std::format insists that its format string argument should be a compile time constant. 
+ I thought this was so that std::format could be used to create compile time constant valu
+es. 
+ 
+ It is not. The motivation for std::format 's format string to be a constant is to allow c
+ompile-time type checking of the format string. So that something like std::format("x={}")
+ is a compile error, rather than a runtime error. 
+ 
+ Is there a solution, or a workaround, to this? Or am I simply missing something which can
+ make this work. 
+ 
+ std::format itself is not constexpr (yet). There is no workaround. 
+ 
+ Note also that you can still provide non-constant format strings to std::format , you jus
+t have to wrap the format string in std::runtime_format : 
+ int main()
+{
+ std::print("Hello {}!\n", "world");
+ 
+ std::string fmt;
+ for (int i{}; i != 3; ++i)
+ {
+ fmt += "{} "; // constructs the formatting string
+ std::print("{} : ", fmt);
+ std::println(std::runtime_format(fmt), "alpha", 'Z', 3.14, "unused");
+ }
+}
+ 
+
+ std::format 
+ std::format 
+ std::format 
+ std::format("x={}") 
+ std::format 
+ constexpr 
+ std::format 
+ std::runtime_format 
+ int main()
+{
+ std::print("Hello {}!\n", "world");
+ 
+ std::string fmt;
+ for (int i{}; i != 3; ++i)
+ {
+ fmt += "{} "; // constructs the formatting string
+ std::print("{} : ", fmt);
+ std::println(std::runtime_format(fmt), "alpha", 'Z', 3.14, "unused");
+ }
+}
+

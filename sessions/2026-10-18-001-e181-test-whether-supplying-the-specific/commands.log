@@ -1,0 +1,293 @@
+==============================================================================
+[seq 2] 2026-10-18T00:26:40+00:00
+$ python3 EXPERIMENTS/181-fact-supply-closes-gap/prep.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population 7f3bf71a731b90a23460f1f04e8af3207941343a20fd4f4c213862e196c44e4f
+rows with comments: 15/20
+refetched answer comment sets: 5
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1913  redactions: none
+==============================================================================
+[seq 3] 2026-10-18T00:27:49+00:00
+$ python3 EXPERIMENTS/181-fact-supply-closes-gap/prep.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population 7f3bf71a731b90a23460f1f04e8af3207941343a20fd4f4c213862e196c44e4f
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/181-fact-supply-closes-gap/prep.py", line 216, in <module>
+    main()
+  File "EXPERIMENTS/181-fact-supply-closes-gap/prep.py", line 211, in main
+    print("rows with comments: %d/20" % out["n_with_comments"])
+KeyError: 'n_with_comments'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2295  redactions: none
+==============================================================================
+[seq 4] 2026-10-18T00:27:59+00:00
+$ python3 EXPERIMENTS/181-fact-supply-closes-gap/prep.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population 7f3bf71a731b90a23460f1f04e8af3207941343a20fd4f4c213862e196c44e4f
+rows with at least one comment: 20/20
+refetched answer comment sets: 8
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1889  redactions: none
+==============================================================================
+[seq 29] 2026-10-18T00:30:43+00:00
+$ python3 EXPERIMENTS/181-fact-supply-closes-gap/prep.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population 7f3bf71a731b90a23460f1f04e8af3207941343a20fd4f4c213862e196c44e4f
+rows with at least one comment: 20/20
+refetched answer comment sets: 8
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2062  redactions: none
+==============================================================================
+[seq 30] 2026-10-18T00:32:20+00:00
+$ python3 EXPERIMENTS/181-fact-supply-closes-gap/write_facts.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/181-fact-supply-closes-gap/write_facts.py", line 124, in <module>
+    main()
+  File "EXPERIMENTS/181-fact-supply-closes-gap/write_facts.py", line 105, in main
+    assert source in body[head:], "source section %s missing in %d" % (source, qid)
+AssertionError: source section answer_comments missing in 79602687
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 779  redactions: none
+==============================================================================
+[seq 31] 2026-10-18T00:32:31+00:00
+$ python3 EXPERIMENTS/181-fact-supply-closes-gap/write_facts.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/181-fact-supply-closes-gap/write_facts.py", line 127, in <module>
+    main()
+  File "EXPERIMENTS/181-fact-supply-closes-gap/write_facts.py", line 103, in main
+    assert quote in body, "quote %d/%d is not verbatim in %s" % (n, qid, m["file"])
+AssertionError: quote 13/79791886 is not verbatim in ext/13-79791886.txt
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 572  redactions: none
+==============================================================================
+[seq 32] 2026-10-18T00:32:46+00:00
+$ python3 EXPERIMENTS/181-fact-supply-closes-gap/write_facts.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rows 20, facts 10 (0.5000), nulls 10
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 47  redactions: none
+==============================================================================
+[seq 33] 2026-10-18T00:34:00+00:00
+$ python3 EXPERIMENTS/181-fact-supply-closes-gap/write_facts.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rows 30, facts 14 (0.4667), nulls 16
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 106  redactions: none
+==============================================================================
+[seq 34] 2026-10-18T00:34:25+00:00
+$ python3 EXPERIMENTS/181-fact-supply-closes-gap/make_inputs.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+fact-bearing rows 14, ANS files 52, leak assertion passed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 259  redactions: none
+==============================================================================
+[seq 35] 2026-10-18T00:35:12+00:00
+$ python3 EXPERIMENTS/181-fact-supply-closes-gap/make_answers.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/181-fact-supply-closes-gap/make_answers.py", line 68, in <module>
+    main()
+  File "EXPERIMENTS/181-fact-supply-closes-gap/make_answers.py", line 54, in main
+    assert want == set(ANSWERS), ("seq mismatch: missing %r extra %r"
+AssertionError: seq mismatch: missing [31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52] extra []
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 581  redactions: none
+==============================================================================
+[seq 36] 2026-10-18T00:36:12+00:00
+$ python3 EXPERIMENTS/181-fact-supply-closes-gap/make_answers.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+answers 52, by arm {'A0': 14, 'A1': 14, 'B1': 14, 'C1': 10}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 189  redactions: none
+==============================================================================
+[seq 37] 2026-10-18T00:37:34+00:00
+$ python3 EXPERIMENTS/181-fact-supply-closes-gap/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/181-fact-supply-closes-gap/score.py", line 214, in <module>
+    main()
+  File "EXPERIMENTS/181-fact-supply-closes-gap/score.py", line 192, in main
+    e177["g-%d" % r["pid"].split("-")[1]] = r["same_resolution"] == "YES"
+TypeError: %d format: a number is required, not str
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 700  redactions: none
+==============================================================================
+[seq 38] 2026-10-18T00:37:39+00:00
+$ python3 EXPERIMENTS/181-fact-supply-closes-gap/score.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "arms": {
+  "A0": {
+   "n": 14,
+   "rate": 0.5,
+   "reached": 7,
+   "wilson95": [
+    0.2679920244814136,
+    0.7320079755185864
+   ]
+  },
+  "A1": {
+   "n": 14,
+   "rate": 0.5714285714285714,
+   "reached": 8,
+   "wilson95": [
+    0.32590644574827493,
+    0.7861920109921633
+   ]
+  },
+  "B1": {
+   "n": 14,
+   "rate": 0.6428571428571429,
+   "reached": 9,
+   "wilson95": [
+    0.38764423098563805,
+    0.8365526824952387
+   ]
+  },
+  "C1": {
+   "n": 10,
+   "rate": 0.4,
+   "reached": 4,
+   "wilson95": [
+    0.16818032967113522,
+    0.6873262303202639
+   ]
+  },
+  "P": {
+   "n": 10,
+   "rate": 0.3,
+   "reached": 3,
+   "wilson95": [
+    0.10779126738101565,
+    0.6032218526017827
+   ]
+  }
+ },
+ "cost": {
+  "A1_over_B1": 0.06666666666666667,
+  "median_added_tokens": {
+   "A1": 15.5,
+   "B1": 232.5,
+   "C1": 14.5
+  },
+  "n": 14
+ },
+ "drift_check": {
+  "agree": 6,
+  "disagree": 4,
+  "g4_declared_tolerance": 3,
+  "n": 10,
+  "rows": [
+   [
+    79339258,
+    false,
+    false
+   ],
+   [
+    79380514,
+    true,
+    true
+   ],
+   [
+    79567126,
+    false,
+    true
+   ],
+   [
+    79602687,
+    false,
+    false
+   ],
+   [
+    79606837,
+    true,
+    false
+   ],
+   [
+    79663905,
+    true,
+    false
+   ],
+   [
+    79665976,
+    true,
+    false
+   ],
+   [
+    79718097,
+    true,
+    true
+   ],
+   [
+    79754247,
+    false,
+    false
+   ],
+   [
+    79776559,
+    false,
+    false
+   ]
+  ]
+ },
+ "fact_supply_rate": 0.4666666666666667,
+ "fact_supply_wilson95": [
+  0.3023238890435784,
+  0.6385770038378349
+ ],
+ "gates": "not evaluable: K1 fired at n=14 rows carrying a fact (declared floor 16)",
+ "n_pairs": 62,
+ "n_rows_read_by_EXT": 30,
+ "n_rows_with_extractable_fact": 14,
+ "pairwise": {
+  "A0_vs_B1": {
+   "a_wins": 0,
+   "b_wins": 2,
+   "mcnemar_exact_two_sided": 0.5,
+   "n": 14
+  },
+  "A1_vs_A0": {
+   "a_wins": 2,
+   "b_wins": 1,
+   "mcnemar_exact_two_sided": 1.0,
+   "n": 14
+  },
+  "A1_vs_B1": {
+   "a_wins": 0,
+   "b_wins": 1,
+   "mcnemar_exact_two_sided": 1.0,
+   "n": 14
+  },
+  "A1_vs_C1": {
+   "a_wins": 1,
+   "b_wins": 1,
+   "mcnemar_exact_two_sided": 1.0,
+   "n": 10
+  }
+ }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 188  redactions: none

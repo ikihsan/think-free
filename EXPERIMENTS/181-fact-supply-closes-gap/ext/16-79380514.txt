@@ -1,0 +1,28 @@
+TITLE: Tailwind CSS: &quot;npm error could not determine executable to run&quot;
+TAGS: javascript,npm,tailwind-css,vite,tailwind-css-4
+QUESTION AS POSTED:
+I've been using Tailwind CSS for my projects for a long time.
+Starting my new project, I installed the package and created the `tailwind.config.js` file via the command `npx tailwindcss init -p` , as I'm used to.
+But then I ran into an unexpected error – npm can't find the executable called by `npx tailwindcss` , even though I installed it. 
+ Reproducing the error message is as simple as running the following two commands from the root of the project : 
+ `$ npm install -D tailwindcss
+$ npx tailwindcss init -p
+
+ npm error could not determine executable to run
+ npm error A complete log of this run can be found in:
+ ...
+` 
+ 
+ Why am I running into this error when it used to work before?
+
+COMMENTS ON THE QUESTION, in order:
+- [rozsazoltan] More information is needed. Which versions are you using? AI software is never 100% up-to-date because dedicated users always provide great support with a slight delay for each new version. TailwindCSS has just released its new v4 version, so all the older v3 documentation has become somewhat outdated. The command to run is now no longer `npx tailwindcss` but `npx @tailwindcss/cli` .
+- [Harrison] In addition to the above, TailwindCSS has a dedicated "TailwindCSS with Vite" installation guide (for V4) tailwindcss.com/docs/installation/using-vite
+- [rozsazoltan] The question concerns the configuration that uses JavaScript, which has been removed starting from TailwindCSS v4, so I've re-added the javascript tag. The question is relevant specifically to TailwindCSS v4, so I'm explicitly associating it with that. For v3, you simply need to perform a version-specific installation - always be aware of which version of a package you're using.
+- [rozsazoltan] ChatGPT and other AIs couldn't - or couldn't for a long time - answer this question because they rely on outdated, multi-year-old datasets in which the error described here didn't yet exist. The issue was caused by the new v4, which was only released in 2025, and at that time there were still very few articles or guides about it, so older v3 guides received stronger indexing.
+
+COMMENTS ON THE ANSWER THAT WAS ACCEPTED, in order (the accepted answer itself is NOT shown to you):
+- [rozsazoltan] The v4 is so new that even the documentation isn't completely accurate yet. See here: tailwindcss.com/docs/installation/tailwind-cli , where the command provided is incorrect. However, the Upgrade Guide clearly specifies the necessary change.
+- [rozsazoltan] issue #1955: Tailwind CLI installation docs fixed
+- [rozsazoltan] Related: Tailwind CSS v4: more packages and new Vite support
+- [rozsazoltan] Which TailwindCSS v4 namespace matches a given TailwindCSS v3's theme keys?

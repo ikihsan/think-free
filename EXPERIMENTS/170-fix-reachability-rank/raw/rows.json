@@ -1,0 +1,649 @@
+[
+ {
+  "A1_global": {
+   "error": null,
+   "query": "rstudio console up arrow history not working",
+   "rank": null,
+   "total": 63
+  },
+  "A1_repo": {
+   "error": null,
+   "query": "repo:rstudio/rstudio rstudio console up arrow history not working",
+   "rank": 6,
+   "total": 6
+  },
+  "A2_global": {
+   "error": null,
+   "query": "console up arrow history not working",
+   "rank": null,
+   "total": 16748
+  },
+  "control_phrase": "IMPORTANT Please fill",
+  "control_rank": null,
+  "control_total": 718258,
+  "e169_term_coverage": 1.0,
+  "keyword": "rstudio console up arrow history not working",
+  "literal_type": "symptom_only",
+  "phrase": "",
+  "placebo_rank": null,
+  "qid": "79324837",
+  "target": {
+   "number": 7945,
+   "owner": "rstudio",
+   "repo": "rstudio"
+  },
+  "title": ""
+ },
+ {
+  "A1_global": {
+   "error": null,
+   "query": "paste slow delay visual studio code",
+   "rank": null,
+   "total": 1666
+  },
+  "A1_repo": {
+   "error": null,
+   "query": "repo:microsoft/vscode paste slow delay visual studio code",
+   "rank": null,
+   "total": 42
+  },
+  "A2_global": {
+   "error": null,
+   "query": "paste slow delay visual studio code",
+   "rank": null,
+   "total": 1666
+  },
+  "control_phrase": "Delete This! bug_report_template",
+  "control_rank": null,
+  "control_total": 64744,
+  "e169_term_coverage": 0.5,
+  "keyword": "paste slow delay visual studio code",
+  "literal_type": "symptom_only",
+  "phrase": "",
+  "placebo_rank": null,
+  "qid": "79327621",
+  "target": {
+   "number": 235959,
+   "owner": "microsoft",
+   "repo": "vscode"
+  },
+  "title": ""
+ },
+ {
+  "A0_bare_global": {
+   "error": null,
+   "query": "Docker.app will damage your computer",
+   "rank": 1,
+   "total": 13
+  },
+  "A0_bare_repo": {
+   "error": null,
+   "query": "repo:docker/for-mac Docker.app will damage your computer",
+   "rank": 1,
+   "total": 12
+  },
+  "A0_quoted_global": {
+   "error": null,
+   "query": "\"Docker.app will damage your computer\"",
+   "rank": 1,
+   "total": 1
+  },
+  "A0_quoted_repo": {
+   "error": null,
+   "query": "repo:docker/for-mac \"Docker.app will damage your computer\"",
+   "rank": 1,
+   "total": 1
+  },
+  "A1_global": {
+   "error": null,
+   "query": "Docker.app will damage your computer",
+   "rank": 1,
+   "total": 13
+  },
+  "A1_repo": {
+   "error": null,
+   "query": "repo:docker/for-mac Docker.app will damage your computer",
+   "rank": 1,
+   "total": 12
+  },
+  "A2_global": {
+   "error": null,
+   "query": "will damage your computer",
+   "rank": null,
+   "total": 18303
+  },
+  "control_phrase": "Description Whenever Docker",
+  "control_rank": null,
+  "control_total": 265126,
+  "e169_term_coverage": 0.3333,
+  "keyword": "Docker.app will damage your computer",
+  "literal_type": "ui_string",
+  "phrase": "Docker.app will damage your computer",
+  "placebo_rank": null,
+  "qid": "79344101",
+  "target": {
+   "number": 7520,
+   "owner": "docker",
+   "repo": "for-mac"
+  },
+  "title": ""
+ },
+ {
+  "A1_global": {
+   "error": null,
+   "query": "IsNullOrEmpty Microsoft.Identity.Web 3.7.0 removed",
+   "rank": null,
+   "total": 0
+  },
+  "A1_repo": {
+   "error": null,
+   "query": "repo:AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet IsNullOrEmpty Microsoft.Identity.Web 3.7.0 removed",
+   "rank": null,
+   "total": 0
+  },
+  "A2_global": {
+   "error": null,
+   "query": "IsNullOrEmpty Microsoft.Identity.Web 3.7.0 removed",
+   "rank": null,
+   "total": 0
+  },
+  "control_phrase": "Microsoft.IdentityModel.Tokens.CollectionUtilities.IsNullOrEmpty extension introduced](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/pull/1695/files#diff-d6203951e787f84d178b2d2ae5f8375daa4e79d7a333b2ca9ee91a48ca66423f",
+  "control_rank": null,
+  "control_total": null,
+  "e169_term_coverage": 0.5,
+  "keyword": "IsNullOrEmpty Microsoft.Identity.Web 3.7.0 removed",
+  "literal_type": "code_token",
+  "phrase": "",
+  "placebo_rank": null,
+  "qid": "79429899",
+  "target": {
+   "number": 1722,
+   "owner": "AzureAD",
+   "repo": "azure-activedirectory-identitymodel-extensions-for-dotnet"
+  },
+  "title": ""
+ },
+ {
+  "A0_bare_global": {
+   "error": "http_422 {\"message\":\"Validation Failed\",\"errors\":[{\"message\":\"The listed users and repositories cannot be searched either because the resources do not exist or you do no",
+   "query": "Library not loaded: @rpath/libgfortran.5.dylib",
+   "rank": null,
+   "total": null
+  },
+  "A0_bare_repo": {
+   "error": null,
+   "query": "repo:conda-forge/numpy-feedstock Library not loaded: @rpath/libgfortran.5.dylib",
+   "rank": 1,
+   "total": 11
+  },
+  "A0_quoted_global": {
+   "error": null,
+   "query": "\"Library not loaded: @rpath/libgfortran.5.dylib\"",
+   "rank": null,
+   "total": 80
+  },
+  "A0_quoted_repo": {
+   "error": null,
+   "query": "repo:conda-forge/numpy-feedstock \"Library not loaded: @rpath/libgfortran.5.dylib\"",
+   "rank": 1,
+   "total": 2
+  },
+  "A1_global": {
+   "error": "http_422 {\"message\":\"Validation Failed\",\"errors\":[{\"message\":\"The listed users and repositories cannot be searched either because the resources do not exist or you do no",
+   "query": "Library not loaded @rpath/libgfortran.5.dylib numpy macOS",
+   "rank": null,
+   "total": null
+  },
+  "A1_repo": {
+   "error": null,
+   "query": "repo:conda-forge/numpy-feedstock Library not loaded @rpath/libgfortran.5.dylib numpy macOS",
+   "rank": 1,
+   "total": 6
+  },
+  "A2_global": {
+   "error": "http_422 {\"message\":\"Validation Failed\",\"errors\":[{\"message\":\"The listed users and repositories cannot be searched either because the resources do not exist or you do no",
+   "query": "Library not loaded @rpath/libgfortran.5.dylib numpy macOS",
+   "rank": null,
+   "total": null
+  },
+  "control_phrase": "Solution issue cannot",
+  "control_rank": null,
+  "control_total": 1966131,
+  "e169_term_coverage": 1.0,
+  "keyword": "Library not loaded @rpath/libgfortran.5.dylib numpy macOS",
+  "literal_type": "error_message",
+  "phrase": "Library not loaded: @rpath/libgfortran.5.dylib",
+  "placebo_rank": null,
+  "qid": "79550279",
+  "target": {
+   "number": 347,
+   "owner": "conda-forge",
+   "repo": "numpy-feedstock"
+  },
+  "title": ""
+ },
+ {
+  "A0_bare_global": {
+   "error": null,
+   "query": "A template argument list is expected after a name prefixed by the template keyword",
+   "rank": null,
+   "total": 21589
+  },
+  "A0_bare_repo": {
+   "error": null,
+   "query": "repo:firebase/firebase-ios-sdk A template argument list is expected after a name prefixed by the template keyword",
+   "rank": 1,
+   "total": 2
+  },
+  "A0_quoted_global": {
+   "error": null,
+   "query": "\"A template argument list is expected after a name prefixed by the template keyword\"",
+   "rank": null,
+   "total": 229
+  },
+  "A0_quoted_repo": {
+   "error": null,
+   "query": "repo:firebase/firebase-ios-sdk \"A template argument list is expected after a name prefixed by the template keyword\"",
+   "rank": 1,
+   "total": 1
+  },
+  "A1_global": {
+   "error": null,
+   "query": "gRPC-Core Xcode 16.3 template keyword argument list",
+   "rank": 5,
+   "total": 7
+  },
+  "A1_repo": {
+   "error": null,
+   "query": "repo:firebase/firebase-ios-sdk gRPC-Core Xcode 16.3 template keyword argument list",
+   "rank": 1,
+   "total": 1
+  },
+  "A2_global": {
+   "error": null,
+   "query": "gRPC-Core Xcode 16.3 template keyword argument list",
+   "rank": 5,
+   "total": 7
+  },
+  "control_phrase": "Description Error Message",
+  "control_rank": null,
+  "control_total": 8106064,
+  "e169_term_coverage": 1.0,
+  "keyword": "gRPC-Core Xcode 16.3 template keyword argument list",
+  "literal_type": "error_message",
+  "phrase": "A template argument list is expected after a name prefixed by the template keyword",
+  "placebo_rank": null,
+  "qid": "79551968",
+  "target": {
+   "number": 14643,
+   "owner": "firebase",
+   "repo": "firebase-ios-sdk"
+  },
+  "title": ""
+ },
+ {
+  "A1_global": {
+   "error": null,
+   "query": "Claude Sonnet 4 not showing up model list Anthropic bring your own key",
+   "rank": null,
+   "total": 17036039
+  },
+  "A1_repo": {
+   "error": null,
+   "query": "repo:microsoft/vscode Claude Sonnet 4 not showing up model list Anthropic bring your own key",
+   "rank": null,
+   "total": 3
+  },
+  "A2_global": {
+   "error": null,
+   "query": "Claude Sonnet 4 not showing up model list Anthropic bring your own key",
+   "rank": null,
+   "total": 17036039
+  },
+  "control_phrase": "new issue logs",
+  "control_rank": null,
+  "control_total": 9044354,
+  "e169_term_coverage": 0.75,
+  "keyword": "Claude Sonnet 4 not showing up model list Anthropic bring your own key",
+  "literal_type": "symptom_only",
+  "phrase": "",
+  "placebo_rank": null,
+  "qid": "79642080",
+  "target": {
+   "number": 255783,
+   "owner": "microsoft",
+   "repo": "vscode"
+  },
+  "title": ""
+ },
+ {
+  "A0_bare_global": {
+   "error": null,
+   "query": "UpdateService error: The operation couldn't be completed. (OSStatus error -60006.)",
+   "rank": null,
+   "total": 0
+  },
+  "A0_bare_repo": {
+   "error": null,
+   "query": "repo:microsoft/vscode UpdateService error: The operation couldn't be completed. (OSStatus error -60006.)",
+   "rank": null,
+   "total": 0
+  },
+  "A0_quoted_global": {
+   "error": null,
+   "query": "\"UpdateService error: The operation couldn't be completed. (OSStatus error -60006.)\"",
+   "rank": null,
+   "total": 0
+  },
+  "A0_quoted_repo": {
+   "error": null,
+   "query": "repo:microsoft/vscode \"UpdateService error: The operation couldn't be completed. (OSStatus error -60006.)\"",
+   "rank": null,
+   "total": 0
+  },
+  "A1_global": {
+   "error": null,
+   "query": "UpdateService error OSStatus -60006",
+   "rank": null,
+   "total": 0
+  },
+  "A1_repo": {
+   "error": null,
+   "query": "repo:microsoft/vscode UpdateService error OSStatus -60006",
+   "rank": null,
+   "total": 0
+  },
+  "A2_global": {
+   "error": null,
+   "query": "UpdateService error OSStatus -60006",
+   "rank": null,
+   "total": 0
+  },
+  "control_phrase": "VSCode Version Version",
+  "control_rank": null,
+  "control_total": 1717657,
+  "e169_term_coverage": 0.0,
+  "keyword": "UpdateService error OSStatus -60006",
+  "literal_type": "error_message",
+  "phrase": "UpdateService error: The operation couldn't be completed. (OSStatus error -60006.)",
+  "placebo_rank": null,
+  "qid": "79671399",
+  "target": {
+   "number": 7426,
+   "owner": "microsoft",
+   "repo": "vscode"
+  },
+  "title": ""
+ },
+ {
+  "A0_bare_global": {
+   "error": null,
+   "query": "Could not find file 'app.component.ts'",
+   "rank": null,
+   "total": 1988
+  },
+  "A0_bare_repo": {
+   "error": null,
+   "query": "repo:dotnet/aspnetcore Could not find file 'app.component.ts'",
+   "rank": null,
+   "total": 2
+  },
+  "A0_quoted_global": {
+   "error": null,
+   "query": "\"Could not find file 'app.component.ts'\"",
+   "rank": null,
+   "total": 6
+  },
+  "A0_quoted_repo": {
+   "error": null,
+   "query": "repo:dotnet/aspnetcore \"Could not find file 'app.component.ts'\"",
+   "rank": null,
+   "total": 0
+  },
+  "A1_global": {
+   "error": null,
+   "query": "Could not find file app.component.ts Angular visual studio project",
+   "rank": null,
+   "total": 70
+  },
+  "A1_repo": {
+   "error": null,
+   "query": "repo:dotnet/aspnetcore Could not find file app.component.ts Angular visual studio project",
+   "rank": null,
+   "total": 0
+  },
+  "A2_global": {
+   "error": null,
+   "query": "Could not find file app.component.ts Angular visual studio project",
+   "rank": null,
+   "total": 70
+  },
+  "control_phrase": "fixed 17.8.1 working",
+  "control_rank": null,
+  "control_total": 353,
+  "e169_term_coverage": 0.3333,
+  "keyword": "Could not find file app.component.ts Angular visual studio project",
+  "literal_type": "error_message",
+  "phrase": "Could not find file 'app.component.ts'",
+  "placebo_rank": null,
+  "qid": "79674579",
+  "target": {
+   "number": 62258,
+   "owner": "dotnet",
+   "repo": "aspnetcore"
+  },
+  "title": ""
+ },
+ {
+  "A0_bare_global": {
+   "error": null,
+   "query": "Unable to find a destination matching the provided destination specifier",
+   "rank": null,
+   "total": 6714
+  },
+  "A0_bare_repo": {
+   "error": null,
+   "query": "repo:flutter/flutter Unable to find a destination matching the provided destination specifier",
+   "rank": null,
+   "total": 39
+  },
+  "A0_quoted_global": {
+   "error": null,
+   "query": "\"Unable to find a destination matching the provided destination specifier\"",
+   "rank": null,
+   "total": 582
+  },
+  "A0_quoted_repo": {
+   "error": null,
+   "query": "repo:flutter/flutter \"Unable to find a destination matching the provided destination specifier\"",
+   "rank": null,
+   "total": 31
+  },
+  "A1_global": {
+   "error": null,
+   "query": "Unable to find a destination matching the provided destination specifier",
+   "rank": null,
+   "total": 6714
+  },
+  "A1_repo": {
+   "error": null,
+   "query": "repo:flutter/flutter Unable to find a destination matching the provided destination specifier",
+   "rank": null,
+   "total": 39
+  },
+  "A2_global": {
+   "error": null,
+   "query": "Unable to find a destination matching the provided destination specifier",
+   "rank": null,
+   "total": 6714
+  },
+  "control_phrase": "Workarounds !IMPORTANT iOS",
+  "control_rank": null,
+  "control_total": 12957,
+  "e169_term_coverage": 0.0,
+  "keyword": "Unable to find a destination matching the provided destination specifier",
+  "literal_type": "error_message",
+  "phrase": "Unable to find a destination matching the provided destination specifier",
+  "placebo_rank": null,
+  "qid": "79768764",
+  "target": {
+   "number": 163984,
+   "owner": "flutter",
+   "repo": "flutter"
+  },
+  "title": ""
+ },
+ {
+  "A0_bare_global": {
+   "error": null,
+   "query": "Data grid",
+   "rank": null,
+   "total": 1979496
+  },
+  "A0_bare_repo": {
+   "error": null,
+   "query": "repo:microsoft/vscode-data-wrangler Data grid",
+   "rank": 7,
+   "total": 33
+  },
+  "A0_quoted_global": {
+   "error": null,
+   "query": "\"Data grid\"",
+   "rank": null,
+   "total": 349936
+  },
+  "A0_quoted_repo": {
+   "error": null,
+   "query": "repo:microsoft/vscode-data-wrangler \"Data grid\"",
+   "rank": 6,
+   "total": 22
+  },
+  "A1_global": {
+   "error": null,
+   "query": "Data Wrangler shows \"Data grid\" instead of dataframe name",
+   "rank": null,
+   "total": 33
+  },
+  "A1_repo": {
+   "error": null,
+   "query": "repo:microsoft/vscode-data-wrangler Data Wrangler shows \"Data grid\" instead of dataframe name",
+   "rank": null,
+   "total": 1
+  },
+  "A2_global": {
+   "error": null,
+   "query": "Data Wrangler shows \"Data grid\" instead of dataframe name",
+   "rank": null,
+   "total": 33
+  },
+  "control_phrase": "img width=\"932 height=\"161",
+  "control_rank": null,
+  "control_total": 190,
+  "e169_term_coverage": 1.0,
+  "keyword": "Data Wrangler shows \"Data grid\" instead of dataframe name",
+  "literal_type": "ui_string",
+  "phrase": "Data grid",
+  "placebo_rank": null,
+  "qid": "79821337",
+  "target": {
+   "number": 586,
+   "owner": "microsoft",
+   "repo": "vscode-data-wrangler"
+  },
+  "title": ""
+ },
+ {
+  "A0_bare_global": {
+   "error": null,
+   "query": "certificate verify failed (unable to get certificate CRL)",
+   "rank": null,
+   "total": 2167
+  },
+  "A0_bare_repo": {
+   "error": null,
+   "query": "repo:openssl/openssl certificate verify failed (unable to get certificate CRL)",
+   "rank": null,
+   "total": 31
+  },
+  "A0_quoted_global": {
+   "error": null,
+   "query": "\"certificate verify failed (unable to get certificate CRL)\"",
+   "rank": null,
+   "total": 99
+  },
+  "A0_quoted_repo": {
+   "error": null,
+   "query": "repo:openssl/openssl \"certificate verify failed (unable to get certificate CRL)\"",
+   "rank": 1,
+   "total": 1
+  },
+  "A1_global": {
+   "error": null,
+   "query": "ruby OpenSSL certificate verify failed unable to get certificate CRL",
+   "rank": null,
+   "total": 133
+  },
+  "A1_repo": {
+   "error": null,
+   "query": "repo:openssl/openssl ruby OpenSSL certificate verify failed unable to get certificate CRL",
+   "rank": 1,
+   "total": 3
+  },
+  "A2_global": {
+   "error": null,
+   "query": "ruby certificate verify failed unable to get certificate CRL",
+   "rank": null,
+   "total": 149
+  },
+  "control_phrase": "tried connecting AWS",
+  "control_rank": null,
+  "control_total": 17761,
+  "e169_term_coverage": 1.0,
+  "keyword": "ruby OpenSSL certificate verify failed unable to get certificate CRL",
+  "literal_type": "error_message",
+  "phrase": "certificate verify failed (unable to get certificate CRL)",
+  "placebo_rank": null,
+  "qid": "79826631",
+  "target": {
+   "number": 28758,
+   "owner": "openssl",
+   "repo": "openssl"
+  },
+  "title": ""
+ },
+ {
+  "A1_global": {
+   "error": null,
+   "query": "Ollama models missing from Copilot Chat model selection menu",
+   "rank": null,
+   "total": 1014
+  },
+  "A1_repo": {
+   "error": null,
+   "query": "repo:microsoft/vscode-copilot-chat Ollama models missing from Copilot Chat model selection menu",
+   "rank": null,
+   "total": 0
+  },
+  "A2_global": {
+   "error": null,
+   "query": "Ollama models missing from Copilot Chat model selection menu",
+   "rank": null,
+   "total": 1014
+  },
+  "control_phrase": "Summary fixes issues",
+  "control_rank": null,
+  "control_total": 55863278,
+  "e169_term_coverage": 0.625,
+  "keyword": "Ollama models missing from Copilot Chat model selection menu",
+  "literal_type": "symptom_only",
+  "phrase": "",
+  "placebo_rank": null,
+  "qid": "79888998",
+  "target": {
+   "number": 3566,
+   "owner": "microsoft",
+   "repo": "vscode-copilot-chat"
+  },
+  "title": ""
+ }
+]

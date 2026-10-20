@@ -1,0 +1,28 @@
+pid: g-79527331
+
+=== LEFT ===
+Your reading is right: declaring an implicit intent filter with ACTION_MAIN (and, in pract
+ice, CATEGORY_LAUNCHER) makes almost every installed app visible to you under Android 11+ 
+package visibility filtering. It is not QUERY_ALL_PACKAGES: no permission is involved, and
+ you see only what the query returns. Google Play policy still applies: broad queries must
+ be justified as core functionality (a launcher, a default-handler or share-target chooser
+, automation, backup), and Play scrutinises MAIN/LAUNCHER declarations; using the queries 
+mechanism to enumerate apps without a legitimate core feature is a policy violation even w
+ithout the permission. Declare specific packages with a package element or a narrower inte
+nt with a specific action, category or data scheme, and keep the Play Console declaration 
+in sync.
+
+=== RIGHT ===
+doing the following returns all the apps installed in an android device: 
+ 
+ FWIW, that code returns activities, not apps. 
+ 
+ Isn't this a potential privacy loophole and almost equivalent to the very sensitive QUERY
+_ALL_PACKAGES permission? 
+ 
+ Yes, which is why I and others wrote about this years ago . 
+ Bear in mind that Google (and other app distributors) could penalize developers for havin
+g overly-broad <queries> requests. 
+
+ QUERY_ALL_PACKAGES 
+ <queries>

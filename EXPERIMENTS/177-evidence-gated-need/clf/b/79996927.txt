@@ -1,0 +1,288 @@
+qid: 79996927
+view_count: 1151
+tags: c++, floating-point, precision, floating-point-conversion, bfloat16
+key_score: 15
+
+=== TITLE ===
+Should (double)(std::float16_t(1024) + std::float16_t(1025)) be 2048.0 or 2049.0?
+
+=== QUESTION ===
+I'm running into some behavior of std::float16_t (and std::bfloat16_t ) that I don't under
+stand. 
+ My understanding and expectation is that: 
+ 
+ the next std::float16_t after 1024 is 1025 . 
+ 1024+1025=2049 isn't representable as std::float16_t , so it gets rounded-to-even to 2048
+ . 
+ therefore, (std::float16_t(1024) + std::float16_t(1025)) evaluates to std::float16_t(2048
+) . 
+ if I then convert that result to float or double , I should get 2048.0f or 2048.0 , respe
+ctively. 
+ 
+ So I expect that: 
+ 
+ (float)(std::float16_t(1024) + std::float16_t(1025)) should be 2048.0f . 
+ (double)(std::float16_t(1024) + std::float16_t(1025)) should be 2048.0 . 
+ 
+ But, they come out 2049.0f and 2049.0 instead. 
+ Why is this? 
+ Similarly, using std::bfloat16_t instead of std::float16_t , I expect that: 
+ 
+ (float)(std::bfloat16_t(128) + std::bfloat16_t(129)) should be 256.0f . 
+ (double)(std::bfloat16_t(128) + std::bfloat16_t(129)) should be 256.0 . 
+ 
+ But, they come out 257.0f and 257.0 instead. 
+ I observed this using g++ 15.2.0. 
+ The following C++ program demonstrates this issue: 
+ // Use either of the following
+// (no earlier since std::float16_t and std::bfloat16_t were introduced in C++23).
+/*
+ g++ -std=c++26 -O0 -W -Wall -Werror wtf.cpp -o wtf && ./wtf
+ g++ -std=c++23 -O0 -W -Wall -Werror wtf.cpp -o wtf && ./wtf
+*/
+// Note: I also tried clang++ but couldn't get it to understand std::float16_t
+// nor std::bfloat16_t.
+
+#include <cmath>
+#include <iostream>
+#include <stdfloat>
+
+int main(int, char**) {
+
+ std::cout << "std::float16_t:\n";
+ std::cout << " std::nextafter(std::float16_t(1024), std::float16_t(1e6)) = "
+ << std::nextafter(std::float16_t(1024), std::float16_t(1e6))<<"\n"; // 1025 (correct)
+ std::cout << " sizeof(std::float16_t(1024) + std::float16_t(1025)) = "
+ << sizeof(std::float16_t(1024) + std::float16_t(1025))<<"\n"; // 2 (correct, std::float16
+_t is 2 bytes)
+ std::cout << " (std::float16_t(1024) + std::float16_t(1025)) = "
+ << (std::float16_t(1024) + std::float16_t(1025))<<"\n"; // 2048 (correct-- 2049 isn't rep
+resentable so rounds to even)
+ std::cout << " (float)(std::float16_t(1024) + std::float16_t(1025)) = "
+ << (float)(std::float16_t(1024) + std::float16_t(1025))<<"\n"; // 2049 (SURPRISE-- I expe
+cted 2048)
+ std::cout << " (double)(std::float16_t(1024) + std::float16_t(1025)) = "
+ << (double)(std::float16_t(1024) + std::float16_t(1025))<<"\n"; // 2049 (SURPRISE-- I exp
+ected 2048)
+ std::cout << "\n";
+
+ std::cout << "std::bfloat16_t:\n";
+ std::cout << " std::nextafter(std::bfloat16_t(128), std::bfloat16_t(1e6)) = "
+ << std::nextafter(std::bfloat16_t(128), std::bfloat16_t(1e6))<<"\n"; // 129 (correct)
+ std::cout << " sizeof(std::bfloat16_t(128) + std::bfloat16_t(129)) = "
+ << sizeof(std::bfloat16_t(128) + std::bfloat16_t(129))<<"\n"; // 2 (correct, std::bfloat1
+6_t is 2 bytes)
+ std::cout << " (std::bfloat16_t(128) + std::bfloat16_t(129)) = "
+ << (std::bfloat16_t(128) + std::bfloat16_t(129))<<"\n"; // 256 (correct-- 257 isn't repre
+sentable so rounds to even)
+ std::cout << " (float)(std::bfloat16_t(128) + std::bfloat16_t(129)) = "
+ << (float)(std::bfloat16_t(128) + std::bfloat16_t(129))<<"\n"; // 257 (SURPRISE-- I expec
+ted 256)
+ std::cout << " (double)(std::bfloat16_t(128) + std::bfloat16_t(129)) = "
+ << (double)(std::bfloat16_t(128) + std::bfloat16_t(129))<<"\n"; // 257 (SURPRISE-- I expe
+cted 256)
+ std::cout << "\n";
+
+}
+ 
+ Output is: 
+ std::float16_t:
+ std::nextafter(std::float16_t(1024), std::float16_t(1e6)) = 1025
+ sizeof(std::float16_t(1024) + std::float16_t(1025)) = 2
+ (std::float16_t(1024) + std::float16_t(1025)) = 2048
+ (float)(std::float16_t(1024) + std::float16_t(1025)) = 2049 <-- SURPRISE
+ (double)(std::float16_t(1024) + std::float16_t(1025)) = 2049 <-- SURPRISE
+
+std::bfloat16_t:
+ std::nextafter(std::bfloat16_t(128), std::bfloat16_t(1e6)) = 129
+ sizeof(std::bfloat16_t(128) + std::bfloat16_t(129)) = 2
+ (std::bfloat16_t(128) + std::bfloat16_t(129)) = 256
+ (float)(std::bfloat16_t(128) + std::bfloat16_t(129)) = 257 <-- SURPRISE
+ (double)(std::bfloat16_t(128) + std::bfloat16_t(129)) = 257 <-- SURPRISE
+ 
+ 
+ UPDATE: Here is another head scratcher, not involving any explicit casts at all. 
+ (This variant is actually closer to what happened in real life that led to me posting thi
+s question.) 
+ What happens in the following program is that an expectation fails because two things are
+ unexpectedly unequal. That is, the following unexpectedly evaluates to true: 
+ (std::float16_t(1024) + std::float16_t(1025)) != (std::float16_t(2048))
+ 
+ but then, when the two things are inspected to find out why,
+they appear to be exactly the same after all. 
+ This is quite mystifying, and makes me question my ability to inspect and debug these iss
+ues at all. 
+ What's going on here? 
+ // wtf2.cpp
+/*
+ g++ -std=c++23 -W -Wall -Wextra -Wpedantic -Wconversion -Werror wtf2.cpp -o wtf2 && ./wtf
+2
+*/
+#include <iostream>
+#include <stdfloat>
+int main() {
+ if ( (std::float16_t(1024) + std::float16_t(1025)) != (std::float16_t(2048)) ) {
+ std::cerr << "Expectation failed: the following are unexpectedly not equal"
+ << " (both should be 2048 of size 2):\n";
+
+ std::cerr << " (std::float16_t(1024) + std::float16_t(1025))"
+ << " is "<<(std::float16_t(1024) + std::float16_t(1025))
+ << " of size "<<sizeof(std::float16_t(1024) + std::float16_t(1025))<<"\n";
+ // output: "(std::float16_t(1024) + std::float16_t(1025)) is 2048 of size 2"
+
+ std::cerr << " (std::float16_t(2048))"
+ << " is "<<(std::float16_t(2048))
+ << " of size "<<sizeof(std::float16_t(2048))<<"\n";
+ // output: "(std::float16_t(2048)) is 2048 of size 2"
+ }
+}
+ 
+ Compile and run (using g++ 15.2.0, target x86_64-linux-gnu): 
+ g++ -std=c++23 -W -Wall -Wextra -Wpedantic -Wconversion -Werror wtf2.cpp && ./wtf2
+ 
+ Output is: 
+ Expectation failed: the following are unexpectedly not equal (both should be 2048 of size
+ 2):
+ (std::float16_t(1024) + std::float16_t(1025)) is 2048 of size 2
+ (std::float16_t(2048)) is 2048 of size 2
+ 
+
+ std::float16_t 
+ std::bfloat16_t 
+ std::float16_t 
+ 1024 
+ 1025 
+ 1024+1025=2049 
+ std::float16_t 
+ 2048 
+ (std::float16_t(1024) + std::float16_t(1025)) 
+ std::float16_t(2048) 
+ float 
+ double 
+ 2048.0f 
+ 2048.0 
+ (float)(std::float16_t(1024) + std::float16_t(1025)) 
+ 2048.0f 
+ (double)(std::float16_t(1024) + std::float16_t(1025)) 
+ 2048.0 
+ 2049.0f 
+ 2049.0 
+ std::bfloat16_t 
+ std::float16_t 
+ (float)(std::bfloat16_t(128) + std::bfloat16_t(129)) 
+ 256.0f 
+ (double)(std::bfloat16_t(128) + std::bfloat16_t(129)) 
+ 256.0 
+ 257.0f 
+ 257.0 
+ // Use either of the following
+// (no earlier since std::float16_t and std::bfloat16_t were introduced in C++23).
+/*
+ g++ -std=c++26 -O0 -W -Wall -Werror wtf.cpp -o wtf && ./wtf
+ g++ -std=c++23 -O0 -W -Wall -Werror wtf.cpp -o wtf && ./wtf
+*/
+// Note: I also tried clang++ but couldn't get it to understand std::float16_t
+// nor std::bfloat16_t.
+
+#include <cmath>
+#include <iostream>
+#include <stdfloat>
+
+int main(int, char**) {
+
+ std::cout << "std::float16_t:\n";
+ std::cout << " std::nextafter(std::float16_t(1024), std::float16_t(1e6)) = "
+ << std::nextafter(std::float16_t(1024), std::float16_t(1e6))<<"\n"; // 1025 (correct)
+ std::cout << " sizeof(std::float16_t(1024) + std::float16_t(1025)) = "
+ << sizeof(std::float16_t(1024) + std::float16_t(1025))<<"\n"; // 2 (correct, std::float16
+_t is 2 bytes)
+ std::cout << " (std::float16_t(1024) + std::float16_t(1025)) = "
+ << (std::float16_t(1024) + std::float16_t(1025))<<"\n"; // 2048 (correct-- 2049 isn't rep
+resentable so rounds to even)
+ std::cout << " (float)(std::float16_t(1024) + std::float16_t(1025)) = "
+ << (float)(std::float16_t(1024) + std::float16_t(1025))<<"\n"; // 2049 (SURPRISE-- I expe
+cted 2048)
+ std::cout << " (double)(std::float16_t(1024) + std::float16_t(1025)) = "
+ << (double)(std::float16_t(1024) + std::float16_t(1025))<<"\n"; // 2049 (SURPRISE-- I exp
+ected 2048)
+ std::cout << "\n";
+
+ std::cout << "std::bfloat16_t:\n";
+ std::cout << " std::nextafter(std::bfloat16_t(128), std::bfloat16_t(1e6)) = "
+ << std::nextafter(std::bfloat16_t(128), std::bfloat16_t(1e6))<<"\n"; // 129 (correct)
+ std::cout << " sizeof(std::bfloat16_t(128) + std::bfloat16_t(129)) = "
+ << sizeof(std::bfloat16_t(128) + std::bfloat16_t(129))<<"\n"; // 2 (correct, std::bfloat1
+6_t is 2 bytes)
+ std::cout << " (std::bfloat16_t(128) + std::bfloat16_t(129)) = "
+ << (std::bfloat16_t(128) + std::bfloat16_t(129))<<"\n"; // 256 (correct-- 257 isn't repre
+sentable so rounds to even)
+ std::cout << " (float)(std::bfloat16_t(128) + std::bfloat16_t(129)) = "
+ << (float)(std::bfloat16_t(128) + std::bfloat16_t(129))<<"\n"; // 257 (SURPRISE-- I expec
+ted 256)
+ std::cout << " (double)(std::bfloat16_t(128) + std::bfloat16_t(129)) = "
+ << (double)(std::bfloat16_t(128) + std::bfloat16_t(129))<<"\n"; // 257 (SURPRISE-- I expe
+cted 256)
+ std::cout << "\n";
+
+}
+ 
+ std::float16_t:
+ std::nextafter(std::float16_t(1024), std::float16_t(1e6)) = 1025
+ sizeof(std::float16_t(1024) + std::float16_t(1025)) = 2
+ (std::float16_t(1024) + std::float16_t(1025)) = 2048
+ (float)(std::float16_t(1024) + std::float16_t(1025)) = 2049 <-- SURPRISE
+ (double)(std::float16_t(1024) + std::float16_t(1025)) = 2049 <-- SURPRISE
+
+std::bfloat16_t:
+ std::nextafter(std::bfloat16_t(128), std::bfloat16_t(1e6)) = 129
+ sizeof(std::bfloat16_t(128) + std::bfloat16_t(129)) = 2
+ (std::bfloat16_t(128) + std::bfloat16_t(129)) = 256
+ (float)(std::bfloat16_t(128) + std::bfloat16_t(129)) = 257 <-- SURPRISE
+ (double)(std::bfloat16_t(128) + std::bfloat16_t(129)) = 257 <-- SURPRISE
+ 
+ (std::float16_t(1024) + std::float16_t(1025)) != (std::float16_t(2048))
+ 
+ // wtf2.cpp
+/*
+ g++ -std=c++23 -W -Wall -Wextra -Wpedantic -Wconversion -Werror wtf2.cpp -o wtf2 && ./wtf
+2
+*/
+#include <iostream>
+#include <stdfloat>
+int main() {
+ if ( (std::float16_t(1024) + std::float16_t(1025)) != (std::float16_t(2048)) ) {
+ std::cerr << "Expectation failed: the following are unexpectedly not equal"
+ << " (both should be 2048 of size 2):\n";
+
+ std::cerr << " (std::float16_t(1024) + std::float16_t(1025))"
+ << " is "<<(std::float16_t(1024) + std::float16_t(1025))
+ << " of size "<<sizeof(std::float16_t(1024) + std::float16_t(1025))<<"\n";
+ // output: "(std::float16_t(1024) + std::float16_t(1025)) is 2048 of size 2"
+
+ std::cerr << " (std::float16_t(2048))"
+ << " is "<<(std::float16_t(2048))
+ << " of size "<<sizeof(std::float16_t(2048))<<"\n";
+ // output: "(std::float16_t(2048)) is 2048 of size 2"
+ }
+}
+ 
+ g++ -std=c++23 -W -Wall -Wextra -Wpedantic -Wconversion -Werror wtf2.cpp && ./wtf2
+ 
+ Expectation failed: the following are unexpectedly not equal (both should be 2048 of size
+ 2):
+ (std::float16_t(1024) + std::float16_t(1025)) is 2048 of size 2
+ (std::float16_t(2048)) is 2048 of size 2
+
+=== KEY ANSWER ===
+It can be either value. An implementation is permitted but not required to represent inter
+mediate expression results with wider precision. ( [expr.pre]/6 ) 
+ 
+ The values of the floating-point operands and the results of floating-point expressions m
+ay be represented in greater precision and range than that required by the type; the types
+ are not changed thereby. 
+ 
+ For GCC, there's the -fexcess-precision= option to control whether to use a wider precisi
+on. 
+
+ -fexcess-precision=
+

@@ -3,10 +3,10 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-04
+last-verified: 2026-10-20
 -->
 
-Decisions **D040, D042, D044–D046**. Each entry records a choice that was
+Decisions **D040, D042, D044–D046, D111**. Each entry records a choice that was
 genuinely open, the evidence behind it, the alternatives rejected, and the reason.
 
 **Invariant:** every entry here governs *a write the tooling made on the agent's
@@ -208,3 +208,53 @@ does not reach that command. And the commit-then-push window remains: a crash
 between `_commit_paths` and `sync.push` leaves one local commit that the next
 `_require_at_base` names — which is the direction of failure, and it is a message
 rather than a silent claim.
+## D111 — A prototype whose declared failure condition has fired is not released, and a check that cannot fail is repaired before it is published again (2026-10-14)
+
+Observed: E134 ran `EleutherAI/lm-evaluation-harness` v0.4.4 for real
+(`EXPERIMENTS/134-preflight-real-run/`, protocol committed `f187edb1` before the
+harness was installed) and pointed `preflight` at its own output and at a
+third-party published run. **G1 PASS, G2 PASS at 6 counted lines, G3 PASS, G4
+FAIL, G5 PARTIAL.** The row recomputation R1 — never reading the verdict column,
+and for `wikitext` executing the run's *own* shipped `process_results` source —
+agrees with **every** printed rate: 7 metrics on Arm A and, on 200 third-party
+rows, `acc` 0.515 = 0.515 and `acc_norm` 0.5 = 0.5, with five rows read by hand
+in [`handcheck.md`](EXPERIMENTS/134-preflight-real-run/handcheck.md).
+
+Decision: **`preflight` is not released and the release question closes on this
+evidence.** D046's condition — "released when the adapter pattern is confirmed" —
+was met by construction, and E134 shows the pattern was confirmed on four formats
+this repository built itself and on one real run that was clean. The declared
+failure condition in E134's protocol ("if Arm A's run output is clean under C1 and
+R1 agrees with the printed rate, then `preflight` has no observed external value")
+**fired as written.** Arm A *is* clean; R1 *does* agree; there is no evidence that a
+real run of the harness behind most published LLM numbers is wrong. Releasing a
+tool whose declared reason for existing is an unobserved defect, on the strength of
+an adapter pattern measured against the experiment's own fixtures, is the inversion
+of the mission's order rather than an instance of it.
+
+**Repaired anyway, and the scope stated.** E134 found two paths by which
+`preflight` returns a non-blocking `OK` while measuring nothing — C1 on an empty
+key side, C2 with no items labelled incorrect (F125) — and one field whose name is
+its own complement (F126). Those are repaired with 9 regression tests, 4 of them
+falsified against the pre-fix code, because `RELEASE-MANIFEST.md` declares the
+package public and **a public check that passes while measuring nothing is the
+harm the package exists to prevent.** That is a defect fix, not a re-litigation of
+D046, and it is the only reason the package is touched at all.
+
+Rejected: **releasing anyway, on the adapter pattern.** That is D046's own reason,
+and E134 measured it against a real run and it found nothing. Rejected: **re-scraping
+a third harness for external value** — the protocol's next action would have been to
+run G4's second arm on another format, and the value of that is bounded by a clean
+run of the one format that matters. Rejected: **a second, cheaper experiment to find
+an lm-eval defect**, because the declared kill condition was about the run being
+clean, not about lm-eval being hard to break.
+
+Consequence: `preflight/` stays in the repository as a correct, tested, unreleased
+instrument; `RELEASE-MANIFEST.md` keeps it in the public table with the limitation
+now written down rather than assumed (F125, F126, and E125's own "two harnesses
+from one repository"). The next question is not another harness: it is whether the
+same six-line adapter and the same R1 reach **the format a leaderboard publishes**,
+where the number is read by people who never open `results.json`. **Ceiling:** one
+harness, one version, one invocation shape, `--model dummy`; Arm B's hosting
+repository could not be re-located (AMENDMENT-3), so G5 is PARTIAL and Arm B is
+one run of one model, not a sample of published results.

@@ -1,0 +1,59 @@
+TITLE: Could not find com.arthenica:ffmpeg-kit-full:6.0-2
+TAGS: android,ffmpeg,android-ffmpeg
+QUESTION AS POSTED:
+I started receiving this message when I build my project 
+ `> Could not find com.arthenica:ffmpeg-kit-full:6.0-2.
+ Searched in the following locations:
+ - https://dl.google.com/dl/android/maven2/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom
+ - https://repo.maven.apache.org/maven2/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom
+ - https://jcenter.bintray.com/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom
+ - https://jitpack.io/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom
+ - https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom
+ - https://oss.sonatype.org/content/repositories/snapshots/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom
+ Required by:
+ project :presentation > project :domain
+` 
+ These are the project's repositories 
+ `allprojects { 
+ repositories {
+ google()
+ mavenCentral()
+ jcenter()
+ maven { url 'https://jitpack.io' }
+ maven { url "https://oss.sonatype.org/content/repositories/snapshots" } 
+ } 
+}
+` 
+ And this is the dependency I'm adding 
+ ` implementation(libs.arthenica.ffmpeg.full)
+` 
+ This is my libs.version.toml 
+ `ffmpeg = "6.0-2"
+arthenica-ffmpeg-full = { group = "com.arthenica", name = "ffmpeg-kit-full", version.ref = "ffmpeg" }
+` 
+ AFAICS in the project's github page , it will not be maintained anymore
+ 
+ In the short term, do you know any other repository that still servers this dependency? 
+ On the other hand, do you know any other project to replace Arthenica ffmpeg-kit-full dependency?
+
+COMMENTS ON THE QUESTION, in order:
+- [CommonsWare] "do you know any other project to replace Arthenica ffmpeg-kit-full dependency?" -- asking for recommendations for off-site resources is considered to be off-topic. "do you know any other repository that still servers this dependency?" -- you might want to read the Medium post linked to from the project `README` , if you have not done so already.
+- [sdex] As a short-term solution, you can add AAR files to the project.
+- [gabocalero] I was using ffmpeg-kit for (a legacy feature) creating a thumbnail from a video. I am replacing ffmpeg-kit dependency by Coil, which covers the same feature in a simpler way
+
+COMMENTS ON THE ANSWER THAT WAS ACCEPTED, in order (the accepted answer itself is NOT shown to you):
+- [Aishik kirtaniya] is there any min-gpl aar file anywhere?
+- [Braian Stiven Pe&#241;a Morales] Yes, in the same website you can choose any version of this library link
+- [Aishik kirtaniya] seems like the aar wont even work as they have dependency to the ffmpeg library
+- [Aishik kirtaniya] java.lang.NoClassDefFoundError: Failed resolution of: Lcom/arthenica/smartexception/java/Exceptions; at com.arthenica.ffmpegkit.FFmpegKitConfig.<clinit>(FFmpegKitCo‌​nfig.java:134) at com.arthenica.ffmpegkit.FFmpegKit.executeAsync(FFmpegKit.jav‌​a:207)
+- [Braian Stiven Pe&#241;a Morales] You must also implement: implementation 'com.arthenica:smart-exception-java:0.2.1'. As indicated in the original post, you must add both implementations.
+- [Venryx] @BraianStivenPeñaMorales Important note for others reading: `com.arthenica:smart-exception-java9:0.2.1` and `com.arthenica:smart-exception-java:0.2.1` are not the same! I had to switch from the `java9:...` version in the original answer, to the `java:...` version in this comment, before it worked in my project. (presumably project-dependent)
+- [Rohaitas Tanoli] @Venryx You are a live savior
+- [Chao Fang] The "java9" might be a typo, changed it to "java", everything built smoothly. Thank you for the solution. Starting from here, I finally have a custom ffmpegKit built with support to 16KB page size and libx264.
+- [Tomin] Is the above built for 16KB page size?
+- [Braian Stiven Pe&#241;a Morales] @Tomin I was edit my original answer with the solution to this
+- [Eicky] Hello, could you please send me the entire source code of ffmpeg - kit that solves the 16KB problem? Or the code of the GitHub action?
+- [Jhonni_Dev] Thank you for the great work. One question: does the compilation you made not include support for encoding with libmp3lame?
+- [Braian Stiven Pe&#241;a Morales] @Eicky Sorry for the delay in responding. If you still need it, I've uploaded all the modified code in a fork of my repository, which you can see at the following link: github.com/braianmobiledev/ffmpeg-kit
+- [Braian Stiven Pe&#241;a Morales] @Jhonni_Dev I've just done a new build including all the libraries (it's important to note that the x86 architecture isn't included because it causes many compilation problems). I've uploaded all the modified code to a fork of my repository, which you can see at the following link: github.com/braianmobiledev/ffmpeg-kit . You can also find the prebuild in .aar format there.
+- [ ffmpegkit-maintained] I had the same issue. Root cause on NDK r26c is a clang strict mode error in fftools_ffmpeg_mux_init.c — fixed it with a one-line patch in Android.mk. Patched source + prebuilt AAR here if it helps: github.com/ffmpegkit-maintained/ffmpeg-kit

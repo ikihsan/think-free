@@ -1,0 +1,322 @@
+qid: 79733841
+view_count: 2737
+tags: c, buffer, dispatch
+key_score: 28
+
+=== TITLE ===
+How to reduce repetition in a large amount of if-else statements when reading from a buffe
+r
+
+=== QUESTION ===
+I'm trying to read a package from a buffer, decode it, and then return a package that migh
+t contain a requested info or call a specific function depending on the package I received
+. I'd like to know if there is any way I can simplify this block of code in order to reduc
+e code repetition: 
+ if (rx_buffer[0] == 0xAA && rx_buffer[1] == 0x88){
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ change_light_intensity(1000);
+}
+else if (rx_buffer[0] == 0xBB && rx_buffer[1] == 0x89){
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ tx_buffer[2] = 0x34;
+ tx_buffer[3] = 0x12;
+}
+
+//...
+//many many more else if statements
+//...
+
+else if (rx_buffer[0] == 0x3D && rx_buffer[1] == 0x76){
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ change_volume(38);
+}
+else {
+ tx_buffer[0] = 'N';
+ tx_buffer[0] = 'O';
+}
+
+ 
+
+ if (rx_buffer[0] == 0xAA && rx_buffer[1] == 0x88){
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ change_light_intensity(1000);
+}
+else if (rx_buffer[0] == 0xBB && rx_buffer[1] == 0x89){
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ tx_buffer[2] = 0x34;
+ tx_buffer[3] = 0x12;
+}
+
+//...
+//many many more else if statements
+//...
+
+else if (rx_buffer[0] == 0x3D && rx_buffer[1] == 0x76){
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ change_volume(38);
+}
+else {
+ tx_buffer[0] = 'N';
+ tx_buffer[0] = 'O';
+}
+
+=== KEY ANSWER ===
+Since you are dispatching based on the value of the first 2 bytes in the string, you can u
+se a switch statement on the combination of these 2 bytes. Be careful to combine the bytes
+ as unsigned char to avoid sign extension where char is signed if rx_buffer in an array of
+ char . 
+ Here is modified code: 
+ #define COMBINE(a,b) (((unsigned)(unsigned char)(a) << 8) | (unsigned char)(b)) 
+
+void handle_request(const unsigned char *rx_buffer, unsigned char *tx_buffer) {
+ switch (COMBINE(rx_buffer[0], rx_buffer[1])) {
+ case COMBINE(0xAA, 0x88):
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ change_light_intensity(1000);
+ break;
+ case COMBINE(0xBB, 0xB9):
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ tx_buffer[2] = 0x34;
+ tx_buffer[3] = 0x12;
+ break;
+ //...
+ //many many more case clauses
+ //...
+ case COMBINE(0x3D, 0x76):
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ change_volume(38);
+ break;
+ default:
+ tx_buffer[0] = 'N';
+ tx_buffer[1] = 'O';
+ break;
+ }
+}
+ 
+ Regarding the repetitive code, you could use macros to improve readability and avoid cut+
+paste errors (such as the one on the posted code for the O in the else branch. Note howeve
+r that this will not improve code generation and may be considered inappropriate in many p
+laces: 
+ #define COMBINE(a,b) (((unsigned)(unsigned char)(a) << 8) | (unsigned char)(b))
+#define SET_OK(b) ((b)[0] = 'O', (b)[1] = 'K')
+#define SET_NO(b) ((b)[0] = 'N', (b)[1] = 'O')
+
+void handle_request(const unsigned char *rx_buffer, unsigned char *tx_buffer) {
+ switch (COMBINE(rx_buffer[0], rx_buffer[1])) {
+ case COMBINE(0xAA, 0x88):
+ SET_OK(tx_buffer);
+ change_light_intensity(1000);
+ break;
+ case COMBINE(0xBB, 0xB9):
+ SET_OK(tx_buffer);
+ tx_buffer[2] = 0x34;
+ tx_buffer[3] = 0x12;
+ break;
+ //...
+ //many many more case clauses
+ //...
+ case COMBINE(0x3D, 0x76):
+ SET_OK(tx_buffer);
+ change_volume(38);
+ break;
+ default:
+ SET_NO(tx_buffer);
+ break;
+ }
+}
+ 
+ Here are some further improvements: 
+ 
+ As suggested by @Fe2O3, since all but one handler set rx_buffer to OK , this code should 
+be factored out of the switch cases at a very small cost in the default handler, removing 
+the need for the SET_xxx macros. 
+ Changing the COMBINE macro to combine the bytes in the native order also gives the compil
+er the opportunity to generate a single read for the switch value (as tested on Godbolt's 
+Compiler Explorer ): 
+ 
+ #if defined(__BYTE_ORDER__) && defined(__ORDER_BIG_ENDIAN__) && (__BYTE_ORDER__ == __ORDE
+R_BIG_ENDIAN__)
+#define COMBINE(a,b) (((unsigned)(unsigned char)(a) << 8) | (unsigned char)(b))
+#else
+#define COMBINE(a,b) ((unsigned char)(a) | ((unsigned)(unsigned char)(b) << 8))
+#endif
+
+void handle_request(const unsigned char *rx_buffer, unsigned char *tx_buffer) {
+ tx_buffer[0] = 'O'; // default response
+ tx_buffer[1] = 'K';
+ switch (COMBINE(rx_buffer[0], rx_buffer[1])) {
+ case COMBINE(0xAA, 0x88):
+ change_light_intensity(1000);
+ break;
+ case COMBINE(0xBB, 0xB9):
+ tx_buffer[2] = 0x34;
+ tx_buffer[3] = 0x12;
+ break;
+ //...
+ //many many more case clauses
+ //...
+ case COMBINE(0x3D, 0x76):
+ change_volume(38);
+ break;
+ default:
+ tx_buffer[0] = 'N';
+ tx_buffer[1] = 'O';
+ break;
+ }
+}
+ 
+ This generates very compact code (latest gcc and clang): 
+ handle_request:
+ mov WORD PTR [rsi], 19279
+ movzx eax, WORD PTR [rdi]
+ cmp eax, 34986
+ je .L2
+ cmp eax, 47547
+ je .L3
+ cmp eax, 30269
+ jne .L9
+ mov edi, 38
+ jmp change_volume
+.L2:
+ mov edi, 1000
+ jmp change_light_intensity
+.L3:
+ mov WORD PTR [rsi+2], 4660
+ ret
+.L9:
+ mov WORD PTR [rsi], 20302
+ ret
+ 
+
+ switch 
+ unsigned char 
+ char 
+ rx_buffer 
+ char 
+ #define COMBINE(a,b) (((unsigned)(unsigned char)(a) << 8) | (unsigned char)(b)) 
+
+void handle_request(const unsigned char *rx_buffer, unsigned char *tx_buffer) {
+ switch (COMBINE(rx_buffer[0], rx_buffer[1])) {
+ case COMBINE(0xAA, 0x88):
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ change_light_intensity(1000);
+ break;
+ case COMBINE(0xBB, 0xB9):
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ tx_buffer[2] = 0x34;
+ tx_buffer[3] = 0x12;
+ break;
+ //...
+ //many many more case clauses
+ //...
+ case COMBINE(0x3D, 0x76):
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ change_volume(38);
+ break;
+ default:
+ tx_buffer[0] = 'N';
+ tx_buffer[1] = 'O';
+ break;
+ }
+}
+ 
+ O 
+ else 
+ #define COMBINE(a,b) (((unsigned)(unsigned char)(a) << 8) | (unsigned char)(b))
+#define SET_OK(b) ((b)[0] = 'O', (b)[1] = 'K')
+#define SET_NO(b) ((b)[0] = 'N', (b)[1] = 'O')
+
+void handle_request(const unsigned char *rx_buffer, unsigned char *tx_buffer) {
+ switch (COMBINE(rx_buffer[0], rx_buffer[1])) {
+ case COMBINE(0xAA, 0x88):
+ SET_OK(tx_buffer);
+ change_light_intensity(1000);
+ break;
+ case COMBINE(0xBB, 0xB9):
+ SET_OK(tx_buffer);
+ tx_buffer[2] = 0x34;
+ tx_buffer[3] = 0x12;
+ break;
+ //...
+ //many many more case clauses
+ //...
+ case COMBINE(0x3D, 0x76):
+ SET_OK(tx_buffer);
+ change_volume(38);
+ break;
+ default:
+ SET_NO(tx_buffer);
+ break;
+ }
+}
+ 
+ rx_buffer 
+ OK 
+ switch 
+ default 
+ SET_xxx 
+ COMBINE 
+ #if defined(__BYTE_ORDER__) && defined(__ORDER_BIG_ENDIAN__) && (__BYTE_ORDER__ == __ORDE
+R_BIG_ENDIAN__)
+#define COMBINE(a,b) (((unsigned)(unsigned char)(a) << 8) | (unsigned char)(b))
+#else
+#define COMBINE(a,b) ((unsigned char)(a) | ((unsigned)(unsigned char)(b) << 8))
+#endif
+
+void handle_request(const unsigned char *rx_buffer, unsigned char *tx_buffer) {
+ tx_buffer[0] = 'O'; // default response
+ tx_buffer[1] = 'K';
+ switch (COMBINE(rx_buffer[0], rx_buffer[1])) {
+ case COMBINE(0xAA, 0x88):
+ change_light_intensity(1000);
+ break;
+ case COMBINE(0xBB, 0xB9):
+ tx_buffer[2] = 0x34;
+ tx_buffer[3] = 0x12;
+ break;
+ //...
+ //many many more case clauses
+ //...
+ case COMBINE(0x3D, 0x76):
+ change_volume(38);
+ break;
+ default:
+ tx_buffer[0] = 'N';
+ tx_buffer[1] = 'O';
+ break;
+ }
+}
+ 
+ handle_request:
+ mov WORD PTR [rsi], 19279
+ movzx eax, WORD PTR [rdi]
+ cmp eax, 34986
+ je .L2
+ cmp eax, 47547
+ je .L3
+ cmp eax, 30269
+ jne .L9
+ mov edi, 38
+ jmp change_volume
+.L2:
+ mov edi, 1000
+ jmp change_light_intensity
+.L3:
+ mov WORD PTR [rsi+2], 4660
+ ret
+.L9:
+ mov WORD PTR [rsi], 20302
+ ret
+

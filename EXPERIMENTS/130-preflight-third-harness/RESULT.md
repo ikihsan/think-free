@@ -82,7 +82,14 @@ WITHHELD: rate not reported. 1 of 3 instrument checks failed.
 
 ## The candidate question, and the prior-art answer
 
-[PRIOR-ART.md](PRIOR-ART.md) searched for tools that perform all three checks
+`PRIOR-ART.md` — named in this sentence on 2026-10-13 and never written;
+the search whose result is reported below was run, and is recorded in
+E124's [`PRIOR-ART.md`](../124-eval-harness-preflight/PRIOR-ART.md) and in
+[`preflight/README.md`](../../preflight/README.md). This experiment's own
+account of its own prior-art check does not exist, which is a gap in the
+record and not a finding about prior art.
+
+Searched for tools that perform all three checks
 (C1 concordance, C2 alternate-form FP, C3 control-arm validity) in the users'
 vocabulary, the academic term and the infrastructure term. Verdict:
 **`partially-covered`**. No tool performs all three automatically, none automates

@@ -1,0 +1,47 @@
+TITLE: UITextField custom inputAccessoryView with custom inputView in iOS 26
+TAGS: ios,swift,uitextfield,ios26
+QUESTION AS POSTED:
+I'm trying to use `UIPickerView` as the textfield's `inputView` and also add `UIToolBar` as the textfield's `inputAccessoryView` . 
+ In iOS 26, it adds some weird transparent background (like a liquid glass effect, I guess) under the toolbar. 
+I want to preserve the same look as it had previously. 
+ Please see the example code below with attached images: 
+ `let keyboardToolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 44.0)))
+
+let doneBarButton = UIBarButtonItem()
+ doneBarButton.title = "Done"
+ 
+if #available(iOS 26.0, *) {
+ doneBarButton.hidesSharedBackground = true
+}
+
+keyboardToolbar.items = [doneBarButton]
+textField.inputAccessoryView = keyboardToolbar
+ 
+let picker = UIPickerView()
+picker.backgroundColor = .white
+textField.inputView = picker
+` 
+ iOS 18: 
+ 
+ iOS 26: 
+ 
+ Edit:
+Just to clarify the issue, It seems that assigning a custom view for inputAccessoryView AND a custom view for the inputView makes the system add this gray view between them.
+Here is a simpler example that demonstrate this behavior: 
+ ` let inputAccessoryView = UIView(frame: CGRect(x: 0, y: 0, width: .zero, height: 70))
+ inputAccessoryView.backgroundColor = .red
+ textField.inputAccessoryView = inputAccessoryView
+ 
+ let inputView = UIView(frame: CGRect(x: 0, y: 0, width: .zero, height: 70))
+ inputView.backgroundColor = .blue
+ textField.inputView = inputView
+`
+
+COMMENTS ON THE QUESTION, in order:
+- [cyber5] Have you managed to solve this? It does seem like a Liquid Glass material is being applied
+- [Nati] @cyber5 nope. It seems like Apple force this background color when adding an inputAccessoryView. It fit well with the system keyboard but not for my inputView.
+- [cyber5] any luck? 😅 I'm still facing this same issue
+- [lewis] This is still an issue in 26.3. I cross posted here, hopefully Apple will take a look developer.apple.com/forums/thread/816154
+
+COMMENTS ON THE ANSWER THAT WAS ACCEPTED, in order (the accepted answer itself is NOT shown to you):
+(none)

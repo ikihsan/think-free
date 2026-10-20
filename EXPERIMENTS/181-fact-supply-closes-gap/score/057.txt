@@ -1,0 +1,9 @@
+PROPOSED ANSWER:
+The grey strip is inserted by UIKit, not by your toolbar: when a UITextField has both a custom inputAccessoryView and a custom inputView, the system inserts a container between the accessory bar and the input area, and in iOS 26 that container is drawn with the new Liquid Glass material. Your simplified red/blue example demonstrates the trigger cleanly. There is no public API to remove that container, and hidesSharedBackground does not - it affects the bar item's shared background, not the container. The practical fix is to stop using UIToolbar as the accessory: make inputAccessoryView a plain UIView with backgroundColor set to .clear or .systemBackground, add your own Done UIButton inside it, and size it yourself. Keep the UIPickerView as inputView.
+
+ACCEPTED ANSWER ON THE SITE:
+That gray Liquid Glass UI is the top of the keyboard. The documentation for UIInputView states 
+ 
+ The UIInputView class is designed to match the appearance of the standard system keyboard when used as an input view with a responder. 
+ 
+ It’s recommended to avoid applying a background to the input view (white and blue in these examples) to avoid covering up the system effects. This is how a “proper” input view + input accessory view looks on iOS 26:

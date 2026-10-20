@@ -1,0 +1,62 @@
+{"arm": "A0", "qid": 79663905, "reached": false, "seq": 1, "why": "names alwaysTemplate where the accepted answer's all-style route is withRenderingMode(.alwaysOriginal); no clear-glass restriction, no snapshot route"}
+{"arm": "A0", "qid": 79380514, "reached": true, "seq": 2, "why": "v4 removed tailwind.config.js and split the CLI out; npx @tailwindcss/cli is the fix"}
+{"arm": "C1", "qid": 79663905, "reached": false, "seq": 3, "why": "names prominentClearGlass but pairs it with alwaysTemplate and adds prominentGlass, which tints the whole item; neither accepted route is given correctly"}
+{"arm": "C1", "qid": 79665976, "reached": false, "seq": 4, "why": "never identifies a pip-installed uv, which is the accepted answer's whole resolution"}
+{"arm": "B1", "qid": 79665976, "reached": false, "seq": 5, "why": "'pick one installer' is a gesture at the cause; the accepted fix is uninstall the pip uv and install the standalone binary"}
+{"arm": "A1", "qid": 79818015, "reached": false, "seq": 6, "why": "accepted answer says the grey UI is the top of the keyboard and that a custom inputView must not carry its own background"}
+{"arm": "A0", "qid": 79718097, "reached": true, "seq": 7, "why": "llvm-mca's push model is wrong about the rsp chain - the accepted resolution"}
+{"arm": "B1", "qid": 79663905, "reached": false, "seq": 8, "why": "same as 003: wrong rendering mode, no snapshot route"}
+{"arm": "P", "qid": 79665976, "reached": false, "seq": 9, "why": "blames an exact patch pin in requires-python; accepted cause is a uv installed under 3.13.2 by pip"}
+{"arm": "B1", "qid": 79602687, "reached": true, "seq": 10, "why": "gives the accepted metro.config.js recipe verbatim, sourceExts.push('cjs') and unstable_enablePackageExports"}
+{"arm": "B1", "qid": 79718097, "reached": true, "seq": 11, "why": "states llvm-mca's push model is pessimistic and the rsp chain is not real latency"}
+{"arm": "C1", "qid": 79718097, "reached": true, "seq": 12, "why": "same claim, same reasoning"}
+{"arm": "A0", "qid": 79754247, "reached": false, "seq": 13, "why": "attributes it to zipalign page size; the accepted resolution is an Android Studio bug fixed in Narwhal Feature Drop 2025.1.3 Canary 2"}
+{"arm": "B1", "qid": 79818015, "reached": false, "seq": 14, "why": "same as 006"}
+{"arm": "A1", "qid": 79718097, "reached": false, "seq": 15, "why": "never says llvm-mca's model is wrong about push; attributes the compiler's choice to encoding size alone"}
+{"arm": "C1", "qid": 79791886, "reached": true, "seq": 16, "why": "modulo bias, RAND_MAX 32767 over a 20001 span, is the accepted cause with its interval"}
+{"arm": "A0", "qid": 79871713, "reached": false, "seq": 17, "why": "accepted resolution is .compositingGroup() before .buttonStyle(.glass)"}
+{"arm": "B1", "qid": 79791886, "reached": true, "seq": 18, "why": "same cause, same worked numbers as the accepted answer"}
+{"arm": "P", "qid": 79663905, "reached": false, "seq": 19, "why": "same as 001"}
+{"arm": "B1", "qid": 79754247, "reached": false, "seq": 20, "why": "apk-vs-bundle and zipalign; the accepted resolution is the Android Studio bug and the build that fixes it"}
+{"arm": "B1", "qid": 79843062, "reached": true, "seq": 21, "why": "identifies EntityFrameworkCore.Design as the package that projects the folders in"}
+{"arm": "C1", "qid": 79843062, "reached": false, "seq": 22, "why": "attributes the folders to the build without naming the package"}
+{"arm": "A1", "qid": 79380514, "reached": true, "seq": 23, "why": "v4 removed the JS config and moved the CLI to its own package"}
+{"arm": "A1", "qid": 79663905, "reached": false, "seq": 24, "why": "same as 003"}
+{"arm": "A1", "qid": 79606837, "reached": true, "seq": 25, "why": "points at vs-solutionpersistence as where the schema lives, which is the accepted resolution"}
+{"arm": "P", "qid": 79754247, "reached": false, "seq": 26, "why": "zipalign attribution; accepted is the Android Studio bug"}
+{"arm": "A0", "qid": 79665976, "reached": false, "seq": 27, "why": "does not identify the pip-installed uv"}
+{"arm": "P", "qid": 79606837, "reached": false, "seq": 28, "why": "names dotnet/extensions rather than microsoft/vs-solutionpersistence"}
+{"arm": "A1", "qid": 79843062, "reached": true, "seq": 29, "why": "names EntityFrameworkCore.Design 10.x as what generates them"}
+{"arm": "C1", "qid": 79871713, "reached": false, "seq": 30, "why": "same as 017"}
+{"arm": "B1", "qid": 79380514, "reached": true, "seq": 31, "why": "v4 split the CLI out and removed the config file"}
+{"arm": "A0", "qid": 79791886, "reached": true, "seq": 32, "why": "modulo bias with RAND_MAX 32767 against a 20001 span"}
+{"arm": "P", "qid": 79380514, "reached": true, "seq": 33, "why": "tailwindcss no longer ships a CLI; @tailwindcss/cli, or pin tailwindcss@3"}
+{"arm": "A0", "qid": 79606837, "reached": true, "seq": 34, "why": "same as 025"}
+{"arm": "C1", "qid": 79754247, "reached": false, "seq": 35, "why": "zipalign attribution"}
+{"arm": "A1", "qid": 79602687, "reached": true, "seq": 36, "why": "the metro resolver switch and the '@firebase/app' import are both the accepted fix"}
+{"arm": "A1", "qid": 79776559, "reached": true, "seq": 37, "why": "bcrypt 5.0.0 of 2025-09-25 as the cause and the 4.3.0 pin as the action"}
+{"arm": "A1", "qid": 79871713, "reached": false, "seq": 38, "why": "same as 017"}
+{"arm": "A1", "qid": 79791886, "reached": true, "seq": 39, "why": "modulo bias with the worked interval [0,12766] twice as often"}
+{"arm": "C1", "qid": 79818015, "reached": false, "seq": 40, "why": "same as 006"}
+{"arm": "P", "qid": 79567126, "reached": true, "seq": 41, "why": "a case-insensitive collision between two remote branches is the accepted cause"}
+{"arm": "P", "qid": 79339258, "reached": false, "seq": 42, "why": "attributes it to antivirus or temp-path interception; accepted is the nvm rollback"}
+{"arm": "A0", "qid": 79843062, "reached": false, "seq": 43, "why": "attributes the folders to the build without naming EntityFrameworkCore.Design"}
+{"arm": "A1", "qid": 79754247, "reached": false, "seq": 44, "why": "zipalign attribution"}
+{"arm": "A0", "qid": 79567126, "reached": true, "seq": 45, "why": "case collision, for-each-ref, rename one side, Git for Windows 5378 and 5900"}
+{"arm": "P", "qid": 79776559, "reached": false, "seq": 46, "why": "mentions a bcrypt version mismatch but names no version and no pin"}
+{"arm": "P", "qid": 79602687, "reached": false, "seq": 47, "why": "AppRegistry naming only; the accepted fix lives in metro.config.js"}
+{"arm": "A0", "qid": 79776559, "reached": true, "seq": 48, "why": "bcrypt 5.0.0 of 2025-09-25 and the 4.3.0 downgrade"}
+{"arm": "A0", "qid": 79602687, "reached": false, "seq": 49, "why": "leads with the AppRegistry check; the metro footnote does not reach the fix"}
+{"arm": "A0", "qid": 79339258, "reached": true, "seq": 50, "why": "roll nvm-windows back to a release that installs node 14 cleanly"}
+{"arm": "C1", "qid": 79602687, "reached": true, "seq": 51, "why": "names the metro resolver switch as the fix, though it leads with the wrong check"}
+{"arm": "B1", "qid": 79567126, "reached": true, "seq": 52, "why": "case collision and deleting the refs by hand"}
+{"arm": "B1", "qid": 79606837, "reached": true, "seq": 53, "why": "vs-solutionpersistence read as the documentation"}
+{"arm": "B1", "qid": 79776559, "reached": true, "seq": 54, "why": "bcrypt 5.0.0 and the 4.3.0 downgrade"}
+{"arm": "B1", "qid": 79871713, "reached": false, "seq": 55, "why": "same as 017"}
+{"arm": "B1", "qid": 79339258, "reached": true, "seq": 56, "why": "nvm-windows 1.1.2 rollback"}
+{"arm": "A0", "qid": 79818015, "reached": false, "seq": 57, "why": "same as 006"}
+{"arm": "P", "qid": 79718097, "reached": true, "seq": 58, "why": "the rsp chain is not real latency, which is the accepted resolution"}
+{"arm": "A1", "qid": 79339258, "reached": true, "seq": 59, "why": "nvm-windows 1.1.2 installs node 14 cleanly"}
+{"arm": "A1", "qid": 79665976, "reached": false, "seq": 60, "why": "attributes it to the curl installer; the accepted cause is a uv pip-installed under 3.13.2"}
+{"arm": "C1", "qid": 79380514, "reached": true, "seq": 61, "why": "the CLI moved out of the tailwindcss package"}
+{"arm": "A1", "qid": 79567126, "reached": true, "seq": 62, "why": "two remote branches differing only in case on a case-insensitive filesystem"}

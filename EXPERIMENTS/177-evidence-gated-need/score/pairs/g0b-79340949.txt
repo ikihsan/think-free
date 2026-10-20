@@ -1,0 +1,31 @@
+pid: g0b-79340949
+
+=== LEFT ===
+When you capture this , explicitly or implicitly ( [this]{...} or [&]{...} ), it's as if y
+our lambda is a hidden method on the object. When you capture an explicit this ( [](this a
+uto &&f) {...} ), your lambda function is actually a method on the lambda, not the origina
+l object. A method can only be a method of a single object, so GCC is correct. 
+ Note: you can capture both the object and the lambda, as in [&obj=*this](this auto &&lamb
+da){...} and even access private fields of obj . 
+
+ this 
+ [this]{...} 
+ [&]{...} 
+ [](this auto &&f) {...} 
+ [&obj=*this](this auto &&lambda){...} 
+ obj
+
+=== RIGHT ===
+When you capture this , explicitly or implicitly ( [this]{...} or [&]{...} ), it's as if y
+our lambda is a hidden method on the object. When you capture an explicit this ( [](this a
+uto &&f) {...} ), your lambda function is actually a method on the lambda, not the origina
+l object. A method can only be a method of a single object, so GCC is correct. 
+ Note: you can capture both the object and the lambda, as in [&obj=*this](this auto &&lamb
+da){...} and even access private fields of obj . 
+
+ this 
+ [this]{...} 
+ [&]{...} 
+ [](this auto &&f) {...} 
+ [&obj=*this](this auto &&lambda){...} 
+ obj

@@ -1,0 +1,88 @@
+qid: 79818015
+tags: ios, swift, uitextfield, ios26
+
+=== TITLE ===
+UITextField custom inputAccessoryView with custom inputView in iOS 26
+
+=== QUESTION ===
+I'm trying to use UIPickerView as the textfield's inputView and also add UIToolBar as the 
+textfield's inputAccessoryView . 
+ In iOS 26, it adds some weird transparent background (like a liquid glass effect, I guess
+) under the toolbar. 
+I want to preserve the same look as it had previously. 
+ Please see the example code below with attached images: 
+ let keyboardToolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 100, hei
+ght: 44.0)))
+
+let doneBarButton = UIBarButtonItem()
+ doneBarButton.title = "Done"
+ 
+if #available(iOS 26.0, *) {
+ doneBarButton.hidesSharedBackground = true
+}
+
+keyboardToolbar.items = [doneBarButton]
+textField.inputAccessoryView = keyboardToolbar
+ 
+let picker = UIPickerView()
+picker.backgroundColor = .white
+textField.inputView = picker
+ 
+ iOS 18: 
+ 
+ iOS 26: 
+ 
+ Edit:
+Just to clarify the issue, It seems that assigning a custom view for inputAccessoryView AN
+D a custom view for the inputView makes the system add this gray view between them.
+Here is a simpler example that demonstrate this behavior: 
+ let inputAccessoryView = UIView(frame: CGRect(x: 0, y: 0, width: .zero, height: 70))
+ inputAccessoryView.backgroundColor = .red
+ textField.inputAccessoryView = inputAccessoryView
+ 
+ let inputView = UIView(frame: CGRect(x: 0, y: 0, width: .zero, height: 70))
+ inputView.backgroundColor = .blue
+ textField.inputView = inputView
+ 
+ 
+
+ UIPickerView 
+ inputView 
+ UIToolBar 
+ inputAccessoryView 
+ let keyboardToolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 100, hei
+ght: 44.0)))
+
+let doneBarButton = UIBarButtonItem()
+ doneBarButton.title = "Done"
+ 
+if #available(iOS 26.0, *) {
+ doneBarButton.hidesSharedBackground = true
+}
+
+keyboardToolbar.items = [doneBarButton]
+textField.inputAccessoryView = keyboardToolbar
+ 
+let picker = UIPickerView()
+picker.backgroundColor = .white
+textField.inputView = picker
+ 
+ let inputAccessoryView = UIView(frame: CGRect(x: 0, y: 0, width: .zero, height: 70))
+ inputAccessoryView.backgroundColor = .red
+ textField.inputAccessoryView = inputAccessoryView
+ 
+ let inputView = UIView(frame: CGRect(x: 0, y: 0, width: .zero, height: 70))
+ inputView.backgroundColor = .blue
+ textField.inputView = inputView
+
+=== KEY ANSWER (highest scored) ===
+That gray Liquid Glass UI is the top of the keyboard. The documentation for UIInputView st
+ates 
+ 
+ The UIInputView class is designed to match the appearance of the standard system keyboard
+ when used as an input view with a responder. 
+ 
+ It’s recommended to avoid applying a background to the input view (white and blue in thes
+e examples) to avoid covering up the system effects. This is how a “proper” input view + i
+nput accessory view looks on iOS 26:
+

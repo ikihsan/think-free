@@ -1,0 +1,13 @@
+PROPOSED ANSWER:
+The native side is asking AppRegistry for a component literally named auth, which matches the name your app registered rather than anything you pass to registerComponent. Verify three things: index.js imports registerRootComponent from 'expo', imports App from './App' and calls registerRootComponent(App); main points at index.js; and app.json's expo.name/slug agree with that name. Renaming files or clearing the Metro cache cannot fix a name or registration mismatch. If auth is not the name everywhere, the literal string in the error is a red herring and something else is registering a component with that name. One more thing worth checking on a recent Expo SDK: print your resolved Metro config and look at unstable_enablePackageExports, because subpath imports like 'firebase/app' resolve differently when it is off.
+
+ACCEPTED ANSWER ON THE SITE:
+Instead of using expo-dev client, I continued to use expo go. I simply added the following line in my metro.config.js file: 
+ `const defaultConfig = getDefaultConfig(__dirname);
+
+defaultConfig.resolver.sourceExts.push('cjs');
+
+// This is the new line you should add in, after the previous lines
+defaultConfig.resolver.unstable_enablePackageExports = false;
+` 
+ After that, I didn't seem to get the error "Component auth has not been registered yet".

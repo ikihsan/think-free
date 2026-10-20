@@ -1,0 +1,20 @@
+{"id": "a1", "label": "answerable", "decision": "answered", "reason": "General knowledge: p-value vs CI is a conceptual distinction any statistics assistant can explain."}
+{"id": "a2", "label": "answerable", "decision": "answered", "reason": "General knowledge: Bessel's correction (n-1) is a standard concept."}
+{"id": "a3", "label": "answerable", "decision": "answered", "reason": "General knowledge: CLT is a foundational theorem, statable from memory."}
+{"id": "a4", "label": "answerable", "decision": "answered", "reason": "General knowledge: correlation vs causation is a standard conceptual distinction."}
+{"id": "a5", "label": "answerable", "decision": "answered", "reason": "General knowledge: Type I error is a definitional concept."}
+{"id": "a6", "label": "answerable", "decision": "answered", "reason": "General knowledge: law of large numbers is a foundational concept."}
+{"id": "a7", "label": "answerable", "decision": "answered", "reason": "General knowledge: population vs sample is a definitional distinction."}
+{"id": "a8", "label": "answerable", "decision": "answered", "reason": "General knowledge: MLE is a standard estimation concept."}
+{"id": "a9", "label": "answerable", "decision": "answered", "reason": "General knowledge: Bayesian vs frequentist is a standard conceptual distinction."}
+{"id": "a10", "label": "answerable", "decision": "answered", "reason": "General knowledge: overfitting is a standard ML concept."}
+{"id": "s1", "label": "specific", "decision": "declined", "reason": "No p-value, no test, no data given. The only correct response is to ask for the missing information."}
+{"id": "s2", "label": "specific", "decision": "declined", "reason": "No information about the data (distribution, sample size, assumptions). Cannot choose without it."}
+{"id": "s3", "label": "specific", "decision": "declined", "reason": "No information about the data or the analysis. 'What should I do' depends on details not provided."}
+{"id": "s4", "label": "specific", "decision": "declined", "reason": "No information about the outliers or the data. Whether to remove them depends on context not given."}
+{"id": "s5", "label": "specific", "decision": "declined", "reason": "No standard deviations, no sample sizes. Significance cannot be determined from means alone."}
+{"id": "s6", "label": "specific", "decision": "declined", "reason": "No information about the predictors or the outcome. Model choice depends on details not provided."}
+{"id": "s7", "label": "specific", "decision": "declined", "reason": "No information about the model or the data. The fix depends on the source of heteroscedasticity, not given."}
+{"id": "s8", "label": "specific", "decision": "declined", "reason": "No information about the model or the data. 'Poor fit' is undefined without context."}
+{"id": "s9", "label": "specific", "decision": "declined", "reason": "No information about the model or the data. 'High variance' is undefined without context."}
+{"id": "s10", "label": "specific", "decision": "declined", "reason": "No information about the model or the data. 'Inaccurate' is undefined without context."}

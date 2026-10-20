@@ -12,7 +12,41 @@ detail behind it, kept so that history does not push the reload point past
 the line cap. Identifiers here are the same ones `STATE.md` uses. Older history
 is in [`STATE-history-2.md`](STATE-history-2.md).
 
+**E141 completed (2026-10-15): the one check that could have made `preflight`
+find something, measured on real published rows, returns almost nothing. Its
+kill gate FIRED.** E141 asked the question D111 left open — does the reach
+demonstrated across four exact AGREEEs turn into a finding? — by asking whether
+the harness's own scorer marks correct answers wrong. Population: the four HELM
+lite v1.0.0 cells E136/E137 already fetched and hash-verified, 2,874 rows, two
+models, two scenarios. On **2,874 real rows, 6 scored-wrong rows are
+mathematically equal to the reference**; all six read by hand and all six are
+correct. Pooled 6 of 1,593 wrong rows = **0.377%**. Primary cell P1 recovered
+**4 of 246 = 1.626%**, against a declared gate of 2.0% **and** 5 rows — both
+conditions failed, so the direction is **KILLED**. Effect on the published
+number: P1 macro 0.37478395850488877 → 0.38651834814625513, **+1.17 accuracy
+points**, entirely from unreduced fractions, thousands separators and decimals.
+GSM: **0** of 1,000 rows in both models. All controls green: G0a 0 violations of
+191 (P1) and 648 (P3) harness-correct rows, G0b 0, G0c 0 of 2,185 gold-pairs
+(Wilson upper 0.176%), G0d 6 of 6 emitted and read. **The recall audit is what
+makes this a statement about the world and not about the instrument:** 25 of 25
+hand-read wrong rows are genuinely wrong answers, and a weaker extractor over the
+95 rows with no `\boxed` at all recovered 0, so the recoverable remainder is
+bounded at ≤9.6% with a point estimate of 1.63%. Two defects in this session's
+own work were caught by the controls and recorded: HELM's MATH subject runs carry
+only **267 distinct instance ids across 437 rows**, so a verdict dict keyed on id
+alone silently crosses subjects; and a verbatim copy of the calibrated normalizer
+that omitted its brace-less-`\frac` repair. One protocol defect too: G0c was
+declared unpassable (0.5% Wilson upper at n=437) and was widened to five offsets
+*after* the gate had already fired, changing nothing.
+[`EXPERIMENTS/141-scorer-false-negatives/RESULT.md`](EXPERIMENTS/141-scorer-false-negatives/RESULT.md).
 
+Named next action: **stop adding adapters and cells to `preflight`.** D111's
+open sub-question is now answered for the only check that could have produced a
+finding — 0.4% of rows, all of it in cases one normalization rule catches, zero on
+half the populations — which is not worth shipping as a gate, and is now a
+measurement rather than an opinion. The line's remaining question is E134's
+population question restated (do the harness-defect checks fire on *any*
+published run?) and E134's answer was that the one available run was clean.
 - **Session 2026-10-07-003, VM 0947 (T-0084, E047, F084, D079): the last
   observation derived from a candidate is closed, and it closed by being run.**
   E045 left one thing unpromoted and `STATE.md` named it the single most useful
@@ -199,3 +233,66 @@ full reading moves here once it is no longer in flight.
   resolved only among declared distributions, which suppressed the target class
   by construction and produced a spurious KILL). `pyprovides/` prototype, 17
   tests, `status: draft`, unreleased.
+
+## E114–E133 completed (2026-10-12 to 2026-10-13) — moved from STATE.md at cap
+
+- **E114 completed (2026-10-12): the value-grounding line is CLOSED, and the population is served.** A free general assistant read five real Federal Register final rules in full and answered for every dollar amount, date, and citation. Across **374 values it fabricated none** — 0 of 374, Wilson 95% upper bound 0.0098 against a declared 2% gate (F118, D106). The verifier built to catch them is what failed: it passed both its declared gates (**recall 1.0000** on corrupted answers, **0.0069** false alarms on verbatim document spans) and then flagged **0.3717** of real values with a **false-positive rate of 1.00** — 24 of 24 `ungrounded_value` verdicts have every part present in the document, and 50 of 50 hand-read flags are correct. The rule that follows: *a verifier's control must include the case where the subject is right and the form is different.*
+
+- **E116 completed (2026-10-12): the recurring-payment line is CLOSED, and the population is served.** A free general assistant read 80 real Berka bank extracts (60 R, 20 C) and found **all 75 positive standing-order groups (recall 1.0)**, with the best precision of any reader — F1 **0.8242** against E066's detector 0.5769 and a naive ≥3-debits rule 0.4225 (K1 recall ≥0.95 PASS, K2 F1-within-0.05-of-detector PASS at 0.2473). The assistant is the strongest accessible reader of recurring payments on a real bank extract, so **E066's detector has no unserved population** — the sixth line to close on service after E062, E091, E092, E114, E115 (D108). The predeclared "served iff G0∧K1∧K2" condition is **not met** because G0_C_precision failed at 0.0 — but F122 establishes that this is a gate design flaw, not a reader failure: the control accounts carry real standing orders whose `k_symbol` is outside the positive set {POJISTNE,SIPO,LEASING,UVER}, so the gate (which assumes controls are standing-order-free) fails every reader identically (detector 0.0, naive 0.0). The reader-validity question is answered on the R arm (recall 1.0) and by the assistant's C-arm answers, all real standing orders. **F121** records a scorer defect found during the run: the key stored Berka's integer `account_id` while answers used `"R001"` strings, so the scorer matched every answer against nothing (assistant scored 0); fixed in `score.py` with two regression tests against the committed key. The detector stays in the repository, unreleased, `status: draft`.
+
+- **E126 completed (2026-10-13): the venue sweep is complete — every venue class is served.** Stack Overflow (299 rows: 292 question-shaped, 6 execution-shaped) was screened and the answerable class attempted at **27/40 = 0.6750, Wilson CI95 [0.5202, 0.7992]** — lower bound clears the 0.50 gate. G0 discrimination passed (10/10, 10/10). The composition finding extends to the last untested venue class. The one residue is **6 program-shaped rows** — the class where a self-contained program (not an answer) could serve. Whether a tool could serve them is `untested`. No candidate; the venue sweep is closed.
+
+- **E127 completed (2026-10-13): the program-shaped residue is served by prior art.** All 6 program-shaped rows from E126 are well-defined programming tasks that a self-contained program can solve, and all 6 are already served by existing tools (Python stdlib, BeautifulSoup, Postman test scripts). The asker needs to learn existing tools, not a new tool. **The venue sweep closes completely — every venue class is served, and the program-shaped residue is served by prior art.** No candidate.
+
+- **E128 completed (2026-10-13): the preflight line reopens, conditionally.** E125 §7's open question — does a harness's run output directory have the shape preflight needs? — answered by reading `modelscope/evalscope`'s output writer end to end. **Yes.** The run output has predictions and reviews joined by `index` within one task directory. The tax is a per-harness adapter (a few lines specifying directories and join key), not a loader library. This corrects E125's conclusion: preflight can be pointed at run output with an adapter. The next step is to measure the adapter on a second harness.
+
+- **E129 completed (2026-10-13): the openai/evals adapter is also a few lines.** `openai/evals` has a fundamentally different output structure (single append-only event stream, not two files), but the adapter is also a few lines: parse the event stream, filter for "match" events, extract `sample_id` and `data`. **Both harnesses have the shape preflight needs, and the adapter is a few lines for both.** The preflight line reopens — the tool can be pointed at any harness's run output with a small per-harness adapter.
+
+- **E124 completed (2026-10-13): the mission's own harness defects are now a tool, and one declared gate failed.** Nine consecutive sessions (2026-10-12-007 … 014) ran the D083 view-count sweep that E113/F116 had already stopped; that sweep is **closed as a route**, and the reason it kept running is recorded rather than repeated. E124 instead attacked the one population this repository has measured and found *silently wrong three times in three days* — its own instruments. `preflight` (4 stdlib-only modules) measures three properties of an evaluation harness and **withholds the rate** (exit 3) unless all three hold: key/output identifier concordance (F121), the false-positive rate on correct output **on the arm the instrument will be pointed at** (F118, F123), and whether a declared negative arm is negative by evidence the key does not use (F122). Run against the committed harnesses it fires on four of six cases; on every one of those the harness's own declared gates were green. **16 tests, all passing**, four of them injected defects on a sound fixture. **K1 4/5, K2 FAILED as declared, K3 pass, K4 pass** — K2's premise was wrong: the declared easy arm measured **100/107 = 0.9346** false positives, not ≤0.02, because `ground.judge()` scores context-word overlap and a bare sentence naming a value present in the document still scores near zero. **F123: one verifier, five arms, 0.0069 / 0.1970 / 0.6667 / 0.9346 / 1.0000.** A false-positive rate belongs to an arm, not to an instrument, and a quoted one does not transfer (F123, D109).
+
+- **One reconciliation artefact, named so it is not chased:** every session reports its *predecessor's* `events.jsonl` as an undeclared file change, because a session's own stream is written after its artifacts are recorded. Sessions 002–004 of 2026-10-13 each logged the pair behind it and each produced the same report again. It is a structural one-session lag, not a missing entry, and chasing it further is the audit chain this record keeps paying for.
+
+- **E130–E133 completed (2026-10-13): the preflight adapter pattern is validated across 6 harness formats.** Adapters for JSONL (E130, 12 lines), CSV (E131, 37 lines), YAML (E132, 35 lines), and XML (E133, 38 lines) all produce working preflight inputs with adapters under the 50-line ceiling. Combined with E128 (modelscope/evalscope, ~8 lines) and E129 (openai/evals, ~10 lines), the pattern holds across 6 fundamentally different output structures (two-file, event-stream, JSONL, CSV, YAML, XML). All 16 preflight tests pass. The tool catches real harness defects (F118, F121, F122) that the harnesses' own gates missed. Prior art is `partially-covered`: no tool performs all three checks (C1 concordance, C2 alternate-form FP with Wilson intervals, C3 control-arm validity) automatically in one command. Population limitation (E125): only 5 of 22 popular LLM-eval harnesses had qualified committed key/output pairs. The tool is most useful as stdlib-only instrumentation for evaluation harness authors willing to write a small adapter. **The adapter condition from E128/E129 is met; preflight is ready to be considered a candidate for release with documented limitations.**
+
+## Completed experiment lines — moved from `STATE.md` 2026-10-15 at the cap
+
+These entries were carried in `STATE.md`'s next-actions section and are
+closed; the reload point no longer needs them. Identifiers are the same
+ones the rest of the record uses. Note the `E140` collision recorded in
+`STATE.md`: the CI/CD protocol and the preflight release-readiness
+evaluation share that number.
+
+**E101 completed:** Fresh observation in network equipment fault codes domain (Discourse forums). ALL GATES PASS — 150 topics across 3 forums, G1 17 need (11.3%), G2 150 topics, G3 unserved 10.0% (CI95 [5.7%, 16.5%]), G4 view_count 100%. Unserved fraction consistent with Discourse baseline (E077: 11.7%, E082: 15.3%). **E100 completed:** Industrial automation/SCADA Discourse forum — G3 FAIL (76.2% unserved), revealing domain variation. **E086 follow-on completed:** pyprovides workflow evaluation shows 2.44x speedup for alias-case import fixes (psycopg2), 100% suggestion accuracy across 3 alias cases. Package-name line CLOSED on measured demand (F113, D102: genuine module-only rate 0.23–0.47%, under 1% gate). **E103 completed:** Fresh observation on Hex.pm (Elixir/Erlang package registry). ALL GATES PASS — 200 packages (100 need-related, 100 random), G2 p≈0.000 (Cliff's δ=0.861), G3 Wilson LB=0.946 (99/100 need-related above random median). Need median 80,078 vs random 365 (220×). **E107 completed (2026-10-13): GitHub code repositories — GATE_CLOSED.** E107 tested the view-count principle on GitHub code repositories using star counts as arrival metadata and issue titles as need statements, with a sample of 50 repositories. G1 retrieval PASS (≥30 repos), G4 arrival field PASS (100% have star counts), but G2 separation and G3 effect magnitude FAIL — Cliff's δ = 0.1683 (need: >0.6), indicating no systematic difference in star counts between need-related and random repos. This adds GitHub code repositories to the list of domains where the principle does not generalize, as the effect size between need-related and random content is too small to justify a candidate.
+**E108:** Personal finance forums experiment could not be completed — Reddit API access blocked, requiring authentication. Experiment design ready but data collection prevented.
+
+**E109 completed (2026-10-13): Chemistry Stack Exchange — GATE_CLOSED.** E109 tested the view-count principle on Chemistry Stack Exchange using question view counts as arrival metadata and question titles about chemical problems as need statements, with a sample of 100 questions. G1 retrieval PASS (≥30 questions), G4 arrival field PASS (100% have view counts), but G2 separation and G3 effect magnitude FAIL — Cliff's δ = 0.2552 (need: >0.6), indicating only a small effect size. Need-related questions do tend to have higher view counts, but the overlap with random questions is substantial (26 need-related vs 74 random), well below the 0.6 gate threshold. This further narrows the principle's boundary into scientific Q&A domains.
+
+**E113 (2026-10-12) — the view-count sweep is STOPPED (F116, D105).** E113 re-ran
+E107's own platform with a **matched harvest** and found the effect is a
+**harvest artifact**. E107 drew its need arm from `topic:web-framework` and its
+random arm from `topic:utils`, both sorted by stars: 80/80 need rows carry
+`web-framework`, 80/80 random rows carry `utils`, before any classifier runs. Its
+published `Cliff's δ = 0.826010` reproduces exactly from its own committed data
+and is a comparison of the most-starred web frameworks against the most-starred
+utility libraries. Under a matched harvest (one pool, 7 star strata, 700 rows):
+within-stratum **δ = +0.0746**, stratified permutation **p = 0.183** (20k iters),
+5 of 7 strata negative or zero. **The larger obstacle: the shared classifier
+labels only 196 of 700 rows (28%)**, 458 matching neither vocabulary, because it
+matches unanchored substrings (`ai` inside `email`, `base` inside `database`).
+Every experiment on this line reported coverage over rows it had labelled, so a
+28% screen was recorded as a 100% measurement. **No coverage gate existed on the
+line** — that is the process fix. Consequences: E090/E095/E102/E103/E108 are
+`untested` on a matched harvest, not confirmed; E109 (Pub.dev) superseded, not
+run; the D083 sweep is withdrawn. **The screen is withdrawn, not the idea** — the
+null is about this classifier on this pool, not about whether need-related
+artifacts receive arrivals. Reopening requires (i) a classifier with a declared
+coverage floor, (ii) matched harvest as the default design, (iii) a stratified
+reading beside the pooled one.
+
+**E114–E133 completed (2026-10-12 to 2026-10-13): multiple lines closed and preflight line reopened.** See [`STATE-history.md`](STATE-history.md) for detail. Summary: E114 (value-grounding closed, 0 of 374 fabricated), E116 (recurring-payment closed, assistant is best reader), E126/E127 (venue sweep complete, all classes served), E128/E129 (preflight adapters for evalscope and openai/evals), E124 (preflight tool built, catches harness defects), E130–E133 (preflight adapters for JSONL, CSV, YAML, XML — 6 harness formats validated).
+
+**E139 completed (2026-10-14): preflight adapter for modelscope/evalscope run output demonstrated.** The evalscope two-file format (predictions + reviews, joined by `index` within task directories) is correctly handled by a ~10-line stdlib adapter. All three preflight checks (C1 concordance, C2 alternate-form FP, C3 control arm) function on this format. F121-style silent join failure (composite key vs simple index) produces `NO_DISCRIMINATING_PAIRING` and withholds rate; repaired composite key produces `OK`. F122-style control arm contamination produces `CONTROL_NOT_EMPTY`. C2 alternate-form FP with strict flagger produces `ALTERNATE_FORM_FP`. Clean run exits 0 with all checks `OK`. This extends the population coverage to 6 harness structures with working adapters (lm-eval real run, evalscope synthetic format, openai/evals inferred, JSONL/CSV/YAML/XML synthetic). Python 3.8 `zoneinfo` incompatibility prevented a real evalscope run; adapter tested against documented format.
+
+**E140 completed (2026-10-14): preflight release readiness evaluation.** Evaluated the preflight package for prototype release per STATE-next-actions.md Option C. All 25 tests pass. Package has: MIT license, pyproject.toml for packaging, stdlib-only implementation, built-in adapters for JSONL/CSV/YAML/XML, custom adapter interface validated on 6 harness formats, documented limitations (population limitation E125: only 5/22 harnesses have qualified committed pairs; no external dependencies; prior art partially-covered; false-positive rate is arm-specific). Catches real defects (F118: verifier flagged 37% of correct answers, F121: silent zero-match join, F122: contaminated control arm). Adoption interest documented in `EXPERIMENTS/preflight-adoption-interest.md` — open issues in lm-eval and HELM mapping to C1/C2/C3, MLS-Bench audit finding 61/140 tasks with broken scoring. User population is niche (evaluation engineers, benchmark maintainers). No adoption claims made. Doc lint passes. Release manifest and README agree on `public-product` state. Honest assessment: tool is a correct prototype for harness authors who control their run outputs; not a general-purpose product.
+
+**ID collision + direct contradiction on Docker Hub, from two uncoordinated runs (2026-10-12, found while landing).** Two VMs numbered a Docker Hub run **E108** independently. `b4e0db34` (this VM, now **E112**) reports **GATES FAIL, Cliff's delta = -0.810** on 55 need / 55 random images, its random arm catching base images (alpine 12.3B, ubuntu 10.1B, node 7.1B, mysql 5.2B pulls). The landed `EXPERIMENTS/111-dockerhub-viewcount` (**E111**) reports **ALL GATES PASS, delta = +0.386** on 3,313 need / 537 random images. Same platform, opposite sign, a 29x gap in need-arm size. Renumbered on the unpushed side, per the standing rule: the Docker Hub run is **E112**, the matched-harvest control is **E113**, and the landed **E110** (`EXPERIMENTS/110-rubygems-viewcount`) is **RubyGems**, not a matched harvest. Neither Docker Hub row is independent evidence — both drew its arms with the asymmetric harvest E113 falsifies, and E113's own need arm is 6:1 imbalanced in the same shape. A coordinate was claimed (`T-0093`) and a second worker then took the same D083 slot anyway; the next session should read the task ledger before taking a D083 domain.

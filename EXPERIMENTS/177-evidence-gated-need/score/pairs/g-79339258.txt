@@ -1,0 +1,16 @@
+pid: g-79339258
+
+=== LEFT ===
+The node binary downloaded fine; only the npm step failed, because nvm-windows extracts np
+m into a temporary folder and something deletes or blocks it before it is read. Common cau
+ses: Defender or another AV quarantines the temp files, the %TEMP% path is inaccessible or
+ too long, or you are not elevated. Run nvm install from an elevated prompt, add the temp 
+directory and NVM_HOME to Defender exclusions, then delete leftover nvm-install-* and nvm-
+npm-* folders and retry. If it still fails, bypass the npm step: download node-v14.17.3-wi
+n-x64.zip yourself, extract it to %NVM_HOME%\v14.17.3, and run nvm use 14.17.3. For old No
+de versions generally, nvm for Linux/WSL, fnm or n avoid the problem because they unpack o
+fficial archives.
+
+=== RIGHT ===
+I was having the same problem. I even tried to change the node and npm mirror, but same er
+ror. I just rolled back to nvm version 1.1.12 and it worked just fine.

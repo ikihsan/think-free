@@ -1,0 +1,97 @@
+qid: 79871713
+tags: ios, swiftui, view, menu
+
+=== TITLE ===
+iOS 26 broken view hierarchy on Menu
+
+=== QUESTION ===
+I am getting the message: 
+ 
+ Adding '_UIReparentingView' as a subview of UIHostingController.view is not supported and
+ may result in a broken view hierarchy. Add your view above UIHostingController.view in a 
+common superview or insert it into your SwiftUI content in a UIViewRepresentable instead. 
+ 
+ When opening and closing my Menu and the drop down animation of the Menu is kind of glitc
+hy now. This didn't happen before in iOS 18, so wondering if my code is inherently wrong o
+r if this is a bug. 
+ Here is an MRE of what I am doing in my actual app. Could someone please see If they are 
+getting the same? I am getting the message in iOS 26.1 and 26.2. 
+ struct ContentView: View {
+ var itemsToList: [String] = ["One", "Two", "Three", "Four", "Five"]
+ 
+ var body: some View {
+ NavigationStack {
+ ZStack {
+ VStack {
+ Menu(content: {
+ ForEach(itemsToList, id: \.self) { item in
+ Button(action: {}, label: { Text(item) })
+ }
+ }, label: {
+ Text("Menu")
+ })
+ }
+ }
+ }
+ }
+}
+ 
+
+ Menu 
+ Menu 
+ struct ContentView: View {
+ var itemsToList: [String] = ["One", "Two", "Three", "Four", "Five"]
+ 
+ var body: some View {
+ NavigationStack {
+ ZStack {
+ VStack {
+ Menu(content: {
+ ForEach(itemsToList, id: \.self) { item in
+ Button(action: {}, label: { Text(item) })
+ }
+ }, label: {
+ Text("Menu")
+ })
+ }
+ }
+ }
+ }
+}
+
+=== KEY ANSWER (highest scored) ===
+In my case, I was getting the same warning and animation glitch when a Menu was inside a G
+lassEffectContainer with .buttonStyle(.glass) and . glassEffectUnion() . 
+ Adding .compositingGroup() before the button style fixed it: 
+ Menu {
+ // menu content...
+} label: {
+ Image(systemName: "ellipsis")
+}
+.compositingGroup() // fixes _UIReparentingView warning
+.buttonStyle(.glass)
+ 
+ The .compositingGroup() creates a rendering boundary that isolates the Menu from parent e
+ffects, preventing the UIKit view hierarchy conflict when the menu presents. 
+ Even if you're not using glass effects, .compositingGroup() on its own might still resolv
+e your issue since it seems to be a general SwiftUI/Menu bug in iOS 26 related to how Menu
+ 's UIKit presentation interacts with the view hierarchy. 
+
+ Menu 
+ GlassEffectContainer 
+ .buttonStyle(.glass) 
+ glassEffectUnion() 
+ .compositingGroup() 
+ Menu {
+ // menu content...
+} label: {
+ Image(systemName: "ellipsis")
+}
+.compositingGroup() // fixes _UIReparentingView warning
+.buttonStyle(.glass)
+ 
+ .compositingGroup() 
+ Menu 
+ .compositingGroup() 
+ Menu
+

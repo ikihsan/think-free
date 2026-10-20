@@ -1,0 +1,410 @@
+{
+  "experiment": "E194",
+  "fetch_detail": [
+    {
+      "apps_returned": 154,
+      "body_sha256": "4b28d2953875558763cfe40619dd33746965d888e5bbf1f20540f55a0e34ab9f",
+      "error": null,
+      "result_count": 154,
+      "status": 200,
+      "term": "todo"
+    },
+    {
+      "apps_returned": 163,
+      "body_sha256": "1860151c55758668f60b58862d8bfc5f74f393146b32d98850e37e625e341249",
+      "error": null,
+      "result_count": 163,
+      "status": 200,
+      "term": "password manager"
+    },
+    {
+      "apps_returned": 114,
+      "body_sha256": "d194426a9566b7e02b9f555d0befd8e9eed51b6725d19b7a7d1dbf1f9727f90e",
+      "error": null,
+      "result_count": 114,
+      "status": 200,
+      "term": "zzqxqv glorb tapestry"
+    },
+    {
+      "apps_returned": 197,
+      "body_sha256": "1f615469d80f5c12a5eaeb3e8210a2a95fd31b758e3e25f4cbed4147f052973a",
+      "error": null,
+      "result_count": 197,
+      "status": 200,
+      "term": "shift schedule"
+    },
+    {
+      "apps_returned": 187,
+      "body_sha256": "9a9b11dfabf058bd0772f1eb089345a2ba1370b1a8afd8e1cb11fd1a22e22d6a",
+      "error": null,
+      "result_count": 187,
+      "status": 200,
+      "term": "receipt scanner"
+    },
+    {
+      "apps_returned": 180,
+      "body_sha256": "5629dd6185a8da25fb292c64ee0899abb0377ac326898358febc7562da808b19",
+      "error": null,
+      "result_count": 180,
+      "status": 200,
+      "term": "warranty tracker"
+    },
+    {
+      "apps_returned": 192,
+      "body_sha256": "4dd7a85d6160277b4351f106ed16119e8642c91f71b20d8e46b61da1aa1c2aa9",
+      "error": null,
+      "result_count": 192,
+      "status": 200,
+      "term": "home inventory"
+    },
+    {
+      "apps_returned": 191,
+      "body_sha256": "d4494d513bf6a08da4834e3c120af511227978997d179dc3adac1e74770b9d9b",
+      "error": null,
+      "result_count": 191,
+      "status": 200,
+      "term": "meal plan"
+    },
+    {
+      "apps_returned": 188,
+      "body_sha256": "300be5b60db85df9e8ca6bc6819e9afa7cea037d45e98bd1c03ff8eb62bced45",
+      "error": null,
+      "result_count": 188,
+      "status": 200,
+      "term": "pet medication"
+    },
+    {
+      "apps_returned": 193,
+      "body_sha256": "c61e4dd725f3b2cf573833f9880a3c2c66fa6bc7984efd73d21b72ca46f4a77b",
+      "error": null,
+      "result_count": 193,
+      "status": 200,
+      "term": "chore chart"
+    },
+    {
+      "apps_returned": 184,
+      "body_sha256": "d12f7ef1b8b232e2885105673a1a2cbf5e46695d7ff20ef6be2443ccc970fb04",
+      "error": null,
+      "result_count": 184,
+      "status": 200,
+      "term": "moving checklist"
+    },
+    {
+      "apps_returned": 194,
+      "body_sha256": "1465e0ec47b3e92abb79c674afe90db2a70fab3c0f94ffb9789ba18ac3a07903",
+      "error": null,
+      "result_count": 194,
+      "status": 200,
+      "term": "plant watering"
+    },
+    {
+      "apps_returned": 172,
+      "body_sha256": "74e99593c66ead01606b3eea5149d041cb7ebcef58aacdce8b12b1890765fbd9",
+      "error": null,
+      "result_count": 172,
+      "status": 200,
+      "term": "reading list"
+    },
+    {
+      "apps_returned": 189,
+      "body_sha256": "7dde90db1bcf3e2bb4973e469fc89c39320b72d5d68482614d4e8364784f9a4a",
+      "error": null,
+      "result_count": 189,
+      "status": 200,
+      "term": "sourdough"
+    },
+    {
+      "apps_returned": 168,
+      "body_sha256": "887f7104949b85bb4e5501677fad4d30d1231e43da9068ffaef1bafa65cb46a1",
+      "error": null,
+      "result_count": 168,
+      "status": 200,
+      "term": "pool care"
+    }
+  ],
+  "gates": {
+    "G1_positive_controls": true,
+    "G2_negative_control": false,
+    "G3_money_exists": false,
+    "G4_thin_supply_high_demand": true,
+    "G5_fetch_reproducible": true
+  },
+  "host_python": "3.8.10",
+  "measured": [
+    {
+      "apps_returned": 154,
+      "free": 48,
+      "median_paid_price": 5.49,
+      "median_ratings_paid": 14007.5,
+      "paid": 2,
+      "ratings_paid": 28015,
+      "ratings_top1_paid": 28015,
+      "result_count": 154,
+      "status": 200,
+      "term": "todo",
+      "window": 50
+    },
+    {
+      "apps_returned": 163,
+      "free": 43,
+      "median_paid_price": 5.99,
+      "median_ratings_paid": 1930,
+      "paid": 7,
+      "ratings_paid": 15849,
+      "ratings_top1_paid": 6461,
+      "result_count": 163,
+      "status": 200,
+      "term": "password manager",
+      "window": 50
+    },
+    {
+      "apps_returned": 114,
+      "free": 44,
+      "median_paid_price": 7.99,
+      "median_ratings_paid": 3.5,
+      "paid": 6,
+      "ratings_paid": 91,
+      "ratings_top1_paid": 75,
+      "result_count": 114,
+      "status": 200,
+      "term": "zzqxqv glorb tapestry",
+      "window": 50
+    },
+    {
+      "apps_returned": 197,
+      "free": 49,
+      "median_paid_price": 3.99,
+      "median_ratings_paid": 71,
+      "paid": 1,
+      "ratings_paid": 71,
+      "ratings_top1_paid": 71,
+      "result_count": 197,
+      "status": 200,
+      "term": "shift schedule",
+      "window": 50
+    },
+    {
+      "apps_returned": 187,
+      "free": 48,
+      "median_paid_price": 7.49,
+      "median_ratings_paid": 148551.5,
+      "paid": 2,
+      "ratings_paid": 297103,
+      "ratings_top1_paid": 297093,
+      "result_count": 187,
+      "status": 200,
+      "term": "receipt scanner",
+      "window": 50
+    },
+    {
+      "apps_returned": 180,
+      "free": 47,
+      "median_paid_price": 0.99,
+      "median_ratings_paid": 0,
+      "paid": 3,
+      "ratings_paid": 2,
+      "ratings_top1_paid": 2,
+      "result_count": 180,
+      "status": 200,
+      "term": "warranty tracker",
+      "window": 50
+    },
+    {
+      "apps_returned": 192,
+      "free": 47,
+      "median_paid_price": 3.99,
+      "median_ratings_paid": 1,
+      "paid": 3,
+      "ratings_paid": 29,
+      "ratings_top1_paid": 28,
+      "result_count": 192,
+      "status": 200,
+      "term": "home inventory",
+      "window": 50
+    },
+    {
+      "apps_returned": 191,
+      "free": 49,
+      "median_paid_price": 3.99,
+      "median_ratings_paid": 15651,
+      "paid": 1,
+      "ratings_paid": 15651,
+      "ratings_top1_paid": 15651,
+      "result_count": 191,
+      "status": 200,
+      "term": "meal plan",
+      "window": 50
+    },
+    {
+      "apps_returned": 188,
+      "free": 50,
+      "median_paid_price": null,
+      "median_ratings_paid": null,
+      "paid": 0,
+      "ratings_paid": 0,
+      "ratings_top1_paid": 0,
+      "result_count": 188,
+      "status": 200,
+      "term": "pet medication",
+      "window": 50
+    },
+    {
+      "apps_returned": 193,
+      "free": 50,
+      "median_paid_price": null,
+      "median_ratings_paid": null,
+      "paid": 0,
+      "ratings_paid": 0,
+      "ratings_top1_paid": 0,
+      "result_count": 193,
+      "status": 200,
+      "term": "chore chart",
+      "window": 50
+    },
+    {
+      "apps_returned": 184,
+      "free": 48,
+      "median_paid_price": 1.9900000000000002,
+      "median_ratings_paid": 399.0,
+      "paid": 2,
+      "ratings_paid": 798,
+      "ratings_top1_paid": 494,
+      "result_count": 184,
+      "status": 200,
+      "term": "moving checklist",
+      "window": 50
+    },
+    {
+      "apps_returned": 194,
+      "free": 50,
+      "median_paid_price": null,
+      "median_ratings_paid": null,
+      "paid": 0,
+      "ratings_paid": 0,
+      "ratings_top1_paid": 0,
+      "result_count": 194,
+      "status": 200,
+      "term": "plant watering",
+      "window": 50
+    },
+    {
+      "apps_returned": 172,
+      "free": 50,
+      "median_paid_price": null,
+      "median_ratings_paid": null,
+      "paid": 0,
+      "ratings_paid": 0,
+      "ratings_top1_paid": 0,
+      "result_count": 172,
+      "status": 200,
+      "term": "reading list",
+      "window": 50
+    },
+    {
+      "apps_returned": 189,
+      "free": 47,
+      "median_paid_price": 3.99,
+      "median_ratings_paid": 33,
+      "paid": 3,
+      "ratings_paid": 73,
+      "ratings_top1_paid": 40,
+      "result_count": 189,
+      "status": 200,
+      "term": "sourdough",
+      "window": 50
+    },
+    {
+      "apps_returned": 168,
+      "free": 48,
+      "median_paid_price": 10.989999999999998,
+      "median_ratings_paid": 73.5,
+      "paid": 2,
+      "ratings_paid": 147,
+      "ratings_top1_paid": 134,
+      "result_count": 168,
+      "status": 200,
+      "term": "pool care",
+      "window": 50
+    }
+  ],
+  "repeat_checks": [
+    {
+      "first5_identical": true,
+      "result_count_first": 168,
+      "result_count_second": 168,
+      "term": "pool care"
+    },
+    {
+      "first5_identical": true,
+      "result_count_first": 189,
+      "result_count_second": 189,
+      "term": "sourdough"
+    }
+  ],
+  "terms": [
+    [
+      "control_positive",
+      "todo"
+    ],
+    [
+      "control_positive",
+      "password manager"
+    ],
+    [
+      "control_negative",
+      "zzqxqv glorb tapestry"
+    ],
+    [
+      "difficulty",
+      "shift schedule"
+    ],
+    [
+      "difficulty",
+      "receipt scanner"
+    ],
+    [
+      "difficulty",
+      "warranty tracker"
+    ],
+    [
+      "difficulty",
+      "home inventory"
+    ],
+    [
+      "difficulty",
+      "meal plan"
+    ],
+    [
+      "difficulty",
+      "pet medication"
+    ],
+    [
+      "difficulty",
+      "chore chart"
+    ],
+    [
+      "difficulty",
+      "moving checklist"
+    ],
+    [
+      "difficulty",
+      "plant watering"
+    ],
+    [
+      "difficulty",
+      "reading list"
+    ],
+    [
+      "difficulty",
+      "sourdough"
+    ],
+    [
+      "difficulty",
+      "pool care"
+    ]
+  ],
+  "thin_supply_rows": [
+    "receipt scanner"
+  ],
+  "window": 50
+}

@@ -1,0 +1,121 @@
+{
+  "amount_ratio_laundry_over_knitting": Infinity,
+  "experiment": "E195",
+  "gates": {
+    "G1_control_integrity": true,
+    "G2_spend_axis_usable": false,
+    "G3_keyword_discriminates": true
+  },
+  "host_python": "3.8.10",
+  "rows": [
+    {
+      "bytes": 804,
+      "excerpt": "{\"items\":[{\"tags\":[\"qt\",\"qpainter\"],\"owner\":{\"account_id\":44045072,\"reputation\":13,\"user_id\":31610132,\"user_type\":\"registered\",\"profile_image\":\"https://www.gravatar.com/avatar/48b41aacc56a1a72f3b7a934",
+      "json": true,
+      "role": "control",
+      "sha256": "185501074c2dac6cd479d312fa03620f62edd2f18e0d048867c2cdeb8b8bf3e4",
+      "source": "stackexchange",
+      "status": 200,
+      "top_keys": [
+        "has_more",
+        "items",
+        "quota_max",
+        "quota_remaining"
+      ],
+      "verdict": "capture"
+    },
+    {
+      "amount_rows": 0,
+      "amount_total": null,
+      "bytes": 13743,
+      "excerpt": "{\"meta\": {\"notice\": \"No API key, so this request shares one free daily budget ($0.10) with everyone on your network's IP address. Get a free key with its own $1/day at https://openalex.org/settings/ap",
+      "json": true,
+      "results_returned": 1,
+      "role": "control",
+      "sha256": "afd508b61937cfe0317face8ef32df5afc83999139bf7373b4c95fa226857ae9",
+      "source": "openalex",
+      "status": 200,
+      "top_keys": [
+        "group_by",
+        "meta",
+        "results"
+      ],
+      "verdict": "capture"
+    },
+    {
+      "bytes": 424,
+      "excerpt": "{\"resources\":{\"code_search\":{\"limit\":60,\"remaining\":60,\"reset\":1792377576,\"used\":0},\"core\":{\"limit\":60,\"remaining\":60,\"reset\":1792377576,\"used\":0},\"graphql\":{\"limit\":0,\"remaining\":0,\"reset\":1792377576",
+      "json": true,
+      "role": "control",
+      "sha256": "a4b0cc77a97d8f19a907b6684b31b11925ef71b468da0be8b43d5cbe8efe1a1f",
+      "source": "github",
+      "status": 200,
+      "top_keys": [
+        "rate",
+        "resources"
+      ],
+      "verdict": "capture"
+    },
+    {
+      "amount_rows": 0,
+      "amount_total": null,
+      "bytes": 52950,
+      "excerpt": "{\"results\":[{\"agency_id\":1525,\"toptier_code\":\"247\",\"abbreviation\":\"AAHC\",\"agency_name\":\"400 Years of African-American History Commission\",\"congressional_justification_url\":null,\"active_fy\":\"2026\",\"act",
+      "json": true,
+      "results_returned": 111,
+      "role": "spend",
+      "sha256": "e425662ed2f7a43a66df0d154efe71010d79be5da0d12fa8672cd91f531f7a1b",
+      "source": "usaspending_agencies",
+      "status": 200,
+      "top_keys": [
+        "results"
+      ],
+      "verdict": "capture"
+    },
+    {
+      "bytes": 966,
+      "excerpt": "{\"elapsedTime\":\"0.07 secs\",\"count\":1,\"data\":[{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20230101,\"refYear\":2023,\"refMonth\":52,\"period\":\"2023\",\"reporterCode\":842,\"reporterISO\":null,\"reporterDesc\":nul",
+      "json": true,
+      "role": "spend",
+      "sha256": "1d240d1a94fcbc8ab7db754d978c4c212af58ac705dddb5cd137251b718f37d9",
+      "source": "comtrade",
+      "status": 200,
+      "top_keys": [
+        "count",
+        "data",
+        "elapsedTime",
+        "error"
+      ],
+      "verdict": "capture"
+    },
+    {
+      "bytes": 74,
+      "excerpt": "{\"detail\":\"Missing value: 'filters|award_type_codes' is a required field\"}",
+      "json": true,
+      "note": "keyword=laundry",
+      "role": "spend",
+      "sha256": "293950e394023f296066e8eb5fe37812190f3575ff4694bd45186e82e1ae7a52",
+      "source": "usaspending_laundry",
+      "status": 422,
+      "top_keys": [
+        "detail"
+      ],
+      "verdict": "error"
+    },
+    {
+      "bytes": 74,
+      "excerpt": "{\"detail\":\"Missing value: 'filters|award_type_codes' is a required field\"}",
+      "json": true,
+      "note": "keyword=knitting",
+      "role": "spend",
+      "sha256": "293950e394023f296066e8eb5fe37812190f3575ff4694bd45186e82e1ae7a52",
+      "source": "usaspending_knitting",
+      "status": 422,
+      "top_keys": [
+        "detail"
+      ],
+      "verdict": "error"
+    }
+  ],
+  "user_agent": "think-free-research/0.1 (+repository spend-axis probe)"
+}

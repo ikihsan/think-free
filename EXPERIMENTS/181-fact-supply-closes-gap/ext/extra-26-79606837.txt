@@ -1,0 +1,54 @@
+TITLE: Where is the documentation for the &#39;.slnx&#39; solution format?
+TAGS: c#,.net,.net-core,msbuild,solution
+QUESTION AS POSTED:
+All I can find from Microsoft is two blog posts: 
+ 
+ "Introducing support for SLNX, a new, simpler solution file format
+in the .NET CLI" dated March 13th, 2025, says that it is a preview feature. 
+ 
+ "New, Simpler Solution File Format" 
+ also dated March 13th, 2025 says that it is fully supported and contains no mention of preview. 
+ 
+ 
+ These blog posts explain: 
+ 
+ how to enable it 
+ how to convert your old solution files to it 
+ how cool it is 
+ etc. 
+ 
+ ...but being mere blog posts, they do not constitute documentation . 
+ More specifically, they do not explain: 
+ 
+ what XML elements are supported and what they do. 
+ what XML attributes each element supports, and what they do. 
+ 
+ So, where is the documentation?
+
+COMMENTS ON THE QUESTION, in order:
+- [Ivan Petrov] from one of the links from March 2025, it seems like it's still a "beta": "The .SLNX file format is designed for wide adoption, but we recommend waiting until it’s more finalized before fully adopting it. "
+- [Mike Nakis] @IvanPetrov It used to be a preview feature which you had to enable in order to use it in visual studio, but it does not appear to be a preview feature anymore. All you need in order to use it is the dotnet SDK version 9.0.200 or higher, and I do not think this is some "preview" version of the SDK in any way, either.
+- [Ivan Petrov] I think new SDKs or VS versions include preview features. Options at the moment seem to be to wait - couldn't find a roadmap of when it's to be finalized. Alternatively check vs-solutionpersistence repo and treat code as documentation :)
+- [Thomas W.] Who needs documentation, when you can do trial and error for weeks? Also, we have AI to help you. And, you're a developer, you can reverse engineer that. </sarcasm>
+- [canton7] " Has humanity entered a brave new era where engineers are capable of putting into use highly complex technical constructs with just some hand-wavy, wishy-washy descriptions " -- to play devil's advocate here, who said you're supposed to be writing those files by hand? If you're meant to be using the tooling to create/edit them, then the only documentation of the format that matters is MS's internal documentation
+- [Thomas W.] @canton7: just look at the hundreds of answers here on SO where you need to edit something in the .sln, .csproj or other files in order to get something done, simply because MS does not offer a UI option for that. ( 1040 candidates for this claim )
+- [Fildor] We went full-in already and haven't looked back, yet. And I must say: no docs actually needed , yet. Even with Rider instead of VS it's been a smooth ride, since. Do you have any special use cases, you need addressed?
+- [canton7] @ThomasWeller Sure, but that doesn't contradict what I said. If you're not supposed to hand-edit something (regardless of how good or otherwise the tooling is to edit it), then why would MS provide documentation on its format?
+- [Mike Nakis] @canton7 there used to be a time back in the nineties (and maybe early 00s) when visual studio solution files and project files were binary. The whole point of making them text is so that they are editable by us.
+- [Mike Nakis] @canton7 Microsoft never said that we are not supposed to hand-edit those files. I assert that there exists not a single instance of Microsoft saying or even alluding to such a thing, and I dare you to find such an instance.
+- [Mike Nakis] @canton7 The fact that the tooling can edit the files does not constitute a prohibition or a warning for us to refrain from editing them. On the contrary, the fact that the tooling is so woefully inadequate in editing them means that we pretty much have to edit them.
+- [canton7] @MikeNakis I don't disagree with any of that. But, given that the format is very new, and given that the documentation you linked does not contain any instruction to hand-edit them (it tells you how to use the tooling to edit them), I would be not at all surprised if there was no public documentation on the format. Certainly, Microsoft are no obliged to provide any.
+- [canton7] Also, don't forget that publicly documenting something creates a contract that Microsoft need to keep. They almost certainly don't want to create such a contract at this stage, because they want to retain the ability to change the format if it turns out that's necessary.
+- [Olivier Jacot-Descombes] Even if you don't have to edit a .slnx by hand, tool-makes need such a documentation. Did the Rider developers have access to the internal Microsoft docs?
+- [canton7] @MikeNakis I'm not sure that "Plain text = hand-editable" is necessarily true. `.xslx` files are plain-text (once you unzip them), and they replaced the old binary `.xsl` files, but good luck hand-editing them in any sort of sensible way! And even the current .sln files, although plain-text, aren't exactly meant to be hand-edited.
+- [canton7] Also, I was writing C# in the early 00's (it wasn't released in the 90's), and I don't remember any binary project files....
+- [Mike Nakis] @canton7 you are repeating your claim without backing it up. Also: Visual Studio has existed before C# was a thing. Back in the late 90s we were using it for C++ development. Solution and project files were ".dsw" and ".dsp" respectively. They were binary. Oh, the horror.
+- [canton7] @MikeNakis I'm not making a claim. I started off playing devil's advocate: all I'm stating is that Microsoft are not obliged to provide such documentation, since they have not told you to hand-edit the files. I'm also providing various reasons why they might not want to provide documentation at this stage. It's rather hard for me to provide evidence that Microsoft haven't said something...
+- [Mike Nakis] @canton7 OK, true, you did mention devil's advocate. I like it how in this analogy, the devil is Microsoft.
+- [Jonathan Dodds] There is no public "the documentation" for the .sln file format either. From discussions on GitHub, the Visual Studio team doesn't even share the spec with the MSBuild team, let alone share it publicly.
+- [James Groom] Open issue asking for a spec: github.com/microsoft/vs-solutionpersistence/issues/64
+- [Mike Nakis] heh, the issue was opened by xoofx, the creator of markdig
+
+COMMENTS ON THE ANSWER THAT WAS ACCEPTED, in order (the accepted answer itself is NOT shown to you):
+- [Mike Nakis] Thanks for finding this and posting it. Of course I am up-voting this, because it is useful, but as you probably understand I cannot accept it as the answer because this is not "the documentation".
+- [Sergey A Kryukov] Right. I easily found the schema, but this is not enough. To make it work, we need semantical information, how this data is interpreted. I asked AI (Gemini) and got some useful information. It answered that the semantic is collected from different sources. It really works. The format .sln is really bad, for several reasons. .slnx is much better.

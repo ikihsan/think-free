@@ -1,0 +1,44 @@
+qid: 79557242
+view_count: 1295
+tags: r, string, vector
+key_score: 17
+
+=== TITLE ===
+How do I create a new vector from a previous vector with elements in a specific order in R
+?
+
+=== QUESTION ===
+I have a vector in R 
+ vec <- c("x", "y", "z")
+ 
+ I want to generate a new vector with elements, in order, based off the elements of vec. I
+ want the result to be: 
+ "x" "x.1" "y" "y.1" "z" "z.1"
+ 
+ Now, I know that I could do the following: 
+ vec <- c(vec, paste0(vec,".1"))
+ 
+ But this yields 
+ "x" "y" "z" "x.1" "y.1" "z.1"
+ 
+ ... which is not what I want. 
+
+ vec <- c("x", "y", "z")
+ 
+ "x" "x.1" "y" "y.1" "z" "z.1"
+ 
+ vec <- c(vec, paste0(vec,".1"))
+ 
+ "x" "y" "z" "x.1" "y.1" "z.1"
+
+=== KEY ANSWER ===
+You can use make.unique + rep 
+ make.unique(rep(vec, each = 2))
+[1] "x" "x.1" "y" "y.1" "z" "z.1"
+ 
+
+ make.unique 
+ rep 
+ make.unique(rep(vec, each = 2))
+[1] "x" "x.1" "y" "y.1" "z" "z.1"
+

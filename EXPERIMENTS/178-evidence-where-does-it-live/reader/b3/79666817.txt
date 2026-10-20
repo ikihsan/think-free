@@ -1,0 +1,41 @@
+qid: 79666817
+tags: c++, memory-safety
+
+=== TITLE ===
+What is the progress on safety for C++?
+
+=== QUESTION ===
+I have been reading up on safety profiles , safe C++ and some other articles on the matter
+ ( example ). I would like one of these features to be adopted, and the only one that I be
+lieve has actually been prototyped is the safe c++ proposal . There also seems to be some 
+strongly worded papers talking about all the problems with profiles ( example ), which I b
+elieve has now been voted as the way forward for investment. 
+ What is the current state of affairs with safe C++ making its way to the standard? Could 
+users hope for C++26? C++29? Also, is there a list of checks/safety features that may get 
+merged? This paper seems to claim C++26 may be on the agenda, but I'm not sure whether thi
+s is still on the table.
+
+=== KEY ANSWER (highest scored) ===
+Will answer to the best of knowledge/ability. 
+ What is the current state of affairs with safe C++ making its way to the standard? 
+ C++26 standard is finalized. So that is the current state of affairs. 
+ Could users hope for C++26? 
+ No , albeit some things are in (sort of) like contracts . But I guess not what you hoped 
+for. Sorry to disappoint you. 
+ C++29? 
+ Maybe. Probably. This is very hot subject as Im sure you already know. 
+ Also, is there a list of checks/safety features that may get merged? 
+ Not sure what you mean - but it could possible come in some minor experimental form withi
+n C++26 work later. That will most likely be the safety profiles if so. 
+ My own opinion: this is all a big mess still atm. but betting on C++29. My gut feeling is
+ that something have to be changed a little in a non-backward-compatible way language wise
+ if it has to be almost "seamless" . Making it safe/memory safe within compilation units s
+hould be a first goal and achievable sort of already with current language. Overall, my gu
+t feeling is this could require multiple versions of the standard to go through as it usua
+lly is - especially if we have to deprecate something. 
+ Update: 
+ There is an article here about C++26 finalization, in case you want to take a closer look
+ at it yourself. 
+ Edit: 
+ Clarified "My own option" section.
+

@@ -1,0 +1,52 @@
+{
+ "EVID": {
+  "ci95": [
+   0.2459,
+   0.5768
+  ],
+  "missing_verdicts": [],
+  "n": 30,
+  "rate": 0.4,
+  "reached": 12
+ },
+ "SELF": {
+  "ci95": [
+   0.7032,
+   0.9469
+  ],
+  "missing_verdicts": [],
+  "n": 30,
+  "rate": 0.8667,
+  "reached": 26
+ },
+ "census": {
+  "census_sha256": "b85d6f3a6286c91fbafcd237aa0aff2267f0f1068061b856ce2121e3d1870c3f",
+  "evidence_gain_max": 1.0,
+  "evidence_gain_median": 0.7959,
+  "evidence_gain_min": 0.1538,
+  "rows_drawn": 181,
+  "rows_sha256": "5cf1933332c815d818807c83cf59cc81fa4a42ab09da3aa32bda62e7d8df9c95",
+  "rows_with_key_answer": 145,
+  "share_gain_ge_0.50": 137,
+  "share_gain_ge_0.50_ci95": [
+   0.8949,
+   0.9718
+  ],
+  "share_gain_ge_0.50_rate": 0.9448,
+  "stopwords": 99
+ },
+ "fisher_p": 0.00036817673390079263,
+ "g0a_pass": true,
+ "g0b_pass": true,
+ "g0c_pass": true,
+ "g3_fired": true,
+ "gap": 0.4667,
+ "labels": {
+  "counts": {
+   "EVID": 46,
+   "SELF": 52,
+   "UNCLEAR": 2
+  }
+ },
+ "scorer_established": true
+}

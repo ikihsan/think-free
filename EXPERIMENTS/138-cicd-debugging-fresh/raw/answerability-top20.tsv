@@ -1,0 +1,50 @@
+# E138 Answerability Evaluation — Top Unserved-Open-Like Topics
+
+**Date:** 2026-10-13
+**Method:** General assistant (this model) attempts to resolve each top-arrival unremedied need from knowledge.
+**Labels:** `resolved-from-knowledge`, `resolved-needs-per-model-spec`, `unresolved-no-public-data`, `unresolved-human-work`, `unresolved-other`
+
+---
+
+## Evaluation Results
+
+| # | Topic ID | Title | Views | Category | Label | Rationale |
+|---|----------|-------|-------|----------|-------|-----------|
+| 1 | 29075 | Running a Different Job if the Previous Succeeds or Fails | 9400 | deployment | **resolved-from-knowledge** | Feature now exists: `requires:` with `success`/`failed` conditions in workflow jobs. Can explain current syntax: `deploy: requires: [job1: success]`, `hold: type: approval requires: [job1: failed]`, `deploy: requires: [hold]`. |
+| 2 | 36560 | CircleCI new UI/UX Review | 6166 | bug-reports | **unresolved-other** | Not a concrete technical need — it's a feedback/discussion thread soliciting UI opinions. Classifier false positive (matched "timeout" from "stepping stone" in content). |
+| 3 | 34654 | Artifact URL - How can we retrieve the project ID programmatically | 3700 | api | **resolved-from-knowledge** | Workaround exists: use `CIRCLE_BUILD_URL` + `CIRCLE_NODE_INDEX` for authenticated artifact links, or chain API v2 calls: list pipeline → list workflows → list jobs → list artifacts. No direct `CIRCLE_PROJECT_ID` env var. |
+| 4 | 45103 | Using the abbreviated version of the Github commit sha | 3159 | environment | **resolved-from-knowledge** | Bash substring: `${CIRCLE_SHA1:0:7}` or `git rev-parse --short HEAD` in a run step. Standard shell/git knowledge. |
+| 5 | 33825 | Unable to trigger pipeline to build forked Pull Request via V2 API | 3124 | api | **unresolved-human-work** | CircleCI staff confirmed: "triggering pipelines for PRs is not currently supported" (feature request CCI-I-1280). Requires CircleCI to implement; no tool can bypass API limitation. |
+| 6 | 45056 | Execute curl on environment variable variable | 3016 | deployment | **resolved-from-knowledge** | Shell quoting issue: storing a curl command with nested quotes in an env var breaks expansion. Solution: write to a script file (`echo "$CURL_CMD" > run.sh; chmod +x run.sh; ./run.sh`) or use a heredoc. |
+| 7 | 36345 | Can get latest artifacts from all branches in pipeline in v1.1 but not v2 api? | 2978 | api | **unresolved-human-work** | API v2 lacks `/latest/artifacts` endpoint (only supports specific job number). Thread confirms "waiting for this feature in API v2". Requires CircleCI to implement. |
+| 8 | 46856 | When to use a "Deploy Key" vs. a "User Key"? | 2902 | integrations | **resolved-from-knowledge** | Deploy Key = repo-scoped (checkout only that repo). User Key = user-scoped (access all repos user can access). For mono-repos or multi-repo checkout, User Key needed. Documented in CircleCI GitHub integration docs. |
+| 9 | 44178 | Circle CI api url to trigger a pipeline on a webhook | 2370 | api | **resolved-from-knowledge** | API v2 requires POST with JSON body; webhooks send GET. Workaround: deploy a tiny HTTP translator (Cloud Function/Lambda) that receives GET, converts to POST with auth token. Pattern shown in thread. |
+
+---
+
+## Summary Statistics
+
+| Label | Count | Percentage |
+|-------|-------|------------|
+| resolved-from-knowledge | 6 | 66.7% |
+| unresolved-human-work | 2 | 22.2% |
+| unresolved-other | 1 | 11.1% |
+| resolved-needs-per-model-spec | 0 | 0% |
+| unresolved-no-public-data | 0 | 0% |
+| **Total** | **9** | **100%** |
+
+**Note:** Only 9 unserved-open-like topics existed in the harvested sample (vc_positive=46, unserved=11 including 2 seeded controls). All 9 non-seeded unserved topics evaluated.
+
+---
+
+## Interpretation
+
+**6 of 9 (66.7%)** top-arrival unserved needs are **resolvable from general knowledge** — a free general assistant can supply the answer (workaround, syntax, explanation) without needing private data or human action.
+
+**2 of 9 (22.2%)** require **human/workflow action** — feature gaps in CircleCI API (fork PR triggering, `/latest/artifacts` endpoint) that no tool can fix; user must vote on feature requests or wait.
+
+**1 of 9 (11.1%)** is a **classifier false positive** — UI feedback thread misclassified as need.
+
+**Key finding:** The "unserved-open-like" population in CI/CD debugging is **largely served by existing knowledge** (documentation, community workarounds, bash/git skills). The residual unserved needs are **platform feature gaps** (API limitations), not tooling gaps.
+
+This aligns with the venue sweep conclusion (E126/E127): practitioner needs in CI/CD debugging are served by the strongest accessible alternative (general assistant + vendor docs + community workarounds).

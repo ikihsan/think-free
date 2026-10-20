@@ -1,0 +1,732 @@
+==============================================================================
+[seq 2] 2026-10-17T11:53:43+00:00
+$ python3 -c 
+import json, urllib.request
+
+# P1a: PyPI JSON API — can we get version history with dates?
+for pkg in ['django', 'requests', 'flask']:
+    url = 'https://pypi.org/pypi/%s/json' % pkg
+    req = urllib.request.Request(url, headers={'User-Agent': 'think-free-e179/1.0'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as fh:
+            data = json.load(fh)
+        releases = data.get('releases', {})
+        versions = sorted(releases.keys())
+        sample = {}
+        for v in [versions[0], versions[len(versions)//2], versions[-1]]:
+            files = releases.get(v, [])
+            if files:
+                sample[v] = files[0].get('upload_time', 'unknown')
+        print('PYPI %s: %d versions, first=%s last=%s' % (pkg, len(versions), versions[0], versions[-1]))
+        print('  sample dates: %s' % sample)
+    except Exception as e:
+        print('PYPI %s: FAILED %s' % (pkg, e))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+PYPI django: 445 versions, first=1.0.1 last=6.1rc1
+  sample dates: {'2.2.24': '2021-06-02T08:53:39', '6.1rc1': '2026-07-22T20:07:43'}
+PYPI requests: 163 versions, first=0.0.1 last=2.9.2
+  sample dates: {'2.1.0': '2013-12-05T22:51:41', '2.9.2': '2016-04-29T21:57:23'}
+PYPI flask: 64 versions, first=0.1 last=3.1.3
+  sample dates: {'0.1': '2010-04-16T14:29:37', '1.1.1': '2019-07-08T18:00:28', '3.1.3': '2026-02-19T05:00:56'}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1206  redactions: none
+==============================================================================
+[seq 3] 2026-10-17T11:54:03+00:00
+$ python3 -c 
+import json, urllib.request, urllib.parse
+
+# P1c: SE API — can we fetch high-arrival questions with accepted answers?
+params = urllib.parse.urlencode({
+    'site': 'stackoverflow',
+    'sort': 'views',
+    'order': 'desc',
+    'pagesize': 5,
+    'filter': 'withbody',
+    'tagged': 'python',
+})
+url = 'https://api.stackexchange.com/2.3/questions?%s' % params
+req = urllib.request.Request(url, headers={'User-Agent': 'think-free-e179/1.0'})
+try:
+    with urllib.request.urlopen(req, timeout=30) as fh:
+        data = json.load(fh)
+    print('SE API: %d items, quota_remaining=%s' % (len(data.get('items',[])), data.get('quota_remaining')))
+    for it in data.get('items', [])[:3]:
+        print('  qid=%s views=%s accepted=%s title=%s' % (it['question_id'], it.get('view_count'), it.get('accepted_answer_id'), it['title'][:60]))
+except Exception as e:
+    print('SE API: FAILED %s' % e)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+SE API: FAILED HTTP Error 400: Bad Request
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1416  redactions: none
+==============================================================================
+[seq 4] 2026-10-17T11:54:04+00:00
+$ python3 -c 
+import json, urllib.request
+
+# P1b: NPM registry — version history with dates
+for pkg in ['react', 'moment', 'lodash']:
+    url = 'https://registry.npmjs.org/%s' % pkg
+    req = urllib.request.Request(url, headers={'User-Agent': 'think-free-e179/1.0'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as fh:
+            data = json.load(fh)
+        versions = data.get('versions', {})
+        times = data.get('time', {})
+        vlist = sorted(versions.keys())
+        sample = {}
+        for v in [vlist[0], vlist[len(vlist)//2], vlist[-1]]:
+            sample[v] = times.get(v, 'unknown')
+        print('NPM %s: %d versions, first=%s last=%s' % (pkg, len(vlist), vlist[0], vlist[-1]))
+        print('  sample dates: %s' % sample)
+    except Exception as e:
+        print('NPM %s: FAILED %s' % (pkg, e))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+NPM react: 2979 versions, first=0.0.0-00d4f95c2 last=19.3.1
+  sample dates: {'0.0.0-00d4f95c2': '2021-03-15T16:12:35.231Z', '0.0.0-experimental-fef12a01-20260413': '2026-04-13T16:40:59.232Z', '19.3.1': '2026-10-14T16:47:15.290Z'}
+NPM moment: 77 versions, first=1.0.0 last=2.9.0
+  sample dates: {'1.0.0': '2011-12-06T18:33:55.051Z', '2.19.2': '2017-11-11T20:34:47.676Z', '2.9.0': '2015-01-08T15:01:53.935Z'}
+NPM lodash: 117 versions, first=0.1.0 last=4.9.0
+  sample dates: {'0.1.0': '2012-04-23T16:37:12.603Z', '3.9.1': '2015-05-19T21:00:20.625Z', '4.9.0': '2016-04-08T15:22:34.228Z'}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2318  redactions: none
+==============================================================================
+[seq 5] 2026-10-17T11:54:19+00:00
+$ python3 -c 
+import json, urllib.request, urllib.parse
+
+# Debug SE API 400
+params = urllib.parse.urlencode({
+    'site': 'stackoverflow',
+    'sort': 'views',
+    'order': 'desc',
+    'pagesize': 3,
+    'tagged': 'python',
+})
+url = 'https://api.stackexchange.com/2.3/questions?%s' % params
+req = urllib.request.Request(url, headers={'User-Agent': 'think-free-e179/1.0'})
+try:
+    with urllib.request.urlopen(req, timeout=30) as fh:
+        data = json.load(fh)
+    print('OK: %d items' % len(data.get('items',[])))
+except urllib.error.HTTPError as e:
+    body = e.read().decode()
+    print('HTTP %s: %s' % (e.code, body[:500]))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+HTTP 400: {"error_id":400,"error_message":"sort","error_name":"bad_parameter"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 459  redactions: none
+==============================================================================
+[seq 6] 2026-10-17T11:54:44+00:00
+$ python3 -c 
+import json, urllib.request, urllib.parse
+
+params = urllib.parse.urlencode({
+    'site': 'stackoverflow',
+    'sort': 'votes',
+    'order': 'desc',
+    'pagesize': 5,
+    'tagged': 'python',
+})
+url = 'https://api.stackexchange.com/2.3/questions?%s' % params
+req = urllib.request.Request(url, headers={'User-Agent': 'think-free-e179/1.0'})
+try:
+    with urllib.request.urlopen(req, timeout=30) as fh:
+        data = json.load(fh)
+    print('OK: %d items, quota=%s' % (len(data.get('items',[])), data.get('quota_remaining')))
+    for it in data.get('items', [])[:3]:
+        print('  qid=%s views=%s votes=%s accepted=%s created=%s' % (it['question_id'], it.get('view_count'), it.get('score'), it.get('accepted_answer_id'), it.get('creation_date')))
+except urllib.error.HTTPError as e:
+    print('HTTP %s: %s' % (e.code, e.read().decode()[:300]))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+OK: 5 items, quota=297
+  qid=231767 views=3501304 votes=13135 accepted=231855 created=1224800471
+  qid=419163 views=5046476 votes=8444 accepted=419185 created=1231301460
+  qid=394809 views=3143613 votes=8128 accepted=394814 created=1230366738
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 882  redactions: none
+==============================================================================
+[seq 7] 2026-10-17T11:54:59+00:00
+$ python3 -c 
+import json, urllib.request, urllib.parse
+
+# C1: random-dependency detector on a real answer body
+# C2: version-agnostic old-answer detector
+import re
+
+# Simulated test: does the detector separate?
+# We'll test on 3 known cases after fetching them.
+print('Controls defined in PROTOCOL.md C1/C2/C3. Will test on fetched threads.')
+print('C1: random-dep detector must NOT produce stale positives at same rate')
+print('C2: version-agnostic old-answer detector must fire on many non-stale rows')
+print('C3: known-stale famous cases (py2.7, angularjs) must be detected')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Controls defined in PROTOCOL.md C1/C2/C3. Will test on fetched threads.
+C1: random-dep detector must NOT produce stale positives at same rate
+C2: version-agnostic old-answer detector must fire on many non-stale rows
+C3: known-stale famous cases (py2.7, angularjs) must be detected
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 398  redactions: none
+==============================================================================
+[seq 8] 2026-10-17T11:56:53+00:00
+$ python3 EXPERIMENTS/179-stale-accepted-answers/fetch_sample.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Fetching top-voted python questions...
+  got 100
+Fetching top-voted javascript questions...
+  got 100
+Fetching top-voted java questions...
+  got 100
+Candidates with accepted answer >3yr old: 268
+Fetching 268 accepted answer bodies...
+  got 268
+Rows with versioned dependencies: 51
+Wrote sample.json with 30 rows
+  qid=231767 views=3501304 versions=[('python', '3')]
+  qid=38987 views=3688867 versions=[('python', '3.9')]
+  qid=89228 views=5260485 versions=[('python', '3.4')]
+  qid=3294889 views=6187355 versions=[('python', '3'), ('python', '2')]
+  qid=6470428 views=1670589 versions=[('python', '2'), ('python', '2.6'), ('python', '3')]
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 53268  redactions: none
+==============================================================================
+[seq 9] 2026-10-17T11:57:07+00:00
+$ python3 -c 
+import json
+sample = json.load(open('EXPERIMENTS/179-stale-accepted-answers/sample.json'))
+print('Total rows: %d' % len(sample))
+print()
+for i, r in enumerate(sample):
+    versions = [(v['dependency'], v['version']) for v in r['versions']]
+    print('%2d. qid=%s views=%s votes=%s ans_score=%s created=%s' % (
+        i, r['qid'], r['views'], r['votes'], r['answer_score'], r['created']))
+    print('    title: %s' % r['title'][:80])
+    print('    versions: %s' % versions)
+    print('    excerpt: %s' % r['body_excerpt'][:120].replace(chr(10),' '))
+    print()
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Total rows: 30
+
+ 0. qid=231767 views=3501304 votes=13135 ans_score=18320 created=1224800471
+    title: What does the &quot;yield&quot; keyword do in Python?
+    versions: [('python', '3')]
+    excerpt: <p>To understand what <a href="https://docs.python.org/3/reference/simple_stmts.html#yield" rel="noreferrer"><code>yield
+
+ 1. qid=38987 views=3688867 votes=7127 ans_score=15 created=1220341470
+    title: How do I merge two dictionaries in a single expression in Python?
+    versions: [('python', '3.9')]
+    excerpt: <p><strong>Python 3.9+ only</strong></p>  <p>Merge (|) and update (|=) operators have been added to the built-in <code>d
+
+ 2. qid=89228 views=5260485 votes=6297 ans_score=5978 created=1221701730
+    title: How do I execute a program or call a system command?
+    versions: [('python', '3.4')]
+    excerpt: <p>Use <a href="https://docs.python.org/library/subprocess.html#subprocess.run" rel="noreferrer"><code>subprocess.run</c
+
+ 3. qid=3294889 views=6187355 votes=4430 ans_score=7030 created=1279664862
+    title: Iterating over a dictionary using a &#39;for&#39; loop, getting keys
+    versions: [('python', '3'), ('python', '2')]
+    excerpt: <p><code>key</code> is just a variable name.  </p>  <pre><code>for key in d: </code></pre>  <p>will simply loop over the
+
+ 4. qid=6470428 views=1670589 votes=3967 ans_score=5289 created=1308930908
+    title: How can I catch multiple exceptions in one line? (in the &quot;except&quot; bloc
+    versions: [('python', '2'), ('python', '2.6'), ('python', '3')]
+    excerpt: <p>From <a href="https://docs.python.org/3/tutorial/errors.html#handling-exceptions" rel="noreferrer">Python Documentati
+
+ 5. qid=448271 views=2809625 votes=3946 ans_score=2117 created=1232050149
+    title: What is __init__.py for?
+    versions: [('python', '3.2')]
+    excerpt: <p>It used to be a required part of a package (<a href="https://docs.python.org/3/reference/import.html#regular-packages
+
+ 6. qid=6996603 views=4066070 votes=3555 ans_score=5064 created=1312895142
+    title: How can I delete a file or folder in Python?
+    versions: [('python', '3.3')]
+    excerpt: <p>Use one of these methods:</p> <ul> <li><p><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.unlink
+
+ 7. qid=36901 views=1562271 votes=3503 ans_score=3351 created=1220195075
+    title: What does ** (double star/asterisk) and * (star/asterisk) do for parameters?
+    versions: [('python', '3'), ('python', '3.6'), ('python', '3.7')]
+    excerpt: <p>The <code>*args</code> and <code>**kwargs</code> are common idioms to allow an arbitrary number of arguments to funct
+
+ 8. qid=613183 views=5851624 votes=3413 ans_score=7100 created=1236214145
+    title: How do I sort a dictionary by value?
+    versions: [('python', '3.7')]
+    excerpt: <h3>Python 3.7+ or CPython 3.6</h3> <p>Dicts preserve insertion order in Python 3.7+. Same in CPython 3.6, but <a href="
+
+ 9. qid=2612802 views=2306594 votes=3371 ans_score=4159 created=1270889386
+    title: How do I clone a list so that it doesn&#39;t change unexpectedly after assignmen
+    versions: [('python', '3.3')]
+    excerpt: <p><code>new_list = my_list</code> doesn't actually create a second list. The assignment just copies the reference to th
+
+10. qid=2052390 views=3385196 votes=3323 ans_score=4330 created=1263330460
+    title: Manually raising (throwing) an exception in Python
+    versions: [('python', '2.5'), ('python', '2'), ('python', '3')]
+    excerpt: <blockquote> <h2>How do I manually throw/raise an exception in Python?</h2> </blockquote> <p><a href="https://docs.pytho
+
+11. qid=576169 views=2986956 votes=3301 ans_score=2384 created=1235349008
+    title: Understanding Python super() with __init__() methods
+    versions: [('python', '3.0')]
+    excerpt: <p><code>super()</code> lets you avoid referring to the base class explicitly, which can be nice. But the main advantage
+
+12. qid=312443 views=1798613 votes=3182 ans_score=4507 created=1227442552
+    title: How do I split a list into equally-sized chunks?
+    versions: [('python', '2'), ('python', '3')]
+    excerpt: <p>Here's a generator that yields evenly-sized chunks:</p> <pre><code>def chunks(lst, n):     &quot;&quot;&quot;Yield su
+
+13. qid=30081275 views=386210 votes=3069 ans_score=3130 created=1430926363
+    title: Why is &quot;1000000000000000 in range(1000000000000001)&quot; so fast in Python
+    versions: [('python', '3')]
+    excerpt: <p>The Python 3 <code>range()</code> object doesn't produce numbers immediately; it is a smart <a href="https://docs.pyt
+
+14. qid=466345 views=4735665 votes=3005 ans_score=4471 created=1232560829
+    title: Convert string &quot;Jun 1 2005 1:33PM&quot; into datetime
+    versions: [('python', '2'), ('python', '3')]
+    excerpt: <p><a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime" rel="noreferrer"><code>datetime.
+
+15. qid=4750806 views=3608479 votes=2778 ans_score=1967 created=1295546939
+    title: How do I install pip on Windows?
+    versions: [('python', '3.4'), ('python', '2.7.9'), ('python', '3'), ('python', '2.7')]
+    excerpt: <h2>Python 3.4+ and 2.7.9+</h2> <p>Good news! <a href="https://docs.python.org/3/whatsnew/3.4.html" rel="noreferrer">Pyt
+
+16. qid=493386 views=2692986 votes=2534 ans_score=3436 created=1233262705
+    title: How to print without a newline or space
+    versions: [('python', '3'), ('python', '2.6'), ('python', '2')]
+    excerpt: <p>In Python 3, you can use the <code>sep=</code> and <code>end=</code> parameters of the <a href="https://docs.python.o
+
+17. qid=306400 views=2497195 votes=2446 ans_score=3548 created=1227206541
+    title: How can I randomly select (choose) an item from a list (get a random element)?
+    versions: [('python', '3.6')]
+    excerpt: <p>Use <a href="https://docs.python.org/library/random.html#random.choice" rel="noreferrer"><code>random.choice()</code>
+
+18. qid=41573587 views=779649 votes=2273 ans_score=2471 created=1484065663
+    title: What is the difference between venv, pyvenv, pyenv, virtualenv, virtualenvwrappe
+    versions: [('python', '2'), ('python', '2.7'), ('python', '3.3'), ('python', '3.8'), ('python', '3')]
+    excerpt: <p><strong>This is my personal recommendation for beginners:</strong> start by learning <a href="https://pypi.org/projec
+
+19. qid=339007 views=1744552 votes=2266 ans_score=3523 created=1228343991
+    title: How do I pad a string with zeros?
+    versions: [('python', '3')]
+    excerpt: <p>To pad strings:</p> <pre><code>&gt;&gt;&gt; print('4'.zfill(3)) 004 &gt;&gt;&gt; print('-4'.zfill(3)) -04 </code></pr
+
+20. qid=9573244 views=3567837 votes=2230 ans_score=3171 created=1330978163
+    title: How to check if the string is empty in Python?
+    versions: [('python', '2'), ('python', '3')]
+    excerpt: <p>Empty strings are &quot;falsy&quot; (<a href="http://docs.python.org/2/library/stdtypes.html#truth-value-testing" rel
+
+21. qid=510972 views=1702866 votes=2039 ans_score=2644 created=1233747468
+    title: Getting the class name of an instance
+    versions: [('python', '2'), ('python', '3')]
+    excerpt: <p>Have you tried the <a href="https://docs.python.org/library/stdtypes.html#definition.__name__" rel="noreferrer"><code
+
+22. qid=152580 views=1762775 votes=2023 ans_score=2365 created=1222772410
+    title: What&#39;s the canonical way to check for type in Python?
+    versions: [('python', '2'), ('python', '3')]
+    excerpt: <p>Use <a href="https://docs.python.org/library/functions.html#isinstance" rel="noreferrer"><code>isinstance</code></a> 
+
+23. qid=1319615 views=1396687 votes=1975 ans_score=2075 created=1251062969
+    title: How do I declare custom exceptions in modern Python?
+    versions: [('python', '2')]
+    excerpt: <p>Maybe I missed the question, but why not:</p> <pre class="lang-py prettyprint-override"><code>class MyException(Excep
+
+24. qid=14132789 views=786113 votes=1906 ans_score=2438 created=1357185040
+    title: How to resolve the Python error &#39;attempted relative import&#39;
+    versions: [('python', '2.6')]
+    excerpt: <p><strong>Script vs. Module</strong></p> <p>Here's an explanation.  The short version is that there is a big difference
+
+25. qid=12309269 views=3214113 votes=1887 ans_score=3358 created=1346970081
+    title: How do I write JSON data to a file?
+    versions: [('python', '2'), ('python', '3')]
+    excerpt: <p><code>data</code> is a Python dictionary. It needs to be encoded as JSON before writing.</p> <p>Use this for maximum 
+
+26. qid=1534210 views=2586257 votes=1885 ans_score=2069 created=1254949882
+    title: Use a different Python version with virtualenv
+    versions: [('python', '3.3')]
+    excerpt: <p><strong>NOTE:</strong> For <strong>Python 3.3+</strong>, see <a href="https://stackoverflow.com/a/39713544/1450294">T
+
+27. qid=14220321 views=2187765 votes=6744 ans_score=6660 created=1357664774
+    title: How do I return the response from an asynchronous call?
+    versions: [('node', '7')]
+    excerpt: <blockquote> <p><em>→ For a more general explanation of asynchronous behaviour with different examples, see</em> <a href
+
+28. qid=951021 views=5413531 votes=3982 ans_score=5709 created=1244126470
+    title: What is the JavaScript version of sleep()?
+    versions: [('node', '7')]
+    excerpt: <h2>2017 — 2021 update</h2> <p>Since 2009 when this question was asked, JavaScript has evolved significantly. All other 
+
+29. qid=4351521 views=1981285 votes=3147 ans_score=3782 created=1291427806
+    title: How do I pass command line arguments to a Node.js program and receive them?
+    versions: [('node', '1')]
+    excerpt: <h1>Standard Method (no library)</h1>  <p>The arguments are stored in <code>process.argv</code></p>  <p>Here are <a href
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 101  redactions: none
+==============================================================================
+[seq 10] 2026-10-17T11:57:21+00:00
+$ python3 -c 
+import json
+sample = json.load(open('EXPERIMENTS/179-stale-accepted-answers/sample.json'))
+for i, r in enumerate(sample[29:], 29):
+    versions = [(v['dependency'], v['version']) for v in r['versions']]
+    print('%2d. qid=%s views=%s votes=%s ans_score=%s created=%s' % (
+        i, r['qid'], r['views'], r['votes'], r['answer_score'], r['created']))
+    print('    title: %s' % r['title'][:80])
+    print('    versions: %s' % versions)
+    print('    excerpt: %s' % r['body_excerpt'][:120].replace(chr(10),' '))
+    print()
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+29. qid=4351521 views=1981285 votes=3147 ans_score=3782 created=1291427806
+    title: How do I pass command line arguments to a Node.js program and receive them?
+    versions: [('node', '1')]
+    excerpt: <h1>Standard Method (no library)</h1>  <p>The arguments are stored in <code>process.argv</code></p>  <p>Here are <a href
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 115  redactions: none
+==============================================================================
+[seq 11] 2026-10-17T11:58:45+00:00
+$ python3 EXPERIMENTS/179-stale-accepted-answers/detect.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Detector results: 7 of 30 flagged as stale-candidates
+
+  qid=6470428 views=1670589 score=5289
+    title: How can I catch multiple exceptions in one line? (in the &quot;except&
+    versions: [('python', '2'), ('python', '2.6'), ('python', '3')]
+    reasons: ['python2_eol: answer teaches Python 2 (EOL 2020-01-01)']
+
+  qid=312443 views=1798613 score=4507
+    title: How do I split a list into equally-sized chunks?
+    versions: [('python', '2'), ('python', '3')]
+    reasons: ['python2_eol: answer teaches Python 2 (EOL 2020-01-01)']
+
+  qid=41573587 views=779649 score=2471
+    title: What is the difference between venv, pyvenv, pyenv, virtualenv, virtua
+    versions: [('python', '2'), ('python', '2.7'), ('python', '3.3'), ('python', '3.8'), ('python', '3')]
+    reasons: ['python2_eol: answer teaches Python 2 (EOL 2020-01-01)']
+
+  qid=510972 views=1702866 score=2644
+    title: Getting the class name of an instance
+    versions: [('python', '2'), ('python', '3')]
+    reasons: ['python2_eol: answer teaches Python 2 (EOL 2020-01-01)']
+
+  qid=14220321 views=2187765 score=6660
+    title: How do I return the response from an asynchronous call?
+    versions: [('node', '7')]
+    reasons: ['node_eol: answer teaches Node.js < 18 (EOL)', 'major_bump: node 7 -> major 8 exists']
+
+  qid=951021 views=5413531 score=5709
+    title: What is the JavaScript version of sleep()?
+    versions: [('node', '7')]
+    reasons: ['node_eol: answer teaches Node.js < 18 (EOL)', 'major_bump: node 7 -> major 8 exists']
+
+  qid=4351521 views=1981285 score=3782
+    title: How do I pass command line arguments to a Node.js program and receive 
+    versions: [('node', '1')]
+    reasons: ['node_eol: answer teaches Node.js < 18 (EOL)', 'major_bump: node 1 -> major 4 exists']
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6887  redactions: none
+==============================================================================
+[seq 12] 2026-10-17T11:58:59+00:00
+$ python3 -c 
+import json, re
+
+# Manual verification: read the actual answer bodies for the 7 flagged rows
+# and check if they're REALLY stale (teach old version as primary solution)
+# or just mention old versions in passing.
+
+# First, let's get the full answer bodies from the raw SE data
+raw = [json.loads(l) for l in open('EXPERIMENTS/179-stale-accepted-answers/raw/se.jsonl')]
+
+# Build a map of answer_id -> body
+answers = {}
+for rec in raw:
+    for item in rec['body'].get('items', []):
+        if 'body' in item and 'answer_id' in item:
+            answers[item['answer_id']] = item['body']
+
+flagged_qids = [6470428, 312443, 41573587, 510972, 14220321, 951021, 4351521]
+sample = json.load(open('EXPERIMENTS/179-stale-accepted-answers/sample.json'))
+
+for row in sample:
+    if row['qid'] in flagged_qids:
+        aid = row['aid']
+        body = answers.get(aid, 'NOT FOUND')
+        # Strip HTML tags for readability
+        text = re.sub(r'<[^>]+>', ' ', body)
+        text = re.sub(r'\s+', ' ', text).strip()
+        print('=== qid=%s aid=%s ===' % (row['qid'], aid))
+        print('title: %s' % row['title'][:80])
+        print('versions: %s' % [(v['dependency'], v['version']) for v in row['versions']])
+        print('body (first 800 chars): %s' % text[:800])
+        print()
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== qid=6470428 aid=6470452 ===
+title: How can I catch multiple exceptions in one line? (in the &quot;except&quot; bloc
+versions: [('python', '2'), ('python', '2.6'), ('python', '3')]
+body (first 800 chars): From Python Documentation : An except clause may name multiple exceptions as a parenthesized tuple, for example except (IDontLikeYouException, YouAreBeingMeanException) as e: pass Or, for Python 2 only: except (IDontLikeYouException, YouAreBeingMeanException), e: pass Separating the exception from the variable with a comma will still work in Python 2.6 and 2.7, but is now deprecated and does not work in Python 3; now you should be using as , as defined in [PEP-3110]( https://peps.python.org/pep-3110/ )
+
+=== qid=312443 aid=312464 ===
+title: How do I split a list into equally-sized chunks?
+versions: [('python', '2'), ('python', '3')]
+body (first 800 chars): Here's a generator that yields evenly-sized chunks: def chunks(lst, n): &quot;&quot;&quot;Yield successive n-sized chunks from lst.&quot;&quot;&quot; for i in range(0, len(lst), n): yield lst[i:i + n] import pprint pprint.pprint(list(chunks(range(10, 75), 10))) [[10, 11, 12, 13, 14, 15, 16, 17, 18, 19], [20, 21, 22, 23, 24, 25, 26, 27, 28, 29], [30, 31, 32, 33, 34, 35, 36, 37, 38, 39], [40, 41, 42, 43, 44, 45, 46, 47, 48, 49], [50, 51, 52, 53, 54, 55, 56, 57, 58, 59], [60, 61, 62, 63, 64, 65, 66, 67, 68, 69], [70, 71, 72, 73, 74]] For Python 2, using xrange instead of range : def chunks(lst, n): &quot;&quot;&quot;Yield successive n-sized chunks from lst.&quot;&quot;&quot; for i in xrange(0, len(lst), n): yield lst[i:i + n] Below is a list comprehension one-liner. The method above is prefer
+
+=== qid=41573587 aid=41573588 ===
+title: What is the difference between venv, pyvenv, pyenv, virtualenv, virtualenvwrappe
+versions: [('python', '2'), ('python', '2.7'), ('python', '3.3'), ('python', '3.8'), ('python', '3')]
+body (first 800 chars): This is my personal recommendation for beginners: start by learning virtualenv and pip , tools which work with both Python 2 and 3 and in a variety of situations, and pick up other tools once you start needing them. Now on to answer the question: what is the difference between these similarly named things: venv, virtualenv, etc? PyPI packages not in the standard library: virtualenv is a very popular tool that creates isolated Python environments for Python libraries. If you're not familiar with this tool, I highly recommend learning it, as it is a very useful tool. It works by installing a bunch of files in a directory (eg: env/ ), and then modifying the PATH environment variable to prefix it with a custom bin directory (eg: env/bin/ ). An exact copy of the python or python3 binary is plac
+
+=== qid=510972 aid=511059 ===
+title: Getting the class name of an instance
+versions: [('python', '2'), ('python', '3')]
+body (first 800 chars): Have you tried the __name__ attribute of the class? ie type(x).__name__ will give you the name of the class, which I think is what you want. &gt;&gt;&gt; import itertools &gt;&gt;&gt; x = itertools.count(0) &gt;&gt;&gt; type(x).__name__ 'count' If you're still using Python 2, note that the above method works with new-style classes only (in Python 3+ all classes are "new-style" classes). Your code might use some old-style classes. The following works for both: x.__class__.__name__
+
+=== qid=14220321 aid=14220323 ===
+title: How do I return the response from an asynchronous call?
+versions: [('node', '7')]
+body (first 800 chars): → For a more general explanation of asynchronous behaviour with different examples, see Why is my variable unaltered after I modify it inside of a function? - Asynchronous code reference → If you already understand the problem, skip to the possible solutions below. The problem The A in Ajax stands for asynchronous . That means sending the request (or rather receiving the response) is taken out of the normal execution flow. In your example, $.ajax returns immediately and the next statement, return result; , is executed before the function you passed as success callback was even called. Here is an analogy which hopefully makes the difference between synchronous and asynchronous flow clearer: Synchronous Imagine you make a phone call to a friend and ask him to look something up for you. Altho
+
+=== qid=951021 aid=39914235 ===
+title: What is the JavaScript version of sleep()?
+versions: [('node', '7')]
+body (first 800 chars): 2017 — 2021 update Since 2009 when this question was asked, JavaScript has evolved significantly. All other answers are now obsolete or overly complicated. Here is the current best practice: function sleep(ms) { return new Promise(resolve =&gt; setTimeout(resolve, ms)); } Or as a one-liner: await new Promise(r =&gt; setTimeout(r, 2000)); As a function: const sleep = ms =&gt; new Promise(r =&gt; setTimeout(r, ms)); or in Typescript: const sleep = (ms: number) =&gt; new Promise((r) =&gt; setTimeout(r, ms)); use it as: await sleep(&lt;duration&gt;); Demo: function sleep(ms) { return new Promise(resolve =&gt; setTimeout(resolve, ms)); } async function demo() { for (let i = 0; i &lt; 5; i++) { console.log(`Waiting ${i} seconds...`); await sleep(i * 1000); } console.log('Done'); } demo(); Note t
+
+=== qid=4351521 aid=4351548 ===
+title: How do I pass command line arguments to a Node.js program and receive them?
+versions: [('node', '1')]
+body (first 800 chars): Standard Method (no library) The arguments are stored in process.argv Here are the node docs on handling command line args: process.argv is an array containing the command line arguments. The first element will be 'node', the second element will be the name of the JavaScript file. The next elements will be any additional command line arguments. // print process.argv process.argv.forEach(function (val, index, array) { console.log(index + ': ' + val); }); This will generate: $ node process-2.js one two=three four 0: node 1: /Users/mjr/work/node/process-2.js 2: one 3: two=three 4: four
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 112  redactions: none
+==============================================================================
+[seq 13] 2026-10-17T11:59:33+00:00
+$ python3 -c 
+import json, re
+
+# Deeper verification: for each flagged row, check if the answer is ACTUALLY stale
+# by looking at whether it teaches the old version as the PRIMARY solution
+# or just mentions it in passing.
+
+# Also check: does the thread have visible staleness signals?
+# (comments saying 'no longer works', negative score, newer answer)
+
+# Let's fetch comments for the 7 flagged rows
+import urllib.request, urllib.parse, time
+
+SE = 'https://api.stackexchange.com/2.3'
+UA = 'think-free-e179/1.0'
+
+def se(path, params):
+    url = '%s/%s?%s' % (SE, path, urllib.parse.urlencode(params))
+    req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept': 'application/json'})
+    with urllib.request.urlopen(req, timeout=90) as fh:
+        return json.load(fh)
+
+flagged = [6470428, 312443, 41573587, 510972, 14220321, 951021, 4351521]
+
+for qid in flagged:
+    # Fetch question comments
+    qcom = se('questions/%s/comments' % qid, {'site': 'stackoverflow', 'filter': 'withbody'})
+    # Fetch answer comments
+    sample = json.load(open('EXPERIMENTS/179-stale-accepted-answers/sample.json'))
+    row = [r for r in sample if r['qid'] == qid][0]
+    aid = row['aid']
+    acom = se('answers/%s/comments' % aid, {'site': 'stackoverflow', 'filter': 'withbody'})
+    
+    print('=== qid=%s ===' % qid)
+    print('  question comments: %d' % len(qcom.get('items', [])))
+    for c in qcom.get('items', [])[:3]:
+        text = re.sub(r'<[^>]+>', ' ', c.get('body', ''))
+        text = re.sub(r'\s+', ' ', text).strip()
+        print('    Q: %s' % text[:100])
+    print('  answer comments: %d' % len(acom.get('items', [])))
+    for c in acom.get('items', [])[:3]:
+        text = re.sub(r'<[^>]+>', ' ', c.get('body', ''))
+        text = re.sub(r'\s+', ' ', text).strip()
+        print('    A: %s' % text[:100])
+    print()
+    time.sleep(1.3)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== qid=6470428 ===
+  question comments: 2
+    Q: This seems to be the canonical question. Shouldn&#39;t an answer mention PEP 3110 ? It is mentioned 
+    Q: Note that in Python 3, the latter is no longer valid syntax.
+  answer comments: 10
+    A: @BallpointBen try: print(type((&#39;foo&#39;, &#39;bar&#39;))) , should give you tuple . BTW: This i
+    A: @ChrisNorris: or is tricky. In that example IndexError wouldn&#39;t be tied to anything so it would 
+    A: So why doesn&#39;t (except ValueError OR IndexError:) work? This is what I originally tried, but it 
+
+=== qid=312443 ===
+  question comments: 1
+    Q: This question has a pretty official answer from Python core developer Raymond Hettinger, which refer
+  answer comments: 5
+    A: Chunking has been added as itertools.batched(iterable, chunk_size) now in Python 3.12, see more here
+    A: @NedBatchelder islice() needs a bit of boilerplate to setup a generator out of an iterator, but look
+    A: @ankostis islice does something different: it produces one slice of the iterator.
+
+=== qid=41573587 ===
+  question comments: 13
+    Q: Consider trying uv package manager, some useful commands: uv init hello to create project named &quo
+    Q: What about uv ? It&#39;s (in part) made to be a replacement for pyenv and virtualenv .
+    Q: I use conda whenever possible, because it offers a much smaller &quot;confusion surface&quot;, i.e.,
+  answer comments: 19
+    A: uv missing for completeness, isn&#39;t it?
+    A: @Flimm oic! In MacOS the only way I found is conda-pack
+    A: @Jacky It depends on the operating system. I&#39;m pretty sure that on Windows, virtualenv does plac
+
+=== qid=510972 ===
+  question comments: 2
+    Q: the top-level name of the class that the instance belongs to (without module name, etc...)
+    Q: What exactly are you &#39;parsing&#39; from the class variable?
+  answer comments: 12
+    A: @cfi Some of these are not reported by the dir() built-in function. without explanation why.
+    A: getattr(model_type, &quot;__name__&quot;) easy and safe to call. No need to potentially call missing
+    A: @Bobort I remember reading somewhere that, for efficiency, dunder attributes don&#39;t work with cus
+
+=== qid=14220321 ===
+  question comments: 4
+    Q: Promises provide a cleaner and more structured way to deal with asynchronous operations. You can cre
+    Q: @Liam: It&#39;s just an example for an asynchronous function that accepts a callback.
+    Q: @SunilKumar I don&#39;t think this is useful. OP made this question and self-answer to document how 
+  answer comments: 17
+    A: That part of the answer seems to be misunderstood. $.getJSON does not allow synchronous requests, bu
+    A: I think you did not express a part well enough to ask
+    A: only used to make changes to the DOM, it doesn&#39;t need to set a value to be returned from the fun
+
+=== qid=951021 ===
+  question comments: 13
+    Q: @OlegV.Volkov Why wouldn&#39;t you let the developers do that?
+    Q: Your code is doing what&#39;s called a spinwait (or polling), which involves spinning in a tight loo
+    Q: Note: Since Node 16 you can simply import { setTimeout } from &#39;timers&#47;promises&#39; and awai
+  answer comments: 30
+    A: If you need more advanced controls like pausing and unpausing (resuming) the same timer, you should 
+    A: @MarkJohnson, hello, I found this: &quot;It&#39;s worth noting that the pool of IDs used by setInter
+    A: @user3394963 I&#39;m curious about your issue. I can&#39;t seem to reproduce it. Also why clearInter
+
+=== qid=4351521 ===
+  question comments: 2
+    Q: And here&#39;s configvention , my own, minimal, readonly interface for nconf.
+    Q: It&#39;s probably a good idea to manage your configuration in a centralized manner using something l
+  answer comments: 6
+    A: this is working fine
+    A: 2023, new to the node runtime, have to walk through these answers, many claiming to be &#39;the new 
+    A: For some reason that code did not output anything in TypeScript with tsx. The arguments are there th
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 14423  redactions: none
+==============================================================================
+[seq 14] 2026-10-17T12:00:23+00:00
+$ python3 -c 
+import json, re
+
+raw = [json.loads(l) for l in open('EXPERIMENTS/179-stale-accepted-answers/raw/se.jsonl')]
+answers = {}
+for rec in raw:
+    for item in rec['body'].get('items', []):
+        if 'body' in item and 'answer_id' in item:
+            answers[item['answer_id']] = item['body']
+
+# Full bodies for the 3 Node.js rows (most likely to be truly stale)
+for aid in [14220323, 39914235, 4351548]:
+    body = answers.get(aid, 'NOT FOUND')
+    text = re.sub(r'<[^>]+>', ' ', body)
+    text = re.sub(r'\s+', ' ', text).strip()
+    print('=== aid=%s ===' % aid)
+    print(text[:1500])
+    print()
+    print('...')
+    print()
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== aid=14220323 ===
+→ For a more general explanation of asynchronous behaviour with different examples, see Why is my variable unaltered after I modify it inside of a function? - Asynchronous code reference → If you already understand the problem, skip to the possible solutions below. The problem The A in Ajax stands for asynchronous . That means sending the request (or rather receiving the response) is taken out of the normal execution flow. In your example, $.ajax returns immediately and the next statement, return result; , is executed before the function you passed as success callback was even called. Here is an analogy which hopefully makes the difference between synchronous and asynchronous flow clearer: Synchronous Imagine you make a phone call to a friend and ask him to look something up for you. Although it might take a while, you wait on the phone and stare into space, until your friend gives you the answer that you needed. The same is happening when you make a function call containing &quot;normal&quot; code: function findItem() { var item; while(item_not_found) { // search } return item; } var item = findItem(); // Do something with item doSomethingElse(); Even though findItem might take a long time to execute, any code coming after var item = findItem(); has to wait until the function returns the result. Asynchronous You call your friend again for the same reason. But this time you tell him that you are in a hurry and he should call you back on your mobile phone. You hang up, leave t
+
+...
+
+=== aid=39914235 ===
+2017 — 2021 update Since 2009 when this question was asked, JavaScript has evolved significantly. All other answers are now obsolete or overly complicated. Here is the current best practice: function sleep(ms) { return new Promise(resolve =&gt; setTimeout(resolve, ms)); } Or as a one-liner: await new Promise(r =&gt; setTimeout(r, 2000)); As a function: const sleep = ms =&gt; new Promise(r =&gt; setTimeout(r, ms)); or in Typescript: const sleep = (ms: number) =&gt; new Promise((r) =&gt; setTimeout(r, ms)); use it as: await sleep(&lt;duration&gt;); Demo: function sleep(ms) { return new Promise(resolve =&gt; setTimeout(resolve, ms)); } async function demo() { for (let i = 0; i &lt; 5; i++) { console.log(`Waiting ${i} seconds...`); await sleep(i * 1000); } console.log('Done'); } demo(); Note that, await can only be executed in functions prefixed with the async keyword, or at the top level of your script in an increasing number of environments . await only pauses the current async function. This means it does not block the execution of the rest of the script, which is what you want in the vast majority of the cases. If you do want a blocking construct, see this answer using Atomics .wait , but note that most browsers will not allow it on the browser's main thread. Two new JavaScript features (as of 2017) helped write this &quot;sleep&quot; function: Promises, a native feature of ES2015 (aka ES6). We also use arrow functions in the definition of the sleep function. The async/await 
+
+...
+
+=== aid=4351548 ===
+Standard Method (no library) The arguments are stored in process.argv Here are the node docs on handling command line args: process.argv is an array containing the command line arguments. The first element will be 'node', the second element will be the name of the JavaScript file. The next elements will be any additional command line arguments. // print process.argv process.argv.forEach(function (val, index, array) { console.log(index + ': ' + val); }); This will generate: $ node process-2.js one two=three four 0: node 1: /Users/mjr/work/node/process-2.js 2: one 3: two=three 4: four
+
+...
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 288  redactions: none
+==============================================================================
+[seq 15] 2026-10-17T12:02:19+00:00
+$ python3 -c 
+import json
+
+# Summary of manual verification
+verification = [
+    {'qid': 6470428, 'verdict': 'NOT STALE', 'reason': 'Teaches Python 3 as primary; mentions Python 2 comma syntax as historical note with explicit warning'},
+    {'qid': 312443, 'verdict': 'NOT STALE', 'reason': 'Teaches range() (works in all versions); xrange mentioned as Python 2 alternative only'},
+    {'qid': 41573587, 'verdict': 'NOT STALE', 'reason': 'About tooling that works with both Python 2 and 3; comments mention modern uv tool'},
+    {'qid': 510972, 'verdict': 'NOT STALE', 'reason': 'Passing mention of Python 2; primary solution uses type(x).__name__ which works everywhere'},
+    {'qid': 14220321, 'verdict': 'NOT STALE', 'reason': 'Teaches async callback concept (still valid); uses dated jQuery examples but pattern is current'},
+    {'qid': 951021, 'verdict': 'NOT STALE', 'reason': 'Answer updated 2017-2021; teaches Promises/async-await (current best practice)'},
+    {'qid': 4351521, 'verdict': 'NOT STALE', 'reason': 'Teaches process.argv which works identically in Node 18+; comment confirms still valid in 2023'},
+]
+
+print('Manual verification of 7 detector positives:')
+print()
+for v in verification:
+    print('  qid=%s: %s' % (v['qid'], v['verdict']))
+    print('    %s' % v['reason'])
+    print()
+
+stale = [v for v in verification if v['verdict'] == 'STALE']
+print('True positives: %d / 7 = %.3f' % (len(stale), len(stale)/7))
+print()
+print('G2 (precision >= 0.70): FIRED — precision is 0.000')
+print('G1 (prevalence >= 10%%): FIRED — 0 confirmed-stale out of 30 rows')
+print('G3: moot — no confirmed-stale rows to check')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Manual verification of 7 detector positives:
+
+  qid=6470428: NOT STALE
+    Teaches Python 3 as primary; mentions Python 2 comma syntax as historical note with explicit warning
+
+  qid=312443: NOT STALE
+    Teaches range() (works in all versions); xrange mentioned as Python 2 alternative only
+
+  qid=41573587: NOT STALE
+    About tooling that works with both Python 2 and 3; comments mention modern uv tool
+
+  qid=510972: NOT STALE
+    Passing mention of Python 2; primary solution uses type(x).__name__ which works everywhere
+
+  qid=14220321: NOT STALE
+    Teaches async callback concept (still valid); uses dated jQuery examples but pattern is current
+
+  qid=951021: NOT STALE
+    Answer updated 2017-2021; teaches Promises/async-await (current best practice)
+
+  qid=4351521: NOT STALE
+    Teaches process.argv which works identically in Node 18+; comment confirms still valid in 2023
+
+True positives: 0 / 7 = 0.000
+
+G2 (precision >= 0.70): FIRED — precision is 0.000
+G1 (prevalence >= 10%%): FIRED — 0 confirmed-stale out of 30 rows
+G3: moot — no confirmed-stale rows to check
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 105  redactions: none

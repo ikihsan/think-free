@@ -1,0 +1,982 @@
+{
+  "experiment": "E115",
+  "platform": "Go packages (pkg.go.dev)",
+  "collected_at": "2026-10-12T09:43:04Z",
+  "need_related_count": 30,
+  "random_count": 109,
+  "packages": [
+    {
+      "name": "github.com/sethgrid/pester",
+      "description": "Current limitations: - GSS-API authentication is not supported - only SOCKS version 5 is supported - TCP bind and UDP not yet supported Example http client over SOCKS5: proxy := &amp;socks.Proxy{&#34;127.0.0.1:1080&#34;} tr := &amp;http.Transport{ Dial: proxy.Dial, } client := &amp;http.Client{Transport: tr} resp, err := client.Get(&#34;https://example.com&#34;)",
+      "imported_by": 313,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "trpc.group/trpc-go/trpc-go/http",
+      "description": "Kapacitor HTTP API client written in Go",
+      "imported_by": 185,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/mrz1836/go-cache",
+      "description": "Identity Directory implementation with tiered caching, using Redis.",
+      "imported_by": 11,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "github.com/natefinch/lumberjack",
+      "description": "`grpc_zap` is a gRPC logging middleware backed by ZAP loggers",
+      "imported_by": 2319,
+      "classification": "need-related",
+      "source_query": "logger logging"
+    },
+    {
+      "name": "github.com/mreiferson/go-options",
+      "description": "options resolves configuration values set via command line flags, config files, and default struct values",
+      "imported_by": 586,
+      "classification": "need-related",
+      "source_query": "config settings"
+    },
+    {
+      "name": "github.com/chef/automate/lib/platform/command",
+      "description": "List of mocks used for testing",
+      "imported_by": 18,
+      "classification": "need-related",
+      "source_query": "test mock"
+    },
+    {
+      "name": "github.com/quix-labs/thunder",
+      "description": "The purpose of the fleet search api is to provide a search api where the search will only be executed after provided checkpoint has been processed and is visible for searches inside of Elasticsearch.",
+      "imported_by": 9,
+      "classification": "need-related",
+      "source_query": "search elasticsearch"
+    },
+    {
+      "name": "github.com/golaboratory/gloudia/realtime",
+      "description": "realtime-text-audio opens an OpenAI Realtime WebSocket session, sends a text prompt, then drains the bidirectional event stream: response text deltas print to stdout, response audio deltas (PCM16) are concatenated and written to OUT_PATH for later playback.",
+      "imported_by": 0,
+      "classification": "need-related",
+      "source_query": "websocket realtime"
+    },
+    {
+      "name": "github.com/Ovi1kanobe/appkit/realtime",
+      "description": "Example: OpenAI Realtime API WebSocket session.",
+      "imported_by": 0,
+      "classification": "need-related",
+      "source_query": "websocket realtime"
+    },
+    {
+      "name": "github.com/lowcoai/lowco-sdk/go/flux",
+      "description": "Command realtime is Orvexa&#39;s WebSocket gateway: authenticated upgrades, bus subscription and per-tenant/per-agent fan-out with connection caps.",
+      "imported_by": 0,
+      "classification": "need-related",
+      "source_query": "websocket realtime"
+    },
+    {
+      "name": "github.com/rancher/wrangler/v3/pkg/schemas/validation",
+      "description": "Network manifest schema types and validation.",
+      "imported_by": 48,
+      "classification": "need-related",
+      "source_query": "validate schema"
+    },
+    {
+      "name": "github.com/ChristopherDavenport/agenttool",
+      "description": "schema/options.go",
+      "imported_by": 13,
+      "classification": "need-related",
+      "source_query": "validate schema"
+    },
+    {
+      "name": "github.com/antonholmquist/jason",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 247,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "github.com/aimof/jason",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 2,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "github.com/inhuman/jason",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 1,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "gopkg.in/antonholmquist/jason.v1",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 2,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "github.com/jason-xxl/rpc/json",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 0,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "github.com/deepch/jason",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 0,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "github.com/Antonholmquist/jason",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 0,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "github.com/chenjie4255/jason",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 0,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "github.com/ibmendoza/jason",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 0,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "github.com/AntonHolmquist/jason",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 0,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "github.com/3dsinteractive/jason",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 0,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "github.com/ProjectVulpin/jason",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 0,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "github.com/pbabbicola/jason",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 0,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "github.com/levinalex/jason",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 0,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "github.com/projectvulpin/jason",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 0,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "github.com/oldtree/jason",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 0,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "github.com/akualab/ju",
+      "description": "Jason is designed to be convenient for reading arbitrary JSON while still honoring the strictness of the language.",
+      "imported_by": 3,
+      "classification": "need-related",
+      "source_query": "jason json"
+    },
+    {
+      "name": "gosqlite.org/examples/features/search/vec-keyed",
+      "description": "vec-keyed: vector search keyed by a string primary key (UUID / slug) instead of an int64 rowid, via vec.KeyedTable[string].",
+      "imported_by": 0,
+      "classification": "need-related",
+      "source_query": "uuid slug"
+    },
+    {
+      "name": "github.com/gin-gonic/gin",
+      "description": "Package gin implements a HTTP web framework called gin.",
+      "imported_by": 191418,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "github.com/labstack/echo/v5",
+      "description": "Package echo implements high performance, minimalist Go web framework.",
+      "imported_by": 1564,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "github.com/gofiber/fiber/v3",
+      "description": "Package fiber is an Express inspired web framework built on top of Fasthttp, the fastest HTTP engine for Go.",
+      "imported_by": 1480,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "github.com/astaxie/beego",
+      "description": "Package beego provide a MVC framework beego: an open-source, high-performance, modular, full-stack web framework It is used for rapid development of RESTful APIs, web apps and backend services in Go.",
+      "imported_by": 15020,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "github.com/kataras/iris/v12",
+      "description": "Package iris implements the highest realistic performance, easy to learn Go web framework.",
+      "imported_by": 2922,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "github.com/revel/revel",
+      "description": "Package macaron is a high productive and modular web framework in Go.",
+      "imported_by": 4548,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "gopkg.in/macaron.v1",
+      "description": "Package beego provide a MVC framework beego: an open-source, high-performance, modular, full-stack web framework",
+      "imported_by": 3747,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "github.com/webx-top/echo",
+      "description": "Package macaron is a high productive and modular web framework in Go.",
+      "imported_by": 1145,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "github.com/beego/beego/v2/server/web",
+      "description": "Package iris is a web framework which provides efficient and well-designed tools with robust set of features to create your awesome and high-performance web application powered by unlimited potentials and portability.",
+      "imported_by": 742,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "github.com/Unknwon/macaron",
+      "description": "Tiger Tonic [1] is a Go framework for building JSON web services inspired by Dropwizard [2].",
+      "imported_by": 948,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "github.com/teambition/gear",
+      "description": "Package gin implements a HTTP web framework called gin.",
+      "imported_by": 250,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "github.com/zsais/go-gin-prometheus",
+      "description": "Package siris is a fully-featured HTTP/2 backend web framework written entirely in Google\u2019s Go Language.",
+      "imported_by": 203,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "gopkg.in/kataras/iris.v6",
+      "description": "Package atreugo is a high performance and extensible micro web framework with zero memory allocations in hot paths",
+      "imported_by": 684,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "shylinux.com/x/ice",
+      "description": "Package fuego provides a set of tools to build HTTP servers in Go, that automatically generate OpenAPI 3.0 documentation and support for multiple web frameworks.",
+      "imported_by": 166,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "github.com/rcrowley/go-tigertonic",
+      "description": "Package sessions provides sessions support for net/http and valyala/fasthttp unique with auto-GC, register unlimited number of databases to Load and Update/Save the sessions in external server or to an external (no/or/and sql) database Usage net/http: // init a new sessions manager( if you use only one web framework inside your app then you can use the package-level functions like: sessions.Start/sessions.Destroy) manager := sessions.New(sessions.Config{}) // start a session for a particular client manager.Start(http.ResponseWriter, *http.Request) // destroy a session from the server and client, // don&#39;t call it on each handler, only on the handler you want the client to &#39;logout&#39; or something like this: manager.Destroy(http.ResponseWriter, *http.Request) Usage valyala/fasthttp: // init a new sessions manager( if you use only one web framework inside your app then you can use the package-level functions like: sessions.Start/sessions.Destroy) manager := sessions.New(sessions.Config{}) // start a session for a particular client manager.StartFasthttp(*fasthttp.RequestCtx) // destroy a session from the server and client, // don&#39;t call it on each handler, only on the handler you want the client to &#39;logout&#39; or something like this: manager.DestroyFasthttp(*fasthttp.Request) Note that, now, you can use both fasthttp and net/http within the same sessions manager(.New) instance! So now, you can share sessions between a net/http app and valyala/fasthttp app",
+      "imported_by": 134,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "gopkg.in/gin-gonic/gin.v1",
+      "description": "Package ginhelmet provides security middleware for Gin web framework.",
+      "imported_by": 368,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "github.com/lunny/tango",
+      "description": "Package ambient is a pluggable web app framework.",
+      "imported_by": 109,
+      "classification": "random",
+      "source_query": "web framework"
+    },
+    {
+      "name": "net/http",
+      "description": "Package http provides HTTP client and server implementations.",
+      "imported_by": 1776917,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/prometheus/client_golang/prometheus/promhttp",
+      "description": "Package promhttp provides tooling around HTTP servers and clients.",
+      "imported_by": 30138,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/valyala/fasthttp",
+      "description": "Package fasthttp provides fast HTTP server and client API.",
+      "imported_by": 9851,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/go-resty/resty/v2",
+      "description": "Package resty provides Simple HTTP and REST client library for Go.",
+      "imported_by": 8150,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "net/http/httptrace",
+      "description": "Package httptrace provides mechanisms to trace the events within HTTP client requests.",
+      "imported_by": 3191,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/hashicorp/go-retryablehttp",
+      "description": "Package retryablehttp provides a familiar HTTP client interface with automatic retries and exponential backoff.",
+      "imported_by": 2571,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/aws/smithy-go/transport/http",
+      "description": "Package http provides the HTTP transport client and request/response types needed to round trip API operation calls with an service.",
+      "imported_by": 1473,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/imroc/req/v3",
+      "description": "Package sling is a Go HTTP client library for creating and sending API requests.",
+      "imported_by": 1080,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/dghubble/sling",
+      "description": "Package resty provides Simple HTTP and REST client library for Go.",
+      "imported_by": 872,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "gopkg.in/resty.v1",
+      "description": "Package retryablehttp provides a familiar HTTP client interface with automatic retries and exponential backoff.",
+      "imported_by": 772,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/projectdiscovery/retryablehttp-go",
+      "description": "Package resty provides a simple HTTP, REST, and SSE client library for Go.",
+      "imported_by": 688,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "resty.dev/v3",
+      "description": "Package ghttp provides powerful http server and simple client implements.",
+      "imported_by": 626,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/gogf/gf/v2/net/ghttp",
+      "description": "Package gorequest inspired by Nodejs SuperAgent provides easy-way to write http client",
+      "imported_by": 746,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/parnurzeal/gorequest",
+      "description": "Package confighttp defines the configuration settings for creating an HTTP client and server.",
+      "imported_by": 1680,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "go.opentelemetry.io/collector/config/confighttp",
+      "description": "Package prpc (provisional RPC) implements an RPC client over HTTP 1.x.",
+      "imported_by": 358,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "go.chromium.org/luci/grpc/prpc",
+      "description": "Package pester provides additional resiliency over the standard http client methods by allowing you to control concurrency, retries, and a backoff strategy.",
+      "imported_by": 347,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/btcsuite/go-socks/socks",
+      "description": "Package azcore implements an HTTP request/response middleware pipeline used by Azure SDK clients.",
+      "imported_by": 1139,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/Azure/azure-sdk-for-go/sdk/azcore",
+      "description": "Package roundtrip provides convenient functions for building HTTP client wrappers and providing functions for server responses.",
+      "imported_by": 2886,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/gravitational/roundtrip",
+      "description": "Package http provides support for http protocol by default, provides rpc server with http protocol, and provides rpc client for calling http protocol.",
+      "imported_by": 237,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/influxdata/kapacitor/client/v1",
+      "description": "Package manners provides a wrapper for a standard net/http server that ensures all active HTTP client have completed their current request before the server shuts down.",
+      "imported_by": 184,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/braintree/manners",
+      "description": "Package httpclient provides HTTP client and outgoing HTTP request middleware.",
+      "imported_by": 602,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "github.com/grafana/grafana-plugin-sdk-go/backend/httpclient",
+      "description": "Package auth implements certificate signing authority and access control server Authority server is composed of several parts: * Authority server itself that implements signing and acl logic * HTTP server wrapper for authority server * HTTP client wrapper Package auth implements certificate signing authority and access control server Authority server is composed of several parts: * Authority server itself that implements signing and acl logic * HTTP server wrapper for authority server * HTTP client wrapper",
+      "imported_by": 141,
+      "classification": "random",
+      "source_query": "http client"
+    },
+    {
+      "name": "database/sql/driver",
+      "description": "Package driver defines interfaces to be implemented by database drivers as used by package sql.",
+      "imported_by": 37113,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/jackc/pgx/v5",
+      "description": "Package pgx is a PostgreSQL database driver.",
+      "imported_by": 12050,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/jackc/pgconn",
+      "description": "Package pgconn is a low-level PostgreSQL database driver.",
+      "imported_by": 2131,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/golang-migrate/migrate/v4/database",
+      "description": "Package database provides the Driver interface.",
+      "imported_by": 651,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/ClickHouse/clickhouse-go",
+      "description": "Package driver implements a Go driver for the ArangoDB database.",
+      "imported_by": 469,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/arangodb/go-driver",
+      "description": "Package mssql is Microsoft&#39;s official Go driver for SQL Server and Azure SQL Database.",
+      "imported_by": 457,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/microsoft/go-mssqldb",
+      "description": "Package drivers talks to various database backends and retrieves table, column, type, and foreign key information",
+      "imported_by": 490,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/mattn/go-oci8",
+      "description": "Package ffldb implements a driver for the database package that uses leveldb for the backing metadata and flat files for block storage.",
+      "imported_by": 241,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/volatiletech/sqlboiler/drivers",
+      "description": "Package duckdb implements a database/sql driver for the DuckDB database.",
+      "imported_by": 1239,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/btcsuite/btcd/database/ffldb",
+      "description": "Package db (or upper-db) provides a common interface to work with a variety of data sources using adapters that wrap mature database drivers.",
+      "imported_by": 172,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/marcboeker/go-duckdb/v2",
+      "description": "Package duckdb implements a database/sql driver for the DuckDB database.",
+      "imported_by": 42,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "upper.io/db.v3",
+      "description": "Package rivertype stores some of the lowest level River primitives so they can be shared amongst a number of packages including the top-level river package, database drivers, and internal utilities.",
+      "imported_by": 475,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/duckdb/duckdb-go/v2",
+      "description": "Package ffldb implements a driver for the database package that uses leveldb for the backing metadata and flat files for block storage.",
+      "imported_by": 127,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/riverqueue/river/rivertype",
+      "description": "Package schema provides access to database schema metadata, for database/sql drivers.",
+      "imported_by": 108,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/decred/dcrd/database/ffldb",
+      "description": "Package drivers handles the registration, default implementation, and handles hooks for usql database drivers.",
+      "imported_by": 95,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/jimsmart/schema",
+      "description": "Package mysql adds a &#39;cloudsql&#39; network to use when you want to access a Cloud SQL Database via the mysql driver found at github.com/go-sql-driver/mysql.",
+      "imported_by": 79,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/xo/usql/drivers",
+      "description": "Package drivers talks to various database backends and retrieves table, column, type, and foreign key information",
+      "imported_by": 51,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/GoogleCloudPlatform/cloudsql-proxy/proxy/dialers/mysql",
+      "description": "Package db (or upper-db) provides a common interface to work with a variety of data sources using adapters that wrap mature database drivers.",
+      "imported_by": 61,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/mailru/go-clickhouse/v2",
+      "description": "Package pgx is a PostgreSQL database driver.",
+      "imported_by": 15,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "contrib.go.opencensus.io/integrations/ocsql",
+      "description": "Package ora implements an Oracle database driver.",
+      "imported_by": 111,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/aarondl/sqlboiler/v4/drivers",
+      "description": "Package apmmysql registers the &#34;mysql&#34; driver with apmsql, so that you can trace go-sql-driver/mysql database connections.",
+      "imported_by": 42,
+      "classification": "random",
+      "source_query": "database driver"
+    },
+    {
+      "name": "github.com/aws/smithy-go/auth",
+      "description": "Package auth defines protocol-agnostic authentication types for smithy clients.",
+      "imported_by": 840,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "go.chromium.org/luci/server/auth",
+      "description": "Package auth implements authentication and authorization framework for HTTP servers.",
+      "imported_by": 306,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "oras.land/oras-go/v2/registry/remote/auth",
+      "description": "Package auth provides authentication for a client to a remote registry.",
+      "imported_by": 235,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "firebase.google.com/go/v4/auth",
+      "description": "Package auth contains functions for minting custom authentication tokens, verifying Firebase ID tokens, and managing users in a Firebase project.",
+      "imported_by": 392,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/qor/auth",
+      "description": "Package tlsca provides internal TLS certificate authority used for mutual TLS authentication with the auth server and internal teleport components and external clients",
+      "imported_by": 147,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/gravitational/teleport/lib/tlsca",
+      "description": "Package auth provides authentication on top of tg.Client.",
+      "imported_by": 539,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/gotd/td/telegram/auth",
+      "description": "Package auth is a middleware that authenticates incoming gRPC requests.",
+      "imported_by": 142,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/grpc-ecosystem/go-grpc-middleware/v2/interceptors/auth",
+      "description": "Package auth implements Camlistore authentication.",
+      "imported_by": 175,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "camlistore.org/pkg/auth",
+      "description": "Package auth implements an interface for providing CFSSL authentication.",
+      "imported_by": 318,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/cloudflare/cfssl/auth",
+      "description": "Package auth is used to generate authentication tokens used to connect to a given Amazon Relational Database Service (RDS) database.",
+      "imported_by": 359,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/aws/aws-sdk-go-v2/feature/rds/auth",
+      "description": "Package auth implements authentication to Microsoft Live Connect accounts, XBOX Live accounts and ultimately Minecraft accounts associated with them.",
+      "imported_by": 90,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/sandertv/gophertunnel/minecraft/auth",
+      "description": "Package auth implements the authentication in use for gophish.",
+      "imported_by": 62,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/gophish/gophish/auth",
+      "description": "Package auth provides tools related to authentication of pydio services",
+      "imported_by": 65,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/pydio/cells/common/auth",
+      "description": "Package auth provides client role authentication for accessing keys in etcd.",
+      "imported_by": 263,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/coreos/etcd/auth",
+      "description": "Package auth defines the Authenticator interface for verifying client identities.",
+      "imported_by": 199,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/go-gost/core/auth",
+      "description": "Package auth provides shared authentication utilities for MemQL.",
+      "imported_by": 60,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/znasllc-io/memql/component/auth",
+      "description": "Package auth defines a file format for holding authentication information needed by clients of Kubernetes.",
+      "imported_by": 55,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "k8s.io/client-go/tools/auth",
+      "description": "Package auth provides authentication and authorization capability",
+      "imported_by": 175,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/micro/go-micro/v2/auth",
+      "description": "Package auth provides authentication and authorization capability",
+      "imported_by": 49,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "go-micro.dev/v4/auth",
+      "description": "Package auth can be used for authentication and authorization Copyright 2018 Portworx",
+      "imported_by": 46,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/libopenstorage/openstorage/pkg/auth",
+      "description": "Package auth is a set of functions for retrieving authentication tokens and authenticated hosts.",
+      "imported_by": 147,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/cli/go-gh/v2/pkg/auth",
+      "description": "Package auth defines how Evergreen users authenticate to various authentication back ends.",
+      "imported_by": 116,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/evergreen-ci/evergreen/auth",
+      "description": "Package repository provides the wrappers for &#39;user&#39; and &#39;identity&#39; related database interactions.",
+      "imported_by": 35,
+      "classification": "random",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "github.com/astaxie/beego/cache/redis",
+      "description": "Package redis for cache provider depend on github.com/gomodule/redigo/redis go install github.com/gomodule/redigo/redis Usage: import( _ &#34;github.com/astaxie/beego/cache/redis&#34; &#34;github.com/astaxie/beego/cache&#34; ) bm, err := cache.NewCache(&#34;redis&#34;, `{&#34;conn&#34;:&#34;127.0.0.1:11211&#34;}`) more docs http://beego.me/docs/module/cache.md",
+      "imported_by": 260,
+      "classification": "random",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "github.com/go-redis/cache/v9",
+      "description": "Package redis provides a client for the redis cache server.",
+      "imported_by": 112,
+      "classification": "random",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "github.com/fiorix/go-redis/redis",
+      "description": "Package rueidis is a fast Golang Redis RESP3 client that does auto pipelining and supports client side caching.",
+      "imported_by": 103,
+      "classification": "random",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "github.com/redis/rueidis",
+      "description": "Package rockscache The first Redis cache library to ensure eventual consistency and strong consistency with DB.",
+      "imported_by": 366,
+      "classification": "random",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "github.com/dtm-labs/rockscache",
+      "description": "Package redis for cache provider",
+      "imported_by": 25,
+      "classification": "random",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/redis/armredis/v3",
+      "description": "Package cache is a simple redis cache dependency system on-top of the famous redigo package",
+      "imported_by": 2,
+      "classification": "random",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "github.com/stumble/dcache",
+      "description": "Package cache implement a simple cache redis client.",
+      "imported_by": 14,
+      "classification": "random",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "github.com/gadelkareem/cachita",
+      "description": "Package redis provides a redis interface for http caching.",
+      "imported_by": 14,
+      "classification": "random",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "github.com/beego/beego/v2/client/cache/redis",
+      "description": "Package cache provides a unified caching layer with memory and Redis backends.",
+      "imported_by": 12,
+      "classification": "random",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "github.com/wormhole-foundation/wormhole-explorer/common/client/cache",
+      "description": "Package cache provides in-memory and Redis-backed blob caching helpers.",
+      "imported_by": 10,
+      "classification": "random",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "github.com/zituocn/gow",
+      "description": "Package infs contains SOP implementations that use Redis for caching and the filesystem for backend data storage.",
+      "imported_by": 16,
+      "classification": "random",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "github.com/gregjones/httpcache/redis",
+      "description": "Package redis providers a cache driver that stores the cache in Redis.",
+      "imported_by": 21,
+      "classification": "random",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "azugo.io/core/cache",
+      "description": "Package cache implement a simple cache redis client.",
+      "imported_by": 8,
+      "classification": "random",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "github.com/bluesky-social/indigo/atproto/identity/redisdir",
+      "description": "Package cachekit provides Redis-backed and in-memory caching and key-value stores.",
+      "imported_by": 6,
+      "classification": "random",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "gopkg.d7z.net/middleware/cache",
+      "description": "Package redis provides Redis caching integration for Bifrost plugin.",
+      "imported_by": 5,
+      "classification": "random",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "github.com/sharedcode/joltrin/infs",
+      "description": "Package cache holds the library for interacting with redis",
+      "imported_by": 5,
+      "classification": "random",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "github.com/openfaas/nats-queue-worker/handler",
+      "description": "Package workerqueue extends client-go&#39;s workqueue functionality into an opinionated queue + worker model that is reusable",
+      "imported_by": 23,
+      "classification": "random",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "agones.dev/agones/pkg/util/workerqueue",
+      "description": "Package asynq provides a framework for Redis based distrubted task queue.",
+      "imported_by": 20,
+      "classification": "random",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "github.com/hibiken/asynq",
+      "description": "Package worker accepts Jobs and places them in a queue to be executed N at a time.",
+      "imported_by": 2309,
+      "classification": "random",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "github.com/jimmysawczuk/worker",
+      "description": "Package pool provides specific implementations of the amboy.Runner interface that serve as the worker pools for jobs in work queues.",
+      "imported_by": 19,
+      "classification": "random",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "github.com/jrallison/go-workers",
+      "description": "Package runnerq provides a durable activity queue and worker system for Go.",
+      "imported_by": 139,
+      "classification": "random",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "github.com/shomali11/parallelizer",
+      "description": "Generic worker pool (work queue) library with auto-scaling, backpressure, and easy composability of pools into pipelines.",
+      "imported_by": 11,
+      "classification": "random",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "github.com/mongodb/amboy/pool",
+      "description": "Package queue provides a driver-based job queue with pluggable backends, retries, per-job max attempts, priority queue ordering, and a polling worker.",
+      "imported_by": 12,
+      "classification": "random",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "github.com/topfreegames/go-workers",
+      "description": "Package pool provides specific implementations of the amboy.Runner interface that serve as the worker pools for tasks in work queues.",
+      "imported_by": 27,
+      "classification": "random",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "github.com/jtarchie/worker",
+      "description": "Package queue provides a driver-based job queue with pluggable backends, retries, per-job max attempts, priority queue ordering, and a polling worker.",
+      "imported_by": 4,
+      "classification": "random",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "github.com/thoas/bokchoy",
+      "description": "Package worker provides a simple asynchronous worker queue.",
+      "imported_by": 29,
+      "classification": "random",
+      "source_query": "queue worker"
+    }
+  ]
+}

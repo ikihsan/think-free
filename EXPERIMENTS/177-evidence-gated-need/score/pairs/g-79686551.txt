@@ -1,0 +1,151 @@
+pid: g-79686551
+
+=== LEFT ===
+android.api is the targetSdk/target platform; android.sdk is the SDK platform buildozer in
+stalls and compiles against. For API 35 set both: android.api = 35 and android.sdk = 35, l
+eaving minapi = 21 unless you must drop old devices. You also need buildozer/python-for-an
+droid new enough to know about 35, and SDK platform 35 plus build-tools installed. If you 
+care about 16 KB pages, move to NDK r27 or newer, since r25b emits 4 KB aligned .so files.
+ If Play rejects the upload, verify targetSdkVersion in the merged manifest, not just buil
+dozer.ini. Google Play requires target 35 for new apps and updates from Aug 2025.
+
+=== RIGHT ===
+For anyone who comes across this and is looking for a solution for an expo React Native Ap
+p you need to either 
+ 
+ Update your expo SDK to v53 (see here: https://expo.dev/changelog/sdk-53 ) or 
+ 
+ (in case you are looking for a quick fix without updating expo AGAIN): set expo-build-pro
+perties in app.json or app.config.js (thanks to @Drazar and @HabiburRaman for pointing thi
+s out in the comments) 
+ 
+ 
+ Use expo-build-properties in app.json: 
+ // app.json
+{
+ "expo": {
+ ...
+ "plugins": [
+ [
+ "expo-build-properties",
+ {
+ "android": {
+ "compileSdkVersion": 35,
+ "targetSdkVersion": 35,
+ "buildToolsVersion": "35.0.0"
+ },
+ }
+ ]
+ ]
+ }
+}
+ 
+ 
+ Original Answer: 
+ Creating a custom config plugin: 
+ 
+ Create a file named withTargetSdk35.js (or similar) in your project root: 
+ // withTargetSdk35.js
+const { withAppBuildGradle } = require('@expo/config-plugins');
+
+module.exports = function withTargetSdk35(config) {
+ return withAppBuildGradle(config, (config) => {
+ if (config.modResults.language === 'groovy') {
+ config.modResults.contents = config.modResults.contents.replace(
+ /targetSdkVersion\s*\d+/,
+ 'targetSdkVersion 35'
+ );
+ } else {
+ throw new Error('Cannot modify build.gradle: unexpected language');
+ }
+ return config;
+ });
+};
+
+ 
+ 
+ Register the Plugin in app.json or app.config.js 
+ 
+ If you're using app.json : 
+ {
+ "expo": {
+ ...
+ "plugins": ["./withTargetSdk35"]
+ }
+}
+ 
+ 
+ If you're using app.config.js 
+ import withTargetSdk35 from './withTargetSdk35';
+
+export default {
+ expo: {
+ ...
+ plugins: [withTargetSdk35],
+ },
+};
+ 
+ 
+ 
+ 
+ 
+
+ expo-build-properties 
+ expo-build-properties 
+ // app.json
+{
+ "expo": {
+ ...
+ "plugins": [
+ [
+ "expo-build-properties",
+ {
+ "android": {
+ "compileSdkVersion": 35,
+ "targetSdkVersion": 35,
+ "buildToolsVersion": "35.0.0"
+ },
+ }
+ ]
+ ]
+ }
+}
+ 
+ withTargetSdk35.js 
+ // withTargetSdk35.js
+const { withAppBuildGradle } = require('@expo/config-plugins');
+
+module.exports = function withTargetSdk35(config) {
+ return withAppBuildGradle(config, (config) => {
+ if (config.modResults.language === 'groovy') {
+ config.modResults.contents = config.modResults.contents.replace(
+ /targetSdkVersion\s*\d+/,
+ 'targetSdkVersion 35'
+ );
+ } else {
+ throw new Error('Cannot modify build.gradle: unexpected language');
+ }
+ return config;
+ });
+};
+
+ 
+ app.json 
+ app.config.js 
+ app.json 
+ {
+ "expo": {
+ ...
+ "plugins": ["./withTargetSdk35"]
+ }
+}
+ 
+ app.config.js 
+ import withTargetSdk35 from './withTargetSdk35';
+
+export default {
+ expo: {
+ ...
+ plugins: [withTargetSdk35],
+ },
+};

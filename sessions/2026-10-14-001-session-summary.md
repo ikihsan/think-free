@@ -1,4 +1,12 @@
-# Session Summary — 2026-10-14
+<!-- origin-meta
+owner: STATE-next-actions-sessions.md
+status: active
+last-verified: 2026-10-20
+-->
+
+# Session summary — 2026-10-14 (classification fresh observations)
+
+## Session Summary — 2026-10-14
 
 ## Goal
 Complete fresh observation experiments in classification domains, finish E049 Part B (lockfile registry drift), and attempt ArXiv reproducibility (E079).

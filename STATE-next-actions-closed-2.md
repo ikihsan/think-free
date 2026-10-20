@@ -146,3 +146,7 @@ finding number and go to the file it is defined in.
     agent-generated ideas with prior art is high. Three candidate lines have
     returned negative results, and one (knitting) died of prior art rather than of
     measurement — which is the cheapest way to die and the one worth copying.
+
+Completed experiment lines continue in
+[`STATE-next-actions-closed-3.md`](STATE-next-actions-closed-3.md), split
+out 2026-10-18 at the cap.

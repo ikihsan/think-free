@@ -1,3 +1,11 @@
+<!-- origin-meta
+owner: STATE-next-actions-sessions.md
+status: active
+last-verified: 2026-10-20
+-->
+
+# Session outcome summary — E137 view-count classifier prototype (2026-10-13)
+
 ## Think Free — Session Outcome (2026-10-13)
 
 ### Session summary

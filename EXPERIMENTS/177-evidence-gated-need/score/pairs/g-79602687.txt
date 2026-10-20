@@ -1,0 +1,31 @@
+pid: g-79602687
+
+=== LEFT ===
+That message means the native side asked AppRegistry for a component literally named auth,
+ which matches the app's registered name rather than anything you pass to registerComponen
+t. So your index.js is either missing registerRootComponent(App), or it does not import th
+e App you think it does, or app.json/package.json name is auth while nothing registers. Ch
+eck that index.js does import { registerRootComponent } from 'expo', imports App from './A
+pp', and calls registerRootComponent(App), that main points at index.js, and that expo.nam
+e/slug in app.json match your project. Renaming files and clearing Metro caches can never 
+fix a name or registration mismatch; also confirm nobody registers a component called auth
+.
+
+=== RIGHT ===
+Instead of using expo-dev client, I continued to use expo go. I simply added the following
+ line in my metro.config.js file: 
+ const defaultConfig = getDefaultConfig(__dirname);
+
+defaultConfig.resolver.sourceExts.push('cjs');
+
+// This is the new line you should add in, after the previous lines
+defaultConfig.resolver.unstable_enablePackageExports = false;
+ 
+ After that, I didn't seem to get the error "Component auth has not been registered yet". 
+
+ const defaultConfig = getDefaultConfig(__dirname);
+
+defaultConfig.resolver.sourceExts.push('cjs');
+
+// This is the new line you should add in, after the previous lines
+defaultConfig.resolver.unstable_enablePackageExports = false;

@@ -1,0 +1,111 @@
+{
+  "total_rows": 10,
+  "need_rows": 9,
+  "classifications": [
+    {
+      "topic_id": 37744,
+      "title": "Error codes in NavigateToPose/NavigateThroughPoses",
+      "category": "Navigation (Nav2)",
+      "views": 1865,
+      "reply_count": 0,
+      "classification": "served",
+      "error_code_present": true,
+      "vendor_acknowledged": true
+    },
+    {
+      "topic_id": 48361,
+      "title": "Hello everyone! I have got an issue while setuping Ardupilot plugin.an error occurred when i wrote in the wsl comman line this command:cmake",
+      "category": "Gazebo/Ignition",
+      "views": 152,
+      "reply_count": 0,
+      "classification": "unserved",
+      "error_code_present": true,
+      "vendor_acknowledged": false
+    },
+    {
+      "topic_id": 48858,
+      "title": "Segmentation fault gz sim -s",
+      "category": "Gazebo/Ignition",
+      "views": 111,
+      "reply_count": 0,
+      "classification": "unserved",
+      "error_code_present": true,
+      "vendor_acknowledged": false
+    },
+    {
+      "topic_id": 48101,
+      "title": "CMake Error: \"IMPORTED_LOCATION not set for imported target 'octomap' configuration 'Debug'\" in ROS 2 Build",
+      "category": "Gazebo/Ignition",
+      "views": 177,
+      "reply_count": 0,
+      "classification": "served",
+      "error_code_present": true,
+      "vendor_acknowledged": true
+    },
+    {
+      "topic_id": 49056,
+      "title": "Caught exception in launch (see debug for traceback): Error Code 39: Msg: Unable to convert from SDF version 1.11 to 1.10",
+      "category": "Gazebo/Ignition",
+      "views": 279,
+      "reply_count": 2,
+      "classification": "served",
+      "error_code_present": true,
+      "vendor_acknowledged": false
+    },
+    {
+      "topic_id": 49950,
+      "title": "Fleet Adapter Segmentation Fault (Exit Code -11) on One System but Not Another \u2013 Need Help Diagnosing",
+      "category": "Open-RMF",
+      "views": 60,
+      "reply_count": 0,
+      "classification": "unserved",
+      "error_code_present": true,
+      "vendor_acknowledged": false
+    },
+    {
+      "topic_id": 44538,
+      "title": "Task Error Handling - onSuccess/onFailure (#469)",
+      "category": "Open-RMF",
+      "views": 40,
+      "reply_count": 6,
+      "classification": "unserved",
+      "error_code_present": true,
+      "vendor_acknowledged": false
+    },
+    {
+      "topic_id": 44537,
+      "title": "Error Handling and Recovery Strategies in RMF: Best Practices and Guidelines? (#686)",
+      "category": "Open-RMF",
+      "views": 42,
+      "reply_count": 0,
+      "classification": "unserved",
+      "error_code_present": true,
+      "vendor_acknowledged": false
+    },
+    {
+      "topic_id": 44559,
+      "title": "CMake error while building rmf packages. (#660)",
+      "category": "Open-RMF",
+      "views": 39,
+      "reply_count": 1,
+      "classification": "served",
+      "error_code_present": true,
+      "vendor_acknowledged": true
+    }
+  ],
+  "summary": {
+    "served_count": 4,
+    "unserved_count": 5,
+    "served_fraction": 0.4444444444444444,
+    "unserved_fraction": 0.5555555555555556,
+    "served_ci95": [
+      0.188775429471914,
+      0.7333526542559703
+    ],
+    "unserved_ci95": [
+      0.2666473457440297,
+      0.811224570528086
+    ],
+    "view_positive_rate": 1.0
+  }
+}

@@ -1,0 +1,32 @@
+qid: 80000170
+view_count: 1246
+tags: c++, language-lawyer, atomic, deadlock, c++26
+key_score: 21
+
+=== TITLE ===
+What does constexpr atomic&lt;T&gt;::wait() do at compile time?
+
+=== QUESTION ===
+What does constexpr void wait(T old, /*...*/) const noexcept; do during constant evaluatio
+n, now that it's constexpr in C++26? 
+ The description says that it in a loop: 
+ 
+ Blocks until it is unblocked by an atomic notifying operation or is unblocked spuriously.
+ 
+ 
+ But since there is no multithreading at compile time, it seems like blocking the main thr
+ead means deadlocking the compiler. 
+
+ constexpr void wait(T old, /*...*/) const noexcept; 
+ constexpr
+
+=== KEY ANSWER ===
+This is explained in the proposal 
+ 
+ Wait and notify operations should work during constant evaluation as expected in a single
+-threaded environment. Notify will be noop and wait-ing for a different value will be a de
+adlock which should result in constant evaluation failure according to [expr.const#5.7] an
+ expression that would exceed the implementation-defined limits as every check for the val
+ue is considered [intro.progress#4] continous executing of execution steps while waiting f
+or the condition.
+

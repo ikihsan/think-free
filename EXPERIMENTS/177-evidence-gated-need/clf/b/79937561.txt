@@ -1,0 +1,69 @@
+qid: 79937561
+view_count: 804
+tags: c#, enums
+key_score: 20
+
+=== TITLE ===
+How can I create a static extension method for all Enum types?
+
+=== QUESTION ===
+I'm trying to create a static extension method that can be used with any enum type in C#. 
+I want to be able to call this method on any enum value. 
+ However, since extension methods are defined for specific types, I'm unsure how to create
+ a generic extension method that applies to all enums. Is there a way to do this using ext
+ension blocks? 
+ Now I could define a method only for the specific enum: 
+ extension(MyEnum)
+{
+ public static Direction Random => Enum.GetValues<MyEnum>().Choice();
+}
+ 
+ But I want something like this: 
+ extension<T>() where T : Enum
+{
+ public static T Random => Enum.GetValues<T>().Choice();
+}
+ 
+
+ extension(MyEnum)
+{
+ public static Direction Random => Enum.GetValues<MyEnum>().Choice();
+}
+ 
+ extension<T>() where T : Enum
+{
+ public static T Random => Enum.GetValues<T>().Choice();
+}
+
+=== KEY ANSWER ===
+Your syntax and generic constraints are both slightly off: 
+ 
+ You still need to put the type you're extending within the parentheses, so extension<T>(T
+) 
+ You need to constrain T to be a non-nullable value type as well (in order to call Enum.Ge
+tValues<T>() , so where T : struct, Enum 
+ 
+ This compiles (assuming a suitable Choice method): 
+ public static class Extensions
+{
+ extension<T>(T) where T : struct, Enum
+ {
+ public static T Random => Enum.GetValues<T>().Choice();
+ }
+}
+ 
+ I'd recommend making this a method rather than a property though. 
+
+ extension<T>(T) 
+ T 
+ Enum.GetValues<T>() 
+ where T : struct, Enum 
+ Choice 
+ public static class Extensions
+{
+ extension<T>(T) where T : struct, Enum
+ {
+ public static T Random => Enum.GetValues<T>().Choice();
+ }
+}
+

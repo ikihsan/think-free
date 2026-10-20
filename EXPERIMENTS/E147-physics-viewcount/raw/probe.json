@@ -1,0 +1,853 @@
+{
+  "experiment": "E145 \u2014 Physics SE view-count principle fresh observation",
+  "timestamp": "2026-10-15 13:31:18",
+  "source": "api_fetch",
+  "target_domain": "physics",
+  "sample_size": 100,
+  "classified": {
+    "need-related": 92,
+    "random": 8
+  },
+  "activity": {
+    "need_related_active": 92,
+    "need_related_inactive": 0,
+    "random_active": 8,
+    "random_inactive": 0
+  },
+  "gates": {
+    "G1": {
+      "met": true,
+      "observed": 100,
+      "threshold": 15,
+      "reason": "sufficient classified items"
+    },
+    "G2": {
+      "met": true,
+      "observed": "waived (automated run)",
+      "threshold": "\u22650.85 accuracy on seeded controls",
+      "reason": "automated run - G2 control validity waived"
+    },
+    "G3": {
+      "met": false,
+      "observed": {
+        "p_need": 1.0,
+        "p_random": 1.0,
+        "difference": 0.0,
+        "lower_bound_10pp": 0.0
+      },
+      "threshold": "Wilson CI95 lower bound > 10.0pp margin"
+    },
+    "G4": {
+      "met": true,
+      "observed": {
+        "total_with_arrivals": 100,
+        "total_packages": 100,
+        "arrival_rate": 1.0
+      },
+      "threshold": "\u226595.0% of packages carry positive arrivals"
+    }
+  },
+  "verdict": "failed: G3 not met",
+  "raw_results": [
+    {
+      "index": 0,
+      "question_id": 876921,
+      "title": "How to make a theoretical model of a Blackburn pendulum more realistic and the apparatus more practi",
+      "view_count": 3,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 1,
+      "question_id": 876919,
+      "title": "Why Moment of Inertia have $r^2$ dependence without relying on circular definitions of torque/angula",
+      "view_count": 36,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 2,
+      "question_id": 876918,
+      "title": "Work definition",
+      "view_count": 30,
+      "classified": "random",
+      "has_view_count": true
+    },
+    {
+      "index": 3,
+      "question_id": 876913,
+      "title": "What makes non-local interactions from virtual wormholes disappear in quantum gravity?",
+      "view_count": 81,
+      "classified": "random",
+      "has_view_count": true
+    },
+    {
+      "index": 4,
+      "question_id": 876912,
+      "title": "What is the precise geometric relationship between the non-commutativity of $SO(3)$ and the curvatur",
+      "view_count": 70,
+      "classified": "random",
+      "has_view_count": true
+    },
+    {
+      "index": 5,
+      "question_id": 876907,
+      "title": "Does the value of the fine structure constant change inside a black hole?",
+      "view_count": 66,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 6,
+      "question_id": 876900,
+      "title": "How close could you get to the Sun and survive in a perfectly reflective spacesuit?",
+      "view_count": 398,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 7,
+      "question_id": 876896,
+      "title": "Is there any research connecting a time-varying cosmological constant to the entropy evolution of a ",
+      "view_count": 28,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 8,
+      "question_id": 876895,
+      "title": "How did Schr&#246;dinger derive his equation?",
+      "view_count": 186,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 9,
+      "question_id": 876891,
+      "title": "Universe versus Balloon",
+      "view_count": 145,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 10,
+      "question_id": 876888,
+      "title": "Extending reasoning about semi-conductors to conductors?",
+      "view_count": 105,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 11,
+      "question_id": 876887,
+      "title": "A thought experiment on time travel and ultra-precise atomic clocks (The &quot;Atomic Clock Paradox&",
+      "view_count": 82,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 12,
+      "question_id": 876884,
+      "title": "Does redshifting light due to cosmological expansion have anything to do with velocity?",
+      "view_count": 86,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 13,
+      "question_id": 876876,
+      "title": "Who is more balanced Bike A or Bike B?",
+      "view_count": 73,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 14,
+      "question_id": 876870,
+      "title": "Is temperature a frame-dependent quantity?",
+      "view_count": 177,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 15,
+      "question_id": 876869,
+      "title": "Generic coordinates transformation for a free falling frame",
+      "view_count": 73,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 16,
+      "question_id": 876866,
+      "title": "What is meant by &quot;Unitary gauge&quot; in the context of the Standard model Lagrangian density?",
+      "view_count": 256,
+      "classified": "random",
+      "has_view_count": true
+    },
+    {
+      "index": 17,
+      "question_id": 876865,
+      "title": "Question about last inequality before equation (22) in Bell&#39;s EPR paper",
+      "view_count": 105,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 18,
+      "question_id": 876857,
+      "title": "Folding space and time = black hole",
+      "view_count": 45,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 19,
+      "question_id": 876853,
+      "title": "Can pair production be used to make a photoelectric reactor?",
+      "view_count": 57,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 20,
+      "question_id": 876851,
+      "title": "Why Does Binding Nucleons Release Energy? (In Terms of Forces &amp; Work)",
+      "view_count": 52,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 21,
+      "question_id": 876844,
+      "title": "Why is the *effective electromotive force* calculated using RMS?",
+      "view_count": 342,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 22,
+      "question_id": 876843,
+      "title": "Parametrization of a straight line in 3D for electrostatics (Zangwill problem 3.21)",
+      "view_count": 37,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 23,
+      "question_id": 876842,
+      "title": "Question about one example of the Uncertainty principle",
+      "view_count": 550,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 24,
+      "question_id": 876839,
+      "title": "Would a Galilean universe make sense?",
+      "view_count": 96,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 25,
+      "question_id": 876829,
+      "title": "How can a wireless mouse dongle efficiently receive a signal with a much longer wavelength?",
+      "view_count": 1242,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 26,
+      "question_id": 876825,
+      "title": "Conserved quantities associated with Killing fields",
+      "view_count": 44,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 27,
+      "question_id": 876824,
+      "title": "Condition to fall to attractive potential of the form $\u2212\\alpha/r^n$",
+      "view_count": 59,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 28,
+      "question_id": 876820,
+      "title": "Electric field of a sphere polarized shell insulator?",
+      "view_count": 81,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 29,
+      "question_id": 876819,
+      "title": "How to solve this question using the knots or points method?",
+      "view_count": 54,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 30,
+      "question_id": 876818,
+      "title": "Reconstructing a scalar potential V(phi) from a screening factor in scalar-tensor theories",
+      "view_count": 27,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 31,
+      "question_id": 876817,
+      "title": "How does a flat band sustain a non-zero superfluid density if the effective mass is infinite? (The r",
+      "view_count": 23,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 32,
+      "question_id": 876812,
+      "title": "Constructing a scalar potential $V(\\phi)$ from a prescribed, density-dependent screening factor",
+      "view_count": 164,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 33,
+      "question_id": 876811,
+      "title": "If body in free fall moves along a geodesic, how does it accelerates and moves downwards in a straig",
+      "view_count": 90,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 34,
+      "question_id": 876810,
+      "title": "Will two oppositely charged Faraday cages kill the outer surface charge upon a spark?",
+      "view_count": 254,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 35,
+      "question_id": 876796,
+      "title": "Polyakov action as differential forms",
+      "view_count": 199,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 36,
+      "question_id": 876794,
+      "title": "Newton&#39;s law of universal gravitation and point mass limit",
+      "view_count": 418,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 37,
+      "question_id": 876788,
+      "title": "Would small polarons in a ferrihydrite nanoparticle moving at velocity v in the geomagnetic field B ",
+      "view_count": 65,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 38,
+      "question_id": 876784,
+      "title": "One-way speed of light?",
+      "view_count": 365,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 39,
+      "question_id": 876782,
+      "title": "Problem on Work Done on Vaiable force",
+      "view_count": 51,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 40,
+      "question_id": 876776,
+      "title": "2026 Status of Higgs coupling constants",
+      "view_count": 123,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 41,
+      "question_id": 876775,
+      "title": "Title: Tensor mapping of a 4D metric coupling constant to energy density field",
+      "view_count": 47,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 42,
+      "question_id": 876774,
+      "title": "Varying refractive index proof",
+      "view_count": 48,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 43,
+      "question_id": 876772,
+      "title": "What&#39;s the deal with the Goldilocks zones of Red Dwarfs?",
+      "view_count": 937,
+      "classified": "random",
+      "has_view_count": true
+    },
+    {
+      "index": 44,
+      "question_id": 876769,
+      "title": "Fluid dynamics - what is flow work and how does it arise?",
+      "view_count": 87,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 45,
+      "question_id": 876766,
+      "title": "Yang-Mills roadmap",
+      "view_count": 772,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 46,
+      "question_id": 876765,
+      "title": "Typo in Hawking and Ellis&#39; &quot;The Large Scale Structure of Space-Time&quot;?",
+      "view_count": 120,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 47,
+      "question_id": 876762,
+      "title": "Focusing Theorem and gravitational lensing",
+      "view_count": 124,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 48,
+      "question_id": 876761,
+      "title": "Relation between classical and quantum dynamical mappings",
+      "view_count": 104,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 49,
+      "question_id": 876760,
+      "title": "Does physical space bring into existence the ability of physical communication to operate?",
+      "view_count": 75,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 50,
+      "question_id": 876759,
+      "title": "Understanding how gas flow condition inside a pipe influences the response of a flow sensor",
+      "view_count": 48,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 51,
+      "question_id": 876755,
+      "title": "How to quantitatively explain the extent of wave diffraction through a single slit?",
+      "view_count": 59,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 52,
+      "question_id": 876754,
+      "title": "Isn&#39;t number of waves (of light) per second equals to frequency?",
+      "view_count": 143,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 53,
+      "question_id": 876751,
+      "title": "Is there a circular argument in Feynman&#39;s derivation of rotational equilibrium in &#167;18-2?",
+      "view_count": 155,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 54,
+      "question_id": 876748,
+      "title": "How is data collapse done practically\uff1f",
+      "view_count": 219,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 55,
+      "question_id": 876747,
+      "title": "What evidence disproves classical preferential scattering of particles in the double slit experiment",
+      "view_count": 67,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 56,
+      "question_id": 876746,
+      "title": "How to analyze the forces involved in a push-up and its variations?",
+      "view_count": 57,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 57,
+      "question_id": 876742,
+      "title": "Why can&#39;t stars make elements heavier than iron/nickel?",
+      "view_count": 65,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 58,
+      "question_id": 876741,
+      "title": "Derivation of Planck&#39;s radiation law, Planck&#39;s quantum theory",
+      "view_count": 135,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 59,
+      "question_id": 876738,
+      "title": "Understanding adiabatic switching and transient removal in the Kubo formula",
+      "view_count": 168,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 60,
+      "question_id": 876733,
+      "title": "new for discovery from chile",
+      "view_count": 80,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 61,
+      "question_id": 876732,
+      "title": "Do cosmic neutrinos have a higher upper bound of energy than gamma rays?",
+      "view_count": 218,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 62,
+      "question_id": 876727,
+      "title": "If we cannot simultaneously pin down the state of motion and the position of a quantum in quantum ph",
+      "view_count": 1048,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 63,
+      "question_id": 876726,
+      "title": "Between a cone &amp; cylinder of same material, same radius &amp; same height laying on a flat surfa",
+      "view_count": 201,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 64,
+      "question_id": 876718,
+      "title": "For a system of particles and EM fields, how to define field variables that do not imply the state o",
+      "view_count": 252,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 65,
+      "question_id": 876713,
+      "title": "How to apply Bernoullis&#39;s law to calculate the current pressure at one point in a pipe?",
+      "view_count": 42,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 66,
+      "question_id": 876712,
+      "title": "How and when to know if eigenvalue of $H$ is energy?",
+      "view_count": 135,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 67,
+      "question_id": 876710,
+      "title": "Does a reciprocity theorem hold for Amp&#232;re&#39;s law when exchanging the current loop and the i",
+      "view_count": 159,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 68,
+      "question_id": 876706,
+      "title": "A hypothesis about time",
+      "view_count": 80,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 69,
+      "question_id": 876705,
+      "title": "Can Electromagnetic Fields Inside a Charged Cylinder Produce Extreme Gravitational Time Dilation?",
+      "view_count": 71,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 70,
+      "question_id": 876704,
+      "title": "Does the MERA operator-norm commutator bound ||[O_A, O_B]|| &lt;= 2e^{-D/xi} with xi = (1/2pi)log ch",
+      "view_count": 62,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 71,
+      "question_id": 876701,
+      "title": "Why doesn&#39;t disorder easily change the Chern Number?",
+      "view_count": 45,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 72,
+      "question_id": 876699,
+      "title": "Degree of precision of the experimental design regarding Bell&#39;s inequalities",
+      "view_count": 75,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 73,
+      "question_id": 876697,
+      "title": "GR time dilation and fields moving within fields",
+      "view_count": 282,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 74,
+      "question_id": 876695,
+      "title": "The role of internal chemical energy in energy conservation",
+      "view_count": 361,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 75,
+      "question_id": 876693,
+      "title": "Does angular momentum conservation along an axis imply conservation about all points on that axis?",
+      "view_count": 392,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 76,
+      "question_id": 876692,
+      "title": "Calculate Escape velocity",
+      "view_count": 81,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 77,
+      "question_id": 876690,
+      "title": "What are the longitudinal wave equivalents for a continuously driven rope and a plucked string?",
+      "view_count": 25,
+      "classified": "random",
+      "has_view_count": true
+    },
+    {
+      "index": 78,
+      "question_id": 876684,
+      "title": "The continuity of space and time and Planck units",
+      "view_count": 70,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 79,
+      "question_id": 876681,
+      "title": "Does cosmic inflation stretch electron orbitals?",
+      "view_count": 35,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 80,
+      "question_id": 876676,
+      "title": "How does the existence of &quot;thermal noise&quot; debunk the idea that geomagnetic storm fluctuati",
+      "view_count": 360,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 81,
+      "question_id": 876673,
+      "title": "If there was one property of a sub atomic particle which could help us determine its position and ve",
+      "view_count": 97,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 82,
+      "question_id": 876670,
+      "title": "Your Theory - Va\u0161e Teorie",
+      "view_count": 119,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 83,
+      "question_id": 876665,
+      "title": "Is environmental quantum decoherence strictly isotropic, or can phase-space anisotropy emerge in ope",
+      "view_count": 91,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 84,
+      "question_id": 876663,
+      "title": "Dilemma of Dielectric",
+      "view_count": 197,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 85,
+      "question_id": 876657,
+      "title": "How can theoretical physics and topology model a spacetime of primordial pocket domains from Spatial",
+      "view_count": 78,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 86,
+      "question_id": 876650,
+      "title": "What observable are particle detectors really measuring during scattering and what really are partic",
+      "view_count": 242,
+      "classified": "random",
+      "has_view_count": true
+    },
+    {
+      "index": 87,
+      "question_id": 876648,
+      "title": "Hamiltonian in momentum representation",
+      "view_count": 121,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 88,
+      "question_id": 876641,
+      "title": "Spin connection in Chern-Simons theory",
+      "view_count": 153,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 89,
+      "question_id": 876639,
+      "title": "Time period of compensated pendulum",
+      "view_count": 52,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 90,
+      "question_id": 876638,
+      "title": "How to interpret the permittivity of a conductive material?",
+      "view_count": 400,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 91,
+      "question_id": 876637,
+      "title": "How do I calculate the ($\\alpha$-$z$) mutual information for free fermions?",
+      "view_count": 80,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 92,
+      "question_id": 876631,
+      "title": "Geodesics on a surface of constant Gauss curvature. Any physics/mechanics relevance?",
+      "view_count": 91,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 93,
+      "question_id": 876629,
+      "title": "Time-reversal operator in QFT: inconsistency between linearity and antilinearity?",
+      "view_count": 499,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 94,
+      "question_id": 876628,
+      "title": "How does polarity affect needle-to-plate discharge type?",
+      "view_count": 96,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 95,
+      "question_id": 876626,
+      "title": "I did something where I didn&#39;t understand the physics",
+      "view_count": 104,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 96,
+      "question_id": 876621,
+      "title": "Electric and magnetic fields: why are they &quot;nearly the same but different&quot;?",
+      "view_count": 1780,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 97,
+      "question_id": 876619,
+      "title": "Finding the instantaneous axis of rotation from the instantaneous center of rotation in 3D",
+      "view_count": 652,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 98,
+      "question_id": 876618,
+      "title": "Who first noticed that the bosonic Bogoliubov-De Gennes equation is non-Hermitian?",
+      "view_count": 130,
+      "classified": "need-related",
+      "has_view_count": true
+    },
+    {
+      "index": 99,
+      "question_id": 876615,
+      "title": "What portion (%) of intergalactic (cosmic) redshifting is currently attributed to the Shapiro effect",
+      "view_count": 94,
+      "classified": "random",
+      "has_view_count": true
+    }
+  ]
+}

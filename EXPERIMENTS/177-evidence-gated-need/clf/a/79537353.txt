@@ -1,0 +1,250 @@
+qid: 79537353
+view_count: 2102
+tags: c, pointers, variable-assignment, semantics, lvalue
+key_score: 15
+
+=== TITLE ===
+How Does the Left-Hand Side (LHS) of an Assignment Evaluate in C?
+
+=== QUESTION ===
+I’m working on understanding pointers in C by breaking down the language into three key ar
+eas: syntax , semantics , and idioms .
+To grasp pointers, I’ve been focusing on fundamental concepts:
+what’s an expression , what’s a value , what’s evaluation , and what’s assignment . Here’s
+ my current understanding, followed by a specific question about the LHS in assignments. 
+ Background: 
+An expression is something that needs to be evaluated, like 10 + (15 - 2 * 5), which step-
+by-step becomes 15.
+A value is what evaluates to itself, e.g., ⟦15⟧ = 15 or ⟦<addr>⟧ = <addr> (using ⟦x⟧ as sh
+orthand for "x evaluates to"). 
+ Evaluation is reducing an expression to a value, following rules like: a function execute
+s only when its arguments are values (e.g. if ⟦x⟧ = 15, sqrt(x + 1) → sqrt(15 + 1) → sqrt(
+16) → 4). 
+ Assignment maps a name on the left to a value on the right, where the right side must eva
+luate to a value first (e.g., int a = 5 + 3 → int a = 8 → 8 and as as a side effect the va
+lue is stored).
+[side note: I remember reading that the 8 is the "side effect" of assignment, but it seems
+ to me that storing the value in memory seems like the side effect] 
+ For variables and pointers: 
+ A variable on the right side evaluates to its stored value:
+int a = 5; ⟦a⟧ → 5.
+Pointers store addresses (values), and operators like & and * have evaluation rules: ⟦&a⟧ 
+→ <addr> , ⟦*ptr⟧ → value.
+This mental model worked well for simple examples: 
+ int x = 70; // 70 is a value because it evaluates to itself ⟦70⟧ → 70
+int* p = &x; // &x is not a value, we have to evaluate it. ⟦&x⟧ → <addr>
+int a = *p + 1; // (*p + 1) is an expression and not a value
+// evaluate it. + expects its operands to be values, so we evaluate *p.
+// ⟦*p⟧ → 70 subsequently ⟦70 + 1⟧ → 71
+// and finally, a is an alias for the value 71 which stored in memory.
+ 
+ The Problem : I’ve been treating assignment as "evaluate the right side to a value, forge
+t about the left side", which worked well, but then I struggled with this example: 
+ int arr[5] = {1, 2, 3, 4, 5};
+int *ptr = arr;
+*(ptr + 1) = *ptr; // becomes *(ptr + 1) = 1
+ 
+ To me, the assignment *(ptr + 1) = 1 made it looks as if we have to evaluate the left sid
+e! I failed to find a mental model that explains this statement and how it works. 
+ So, in brief, the LHS (*(ptr + 1)) seems to require evaluation, unlike a simple variable.
+ why does this happen, and how does it fit with evaluating expressions to values? I’d like
+ an explanation aligning with my semantics model. 
+
+ ⟦15⟧ = 15 
+ ⟦<addr>⟧ = <addr> 
+ <addr> 
+ int x = 70; // 70 is a value because it evaluates to itself ⟦70⟧ → 70
+int* p = &x; // &x is not a value, we have to evaluate it. ⟦&x⟧ → <addr>
+int a = *p + 1; // (*p + 1) is an expression and not a value
+// evaluate it. + expects its operands to be values, so we evaluate *p.
+// ⟦*p⟧ → 70 subsequently ⟦70 + 1⟧ → 71
+// and finally, a is an alias for the value 71 which stored in memory.
+ 
+ int arr[5] = {1, 2, 3, 4, 5};
+int *ptr = arr;
+*(ptr + 1) = *ptr; // becomes *(ptr + 1) = 1
+ 
+ *(ptr + 1) = 1 
+ (*(ptr + 1))
+
+=== KEY ANSWER ===
+Consider how you would execute a = 3+4 . It is easy to compute the value of 3+4 ; you simp
+ly add 3 and 4, producing 7. Then you store 7 in a . How do you do that? You must figure o
+ut where a is. That is, you must determine which memory has been reserved for a . Evaluati
+ng the left side of an = operation determines where the value is to be stored. 
+ C 2024 6.5.1 tells us: 
+ 
+ An expression is a sequence of operators and operands that specifies computation of a val
+ue, or that designates an object or a function, or that generates side effects, or that pe
+rforms a combination thereof. 
+ 
+ Note that a “sequence” of operators and operands includes trivial sequences that are just
+ a single operand. In the declaration char c[4]; , there is just one expression, 4 . It sp
+ecifies the value 4. 
+ The sequence 3 + 4 specifies computation of the sum of the operands 3 and 4 , each of whi
+ch is also an expression. 
+ a designates an object, and main designates a function. 
+ a = 3 generates the side effect of storing 3 in a (and also computes the value 3). 
+ In *(ptr + 1) = *ptr , the left side is evaluated: 
+ 
+ * is an operator. Its operand (ptr + 1) must be evaluated:
+ 
+ ( … ) is an operator with operand ptr + 1 . ( … ) merely evaluates its operand, produce t
+he operand’s value as its result:
+ 
+ + is an operator with operands ptr and 1 :
+ 
+ ptr designates an object. Evaluating it produces the value in that object. (See “Lvalue c
+onversion” below.) 
+ 1 specifies the value 1. 
+ 
+ 
+ The + is completed by adding the value of ptr and 1. This arithmetic is done in units of 
+the pointed-to type, int , so it produces the address of the int one beyond where ptr poin
+ts. 
+ 
+ 
+ ( … ) is completed by producing the result of the + . 
+ 
+ 
+ * is completed by producing the lvalue corresponding to the computed address. 
+ 
+ Thus, the result of *(ptr + 1) in *(ptr + 1) = *ptr is an lvalue for one beyond where ptr
+ points. ptr points to the first element of arr , so *(ptr + 1) is an lvalue for arr[1] . 
+ That is how the left side of the assignment is computed (in the abstract machine describe
+d by the C standard). 
+ Then *(ptr + 1) = *ptr stores the value of *ptr in arr[1] . 
+ Lvalue conversion 
+ Above, we saw that evaluation of ptr produced the value in ptr , but that did not happen 
+for the lvalue *(ptr + 1) ; it was used to store a value instead. This is because of a gen
+eral rule of expression evaluation in C 2024 6.3.3.1: 
+ 
+ Except when it is the operand of the sizeof operator, or the typeof operators, the unary 
+& operator, the ++ operator, the -- operator, or the left operand of the . operator or an 
+assignment operator, an lvalue that does not have array type is converted to the value sto
+red in the designated object (and is no longer an lvalue); this is called lvalue conversio
+n . 
+ 
+ The ptr in ptr + 1 is not the operand of sizeof , a typeof operator, unary & , ++ , or --
+ , and it is not the left operand of . or an assignment operator. So it is “converted” to 
+the value stored in ptr . This conversion is performed by loading the value from the memor
+y reserved for ptr (in the abstract machine). 
+ *(ptr + 1) is the left operand of = , so it is not converted. It remains an lvalue, and t
+he rules for = in C 2024 6.5.17.1 say it is used to store the value of the right operand: 
+ 
+ An assignment operator stores a value in the object designated by the left operand. 
+ 
+ Array conversion 
+ Notice that in int *ptr = arr; , ptr is initialized with the address of the first element
+ in arr , not with the value of arr . This is because lvalue conversion does not happen fo
+r arrays. Instead, a different rule applies: 
+ 
+ Except when it is the operand of the sizeof operator, or typeof operators, or the unary &
+ operator, or is a string literal used to initialize an array, an expression that has type
+ “array of type ” is converted to an expression with type “pointer to type ” that points t
+o the initial element of the array object and is not an lvalue. 
+ 
+ Supplement 
+ The term lvalue refers to its historic place on the left side of an assignment. In x = y 
+, x and y are both variables, but they are used very different. For y , the value recorded
+ in the variable is retrieved from memory. For x , the value is stored in the variable. Th
+e term lvalue refers to an expression that may designate an object, so it can appear on th
+e left side of an assignment. Whether the object’s value is read or written depends on how
+ the lvalue is used in an expression. 
+ If we ignore optimization, a compiler that is slavishly following the abstract model perf
+orms largely the same work for an address and an lvalue. ptr + 1 is the address of arr[1] 
+. *(ptr + 1) is an lvalue for arr[1] . Having an lvalue means we have what we need to acce
+ss the object, which means we know its address. The data the program has for ptr + 1 is th
+e same as the data it has for *(ptr + 1) ; it is the address of arr[1] . The difference be
+tween them is the type of the expression and other metadata the compiler has about them. p
+tr + 1 has type int * and is not an lvalue. *(ptr + 1) has type int and is an lvalue. The 
+type of an expression and the fact of whether it is an lvalue or not tell the compiler how
+ to treat the expression. 
+
+ a = 3+4 
+ 3+4 
+ a 
+ a 
+ a 
+ = 
+ char c[4]; 
+ 4 
+ 3 + 4 
+ 3 
+ 4 
+ a 
+ main 
+ a = 3 
+ a 
+ *(ptr + 1) = *ptr 
+ * 
+ (ptr + 1) 
+ ( … ) 
+ ptr + 1 
+ ( … ) 
+ + 
+ ptr 
+ 1 
+ ptr 
+ 1 
+ + 
+ ptr 
+ int 
+ int 
+ ptr 
+ ( … ) 
+ + 
+ * 
+ *(ptr + 1) 
+ *(ptr + 1) = *ptr 
+ ptr 
+ ptr 
+ arr 
+ *(ptr + 1) 
+ arr[1] 
+ *(ptr + 1) = *ptr 
+ *ptr 
+ arr[1] 
+ ptr 
+ ptr 
+ *(ptr + 1) 
+ sizeof 
+ & 
+ ++ 
+ -- 
+ . 
+ ptr 
+ ptr + 1 
+ sizeof 
+ & 
+ ++ 
+ -- 
+ . 
+ ptr 
+ ptr 
+ *(ptr + 1) 
+ = 
+ = 
+ int *ptr = arr; 
+ ptr 
+ arr 
+ arr 
+ sizeof 
+ & 
+ x = y 
+ x 
+ y 
+ y 
+ x 
+ ptr + 1 
+ arr[1] 
+ *(ptr + 1) 
+ arr[1] 
+ ptr + 1 
+ *(ptr + 1) 
+ arr[1] 
+ ptr + 1 
+ int * 
+ *(ptr + 1) 
+ int
+

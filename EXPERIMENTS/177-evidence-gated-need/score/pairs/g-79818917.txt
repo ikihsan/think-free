@@ -1,0 +1,48 @@
+pid: g-79818917
+
+=== LEFT ===
+langchain 1.0 removed the legacy langchain.chains API, so langchain.chains no longer exist
+s in that package; this is expected, not an install problem. Also, langchain-community 0.4
+.x with langchain 1.0.5 is not a supported pairing. Choose one: if you want the old tutori
+al code, pin langchain==0.3.x with matching langchain-community, text-splitters and Vertex
+ AI integration versions and keep create_retrieval_chain; if you want 1.0, migrate to the 
+new API, wrapping retrieval as a tool and using create_agent, following the langchain 1.x 
+migration guide since the class-based chains moved out of the main package. Verify with py
+thon -c 'import langchain; print(langchain.__version__)' inside the same environment uv cr
+eated.
+
+=== RIGHT ===
+langchain==1.0.5
+ 
+ 
+ langchain v1.0 was released recently (October 22, 2025), and according to the release not
+es , .chains and .retrievers have been moved to the langchain-classic package : 
+ # Chains
+from langchain_classic.chains import ...
+
+# Retrievers
+from langchain_classic.retrievers import ...
+ 
+ You're getting a ModuleNotFoundError because those imports do not exist in the langchain 
+package in v1.0. That's why I asked for your version numbers in Staging Ground . 
+ Some usage can be migrated to the new API; for RAG, you can look at the current RAG docs 
+. The specific migration path depends on exactly what you were trying to do, which may be 
+the subject of a separate question. 
+ You can also temporarily downgrade back to v0.3 to use the older API, but it is in "maint
+enance" mode and will only continue to receive limited support ("security patches and crit
+ical bug fixes") until December 2026 . 
+
+ langchain==1.0.5
+ 
+ langchain 
+ .chains 
+ .retrievers 
+ langchain-classic 
+ # Chains
+from langchain_classic.chains import ...
+
+# Retrievers
+from langchain_classic.retrievers import ...
+ 
+ ModuleNotFoundError 
+ langchain

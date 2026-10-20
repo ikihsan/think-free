@@ -1,0 +1,131 @@
+qid: 79835432
+view_count: 1112
+tags: c++, compiler-errors, constexpr
+key_score: 18
+
+=== TITLE ===
+Why can std::string create a constexpr object only if it&#39;s a static variable?
+
+=== QUESTION ===
+I'm wondering why std::string can't be constexpr if it's a stack variable: 
+ #include <string>
+#include <iostream>
+#include <cstring>
+
+constexpr std::string str15 {"123456789012345"}; // This compiles!
+
+struct Foo
+{
+ constexpr Foo() : a(6) {
+ for (int i = 0; i < 8; ++i)
+ buff[i] = 0;
+ }
+ int a;
+ char buff[8];
+};
+
+constexpr void func()
+{
+ constexpr Foo f{}; // This compiles
+ constexpr std::string str15 {"123456789012345"}; // This doesn't compile
+}
+
+int main() {
+ func();
+ return 0;
+}
+ 
+ Error: 
+ 
+ 'std::string{std::__cxx11::basic_string<char>::_Alloc_hider{((char*)(& str15.std::__cxx11
+::basic_string<char>::<anonymous>.std::__cxx11::basic_string<char>::<unnamed union>::_M_lo
+cal_buf))}, 15, std::__cxx11::basic_string<char>::<unnamed union>{char [16]{'1', '2', '3',
+ '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', 0}}}' is not a constant expre
+ssion 
+ 
+ I get the stack variable and the static variable are different places in memory, but the 
+compiler will accept arbitrary objects as local variables as constexpr . My Foo class does
+n't have a const char* as argument, so that's a difference, but it's not as if const char*
+ constructor can't be used in constexpr , because higher above: 
+ constexpr std::string str15 {"123456789012345"}; // This compiles
+ 
+ https://godbolt.org/z/cffPq6nns 
+
+ std::string 
+ constexpr 
+ #include <string>
+#include <iostream>
+#include <cstring>
+
+constexpr std::string str15 {"123456789012345"}; // This compiles!
+
+struct Foo
+{
+ constexpr Foo() : a(6) {
+ for (int i = 0; i < 8; ++i)
+ buff[i] = 0;
+ }
+ int a;
+ char buff[8];
+};
+
+constexpr void func()
+{
+ constexpr Foo f{}; // This compiles
+ constexpr std::string str15 {"123456789012345"}; // This doesn't compile
+}
+
+int main() {
+ func();
+ return 0;
+}
+ 
+ constexpr 
+ Foo 
+ const char* 
+ const char* 
+ constexpr 
+ constexpr std::string str15 {"123456789012345"}; // This compiles
+
+=== KEY ANSWER ===
+The difference between your class Foo and std::basic_string boils down to libstdc++ implem
+entation of SSO , where the latter has a member of pointer type, which uses the underlying
+ data array as initializer. 
+ This in turn violates possible values a pointer can take in a constant expression (provid
+ed the enclosing object doesn't have static storage duration). From cppreference.com : 
+ 
+ If the value is of pointer type , it is one of the following values: 
+ 
+ the address of an object with static storage duration 
+ the address past the end of an object with static storage duration 
+ the address of a (non-immediate(since C++20)) function 
+ a null pointer value 
+ 
+ 
+ If Foo had such a pointer, it would suffer from the same problem: 
+ struct Foo
+{
+ char buff[8];
+ char* ptr = buff;
+};
+
+int main() {
+ constexpr Foo f{}; // Doesn't compile
+ return 0;
+}
+ 
+
+ Foo 
+ std::basic_string 
+ Foo 
+ struct Foo
+{
+ char buff[8];
+ char* ptr = buff;
+};
+
+int main() {
+ constexpr Foo f{}; // Doesn't compile
+ return 0;
+}
+

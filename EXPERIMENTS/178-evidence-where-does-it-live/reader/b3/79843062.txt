@@ -1,0 +1,31 @@
+qid: 79843062
+tags: .net-8.0, .net-10.0, versionupgrade
+
+=== TITLE ===
+.NET 10 version update generates BuildHost-net472 and BuildHost-netcore folder shortcuts
+
+=== QUESTION ===
+After updating a .NET Core app version from .NET 8 to .NET 10, BuildHost-net472 and BuildH
+ost-netcore folder shortcuts appeared in both projects in the solution, then deleted and w
+orks well, they also appeared in published project files. Are those files important?
+
+=== KEY ANSWER (highest scored) ===
+These folders are projected from the Nuget package (EntityFrameworkCore.Design). 
+ Seems like they are now needed for dotnet-ef operations (e.g. migrations). The folders ar
+e also copied to the publishing output, what I would consider a bug (they are not needed a
+t runtime). 
+ At least you could hide them from the solution/project view by adding this section to you
+r .csproj file(s): 
+ <ItemGroup>
+ <Content Update="@(Content)">
+ <Visible Condition="'%(NuGetItemType)' == 'Content'">false</Visible>
+ </Content>
+</ItemGroup>
+ 
+
+ <ItemGroup>
+ <Content Update="@(Content)">
+ <Visible Condition="'%(NuGetItemType)' == 'Content'">false</Visible>
+ </Content>
+</ItemGroup>
+

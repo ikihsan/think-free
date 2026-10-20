@@ -107,7 +107,7 @@ with a general corpus (E141). The scope is now measured, not hoped:
 > not exact on encyclopedic QA: 0.2826 detection, 0.0113 false positives,
 > 0.2763 of clears genuinely unsupported. The instrument is genre-limited.
 
-**F126.** E141's finding stands: the pre-pass's coverage is a property of a
+**F145.** E141's finding stands: the pre-pass's coverage is a property of a
 genre's writing conventions. E142 adds: the pre-pass's *exactness* is also a
 property of the genre. On regulatory text, the binding blind spot does not
 manifest because the SUMMARY is short, the values are simple, and the

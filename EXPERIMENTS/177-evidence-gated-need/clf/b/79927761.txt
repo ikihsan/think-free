@@ -1,0 +1,230 @@
+qid: 79927761
+view_count: 679
+tags: html, firefox, copy-paste
+key_score: 2
+
+=== TITLE ===
+Make text in form controls copy along with regular text in browsers
+
+=== QUESTION ===
+Consider the following HTML snippet: 
+ 
+ 
+ foo <input type="text" value="bar"> 
+<select>
+ <option>baz</option>
+</select> qux 
+ 
+ 
+ 
+ You see "foo bar baz qux" rendered. But, in Firefox at least, if you select the whole thi
+ng and copy and paste it into another program, the text in the controls gets skipped, so a
+ll that pastes is "foo qux". 
+ How can I make the entire string "foo bar baz qux" paste instead, short of using JavaScri
+pt to construct the entire clipboard contents from scratch? 
+
+ foo <input type="text" value="bar"> 
+<select>
+ <option>baz</option>
+</select> qux
+
+=== KEY ANSWER ===
+(Edit: since Kaiido fixed "sneaking" text content nodes inside elements for Firefox to cop
+y (through attribute or real text child) so it now supports even <select> , that answer co
+uld probably be the best option, however arcane it may seem.) 
+ Not a "pretty" approach, but somewhat pragmatic, and quite obvious: 
+ Mirror values beside their inputs 
+ Instead of messing with the copy event and constructing the entire clipboard contents fro
+m scratch in JS , I'd just be frank and kept the value mirrored along respective elements 
+for copy to pick, visually hidden, and also hidden from screen readers. 
+ Minimal POC that does not bother to do anything special; uses capturing listener on entir
+e document that watches for input events and single "onload" loop that sets up what is in 
+the HTML from the start. Mirrored values are displayed here just for clarity: 
+ 
+ 
+ function mirrorValueForCopy(event) {
+ const tgt = event.target;
+ let prev = tgt.previousElementSibling;
+ if (prev && prev.hasAttribute('data-mirror')) {
+ prev.textContent = tgt.value;
+ } else {
+ tgt.insertAdjacentHTML(
+ 'beforebegin',
+ `<mark data-mirror aria-hidden="true">${tgt.value}</mark>`
+ );
+ }
+}
+document.documentElement.addEventListener('input', mirrorValueForCopy, true);
+document.querySelectorAll('input,select').forEach(i => mirrorValueForCopy({
+ target: i
+})) 
+ [data-mirror] {
+ font-size: .7rem;
+ /* Use 0 for real hiding, or, you know, clip, position, whatever. */
+} 
+ foo
+<input value="bar" id="a">
+<select>
+ <option>baz</option>
+ <option>gazonk</option>
+</select>
+qux 
+ 
+ 
+ 
+ Caveats and details to handle in real-world 
+ 
+ Obviously, not suitable for HTML/CSS structure that depends on the exact DOM order , sibl
+ing index and so on. 
+ For brevity omitted any attempt to not making duplicate clipboard content in Chromium . 
+ For brevity omitted any mutation observer that would set up mirror for newly appended inp
+uts that had not been interacted with. 
+ Also no early return filter for 'input' emitters that Firefox can copy values from native
+ly (if any). 
+ 
+ Addendum: using the "real" texts as pseudo-label overlays 
+ The mechanism somewhat asks what about making these duplicates appear like the actual inp
+ut content ? I did some testing, and it could work to some extent, but brings probably mor
+e new problems than it solves. POC: 
+ 
+ 
+ function mirrorValueForCopy(event) {
+ const tgt = event.target;
+ if (tgt.matches('[type="checkbox"],[type="radio"]')) return;
+ let prev = tgt.previousElementSibling;
+ if (prev && prev.hasAttribute('data-mirror')) {
+ prev.textContent = tgt.value;
+ } else {
+ tgt.insertAdjacentHTML(
+ 'beforebegin',
+ `<mark data-mirror aria-hidden="true">${tgt.value}</mark>`
+ );
+ }
+}
+document.documentElement.addEventListener('input', mirrorValueForCopy, true);
+document.querySelectorAll('input:not([type="checkbox"],[type="radio"]),select').forEach(i 
+=> mirrorValueForCopy({
+ target: i
+})) 
+ [data-mirror] {
+ position: absolute;
+ &:has(+ :focus) {
+ z-index: -1;
+ }
+ pointer-events: none;
+ white-space: pre;
+} 
+ <label>
+ <input type="checkbox" id="nl2space" checked>
+ single line clipboard
+</label>
+<p oncopy="
+ if(!nl2space.checked){return};
+ event.clipboardData.setData(
+ 'text/plain',
+ document.getSelection().toString().replaceAll(/\r\n|\r|\n/g,' ')
+ );
+ event.preventDefault();
+">
+ foo
+ <input value="bar">
+ <select>
+ <option>baz</option>
+ <option>gazonk</option>
+ </select>
+ qux
+</p>
+
+<textarea placeholder="try here"></textarea>. 
+ 
+ 
+ 
+ The problems and caveats: 
+ 
+ Disabled pointer-events so the click reaches the actual input/select. 
+ While the floating pseudo-labels could be actual labels, it would lose the position infor
+mation, and would not open the select. 
+ Firefox tends to add newlines whenever the selection contains anything positioned (it see
+ms). That's why the oncopy cleaner there. 
+ Arguably, having the oncopy handler is pretty close to the reconstructing clipboard conte
+nt what we wanted to avoid, but at least there still is no treewalker involved. 
+ 
+
+ <select> 
+ input 
+ function mirrorValueForCopy(event) {
+ const tgt = event.target;
+ let prev = tgt.previousElementSibling;
+ if (prev && prev.hasAttribute('data-mirror')) {
+ prev.textContent = tgt.value;
+ } else {
+ tgt.insertAdjacentHTML(
+ 'beforebegin',
+ `<mark data-mirror aria-hidden="true">${tgt.value}</mark>`
+ );
+ }
+}
+document.documentElement.addEventListener('input', mirrorValueForCopy, true);
+document.querySelectorAll('input,select').forEach(i => mirrorValueForCopy({
+ target: i
+})) 
+ [data-mirror] {
+ font-size: .7rem;
+ /* Use 0 for real hiding, or, you know, clip, position, whatever. */
+} 
+ foo
+<input value="bar" id="a">
+<select>
+ <option>baz</option>
+ <option>gazonk</option>
+</select>
+qux 
+ function mirrorValueForCopy(event) {
+ const tgt = event.target;
+ if (tgt.matches('[type="checkbox"],[type="radio"]')) return;
+ let prev = tgt.previousElementSibling;
+ if (prev && prev.hasAttribute('data-mirror')) {
+ prev.textContent = tgt.value;
+ } else {
+ tgt.insertAdjacentHTML(
+ 'beforebegin',
+ `<mark data-mirror aria-hidden="true">${tgt.value}</mark>`
+ );
+ }
+}
+document.documentElement.addEventListener('input', mirrorValueForCopy, true);
+document.querySelectorAll('input:not([type="checkbox"],[type="radio"]),select').forEach(i 
+=> mirrorValueForCopy({
+ target: i
+})) 
+ [data-mirror] {
+ position: absolute;
+ &:has(+ :focus) {
+ z-index: -1;
+ }
+ pointer-events: none;
+ white-space: pre;
+} 
+ <label>
+ <input type="checkbox" id="nl2space" checked>
+ single line clipboard
+</label>
+<p oncopy="
+ if(!nl2space.checked){return};
+ event.clipboardData.setData(
+ 'text/plain',
+ document.getSelection().toString().replaceAll(/\r\n|\r|\n/g,' ')
+ );
+ event.preventDefault();
+">
+ foo
+ <input value="bar">
+ <select>
+ <option>baz</option>
+ <option>gazonk</option>
+ </select>
+ qux
+</p>
+
+<textarea placeholder="try here"></textarea>.
+

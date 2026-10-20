@@ -1,0 +1,1352 @@
+[
+  {
+    "path": "github.com/gin-gonic/gin",
+    "synopsis": "Package gin implements a HTTP web framework called gin.",
+    "imported_by": 191418,
+    "query": "framework"
+  },
+  {
+    "path": "github.com/astaxie/beego",
+    "synopsis": "Package beego provide a MVC framework beego: an open-source, high-performance, modular, full-stack web framework It is used for rapid development of RESTful APIs, web apps and backend services in Go.",
+    "imported_by": 15020,
+    "query": "framework"
+  },
+  {
+    "path": "github.com/labstack/echo/v5",
+    "synopsis": "Package echo implements high performance, minimalist Go web framework.",
+    "imported_by": 1564,
+    "query": "framework"
+  },
+  {
+    "path": "github.com/revel/revel",
+    "synopsis": "",
+    "imported_by": 4548,
+    "query": "framework"
+  },
+  {
+    "path": "github.com/gofiber/fiber/v3",
+    "synopsis": "Package fiber is an Express inspired web framework built on top of Fasthttp, the fastest HTTP engine for Go.",
+    "imported_by": 1480,
+    "query": "framework"
+  },
+  {
+    "path": "github.com/golang/mock/gomock",
+    "synopsis": "Package gomock is a mock framework for Go.",
+    "imported_by": 24772,
+    "query": "framework"
+  },
+  {
+    "path": "github.com/urfave/cli/v3",
+    "synopsis": "Package cli provides a minimal framework for creating and organizing command line Go applications.",
+    "imported_by": 4439,
+    "query": "framework"
+  },
+  {
+    "path": "k8s.io/kubernetes/test/e2e/framework",
+    "synopsis": "Package framework contains provider-independent helper code for building and running E2E tests with Ginkgo.",
+    "imported_by": 2838,
+    "query": "framework"
+  },
+  {
+    "path": "github.com/micro/cli/v2",
+    "synopsis": "Package cli provides a minimal framework for creating and organizing command line Go applications.",
+    "imported_by": 964,
+    "query": "framework"
+  },
+  {
+    "path": "github.com/charmbracelet/bubbletea",
+    "synopsis": "Package tea provides a framework for building rich terminal user interfaces based on the paradigms of The Elm Architecture.",
+    "imported_by": 14989,
+    "query": "framework"
+  },
+  {
+    "path": "github.com/gorilla/handlers",
+    "synopsis": "Package handlers is a collection of handlers (aka &#34;HTTP middleware&#34;) for use with Go&#39;s net/http package (or any framework supporting http.Handler).",
+    "imported_by": 8580,
+    "query": "framework"
+  },
+  {
+    "path": "github.com/hashicorp/terraform-plugin-framework/types",
+    "synopsis": "Package types contains the framework-defined data types and values, such as boolean, floating point, integer, list, map, object, set, and string.",
+    "imported_by": 1844,
+    "query": "framework"
+  },
+  {
+    "path": "github.com/kataras/iris/v12",
+    "synopsis": "Package iris implements the highest realistic performance, easy to learn Go web framework.",
+    "imported_by": 2922,
+    "query": "framework"
+  },
+  {
+    "path": "github.com/onsi/gomega",
+    "synopsis": "Gomega is the Ginkgo BDD-style testing framework&#39;s preferred matcher library.",
+    "imported_by": 11824,
+    "query": "framework"
+  },
+  {
+    "path": "sigs.k8s.io/controller-runtime/pkg/log/zap",
+    "synopsis": "Package zap contains helpers for setting up a new logr.Logger instance using the Zap logging framework.",
+    "imported_by": 10166,
+    "query": "framework"
+  },
+  {
+    "path": "go.uber.org/fx",
+    "synopsis": "Package fx is a framework that makes it easy to build applications out of reusable, composable modules.",
+    "imported_by": 9662,
+    "query": "framework"
+  },
+  {
+    "path": "github.com/onsi/ginkgo/v2",
+    "synopsis": "Ginkgo is a testing framework for Go designed to help you write expressive tests.",
+    "imported_by": 4185,
+    "query": "framework"
+  },
+  {
+    "path": "go.uber.org/mock/gomock",
+    "synopsis": "Package gomock is a mock framework for Go.",
+    "imported_by": 7360,
+    "query": "framework"
+  },
+  {
+    "path": "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema",
+    "synopsis": "schema is a high-level framework for easily writing new providers for Terraform.",
+    "imported_by": 7003,
+    "query": "framework"
+  },
+  {
+    "path": "github.com/prometheus/client_golang/prometheus/promhttp",
+    "synopsis": "Package promhttp provides tooling around HTTP servers and clients.",
+    "imported_by": 30138,
+    "query": "client"
+  },
+  {
+    "path": "net/http",
+    "synopsis": "Package http provides HTTP client and server implementations.",
+    "imported_by": 1776917,
+    "query": "client"
+  },
+  {
+    "path": "k8s.io/client-go/tools/cache",
+    "synopsis": "Package cache is a client-side caching mechanism.",
+    "imported_by": 58441,
+    "query": "client"
+  },
+  {
+    "path": "sigs.k8s.io/controller-runtime/pkg/client",
+    "synopsis": "Package client contains functionality for interacting with Kubernetes API servers.",
+    "imported_by": 41726,
+    "query": "client"
+  },
+  {
+    "path": "google.golang.org/grpc/credentials",
+    "synopsis": "Package credentials implements various credentials supported by gRPC library, which encapsulate all the state needed by a client to authenticate with a server and make various assertions, e.g., about the client&#39;s identity, role, or whether it is authorized to make a particular call.",
+    "imported_by": 23299,
+    "query": "client"
+  },
+  {
+    "path": "github.com/influxdata/influxdb/client/v2",
+    "synopsis": "Package client (v2) is the current official Go client for InfluxDB.",
+    "imported_by": 5612,
+    "query": "client"
+  },
+  {
+    "path": "go.etcd.io/etcd/client/v3",
+    "synopsis": "Package clientv3 implements the official Go etcd client for v3.",
+    "imported_by": 5318,
+    "query": "client"
+  },
+  {
+    "path": "github.com/cloudwego/kitex/client",
+    "synopsis": "Package client contains core part of Kitex client.",
+    "imported_by": 2952,
+    "query": "client"
+  },
+  {
+    "path": "github.com/prometheus/client_model/go",
+    "synopsis": "",
+    "imported_by": 5710,
+    "query": "client"
+  },
+  {
+    "path": "github.com/redis/go-redis/v9",
+    "synopsis": "Package redis implements a Redis client.",
+    "imported_by": 17374,
+    "query": "client"
+  },
+  {
+    "path": "github.com/micro/go-micro/v2/client",
+    "synopsis": "Package client is an interface for an RPC client",
+    "imported_by": 2064,
+    "query": "client"
+  },
+  {
+    "path": "github.com/docker/docker/client",
+    "synopsis": "Package client is a Go client for the Docker Engine API.",
+    "imported_by": 13321,
+    "query": "client"
+  },
+  {
+    "path": "github.com/aws/aws-sdk-go/aws/session",
+    "synopsis": "Package session provides configuration for the SDK&#39;s service clients.",
+    "imported_by": 29256,
+    "query": "client"
+  },
+  {
+    "path": "github.com/hashicorp/consul/api",
+    "synopsis": "",
+    "imported_by": 19759,
+    "query": "client"
+  },
+  {
+    "path": "github.com/minio/minio-go/v7",
+    "synopsis": "",
+    "imported_by": 3161,
+    "query": "client"
+  },
+  {
+    "path": "github.com/moby/moby/client",
+    "synopsis": "Package client is a Go client for the Docker Engine API.",
+    "imported_by": 1686,
+    "query": "client"
+  },
+  {
+    "path": "github.com/go-redis/redis/v8",
+    "synopsis": "Package redis implements a Redis client.",
+    "imported_by": 14987,
+    "query": "client"
+  },
+  {
+    "path": "github.com/cosmos/cosmos-sdk/client",
+    "synopsis": "",
+    "imported_by": 25174,
+    "query": "client"
+  },
+  {
+    "path": "golang.org/x/crypto/ssh",
+    "synopsis": "Package ssh implements an SSH client and server.",
+    "imported_by": 24982,
+    "query": "client"
+  },
+  {
+    "path": "go.uber.org/atomic",
+    "synopsis": "Package atomic provides simple wrappers around numerics to enforce atomic access.",
+    "imported_by": 6860,
+    "query": "wrapper"
+  },
+  {
+    "path": "entgo.io/ent/dialect/sql",
+    "synopsis": "Package sql provides wrappers around the standard database/sql package to allow the generated code to interact with a statically-typed API.",
+    "imported_by": 10614,
+    "query": "wrapper"
+  },
+  {
+    "path": "golang.org/x/text/transform",
+    "synopsis": "Package transform provides reader and writer wrappers that transform the bytes passing through as well as various transformations.",
+    "imported_by": 9874,
+    "query": "wrapper"
+  },
+  {
+    "path": "github.com/golang/protobuf/ptypes/wrappers",
+    "synopsis": "",
+    "imported_by": 5137,
+    "query": "wrapper"
+  },
+  {
+    "path": "github.com/pingcap/log",
+    "synopsis": "",
+    "imported_by": 3885,
+    "query": "wrapper"
+  },
+  {
+    "path": "github.com/cloudflare/cfssl/log",
+    "synopsis": "Package log implements a wrapper around the Go standard library&#39;s logging package.",
+    "imported_by": 3655,
+    "query": "wrapper"
+  },
+  {
+    "path": "github.com/ethereum/go-ethereum/common/mclock",
+    "synopsis": "Package mclock is a wrapper for a monotonic clock source",
+    "imported_by": 2888,
+    "query": "wrapper"
+  },
+  {
+    "path": "github.com/ghodss/yaml",
+    "synopsis": "",
+    "imported_by": 19254,
+    "query": "wrapper"
+  },
+  {
+    "path": "github.com/opencontainers/runc/libcontainer/system",
+    "synopsis": "Package system provides wrappers for Linux system operations.",
+    "imported_by": 2557,
+    "query": "wrapper"
+  },
+  {
+    "path": "github.com/coredns/coredns/plugin/pkg/log",
+    "synopsis": "Package log implements a small wrapper around the std lib log package.",
+    "imported_by": 2073,
+    "query": "wrapper"
+  },
+  {
+    "path": "github.com/docker/go-metrics",
+    "synopsis": "",
+    "imported_by": 1711,
+    "query": "wrapper"
+  },
+  {
+    "path": "gocv.io/x/gocv",
+    "synopsis": "Package gocv is a wrapper around the OpenCV 4.x computer vision library.",
+    "imported_by": 1654,
+    "query": "wrapper"
+  },
+  {
+    "path": "github.com/kr/pty",
+    "synopsis": "Package pty is a wrapper for github.com/creack/pty, which provides functions for working with Unix terminals.",
+    "imported_by": 1593,
+    "query": "wrapper"
+  },
+  {
+    "path": "go.uber.org/zap/buffer",
+    "synopsis": "Package buffer provides a thin wrapper around a byte slice.",
+    "imported_by": 1440,
+    "query": "wrapper"
+  },
+  {
+    "path": "github.com/swaggo/http-swagger/v2",
+    "synopsis": "",
+    "imported_by": 343,
+    "query": "wrapper"
+  },
+  {
+    "path": "k8s.io/apimachinery/pkg/util/httpstream",
+    "synopsis": "Package httpstream contains compatibility wrappers for streaming transport APIs.",
+    "imported_by": 918,
+    "query": "wrapper"
+  },
+  {
+    "path": "gopkg.in/DataDog/dd-trace-go.v1/ddtrace",
+    "synopsis": "Package ddtrace contains the interfaces that specify the implementations of Datadog&#39;s tracing library, as well as a set of sub-packages containing various implementations: our native implementation (&#34;tracer&#34;), a wrapper that can be used with Opentracing (&#34;opentracer&#34;) and a mock tracer to be used for testing (&#34;mocktracer&#34;).",
+    "imported_by": 911,
+    "query": "wrapper"
+  },
+  {
+    "path": "yunion.io/x/log",
+    "synopsis": "Just logrus wrapper, maybe replace in the future",
+    "imported_by": 892,
+    "query": "wrapper"
+  },
+  {
+    "path": "github.com/rs/cors/wrapper/gin",
+    "synopsis": "Package cors/wrapper/gin provides gin.HandlerFunc to handle CORS related requests as a wrapper of github.com/rs/cors handler.",
+    "imported_by": 218,
+    "query": "wrapper"
+  },
+  {
+    "path": "github.com/grpc-ecosystem/go-grpc-middleware/v2/interceptors/logging",
+    "synopsis": "Package logging is a &#34;parent&#34; package for gRPC logging middlewares.",
+    "imported_by": 545,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/go-openapi/runtime/middleware",
+    "synopsis": "Package middleware provides the library with helper functions for serving swagger APIs.",
+    "imported_by": 6711,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/aws/smithy-go/middleware",
+    "synopsis": "Package middleware provides transport agnostic middleware for decorating SDK handlers.",
+    "imported_by": 1327,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/go-chi/chi/v5/middleware",
+    "synopsis": "",
+    "imported_by": 8698,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/labstack/echo/v4/middleware",
+    "synopsis": "",
+    "imported_by": 8648,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/gin-contrib/cors",
+    "synopsis": "",
+    "imported_by": 8413,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/swaggo/gin-swagger",
+    "synopsis": "",
+    "imported_by": 5351,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/auth0/go-jwt-middleware",
+    "synopsis": "",
+    "imported_by": 874,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/gin-contrib/gzip",
+    "synopsis": "",
+    "imported_by": 840,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/gofiber/fiber/v2/middleware/cors",
+    "synopsis": "",
+    "imported_by": 3903,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/alexedwards/scs/v2",
+    "synopsis": "",
+    "imported_by": 3701,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/go-chi/jwtauth/v5",
+    "synopsis": "",
+    "imported_by": 421,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/appleboy/gin-jwt/v2",
+    "synopsis": "",
+    "imported_by": 569,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/kataras/iris/v12/middleware/recover",
+    "synopsis": "Package recover provides recovery for specific routes or for the whole app via middleware.",
+    "imported_by": 154,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/Azure/azure-sdk-for-go/sdk/azcore",
+    "synopsis": "Package azcore implements an HTTP request/response middleware pipeline used by Azure SDK clients.",
+    "imported_by": 2886,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/go-macaron/session",
+    "synopsis": "Package session a middleware that provides the session management of Macaron.",
+    "imported_by": 1576,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/ogen-go/ogen/middleware",
+    "synopsis": "Package middleware provides a middleware interface for ogen.",
+    "imported_by": 278,
+    "query": "middleware"
+  },
+  {
+    "path": "github.com/labstack/echo-jwt/v4",
+    "synopsis": "",
+    "imported_by": 386,
+    "query": "middleware"
+  },
+  {
+    "path": "plugin",
+    "synopsis": "Package plugin implements loading and symbol resolution of Go plugins.",
+    "imported_by": 5911,
+    "query": "plugin"
+  },
+  {
+    "path": "github.com/hashicorp/go-plugin",
+    "synopsis": "The plugin package exposes functions and helpers for communicating to plugins which are implemented as standalone binary applications.",
+    "imported_by": 3713,
+    "query": "plugin"
+  },
+  {
+    "path": "github.com/coredns/coredns/plugin",
+    "synopsis": "Package plugin provides some types and functions common among plugin.",
+    "imported_by": 3961,
+    "query": "plugin"
+  },
+  {
+    "path": "github.com/influxdata/telegraf/plugins/inputs",
+    "synopsis": "",
+    "imported_by": 9214,
+    "query": "plugin"
+  },
+  {
+    "path": "k8s.io/client-go/plugin/pkg/client/auth",
+    "synopsis": "",
+    "imported_by": 8828,
+    "query": "plugin"
+  },
+  {
+    "path": "github.com/gogo/protobuf/plugin/testgen",
+    "synopsis": "The testgen plugin generates Test and Benchmark functions for each message.",
+    "imported_by": 1246,
+    "query": "plugin"
+  },
+  {
+    "path": "github.com/hashicorp/terraform-plugin-log/tflog",
+    "synopsis": "Package tflog provides helper functions for writing log output and creating loggers for Terraform plugins.",
+    "imported_by": 1158,
+    "query": "plugin"
+  },
+  {
+    "path": "github.com/mackerelio/go-mackerel-plugin-helper",
+    "synopsis": "",
+    "imported_by": 537,
+    "query": "plugin"
+  },
+  {
+    "path": "github.com/mackerelio/go-mackerel-plugin",
+    "synopsis": "",
+    "imported_by": 554,
+    "query": "plugin"
+  },
+  {
+    "path": "github.com/turbot/steampipe-plugin-sdk/v5/plugin",
+    "synopsis": "Package plugin provides data structures and functions that enable a plugin to read data from an API and stream it into Postgres tables by way of Steampipe&#39;s [foreign data wrapper] (FDW).",
+    "imported_by": 489,
+    "query": "plugin"
+  },
+  {
+    "path": "github.com/docker/docker/pkg/plugins",
+    "synopsis": "Package plugins provides structures and helper functions to manage Docker plugins.",
+    "imported_by": 1811,
+    "query": "plugin"
+  },
+  {
+    "path": "github.com/containerd/containerd/plugin",
+    "synopsis": "",
+    "imported_by": 3259,
+    "query": "plugin"
+  },
+  {
+    "path": "google.golang.org/protobuf/compiler/protogen",
+    "synopsis": "Package protogen provides support for writing protoc plugins.",
+    "imported_by": 3003,
+    "query": "plugin"
+  },
+  {
+    "path": "github.com/grafana/grafana-plugin-sdk-go/backend",
+    "synopsis": "Package backend provides SDK handler interfaces and contracts for implementing and serving backend plugins.",
+    "imported_by": 580,
+    "query": "plugin"
+  },
+  {
+    "path": "github.com/golang/protobuf/protoc-gen-go/plugin",
+    "synopsis": "",
+    "imported_by": 2690,
+    "query": "plugin"
+  },
+  {
+    "path": "k8s.io/kubernetes/pkg/volume/util",
+    "synopsis": "Package util contains utility code for use by volume plugins.",
+    "imported_by": 2276,
+    "query": "plugin"
+  },
+  {
+    "path": "github.com/mattermost/mattermost/server/public/plugin",
+    "synopsis": "The plugin package is used by Mattermost server plugins written in go.",
+    "imported_by": 233,
+    "query": "plugin"
+  },
+  {
+    "path": "database/sql/driver",
+    "synopsis": "Package driver defines interfaces to be implemented by database drivers as used by package sql.",
+    "imported_by": 37113,
+    "query": "driver"
+  },
+  {
+    "path": "github.com/go-sql-driver/mysql",
+    "synopsis": "Package mysql provides a MySQL driver for Go&#39;s database/sql package.",
+    "imported_by": 55215,
+    "query": "driver"
+  },
+  {
+    "path": "gorm.io/driver/mysql",
+    "synopsis": "",
+    "imported_by": 15235,
+    "query": "driver"
+  },
+  {
+    "path": "go.mongodb.org/mongo-driver/v2/mongo/options",
+    "synopsis": "Package options defines the optional configurations for the MongoDB Go Driver.",
+    "imported_by": 1567,
+    "query": "driver"
+  },
+  {
+    "path": "gorm.io/driver/postgres",
+    "synopsis": "",
+    "imported_by": 16201,
+    "query": "driver"
+  },
+  {
+    "path": "github.com/lib/pq",
+    "synopsis": "Package pq is a Go PostgreSQL driver for database/sql.",
+    "imported_by": 57719,
+    "query": "driver"
+  },
+  {
+    "path": "gorm.io/driver/sqlite",
+    "synopsis": "",
+    "imported_by": 7019,
+    "query": "driver"
+  },
+  {
+    "path": "github.com/jackc/pgx/v5",
+    "synopsis": "Package pgx is a PostgreSQL database driver.",
+    "imported_by": 12050,
+    "query": "driver"
+  },
+  {
+    "path": "github.com/glebarez/sqlite",
+    "synopsis": "",
+    "imported_by": 1433,
+    "query": "driver"
+  },
+  {
+    "path": "gopkg.in/mgo.v2/bson",
+    "synopsis": "Package bson is an implementation of the BSON specification for Go: http://bsonspec.org It was created as part of the mgo MongoDB driver for Go, but is standalone and may be used on its own without the driver.",
+    "imported_by": 14420,
+    "query": "driver"
+  },
+  {
+    "path": "golang.org/x/tools/go/analysis",
+    "synopsis": "Package analysis defines the interface between a modular static analysis and an analysis driver program.",
+    "imported_by": 8217,
+    "query": "driver"
+  },
+  {
+    "path": "modernc.org/sqlite",
+    "synopsis": "Package sqlite is a sql/database driver using a CGo-free port of the C SQLite3 library.",
+    "imported_by": 6070,
+    "query": "driver"
+  },
+  {
+    "path": "github.com/gocql/gocql",
+    "synopsis": "Package gocql implements a fast and robust Cassandra driver for the Go programming language.",
+    "imported_by": 3678,
+    "query": "driver"
+  },
+  {
+    "path": "gorm.io/driver/sqlserver",
+    "synopsis": "",
+    "imported_by": 953,
+    "query": "driver"
+  },
+  {
+    "path": "github.com/arangodb/go-driver",
+    "synopsis": "Package driver implements a Go driver for the ArangoDB database.",
+    "imported_by": 457,
+    "query": "driver"
+  },
+  {
+    "path": "github.com/astaxie/beego/orm",
+    "synopsis": "Package orm provide ORM for MySQL/PostgreSQL/sqlite Simple Usage package main import ( &#34;fmt&#34; &#34;github.com/astaxie/beego/orm&#34; _ &#34;github.com/go-sql-driver/mysql&#34; // import your used driver ) // Model Struct type User struct { Id int `orm:&#34;auto&#34;` Name string `orm:&#34;size(100)&#34;` } func init() { orm.RegisterDataBase(&#34;default&#34;, &#34;mysql&#34;, &#34;root:root@/my_db?charset=utf8&#34;, 30) } func main() { o := orm.NewOrm() user := User{Name: &#34;slene&#34;} // insert id, err := o.Insert(&amp;user) // update user.Name = &#34;astaxie&#34; num, err := o.Update(&amp;user) // read one u := User{Id: user.Id} err = o.Read(&amp;u) // delete num, err = o.Delete(&amp;u) } more docs: http://beego.me/docs/mvc/model/overview.md",
+    "imported_by": 4630,
+    "query": "driver"
+  },
+  {
+    "path": "fyne.io/fyne/v2/driver/desktop",
+    "synopsis": "Package desktop provides desktop specific driver functionality.",
+    "imported_by": 647,
+    "query": "driver"
+  },
+  {
+    "path": "github.com/cznic/ql/driver",
+    "synopsis": "Package driver registers a QL sql/driver named &#34;ql&#34; and a memory driver named &#34;ql-mem&#34;.",
+    "imported_by": 379,
+    "query": "driver"
+  },
+  {
+    "path": "github.com/uptrace/bun/driver/pgdriver",
+    "synopsis": "",
+    "imported_by": 562,
+    "query": "driver"
+  },
+  {
+    "path": "golang.org/x/crypto/bcrypt",
+    "synopsis": "Package bcrypt implements Provos and Mazi\u00e8res&#39;s bcrypt adaptive hashing algorithm.",
+    "imported_by": 46492,
+    "query": "adapter"
+  },
+  {
+    "path": "github.com/casbin/gorm-adapter/v3",
+    "synopsis": "",
+    "imported_by": 638,
+    "query": "adapter"
+  },
+  {
+    "path": "github.com/gertd/go-pluralize",
+    "synopsis": "",
+    "imported_by": 620,
+    "query": "adapter"
+  },
+  {
+    "path": "gvisor.dev/gvisor/pkg/tcpip/adapters/gonet",
+    "synopsis": "Package gonet provides a Go net package compatible wrapper for a tcpip stack.",
+    "imported_by": 415,
+    "query": "adapter"
+  },
+  {
+    "path": "github.com/prometheus/prometheus/documentation/examples/remote_storage/remote_storage_adapter/influxdb",
+    "synopsis": "",
+    "imported_by": 344,
+    "query": "adapter"
+  },
+  {
+    "path": "github.com/muka/go-bluetooth/bluez/profile/adapter",
+    "synopsis": "BlueZ D-Bus Adapter API description [adapter-api.txt]",
+    "imported_by": 102,
+    "query": "adapter"
+  },
+  {
+    "path": "knative.dev/eventing/pkg/adapter/v2",
+    "synopsis": "",
+    "imported_by": 332,
+    "query": "adapter"
+  },
+  {
+    "path": "github.com/prebid/prebid-server/v4/adapters",
+    "synopsis": "",
+    "imported_by": 280,
+    "query": "adapter"
+  },
+  {
+    "path": "github.com/upper/db/v4/adapter/postgresql",
+    "synopsis": "Package postgresql provides an adapter for PostgreSQL.",
+    "imported_by": 70,
+    "query": "adapter"
+  },
+  {
+    "path": "github.com/layer5io/meshery-adapter-library/adapter",
+    "synopsis": "Package adapter provides the default implementation of an adapter Handler, called by the MeshServiceServer implementation.",
+    "imported_by": 47,
+    "query": "adapter"
+  },
+  {
+    "path": "github.com/sagernet/sing-box/adapter",
+    "synopsis": "",
+    "imported_by": 194,
+    "query": "adapter"
+  },
+  {
+    "path": "github.com/casbin/ent-adapter",
+    "synopsis": "",
+    "imported_by": 34,
+    "query": "adapter"
+  },
+  {
+    "path": "github.com/gwatts/gin-adapter",
+    "synopsis": "Package adapter provides a method of connecting standard Go middleware handlers to Gin&#39;s Engine.",
+    "imported_by": 50,
+    "query": "adapter"
+  },
+  {
+    "path": "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge",
+    "synopsis": "Package tfbridge implements adapters for constructing [Pulumi Resource Providers] from Terraform providers built with the [Terraform Plugin Framework].",
+    "imported_by": 156,
+    "query": "adapter"
+  },
+  {
+    "path": "upper.io/db.v3",
+    "synopsis": "Package db (or upper-db) provides a common interface to work with a variety of data sources using adapters that wrap mature database drivers.",
+    "imported_by": 475,
+    "query": "adapter"
+  },
+  {
+    "path": "github.com/casbin/xorm-adapter/v2",
+    "synopsis": "",
+    "imported_by": 29,
+    "query": "adapter"
+  },
+  {
+    "path": "github.com/go-admin-team/gorm-adapter/v3",
+    "synopsis": "",
+    "imported_by": 43,
+    "query": "adapter"
+  },
+  {
+    "path": "github.com/muesli/mango-cobra",
+    "synopsis": "",
+    "imported_by": 120,
+    "query": "adapter"
+  },
+  {
+    "path": "github.com/goharbor/harbor/src/replication/adapter",
+    "synopsis": "",
+    "imported_by": 400,
+    "query": "adapter"
+  },
+  {
+    "path": "github.com/sirupsen/logrus",
+    "synopsis": "Package logrus is a structured logger for Go, completely API compatible with the standard library logger.",
+    "imported_by": 239958,
+    "query": "library"
+  },
+  {
+    "path": "github.com/mitchellh/go-homedir",
+    "synopsis": "",
+    "imported_by": 16044,
+    "query": "library"
+  },
+  {
+    "path": "golang.org/x/net/context",
+    "synopsis": "Package context has been superseded by the standard library context package.",
+    "imported_by": 145341,
+    "query": "library"
+  },
+  {
+    "path": "github.com/holiman/uint256",
+    "synopsis": "",
+    "imported_by": 5539,
+    "query": "library"
+  },
+  {
+    "path": "github.com/joho/godotenv",
+    "synopsis": "Package godotenv is a go port of the ruby dotenv library (https://github.com/bkeepers/dotenv)",
+    "imported_by": 54481,
+    "query": "library"
+  },
+  {
+    "path": "github.com/mitchellh/cli",
+    "synopsis": "",
+    "imported_by": 6716,
+    "query": "library"
+  },
+  {
+    "path": "github.com/goccy/go-yaml",
+    "synopsis": "",
+    "imported_by": 2983,
+    "query": "library"
+  },
+  {
+    "path": "image",
+    "synopsis": "Package image implements a basic 2-D image library.",
+    "imported_by": 58923,
+    "query": "library"
+  },
+  {
+    "path": "github.com/hashicorp/go-version",
+    "synopsis": "",
+    "imported_by": 6106,
+    "query": "library"
+  },
+  {
+    "path": "google.golang.org/grpc/metadata",
+    "synopsis": "Package metadata define the structure of the metadata supported by gRPC library.",
+    "imported_by": 44200,
+    "query": "library"
+  },
+  {
+    "path": "image/color",
+    "synopsis": "Package color implements a basic color library.",
+    "imported_by": 43615,
+    "query": "library"
+  },
+  {
+    "path": "github.com/rs/zerolog",
+    "synopsis": "Package zerolog provides a lightweight logging library dedicated to JSON logging.",
+    "imported_by": 30545,
+    "query": "library"
+  },
+  {
+    "path": "github.com/wasilibs/go-re2",
+    "synopsis": "",
+    "imported_by": 3588,
+    "query": "library"
+  },
+  {
+    "path": "go.mongodb.org/mongo-driver/bson",
+    "synopsis": "Package bson is a library for reading, writing, and manipulating BSON.",
+    "imported_by": 25035,
+    "query": "library"
+  },
+  {
+    "path": "github.com/prometheus/common/model",
+    "synopsis": "Package model contains common data structures that are shared across Prometheus components and libraries.",
+    "imported_by": 21580,
+    "query": "library"
+  },
+  {
+    "path": "google.golang.org/api/googleapi",
+    "synopsis": "Package googleapi contains the common code shared by all Google API libraries.",
+    "imported_by": 19614,
+    "query": "library"
+  },
+  {
+    "path": "github.com/ugorji/go/codec",
+    "synopsis": "Package codec provides a High Performance, Feature-Rich Idiomatic Go codec/encoding library for binc, msgpack, cbor, json.",
+    "imported_by": 10142,
+    "query": "library"
+  },
+  {
+    "path": "github.com/gagliardetto/solana-go",
+    "synopsis": "",
+    "imported_by": 2233,
+    "query": "library"
+  },
+  {
+    "path": "github.com/aws/jsii-runtime-go/runtime",
+    "synopsis": "Package runtime provides the APIs used by code generated by the `jsii-pacmak` tool to interact with the `@jsii/kernel` process.",
+    "imported_by": 118814,
+    "query": "tool"
+  },
+  {
+    "path": "net/http/pprof",
+    "synopsis": "Package pprof serves via its HTTP server runtime profiling data in the format expected by the pprof visualization tool.",
+    "imported_by": 38010,
+    "query": "tool"
+  },
+  {
+    "path": "k8s.io/apimachinery/pkg/util/wait",
+    "synopsis": "Package wait provides tools for polling or listening for changes to a condition.",
+    "imported_by": 27716,
+    "query": "tool"
+  },
+  {
+    "path": "sigs.k8s.io/controller-runtime",
+    "synopsis": "Package controllerruntime provides tools to construct Kubernetes-style controllers that manipulate both Kubernetes CRDs and aggregated/built-in Kubernetes APIs.",
+    "imported_by": 26454,
+    "query": "tool"
+  },
+  {
+    "path": "runtime/pprof",
+    "synopsis": "Package pprof writes runtime profiling data in the format expected by the pprof visualization tool.",
+    "imported_by": 24390,
+    "query": "tool"
+  },
+  {
+    "path": "github.com/stretchr/testify/assert",
+    "synopsis": "Package assert provides a set of comprehensive testing tools for use with the normal Go testing system.",
+    "imported_by": 16016,
+    "query": "tool"
+  },
+  {
+    "path": "github.com/a-h/templ",
+    "synopsis": "",
+    "imported_by": 7591,
+    "query": "tool"
+  },
+  {
+    "path": "github.com/kisielk/gotool",
+    "synopsis": "Package gotool contains utility functions used to implement the standard &#34;cmd/go&#34; tool, provided as a convenience to developers who want to write tools with similar semantics.",
+    "imported_by": 953,
+    "query": "tool"
+  },
+  {
+    "path": "github.com/go-openapi/validate",
+    "synopsis": "Package validate provides methods to validate a swagger specification, as well as tools to validate data against their schema.",
+    "imported_by": 6083,
+    "query": "tool"
+  },
+  {
+    "path": "github.com/grpc-ecosystem/go-grpc-middleware",
+    "synopsis": "`grpc_middleware` is a collection of gRPC middleware packages: interceptors, helpers and tools.",
+    "imported_by": 4391,
+    "query": "tool"
+  },
+  {
+    "path": "github.com/prometheus/common/expfmt",
+    "synopsis": "Package expfmt contains tools for reading and writing Prometheus metrics.",
+    "imported_by": 3860,
+    "query": "tool"
+  },
+  {
+    "path": "github.com/rubenv/sql-migrate",
+    "synopsis": "SQL Schema migration tool for Go.",
+    "imported_by": 1943,
+    "query": "tool"
+  },
+  {
+    "path": "k8s.io/kubernetes/pkg/kubectl",
+    "synopsis": "Package kubectl provides the functions used by the kubectl command line tool under k8s.io/kubernetes/cmd.",
+    "imported_by": 3083,
+    "query": "tool"
+  },
+  {
+    "path": "github.com/sashabaranov/go-openai",
+    "synopsis": "",
+    "imported_by": 3009,
+    "query": "tool"
+  },
+  {
+    "path": "github.com/cloudwego/eino/components/tool",
+    "synopsis": "Package tool defines the tool component interfaces that allow language models to invoke external capabilities, and helpers for interrupt/resume within tools.",
+    "imported_by": 232,
+    "query": "tool"
+  },
+  {
+    "path": "github.com/ilyakaznacheev/cleanenv",
+    "synopsis": "Package cleanenv gives you a single tool to read application configuration from several sources with ease.",
+    "imported_by": 1532,
+    "query": "tool"
+  },
+  {
+    "path": "io/ioutil",
+    "synopsis": "Package ioutil implements some I/O utility functions.",
+    "imported_by": 875785,
+    "query": "util"
+  },
+  {
+    "path": "path/filepath",
+    "synopsis": "Package filepath implements utility routines for manipulating filename paths in a way compatible with the target operating system-defined file paths.",
+    "imported_by": 813423,
+    "query": "util"
+  },
+  {
+    "path": "path",
+    "synopsis": "Package path implements utility routines for manipulating slash-separated paths.",
+    "imported_by": 332141,
+    "query": "util"
+  },
+  {
+    "path": "github.com/syndtr/goleveldb/leveldb/util",
+    "synopsis": "Package util provides utilities used throughout leveldb.",
+    "imported_by": 7671,
+    "query": "util"
+  },
+  {
+    "path": "github.com/grpc-ecosystem/grpc-gateway/v2/utilities",
+    "synopsis": "Package utilities provides members for internal use in grpc-gateway.",
+    "imported_by": 8100,
+    "query": "util"
+  },
+  {
+    "path": "github.com/aws/aws-sdk-go-v2/config",
+    "synopsis": "Package config provides utilities for loading configuration from multiple sources that can be used to configure the SDK&#39;s API clients, and utilities.",
+    "imported_by": 10358,
+    "query": "util"
+  },
+  {
+    "path": "k8s.io/apimachinery/pkg/util/errors",
+    "synopsis": "Package errors implements various utility functions and types around errors.",
+    "imported_by": 10316,
+    "query": "util"
+  },
+  {
+    "path": "github.com/aws/aws-sdk-go/aws",
+    "synopsis": "Package aws provides the core SDK&#39;s utilities and shared types.",
+    "imported_by": 46489,
+    "query": "util"
+  },
+  {
+    "path": "net/http/httputil",
+    "synopsis": "Package httputil provides HTTP utility functions, complementing the more common ones in the net/http package.",
+    "imported_by": 36104,
+    "query": "util"
+  },
+  {
+    "path": "github.com/micro/util/go/lib/addr",
+    "synopsis": "",
+    "imported_by": 27708,
+    "query": "util"
+  },
+  {
+    "path": "github.com/emirpasic/gods/utils",
+    "synopsis": "Package utils provides common utility functions.",
+    "imported_by": 1587,
+    "query": "util"
+  },
+  {
+    "path": "net/http/httptest",
+    "synopsis": "Package httptest provides utilities for HTTP testing.",
+    "imported_by": 21619,
+    "query": "util"
+  },
+  {
+    "path": "gopkg.in/src-d/go-git.v4/utils/ioutil",
+    "synopsis": "Package ioutil implements some I/O utility functions.",
+    "imported_by": 2802,
+    "query": "util"
+  },
+  {
+    "path": "github.com/ethereum/go-ethereum/cmd/utils",
+    "synopsis": "Package utils contains internal helper functions for go-ethereum commands.",
+    "imported_by": 2480,
+    "query": "util"
+  },
+  {
+    "path": "github.com/aws/aws-sdk-go-v2/aws",
+    "synopsis": "Package aws provides the core SDK&#39;s utilities and shared types.",
+    "imported_by": 17424,
+    "query": "util"
+  },
+  {
+    "path": "sigs.k8s.io/controller-runtime/pkg/scheme",
+    "synopsis": "Package scheme contains utilities for gradually building Schemes, which contain information associating Go types with Kubernetes groups, versions, and kinds.",
+    "imported_by": 15539,
+    "query": "util"
+  },
+  {
+    "path": "gorm.io/gorm/utils",
+    "synopsis": "Package utils provides internal utility functions for GORM.",
+    "imported_by": 1101,
+    "query": "util"
+  },
+  {
+    "path": "v2ray.com/core/common",
+    "synopsis": "Package common contains common utilities that are shared among other packages.",
+    "imported_by": 13068,
+    "query": "util"
+  },
+  {
+    "path": "github.com/cosmos/cosmos-sdk/types/errors",
+    "synopsis": "Package errors provides a shared set of errors for use in the SDK, aliases functionality in the cosmossdk.io/errors module that used to be in this package, and provides some helpers for converting errors to ABCI response code.",
+    "imported_by": 17550,
+    "query": "sdk"
+  },
+  {
+    "path": "github.com/Azure/azure-sdk-for-go/sdk/azidentity",
+    "synopsis": "",
+    "imported_by": 2652,
+    "query": "sdk"
+  },
+  {
+    "path": "cosmossdk.io/log",
+    "synopsis": "",
+    "imported_by": 4485,
+    "query": "sdk"
+  },
+  {
+    "path": "cosmossdk.io/errors",
+    "synopsis": "Package errors implements custom error interfaces for cosmos-sdk.",
+    "imported_by": 12590,
+    "query": "sdk"
+  },
+  {
+    "path": "github.com/hashicorp/go-azure-sdk/sdk/environments",
+    "synopsis": "",
+    "imported_by": 17238,
+    "query": "sdk"
+  },
+  {
+    "path": "go.opentelemetry.io/otel/sdk/metric",
+    "synopsis": "Package metric provides an implementation of the OpenTelemetry metrics SDK.",
+    "imported_by": 2293,
+    "query": "sdk"
+  },
+  {
+    "path": "github.com/pulumi/pulumi/sdk/v3/go/pulumi",
+    "synopsis": "",
+    "imported_by": 13571,
+    "query": "sdk"
+  },
+  {
+    "path": "cosmossdk.io/math",
+    "synopsis": "Package math implements custom Cosmos SDK math types used for arithmetic operations.",
+    "imported_by": 11379,
+    "query": "sdk"
+  },
+  {
+    "path": "github.com/redtenant/go-azure-sdk/sdk/environments",
+    "synopsis": "",
+    "imported_by": 9752,
+    "query": "sdk"
+  },
+  {
+    "path": "github.com/RJPearson94/twilio-sdk-go",
+    "synopsis": "",
+    "imported_by": 810,
+    "query": "sdk"
+  },
+  {
+    "path": "go.opentelemetry.io/otel/sdk/trace",
+    "synopsis": "Package trace contains support for OpenTelemetry distributed tracing.",
+    "imported_by": 9168,
+    "query": "sdk"
+  },
+  {
+    "path": "github.com/cloudevents/sdk-go/v2",
+    "synopsis": "Package v2 reexports a subset of the SDK v2 API.",
+    "imported_by": 1460,
+    "query": "sdk"
+  },
+  {
+    "path": "github.com/Azure/azure-sdk-for-go/version",
+    "synopsis": "",
+    "imported_by": 87819,
+    "query": "sdk"
+  },
+  {
+    "path": "github.com/modelcontextprotocol/go-sdk/mcp",
+    "synopsis": "The mcp package provides an SDK for writing model context protocol clients and servers.",
+    "imported_by": 1443,
+    "query": "sdk"
+  },
+  {
+    "path": "k8s.io/apimachinery/pkg/apis/meta/v1",
+    "synopsis": "Package v1 contains API types that are common to all versions.",
+    "imported_by": 213572,
+    "query": "api"
+  },
+  {
+    "path": "k8s.io/api/core/v1",
+    "synopsis": "Package v1 is the v1 version of the core API.",
+    "imported_by": 112439,
+    "query": "api"
+  },
+  {
+    "path": "context",
+    "synopsis": "Package context defines the Context type, which carries deadlines, cancellation signals, and other request-scoped values across API boundaries and between processes.",
+    "imported_by": 2032418,
+    "query": "api"
+  },
+  {
+    "path": "github.com/go-logr/logr",
+    "synopsis": "Package logr defines a general-purpose logging API and abstract interfaces to back that API.",
+    "imported_by": 17754,
+    "query": "api"
+  },
+  {
+    "path": "github.com/opentracing/opentracing-go",
+    "synopsis": "",
+    "imported_by": 20300,
+    "query": "api"
+  },
+  {
+    "path": "k8s.io/kubernetes/pkg/apis/core",
+    "synopsis": "Package core contains the latest (or &#34;internal&#34;) version of the Kubernetes API objects.",
+    "imported_by": 10195,
+    "query": "api"
+  },
+  {
+    "path": "k8s.io/client-go/kubernetes",
+    "synopsis": "Package kubernetes holds packages which implement a clientset for Kubernetes APIs.",
+    "imported_by": 66747,
+    "query": "api"
+  },
+  {
+    "path": "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1",
+    "synopsis": "Package v1 is the v1 version of the API.",
+    "imported_by": 5628,
+    "query": "api"
+  },
+  {
+    "path": "github.com/crossplane/crossplane-runtime/apis/common/v1",
+    "synopsis": "Package v1 contains core API types used by most Crossplane resources.",
+    "imported_by": 4963,
+    "query": "api"
+  },
+  {
+    "path": "github.com/hashicorp/vault/api",
+    "synopsis": "",
+    "imported_by": 4923,
+    "query": "api"
+  },
+  {
+    "path": "go.mongodb.org/mongo-driver/mongo",
+    "synopsis": "Package mongo provides a MongoDB Driver API for Go.",
+    "imported_by": 32575,
+    "query": "api"
+  },
+  {
+    "path": "google.golang.org/genproto/googleapis/api/annotations",
+    "synopsis": "",
+    "imported_by": 31916,
+    "query": "api"
+  },
+  {
+    "path": "github.com/fsouza/go-dockerclient",
+    "synopsis": "Package docker provides a client for the Docker remote API.",
+    "imported_by": 11450,
+    "query": "api"
+  },
+  {
+    "path": "github.com/openshift/api/build/v1",
+    "synopsis": "+groupName=build.openshift.io Package v1 is the v1 version of the API.",
+    "imported_by": 3705,
+    "query": "api"
+  },
+  {
+    "path": "golang.org/x/tools/go/buildutil",
+    "synopsis": "Package buildutil provides utilities related to the go/build package in the standard library.",
+    "imported_by": 1342,
+    "query": "standard library"
+  },
+  {
+    "path": "gopkg.in/src-d/go-git.v4/utils/binary",
+    "synopsis": "Package binary implements sintax-sugar functions on top of the standard library binary package",
+    "imported_by": 1023,
+    "query": "standard library"
+  },
+  {
+    "path": "github.com/moby/sys/symlink",
+    "synopsis": "Package symlink implements [FollowSymlinkInScope] which is an extension of path/filepath.EvalSymlinks, as well as a Windows long-path aware version of path/filepath.EvalSymlinks from the Go standard library.",
+    "imported_by": 640,
+    "query": "standard library"
+  },
+  {
+    "path": "go4.org/netipx",
+    "synopsis": "Package netipx contains code and types that were left behind when the old inet.af/netaddr package moved to the standard library in Go 1.18 as net/netip.",
+    "imported_by": 415,
+    "query": "standard library"
+  },
+  {
+    "path": "github.com/oleiade/reflections",
+    "synopsis": "Package reflections provides high level abstractions over the Go standard reflect library.",
+    "imported_by": 265,
+    "query": "standard library"
+  },
+  {
+    "path": "github.com/anacrolix/log",
+    "synopsis": "Package log implements a std log compatible logging system that draws some inspiration from the [Python logging module] from Python&#39;s standard library.",
+    "imported_by": 219,
+    "query": "standard library"
+  },
+  {
+    "path": "github.com/traefik/yaegi/stdlib",
+    "synopsis": "Package stdlib provides wrappers of standard library packages to be imported natively in Yaegi.",
+    "imported_by": 215,
+    "query": "standard library"
+  },
+  {
+    "path": "inet.af/netaddr",
+    "synopsis": "Package netaddr contains a IP address type that&#39;s in many ways better than the Go standard library&#39;s net.IP type.",
+    "imported_by": 210,
+    "query": "standard library"
+  },
+  {
+    "path": "github.com/Workiva/go-datastructures/slice",
+    "synopsis": "Package Int64 simply adds an Int64-typed version of the standard library&#39;s sort/IntSlice implementation.",
+    "imported_by": 173,
+    "query": "standard library"
+  },
+  {
+    "path": "github.com/ONSdigital/log.go/v2/log",
+    "synopsis": "Package log is a log library which implements the Digital Publishing logging standards",
+    "imported_by": 668,
+    "query": "standard library"
+  },
+  {
+    "path": "github.com/iotaledger/hive.go/ierrors",
+    "synopsis": "ierrors package provides a wrapper around the &#34;errors&#34; package from the standard library of Go.",
+    "imported_by": 137,
+    "query": "standard library"
+  },
+  {
+    "path": "github.com/reiver/go-telnet",
+    "synopsis": "Package telnet provides TELNET and TELNETS client and server implementations in a style similar to the &#34;net/http&#34; library that is part of the Go standard library, including support for &#34;middleware&#34;; TELNETS is secure TELNET, with the TELNET protocol over a secured TLS (or SSL) connection.",
+    "imported_by": 122,
+    "query": "standard library"
+  },
+  {
+    "path": "github.com/hashicorp/net-rpc-msgpackrpc",
+    "synopsis": "Package msgpackrpc implements a MessagePack-RPC ClientCodec and ServerCodec for the rpc package, using the same API as the Go standard library for jsonrpc.",
+    "imported_by": 362,
+    "query": "standard library"
+  },
+  {
+    "path": "gitlab.com/NebulousLabs/errors",
+    "synopsis": "Package errors is an extension of and drop in replacement for the standard library errors package.",
+    "imported_by": 359,
+    "query": "standard library"
+  },
+  {
+    "path": "github.com/Cloud-Foundations/Dominator/lib/srpc",
+    "synopsis": "Package srpc is similar to the net/rpc package in the Go standard library, except that it provides streaming RPC access, TLS support and authentication and authorisation using X509 client certificates.",
+    "imported_by": 104,
+    "query": "standard library"
+  }
+]

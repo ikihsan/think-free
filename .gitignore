@@ -43,7 +43,7 @@ sessions/*/*
 !sessions/*/README.md
 
 # Experiment raw data is tracked; bulk re-fetchable inputs are not
-EXPERIMENTS/*/raw/
+EXPERIMENTS/*/raw/**
 !EXPERIMENTS/*/raw/*.jsonl
 !EXPERIMENTS/*/raw/*.tsv
 !EXPERIMENTS/*/raw/*.csv
@@ -158,3 +158,34 @@ EXPERIMENTS/*/corpus/
 # `origin session finish` lock: a committed lock is a lock nothing holds
 .finish.lock
 .module-demand-cache/
+
+# Root-level experiment outputs and temporary files (not part of the mission record)
+*.pyprovides-ranked.json
+MISSION-OUTCOME.json
+NEXT-STEPS-SUMMARY.md
+SESSION_OUTCOME.json
+SESSION_OUTCOME.md
+SESSION_OUTCOMES.json
+SUMMARY.md
+SUMMARY_EXPERIMENT_OVERVIEW.md
+THINK_FREE_SUMMARY.md
+gsm_recompute_out.json
+pool_metadata.json
+preflight_adapter_synthetic.py
+pyprovides_classify.py
+results.json
+session-outcome-*.txt
+session-outcome-E*.json
+session-summary-E*.txt
+synthetic_harness_output.json
+test_preflight_adapter*.py
+think_free_test.py
+viewcount_crates.py
+collected_packages.jsonl
+
+# Raw data directory at root (experiment outputs).
+# Anchored: an unanchored `raw/` here is re-ignored by every later match and
+# silently defeats the negations above, so EXPERIMENTS/*/raw/*.jsonl stops
+# being trackable while protocols still promise an auditable capture.
+# Fixed 2026-10-18 (E181).
+/raw/

@@ -1,0 +1,32 @@
+pid: g-79843062
+
+=== LEFT ===
+These are transient intermediate artifacts created by MSBuild's BuildHost targets, which s
+pin up small net472/netcore host projects for legacy designers and design-time builds (WPF
+/WinForms designer or the Visual Studio design-time build). They are regenerated on demand
+ and are safe to delete; nothing at runtime or publish depends on them. They normally live
+ under obj, so if they appear at the project root a tool or an older build configuration p
+ut them there: delete them and keep obj ignored. If they end up inside your publish output
+, check that your publish item globs are not picking up the project root, and clean obj an
+d bin before republishing. Checking git status for the exact paths will confirm where they
+ came from.
+
+=== RIGHT ===
+These folders are projected from the Nuget package (EntityFrameworkCore.Design). 
+ Seems like they are now needed for dotnet-ef operations (e.g. migrations). The folders ar
+e also copied to the publishing output, what I would consider a bug (they are not needed a
+t runtime). 
+ At least you could hide them from the solution/project view by adding this section to you
+r .csproj file(s): 
+ <ItemGroup>
+ <Content Update="@(Content)">
+ <Visible Condition="'%(NuGetItemType)' == 'Content'">false</Visible>
+ </Content>
+</ItemGroup>
+ 
+
+ <ItemGroup>
+ <Content Update="@(Content)">
+ <Visible Condition="'%(NuGetItemType)' == 'Content'">false</Visible>
+ </Content>
+</ItemGroup>

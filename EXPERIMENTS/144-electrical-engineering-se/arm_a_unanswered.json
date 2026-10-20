@@ -1,0 +1,30 @@
+[
+  {
+    "tags": [
+      "pcb",
+      "rf",
+      "transmission-line"
+    ],
+    "owner": {
+      "account_id": 11249644,
+      "reputation": 58026,
+      "user_id": 311631,
+      "user_type": "registered",
+      "profile_image": "https://i.sstatic.net/N0jrI.png?s=256",
+      "display_name": "Tim Williams",
+      "link": "https://electronics.stackexchange.com/users/311631/tim-williams"
+    },
+    "is_answered": false,
+    "view_count": 409,
+    "answer_count": 1,
+    "score": 8,
+    "last_activity_date": 1782423381,
+    "creation_date": 1781237718,
+    "last_edit_date": 1781280857,
+    "question_id": 769818,
+    "content_license": "CC BY-SA 4.0",
+    "link": "https://electronics.stackexchange.com/questions/769818/how-does-this-delay-line-travel-faster-than-light",
+    "title": "How does this delay line travel faster than light?",
+    "body": "<p>Board design:</p>\n<p><a href=\"https://i.sstatic.net/AJGXh4T8.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/AJGXh4T8.png\" alt=\"enter image description here\" /></a></p>\n<p>Fab: 1.6mm thick substrate, \u03b5<sub>r</sub> ~ 4.8, seems to be normal FR-4 stock.  (I actually measure more like ~5.3, but I don't have very good mechanical tolerances in the measurement, and it's only a low-frequency figure.)  0.56mm width trace should be close to 100\u03a9 Z<sub>0</sub> (not that fab tolerances are great here, either; but neither does Z<sub>0</sub> vary all that quickly).  Trace length is 152mm as shown.</p>\n<p>Circuit is a dual single-balanced mixer to generate quadrature outputs.  There are 1:1+1 baluns (L7-L9, L16-L18; pads provided by some 1210 footprints crudely overlaid as I don't need to make proper footprints or models for this project), BAS70-07 dual diodes (D1, D2), some damping resistance (R8/R15, 470\u03a9), and a 3rd-order diplexing filter (right half).  (Grounds provided by vias, or copper foil wrapped around board edge.  Bottom side is 100% contiguous.)</p>\n<p>(Balun cores are similar to Fair-Rite 2861002702, and windings are 2t 28AWG each.)</p>\n<p>Reference input is at the bottom-middle, by R14.  Source is a tuned amplifier, delivering about 10dBm into 50\u03a9, at 300MHz.</p>\n<p>Signal input is at the center-right, by R13.  Source is wideband amplifier, in the -10 to 0dBm range.  Tone is variable, in this case shifted by a couple MHz relative to ref.</p>\n<p>As frequency is fairly high, I opted for a delay line to obtain phase shift.  One full cycle of 300MHz is 3.33ns; a quarter is 0.833ns, and at c ~ 56% c<sub>0</sub>, 140mm should be required.  Ideally, this generates quadrature, or a bit past, really (I designed in extra, expecting to cut it down as needed).</p>\n<p>Instead I measured 35\u00b0 between difference I and Q outputs, implying c ~ 156% c<sub>0</sub>.</p>\n<p>Somehow, I doubt I have tachyonic substrate here.</p>\n<p>Ok, maybe something goofy is going on.  I cut the trace down like so,</p>\n<p><a href=\"https://i.sstatic.net/tCOPOFby.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/tCOPOFby.png\" alt=\"enter image description here\" /></a></p>\n<p>which should be closer to 74mm.  I measured 13\u00b0 phase shift.  Well, that seems roughly consistent at least, but velocity is still very wrong.</p>\n<hr />\n<p>To better clarify board construction (since it is a bit ad-hoc compared to your usual fare), consider this rendition:</p>\n<p><a href=\"https://i.sstatic.net/820SlMfT.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/820SlMfT.png\" alt=\"enter image description here\" /></a></p>\n<p>Pink: board outline <br />\nPurple hash: component body <br />\nVia rows along edge: wraparound foil</p>\n<p>With measurement for scale:</p>\n<p><a href=\"https://i.sstatic.net/Jp7ye7P2.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/Jp7ye7P2.png\" alt=\"enter image description here\" /></a></p>\n<p>Overall board is 48 x 26.2 mm.</p>\n<p>Schematic:</p>\n<p>There is no full schematic. It's a simple enough circuit it's built in PCB mode.  Signal path should be easy enough to read off the layout.  Just in case, a block diagram:</p>\n<p><a href=\"https://i.sstatic.net/nuZMoGJP.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/nuZMoGJP.png\" alt=\"enter image description here\" /></a></p>\n<p><code>Sig</code> and <code>Ref</code> are 50\u03a9 sources.  <code>I</code> and <code>Q</code> (by L15 and L12 respectively) are terminated into 100\u03a9 (actually 47\u03a9 + terminated BNC).</p>\n"
+  }
+]

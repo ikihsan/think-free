@@ -4,7 +4,7 @@
 Standard library only, no network. Exits 0 when every check holds and 1
 otherwise. Three of these are the reason the numbers can be read at all:
 the corpus identity, the recomputability of both declared exclusions from the
-arm file alone (D110), and the instrument's ability to recover correct pairs
+arm file alone (D124), and the instrument's ability to recover correct pairs
 that are NOT copies of the arms that built it.
 
 Run:  python3 test_squad.py
@@ -66,7 +66,7 @@ class Corpus(unittest.TestCase):
 
 
 class ExclusionsAreCheckableFromTheArmFile(unittest.TestCase):
-    """D110: the exclusion behind K1's denominator must be recomputable here."""
+    """D124: the exclusion behind K1's denominator must be recomputable here."""
 
     def test_has_digit_is_recomputable(self):
         for row in rows():

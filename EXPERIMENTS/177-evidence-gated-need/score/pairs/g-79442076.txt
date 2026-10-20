@@ -1,0 +1,142 @@
+pid: g-79442076
+
+=== LEFT ===
+C++ has no such feature; the syntax you wrote is C#-like and invalid. An enum class enumer
+ates values, not objects with fields. Idiomatic options: (1) enum class plus a constexpr l
+ookup table of structs holding all codes and a find() that scans or binary searches; (2) d
+rop the enum and use a struct Foo with static constexpr instances, which gives type safety
+ plus multiple representations; (3) std::variant if you really want a sum type. For ISO 31
+66 a table of {alpha2, alpha3, numeric} plus an enum class CountryCode is the usual answer
+, with parse() doing the reverse lookup in both directions. Keep the magic numbers in exac
+tly one table rather than scattered through compilation units, which is the real goal.
+
+=== RIGHT ===
+The thing you want to achieve does not work with enum s in C++. An enum in C++ is just an 
+integer, which has symbolic names for the different values it can take. 
+ You can create something that behaves essentially the same as Java's enum like this: 
+ // Put this is a header file
+struct FooValue_ {
+ int numeric;
+ const char* text;
+private:
+ constexpr FooValue_(int n, const char* s) : numeric(n), text(s) {}
+ FooValue_(const FooValue_&) = delete;
+ friend class Foo;
+};
+
+class Foo {
+public:
+ typedef const FooValue_* Value;
+private:
+ static const constexpr FooValue_ Value1_{1, "aa"};
+ static const constexpr FooValue_ Value2_{2, "bb"};
+public:
+ static const constexpr Value Value1 = &Value1_;
+ static const constexpr Value Value2 = &Value2_;
+};
+
+// put this in a source file (and include the header file)
+#include <ostream> // operator<< for std::ostream
+#include <iostream> // std::cout
+
+int main(void)
+{
+ Foo::Value v1 = Foo::Value1;
+ Foo::Value v2 = Foo::Value2;
+ std::cout << v1->numeric << ' ' << v2->text << '\n';
+
+ // switch via unique numeric member
+ switch (v1->numeric)
+ {
+ case Foo::Value1->numeric:
+ std::cout << "Is Value1\n";
+ break;
+ case Foo::Value2->numeric:
+ std::cout << "Is Value2\n";
+ break;
+ }
+
+ // if/else via identity (this is likely what happens with Java enums)
+ if (v2 == Foo::Value1) {
+ std::cout << "Is Value1\n";
+ } else if (v2 == Foo::Value2) {
+ std::cout << "Is Value2\n";
+ }
+}
+ 
+ The idea is to have the numeric and the text value grouped in a struct (the type called F
+ooValue_ ), and limit the creation of instances of that struct to one specific region, nam
+ely the class Foo itself. I do this by making the constructor of FooValue_ private and mak
+ing the class Foo a friend. That's also the reason why Foo needs to be a class instead of 
+a namespace, even though no instances of foo are ever created (you might want to add a del
+eted constructor to Foo ). 
+ To use this "fake Java Enum", you use the address of the instances created inside the Foo
+ class as pointer values. To hide the gory details from the user, a typedef Foo::Value is 
+provided, and the enumerators that are exposed to the user are not the structures themselv
+es, but pointers to them. You still see the pointer-ness of this approach by the need to u
+se -> instead of . to access the members. 
+ While you can't switch on this kind of "fake Java enum", you can switch either on the num
+eric value, or use an if/else chain, as shown in the code snippet. 
+
+ enum 
+ enum 
+ enum 
+ // Put this is a header file
+struct FooValue_ {
+ int numeric;
+ const char* text;
+private:
+ constexpr FooValue_(int n, const char* s) : numeric(n), text(s) {}
+ FooValue_(const FooValue_&) = delete;
+ friend class Foo;
+};
+
+class Foo {
+public:
+ typedef const FooValue_* Value;
+private:
+ static const constexpr FooValue_ Value1_{1, "aa"};
+ static const constexpr FooValue_ Value2_{2, "bb"};
+public:
+ static const constexpr Value Value1 = &Value1_;
+ static const constexpr Value Value2 = &Value2_;
+};
+
+// put this in a source file (and include the header file)
+#include <ostream> // operator<< for std::ostream
+#include <iostream> // std::cout
+
+int main(void)
+{
+ Foo::Value v1 = Foo::Value1;
+ Foo::Value v2 = Foo::Value2;
+ std::cout << v1->numeric << ' ' << v2->text << '\n';
+
+ // switch via unique numeric member
+ switch (v1->numeric)
+ {
+ case Foo::Value1->numeric:
+ std::cout << "Is Value1\n";
+ break;
+ case Foo::Value2->numeric:
+ std::cout << "Is Value2\n";
+ break;
+ }
+
+ // if/else via identity (this is likely what happens with Java enums)
+ if (v2 == Foo::Value1) {
+ std::cout << "Is Value1\n";
+ } else if (v2 == Foo::Value2) {
+ std::cout << "Is Value2\n";
+ }
+}
+ 
+ FooValue_ 
+ Foo 
+ FooValue_ 
+ Foo 
+ Foo 
+ Foo 
+ Foo::Value 
+ -> 
+ .

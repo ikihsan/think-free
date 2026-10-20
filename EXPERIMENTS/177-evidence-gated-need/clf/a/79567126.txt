@@ -1,0 +1,88 @@
+qid: 79567126
+view_count: 6014
+tags: windows, git
+key_score: 18
+
+=== TITLE ===
+Git debugging - &quot;error: could not delete references: cannot lock ref&quot; &quot;File
+ exists&quot;
+
+=== QUESTION ===
+Different from other answers, I could find no results anywhere for this specific error: 
+ git pull --prune
+
+error: could not delete references: cannot lock ref 'refs/remotes/origin/branchname': Unab
+le to create 'C:/develop/repo/.git/refs/remotes/origin/branchname.lock': File exists.
+ 
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue. From github.com/repo
+ 
+ annoyingly, it is trying to cleanup 100s of branches that were deleted on the server... e
+ach time I run a pull or fetch, it does the same mass deletion, making no progress :( 
+
+ git pull --prune
+
+error: could not delete references: cannot lock ref 'refs/remotes/origin/branchname': Unab
+le to create 'C:/develop/repo/.git/refs/remotes/origin/branchname.lock': File exists.
+ 
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue. From github.com/repo
+
+=== KEY ANSWER ===
+Looking in the folder, C:/develop/repo/.git/refs/remotes/origin/ there are no lock files. 
+ There are no other git processes or anti-virus programs running (a typical culprit). 
+ What I ended up doing was search (insensitive, -i) for the branch: 
+ git pull --prune | grep -i branchname 
+ - [deleted] (none) -> origin/BRANCHNAME
+ - [deleted] (none) -> origin/branchname
+ 
+ What I discovered, there was two branches on the server with the same name attempting to 
+be deleted. NEITHER was on my machine. "List Remote" command helps here. 
+ git ls-remote | grep -i xyz
+ 
+ What this means for Windows systems which have CaSe in-Sensitive file-systems, you cannot
+ have two files with the same name in the directory. Git is trying to create both ".lock' 
+files, but only 1 can exist, so it fails with "File exists" error message. 
+ The error message is misleading... the solution (aside from re-cloning) is to delete all 
+references to the branch refs from your hidden .git folder. Those refs are stored in 3 fil
+es in my case: 
+ .git/info/refs 
+ .git/packed-refs 
+ .git/FETCH_HEAD 
+ I used the SED command to remove the lines in-place 
+ sed -i '\|dev-1234$|Id' .git/info/refs .git/packed-refs .git/FETCH_HEAD
+ 
+ --- similar error message which gets more search hits, if you have a local branch (dev-1)
+ with one case, and upstream changes to the other (DEV-1) case --- 
+ error: cannot lock ref 'refs/remotes/origin/DEV-1': 'refs/remotes/origin/DEV-1' exists; c
+annot create 'refs/remotes/origin/DEV-1' 
+ ! [new branch] DEV-1 -> origin/DEV-1 (unable to update local ref) 
+ solution to that was easier, as you can delete the local ref from C:/develop/repo/.git/re
+fs/remotes/origin/ before pulling again (it exists as a real file) 
+ -- lastly, there is 1 more use-case, the server has both uppercase and lowercase, and the
+y are NOT in the process of deletion -- 
+ I couldn't find a workaround in that use-case, the branch must be deleted by the owner or
+ admin 
+ git push --delete origin branchname 
+
+ git pull --prune | grep -i branchname 
+ - [deleted] (none) -> origin/BRANCHNAME
+ - [deleted] (none) -> origin/branchname
+ 
+ git ls-remote | grep -i xyz
+ 
+ .git/info/refs 
+ .git/packed-refs 
+ .git/FETCH_HEAD 
+ sed -i '\|dev-1234$|Id' .git/info/refs .git/packed-refs .git/FETCH_HEAD
+ 
+ error: cannot lock ref 'refs/remotes/origin/DEV-1': 'refs/remotes/origin/DEV-1' exists; c
+annot create 'refs/remotes/origin/DEV-1' 
+ ! [new branch] DEV-1 -> origin/DEV-1 (unable to update local ref)
+

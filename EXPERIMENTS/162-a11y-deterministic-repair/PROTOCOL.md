@@ -19,7 +19,7 @@ things cost the page?
 ## Why this instrument
 
 E122, E147, E150 and E160 all failed because synthetic fixtures made the
-trivial classifier optimal (F128, and the pattern noted in `STATE.md`). This
+trivial classifier optimal (F147, and the pattern noted in `STATE.md`). This
 experiment has the opposite property:
 
 - the **oracle is an independent implementation** (axe-core 4.14.0, Deque,

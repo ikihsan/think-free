@@ -1,0 +1,220 @@
+qid: 79929448
+view_count: 1201
+tags: c, language-lawyer, undefined-behavior, c99, restrict-qualifier
+key_score: 12
+
+=== TITLE ===
+Is strtol(str, &amp;str, 10) legal in C99 due to restrict aliasing?
+
+=== QUESTION ===
+Consider the following code: 
+ char *str = "1234";
+long n = strtol(str, &str, 10);
+ 
+ The prototype of strtol() in C99 is: 
+ long strtol(const char *restrict nptr, char **restrict endptr, int base);
+ 
+ My question is: does this call violate the restrict contract and produce undefined behavi
+our? 
+ I am aware that a similar question has been asked before ( Aliased arguments in strtol ),
+ but the accepted answer does not clarify my doubts because it lacks of any explanations. 
+ 
+ My analysis so far: 
+ As I understand it: 
+ 
+ const char *restrict nptr promises the compiler that nptr will be the only way to access 
+the memory region defined by the string "1234" . 
+ 
+ char **restrict endptr promises the compiler that endptr will be the only way to access t
+he variable str . 
+ 
+ 
+ At the point of the call, assuming: 
+ 
+ the string "1234" is at address 0x100 
+ 
+ the variable str is at address 0x500 
+ 
+ 
+ then: 
+ 
+ nptr = 0x100 (points to the string) 
+ 
+ endptr = 0x500 (points to the variable str ) 
+ 
+ 
+ The two pointers themselves point to distinct memory locations , so restrict appears to b
+e respected between nptr and endptr directly. 
+ However, note that nptr and *endptr hold the same address. When strtol writes *endptr = .
+.. , it only modifies the variable str , it does not directly access the string "1234" . T
+he string would only be accessed through endptr if strtol() performed a double dereference
+ via **endptr . 
+ If an implementation of strtol() were to access the string "1234" via **endptr for any re
+ason, then the restrict promise on nptr would be violated (if one calls strtol(str, &str, 
+10) ), since the string would be accessed through a pointer other than nptr . 
+ 
+ The question 
+ Does this constitute a restrict violation according to §6.7.3.1 of C99? Specifically: 
+ 
+ Does restrict on endptr only constrain endptr itself, or does it also constrain *endptr w
+ith respect to nptr ? 
+ 
+ If *endptr and nptr point to the same memory, is that sufficient to produce undefined beh
+aviour, even if endptr and nptr themselves are distinct? 
+ 
+ Would a hypothetical implementation of strtol() that accesses the string "1234" via **end
+ptr be considered non-conforming to the C99 standard? 
+ 
+ 
+
+ char *str = "1234";
+long n = strtol(str, &str, 10);
+ 
+ strtol() 
+ long strtol(const char *restrict nptr, char **restrict endptr, int base);
+ 
+ restrict 
+ const char *restrict nptr 
+ nptr 
+ "1234" 
+ char **restrict endptr 
+ endptr 
+ str 
+ "1234" 
+ 0x100 
+ str 
+ 0x500 
+ nptr 
+ 0x100 
+ endptr 
+ 0x500 
+ str 
+ restrict 
+ nptr 
+ endptr 
+ nptr 
+ *endptr 
+ strtol 
+ *endptr = ... 
+ str 
+ "1234" 
+ endptr 
+ strtol() 
+ **endptr 
+ strtol() 
+ "1234" 
+ **endptr 
+ restrict 
+ nptr 
+ strtol(str, &str, 10) 
+ nptr 
+ restrict 
+ restrict 
+ endptr 
+ endptr 
+ *endptr 
+ nptr 
+ *endptr 
+ nptr 
+ endptr 
+ nptr 
+ strtol() 
+ "1234" 
+ **endptr
+
+=== KEY ANSWER ===
+Since you have tagged this as language-lawyer, then the answer is yes (the call is “legal”
+) for reasons you may not have expected. However, it is also yes for the reasons you were 
+likely concerned about. 
+ First, as you note, the prototype of strtol is long strtol(const char *restrict nptr, cha
+r **restrict endptr, int base); . In this, restrict has no effect. This is because qualifi
+ers are effectively not part of a function type. C 1999 6.7.5.3 15 states that, for purpos
+es of compatibility between function types, “each parameter declared with qualified type i
+s taken as having the unqualified version of its declared type.” This means that long strt
+ol(const char *restrict nptr, char **restrict endptr, int base); has the same effect as lo
+ng strtol(const char *nptr, char **endptr, int base); ; the qualifiers are not part of the
+ function type. 
+ (The qualifiers do affect the code inside a function body, because there the qualifiers a
+re part of the types of the parameters.) 
+ Second, the definition of restrict imposes requirements on code that uses the identifiers
+ (which would be code inside the implementation of the function), not on code that calls a
+ function with qualifiers on its parameters. Therefore, the call is “legal” because it doe
+s not violate any requirements related to the qualifiers. 
+ What you are probably wondering about is, if you call strtol as you have shown, would the
+ code inside it satisfy the requirements on the qualifiers. From a language-lawyer perspec
+tive, we cannot know this because we cannot know what the code inside the function is. It 
+might not even be C code, but, even if it is, there are ways to implement functions that w
+ork with overlapping memory through restricted pointers. Consider this: 
+ void square(double * restrict result, double * restrict x)
+{
+ double t = *x;
+ t = t*t;
+ if (result == x)
+ *x = t;
+ else
+ *result = t;
+}
+ 
+ This code writes the result to *result without violating the restrict requirements even i
+f x and result point to the same place, because, if they do point to the same place, it us
+es *x to access that place and does not use *result . 
+ However let’s suppose strtol was written naïvely, oblivious to the possibilities the poin
+ters might point to overlapping memory, so that this strtol reads data through nptr (or ex
+pressions based on nptr and not endptr ) and writes the end pointer through endptr (or exp
+ressions based on endptr and not nptr ). Observe that all the objects in memory needed to 
+read the string, those in the array induced by "1234" , are completely separate from the s
+tr object. The formal definition of restrict in C 1999 6.7.3.1 only imposes requirements o
+n accesses to an object X that is modified during execution of the function (in this situa
+tion). They say that if X is accessed with an lvalue based on a restricted pointer, then e
+very access to X will be based on that pointer. For the object str pointed to by endptr , 
+our supposition is this is true: Every access to the object str is through an lvalue based
+ on endptr . For the objects in "1234" , there is no modification to those objects, so the
+ formal definition of restrict does not impose any requirements. 
+ Therefore, even a naïve implementation of strtol satisfies the requirements of restrict .
+ 
+
+ strtol 
+ long strtol(const char *restrict nptr, char **restrict endptr, int base); 
+ restrict 
+ long strtol(const char *restrict nptr, char **restrict endptr, int base); 
+ long strtol(const char *nptr, char **endptr, int base); 
+ restrict 
+ strtol 
+ void square(double * restrict result, double * restrict x)
+{
+ double t = *x;
+ t = t*t;
+ if (result == x)
+ *x = t;
+ else
+ *result = t;
+}
+ 
+ *result 
+ restrict 
+ x 
+ result 
+ *x 
+ *result 
+ strtol 
+ strtol 
+ nptr 
+ nptr 
+ endptr 
+ endptr 
+ endptr 
+ nptr 
+ "1234" 
+ str 
+ restrict 
+ X 
+ X 
+ X 
+ str 
+ endptr 
+ str 
+ endptr 
+ "1234" 
+ strtol 
+ restrict
+

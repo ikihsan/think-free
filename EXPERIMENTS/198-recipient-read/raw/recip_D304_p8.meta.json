@@ -1,0 +1,30 @@
+{
+ "request": {
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "D304"
+   ],
+   "time_period": [
+    {
+     "end_date": "2025-12-31",
+     "start_date": "2020-01-01"
+    }
+   ]
+  },
+  "limit": 100,
+  "page": 8,
+  "spending_level": "awards"
+ },
+ "response": {
+  "bytes": 17781,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_category/recipient/",
+  "sha256": "4a9964f4fa79c5101f1c312178daa48e05ee649d2f9b53e679367a7d04711a93",
+  "status": 200
+ }
+}

@@ -1,0 +1,8 @@
+TITLE: .NET 10 version update generates BuildHost-net472 and BuildHost-netcore folder shortcuts
+TAGS: .net-8.0,.net-10.0,versionupgrade
+
+QUESTION AS POSTED:
+After updating a .NET Core app version from .NET 8 to .NET 10, BuildHost-net472 and BuildHost-netcore folder shortcuts appeared in both projects in the solution, then deleted and works well, they also appeared in published project files. Are those files important?
+
+The reporter adds this:
+The reporter is on iOS 26.3 and the transparent container is still present there.

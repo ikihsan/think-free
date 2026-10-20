@@ -1,0 +1,32 @@
+qid: 79704522
+view_count: 2534
+tags: github, settings, github-copilot, default-selected
+key_score: -1
+
+=== TITLE ===
+GitHub Copilot Model Selection: How to Change the Default Version Setting?
+
+=== QUESTION ===
+How to Set a Persistent Default Model in GitHub Copilot Chat? 
+ Hello, 
+ I'm currently using GitHub Copilot to generate tasks for me. When working with code, I us
+ually prefer to use Claude by selecting it manually in Copilot Chat. 
+ Whenever I refresh the page or return to the conversation later , the chat automatically 
+switches to GPT-4.1 by default. I’m unable to continue the previous conversation with Clau
+de — the only option available is GPT-4.1, unless I start a new conversation . 
+ Is there a way to change the settings so that GitHub Copilot remembers my selected model 
+as default, or allows me to continue an existing chat with my preferred model? 
+ What I have tried: 
+ 
+ Searched on YouTube and Google. 
+ Looked through GitHub Copilot settings in the UI. 
+ 
+ Any help or guidance would be really appreciated! 
+ Thanks in advance!
+
+=== KEY ANSWER ===
+Here I tried to make a general algo, The model selection can be done as 
+ Use the cheapest model that can reliably solve the current step, not the entire problem. 
+ Separate Analysis → Decisions → Implementation into different sessions and use Markdown h
+andoffs to preserve context efficiently.
+

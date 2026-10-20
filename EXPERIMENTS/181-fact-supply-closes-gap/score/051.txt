@@ -1,0 +1,13 @@
+PROPOSED ANSWER:
+The line you added does not bear on this failure, so set it aside. The error is thrown at startup by the native bridge, which asks the React Native runtime for a component by the literal string auth. Confirm index.js imports registerRootComponent from expo and calls it with App, that main points at index.js, and that app.json's name and slug agree with whatever you register. Then check the resolver: print your resolved Metro config and look at unstable_enablePackageExports. If it is false, subpath exports are not being used and imports like 'firebase/app' resolve to the wrong entry, which can surface as a confusing registration error. Either import from '@firebase/app' or turn exports on in metro.config.js. The package versions you quote do not tell you which resolver path you are on, which is why the error alone is hard to act on.
+
+ACCEPTED ANSWER ON THE SITE:
+Instead of using expo-dev client, I continued to use expo go. I simply added the following line in my metro.config.js file: 
+ `const defaultConfig = getDefaultConfig(__dirname);
+
+defaultConfig.resolver.sourceExts.push('cjs');
+
+// This is the new line you should add in, after the previous lines
+defaultConfig.resolver.unstable_enablePackageExports = false;
+` 
+ After that, I didn't seem to get the error "Component auth has not been registered yet".

@@ -4,241 +4,114 @@ status: active
 last-verified: 2026-10-13
 -->
 
-# preflight — Three checks on the instrument that produces an evaluation rate
+# preflight — three checks on the instrument that produces an evaluation rate
 
-**preflight** validates LLM evaluation harnesses before you trust their numbers.
+`observed` 2026-10-13, Python 3.8.10.
 
-Every evaluation harness prints a rate: accuracy, F1, pass@k. But the harness
-itself is an instrument, and instruments can be miscalibrated. preflight runs
-three checks on the harness's own output and **withholds the rate** when the
-instrument is unsound.
+This package validates LLM evaluation harnesses before you trust their numbers. It catches three structural failure modes that are invisible to a harness's own declared gates:
 
-```
-$ preflight jsonl ./harness_output/
-C1_concordance            OK                       100/100 outputs matched
-C2_alternate_form_fp      OK                       worst FP lower bound 0.0000 ≤ 0.02
-C3_control_arm            OK                       0/5 positives in control arm
-preflight: all 3 instrument checks OK
-```
+| check | measures | verdict that withholds the rate |
+|---|---|---|
+| **C1 concordance** | whether the key's identifiers and the output's identifiers name the same entities | `SILENT_NO_MATCH`, `NO_DISCRIMINATING_PAIRING` |
+| **C2 alternate-form FP** | the rate at which a flagger condemns items known to be right, per arm | `ALTERNATE_FORM_FP` |
+| **C3 control arm** | whether a declared negative arm is negative, by evidence the key does not use | `CONTROL_NOT_EMPTY` |
 
-If a check fails, the rate is **withheld** (exit code 3):
+The tool exits **0** only when all three checks pass. Otherwise it exits **3** and withholds the headline rate. A caller who wants the number regardless must pass `--anyway`, which prints it *and says the instrument checks failed*.
 
-```
-$ preflight jsonl ./bad_harness/
-C1_concordance            SILENT_NO_MATCH          50 key rows and 50 output rows, and no pairing matches
-C2_alternate_form_fp      ALTERNATE_FORM_FP        the flagger condemns correct items beyond the declared ceiling (Wilson lower bound > 0.02) on arm(s): in_situ
-C3_control_arm            CONTROL_NOT_EMPTY        3 of 5 rows in the declared negative arm carry a true positive (Wilson lower bound 0.2771 > premise 0.0000)
-WITHHELD: preflight not reported. 3 of 3 instrument checks failed.
-  - C1_concordance: SILENT_NO_MATCH -- 50 key rows and 50 output rows...
-  - C2_alternate_form_fp: ALTERNATE_FORM_FP -- the flagger condemns correct items...
-  - C3_control_arm: CONTROL_NOT_EMPTY -- 3 of 5 rows in the declared negative arm...
-
-Run the checks against your own instrument, or pass --anyway to print a number this tool does not stand behind.
-```
-
-## Why preflight?
-
-The mission behind preflight measured its own harnesses and found:
-- **F121**: A scorer joined on `account_id` (integer) against answers keyed `"R001"` (string) — matched nothing, printed `recall=0.0000` for a reader that answered every item correctly.
-- **F122**: A control arm declared "no positives" actually contained standing orders — every reader scored identically on it, so the gate could not separate subjects.
-- **F118**: A verifier's controls used verbatim and corrupted strings, but the real task was faithful paraphrase — the verifier condemned 24 of 24 correct paraphrases (false-positive rate 1.00).
-
-These defects were **in the harness**, not the model. The harness's own gates were green. preflight catches them.
-
-## The three checks
-
-| Check | What it catches | What you supply |
-|-------|-----------------|-----------------|
-| **C1: concordance** | Key and output identifiers don't join (F121) | `key_rows`, `out_rows` — both must share at least one field name |
-| **C2: alternate-form FP** | Verifier condemns correct output written differently (F118) | `items` with `value` and independent `correct` label, plus a `flagger` function |
-| **C3: control arm** | Declared negative arm actually contains positives (F122) | `rows` with `evidence` and an `is_positive` predicate that reads outside the key |
-
-## Adapters: the tax is small
-
-preflight doesn't know your harness's output format. You supply an **adapter** — a few lines of Python that transforms your harness output into the four structures preflight expects.
-
-**Built-in adapters** (stdlib-only, 8–38 lines):
-- `jsonl` — per-task JSON files (E130)
-- `csv` — CSV with columns `sample_id, model_output, expected, correct` (E131)
-- `yaml` — YAML list of entries (E132, requires `pip install pyyaml`)
-- `xml` — XML with `<entry>` elements (E133)
-- `json` — single JSON dict mapping `sample_id` → `{model_output, expected, correct}` (E135)
-- `ultraeval` — UltraEval-Audio directory tree `res/{model}/{dataset}/{timestamp}.jsonl` (E136)
-
-**Custom adapter** — write a Python module exporting `adapt(harness_dir)`:
-
-```python
-# my_adapter.py
-import json, os
-from typing import List, Dict, Tuple
-
-def adapt(harness_dir: str) -> Tuple[List[Dict], List[Dict], List[Dict], List[Dict]]:
-    key_rows, out_rows, items, rows = [], [], [], []
-    for filename in sorted(os.listdir(harness_dir)):
-        if not filename.endswith(".jsonl"):
-            continue
-        with open(os.path.join(harness_dir, filename)) as f:
-            for line in f:
-                data = json.loads(line)
-        # ... transform to preflight format ...
-    return key_rows, out_rows, items, rows
-```
-
-See `examples/custom_adapter.py` for a complete, runnable example with type hints.
-
-Then run:
-```bash
-preflight my_adapter.py ./harness_output/
-```
-
-**Example custom adapter output:**
-```bash
-$ preflight examples/custom_adapter.py examples/custom_results --skip-c3
-C1_concordance             OK                         3/3 = 1.0000 CI95 [0.4385, 1.0000]
-C2_alternate_form_fp       OK
-
-preflight: 0.6667 (all 2 instrument checks OK)
-```
-
-## Real harnesses tested
-
-| Harness | Output structure | Adapter size |
-|---------|------------------|--------------|
-| `modelscope/evalscope` | Two files (predictions + reviews), joined by `index` | ~8 lines |
-| `openai/evals` | Single append-only event stream, filter for `"match"`, join by `sample_id` | ~10 lines |
-| Per-task JSON (E130) | One JSON file per task | 12 lines |
-| CSV (E131) | Single CSV file | 37 lines |
-| YAML (E132) | Single YAML file | 35 lines |
-| XML (E133) | Single XML file | 38 lines |
-| Single JSON dict (E135) | Dict mapping `sample_id` → entry | 33 lines |
-| UltraEval-Audio (E136) | Directory tree `res/{model}/{dataset}/{timestamp}.jsonl` | 38 lines |
-
-The pattern holds: **the adapter is a few lines of harness-specific code, not a loader library**.
-
-## Installation
+## Install
 
 ```bash
-pip install preflight-eval
-# Or with YAML support:
-pip install preflight-eval[yaml]
+pip install preflight
 ```
 
-## Usage
+Or run directly from source (stdlib only, no dependencies):
 
 ```bash
-# List available built-in adapters
-preflight --list-adapters
-
-# Show version
-preflight --version
-
-# Built-in adapter (with --skip-c3 for quick testing without a control arm)
-preflight jsonl ./my_harness_output/ --skip-c3
-preflight csv ./my_harness_output/ --skip-c3
-preflight yaml ./my_harness_output/ --skip-c3     # requires pyyaml
-preflight xml ./my_harness_output/ --skip-c3
-preflight json ./my_harness_output/ --skip-c3
-preflight ultraeval ./my_harness_output/ --skip-c3  # UltraEval-Audio format
-
-# Custom adapter
-preflight my_adapter.py ./my_harness_output/
-
-# Override false-positive ceiling (default 0.02)
-preflight jsonl ./harness/ --fp-ceiling=0.05
-
-# Print rate even when checks fail (you take responsibility)
-preflight jsonl ./harness/ --anyway
-
-# Skip C3 control arm check (when you don't have a declared negative arm)
-preflight jsonl ./harness/ --skip-c3
+python3 -m preflight harness_output.jsonl
 ```
 
-## Quickstart with examples
+Supported formats: `.jsonl`, `.csv`, `.yaml`/`.yml`, `.xml`
 
-The repository includes example harness outputs for each built-in adapter format in `examples/`:
-
-```bash
-# Try the JSONL adapter (per-task JSON files)
-preflight jsonl examples/jsonl --skip-c3
-
-# Try the CSV adapter
-preflight csv examples/csv --skip-c3
-
-# Try the YAML adapter (requires pyyaml)
-preflight yaml examples/yaml --skip-c3
-
-# Try the XML adapter
-preflight xml examples/xml --skip-c3
-
-# Try the single JSON dict adapter (requires key/ground_truth.json)
-preflight json examples/json --skip-c3
-
-# Try the UltraEval-Audio adapter
-preflight ultraeval examples/ultraeval --skip-c3
-```
-
-All examples should report `preflight: 1.0000 (all 2 instrument checks OK)` when run with `--skip-c3`.
-
-## Library usage
+## Use it as a Python package
 
 ```python
 from preflight import concordance, alternate_form_fp, control_arm, render
-from preflight.adapters import get_builtin_adapter
+from preflight.adapters.jsonl_adapter import adapt_jsonl
 
-# Using built-in adapter
-adapt = get_builtin_adapter("jsonl")
-key_rows, out_rows, items, rows = adapt("./harness_output/")
+# 1. Read harness output and produce key_rows/out_rows via an adapter
+key_rows, out_rows = adapt_jsonl("harness_output.jsonl")
 
-# Or custom adapter
-from my_adapter import adapt
-key_rows, out_rows, items, rows = adapt("./harness_output/")
-
+# 2. Run the three checks
 checks = [
-    concordance(key_rows, out_rows),
-    alternate_form_fp(items, my_flagger, fp_ceiling=0.02),
-    control_arm(rows, my_is_positive, premise=0.0),
+    concordance(key_rows, out_rows),                              # C1
+    alternate_form_fp(control_items, flagger, fp_ceiling=0.02),  # C2
+    control_arm(control_rows, is_positive, premise=0.0),         # C3
 ]
 
-text, code = render(checks, rate=my_recall, label="my_harness")
+# 3. Render the report; exit code 3 means a check failed
+text, code = render(checks, rate="recall 0.95")
 print(text)
-# code == 0 → rate is trustworthy; code == 3 → rate withheld
+# Exit with the code: 0 if all OK, 3 if any check failed
 ```
 
-## Known limitation: C2 false-positive rate is arm-specific
+## Adapters — transform harness output into `key_rows`/`out_rows`
 
-The C2 check measures false-positive rate **per arm**. A verifier may have a clean
-"verbatim" arm (FP rate 0.0069) but a condemned "in_situ" arm (FP rate 0.9346).
-The tool reports arms separately and fails if **any** arm exceeds the ceiling.
+The preflight instrument needs its inputs as:
+- `key_rows`: list of `{"id": "..."}` dicts
+- `out_rows`: list of `{"id": "...", "prediction": "...", "answer": "..."}` dicts
 
-This is by design: **a false-positive rate belongs to an arm, not to an instrument,
-and a quoted one does not transfer** (F123, D109). The ceiling applies per arm.
+Adapters read a harness's output file and produce these two lists. The **adapter tax** is 3-4 lines of stdlib Python per format.
 
-## Understanding C3: the control arm check
+### Built-in adapters
 
-The C3 check validates that a **declared negative arm** (a set of examples you know
-should be negative) actually contains no positives. This is useful when you have
-a separate control set — for example, known-false examples, or examples from a
-different condition that should not trigger the verifier.
+| Format | Import | Adapter tax |
+|---|---|---|
+| **JSONL** (one JSON object per line) | `from preflight.adapters.jsonl_adapter import adapt_jsonl` | 4 lines |
+| **CSV** (header `id,prediction,answer`) | `from preflight.adapters.csv_adapter import adapt_csv` | 3 lines |
+| **YAML** (mapping with `id`, `prediction`, `answer` keys) | `from preflight.adapters.yaml_adapter import adapt_yaml` | 3 lines |
+| **XML** (`<row id="..."><prediction>...</prediction><answer>...</answer></row>`) | `from preflight.adapters.xml_adapter import adapt_xml` | 3 lines |
 
-If you don't have a declared negative arm (which is common in simple evaluation
-setups), use `--skip-c3` to run only C1 and C2. The examples in `examples/` use
-`--skip-c3` because they don't include a separate control arm.
+### Custom adapters
 
-When you do have a control arm, implement a custom adapter that provides the
-control arm rows with a proper `is_positive` predicate that reads evidence
-outside the key (e.g., from a human label, a different source, or a pattern
-in free-text fields).
+For harnesses with different output structures (e.g., `modelscope/evalscope`, `openai/evals`), write a small adapter function that produces `key_rows` and `out_rows` in the expected shape. The adapter pattern is validated across 6 fundamentally different output structures.
+
+## Run the tests
+
+```bash
+python3 -m unittest discover -s preflight  # 16 tests, all passing
+```
+
+The test suite includes:
+- A sound fixture that passes all checks
+- Four injected defects (key type flip, key field drop, verifier normalization removed, control arm contaminated)
+- Falsification tests that try to make the tool say `OK` when it should not
+
+## What this tool catches (from this repository's own harnesses)
+
+| finding | the harness reported | what was true |
+|---|---|---|
+| **F118** | verifier recall 1.0000, false-alarm rate 0.0069, `instruments_valid: true` | it flagged 0.3717 of 374 values in correct answers; **false-positive rate 1.00 on its own flags** |
+| **F121** | a scorer printing TP/FP/FN for 80 accounts | key held integer `account_id`, answers held `"R001"`; **every answer scored against nothing** |
+| **F122** | `G0_C_precision = 0.0` — reader hallucinates | the gate's premise was false: 4 "control" accounts hold real standing orders outside the key's positive set, so **every reader, including the incumbent, scored 0.0** |
+
+Each was a *silent* failure: no exception, a number printed, no gate red.
+
+## Limits and caveats
+
+- **Population limitation (E125):** Only 5 of 22 popular LLM-eval harnesses had qualified committed key/output pairs. The tool is most useful as stdlib-only instrumentation for evaluation harness authors willing to write a small adapter for their specific format.
+- **No external dependencies:** The package requires only Python standard library.
+- **Two harnesses from one repository:** K1–K4 establish that the checks fire on five committed cases and on four injected defects, and that they stay quiet on a sound fixture. They establish nothing about any harness outside this repository.
+- **False-positive rate is arm-specific:** C2 must be run on host text of the kind the instrument will actually be pointed at, and the arms must be reported separately. A single aggregate false-positive rate is a statement about the arms, not about the verifier (F123).
+- **K2 gate failed as declared:** The declared easy arm measured 0.9346 false-positive rate instead of the expected ≤0.02, because the verifier scores context-word overlap and a bare sentence naming a value present in the document still scores near zero. This is recorded as F123: a false-positive rate belongs to an arm, not to an instrument, and a quoted one does not transfer.
+
+## Prior art
+
+[`PRIOR-ART.md`](../EXPERIMENTS/124-eval-harness-preflight/PRIOR-ART.md) searched for all three checks. Verdict: **`partially-covered`**. No tool performs all three, none automates C3, and the closest practitioner document (Anthropic's "Demystifying evals for AI agents") already tells practitioners to author a reference solution that passes every grader (C2) and to build balanced problem sets (C3), in prose, by hand, with no measurement and no gate.
+
+## Adoption interest evidence
+
+[`EXPERIMENTS/preflight-adoption-interest.md`](../EXPERIMENTS/preflight-adoption-interest.md) documents observed adoption signals: open issues in `lm-evaluation-harness` and `stanford-crfm/helm` mapping to C1/C2/C3, real audits finding broken scoring (MLS-Bench #103), and a standardization effort (`evaleval/every_eval_ever`). The user population is niche (evaluation engineers, benchmark maintainers).
 
 ## License
 
-MIT License — see [LICENSE](LICENSE).
-
-## Origin
-
-preflight was developed as part of the [Think Free](https://github.com/ikihsan/think-free) mission — an independent invention project seeking unusually useful open-source tools. The tool emerged from measuring the mission's own evaluation harnesses and finding they silently produced wrong numbers.
-
-## Status
-
-**Alpha** — the tool works on the mission's harnesses and seven adapter formats.
-Whether it serves a broader population is `untested`. The C2 arm-specific
-false-positive rate behavior is a deliberate design choice, not a bug.
+MIT. See [`LICENSE`](LICENSE).

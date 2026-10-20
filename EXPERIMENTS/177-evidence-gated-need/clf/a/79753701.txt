@@ -1,0 +1,94 @@
+qid: 79753701
+view_count: 52261
+tags: css, ios, safari, mobile-safari, viewport
+key_score: 17
+
+=== TITLE ===
+iOS 26 Safari - Web layouts are breaking due to fixed/sticky position elements getting shi
+fted vertically
+
+=== QUESTION ===
+In Safari on iOS 26, when the page is scrolled down and the address bar shrinks at the bot
+tom, the viewport appears to get displaced vertically, which in turn shifts the position o
+f elements with position "fixed" or "sticky." 
+ Code example: https://codesandbox.io/p/sandbox/reactjs-playground-forked-6zmgr4 
+ Note the relevant div serving as a fixed footer, with inline styles as follows: 
+ style={{
+ position: "fixed",
+ bottom: 0,
+}}
+ 
+ Navigate to the code sandbox URL on iPhone with iOS 26 to reproduce the issue: https://6z
+mgr4.csb.app/ 
+ Scroll down the page. Notice that the fixed footer isn’t aligned to the bottom of the scr
+een any longer. Rather, there is a gap between the bottom of the viewport and the bottom o
+f the fixed footer as shown in the screenshot. (The text is obstructed in the screenshot; 
+it reads "This should be fixed at the bottom of the screen when I scroll down.") 
+ Screenshot of issue 
+ How can I address this? So far I've tried the following: 
+ 
+ Various combinations of different css attributes on the document and body elements ( posi
+tion , top , overflow , overscroll-behavior ) 
+ 
+ Adding bottom: -100vh; padding-bottom: calc(100vh + env(safe-area-inset-bottom, 0)) to th
+e footer (this worked fine in other browsers, but not in Safari 26 beta) 
+ 
+ Setting the following CSS content: 
+ html {
+ overflow: hidden;
+}
+
+body {
+ overflow: auto;
+}
+ 
+ 
+ This prevented the issue (footer element shifting on scroll), but it had some undesired s
+ide effects. The scroll position doesn’t get maintained any longer when navigating back to
+ the page, and programmatic scroll using window.scrollTo stops working. Also, the address 
+bar doesn’t shrink any longer at the bottom of the screen when the user scrolls down. 
+ 
+ 
+ 
+
+ style={{
+ position: "fixed",
+ bottom: 0,
+}}
+ 
+ document 
+ body 
+ position 
+ top 
+ overflow 
+ overscroll-behavior 
+ bottom: -100vh; padding-bottom: calc(100vh + env(safe-area-inset-bottom, 0)) 
+ html {
+ overflow: hidden;
+}
+
+body {
+ overflow: auto;
+}
+ 
+ window.scrollTo
+
+=== KEY ANSWER ===
+There are multiple issues and bugs as far as I can tell: 
+ 
+ Position: fixed top and bottom toolbar start to drift as you scroll. 
+ 
+ editing in text boxes (inputs are better, and textareas much worse) causes conflicts, as 
+it turns off fixed positions, and sometimes they are there, although not visible. 
+ 
+ side menus often get cut. A fixed position scrollable side navbar typically gets cut off 
+right above the URL line, but the background continues to be translucent all the way down 
+to the bottom of the screen. This really looks awful. 
+ 
+ top and bottom backgrounds randomly become solid (instead of translucent) to try and comp
+ensate for the position:fixed items. 
+ 
+ 
+ Overall, I have to say this is the buggiest release of Safari for quite a few years now..
+.
+

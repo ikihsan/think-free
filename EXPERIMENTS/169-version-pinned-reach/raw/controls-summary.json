@@ -1,0 +1,35 @@
+{
+  "rows": 13,
+  "C1_positive_control": {
+    "n": 13,
+    "hit": 0,
+    "share": 0.0
+  },
+  "C2_negative_control": {
+    "n": 13,
+    "hit": 0,
+    "share": 0.0
+  },
+  "A5_or_terms": {
+    "n": 13,
+    "hit": 0,
+    "share": 0.0
+  },
+  "A6_and_terms": {
+    "n": 13,
+    "hit": 1,
+    "share": 0.0769
+  },
+  "A5_or_A6_either": {
+    "n": 13,
+    "hit": 1,
+    "share": 0.0769
+  },
+  "degenerate_queries": 0,
+  "literal_types": {
+    "error_message": 6,
+    "ui_string": 2,
+    "code_token": 1,
+    "symptom_only": 4
+  }
+}

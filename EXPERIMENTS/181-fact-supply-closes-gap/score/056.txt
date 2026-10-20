@@ -1,0 +1,5 @@
+PROPOSED ANSWER:
+This is an nvm-windows version problem, and a year on people are still reporting it. nvm-windows 1.1.2 installs node 14 cleanly; later releases fail while unpacking the bundled npm zip, which is why the node download completes and the install then aborts. Deleting the nvm-install-* and nvm-npm-* temp folders has never helped anyone here, because the zip is not being read from your temp directory. The rollback is the route people actually took: uninstall the current nvm-windows, install 1.1.2, and retry. Some went further and deleted nvm entirely. If you must stay current, fetch the node 14 Windows zip from nodejs.org, unpack it into the nvm directory as v14.17.3, and use nvm use there.
+
+ACCEPTED ANSWER ON THE SITE:
+I was having the same problem. I even tried to change the node and npm mirror, but same error. I just rolled back to nvm version 1.1.12 and it worked just fine.

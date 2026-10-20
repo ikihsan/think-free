@@ -1,0 +1,23 @@
+pid: g-79796450
+
+=== LEFT ===
+There is no std::ranges facility that zips N ranges into a struct, but with C++23 it is sh
+ort: pipe std::views::zip(vec1, vec2, vec3) through std::views::transform with a lambda un
+packing std::get<0..2>(t) into MyData, then into std::ranges::to<std::vector>(). zip_view 
+is C++23, so on C++20 fall back to std::transform over an index range built from std::view
+s::iota, indexing each vector with the same int, and reserve the output first. Your loop i
+s already fine; just use size_t instead of int. If the struct keeps gaining fields, consid
+er storing std::array<std::string,3> so the zip needs no per-field unpacking, or generate 
+the transform body with a macro.
+
+=== RIGHT ===
+You can use views::zip_transform (C++23) like: 
+ auto to_MyData = [](auto... elems) { return MyData(elems...); };
+auto myData = std::views::zip_transform(to_MyData, vec1, vec2, vec3)
+ | std::ranges::to<std::vector>();
+ 
+
+ views::zip_transform 
+ auto to_MyData = [](auto... elems) { return MyData(elems...); };
+auto myData = std::views::zip_transform(to_MyData, vec1, vec2, vec3)
+ | std::ranges::to<std::vector>();

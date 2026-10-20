@@ -1,0 +1,66 @@
+{
+  "rows_queried": 13,
+  "A1_phrase": {
+    "n": 8,
+    "hit": 1,
+    "share": 0.125,
+    "wilson95": [
+      0.0224,
+      0.4709
+    ],
+    "unreadable": 0
+  },
+  "A2_keyword": {
+    "n": 13,
+    "hit": 1,
+    "share": 0.0769,
+    "wilson95": [
+      0.0137,
+      0.3331
+    ],
+    "unreadable": 0
+  },
+  "A3_null_control": {
+    "n": 13,
+    "hit": 0,
+    "share": 0.0,
+    "wilson95": [
+      0.0,
+      0.2281
+    ]
+  },
+  "A4_repo_scoped_after_miss": {
+    "n_run": 12,
+    "hit": 0,
+    "rescued": 0,
+    "share_of_all_rows": 0.0
+  },
+  "any_global_arm": {
+    "n": 13,
+    "hit": 1,
+    "share": 0.0769,
+    "wilson95": [
+      0.0137,
+      0.3331
+    ]
+  },
+  "incumbent_upper_bound": {
+    "n": 13,
+    "hit": 1,
+    "share": 0.0769,
+    "wilson95": [
+      0.0137,
+      0.3331
+    ]
+  },
+  "literal_types": {
+    "error_message": 6,
+    "ui_string": 2,
+    "code_token": 1,
+    "symptom_only": 4
+  },
+  "extractor_matched_hand_phrase": 0,
+  "ranks_A2": [
+    1
+  ]
+}

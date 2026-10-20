@@ -1,0 +1,25 @@
+{
+  "observed_at_utc": "2026-10-14T07:10:15Z",
+  "user_date": "2026-10-14",
+  "platform": "Linux-x86_64",
+  "sample_size": 200,
+  "classified": {
+    "need-related": 0,
+    "random": 200
+  },
+  "active": {
+    "need-related": 0,
+    "random": 0
+  },
+  "active_rates": {
+    "need-related": 0,
+    "random": 0.0
+  },
+  "g1_pass": false,
+  "g2_pass": true,
+  "g3_pass": false,
+  "g4_pass": true,
+  "conclusion": "GATES FAILED - classifier vocabulary ecosystem-specific: 0/200 need-related (CPAN: 74/110)",
+  "experiment_description": "View-count principle on CRAN (R package registry)",
+  "closed_at_utc": "2026-10-14T08:00:00Z"
+}

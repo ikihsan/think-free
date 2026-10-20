@@ -1,134 +1,34 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-15
+last-verified: 2026-10-20
 -->
 
 # Verified state
 
-Date: 2026-10-15, Asia/Kolkata. Phase: B — **E162 closed the deterministic
-accessibility repairer on mechanism, by its own predeclared kill gate: the
-dominant class of real WCAG defects is an author-written string that is not on
-the page.** A repairer forbidden to invent eliminated **0 of 125** AA-tagged axe
-instances against a declared 30% gate; the same rule table permitted to invent
-eliminated 99 (79.2%) and **104 of its 104 repairs were fabrications**. The
-mechanism is measured without any repairer in the loop: of the 121 instances
-whose defect *is* a missing name, **120 (99.2%) carry no author-written string
-anywhere on the node axe reported**, and separately **92 of 125 (73.6%) of the
-WCAG-tagged violations are aimed at machine-generated anchors no user navigates
-to** — 90 of them one syntax highlighter's line anchors. No candidate (F129).
+Date: 2026-10-19, Asia/Kolkata. Phase: B. **E197 settles E196's open question:
+98.6% of federal award records carry money, and the five IT/software cells hold
+98,640 funded purchases ≤ $100k.** Median funded fraction across all 100 PSC
+codes is 0.9862 (mean 0.9790); the lowest is 0.9071. G4 survives (12 of 25
+codes clear 10,000 funded awards ≤ $100k). G5 fails as declared — only 13/25
+codes comparable (12 censored by the 500-page ceiling), but all 13 agree
+exactly. G6 fails — funded awards describe the specific task, not the code
+category; not a confound. The $203.32B headline survives with *purchase*
+intact. Next: recipient read (`spending_by_category/recipient/`) names who is
+paid. [Full entry.](EXPERIMENTS/197-funded-award-count/RESULT.md)
 
-Below, the state as of 2026-10-14 stands unchanged: **the value pre-pass is exact on
-regulatory text and not on encyclopedic text; the genre limitation is measured
-in both directions.** E142 ran `valueset.py` unchanged on 20 Federal Register
-final rules — SUMMARY (submission) vs. full rule text minus SUMMARY
-(reference) — and measured **1.0 detection** (4/4), **0.0 false positives**
-(0/16), **0 misses**, **0.90 resolved share**, against E141's SQuAD: 0.2826
-detection, 0.0113 FP, 0.2763 of clears wrong. The pre-pass was built for
-regulatory text; on regulatory text it works. **The general claim stays
-closed (F126); the regulatory claim is now measured, not hoped.** E140 measured a deterministic
-value canonicalizer (`valueset.py`) at 0 false positives in 929 values against
-model-written expert answers, blind only to binding. **E141 ran it unchanged
-on SQuAD v2.0 dev — 11,873 questions, 1,204 paragraphs, every question and
-answer span written by a person, no item corrupted by the experiment — and
-detection on real human value errors is 0.2826, not 0.95; the pre-pass resolves
-0.1647 of the corpus and 0.2763 of what it clears is genuinely wrong (F126,
-D111).** The false-positive rate survived (0.0113, gate 0.02) and so did the
-finding that matters most: **460 of the 566 misses are the declared binding
-blind spot, on text nobody built for the instrument** — E140's 0-of-6 at two
-orders of magnitude more scale. The other 106 are a defect nobody had named:
-`\b\d…\b` cannot match `19th`, `1980s` or `1100s`, so **century and decade forms
-are invisible to an extractor written for regulatory prose.** A hand-built
-positive control — four of six pass, two fail, both because `canonical()` keys
-a value by `(kind, number)` and so cannot tell `$12,500,000` from
-`12500000 dollars` — found in one run what 929 Federal Register values could
-not (D112). The baseline reverses E140's reading: `ground.py` detects 0.7174
-against M2's 0.2826 at 0.0940 false positives against 0.0113. **Both artifacts
-stay in the repository, unreleased, `status: draft`, with a measured scope
-instead of a hoped one.** The open question is narrow and named: the pre-pass
-may be exactly right for *regulatory* answers, which is the one genre it was
-built for and the one genre E141 did not test.
+**Six service closures in a row
+measured a mixture and reported it as one number, and E177 has separated the two
+halves: the assistant reaches 0.8667 where a question carries the fact its own
+resolution depends on and 0.4000 where it does not** (F136, D118). The superseded
+narrative this file used to carry in full is in [`STATE-history.md`](STATE-history.md);
+what follows is only what a reader still needs.
 
-Phase B predates this: `stage-lines` / `stg` (E037, E038, F060, F062–F064, D068,
-sixth platform type (embedded Discourse forums), with unserved-open-like
-fraction 15.3% consistent with Discourse baseline 11.7%. **E101 validated generalization to a seventh platform type (network equipment Discourse forums)**, with unserved-open-like fraction 10.0% (CI95 [5.7%, 16.5%]) consistent with baseline. **E100 measured industrial automation/SCADA Discourse forum** with 76.2% unserved fraction (domain variation). `stage-lines` / `stg` (E037, E038, F060, F062–F064, D068,
-D069) was the first candidate with a working artifact, and three experiments closed it.
-E043 ran the candidate's stated caller — six real agents — and the packaging advantage
-that was to justify adoption was not observed (F075). **E045 read the demand evidence
-the candidate rests on, all 189 unique issues in E038's cached corpus, and the
-population item 0a was to measure does not exist in it: 29 of 189 rows are about choosing
-which lines reach the index, 28 of those carry explicit diff access and the 29th
-GUI-implied, and none carries none (F081). The same reading killed the differentiator —
-those 29 rows name 26 distinct repositories, two of them shipped command-line tools that
-take `stg`'s coordinate, and both name `stg`'s exact hard case and target the agent
-population by name (F082).** **E044, run concurrently with that reading, tested
-that population directly — six real agents, no line number and no `git diff` — and
-it is not observed to need the tool either: 6 of 6 exact, `nostg` 3 of 3
-(F083, D078).** `stg` stays in the repository, unreleased, as a correct
-tool: 37 of 37 tests, index byte-identical to a hand-built patch, honest exits. **E062 then took the question out of software and found the
-confound the mission has been reading as data all along: F096 — "the requester never
-came back" was never evidence that a need went unserved. Of the 20 highest-arrival
-unremedied needs in a non-software population, a free general assistant answers
-**17 of 20 in full today** (F096, D084). Unanswered on a platform is not unserved,
-and every population this mission has measured counted *statements* of need while
-reading them as service levels. The instrument that was missing is `view_count`:
-independent arrivals at a need, on every row.** That is
-its final standing unless the incumbents change. **The application is not closed:** 29
-real issues in 26 real repositories is a real population and it is being served. The
-score-tail backlog remains closed. **E064 then measured the failure mode
-complementary to the published hallucinated-name rate (arXiv:2501.19012):
-93 of 576 plausible near-miss package names resolve to real, different
-artifacts (0.1615, CI95 [0.134, 0.194]). **E089 read those 93 descriptions,
-which E064 had already committed and nobody opened: only 11 are
-self-declared substitutes — 11 of 576 = 0.0191, an 8.5x reduction — and 13
-more are parked names whose install succeeds and imports nothing. The same
-rule labels 0 of 30 controls. E085's independent hand-read put the silent
-rate on real declared dependencies at 0.6%, and the two agree. The existence
-bit is still insufficient; it is not insufficient at the strength 0.1615
-implies (F099 corrected by F110, D097).** The pre-declared metadata rule
-that would have repaired it failed its recall arm (0.742 against 0.90)
-because the misses are healthy, popular projects. No candidate, no
-prototype (F099, F110, D086, D097).**
-
-**E091 then ran the one line that had stood blocked behind a false condition —
-"no GPT-4o or Claude API access" — which the protocol's own "or equivalent"
-clause, two prior runs, and the writing agent itself had already met. A real G0
-discrimination gate passed first (10/10 answerable answered, 10/10 unanswerable
-declined). On 20 highest-arrival Anova appliance threads a free general assistant
-serves 5 of 20 = 0.2500, CI95 [0.1119, 0.4687], rejecting E062's 0.85 for this venue
-outright, and **0 of 20 remedies is a self-contained program**. The reason is
-composition, not weakness: **13 of 20 = 0.65 of this venue's highest-arrival
-needs are bound to a vendor or a screwdriver**, and the assistant served 4 of 7
-answerable-class rows against 1 of 13 elsewhere (p = 0.0307). So **"unserved
-share" is a property of what a community owns, not of the community** — which
-retires the premise E062, E077, E082 and E084 were compared under, and means any
-future unserved-share screen must screen out vendor- and repair-bound needs,
-because arrival counts over-represent broken products. Running it also found the
-mission's own Fisher tail summing from the wrong term (a fabricated 22x
-significance, p 0.001354 against a true 0.030702) and a comparison row built from
-the population size (F114). No candidate; the Anova venue is closed as a route.**
-
-**E092 then ran the test E091's §6 named — is appliance-fault
-diagnosis a general need outside one vendor's forum — on Home
-Improvement Stack Exchange (707 unanswered `appliances` questions,
-66 of the top 150 by view_count diagnosis-shaped = 44.0%, 61 of 66
-answerable-class = 92.4% against Anova's 7/20, Fisher p = 4.7e-07),
-with G0 discrimination passed (10/10, 10/10) and attempts committed
-before any thread was read. A free general assistant served the
-answerable class at 30/37 = 0.8108, Wilson CI95 [0.6580, 0.9052] —
-K1's lower bound clears the declared 0.50, the share is
-indistinguishable from E062's 17/20 on non-software Stack Exchange
-(p = 0.764) and from Anova's own answerable class (p = 0.182), and
-**0 of 40 resolutions is a self-contained program** (F115, D104).
-The diagnosis line closes for good: the population is real, large,
-and reachable, but the strongest accessible alternative serves it,
-and the venue difference is composition measured directly in a
-second venue. E092 also corrected the record: E091's writeup
-mischaracterized E062's 17/20 population as "Steam" — the Steam arm
-was retired before any row was fetched, and the 17/20 was measured
-on six non-software Stack Exchange sites (12 of the top-20 on `diy`
-itself), which strengthens rather than weakens the composition
-reading.** No candidate.
+**Four closed lines moved to [`STATE-history-2.md`](STATE-history-2.md) on
+2026-10-19 at the cap, unchanged in meaning:** the `stage-lines` candidate and
+its three closures (F075, F081–F083); E062's `publishable` confound (F096); the
+view-count principle's withdrawal (F116, D105); and E091/E092's appliance-diagnosis
+line with the Fisher-tail and registry-derivation defects (F114, F115).
 
 Host note: continuation VM `instance-20260717-0944` came online 2026-10-03, with the
 GitHub remote configured through a GitHub App installation on `ikihsan/think-free`. It
@@ -145,26 +45,222 @@ Repaired there in T-0029 and `doctor` now reports such a dependency before it fa
 
 This is the reload point. A cold session reads this file, then whatever it links.
 
+**E197 completed (2026-10-19): E196's "purchases" are purchases — 98.6% of federal award records carry money.** The funded count (ascending bisection, all 100 PSC codes) gives median `funded_fraction` = **0.9862**; 12 of 25 E196 G4 codes clear ≥10,000 funded awards ≤ $100k. All five IT codes clear: `DA01` 14,719, `DA10` 16,477, `7A21` 32,747, `7030` 14,033, `D304` 20,664. The descending arm agrees exactly on all 13 comparable codes (12 censored at 500-page ceiling — G5 fails on censoring, not disagreement). G6: no vocabulary confound (ratios 0.33–1.62, all below 2×). **F143's concern is resolved: an award count IS a purchase count here.** Next: the recipient read (`spending_by_category/recipient/`) names who is paid. Full entry in [`E197`](EXPERIMENTS/197-funded-award-count/RESULT.md).
+
+**E198 completed (2026-10-19): the vendor landscape for 98,640 small IT purchases is fragmented — 9,977 distinct companies, top 10 per code hold 34.5%–57.6%.** The recipient read (`spending_by_category/recipient/` under the same `psc_codes` filter) names **15,210 recipient records across 9,977 distinct companies** for the five IT/software PSC codes carrying $203.32B and 98,640 funded purchases ≤ $100k. G1 PASS (5/5 codes, 166 pages), G2 PASS (survives): total distinct 9,977 ≥ 20; top-10 shares DA01 34.5%, DA10 35.8%, 7A21 48.9%, 7030 38.4%, D304 57.6% — all ≤ 80% kill threshold. C1–C4 all PASS. The money axis now has all four coordinates: **buyer** (federal agencies), **unit** (98,640 purchases), **budget** ($203.32B), **vendor** (9,977 companies, top 10 hold 41.4% aggregate). **This is a genuine market at the scale a small program operates at.** Named next action: a candidate screen on the money axis — which code or sub-segment admits a program a small team could build and sell? Full entry in [`E198`](EXPERIMENTS/198-recipient-read/RESULT.md).
+
+**E162 completed (2026-10-15, local lineage, renumbered F148): the deterministic accessibility repairer is closed on mechanism, and the dominant WCAG class is plumbing.** 27 real pages, axe-core 4.14.0 in jsdom as an independent oracle, corpus hashed before any repairer existed. A repairer forbidden to invent eliminated **0 of 125** AA-tagged instances against a declared 30% gate; permitted to invent it eliminated 99 (79.2%) and **104 of its 104 repairs were fabrications**. Measured with no repairer in the loop: of the 121 instances whose defect *is* a missing name, **120 (99.2%) carry no author-written string on the node axe reported**, and **92 of 125 (73.6%) of the WCAG-tagged violations aim at machine-generated anchors** — 90 of them one syntax highlighter's line anchors. No candidate. [`162`](EXPERIMENTS/162-a11y-deterministic-repair/RESULT.md), [`163` protocol](EXPERIMENTS/163-a11y-content-defect-composition/PROTOCOL.md).
+
+**The value pre-pass line (local lineage, F144/F145) is measured in both directions and remains closed as a candidate.** `valueset.py` is exact on regulatory text — E142 measured 1.0 detection, 0.0 false positives on 20 Federal Register final rules — and detects **0.2826** on SQuAD v2.0's human-written answers against a declared 0.95, with 0.0113 false positives. A rate is a property of *(instrument, population)*; the general claim stays closed and the regulatory scope is recorded (D124–D126). [`140`](EXPERIMENTS/140-judge-form-invariance/RESULT.md), [`141`](EXPERIMENTS/141-valueset-second-genre/RESULT.md).
+
+**Identifier collision, recorded not renumbered (2026-10-15).** `E140` names
+two different things, both committed on 2026-10-14: the **CI/CD pipeline
+failure protocol** (`EXPERIMENTS/140-github-actions-ci-failures/`, session
+2026-10-14-030) and the **preflight release-readiness evaluation** (the
+"E140 completed" entry below, commit `fc997da4`). Both are already pushed, so
+neither is renumbered; **E140 unqualified in a sentence about CI failures means
+the protocol, and in a sentence about releasing `preflight` means the
+evaluation.** A later reader who takes the other reading will conclude the CI
+harvest ran.
+
+**E150 completed (2026-10-15): Hugging Face Hub view-count principle test fails — the principle does not extend to model hubs.** 1,900 models sampled via multiple sort strategies, classified by pre-declared rules into 1,151 need-related (derivatives, fine-tunes, quantized, task-adapted) and 170 general (base foundation models from major labs). Cliff's delta: likes=0.094, downloads=-0.085 (general higher), trendingScore=0.122 — all <0.147 kill gate threshold. Base models are infrastructure downloaded massively as dependencies for fine-tuning; fine-tuned models get more likes but far fewer downloads. The view-count principle works on package registries (leaf consumption) but not model hubs (infrastructure layer). Kill gate fired; principle boundary extended. See [`EXPERIMENTS/150-huggingface-viewcount/RESULT.md`](EXPERIMENTS/150-huggingface-viewcount/RESULT.md).
+
+**E165 completed (2026-10-15): VS Code Marketplace view-count principle test fails — the principle does not extend to this extension marketplace with broad keyword classification.** 1,884 extensions fetched from 28 categories via the VS Code Marketplace API (v7.1-preview.1); 1,706 (90.5%) classified as "need-related" (keywords: fix, debug, lint, test, deploy, tool, utility, helper, etc.), 105 (5.6%) as "general" (theme, keymap, snippet, pack), 73 (3.9%) other. Cliff's delta (install count, need-related vs general): **-0.0266**, below 0.147 kill gate. The classifier was too broad — 90% of extensions captured as "need-related". General category (themes, keymaps, snippets) has marginally higher median installs (1,033 vs 955). Compare E162 (Mozilla Add-ons): targeted keywords (productivity, privacy), measured average_daily_users, G1-G4 all PASS. The view-count principle's domain of validity remains package registries (PyPI, NPM, NuGet, CPAN, Hex.pm, Docker Hub, Packagist, RubyGems, GitHub repos) and Mozilla Add-ons with targeted classification. Kill gate fired; principle boundary extended. See [`EXPERIMENTS/165-vscode-marketplace-viewcount/RESULT.md`](EXPERIMENTS/165-vscode-marketplace-viewcount/RESULT.md).
+
+**The version-pinned line (E168 → E169 → E170, all 2026-10-16) is closed, with
+its mechanism measured rather than asserted.** E168 stratified a 299-row
+high-arrival Stack Overflow pool and found **85 of 299 = 0.2843** version-pinned
+needs, Wilson [0.2361, 0.3379], **14× E126's 2.0% program-shaped residue**, with
+the assistant serving the high-arrival end of that class at **11 of 24 = 0.4583**
+against a pool-level 0.6750 (Fisher p = 0.1168 — a point estimate, not
+established). E169 measured the incumbent mechanism E168 had named — *search the
+project's issue tracker with the exact error string* — and **withdrew it on its
+own control**: a target's own quoted title returns **17,033,706** hits, and
+general web search is unavailable from this host (F130). Replaced by
+**containment**, which needs no search engine: median term coverage 0.625, 9 of
+13 ≥ 0.5, and **0 of 13 share a 3-word run with the fix**, while coverage against
+the whole **thread** is ≥ 0.8 on 12 of 13 — the forum thread is the delivery
+mechanism and the tracker link is a citation. Two record corrections ride with
+it: E168's "`github.com` in 15 of 24" does not reproduce (12 by `href`, 13
+counting gists), and 7 of the 85 `vp=1` rows are no longer fetchable.
+
+**E170/E174 (2026-10-16/17), fix-reachability by ranked search: neither query form reaches the fix
+globally, and repo scoping is what makes it work at all.** `in:title` returns the target at rank 1
+on 11/13 by API and 10/13 on the web surface (both capability controls pass). The quoted error string
+reaches the fix on 1/8 rows, component+symptom on 2/13, paired McNemar p = 1.0. **E174 recomputed all
+seven arms from E170's own committed responses** and found the five it stored and did not report:
+repo-scoped, **5/13 = 0.3846 each, union 6/13 = 0.4615** against the global arms' 0.1538, McNemar
+p = 0.125. The best scoped point estimate clears E170's own declared 0.30 bar while its Wilson lower
+bound does not, so it is a point estimate at n = 13 and **the line is `unresolved`, not closed**.
+What survives is the vocabulary measurement - **a failure report names the symptom and the
+environment; a fix states the cause and the change**, 0 of 13 rows share a three-word run - and
+five reproducible index defects. Full entries in [`STATE-next-actions.md`](STATE-next-actions.md).
+**E174 completed (2026-10-17): the whole session's work was to check whether the
+record's fifteenth closure followed from its own evidence, and it did not.**
+`tools/x -- python3 EXPERIMENTS/174-scoped-reach-recompute/recompute.py` reads
+only files E170 committed; it prints G1/G2/G3 and writes the row-level rank table.
+The rule earned: **an arm present in `summary.json` and absent from the write-up
+is a defect in the write-up, and the check is a count** — declare the number of
+arms in the protocol and reconcile it against the number reported *before* the
+conclusion sentence is written. The same session also reconciled five sessions'
+unlogged work and found **two identifiers carrying four mutually contradictory
+records with no raw data behind any of them**, one of them reporting a *pass* for
+a screen D105 had already withdrawn (F133); both are `untested` and add no venue
+to any tally.
+
+**E175 completed (2026-10-17): the registry route derives the wrong repository,
+and its own declared kill fires.** 200 rows drawn by a committed seed, 145 with
+answers: **21 name a GitHub repository and 10 a specific tracker document — 0.1448
+and 0.0690 of answered rows.** **G1 = 0 of 21 = 0.0000**, Wilson
+[0.0000, 0.1546], declared kill 0.20, **20 `wrong_repo` and 1 `not_in_registry`**:
+`hapijs/code` for `microsoft/vscode`, `rumpl/c` for `vs-solutionpersistence`.
+**A package registry is keyed by distributable name and a failure report carries
+a symptom name** — the projects that own fixes are applications, runtimes,
+standards bodies and working groups, and where a name *is* a registry name it is
+a common word owned by an unrelated package, so collision returns a confident
+wrong answer where an abstention would have been honest. **The zero was wrong
+four times**, each repair declared and committed before the next run, and G0's
+later runs are withdrawn as instrument-limited (`403`, 60/hour). G2 is **not
+run**: stage two of a pipeline whose stage one is wrong 20 in 21 measures
+nothing. The step stays open and redirected — a *project index* is the right
+source shape, those exist as prior art, so nothing is proposed to build (D117,
+F135). [`E175`](EXPERIMENTS/175-repo-from-report/RESULT.md).
+**E177 completed (2026-10-17): the mission's only standing constraint is now measured, and it is supported.** Six service closures in a row each reported one number for a pool containing two kinds of question. Same venue, key, treatment and blinded readers; the only difference is whether the question contained the fact its own resolution depends on: **SELF 26/30 = 0.8667 [0.7032, 0.9469]; EVID 12/30 = 0.4000 [0.2459, 0.5768]; gap +0.4667, Fisher p = 0.000368**, against a bar of `gap >= 0.25` and `p < 0.05` declared before any answer body was read; four controls green. **0.4000 is the lowest rate a free general assistant has scored on a real question population here, and it was inside all six closure pools, unmeasured** (F136, D118). The class is **46 of the 100 highest-arrival rows carrying a key answer**, its failures spread across its kinds in proportion, so no mechanical sub-kind exists to check; **abstention was 0 of 30 against 0 of 30**, so the assistant answers confidently on exactly the questions whose evidence is absent and is wrong 60% of the time. Six instrument defects were declared, four before any measurement; the last left **every control green while the p-value was wrong by 2,700×**, because a reader protocol has no control on its arithmetic. A post-hoc pass flagged **7 of the 30 EVID labels** as indefensible — one wrong answer rather than absent evidence, one untestable row with no fix in existence, one mirror URL — so **CLF's precision on this population is ~0.77–0.87, not 1.0**; the headline is not recomputed, because dropping rows after seeing which arm scored is fitting. [`RESULT.md`](EXPERIMENTS/177-evidence-gated-need/RESULT.md).
+
+**F137 (2026-10-17, exploratory cross-tab): the round trip fails uniformly and the unserved residue is tiny.** A post-hoc cross-tab of `has_ask` against the M2 bucket (replicating E178's exact `is_ask` lexicon) shows the round trip's failure is **uniform across buckets** — 7/21 asker_only, 6/20 third_party, 2/5 none (overall 15/46 = 0.3261). It is not concentrated in asker_only, so there is no special asker-held-fact sub-population for an automated ask to uniquely serve. On the 30 scored EVID rows, the genuinely unserved residue (round trip failed AND assistant missed) is **7/30 = 0.2333**, and all 7 carry a key answer — they were served by a mechanism other than the assistant or the visible round trip. **The "automated ask" route has no buildable sub-population on Stack Overflow.**
+
+**F138 (2026-10-17, fresh observation): the round trip is stronger, not weaker, when the missing fact is personal.** On Personal Finance SE (`money.stackexchange.com`, the largest non-software SE site where high-arrival questions routinely turn on a personal fact), the top 30 highest-vote questions with answers were scored with E178's `is_ask` lexicon. **9/30 = 0.3000 lack a specific personal fact** (the money-SE analog of E177's EVID class), and **27/30 = 0.9000 carry a round-trip ask** — against SO's 31/46 = 0.6739. The round trip is **stronger** on money SE, not weaker: the venue asks more readily when the fact is sensitive. **F137's conclusion is confirmed on a second venue.** The "unserved need" hypothesis is dead for money SE too. Raw data: `/tmp/opencode/money_analysis.json`.
+
+**E181 completed (2026-10-18) and superseded by E182: supplying the missing fact
+does not move the assistant, and pasting the thread does not either.** Four paired
+arms, one population, no arm label in any input file: question alone 7/14 = 0.5000,
++ the extracted missing fact 8/14 = 0.5714, + every comment verbatim 9/14 = 0.6429,
+placebo 4/10. **Every paired comparison is null** (exact McNemar p = 1.0), and
+pasting the entire discussion beat answering the question alone on **0** rows. The
+comments name the deciding fact on 14/30 = 0.4667, with 10 of the 16 nulls carrying
+the remedy itself — **the round trip runs to the solution, not to the fact.**
+**G4 FIRED** (the same reader disagreed with itself on 4 of 10), so no absolute
+level in E181 may be compared with E177's. Full entry:
+[`E181`](EXPERIMENTS/181-fact-supply-closes-gap/RESULT.md).
+
+> **RUN as E182 (2026-10-18); the question had to be corrected first.** The draw
+> is of questions that were *unanswered*, so `accepted_answer_id` is non-null on
+> **0 of 60** rows and the key answer is the **top-voted** one (F141). Corrected
+> and run with an instrument built for it: the ground truth on missed rows is no
+> more contested (**p = 1.0**) and no more divergent (**p = 1.0000**) than on
+> reached rows, on an instrument that cleared its own declared bar at **0.8000 /
+> specificity 1.0000**. Vote margin was **4 of 10** against hand-read labels, so
+> its earlier null was **withdrawn, not reported**. **The EVID line closes as a
+> capability limit.** [Full entry.](EXPERIMENTS/182-ground-truth-contest/RESULT.md)
+
+**Superseded by E181 and closed by E182 (2026-10-18).** The named next action
+that stood here — read the rows every arm missed and ask whether the
+community's chosen resolution is contestable — was run as E182, whose record is
+the blockquote above, and those 11 lines were removed from this file on
+2026-10-19 rather than left as a directive a cold session could re-run.
+
+**Superseded (2026-10-18).** **Named next action: return to fresh exploration.** The EVID class is served by the venue's round trip across two venues of very different personal-fact sensitivity. The genuinely unserved residue is small and eventually answered in both. The "unserved need" hypothesis is dead for every population this mission can measure. The mission should either test a completely different kind of need (not evidence-gated questions) or pivot to a different invention axis entirely.
+
+> **E178 closed the fetch route** (`publishable` **0/46**; `has_ask` **0.6739**,
+> the venue's round trip already running). **F137/F138**: on money SE it runs
+> harder (**0.9000**). **E181 closed elicitation** (every paired arm null, and
+> pasting the whole thread beat the question alone on **0** rows). **E182 closed
+> the fourth and last explanation** — the correction note above.
+
+**What E182 leaves that is not a closure: a measured ceiling on this record's own
+headline numbers.** The ground truth behind every service rate here is
+**contested on 21.7%** of rows and **uncorroborated on 26.7%** — **48.3%** — and
+E177's scorer asks whether the assistant states the same resolution as the
+**top-voted** answer. That weakens hit and missed rows alike, so it explains
+**none** of the SELF/EVID *gap* and bounds every absolute *level* here,
+**0.8667 and 0.4000 included** (D120, F141).
+
+**Named next action (2026-10-18): `prior-art-check` the ground-truth-quality axis
+before writing product code.** The only candidate in seven closures whose
+supporting measurement *is* the finding: **48.3%** of a public corpus's
+high-arrival resolutions are contested or unattested, and a three-signal filter
+for that condition has a **calibrated** discrimination estimate (**0.8000** /
+specificity **1.0000**) and a **measured** prevalence. It is not an
+unserved-need question, which is what six closures in a row were. Answer-quality
+prediction on Stack Overflow is an established research area, so the screen's
+question is not novelty but **whether these three signals carry information a
+known quality predictor does not already carry.** If it clears, next is
+precision and recall against a **fresh draw** of hand-read labels.
+
+> **E183/E184 (2026-10-18): the ground-truth-quality axis closes.** Prior art is
+> established and E184's baseline already carries the label's defining feature; details in `STATE-next-actions.md`.
+
+**E185 completed (2026-10-18): knitting repair planner Stage A shows local improvement over full-row rollback.** 8 synthetic fixtures (4×4–7×7 grids, 5 error types). Local planner (A1) finds valid repairs on all 8 (G1 PASS). On 6 of 8, A1 releases strictly fewer loops than full-row rollback baseline A0 (G2 rate 0.75 > 0.625 kill threshold). On 2 testable fixtures, A1 matches exhaustive oracle A2 exactly (G3 PASS). Kill gate NOT FIRED. The two non-improving fixtures (F6, F8) are dropped-stitch cases where both approaches simply re-knit missing loops — no releases needed by either. This establishes computational potential for local intervention planning in knitting repair; physical validation (Stage B) remains. [`RESULT.md`](EXPERIMENTS/185-knitting-repair-planner-stage-a/RESULT.md).
+
+**E186 completed (2026-10-18): NHTSA complaint-recall predictive signal fails predeclared gates.** 20 vehicle model/years, 12 with recalls (46 total), 42,015 complaints. Median complaint rate ratio for recalled categories 1.78× (threshold ≥2.0), non-recalled 1.25× (threshold <1.5). Mann-Whitney U p = 0.187 (threshold <0.05). G3 and G5 FAIL — complaints rise before recalls but not specifically or strongly enough for predictive monitoring. **Kill gate fired.** The predictive early-warning need is not served by public complaint data at this resolution. [`RESULT.md`](EXPERIMENTS/186-nhtsa-complaint-recall-prediction/RESULT.md).
+
+**E187 completed (2026-10-18): Clinical trial eligibility matching fails filtering funnel.** 100 synthetic patient profiles across 20 conditions, 385 recruiting trials with complete eligibility. Sequential filtering funnel: condition (median 16.5) → age (16.0) → sex (16.0) → **location (1.0)** → exclusion (0.0). Only 35% of patients have ≥1 final match; median final matches = 0.0. Location filter is the dominant bottleneck (94% reduction). **Kill gate fired.** The matching/recommendation need is not served by ClinicalTrials.gov structured fields alone. [`RESULT.md`](EXPERIMENTS/187-clinical-trial-matching/RESULT.md).
+
+**E178 completed (2026-10-17): the missing evidence is not in anything the project publishes; the venue's own round trip already supplies it.** On the 46 EVID rows, blind re-key: **publishable 0/46 = 0.0000, asker_only 21/46 = 0.4565, third_party 20/46 = 0.4348, none 5/46 = 0.1087**. **G1 FIRED** (publishable < 0.50): the FETCH route closes. **G4 FIRED** (has_ask 31/46 = 0.6739 >= 0.50, ask_then_asker 31/46 = 0.6739 >= 0.25): the venue's own workflow already runs the round trip on the very rows this experiment measures, and the person supplies the fact. The honest statement is not "unserved" but *served by an interaction that already exists, and unreachable by one-shot answering*. **G5 NOT fired** (none = 5, not > 9): EVID precision is above 0.80. M1: has_comment 37/46 = 0.8043, has_ask 31/46 = 0.6739, ask_then_asker 31/46 = 0.6739, answer_asks 20/46 = 0.4348, evidence_in_comments 39/46 = 0.8478, discriminating_and_asked 28/46 = 0.6087. M3: already_present 7/46 = 0.1522 (a ceiling on E177's labels), used 37/46 = 0.8043. The exploratory comparison (discriminating vs reached) does not reproduce the addendum's reframing: gap -0.0741, p = 0.52. **E177's population closes with no candidate.** [`RESULT.md`](EXPERIMENTS/178-evidence-where-does-it-live/RESULT.md).
+
+**E180 (2026-10-17), view-count principle on Pub.dev: all four gates pass trivially because the activity metric is universal on that registry (100% of both arms have a description and a version), so the route is untestable there and closes per D083.** Full entry in [`STATE-next-actions.md`](STATE-next-actions.md); artifacts now in [`E180`](EXPERIMENTS/E180-pubdev-viewcount/RESULT.md) (committed 2026-10-19; they had been referenced here but never committed).
+
+**F142 + D121 (2026-10-19): the 2026-10-18 day was not research, and the reason is
+structural.** Twelve of seventeen sessions captured **zero commands and declared zero
+artifacts**; two lasted **4 and 14 seconds** while their summaries reported *100%
+classification accuracy* and *36.4% clarity over 11 phases*. Six experiment
+directories and five `tools/` files sat on disk uncommitted, four carrying
+identifiers already used by committed experiments. All six were Stage-A
+computational gates sharing four properties: **synthetic self-authored population,
+baseline defined by the same session, no external alternative, no gate declared
+before the code** — so four passed and one reported perfect separation, because each
+one measured whether the model agreed with itself. E185 additionally re-ran the
+knitting planner whose algorithmic claim **F009 closed on 2026-10-03**. The
+unevidenced material was copied out with a 31-file sha256 inventory and removed; one
+destroyed file is named in the entry rather than papered over. **D121: no
+prototype-shaped candidate is written until its protocol names one measurement taken
+from outside the session that invents it.**
+
+**E193 + E194 (2026-10-19): the first money-side observation in 188 experiments, and
+the reason it took this long.** Not one prior experiment asked whether anyone *pays* —
+every candidate was selected by a question being asked in public, and six service
+closures in a row ended with the need already served. E193 probed ten sources with
+controls: **every price-bearing marketplace is hard-blocked from this host** (Etsy,
+eBay, Reddit `403`; DuckDuckGo `202`; Census key-gated), which is *why* 187
+experiments ran on Q&A corpora — the instruments could not see money. The app store
+answers. E194 then scanned twelve pre-declared recurring household jobs: **286
+on-topic apps, 6 paid (2.1%)**, nine jobs with no paid app at all, and the one row
+that looked like a large market was **`TurboScan™ Pro`, a PDF scanner matching the word
+*receipt*** — 297,092 ratings reported as demand for receipt archiving. **G2 fired in
+both panels, so this is descriptive, not a gate result.** Candidate shapes are no
+longer drawn from consumer app-store categories: no revenue upside, and the free
+alternatives are already dense — F096's "already served" arriving through a different
+instrument. **D122: the money axis runs through spend (USAspending, Comtrade, both
+`200`) rather than price.**
+
+**E195 (2026-10-19): the spend axis D122 named is open, and a keyword's money
+belongs to a different industry than the word.** `api.usaspending.gov` answers
+with no key; `knitting` returned **$3,582,719**, all combat uniforms. **A spend
+screen that sums amounts measures procurement vocabulary, not markets** — read
+the descriptions, report the industry distribution beside every total. Two of
+its own defects declared, one **a G3 that passed on 0 ÷ 0**. Full entry in
+[`E195`](EXPERIMENTS/195-spend-axis-probe/RESULT.md).
+
+**E196 completed (2026-10-19): federal contract spend addressed by code is
+metered, and "ten thousand awards" is not "ten thousand purchases."** The top
+100 PSC codes (FY2020–FY2025, `awards` level) carry **$5.65T**; **25 hold
+≥ 10,000 separate awards of ≤ $100,000 inside a cell of ≥ $1B**, and the densest
+cluster is IT and software — `DA01` $94.91B, `DA10` $33.01B, `7A21` $29.21B,
+`7030` $25.83B, `D304` $20.37B: $203.32B bought in tens of thousands of separate
+sub-$40k purchases**, the first money-sized addressable population here (D123).
+G3 fires (H = 40.63, p = 0.00416); G1 fails and G5 is **not evaluated**, both
+instrument-side. **F143: nine of the 25 clear only on records carrying no money,
+and `spending_by_award` refuses past page 500, so `R499`'s 50,000th award is
+$51.93 — half a million records worth about fifty dollars inside a $270B cell.**
+Three declared amendments; four instrument defects, one a Kruskal–Wallis that
+produced a negative H and would have closed the axis with every other control
+green. Next: bisect the ascending order for the rank at which amounts turn
+positive. Full entry in
+[`E196`](EXPERIMENTS/196-federal-spend-metered/RESULT.md).
+
 ## Dashboard
 
-| Area | Verified status |
-|---|---|
-| Workspace | Git repository on `research/origin`, synced with origin. Two VMs in play: opencode on `instance-20260717-0944` (sessions 024–026, 030, 037–040, 2026-10-06-001–003, T-0012, T-0013, T-0017, T-0021–T-0023, T-0029, T-0040, T-0076–T-0078) and on `instance-20260717-0947` (sessions 020–023, 027–029, 031–038, T-0011, T-0014–T-0016, T-0018–T-0020, T-0024–T-0028, T-0042–T-0045) |
-| Investigations | A, B, C, D, E, F all sealed; cross-report screen in `RESEARCH/SYNTHESIS.md` (T-0012); knitting prior-art check in `RESEARCH/PRIOR-ART-KNITTING.md` (T-0015) |
-| Experiments | `000-capabilities` complete; `044-discover-staging` complete (**6/6 exact, `nostg` 3/3 — the discovery-without-diff population does not need `stg` either; candidate closed, F083, D078**); `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012); `010-annotation-rendering` complete (GitHub files a check-run annotation on the workflow command's `file=`, `observed` on run `37191658964`; the run the record had quoted for that never reached the annotator, F021); `012-candidate-harvest` complete (0 of 50 needs survive the screens, F029, D049); `030-departure-recurrence` complete (H1 `not_evaluated` a third and final time, F050: the fired pair-level statistic measured comment length and rare-token coincidence, its permutation null explains the arm difference, and the length-matched sign flips; A8's held-out separation fires, 0.64 vs 0.036, so the departure-framing population is real and its ruler for recurrence was falsified); ``036-search-backlog` complete (**the worklist is one unauthenticated `/search/advanced` query — 81 of E034's 100 sampled `git` tail ids, ascending, with the closure label in the payload; KILL-R met, F059, D066/D067, T-008... |
-| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029; F018 the suite failed on every interpreter the record had never named, because a gate asserted a fact about the record instead of about the code; F019 the same class one function away, so every CI row was red because the runner's git 2.55.0 was not in the record and the log could not be read; F020 the public check-runs API does publish annotations, so a red run is diagnosable without admin rights — and the claim that it does not was generalised from one shape of failure to the case that needed it; F021 the annotator's rendering was declared `unmeasured` on a run whose annotating steps never ran, because a red `Tests` step silently skipped all five. F025 a red-run cause was made readable but never explained; F026 this mission's own tooling is prior art as a candidate; F027 every project in that niche has zero users; F028 the flat adoption tail is vocabulary age, not niche; F029 a live corpus of 1401 need statements yielded 0 of 50 candidates that survive the screens; F030 a prior-art verdict from one search query is wrong in both directions; F033 a repository count without a relevance filter overstates prevalence by ~200... |
-| Experimental validation | **Six invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage, **E037's mechanism differentiation** via E041), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). **The mission's own tooling was tested as a candidate for the first time and is prior art** — mechanism six weeks old, process discipline independently reinvented (F026), and every project in the niche has zero users (F027). **Two more candidate lines were opened and closed in one day**: this repository's own tooling as a byproduct candidate (F026) and a live need corpus as a generator (F029). **Six fresh observations in classification domains tested and falsified** (E122 CI/CD failures, E147 PostgreSQL deadlock, E150 SQL injection, E160 medical diagnosis, plus two earlier) — all fail the same way: synthetic fixtures with clean keyword separation make keyword matching optimal. **The lockfile drift line (E2) is now fully tested**: E049 Part A shows projects rewrite lockfiles (10/11), Part B shows registry drift is not the cause (16/16 artifacts bit-identical). No candidate validated. Findings F001-F008 in `FAILURES-findings.md`, F009-F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md`, F022-F025 in `FAILURES-findings-5.md`, F026+ in `FAILURES-findings-6.md`, F029/F030/F031 in `FAILURES-findings-9.md`, `-10.md`, `-8.md`, F033 in `-11.md`, F034 in `-12.md`, F035/F036 in `-13.md`, F037/F038 in `-14.md`, F039 in `-15.md`, F041 in `-16.md`, F042/F043 in `-17.md`, F044 in `-18.md`, F045 in `-19.md`, F048 in `-20.md`. **Six invention claims have now been tested and none validated; the most recent closed by running it rather than screening it (E047, F084: the shipped hook runners do not sweep a partially-staged file, and one corpus row turned out to exonerate the tool the record blamed).** The premise behind the dominant kill reason has now been measured five ways over: coverage (F035), soundness (F034), population (F037), **what its evidence is evidence of (F048: use is not fit, so a download count cannot carry a kill); **F059 the score-tail worklist is one unauthenticated `/search/advanced` query — the candidate is prior art as a URL, and F058's platform-wide reachability claim is refuted**** — and **the premise itself, counted (F044: prior art is 10 of 18 = 0.556, a one-row... |
-| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030), and rule 7 reads every source of identifiers — findings, decisions, tasks, the defect list **and each decision record's own header** — through one entry point both publishing gates call (T-0036, T-0042). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 452 tests). Every file-reading CI gate now re-emits each violation as a check-run annotation naming the file (`tools/origin annotate`, T-0040, defect 17), GitHub files it on the path emitted (T-0046, F021), every such step runs whenever the job does, and `tools/origin probe` publishes one annotation per rendering shape on every run (defect 18) — measured on run `37196459285`, which filed all seven and answered the question the record had left open. A task command now also declares the task file it rewrote, with the digests of the bytes it wrote, so the tooling's own write is no longer a session's exit 4 (T-0047, D040) |
-| Implemented (2) | Every diagnostic CI step runs whenever the job does, after a red `Tests` step silently skipped all five (T-0048, defect 18); `sync land` finishes a rebase it stopped on, so its own "resolve it and land again" is followable by the tool that gave it (T-0048, D039); and a task claim publishes while the session that made it is open, and refuses foreign uncommitted work *before* writing anything (T-0055, defect 21). A gate's pattern for this repository's split records now reads a numbered split — `decisionindex.py` reported `DECISIONS-SCREENING-2.md` as unlisted while its row was in the table, and the pattern is held to the spellings `DECISIONS.md` uses (`tests/test_decision_row_pattern.py`, T-0063). Concurrent writers of one session's event stream are serialized by an `flock` held across the seq assignment and the append (defect 24: two processes each appended the same seq into a finished session's stream, which reddened CI's `session verify --strict`; falsified as 8 of 8 duplicate-seq rounds on the pre-fix code, 0 of 8 on the repair, plus a two-process regression test) |
-| Implemented (3) | **`stage-lines/`** — `stg`, a non-interactive `git add -p`. `list`, `list --json`, `stage`, `unstage`, `split`; addresses any change by the working-tree line it occupies, splitting adjacent modifications per line. **285 lines of library + a 297-line CLI, standard library only, no install step. 28 tests, all against real git repositories with no mocks** (`python3 -m unittest discover -s stage-lines`). Correctness is anchored to git itself: on a real file in this repository the resulting `.git/index` is **byte-identical** to the one a hand-built patch leaves. **Not released**; its header says `status: draft` |
-| Users and adoption | None. No product, no release, no claims. **KILL-Q is answered for `stg`, and the answer is no.** E037 measured demand at 0.016-0.066 of matching GitHub issues through a classifier of unmeasured precision; E043 ran the candidate's stated caller and found the packaging advantage absent (F075); **E044 ran the discovery population E043's ceiling named — agents with no line number and no `git diff` — and it is not observed to need the tool either: 6 of 6 exact, `nostg` 3 of 3, every agent doing the discovery by hand first (F083)**; **E045 read that demand evidence itself, row by row, and found 0 of 189 rows is the population the last open claim rested on — all ten automated callers in the need rows name their own diff access (F081)**; and the same reading found the differentiator shipped as two installable command-line tools named inside that same corpus (F082). `stg` is withdrawn as a candidate and remains a correct tool (37/37, byte-identical index, honest exits), unreleased, `status: draft` | **E047 then closed the one observation E045 left behind, and it closed by being run: the hazard is byte-exact and no shipped hook runner produces it (F084, D079)** |
-| External release | None. `RELEASE-MANIFEST.md` defines the public front door and `origin release check` now enforces it (T-0022); nothing published |
-| Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
-| Sessions | **175 with an event stream** — `origin session verify` reads the tree rather than a running total; session 2026-10-11-012 finished this landing |
-| Supervision | Interactive execution only. Unattended persistence **not verified** |
-| Documentation | **As of 2026-10-15 `doc lint` is red on inherited debt, not green: 451 violations on the base, 0 of them from E162.** 402 are broken links inside `EXPERIMENTS/125-third-party-harness-preflight/readmes/` (the declared `exempt:` repair, still named-not-done); 30 are files over the 300-line cap left by earlier sessions (14 of them `.whl` payloads in E049, the rest authored code in E124/E126/E130/E137/E138/E142/E146/E147/E161 and `tools/regvalue`); 12 documents lack `origin-meta`; 4 are orphans. E162's own files pass: its corpus and `node_modules` are untracked with the inputs pinned by hash, and `lib/repair.js` (393 lines) was split into `dom`/`rules`/`dispatch`/`repair` before commit. `doc lint` checks 1088 files; the declared exemptions are vendored skills, raw machine-generated results, and append-only command logs. Since T-0021 it also fails on an unresolved merge conflict, since T-0030 on an identifier defined twice or indexed without a body, since T-0036 on a defect list it cannot read, since T-0042 on a decision record's own header disagreeing with that record, since T-0051 on a link that leaves the repository, which had been judged by what the checkout's parent directory held so the same bytes passed in a worktree and failed in the main checkout (D041, defect 19), and since T-0052 on a hand-authored document repeating a table row (D043, defect 20). Since T-0024 (D029) generated files are stamped from their content, so the lint cannot fail on the calendar. **The cap bit this VM seven times in two sessions** — `identifiers.py` at 307 after a merge, `STATE-defects.md` and `STATE.md` after new findings, in T-0050 `tasks.py` (split into `taskindex.py`) and `tests/test_task_rewrite.py` (split into `test_task_rewrite_recorded.py`), and in E033 four more: `tally.py` (into `descriptive.py`), `STATE-next-actions.md` (closed items into `STATE-next-actions-closed.md`), `ROADMAP.md` (the infrastructure track into `ROADMAP-infrastructure.md`) and `tests/test_allocation_measurement.py` (the per-day share into `test_allocation_world_share.py`) — and each time the repair was to move material to the file whose invariant it belongs in, never to shorten prose |
-| Continuous integration | **The suite is 837 tests with two failures, down from seven; both remaining ones are inherited, reproduced on the parent commit before anything was changed, and named (F127).** `test_link_escape` fails on 21 links inside `EXPERIMENTS/125-third-party-harness-preflight/readmes/` - E125's captured third-party READMEs, whose `/owner/repo/path` links are meaningful in their own tree and not here, and the source of ~400 of `doc lint`'s 425 remaining violations. The repair - a declared `exempt:` glob for captured `readmes/*.md`, honoured by `doclint.check_links` and the test, with a negative control on an authored document - is **named, not done**: it changes what a gate enforces and this session did not own the debt. `test_ci_annotations.test_the_tip_reports_nothing_and_annotates_nothing` fails in full discover and passes alone: a test-ordering dependency, cause `untested`. **Five inherited defects were repaired here** (F127): `f65940c4` had **overwritten** D044 in `DECISIONS-PUBLISHING.md` with D046, so `DECISIONS.md` and that file's own header named a decision no file defined - restored verbatim from `f65940c4^`; `1cc83e2a` had resolved a D046 collision by renumbering to **D048, which `DECISIONS-SCREENING-2.md` had held since 2026-10-05**, while leaving `DECISIONS.md`'s row naming the old id and a stale `D048` in that file's header from the T-0063 verbatim move - the later D048 yields and is now **D113**; and adding two new `DECISIONS-SCREENING-*.md` files required the four places the suite names, `paths.MISSION_RECORDS`, `reconcile.IMPLICATIONS["decision"]`, and the same two names in `tests/test_decision_files.py` |
-
+See [`STATE-dashboard.md`](STATE-dashboard.md).
 Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
 ## In flight
@@ -172,24 +268,6 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 See [`STATE-in-flight.md`](STATE-in-flight.md) through [`STATE-in-flight-9.md`](STATE-in-flight-9.md).
 
 ## What changed recently
-
-**E162 completed (2026-10-15): the accessibility autofix line is closed on mechanism, and the instrument that outlives it is the round-trip-to-a-real-oracle pattern.** On 27 real pages (three declared frames, sha256-pinned before any repairer was written) with axe-core 4.14.0 in jsdom as an independent oracle: 216 violation instances, 125 WCAG-tagged. **Arm B, which may only repair what the document itself states, eliminated 0 of 125 (0.0%) against a declared 30% gate and abstained on all 145 repairable instances with a recorded reason. Arm A, which may invent, eliminated 99 (79.2%) — and every one of its 104 repairs was a fabrication.** G0 PASS; G1, G3, G4 FAIL; G2 vacuous (nothing applied). The reason is a property of the defects, measured with no repairer in the loop: **of 121 instances whose defect is a missing name, 120 (99.2%) carry no author-written string on the node axe itself reported** (1 of 96 `link-name`, 0 of 13 `label`, 0 of 3 `role-img-alt`). **And 92 of 125 (73.6%) of the WCAG-tagged instances are aimed at machine-generated anchors no user navigates to**, so every accessibility score in circulation counts plumbing as defects — a tool that invented `link` as their name would improve one page's score by 72 points of cosmetics. Two instrument defects kept: `region` was not idempotent and manufactured the landmarks it was aliased to check, and counting the HTML `name` attribute as an accessible name makes 94.8% of `link-name` instances look repairable when **`name` does not compute an accessible name on `<a>`**. This is the instrument the four synthetic-fixture experiments (E122/E147/E150/E160) lacked — an independent oracle on pages nobody here wrote — and it is what made the negative come from the population rather than the fixture (F129, D112's rule applied in the other direction). **Next: count real defects with the plumbing excluded, on a population chosen for defect density rather than fame** — the same 27 pages yield 33 content-bearing WCAG-tagged defects instead of 125, and the composition changes completely.
-
-**E161 completed (2026-10-15): a real engine as oracle, real files as population — and no candidate.** The four classification experiments above all failed the same way, on synthetic fixtures. E161 inverted the instrument: a real spreadsheet engine (LibreOffice Calc 6.4.7.2, headless) opens real CSVs, and `roundtrip.py` reads back the `.xlsx` it writes with `zipfile` and `ElementTree` and compares every cell. **1,206,342 cells compared across 20 files in three declared frames plus a 78-value control set.** The folklore is real and population-specific: in the US Census 2023 Gazetteer, **36,697 `GEOID` cells lost their leading zeros — 9.5% of the file — so the file that comes back identifies different places**; across 818,222 cells of analyst exports and public-body registers the same engine **destroyed nothing**, changing 29,926 cells only into re-typings a reader can undo by eye. Of six escapes tested against the engine, **only `="value"` is stored as the value itself** (10 of 10); the recommended apostrophe is stored as visible text. `csvsafe.py` (200 lines, standard library, 10 tests) **reproduces the engine's decisions at precision 1.0 and recall 1.0** on two real frames and labels damage at 36,697 true positives, 0 false positives, 0 false negatives; `csvsafe write` takes the Census file from 36,697 damaging cells to **0**. **It is not a candidate**: the demand probes returned a handful of reports and 0-to-1-star tools that already do parts of it, and "send an `.xlsx`" wins. Kept unreleased at `status: draft`, plus the round-trip instrument, which is what the four synthetic-fixture experiments did not have.
-
-**E147 completed (2026-10-14):** Fresh observation in PostgreSQL deadlock report classification domain per D083. Claim falsified: keyword-only baseline 100% accuracy on synthetic fixtures (non-overlapping keyword signatures); structural classifier 74.1% (parsing conservatism). G2 (Δ≥15pp) FAIL, G3 (≥80%) FAIL, G5 (abstention≤20%) FAIL. F128 recorded. Lesson: synthetic fixture design must force structural reasoning (overlapping keywords, ambiguity) to test structural classifiers.
-
-**E150 completed (2026-10-14):** SQL injection technique classification falsified. Keyword-only 81.2%, structural 93.8% (Δ=12.5pp < 15pp gate). G2 FAIL, G1 FAIL. Structural classifier outperforms keyword but not by required margin. Fixture keyword overlap partial.
-
-**E160 completed (2026-10-14):** Medical diagnosis classification falsified. Keyword-only 94.1%, structural 94.1% (Δ=0pp). G2 FAIL, G1 FAIL. Fixtures have mutually exclusive keyword signatures — keyword matching optimal.
-
-**E122 completed (2026-10-12):** CI/CD pipeline failure classification falsified on synthetic fixtures (52.1% vs 80% gate). KG1 fails — domain closed.
-
-**E049 Part B completed (2026-10-14): Registry-side drift falsified.** Re-resolved pinned requirements (requests==2.32.3, rich==13.9.4, httpx==0.28.1) one week later — all 16 artifacts bit-identical. Kill gate MET. E2 lockfile drift line fully tested: Part A shows projects rewrite lockfiles (10/11); Part B shows drift is from project edits, not registry mutation.
-
-**ArXiv reproducibility (E079) attempted:** Implementation gaps in import extraction (aliases, stdlib, CUDA deps, comments) cause 0/3 install success. Witness correctly predicted static analysis bound; trial installation not robust enough. Candidate not viable.
-
-**Pattern confirmed:** Classification fresh observations (E147, E150, E160, E122) consistently fail due to synthetic fixture design — clean keyword separation makes keyword matching optimal. Structural advantage only emerges with substantial keyword ambiguity, which fixtures lack by construction.
 
 See [`STATE-history.md`](STATE-history.md).
 
@@ -200,86 +278,6 @@ Full list, with the ceiling on each item and the reasoning behind it, is in
 whichever item is next are in
 [`STATE-constraints.md`](STATE-constraints.md).
 
-**E101 completed:** Fresh observation in network equipment fault codes domain (Discourse forums). ALL GATES PASS — 150 topics across 3 forums, G1 17 need (11.3%), G2 150 topics, G3 unserved 10.0% (CI95 [5.7%, 16.5%]), G4 view_count 100%. Unserved fraction consistent with Discourse baseline (E077: 11.7%, E082: 15.3%). **E100 completed:** Industrial automation/SCADA Discourse forum — G3 FAIL (76.2% unserved), revealing domain variation. **E086 follow-on completed:** pyprovides workflow evaluation shows 2.44x speedup for alias-case import fixes (psycopg2), 100% suggestion accuracy across 3 alias cases. Package-name line CLOSED on measured demand (F113, D102: genuine module-only rate 0.23–0.47%, under 1% gate). **E103 completed:** Fresh observation on Hex.pm (Elixir/Erlang package registry). ALL GATES PASS — 200 packages (100 need-related, 100 random), G2 p≈0.000 (Cliff's δ=0.861), G3 Wilson LB=0.946 (99/100 need-related above random median). Need median 80,078 vs random 365 (220×). **E107 and E108:** both `untested` — see E113 below. E107's recorded verdict was reported two incompatible ways (here FAIL, in `STATE-next-actions.md` ALL GATES PASS with δ=0.826); E113 established which is right and why. E112: Docker Hub, G2 Cliff's δ = -0.810, G3 Wilson LB = 0.000; base-image dependency pulling dominates.
-
-**E113 (2026-10-12) — the view-count sweep is STOPPED (F116, D105).** E113 re-ran
-E107's own platform with a **matched harvest** and found the effect is a
-**harvest artifact**. E107 drew its need arm from `topic:web-framework` and its
-random arm from `topic:utils`, both sorted by stars: 80/80 need rows carry
-`web-framework`, 80/80 random rows carry `utils`, before any classifier runs. Its
-published `Cliff's δ = 0.826010` reproduces exactly from its own committed data
-and is a comparison of the most-starred web frameworks against the most-starred
-utility libraries. Under a matched harvest (one pool, 7 star strata, 700 rows):
-within-stratum **δ = +0.0746**, stratified permutation **p = 0.183** (20k iters),
-5 of 7 strata negative or zero. **The larger obstacle: the shared classifier
-labels only 196 of 700 rows (28%)**, 458 matching neither vocabulary, because it
-matches unanchored substrings (`ai` inside `email`, `base` inside `database`).
-Every experiment on this line reported coverage over rows it had labelled, so a
-28% screen was recorded as a 100% measurement. **No coverage gate existed on the
-line** — that is the process fix. Consequences: E090/E095/E102/E103/E108 are
-`untested` on a matched harvest, not confirmed; E109 (Pub.dev) superseded, not
-run; the D083 sweep is withdrawn. **The screen is withdrawn, not the idea** — the
-null is about this classifier on this pool, not about whether need-related
-artifacts receive arrivals. Reopening requires (i) a classifier with a declared
-coverage floor, (ii) matched harvest as the default design, (iii) a stratified
-reading beside the pooled one.
-
-**E114 completed (2026-10-12): the value-grounding line is CLOSED, and the
-population is served.** A free general assistant read five real Federal Register
-final rules in full and answered for every dollar amount, date, and citation.
-Across **374 values it fabricated none** — 0 of 374, Wilson 95% upper bound
-0.0098 against a declared 2% gate (F118, D106). The verifier built to catch them
-is what failed: it passed both its declared gates (**recall 1.0000** on corrupted
-answers, **0.0069** false alarms on verbatim document spans) and then flagged
-**0.3717** of real values with a **false-positive rate of 1.00** — 24 of 24
-`ungrounded_value` verdicts have every part present in the document, and 50 of 50
-hand-read flags are correct. The rule that follows: *a verifier's control must
-include the case where the subject is right and the form is different.*
-
-**E116 completed (2026-10-12): the recurring-payment line is CLOSED, and the population is served.** A free general assistant read 80 real Berka bank extracts (60 R, 20 C) and found **all 75 positive standing-order groups (recall 1.0)**, with the best precision of any reader — F1 **0.8242** against E066's detector 0.5769 and a naive ≥3-debits rule 0.4225 (K1 recall ≥0.95 PASS, K2 F1-within-0.05-of-detector PASS at 0.2473). The assistant is the strongest accessible reader of recurring payments on a real bank extract, so **E066's detector has no unserved population** — the sixth line to close on service after E062, E091, E092, E114, E115 (D108). The predeclared "served iff G0∧K1∧K2" condition is **not met** because G0_C_precision failed at 0.0 — but F122 establishes that this is a gate design flaw, not a reader failure: the control accounts carry real standing orders whose `k_symbol` is outside the positive set {POJISTNE,SIPO,LEASING,UVER}, so the gate (which assumes controls are standing-order-free) fails every reader identically (detector 0.0, naive 0.0). The reader-validity question is answered on the R arm (recall 1.0) and by the assistant's C-arm answers, all real standing orders. **F121** records a scorer defect found during the run: the key stored Berka's integer `account_id` while answers used `"R001"` strings, so the scorer matched every answer against nothing (assistant scored 0); fixed in `score.py` with two regression tests against the committed key. The detector stays in the repository, unreleased, `status: draft`.
-
-**E126 completed (2026-10-13): the venue sweep is complete — every venue class is served.** Stack Overflow (299 rows: 292 question-shaped, 6 execution-shaped) was screened and the answerable class attempted at **27/40 = 0.6750, Wilson CI95 [0.5202, 0.7992]** — lower bound clears the 0.50 gate. G0 discrimination passed (10/10, 10/10). The composition finding extends to the last untested venue class. The one residue is **6 program-shaped rows** — the class where a self-contained program (not an answer) could serve. Whether a tool could serve them is `untested`. No candidate; the venue sweep is closed.
-
-**E127 completed (2026-10-13): the program-shaped residue is served by prior art.** All 6 program-shaped rows from E126 are well-defined programming tasks that a self-contained program can solve, and all 6 are already served by existing tools (Python stdlib, BeautifulSoup, Postman test scripts). The asker needs to learn existing tools, not a new tool. **The venue sweep closes completely — every venue class is served, and the program-shaped residue is served by prior art.** No candidate.
-
-**E128 completed (2026-10-13): the preflight line reopens, conditionally.** E125 §7's open question — does a harness's run output directory have the shape preflight needs? — answered by reading `modelscope/evalscope`'s output writer end to end. **Yes.** The run output has predictions and reviews joined by `index` within one task directory. The tax is a per-harness adapter (a few lines specifying directories and join key), not a loader library. This corrects E125's conclusion: preflight can be pointed at run output with an adapter. The next step is to measure the adapter on a second harness.
-
-**E129 completed (2026-10-13): the openai/evals adapter is also a few lines.** `openai/evals` has a fundamentally different output structure (single append-only event stream, not two files), but the adapter is also a few lines: parse the event stream, filter for "match" events, extract `sample_id` and `data`. **Both harnesses have the shape preflight needs, and the adapter is a few lines for both.** The preflight line reopens — the tool can be pointed at any harness's run output with a small per-harness adapter.
-
-**E137 completed (2026-10-13): preflight demand validation GATE_CLOSED.** Harvested practitioner reports across 9 LLM evaluation frameworks (evalscope, evals, promptfoo, deepeval, inspect_ai, inspect-evals-lint, eval-harness, scale-eval-preflight, JudgeBench) from GitHub issues, Stack Overflow, Reddit, arXiv. G1 required ≥10 credible reports across ≥3 frameworks. Observed: 63 C1_credible (evalscope 40, evals 23), 0 C2_credible, 0 C3_credible — only 2 frameworks with any credible reports. Keyword-based classifier produced false positives for C1 (matching keywords but not the actual C1 defect definition). **GATE_CLOSED: demand too weak, preflight candidate withdrawn on demand grounds.** The preflight line stays an exploratory prototype with 8 validated adapters but no external demand signal.
-
-**E138 completed (2026-10-13): Prometheus Discourse — classifier coverage boundary broken, view-count principle holds, zero-reply metric fails.** Fresh observation on discuss.prometheus.io with developer-forum-specific classifier. G1 PASS (100% view_count), G2 PASS (96.7% coverage, 37.9% need fraction — breaks E124/E125 60% floor), G3 FAIL (89.1% zero-reply, CI95 [81.9%, 93.6%] > 60% dysfunctional threshold), G4 PASS (290 classified). Matched harvest: Cliff's δ = +0.144, p = 0.039 — need-related topics get more views. Coverage boundary was a pattern deficiency, not fundamental: added error-message titles, noun-phrase questions, colloquial problem statements. Zero-reply metric likely inappropriate for this forum (conflates "no community reply" with "unserved"). No candidate. See `EXPERIMENTS/138-prometheus-discourse-viewcount/RESULT.md`.
-
-**E124 completed (2026-10-13): the mission's own harness defects are now a tool, and one declared gate failed.**
-Nine consecutive sessions (2026-10-12-007 … 014) ran the D083 view-count sweep
-that E113/F116 had already stopped; that sweep is **closed as a route**, and
-the reason it kept running is recorded rather than repeated. E124 instead
-attacked the one population this repository has measured and found *silently
-wrong three times in three days* — its own instruments. `preflight` (4
-stdlib-only modules) measures three properties of an evaluation harness and
-**withholds the rate** (exit 3) unless all three hold: key/output identifier
-concordance (F121), the false-positive rate on correct output **on the arm the
-instrument will be pointed at** (F118, F123), and whether a declared negative
-arm is negative by evidence the key does not use (F122). Run against the
-committed harnesses it fires on four of six cases; on every one of those the
-harness's own declared gates were green. **16 tests, all passing**, four of
-them injected defects on a sound fixture. **K1 4/5, K2 FAILED as declared, K3
-pass, K4 pass** — K2's premise was wrong: the declared easy arm measured
-**100/107 = 0.9346** false positives, not ≤0.02, because `ground.judge()`
-scores context-word overlap and a bare sentence naming a value present in the
-document still scores near zero. **F123: one verifier, five arms, 0.0069 /
-0.1970 / 0.6667 / 0.9346 / 1.0000.** A false-positive rate belongs to an arm,
-not to an instrument, and a quoted one does not transfer (F123, D109).
-
-**One reconciliation artefact, named so it is not chased:** every session
-reports its *predecessor's* `events.jsonl` as an undeclared file change, because
-a session's own stream is written after its artifacts are recorded. Sessions
-002–004 of 2026-10-13 each logged the pair behind it and each produced the same
-report again. It is a structural one-session lag, not a missing entry, and
-chasing it further is the audit chain this record keeps paying for.
-
-**ID collision + direct contradiction on Docker Hub, from two uncoordinated runs (2026-10-12, found while landing).** Two VMs numbered a Docker Hub run **E108** independently. `b4e0db34` (this VM, now **E112**) reports **GATES FAIL, Cliff's delta = -0.810** on 55 need / 55 random images, its random arm catching base images (alpine 12.3B, ubuntu 10.1B, node 7.1B, mysql 5.2B pulls). The landed `EXPERIMENTS/111-dockerhub-viewcount` (**E111**) reports **ALL GATES PASS, delta = +0.386** on 3,313 need / 537 random images. Same platform, opposite sign, a 29x gap in need-arm size. Renumbered on the unpushed side, per the standing rule: the Docker Hub run is **E112**, the matched-harvest control is **E113**, and the landed **E110** (`EXPERIMENTS/110-rubygems-viewcount`) is **RubyGems**, not a matched harvest. Neither Docker Hub row is independent evidence — both drew its arms with the asymmetric harvest E113 falsifies, and E113's own need arm is 6:1 imbalanced in the same shape. A coordinate was claimed (`T-0093`) and a second worker then took the same D083 slot anyway; the next session should read the task ledger before taking a D083 domain.
-
 ## Capability evidence
 
 `EXPERIMENTS/000-capabilities/results.json`, probed 2026-10-03 on the development machine:
@@ -287,7 +285,4 @@ chasing it further is the audit chain this record keeps paying for.
 `git` 2.55.0. GitHub API, SQLite and arXiv HTTPS all 200; NumPy present, SciPy/pytest/Z3
 absent; `gh` absent. A VM's own numbers come from `tools/origin doctor`, which writes
 `.origin/doctor.json`; this one reports 2 CPUs, Python 3.8.10, `git` 2.25.1, and pushes via
-the GitHub App as `Ihsan Ai Server Bot`. **Unverified and not to be assumed:** fleet access,
-unattended supervision, GPU.
-
-*Honest limitations moved to [`STATE-history.md`](STATE-history.md).*
+the GitHub App as `Ihsan Ai Server Bot`. **Unverified:** fleet access, unattended supervision, GPU.

@@ -1,0 +1,482 @@
+pid: g-79802282
+
+=== LEFT ===
+printf and wprintf are different streams with different encodings. printf converts narrow 
+characters using the CRT's current output code page, which SetConsoleOutputCP(CP_UTF8) cha
+nged, so it worked. wprintf does not consult SetConsoleOutputCP; on Windows the wide CRT f
+unctions use the stream's text mode, which defaults to _O_TEXT and mangles the surrogate p
+air. Set the mode explicitly before any output: include <fcntl.h> and call _setmode(_filen
+o(stdout), _O_U16TEXT), or _O_U8TEXT for UTF-8. Call it before writing anything to stdout,
+ and do not mix printf and wprintf on the same stream, since orientation is fixed on first
+ use. The console also needs a font containing the glyph, and Git Bash/MSYS terminals do n
+ot support this.
+
+=== RIGHT ===
+Introduction 
+ My original answer was given with the purpose of providing a deep introspection on what's
+ happening behind the scenes in the binary level, and tell why wprintf prints a blank char
+acter instead of an emoji. But, after reading the feedback from other users on this entire
+ post, I came with a different conclusion, specially because I lacked information about UT
+F-16. 
+ This answer from John Bollinger is a good way to explain how wacked UTF-16 in Windows rea
+lly is. 
+ I think that the best way I can answer why wprintf is not outputting the emoji like every
+one expects it to, is based on two things: 
+ 
+ The way the console we're using is scripted; 
+ The way wprintf is written, and how it expects the console to be scripted. 
+ 
+ So yes, the answer is not that simple. It's not that the character is invisible or anythi
+ng. It's more like a conflict of spoken languages between wprintf and the console. 
+ 
+ UTF-8 vs UTF-16 Encoding 
+ We're working with the following character: 0x1F625 , which is an emoji. 
+ This character, in this example, can be represented in binary in two ways: 
+ 
+ Using the UTF-8 encoding; 
+ Using the UTF-16 encoding. 
+ 
+ When we use UTF-8 to represent it, it looks like this in binary: 
+ A B C D
+11110000 10011111 10011000 10100101
+ 
+ But, in UTF-16, it’s represented in binary by a surrogate pair of two wchar_t characters:
+ 
+ A B
+11011000 00111101 11011110 00100101
+ 
+ From the UTF-8 and UTF-16 specifications, these characters are well defined, as seen belo
+w. 
+ UTF-8:
+ A B C D
+ 11110000 10011111 10011000 10100101
+ 11110uvv 10vvwwww 10xxxxyy 10yyzzzz
+ 000 011111 011000 100101 -> 00000001 11110110 00100101 -> 0x1F625
+ 11110 10 10 10 -> matches
+
+UTF-16:
+ A B
+ 11011000 00111101 11011110 00100101
+ 110110yy yyyyyyyy 110111xx xxxxxxxx
+ 00 00111101 10 00100101 -> 00000000 11110110 00100101 -> 0xF625 + 0x10000 -> 0x1F625
+ 110110 110111 -> also matches
+ 
+ So, when we use printf , we're printing stuff both on standard output and files, in UTF-8
+ encoding. When using wprintf , we're printing stuff both on standard output and files, in
+ UTF-16 encoding. This can be tested on the scripts I attached below. 
+ 
+ wprintf vs the console 
+ The function wprintf is doing exactly what it should. It's printing on the screen a UTF-1
+6 encoded character. The console just expects to receive narrow characters of one byte, un
+less you can change the encoding (I can't so... I'm stuck with UTF-8 or ASCII). 
+ If the console doesn't support UTF-8, and just uses ASCII for example, then it'll probabl
+y display two "nonsense" characters, like this ???? . This is something that MySQL often d
+oes when you attempt to output characters outside of its charset. 
+ In my case, instead of displaying nonsense characters, it prints blank. But why??? I have
+ some ideas. That's why I said that the answer deeply relies on how things are implemented
+ behind the scenes. 
+ Here's what in my head (or my imagination), of what it should be happening. Let's get our
+ previous example again of binary representation: 
+ UTF-8:
+ A B C D
+ 11110000 10011111 10011000 10100101
+ 11110uvv 10vvwwww 10xxxxyy 10yyzzzz
+ 000 011111 011000 100101 -> 00000001 11110110 00100101 -> 0x1F625
+ 11110 10 10 10 -> matches
+
+UTF-16:
+ A B
+ 11011000 00111101 11011110 00100101
+ 110110yy yyyyyyyy 110111xx xxxxxxxx
+ 00 00111101 10 00100101 -> 00000000 11110110 00100101 -> 0xF625 + 0x10000 -> 0x1F625
+ 110110 110111 -> also matches
+ 
+ So, imagine we're the console right now, and we're reading input text from an application
+, and deciding which letters/emojis we should output to the user. 
+ Given that the user sends to us the UTF-8 encoded character, our first byte would be: A: 
+11110000 . As this byte starts with 11110... , we know that this character length is of 4 
+bytes. So we read +3 bytes: B: 10011111 C: 10011000 D: 10100101 , and by concatenating eve
+rything, extracting the uvwxyz letters of each byte, we can eventually translate this to t
+he Unicode value 0x1F625 , which is the emoji. 
+ But that's because both the application and us, the console, are talking on the same lang
+uage. 
+ Now, if the application attempts to send a UTF-16-encoded character, we don’t have any id
+ea of knowing firsthand that it’s not UTF-8 encoded. So, we'll just have to do the same pr
+ocedure as usual. Read the first byte. 
+ But here's the catch, what is the first byte? Getting back to our example, read it again 
+carefully . Why is it that on the UTF-16 binary representation example, we have just A and
+ B, and not A, B, C and D? That's intentional. 
+ That's because I extracted those binaries, by reading two internal wchar_t characters. Bu
+t, if we convert the entire 2x wchar_t characters into an unsigned char* of four bytes, we
+ can see that things get wacky, and it’s intentional by the gcc. That's why we have many d
+ifferent types for different purposes: 
+ from: 2x wchar_t
+ wchar_t A wchar_t B
+ 11011000 00111101 11011110 00100101
+
+to: 4x unsigned char
+ A B C D
+ 00111101 11011000 00100101 11011110
+ 
+ So, the first character that we would read, would be A: 00111101 . In my head (literally 
+my imagination) it would be this character, because this byte stream should work just like
+ a queue. And the console should be outputting the character = on the screen. But it doesn
+'t, at least in my case. 
+ Now, the second character B: 11011000 starts with 110..... . By looking at the UTF-8 tabl
+e, we know that this is a two-byte character. So, we should read one more: C: 00100101 . B
+ut this third character should start with 10...... , and it starts with 00...... . Which m
+eans, we, the console, just discovered that we're not speaking on the same language. That 
+is not UTF-8. 
+ And that is where things get weird. What should we do now? Print something? Don't do anyt
+hing? Crash? That's my first point from the introduction. The answer depends on way the co
+nsole we're using is scripted. 
+ In my case, the console doesn't even print = , when it should (at least in my imagination
+, but that's because how I scripted it to work in my head). If we inspect the output file,
+ and read it in ascii, this binary 00111101 11011000 00100101 11011110 translates into =Ø%
+Þ . So, when outputting data into files, depending on the engine used to load that file, a
+nd convert the data inside it into text (in my case, Sublime Text 3), it outputs these cha
+racters. 
+ I think it’s because Sublime Text 3 basically says, "if I can't represent this data using
+ emojis, because that single byte is not UTF-8 encoded, then I'll just use ASCII". 
+ But on the console, it doesn’t have any idea how to display that, and that's probably why
+ it’s undefined behavior. 
+ 
+ Possible fixes, not meaning they work. 
+ From John's answer, I was able to go a little further, and see that we can in fact use wp
+rintf to write data using UTF-8 encoding, by calling _setmode(_fileno(stdout), _O_U8TEXT);
+ . Within my experiments, I was able to save that character into a local file, and use Sub
+lime Text 3 to load the file, and get the emoji. 
+ But, the console is still out of reach. It just prints garbage. 
+ Even when I redirect standard output to a temporary file, everything is UTF-8 compliant. 
+But the console still doesn't print the emoticon in my case in particular. 
+ 
+ How I tested everything and gathered data 
+ I created a file called emoji_mode.c , where the mode was either char or wchar , just for
+ the sake of keeping their context separated from each other. Here they are: 
+ emoji_char.c : 
+ #include <stdio.h>
+#include <windows.h>
+
+int main(void) {
+ const char * c = "\U0001F625";
+ const unsigned char *p = (const unsigned char *) c;
+ int n;
+ int m;
+
+ // This is needed to show the emoji.
+ SetConsoleOutputCP(CP_UTF8);
+
+ n = printf(c);
+
+ printf("\n");
+ printf("Printed %d bytes\n", n * sizeof(char));
+ printf("Internal memory representation: %u %u %u %u\n", p[0], p[1], p[2], p[3]);
+
+ // Writing to the file
+ FILE *fp = fopen("char.txt", "wb");
+ m = fwrite(c, sizeof(char), n, fp);
+ fclose(fp);
+ printf("fwrite printed %d bytes to the file\n", m * sizeof(char));
+
+ // Reading from the file
+ unsigned char data[5];
+ fp = fopen("char.txt", "rb");
+ fseek(fp, 0, SEEK_END);
+ n = ftell(fp);
+ fseek(fp, 0, SEEK_SET);
+ m = fread(data, n, 1, fp);
+ fclose(fp);
+ data[4] = '\0';
+ printf("The file has %d bytes, and fread read %d item from the file\n", n, m);
+ printf("Byte representation of the file: %u %u %u %u\n", data[0], data[1], data[2], data[
+3]);
+
+ /*
+ 😥
+ Printed 4 bytes
+ Internal memory representation: 240 159 152 165
+ fwrite printed 4 bytes to the file
+ fread read 4 bytes from the file
+ Byte representation of the file: 240 159 152 165
+ */
+
+ return 0;
+}
+ 
+ emoji_wchar.c : 
+ #include <stdio.h>
+#include <windows.h>
+#include <wchar.h>
+#include <fcntl.h>
+#include <io.h>
+
+int main(void) {
+ const wchar_t * c = L"\U0001F625";
+ const wchar_t *p = (const wchar_t *) c; // wchar_t is already unsigned on my system (wind
+ows 11, msys2, mingw64).
+ const unsigned char *u = (const unsigned char *) p;
+ int n;
+ int m;
+ // int mode = _O_BINARY;
+ int mode = _O_U8TEXT;
+ // int mode = _O_U16TEXT;
+
+ // This has no effect.
+ SetConsoleOutputCP(CP_UTF8);
+ _setmode(_fileno(stdout), mode);
+
+ n = wprintf(c);
+
+ wprintf(L"\n");
+ wprintf(L"Printed %d bytes\n", n * sizeof(wchar_t));
+ wprintf(L"Internal memory representation as wchar_t: %u %u\n", p[0], p[1]);
+ wprintf(L"Internal memory representation as unsigned char: %u %u %u %u\n", u[0], u[1], u[
+2], u[3]);
+
+ // Writing to the file
+ FILE *fp = fopen("wchar.txt", "wb");
+ _setmode(fileno(fp), mode);
+ m = fwprintf(fp, c);
+ fclose(fp);
+ wprintf(L"fwrite printed %d bytes to the file\n", m * sizeof(wchar_t));
+
+ // Reading from the file. I'll not use any wide character functions here, because,
+ // we're merely reading bytes of data, not characters.
+ unsigned char data[5];
+ fp = fopen("wchar.txt", "rb");
+ fseek(fp, 0, SEEK_END);
+ n = ftell(fp);
+ fseek(fp, 0, SEEK_SET);
+ m = fread(data, n, 1, fp);
+ fclose(fp);
+ data[4] = '\0';
+ wprintf(L"The file has %d bytes, and fread read %d item from the file\n", n, m);
+ wprintf(L"Byte representation of the file: %u %u %u %u\n", data[0], data[1], data[2], dat
+a[3]);
+
+ /*
+ ��
+ Printed 4 bytes
+ Internal memory representation as wchar_t: 55357 56869
+ Internal memory representation as unsigned char: 61 216 37 222
+ fwrite printed 4 bytes to the file
+ The file has 4 bytes, and fread read 1 item from the file
+ Byte representation of the file: 61 216 37 222
+ */
+
+ return 0;
+}
+ 
+ I also used Python to convert each number in sequence, into a binary representation: 
+ Byte representation of the file: 61 216 37 222
+
+I used Python to execute:
+
+>>> '{:08b} {:08b} {:08b} {:08b}'.format(240, 159, 152, 165)
+>>> '11110000 10011111 10011000 10100101'
+
+>>> '{:16b} {:16b}'.format(55357, 56869)
+>>> '1101100000111101 1101111000100101'
+
+>>> '{:08b} {:08b} {:08b} {:08b}'.format(61, 216, 37, 222)
+>>> '00111101 11011000 00100101 11011110'
+ 
+
+ wprintf 
+ wprintf 
+ wprintf 
+ wprintf 
+ 0x1F625 
+ A B C D
+11110000 10011111 10011000 10100101
+ 
+ wchar_t 
+ A B
+11011000 00111101 11011110 00100101
+ 
+ UTF-8:
+ A B C D
+ 11110000 10011111 10011000 10100101
+ 11110uvv 10vvwwww 10xxxxyy 10yyzzzz
+ 000 011111 011000 100101 -> 00000001 11110110 00100101 -> 0x1F625
+ 11110 10 10 10 -> matches
+
+UTF-16:
+ A B
+ 11011000 00111101 11011110 00100101
+ 110110yy yyyyyyyy 110111xx xxxxxxxx
+ 00 00111101 10 00100101 -> 00000000 11110110 00100101 -> 0xF625 + 0x10000 -> 0x1F625
+ 110110 110111 -> also matches
+ 
+ printf 
+ wprintf 
+ wprintf 
+ ???? 
+ UTF-8:
+ A B C D
+ 11110000 10011111 10011000 10100101
+ 11110uvv 10vvwwww 10xxxxyy 10yyzzzz
+ 000 011111 011000 100101 -> 00000001 11110110 00100101 -> 0x1F625
+ 11110 10 10 10 -> matches
+
+UTF-16:
+ A B
+ 11011000 00111101 11011110 00100101
+ 110110yy yyyyyyyy 110111xx xxxxxxxx
+ 00 00111101 10 00100101 -> 00000000 11110110 00100101 -> 0xF625 + 0x10000 -> 0x1F625
+ 110110 110111 -> also matches
+ 
+ A: 11110000 
+ 11110... 
+ B: 10011111 C: 10011000 D: 10100101 
+ uvwxyz 
+ 0x1F625 
+ wchar_t 
+ wchar_t 
+ unsigned char* 
+ from: 2x wchar_t
+ wchar_t A wchar_t B
+ 11011000 00111101 11011110 00100101
+
+to: 4x unsigned char
+ A B C D
+ 00111101 11011000 00100101 11011110
+ 
+ A: 00111101 
+ = 
+ B: 11011000 
+ 110..... 
+ C: 00100101 
+ 10...... 
+ 00...... 
+ = 
+ 00111101 11011000 00100101 11011110 
+ =Ø%Þ 
+ wprintf 
+ _setmode(_fileno(stdout), _O_U8TEXT); 
+ char 
+ wchar 
+ #include <stdio.h>
+#include <windows.h>
+
+int main(void) {
+ const char * c = "\U0001F625";
+ const unsigned char *p = (const unsigned char *) c;
+ int n;
+ int m;
+
+ // This is needed to show the emoji.
+ SetConsoleOutputCP(CP_UTF8);
+
+ n = printf(c);
+
+ printf("\n");
+ printf("Printed %d bytes\n", n * sizeof(char));
+ printf("Internal memory representation: %u %u %u %u\n", p[0], p[1], p[2], p[3]);
+
+ // Writing to the file
+ FILE *fp = fopen("char.txt", "wb");
+ m = fwrite(c, sizeof(char), n, fp);
+ fclose(fp);
+ printf("fwrite printed %d bytes to the file\n", m * sizeof(char));
+
+ // Reading from the file
+ unsigned char data[5];
+ fp = fopen("char.txt", "rb");
+ fseek(fp, 0, SEEK_END);
+ n = ftell(fp);
+ fseek(fp, 0, SEEK_SET);
+ m = fread(data, n, 1, fp);
+ fclose(fp);
+ data[4] = '\0';
+ printf("The file has %d bytes, and fread read %d item from the file\n", n, m);
+ printf("Byte representation of the file: %u %u %u %u\n", data[0], data[1], data[2], data[
+3]);
+
+ /*
+ 😥
+ Printed 4 bytes
+ Internal memory representation: 240 159 152 165
+ fwrite printed 4 bytes to the file
+ fread read 4 bytes from the file
+ Byte representation of the file: 240 159 152 165
+ */
+
+ return 0;
+}
+ 
+ #include <stdio.h>
+#include <windows.h>
+#include <wchar.h>
+#include <fcntl.h>
+#include <io.h>
+
+int main(void) {
+ const wchar_t * c = L"\U0001F625";
+ const wchar_t *p = (const wchar_t *) c; // wchar_t is already unsigned on my system (wind
+ows 11, msys2, mingw64).
+ const unsigned char *u = (const unsigned char *) p;
+ int n;
+ int m;
+ // int mode = _O_BINARY;
+ int mode = _O_U8TEXT;
+ // int mode = _O_U16TEXT;
+
+ // This has no effect.
+ SetConsoleOutputCP(CP_UTF8);
+ _setmode(_fileno(stdout), mode);
+
+ n = wprintf(c);
+
+ wprintf(L"\n");
+ wprintf(L"Printed %d bytes\n", n * sizeof(wchar_t));
+ wprintf(L"Internal memory representation as wchar_t: %u %u\n", p[0], p[1]);
+ wprintf(L"Internal memory representation as unsigned char: %u %u %u %u\n", u[0], u[1], u[
+2], u[3]);
+
+ // Writing to the file
+ FILE *fp = fopen("wchar.txt", "wb");
+ _setmode(fileno(fp), mode);
+ m = fwprintf(fp, c);
+ fclose(fp);
+ wprintf(L"fwrite printed %d bytes to the file\n", m * sizeof(wchar_t));
+
+ // Reading from the file. I'll not use any wide character functions here, because,
+ // we're merely reading bytes of data, not characters.
+ unsigned char data[5];
+ fp = fopen("wchar.txt", "rb");
+ fseek(fp, 0, SEEK_END);
+ n = ftell(fp);
+ fseek(fp, 0, SEEK_SET);
+ m = fread(data, n, 1, fp);
+ fclose(fp);
+ data[4] = '\0';
+ wprintf(L"The file has %d bytes, and fread read %d item from the file\n", n, m);
+ wprintf(L"Byte representation of the file: %u %u %u %u\n", data[0], data[1], data[2], dat
+a[3]);
+
+ /*
+ ��
+ Printed 4 bytes
+ Internal memory representation as wchar_t: 55357 56869
+ Internal memory representation as unsigned char: 61 216 37 222
+ fwrite printed 4 bytes to the file
+ The file has 4 bytes, and fread read 1 item from the file
+ Byte representation of the file: 61 216 37 222
+ */
+
+ return 0;
+}
+ 
+ Byte representation of the file: 61 216 37 222
+
+I used Python to execute:
+
+>>> '{:08b} {:08b} {:08b} {:08b}'.format(240, 159, 152, 165)
+>>> '11110000 10011111 10011000 10100101'
+
+>>> '{:16b} {:16b}'.format(55357, 56869)
+>>> '1101100000111101 1101111000100101'
+
+>>> '{:08b} {:08b} {:08b} {:08b}'.format(61, 216, 37, 222)
+>>> '00111101 11011000 00100101 11011110'

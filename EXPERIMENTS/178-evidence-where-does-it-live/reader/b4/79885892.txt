@@ -1,0 +1,175 @@
+qid: 79885892
+tags: c++, gcc, clang, compiler-bug
+
+=== TITLE ===
+Bug in GCC when using string literal as const char(&amp;)[N] through functor in templated 
+function
+
+=== QUESTION ===
+I created simple string class with construct from only constant strings (literal or const 
+char[]) 
+ template<typename T>
+struct const_lit;
+
+template<unsigned N>
+struct const_lit<const char(&)[N]>{
+ inline static constexpr unsigned Count = N;
+};
+
+struct str {
+ const char* ptr;
+ unsigned len;
+
+ template<typename T> requires (const_lit<T>::Count > 0)
+ str(T&& s) : ptr(s), len(const_lit<T>::Count - 1) {
+ std::cout << "ctor from literal " << ptr << "\n";
+ }
+};
+ 
+ When I use it as function param, it work well: 
+ void check_func(str s) {}
+
+...
+
+int main() {
+ check_func("test1");
+ const char fff[] = "test2";
+ check_func(fff);
+...
+ 
+ But when I pass a function to a template function, no matter as a template parameter or a
+s a function argument, then the GCC cannot use it inside function. 
+ template<typename Func>
+void check_func_templ(const Func& f) {
+ f("test3");
+}
+
+template<auto f>
+void check_func_templ1() {
+ f("test4");
+}
+
+void check_func_templ2(auto&& f) {
+ f("test5");
+}
+
+template<auto f>
+void check_func_templ3() {
+ const char tt[] = "test6";
+ f(tt);
+}
+
+...
+
+ check_func_templ(check_func);
+ check_func_templ1<check_func>();
+ check_func_templ2(check_func);
+ check_func_templ3<check_func>();
+ 
+ But Сlang can (link to godbolt) . 
+ If remove line #if !defined(__GNUC__) || defined(__clang__) , GCC produce errors: 
+ error: could not convert '(const char*)"test3"' from 'const char*' to 'str'
+ 
+ etc. 
+ Why is GCC trying to convert the type to const char* in this case? 
+ Is this a bug in GCC (sad) or Clang (even sadder)? 
+
+ template<typename T>
+struct const_lit;
+
+template<unsigned N>
+struct const_lit<const char(&)[N]>{
+ inline static constexpr unsigned Count = N;
+};
+
+struct str {
+ const char* ptr;
+ unsigned len;
+
+ template<typename T> requires (const_lit<T>::Count > 0)
+ str(T&& s) : ptr(s), len(const_lit<T>::Count - 1) {
+ std::cout << "ctor from literal " << ptr << "\n";
+ }
+};
+ 
+ void check_func(str s) {}
+
+...
+
+int main() {
+ check_func("test1");
+ const char fff[] = "test2";
+ check_func(fff);
+...
+ 
+ template<typename Func>
+void check_func_templ(const Func& f) {
+ f("test3");
+}
+
+template<auto f>
+void check_func_templ1() {
+ f("test4");
+}
+
+void check_func_templ2(auto&& f) {
+ f("test5");
+}
+
+template<auto f>
+void check_func_templ3() {
+ const char tt[] = "test6";
+ f(tt);
+}
+
+...
+
+ check_func_templ(check_func);
+ check_func_templ1<check_func>();
+ check_func_templ2(check_func);
+ check_func_templ3<check_func>();
+ 
+ #if !defined(__GNUC__) || defined(__clang__) 
+ error: could not convert '(const char*)"test3"' from 'const char*' to 'str'
+ 
+ const char*
+
+=== KEY ANSWER (highest scored) ===
+This is an old gcc bug where gcc decays the string literal to const char* too early when p
+assed to a function pointer. As mentioned in the bug report, the minimial example can be r
+educed to: 
+ 
+ struct SL{
+ template <int N>
+ SL(const char (&Str)[N]) {}
+};
+
+int foo(SL x) {
+ return 2;
+}
+
+int main() {
+ int (*f)(SL) = &foo;
+ foo("asd"); // works fine
+ f("asd"); // error could not convert '(const char*) to SL
+}
+ 
+ Similar problem to PR 95596 
+ 
+
+ const char* 
+ struct SL{
+ template <int N>
+ SL(const char (&Str)[N]) {}
+};
+
+int foo(SL x) {
+ return 2;
+}
+
+int main() {
+ int (*f)(SL) = &foo;
+ foo("asd"); // works fine
+ f("asd"); // error could not convert '(const char*) to SL
+}
+

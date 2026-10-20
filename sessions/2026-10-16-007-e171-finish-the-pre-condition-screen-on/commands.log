@@ -1,0 +1,20 @@
+==============================================================================
+[seq 5] 2026-10-16T08:34:45+00:00
+$ python3 EXPERIMENTS/171-resolution-fact-locus/g0_probe.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rows with a version somewhere in the thread: 12
+rows without: 12
+probe size 10
+  idx 0   served    docs      any_version=True  top=172  -> version_fact
+  idx 17  served    docs      any_version=True  top=90  -> version_fact
+  idx 63  served    docs      any_version=True  top=24  -> version_fact
+  idx 67  unserved  docs      any_version=True  top=23  -> version_fact
+  idx 64  served    docs      any_version=True  top=20  -> version_fact
+  idx 1   unserved  docs      any_version=False top=41  -> not_version_fact
+  idx 16  unserved  docs      any_version=False top=36  -> not_version_fact
+  idx 37  served    docs      any_version=False top=26  -> not_version_fact
+  idx 48  served    docs      any_version=False top=14  -> not_version_fact
+  idx 43  unserved  docs      any_version=False top=10  -> not_version_fact
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 121  redactions: none

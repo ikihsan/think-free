@@ -1,0 +1,52 @@
+pid: g-79600161
+
+=== LEFT ===
+Arthenica retired ffmpeg-kit and the released artifacts were pulled from Maven Central, so
+ no repository in your list can satisfy the coordinate. Drop jcenter() from repositories, 
+since it is long dead. Realistic options: use a community-maintained fork that publishes t
+he same API to Maven Central (the API is unchanged, so only the group id moves), publish t
+he archived source to your own internal Maven repository, or replace the dependency. For p
+layback/transcoding on Android the usual replacement is AndroidX Media3 Transformer, or dr
+op the native library entirely and drive a bundled ffmpeg/ffprobe binary through ProcessBu
+ilder, which is what most surviving forks now do. Clean and refresh Gradle caches after ch
+anging coordinates.
+
+=== RIGHT ===
+Maybe this information comes to late but if its can help anyone i found the solution, this
+ solution is maybe temporal because is a compiled binary of a last version of FfmpegKit in
+ his full version, this works in video and audio with full caracteristics. 
+ First download the .aar file in this link: 
+ https://artifactory.appodeal.com/appodeal-public/com/arthenica/ffmpeg-kit-full-gpl/6.0-2.
+LTS/ 
+ later go to your project structure yourProject/app/libs if you dont have a folder named l
+ibs in your app folder only create this folder and place the .aar file into this. 
+ next you need delete your dependece of this: 
+ implementation 'com.arthenica:ffmpeg-kit-full-gpl:6.0-2'
+ 
+ and change to this: 
+ implementation(files("libs/ffmpeg-kit-full-gpl-6.0-2.LTS.aar"))
+implementation("com.arthenica:smart-exception-java9:0.2.1")
+ 
+ and thats all your project will continue work without changes. 
+ SOLVE 16KB ERROR 
+ To solve the 16kb problem I have compiled ffmpeg-kit in the development branch that conta
+ins this correction, for this compilation I only added the x264 encoder, I share the file 
+if it is useful. 
+ in this folder you can download my compilation: 
+ https://drive.google.com/drive/folders/1o-2jJKMguzQ4-JOOCkginqoE7CAcPy4d?usp=sharing 
+ Additionally, in the folder you have a txt that explains how to compile ffmpegkit with ad
+ditional libraries. 
+ EDIT 
+ It is not java9 it is java only both are different dependencies This worked for me 
+ implementation("com.arthenica:smart-exception-java:0.2.1")
+implementation(files("libs/ffmpeg-kit-min-gpl-5.1.LTS.aar"))
+ 
+
+ implementation 'com.arthenica:ffmpeg-kit-full-gpl:6.0-2'
+ 
+ implementation(files("libs/ffmpeg-kit-full-gpl-6.0-2.LTS.aar"))
+implementation("com.arthenica:smart-exception-java9:0.2.1")
+ 
+ It is not java9 it is java only both are different dependencies 
+ implementation("com.arthenica:smart-exception-java:0.2.1")
+implementation(files("libs/ffmpeg-kit-min-gpl-5.1.LTS.aar"))

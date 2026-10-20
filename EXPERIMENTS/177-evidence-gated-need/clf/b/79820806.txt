@@ -1,0 +1,306 @@
+qid: 79820806
+view_count: 486
+tags: java, swing
+key_score: 5
+
+=== TITLE ===
+How do I avoid left padding in menu items after upgrading from Java 21 to Java 25?
+
+=== QUESTION ===
+The problem started appearing after upgrading from Java 21 to 25. 
+ With Java 21, my menus looked like this : 
+ 
+ With Java 25, a gutter started appearing : 
+ 
+ I've created minimal portable example to reproduce : 
+ import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.WindowConstants;
+
+public class IconMenuExample {
+
+ public static void main(String[] args) throws Exception {
+
+ // we set the Windows Look And Feel
+ UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+
+ SwingUtilities.invokeLater(() -> {
+
+ JFrame frame = new JFrame("Menu Icon Example");
+
+ JMenuBar menuBar = new JMenuBar();
+ JMenu fileMenu = new JMenu("File");
+
+ // we create sample actions using programmatic sixteen by sixteen ImageIcon instances
+ Action openAction = newAction(
+ "Open",
+ createColorIcon(Color.BLUE),
+ e -> System.out.println("Open")
+ );
+
+ Action saveAction = newAction(
+ "Save",
+ createColorIcon(Color.GREEN),
+ e -> System.out.println("Save")
+ );
+
+ Action exitAction = newAction(
+ "Exit",
+ createColorIcon(Color.RED),
+ e -> System.exit(0)
+ );
+
+ // we attach the actions to menu items
+ fileMenu.add(new JMenuItem(openAction));
+ fileMenu.add(new JMenuItem(saveAction));
+ fileMenu.addSeparator();
+ fileMenu.add(new JMenuItem(exitAction));
+
+ // we create the second menu with check box menu items
+ JMenu optionsMenu = new JMenu("Options");
+
+ JCheckBoxMenuItem checkOne = new JCheckBoxMenuItem("Enable Feature One");
+ checkOne.addActionListener(e -> System.out.println("Feature One toggled: " + checkOne.isS
+elected()));
+
+ JCheckBoxMenuItem checkTwo = new JCheckBoxMenuItem("Enable Feature Two");
+ checkTwo.addActionListener(e -> System.out.println("Feature Two toggled: " + checkTwo.isS
+elected()));
+
+ optionsMenu.add(checkOne);
+ optionsMenu.add(checkTwo);
+
+ // we create the third menu with radio button menu items
+ JMenu modeMenu = new JMenu("Mode");
+
+ JRadioButtonMenuItem modeA = new JRadioButtonMenuItem("Mode A");
+ JRadioButtonMenuItem modeB = new JRadioButtonMenuItem("Mode B");
+ JRadioButtonMenuItem modeC = new JRadioButtonMenuItem("Mode C");
+
+ ButtonGroup modeGroup = new ButtonGroup();
+ modeGroup.add(modeA);
+ modeGroup.add(modeB);
+ modeGroup.add(modeC);
+
+ modeA.setSelected(true);
+
+ modeA.addActionListener(e -> System.out.println("Mode A selected"));
+ modeB.addActionListener(e -> System.out.println("Mode B selected"));
+ modeC.addActionListener(e -> System.out.println("Mode C selected"));
+
+ modeMenu.add(modeA);
+ modeMenu.add(modeB);
+ modeMenu.add(modeC);
+
+ // we add all menus to the bar
+ menuBar.add(fileMenu);
+ menuBar.add(optionsMenu);
+ menuBar.add(modeMenu);
+
+ frame.setJMenuBar(menuBar);
+
+ frame.setSize(300, 200);
+ frame.setLocationRelativeTo(null);
+ frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+ frame.setVisible(true);
+ });
+ }
+
+ public static Action newAction(String name, ImageIcon icon, ActionListener listener) {
+ Action action = new AbstractAction(name) {
+ @Override
+ public void actionPerformed(ActionEvent e) {
+ listener.actionPerformed(e);
+ }
+ };
+ action.putValue(Action.SMALL_ICON, icon);
+ return action;
+ }
+
+ // we create a programmatic sixteen by sixteen ImageIcon filled with the given color
+ private static ImageIcon createColorIcon(Color color) {
+ int size = 16;
+ BufferedImage image = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
+ Graphics2D g = image.createGraphics();
+ try {
+ g.setColor(color);
+ g.fillRect(0, 0, size, size);
+ } finally {
+ g.dispose();
+ }
+ return new ImageIcon(image);
+ }
+}
+ 
+ It's a reserved space for checkboxes and radio buttons as 2nd and 3rd menu illustrate. Ho
+wever, when there's none, it would make sense not to show that gutter. 
+ 
+ 
+
+ import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.WindowConstants;
+
+public class IconMenuExample {
+
+ public static void main(String[] args) throws Exception {
+
+ // we set the Windows Look And Feel
+ UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+
+ SwingUtilities.invokeLater(() -> {
+
+ JFrame frame = new JFrame("Menu Icon Example");
+
+ JMenuBar menuBar = new JMenuBar();
+ JMenu fileMenu = new JMenu("File");
+
+ // we create sample actions using programmatic sixteen by sixteen ImageIcon instances
+ Action openAction = newAction(
+ "Open",
+ createColorIcon(Color.BLUE),
+ e -> System.out.println("Open")
+ );
+
+ Action saveAction = newAction(
+ "Save",
+ createColorIcon(Color.GREEN),
+ e -> System.out.println("Save")
+ );
+
+ Action exitAction = newAction(
+ "Exit",
+ createColorIcon(Color.RED),
+ e -> System.exit(0)
+ );
+
+ // we attach the actions to menu items
+ fileMenu.add(new JMenuItem(openAction));
+ fileMenu.add(new JMenuItem(saveAction));
+ fileMenu.addSeparator();
+ fileMenu.add(new JMenuItem(exitAction));
+
+ // we create the second menu with check box menu items
+ JMenu optionsMenu = new JMenu("Options");
+
+ JCheckBoxMenuItem checkOne = new JCheckBoxMenuItem("Enable Feature One");
+ checkOne.addActionListener(e -> System.out.println("Feature One toggled: " + checkOne.isS
+elected()));
+
+ JCheckBoxMenuItem checkTwo = new JCheckBoxMenuItem("Enable Feature Two");
+ checkTwo.addActionListener(e -> System.out.println("Feature Two toggled: " + checkTwo.isS
+elected()));
+
+ optionsMenu.add(checkOne);
+ optionsMenu.add(checkTwo);
+
+ // we create the third menu with radio button menu items
+ JMenu modeMenu = new JMenu("Mode");
+
+ JRadioButtonMenuItem modeA = new JRadioButtonMenuItem("Mode A");
+ JRadioButtonMenuItem modeB = new JRadioButtonMenuItem("Mode B");
+ JRadioButtonMenuItem modeC = new JRadioButtonMenuItem("Mode C");
+
+ ButtonGroup modeGroup = new ButtonGroup();
+ modeGroup.add(modeA);
+ modeGroup.add(modeB);
+ modeGroup.add(modeC);
+
+ modeA.setSelected(true);
+
+ modeA.addActionListener(e -> System.out.println("Mode A selected"));
+ modeB.addActionListener(e -> System.out.println("Mode B selected"));
+ modeC.addActionListener(e -> System.out.println("Mode C selected"));
+
+ modeMenu.add(modeA);
+ modeMenu.add(modeB);
+ modeMenu.add(modeC);
+
+ // we add all menus to the bar
+ menuBar.add(fileMenu);
+ menuBar.add(optionsMenu);
+ menuBar.add(modeMenu);
+
+ frame.setJMenuBar(menuBar);
+
+ frame.setSize(300, 200);
+ frame.setLocationRelativeTo(null);
+ frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+ frame.setVisible(true);
+ });
+ }
+
+ public static Action newAction(String name, ImageIcon icon, ActionListener listener) {
+ Action action = new AbstractAction(name) {
+ @Override
+ public void actionPerformed(ActionEvent e) {
+ listener.actionPerformed(e);
+ }
+ };
+ action.putValue(Action.SMALL_ICON, icon);
+ return action;
+ }
+
+ // we create a programmatic sixteen by sixteen ImageIcon filled with the given color
+ private static ImageIcon createColorIcon(Color color) {
+ int size = 16;
+ BufferedImage image = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
+ Graphics2D g = image.createGraphics();
+ try {
+ g.setColor(color);
+ g.fillRect(0, 0, size, size);
+ } finally {
+ g.dispose();
+ }
+ return new ImageIcon(image);
+ }
+}
+
+=== KEY ANSWER ===
+It was concluded that it was not a bug and is required behavior to fix another issue: 
+ 
+ This change in UI is needed to fix rendering of radiobutton and/or checkmark as done in J
+DK-8348760 . 
+ It is also in sync with what windows does if menuitem selection is needed via radiobutton
+ or checkmark as seen in attached screenshot icon-view.png 
+ 
+ See JDK-8370945 
+ However, a more recent comment suggests that it's being reconsidered : 
+ 
+ The extra padding should not be needed unless there is actually a radio button anywhere. 
+If there's none at all, the layout can be as it used to be. 
+ 
+ For the time being, an alternative is to turn to other look and feels such as Flatlaf .
+

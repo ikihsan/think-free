@@ -6,9 +6,11 @@ status: active
 last-verified: 2026-10-04
 -->
 
-Decisions **D029, D032, D035, D041, D043, D047, D113**. Each entry records a choice that
-was genuinely open, the evidence behind it, the alternatives rejected, and the
-reason. Decisions that constrain later work belong here; ordinary edits do not.
+Decisions **D029, D032, D035, D041, D043, D047**, and in
+[`DECISIONS-RECORDS-2.md`](DECISIONS-RECORDS-2.md) **D110**. Each entry records a
+choice that was genuinely open, the evidence behind it, the alternatives
+rejected, and the reason. Decisions that constrain later work belong here;
+ordinary edits do not.
 
 **Invariant:** every entry here governs *a particular record or artefact this
 repository keeps* — what it must be a function of, what may not collide, and
@@ -263,36 +265,3 @@ prominent restatement of these numbers in the repository is *not* covered, which
 stated here rather than left to be discovered. The loose rule's blindness is
 asserted in `tests/test_result_numbers_falsified.py`, so the restriction cannot be
 dropped quietly.
-
-## D113 — A list split across files is read by a reader that reads all of them
-
-Evidence: T-0056, session `2026-10-04-042`. Defect 22 in
-[`STATE-defects.md`](STATE-defects.md).
-
-**The choice.** `STATE-defects.md` was split at its 300-line cap, and
-`defectlist.py` reads **every file of the list** rather than the first. The parent
-file's own record had said the split could not be made without exactly this change
-— "it cannot be done inside its own numbered list without `defectlist.py` reading
-more than one file" — and it was done here rather than by trimming an entry to make
-room, the cut falling at the `## Open` heading the document already states as a
-boundary.
-
-The alternative was to leave the reader pointed at the parent and note in prose that
-the other half is unchecked. That is the defect the rule exists to catch: **the
-reason `defectlist.py` reads this list at all is defect 10**, where two VMs took
-defect 7 in the same hour, each tree internally consistent, and only a human reading
-the file reported it. A duplicate spanning the two halves is invisible to a reader of
-either half, so it is exactly the case the rule must catch and exactly the one a
-single-file reader cannot.
-
-Rejected: **trim entries instead of splitting** — what the cap has been met with five
-times already, each time repaired by moving material to the file whose invariant owns
-it. Rejected: **making the split generate both files**, which would make a numbered
-list a derived artefact and lose the property that an entry is written once, by the
-session that found it.
-
-**Ceiling.** A **gap** in the numbering is still unreported, and after a split a gap
-can straddle the two files as easily as sit inside one — so this fixes the reader, not
-the coverage. Both halves are checked in `tests/test_defectlist.py`, including a
-control asserting that reading only the parent would have missed the collision the
-split makes possible.

@@ -1,0 +1,129 @@
+qid: 79999095
+view_count: 912
+tags: python, performance, optimization, python-3.10, structural-pattern-matching
+key_score: 10
+
+=== TITLE ===
+Python match-case vs. dictionary performance internals
+
+=== QUESTION ===
+When conditional branching logic grows large in Python, the go-to advice has always been t
+o map keys to functions or values using a dictionary lookup mapping.get(key) to achieve O(
+1) time complexity, rather than using very long, O(n) sequence of if - elif statements. 
+ However, with structural pattern matching ( match - case ) in Python 3.10+, the syntax lo
+oks pretty clean for these types of large branch choices: 
+ match status_code:
+ case 200: return "OK"
+ case 404: return "Not Found"
+ case 500: return "Internal Server Error"
+ # ... dozens of cases
+ 
+ Does the compiler optimize a match - case block with literal values into a jump table or 
+an internal hash map lookup, or does it evaluate sequentially like a traditional if - elif
+ loop? 
+ Does match - case create any transient runtime overhead compared to keeping a persistent 
+dictionary configuration in memory? 
+ I want to see how Python's internal logic handles these options when your code scales up.
+ 
+
+ mapping.get(key) 
+ if 
+ elif 
+ match 
+ case 
+ match status_code:
+ case 200: return "OK"
+ case 404: return "Not Found"
+ case 500: return "Internal Server Error"
+ # ... dozens of cases
+ 
+ match 
+ case 
+ if 
+ elif 
+ match 
+ case
+
+=== KEY ANSWER ===
+Does the compiler optimize a match-case block with literal values into a jump table or an 
+internal hash map lookup, or does it evaluate sequentially like a traditional if-elif loop
+? 
+ 
+ This is best understood by looking at the bytecode: 
+ >>> dis.dis(foo)
+ 1 RESUME 0
+
+ 2 LOAD_FAST 0 (status_code)
+
+ 3 COPY 1
+ LOAD_SMALL_INT 200
+ COMPARE_OP 88 (bool(==))
+ POP_JUMP_IF_FALSE 4 (to L1)
+ NOT_TAKEN
+ POP_TOP
+ LOAD_CONST 1 ('OK')
+ RETURN_VALUE
+
+ 4 L1: COPY 1
+ LOAD_CONST 2 (404)
+ COMPARE_OP 88 (bool(==))
+ POP_JUMP_IF_FALSE 4 (to L2)
+ NOT_TAKEN
+ POP_TOP
+ LOAD_CONST 3 ('Not Found')
+ RETURN_VALUE
+
+ 5 L2: LOAD_CONST 4 (500)
+ COMPARE_OP 88 (bool(==))
+ POP_JUMP_IF_FALSE 3 (to L3)
+ NOT_TAKEN
+ LOAD_CONST 5 ('Internal Server Error')
+ RETURN_VALUE
+ L3: LOAD_CONST 6 (None)
+ RETURN_VALUE
+ 
+ With interpreter 3.14.2 we see several L{1,2,3} labels.
+It's pretty clear that in this case match is syntactic
+sugar for a bunch of if ... elif ... elif ... else statements.
+If you truly do have a "large" number of "X exactly equal to Y" cases
+to consider, then you'd be prudent to accept your proposed
+"map keys to functions or values" advice. 
+
+ >>> dis.dis(foo)
+ 1 RESUME 0
+
+ 2 LOAD_FAST 0 (status_code)
+
+ 3 COPY 1
+ LOAD_SMALL_INT 200
+ COMPARE_OP 88 (bool(==))
+ POP_JUMP_IF_FALSE 4 (to L1)
+ NOT_TAKEN
+ POP_TOP
+ LOAD_CONST 1 ('OK')
+ RETURN_VALUE
+
+ 4 L1: COPY 1
+ LOAD_CONST 2 (404)
+ COMPARE_OP 88 (bool(==))
+ POP_JUMP_IF_FALSE 4 (to L2)
+ NOT_TAKEN
+ POP_TOP
+ LOAD_CONST 3 ('Not Found')
+ RETURN_VALUE
+
+ 5 L2: LOAD_CONST 4 (500)
+ COMPARE_OP 88 (bool(==))
+ POP_JUMP_IF_FALSE 3 (to L3)
+ NOT_TAKEN
+ LOAD_CONST 5 ('Internal Server Error')
+ RETURN_VALUE
+ L3: LOAD_CONST 6 (None)
+ RETURN_VALUE
+ 
+ match 
+ if 
+ elif 
+ elif 
+ else
+

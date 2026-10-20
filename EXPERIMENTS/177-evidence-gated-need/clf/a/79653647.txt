@@ -1,0 +1,70 @@
+qid: 79653647
+view_count: 2074
+tags: r, rselenium
+key_score: 24
+
+=== TITLE ===
+RSelenium error in open.connection(con, &quot;rb&quot;) with rsDriver()
+
+=== QUESTION ===
+I'm using RSelenium to scrape some data. It was working for me no problem yesterday but wh
+en I got back to it today I'm getting an error I don't understand. Here's what I'm doing: 
+ library(rJava)
+library(rvest)
+library(RSelenium)
+library(netstat)
+library(wdman)
+library(data.table)
+library(berryFunctions)
+
+
+url <- "https://signon.thomsonreuters.com/"
+
+remote_driver <- rsDriver(browser = "chrome", chromever = "114.0.5735.90", verbose = FALSE
+, port = free_port())
+ 
+ But I end up getting this error 
+ remote_driver <- rsDriver(browser = "chrome", chromever = "114.0.5735.90", verbose = FALS
+E, port = free_port())
+Error in open.connection(con, "rb") : 
+ cannot open the connection to 'https://api.bitbucket.org/2.0/repositories/ariya/phantomjs
+/downloads?pagelen=100'
+In addition: Warning message:
+In open.connection(con, "rb") :
+ cannot open URL 'https://api.bitbucket.org/2.0/repositories/ariya/phantomjs/downloads?pag
+elen=100': HTTP status was '402 Payment Required'
+ 
+
+ library(rJava)
+library(rvest)
+library(RSelenium)
+library(netstat)
+library(wdman)
+library(data.table)
+library(berryFunctions)
+
+
+url <- "https://signon.thomsonreuters.com/"
+
+remote_driver <- rsDriver(browser = "chrome", chromever = "114.0.5735.90", verbose = FALSE
+, port = free_port())
+ 
+ remote_driver <- rsDriver(browser = "chrome", chromever = "114.0.5735.90", verbose = FALS
+E, port = free_port())
+Error in open.connection(con, "rb") : 
+ cannot open the connection to 'https://api.bitbucket.org/2.0/repositories/ariya/phantomjs
+/downloads?pagelen=100'
+In addition: Warning message:
+In open.connection(con, "rb") :
+ cannot open URL 'https://api.bitbucket.org/2.0/repositories/ariya/phantomjs/downloads?pag
+elen=100': HTTP status was '402 Payment Required'
+
+=== KEY ANSWER ===
+Try adding phantomver = NULL to rsDriver() call to explicitly exclude PhantomJS, 
+ remote_driver <- rsDriver(..., phantomver = NULL)
+ 
+
+ phantomver = NULL 
+ rsDriver() 
+ remote_driver <- rsDriver(..., phantomver = NULL)
+

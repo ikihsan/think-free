@@ -159,7 +159,7 @@ rephrasing" as E140 left it. It is narrower and more useful:
 > and on a corpus where 83.5% of items assert no value it is not worth running
 > at all.
 
-**F126.** And the generalisable rule, which is the run's only durable output:
+**F145.** And the generalisable rule, which is the run's only durable output:
 *an extractor's coverage is a property of a genre's writing conventions, and a
 coverage number measured on one genre does not license the instrument on
 another — but a coverage number measured conditional on the population that

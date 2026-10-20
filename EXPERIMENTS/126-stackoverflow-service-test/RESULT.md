@@ -9,7 +9,7 @@ last-verified: 2026-10-13
 `observed` 2026-10-13, Python 3.8.10, `instance-20260717-0944`.
 Protocol [`PROTOCOL.md`](PROTOCOL.md), amendment
 [`AMENDMENT-1.md`](AMENDMENT-1.md), raw output
-[`results.json`](results.json) (pending), attempts
+`results.json` (pending — never committed), attempts
 [`attempts.jsonl`](attempts.jsonl), grading
 [`grading-results.jsonl`](grading-results.jsonl).
 

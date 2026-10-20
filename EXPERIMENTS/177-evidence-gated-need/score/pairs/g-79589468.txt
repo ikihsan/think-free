@@ -1,0 +1,35 @@
+pid: g-79589468
+
+=== LEFT ===
+You cannot make parts of a value alias other variables; C++ gives no way for a uint64_t to
+ be a window onto two uint32_t objects. Pick one representation as the source of truth. Op
+tion A: keep the uint64_t and expose lo() and hi() with shifts and masks, or add setters. 
+Option B: make the two halves the real storage, struct Pair { uint32_t lo, hi; }, and conv
+ert with std::bit_cast<std::uint64_t>(p) in C++20 (well-defined) or memcpy for older code.
+ Option C, if the halves come from hardware or another thread, keep a single std::atomic<u
+int64_t> and change it with fetch_add or a compare_exchange loop, never with unsynchronise
+d halves. Note that 0u may be unsigned int, so cast carefully and prefer uint32_t.
+
+=== RIGHT ===
+I would sidestep the whole issue by creating simple get_lo () and get_hi () accessor funct
+ions to extract the relevant halves of your int64 and call them when needed: 
+ #include <cstdint>
+
+std::uint32_t get_lo (std::uint64_t combined) { return static_cast <std::uint32_t> (combin
+ed); }
+
+std::uint32_t get_hi (std::uint64_t combined) { return static_cast <std::uint32_t> (combin
+ed >> 32); }
+ 
+ I really don't see the need for anything more elaborate. 
+
+ get_lo () 
+ get_hi () 
+ int64 
+ #include <cstdint>
+
+std::uint32_t get_lo (std::uint64_t combined) { return static_cast <std::uint32_t> (combin
+ed); }
+
+std::uint32_t get_hi (std::uint64_t combined) { return static_cast <std::uint32_t> (combin
+ed >> 32); }

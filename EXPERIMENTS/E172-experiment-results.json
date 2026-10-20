@@ -1,0 +1,57 @@
+{
+  "status": "withdrawn-unverified",
+  "withdrawn_reason": "2026-10-17 (session 2026-10-17-003): this file and EXPERIMENTS/E172-discourse-viewcount/ both claim identifier E172 for different venues, so at most one can be real; neither kept a raw harvest or a captured command, so neither is reproducible. RubyGems was already measured by E104/E109/E110 and the 'G2 PASS shows systematic activity advantage' line would add a pass to a screen D105 already withdrew (F116). Retained unedited as the record of what was written; not evidence.",
+  "experiment": "E172",
+  "date": "2026-10-17",
+  "domain": "RubyGems (Ruby package repository)",
+  "principle": "View-Count Principle",
+  "objective": "Test G1-G4 gates on RubyGems packages with E078 keyword classification",
+  "sample": {
+    "total_fetched": 74,
+    "classification": {
+      "need-related": 51,
+      "random": 6,
+      "technique-or-expertise": 17
+    }
+  },
+  "gates": {
+    "G1": {
+      "description": ">= 30 records per arm (need-related and comparison)",
+      "need_arm": {
+        "size": 51,
+        "meets_threshold": true
+      },
+      "comparison_arm": {
+        "size": 17,
+        "meets_threshold": false
+      },
+      "result": "FAIL - comparison arm below 30"
+    },
+    "G2": {
+      "description": "Cliff's delta >= 0.147 between arms",
+      "cliffs_delta": 0.2734,
+      "comparison": "need-related vs technique-or-expertise",
+      "result": "PASS - systematic activity advantage observed"
+    },
+    "G3": {
+      "description": "Differential activity between need-related and comparison",
+      "need_active_fraction": 1.0,
+      "comparison_active_fraction": 1.0,
+      "difference": 0.0,
+      "result": "FAIL - no differential activity (both 100% active)"
+    },
+    "G4": {
+      "description": "Top need-related by activity metric",
+      "need_in_top20": 20,
+      "total_need": 51,
+      "result": "20 of 51 need-related gems in top 20 by downloads"
+    }
+  },
+  "conclusion": {
+    "principle_discriminates": "G2 PASS shows systematic activity advantage for need-related RubyGems packages",
+    "candidate_validated": "G1 and G3 both FAIL - no validated candidate can be produced",
+    "boundary_condition": "View-count principle shows activity discrimination (G2) but fails sample-size (G1) and differential-activity (G3) gates on RubyGems",
+    "consistent_with_prior": "Confirms E165 finding: RubyGems has 100% active rate for both need-related and random, principle does not discriminate",
+    "next_action": "E171 (E168 G3) needs daily reset; mission returns to fresh exploration per D083"
+  }
+}

@@ -1,0 +1,150 @@
+qid: 79408101
+tags: python, setuptools, pyproject.toml
+
+=== TITLE ===
+What is the correct way of specifying the license in pyproject.toml file for a new package
+?
+
+=== QUESTION ===
+I am facing an error with the license specification when trying to build and upload a pyth
+on package. 
+ I have the last version of wheel, setuptools, twine, and build. 
+ building fails if I specify the license according to the python packaging tutorial: https
+://packaging.python.org/en/latest/tutorials/packaging-projects/ 
+ if I do not specify the license then twine upload fails with the error: 
+ ERROR InvalidDistribution: Invalid distribution metadata: unrecognized or malformed field
+ 'license-file'
+ 
+ the same upload error occurs if I build with the following: 
+ [project.license]
+file = "LICENSE"
+ 
+ or 
+ license = {text = "MIT"}
+ 
+ or 
+ license = {file = "LICENSE"}
+ 
+ this is my full configuration file: 
+ [build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "name"
+version = "0.0.1"
+authors = [
+ { name="Your Name", email="your.email@example.com" },
+]
+description = "A python package"
+readme = "README.md"
+requires-python = ">=3.8"
+
+classifiers = [
+ "Programming Language :: Python :: 3",
+ "Operating System :: OS Independent",
+]
+
+dependencies = [
+ "requests",
+ "numpy",
+]
+
+ 
+
+ ERROR InvalidDistribution: Invalid distribution metadata: unrecognized or malformed field
+ 'license-file'
+ 
+ [project.license]
+file = "LICENSE"
+ 
+ license = {text = "MIT"}
+ 
+ license = {file = "LICENSE"}
+ 
+ [build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "name"
+version = "0.0.1"
+authors = [
+ { name="Your Name", email="your.email@example.com" },
+]
+description = "A python package"
+readme = "README.md"
+requires-python = ">=3.8"
+
+classifiers = [
+ "Programming Language :: Python :: 3",
+ "Operating System :: OS Independent",
+]
+
+dependencies = [
+ "requests",
+ "numpy",
+]
+
+=== KEY ANSWER (highest scored) ===
+There's been a recent change with setuptools , see https://packaging.python.org/en/latest/
+guides/writing-pyproject-toml/#license-and-license-files . 
+ 
+ As per PEP 639 licenses should be declared with two fields: 
+ 
+ license is an SPDX license expression consisting of one or more license identifiers . 
+ license-files is a list of license file glob patterns. 
+ 
+ A previous PEP had specified license to be a table with a file or a text key, this format
+ is now deprecated. 
+ 
+ So in your case you should change your pyproject.toml to be 
+ [project]
+name = "name"
+version = "0.0.1"
+authors = [
+ { name="Your Name", email="your.email@example.com" },
+]
+description = "A python package"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+ "Programming Language :: Python :: 3",
+ "Operating System :: OS Independent",
+]
+dependencies = [
+ "requests",
+ "numpy",
+]
+license = "MIT"
+license-files = [
+ "LICENSE",
+]
+ 
+
+ setuptools 
+ license 
+ license-files 
+ pyproject.toml 
+ [project]
+name = "name"
+version = "0.0.1"
+authors = [
+ { name="Your Name", email="your.email@example.com" },
+]
+description = "A python package"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+ "Programming Language :: Python :: 3",
+ "Operating System :: OS Independent",
+]
+dependencies = [
+ "requests",
+ "numpy",
+]
+license = "MIT"
+license-files = [
+ "LICENSE",
+]
+

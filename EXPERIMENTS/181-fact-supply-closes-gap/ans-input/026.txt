@@ -1,0 +1,229 @@
+TITLE: Why do C compilers still prefer PUSH over MOV for saving registers, even when MOV appears faster in llvm-mca?
+TAGS: c,assembly,x86-64,compiler-optimization,micro-optimization
+
+QUESTION AS POSTED:
+I noticed that modern C compilers typically use `push` instructions to save caller-saved registers, rather than explicit `mov` + `sub` sequences. However, based on `llvm-mca` simulations, the `mov` approach appears more efficient in some cases. Why is this? 
+ On Skylake , `push` shows a clear dependency chain in `llvm-mca` . I also tested this on AMD’s Zen 5 (znver5), where `push` performance approaches `mov` but remains slower, with the same dependency chain behavior. 
+ I analyzed two ways to save caller-saved registers: 
+ 
+ `push` sequence : 12x `push` instructions. 
+ `mov` sequence : 12x `mov` to stack + 1x `sub rsp, 96` . 
+ 
+ Using `llvm-mca` (Skylake model), the `mov` version shows better throughput: 
+ 
+ Total cycles : 27 ( `push` ) vs 15 ( `mov` ). 
+ uOps : 36 ( `push` ) vs 13 ( `mov` ). 
+ IPC : 0.44 ( `push` ) vs 0.87 ( `mov` ). 
+ 
+ `llvm-mca -mcpu=skylake -timeline -iterations=1 test_push.s -o test_push.txt` 
+ `test_push.txt` 
+ `Iterations: 1
+Instructions: 12
+Total Cycles: 27
+Total uOps: 36
+
+Dispatch Width: 6
+uOps Per Cycle: 1.33
+IPC: 0.44
+Block RThroughput: 12.0
+
+
+Instruction Info:
+[1] [2] [3] [4] [5] [6] Instructions:
+ 3 2 1.00 * pushq %rax
+ 3 2 1.00 * pushq %rbx
+ 3 2 1.00 * pushq %rcx
+ 3 2 1.00 * pushq %rdx
+ 3 2 1.00 * pushq %r8
+ 3 2 1.00 * pushq %r9
+ 3 2 1.00 * pushq %r10
+ 3 2 1.00 * pushq %r11
+ 3 2 1.00 * pushq %r12
+ 3 2 1.00 * pushq %r13
+ 3 2 1.00 * pushq %r14
+ 3 2 1.00 * pushq %r15
+
+
+Resources:
+[0] - SKLDivider
+[1] - SKLFPDivider
+[2] - SKLPort0
+[3] - SKLPort1
+[4] - SKLPort2
+[5] - SKLPort3
+[6] - SKLPort4
+[7] - SKLPort5
+[8] - SKLPort6
+[9] - SKLPort7
+
+
+Resource pressure per iteration:
+[0] [1] [2] [3] [4] [5] [6] [7] [8] [9] 
+ - - 3.00 3.00 4.00 4.00 12.00 3.00 3.00 4.00 
+
+Resource pressure by instruction:
+[0] [1] [2] [3] [4] [5] [6] [7] [8] [9] Instructions:
+ - - - - - - 1.00 - 1.00 1.00 pushq %rax
+ - - - - - 1.00 1.00 1.00 - - pushq %rbx
+ - - - 1.00 1.00 - 1.00 - - - pushq %rcx
+ - - 1.00 - - - 1.00 - - 1.00 pushq %rdx
+ - - - - - 1.00 1.00 - 1.00 - pushq %r8
+ - - - - 1.00 - 1.00 1.00 - - pushq %r9
+ - - - 1.00 - - 1.00 - - 1.00 pushq %r10
+ - - 1.00 - - 1.00 1.00 - - - pushq %r11
+ - - - - 1.00 - 1.00 - 1.00 - pushq %r12
+ - - - - - - 1.00 1.00 - 1.00 pushq %r13
+ - - - 1.00 - 1.00 1.00 - - - pushq %r14
+ - - 1.00 - 1.00 - 1.00 - - - pushq %r15
+
+
+Timeline view:
+ 0123456789 
+Index 0123456789 0123456
+
+[0,0] DeeER. . . . .. pushq %rax
+[0,1] D==eeER . . . .. pushq %rbx
+[0,2] .D===eeER . . . .. pushq %rcx
+[0,3] .D=====eeER . . .. pushq %rdx
+[0,4] . D======eeER . . .. pushq %r8
+[0,5] . D========eeER. . .. pushq %r9
+[0,6] . D=========eeER . .. pushq %r10
+[0,7] . D===========eeER . .. pushq %r11
+[0,8] . D============eeER .. pushq %r12
+[0,9] . D==============eeER .. pushq %r13
+[0,10] . D===============eeER.. pushq %r14
+[0,11] . D=================eeER pushq %r15
+
+
+Average Wait times (based on the timeline view):
+[1]: Average time spent waiting in a scheduler's queue
+[2]: Average time spent waiting in a scheduler's queue while ready
+[3]: Average time elapsed from WB until retire stage
+
+ [0] [1] [2] [3]
+0. 1 1.0 1.0 0.0 pushq %rax
+1. 1 3.0 0.0 0.0 pushq %rbx
+2. 1 4.0 0.0 0.0 pushq %rcx
+3. 1 6.0 0.0 0.0 pushq %rdx
+4. 1 7.0 0.0 0.0 pushq %r8
+5. 1 9.0 0.0 0.0 pushq %r9
+6. 1 10.0 0.0 0.0 pushq %r10
+7. 1 12.0 0.0 0.0 pushq %r11
+8. 1 13.0 0.0 0.0 pushq %r12
+9. 1 15.0 0.0 0.0 pushq %r13
+10. 1 16.0 0.0 0.0 pushq %r14
+11. 1 18.0 0.0 0.0 pushq %r15
+ 1 9.5 0.1 0.0 <total>
+` 
+ `llvm-mca -mcpu=skylake -timeline -iterations=1 test_mov.s -o test_mov.txt` 
+ `test_mov.txt` 
+ `Iterations: 1
+Instructions: 13
+Total Cycles: 15
+Total uOps: 13
+
+Dispatch Width: 6
+uOps Per Cycle: 0.87
+IPC: 0.87
+Block RThroughput: 12.0
+
+
+Instruction Info:
+[1] [2] [3] [4] [5] [6] Instructions:
+ 1 1 1.00 * movq %rax, -8(%rsp)
+ 1 1 1.00 * movq %rbx, -16(%rsp)
+ 1 1 1.00 * movq %rcx, -24(%rsp)
+ 1 1 1.00 * movq %rdx, -32(%rsp)
+ 1 1 1.00 * movq %r8, -40(%rsp)
+ 1 1 1.00 * movq %r9, -48(%rsp)
+ 1 1 1.00 * movq %r10, -56(%rsp)
+ 1 1 1.00 * movq %r11, -64(%rsp)
+ 1 1 1.00 * movq %r12, -72(%rsp)
+ 1 1 1.00 * movq %r13, -80(%rsp)
+ 1 1 1.00 * movq %r14, -88(%rsp)
+ 1 1 1.00 * movq %r15, -96(%rsp)
+ 1 1 0.25 subq $96, %rsp
+
+
+Resources:
+[0] - SKLDivider
+[1] - SKLFPDivider
+[2] - SKLPort0
+[3] - SKLPort1
+[4] - SKLPort2
+[5] - SKLPort3
+[6] - SKLPort4
+[7] - SKLPort5
+[8] - SKLPort6
+[9] - SKLPort7
+
+
+Resource pressure per iteration:
+[0] [1] [2] [3] [4] [5] [6] [7] [8] [9] 
+ - - - - 4.00 4.00 12.00 - 1.00 4.00 
+
+Resource pressure by instruction:
+[0] [1] [2] [3] [4] [5] [6] [7] [8] [9] Instructions:
+ - - - - - - 1.00 - - 1.00 movq %rax, -8(%rsp)
+ - - - - - 1.00 1.00 - - - movq %rbx, -16(%rsp)
+ - - - - 1.00 - 1.00 - - - movq %rcx, -24(%rsp)
+ - - - - - - 1.00 - - 1.00 movq %rdx, -32(%rsp)
+ - - - - - 1.00 1.00 - - - movq %r8, -40(%rsp)
+ - - - - 1.00 - 1.00 - - - movq %r9, -48(%rsp)
+ - - - - - - 1.00 - - 1.00 movq %r10, -56(%rsp)
+ - - - - - 1.00 1.00 - - - movq %r11, -64(%rsp)
+ - - - - 1.00 - 1.00 - - - movq %r12, -72(%rsp)
+ - - - - - - 1.00 - - 1.00 movq %r13, -80(%rsp)
+ - - - - - 1.00 1.00 - - - movq %r14, -88(%rsp)
+ - - - - 1.00 - 1.00 - - - movq %r15, -96(%rsp)
+ - - - - - - - - 1.00 - subq $96, %rsp
+
+
+Timeline view:
+ 01234
+Index 0123456789 
+
+[0,0] DeER . . . movq %rax, -8(%rsp)
+[0,1] D=eER. . . movq %rbx, -16(%rsp)
+[0,2] D==eER . . movq %rcx, -24(%rsp)
+[0,3] D===eER . . movq %rdx, -32(%rsp)
+[0,4] D====eER . . movq %r8, -40(%rsp)
+[0,5] D=====eER . . movq %r9, -48(%rsp)
+[0,6] .D=====eER. . movq %r10, -56(%rsp)
+[0,7] .D======eER . movq %r11, -64(%rsp)
+[0,8] .D=======eER . movq %r12, -72(%rsp)
+[0,9] .D========eER . movq %r13, -80(%rsp)
+[0,10] .D=========eER. movq %r14, -88(%rsp)
+[0,11] .D==========eER movq %r15, -96(%rsp)
+[0,12] . DeE---------R subq $96, %rsp
+
+
+Average Wait times (based on the timeline view):
+[1]: Average time spent waiting in a scheduler's queue
+[2]: Average time spent waiting in a scheduler's queue while ready
+[3]: Average time elapsed from WB until retire stage
+
+ [0] [1] [2] [3]
+0. 1 1.0 1.0 0.0 movq %rax, -8(%rsp)
+1. 1 2.0 1.0 0.0 movq %rbx, -16(%rsp)
+2. 1 3.0 1.0 0.0 movq %rcx, -24(%rsp)
+3. 1 4.0 1.0 0.0 movq %rdx, -32(%rsp)
+4. 1 5.0 1.0 0.0 movq %r8, -40(%rsp)
+5. 1 6.0 1.0 0.0 movq %r9, -48(%rsp)
+6. 1 6.0 1.0 0.0 movq %r10, -56(%rsp)
+7. 1 7.0 1.0 0.0 movq %r11, -64(%rsp)
+8. 1 8.0 1.0 0.0 movq %r12, -72(%rsp)
+9. 1 9.0 1.0 0.0 movq %r13, -80(%rsp)
+10. 1 10.0 1.0 0.0 movq %r14, -88(%rsp)
+11. 1 11.0 1.0 0.0 movq %r15, -96(%rsp)
+12. 1 1.0 1.0 9.0 subq $96, %rsp
+ 1 5.6 1.0 0.7 <total>
+` 
+ Question : Possible reasons I considered: 
+ 
+ Code size : `push` is more compact (1 byte vs ~4 bytes for `mov` with offset). 
+ Hardware optimizations : Do real CPUs handle `push` better? (Probably stack engine optimization, but I can't find information about it) 
+ Compiler heuristics : Is `push` chosen for legacy compatibility or edge cases?
+
+The reporter adds this:
+The x86-64 System V ABI guarantees a 128-byte red zone below RSP that asynchronous signal handlers cannot clobber, which is what makes the mov-then-sub sequence legal without touching RSP.

@@ -1,0 +1,288 @@
+qid: 79889909
+view_count: 932
+tags: c++, templates, parameter-list
+key_score: 10
+
+=== TITLE ===
+Is there any way of abbreviating long template parameter lists in C++?
+
+=== QUESTION ===
+Is there any "aliasing" way of shortening parameters lists like these? 
+ template <typename TA, size_t NA, typename TO, size_t NO, typename ... T>
+House<TA, NA, TO, NO, T...> create_house_from(
+ Address<TA, NA> && address,
+ Owner<TO, NO> && owner,
+ std::tuple<T & ...> heterogeneous_list_of_house_rooms) {
+
+ return House<TA, NA, TO, NO, T...>{
+ address, owner,
+ std::make_from_tuple<HouseRoomsLayout<T...>>(std::move(heterogeneous_list_of_house_rooms)
+)
+ };
+}
+ 
+ If there had been way like this (fictive syntactics): 
+ using tpl = (typename TA, size_t NA, typename TO, size_t NO, typename ... T);
+ 
+ Then I could write this: 
+ template <tpl>
+House<tpl> create_house_from(
+ Address<tpl::TA, tpl::NA> && address,
+ Owner<tpl::TO, tpl::NO> && owner,
+ std::tuple<tpl::T & ...> heterogeneous_list_of_house_rooms) {
+
+ return House<tpl>{
+ address, owner,
+ std::make_from_tuple<HouseRoomsLayout<tpl::T...>>(std::move(heterogeneous_list_of_house_r
+ooms))
+ };
+}
+ 
+
+ template <typename TA, size_t NA, typename TO, size_t NO, typename ... T>
+House<TA, NA, TO, NO, T...> create_house_from(
+ Address<TA, NA> && address,
+ Owner<TO, NO> && owner,
+ std::tuple<T & ...> heterogeneous_list_of_house_rooms) {
+
+ return House<TA, NA, TO, NO, T...>{
+ address, owner,
+ std::make_from_tuple<HouseRoomsLayout<T...>>(std::move(heterogeneous_list_of_house_rooms)
+)
+ };
+}
+ 
+ using tpl = (typename TA, size_t NA, typename TO, size_t NO, typename ... T);
+ 
+ template <tpl>
+House<tpl> create_house_from(
+ Address<tpl::TA, tpl::NA> && address,
+ Owner<tpl::TO, tpl::NO> && owner,
+ std::tuple<tpl::T & ...> heterogeneous_list_of_house_rooms) {
+
+ return House<tpl>{
+ address, owner,
+ std::make_from_tuple<HouseRoomsLayout<tpl::T...>>(std::move(heterogeneous_list_of_house_r
+ooms))
+ };
+}
+
+=== KEY ANSWER ===
+Three things come to mind: 
+ 1. Deduction 
+ When invoking (overloaded) template functions, template argument deduction will deduce th
+e free types. Presumably, you're already aware of this part (because you are using variadi
+cs in your example). 
+ c++17 CTAD extends this to constructors of types, e.g. std::vector { 1,2,3 } becomes std:
+:vector<int, std::allocator<int> > , std::array { 1,2,3 } becomes std::array<int, 3> . 
+ 2. Template Aliases: 
+ You can either use template aliases: 
+ template <typename K, typename V, typename Pair = std::pair<K const, V> >
+using MyMap = boost::container::flat_map<K, V, std::less<K>, 
+ boost::container::small_vector<Pair, 10> >;
+ 
+ Now you can use the unwieldy type name as 
+ MyMap<std::string, double> m;
+ 
+ 3. Opaque types / Concepts 
+ In reality, you don't usually care about all the subsidiary details. For example, you mig
+ht only require a "Range", or a "Container" or a "Map", not some specific instance. 
+ Instead of 
+ template <typename TA, size_t NA> struct Address {
+ std::array<TA, NA> details;
+};
+template <typename TO, size_t NO> struct Owner {
+ std::array<TO, NO> details;
+};
+template <typename... Ts> struct HouseRoomsLayout {
+ std::tuple<Ts...> data_;
+};
+template <typename TA, size_t NA, typename TO, size_t NO, typename... Ts> struct House {
+ Address<TA, NA> address_;
+ Owner<TO, NO> owner_;
+ HouseRoomsLayout<Ts...> layout_;
+};
+ 
+ You could write 
+ template <typename TA, size_t NA> struct Address {
+ std::array<TA, NA> details;
+};
+template <typename TO, size_t NO> struct Owner {
+ std::array<TO, NO> details;
+};
+template <typename... Ts> struct HouseRoomsLayout {
+ std::tuple<Ts...> data_;
+ HouseRoomsLayout(Ts const&... room) : data_(room...) {}
+};
+
+template <class T, class... U> Address(T, U...) -> Address<T, 1 + sizeof...(U)>;
+template <class T, class... U> Owner(T, U...) -> Owner<T, 1 + sizeof...(U)>;
+
+template <typename Address, typename Owner, typename Layout> struct House {
+ Address address_;
+ Owner owner_;
+ Layout layout_;
+};
+
+auto create_house_from(auto address, auto owner, auto... rooms) {
+ std::cout << __PRETTY_FUNCTION__ << std::endl;
+ return House{address, owner, HouseRoomsLayout{std::move(rooms)...}};
+}
+
+int main() {
+ Address addr{"Hello Inc"s, "World Drive 42", "Cincinatti", "Uganda"};
+ Owner owner{999}; // imagining an ID type here
+
+ struct Room { std::vector<int> furniture; } backroom;
+ struct Garage { std::vector<int> tools; } garage;
+ HouseRoomsLayout layout{ backroom, garage };
+
+ auto h = create_house_from(addr, owner, layout);
+
+ return 0;
+}
+ 
+ Better yet, you wouldn't need create_XXX_from anymore, since that's what CTAD was invente
+d for: 
+ auto h = House{addr, owner, layout};
+ 
+ creates the exact same house. In fact, go ham! 
+ Live On Coliru 
+ #include <array>
+#include <string>
+#include <tuple>
+#include <vector>
+using namespace std::string_literals;
+
+template <typename TA, size_t NA> struct Address { std::array<TA, NA> details; };
+template <typename TO, size_t NO> struct Owner { std::array<TO, NO> details; };
+template <typename... Ts> struct HouseRoomsLayout {
+ std::tuple<Ts...> data_;
+ HouseRoomsLayout(Ts const&... room) : data_(room...) {}
+};
+
+template <class T, class... U> Address(T, U...) -> Address<T, 1 + sizeof...(U)>;
+template <class T, class... U> Owner(T, U...) -> Owner<T, 1 + sizeof...(U)>;
+
+template <typename Address, typename Owner, typename Layout> struct House {
+ Address address_;
+ Owner owner_;
+ Layout layout_;
+};
+
+int main() {
+ struct Room { std::vector<int> furniture; } backroom;
+ struct Garage { std::vector<int> tools; } garage;
+
+ auto h = House{
+ Address{"Hello Inc"s, "World Drive 42", "Cincinatti", "Uganda"},
+ Owner{999},
+ HouseRoomsLayout{backroom, garage},
+ };
+}
+ 
+ 
+ Caveat 
+ I'm assuming you're learning about things here. The presented design does not seem like g
+ood interface design. At the very least, if you need all that flexibility, make concepts f
+or the different classes of types. 
+
+ std::vector { 1,2,3 } 
+ std::vector<int, std::allocator<int> > 
+ std::array { 1,2,3 } 
+ std::array<int, 3> 
+ template <typename K, typename V, typename Pair = std::pair<K const, V> >
+using MyMap = boost::container::flat_map<K, V, std::less<K>, 
+ boost::container::small_vector<Pair, 10> >;
+ 
+ MyMap<std::string, double> m;
+ 
+ template <typename TA, size_t NA> struct Address {
+ std::array<TA, NA> details;
+};
+template <typename TO, size_t NO> struct Owner {
+ std::array<TO, NO> details;
+};
+template <typename... Ts> struct HouseRoomsLayout {
+ std::tuple<Ts...> data_;
+};
+template <typename TA, size_t NA, typename TO, size_t NO, typename... Ts> struct House {
+ Address<TA, NA> address_;
+ Owner<TO, NO> owner_;
+ HouseRoomsLayout<Ts...> layout_;
+};
+ 
+ template <typename TA, size_t NA> struct Address {
+ std::array<TA, NA> details;
+};
+template <typename TO, size_t NO> struct Owner {
+ std::array<TO, NO> details;
+};
+template <typename... Ts> struct HouseRoomsLayout {
+ std::tuple<Ts...> data_;
+ HouseRoomsLayout(Ts const&... room) : data_(room...) {}
+};
+
+template <class T, class... U> Address(T, U...) -> Address<T, 1 + sizeof...(U)>;
+template <class T, class... U> Owner(T, U...) -> Owner<T, 1 + sizeof...(U)>;
+
+template <typename Address, typename Owner, typename Layout> struct House {
+ Address address_;
+ Owner owner_;
+ Layout layout_;
+};
+
+auto create_house_from(auto address, auto owner, auto... rooms) {
+ std::cout << __PRETTY_FUNCTION__ << std::endl;
+ return House{address, owner, HouseRoomsLayout{std::move(rooms)...}};
+}
+
+int main() {
+ Address addr{"Hello Inc"s, "World Drive 42", "Cincinatti", "Uganda"};
+ Owner owner{999}; // imagining an ID type here
+
+ struct Room { std::vector<int> furniture; } backroom;
+ struct Garage { std::vector<int> tools; } garage;
+ HouseRoomsLayout layout{ backroom, garage };
+
+ auto h = create_house_from(addr, owner, layout);
+
+ return 0;
+}
+ 
+ create_XXX_from 
+ auto h = House{addr, owner, layout};
+ 
+ #include <array>
+#include <string>
+#include <tuple>
+#include <vector>
+using namespace std::string_literals;
+
+template <typename TA, size_t NA> struct Address { std::array<TA, NA> details; };
+template <typename TO, size_t NO> struct Owner { std::array<TO, NO> details; };
+template <typename... Ts> struct HouseRoomsLayout {
+ std::tuple<Ts...> data_;
+ HouseRoomsLayout(Ts const&... room) : data_(room...) {}
+};
+
+template <class T, class... U> Address(T, U...) -> Address<T, 1 + sizeof...(U)>;
+template <class T, class... U> Owner(T, U...) -> Owner<T, 1 + sizeof...(U)>;
+
+template <typename Address, typename Owner, typename Layout> struct House {
+ Address address_;
+ Owner owner_;
+ Layout layout_;
+};
+
+int main() {
+ struct Room { std::vector<int> furniture; } backroom;
+ struct Garage { std::vector<int> tools; } garage;
+
+ auto h = House{
+ Address{"Hello Inc"s, "World Drive 42", "Cincinatti", "Uganda"},
+ Owner{999},
+ HouseRoomsLayout{backroom, garage},
+ };
+}
+

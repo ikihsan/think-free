@@ -1,0 +1,68 @@
+pid: g-79747651
+
+=== LEFT ===
+Rust returns by value because ownership makes it the safe default: the callee constructs t
+he value and transfers ownership, so aliasing is impossible and there is nothing for an ou
+t parameter to buy you. The performance worry does not apply: building a value directly in
+to the destination the caller already owns is exactly the case compilers elide, so there i
+s usually no copy at all. There is no named-return-value-optimization guarantee in Rust, b
+ut out parameters would force a caller-provided buffer or a &mut plus a length, which is w
+orse. Rule of thumb: return by value, and if a profile ever shows a large copy, restructur
+e so the callee writes into caller-owned storage, for example filling a caller-provided Ve
+c.
+
+=== RIGHT ===
+C++ 
+ Let's review C++ first, because the question makes some statements that aren't quite corr
+ect. 
+ In typical C++ calling conventions, any return values that don't fit within a register or
+ two (or can't be split across registers) already work on the basis that the caller alloca
+tes some space and passes a reference to it. The callee then constructs the return value i
+nside this space. 
+ However, C++ doesn't offer any language way to directly refer to this storage inside the 
+callee. On the level of the abstract machine, any returning is done by constructing someth
+ing inside the callee, then copying it to the return slot. This will invoke the copy const
+ructor, which may have side effects. (We're still talking C++98 here, so no move construct
+ors exist.) 
+ C++ has various situations where copy-elision can occur, where the compiler is allowed to
+ elide a copy if the source of the copy is destroyed immediately afterwards. This is speci
+fically allowed even though any side effects of the copy constructor and destructor calls 
+that are elided don't happen in the changed code. 
+ Return Value Optimization (RVO) is a specific instance of copy-elision, where the source 
+of the copy is the value of the return statement and the destination is the return slot. I
+t is an important optimization because copies can be very expensive (e.g. copying a vector
+). However, it isn't guaranteed to happen, and there are multiple technical reasons why it
+ might not happen in a given situation. Thus, it was seen as unreliable, so the prevailing
+ wisdom in C++98 was that you give complex object results by explicit out parameter. 
+ Named Return Value Optimization (NRVO) is an extension of RVO where the return statement 
+refers to a local variable of the callee, so this local variable can be placed in the retu
+rn slot. 
+ C++11 and successors massively changed the game here. 
+ First, move constructors were introduced. They make even the unoptimized returning of com
+plex (heap-allocated) objects much cheaper. 
+ Second, the situations where RVO can occur were more rigorously defined, and some specifi
+c instances were made mandatory, in other words the copy isn't allowed to happen no matter
+ what optimizations you specify (or not). This means you can rely on the copy not occurrin
+g and you have no performance pitfall. 
+ Third, for all situations where RVO is allowed to happen, but cannot happen for technical
+ reasons, using move construction (if available) is mandatory. 
+ As a result, for C++11 and later, the best practice has changed to use return values wher
+e doing so makes semantic sense, even for complex objects. 
+ Rust 
+ And then comes Rust. Rust development started in 2006, a time when C++'s upcoming move se
+mantics were already under discussion, and Rust also changed a lot during this time. I don
+'t know exactly when the Rust move semantics were designed, but by the time Rust 1.0 came 
+around in 2015, C++11 had already been out for some time and practical experience with it 
+had been collected. 
+ Rust thus had move semantics pretty much from the start, and they are different from C++ 
+in that they are universal : every object can be moved, not only those that define a speci
+al function. What's more, move is just a memcpy to a new location, and unlike C++, Rust ob
+jects don't have an address identity: you cannot rely on your object sitting at the same a
+ddress forever (in particular, interior references are a very tricky topic in Rust). This 
+means that moves are quite cheap and can always be elided if the compiler finds an opportu
+nity. 
+ This means that the best practice for C++11 applies even more so in Rust: RVO and NRVO is
+n't a special extra rule, it's just the way the language naturally works. Moving complex o
+bjects isn't custom code, it's automatically there. 
+ So Rust code returns objects by value. Internally, the calling convention is still return
+ slots, typically.

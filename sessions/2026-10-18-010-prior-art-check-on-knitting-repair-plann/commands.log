@@ -1,0 +1,174 @@
+==============================================================================
+[seq 2] 2026-10-18T11:44:56+00:00
+$ python3 -c 
+import json
+from datetime import datetime
+
+# Record the prior-art check findings
+findings = {
+    'date': '2026-10-18',
+    'candidate': 'knitting repair planner',
+    'prior_art': [
+        {
+            'name': 'KnittingFix',
+            'type': 'commercial',
+            'url': 'https://knittingfix.com',
+            'description': 'AI-powered knitting diagnosis from photos/videos with human expert (Emma) escalation. Subscription $6-24/mo. Free tier: 3 AI questions/month. Paid plans marked "Coming soon".',
+            'difference': 'Image-based diagnosis + human backup, not a bounded symbolic planner. Requires subscription and internet.',
+            'status': 'live, commercial',
+            'evidence': 'full site read'
+        },
+        {
+            'name': 'KnitPick (UIST 2019)',
+            'type': 'academic',
+            'url': 'https://textiles.cs.cmu.edu/publications/2019-knitpick/',
+            'description': 'Parses hand-knitting notation into graphs; transforms and combines textures; emits hand/machine instructions. Focus: designing NEW textiles, not repairing existing ones.',
+            'difference': 'Design-time tool for fresh textile creation. Does not plan interventions for existing incorrect structures.',
+            'status': 'academic, CMU',
+            'evidence': 'indexed text, author-hosted PDF found'
+        },
+        {
+            'name': 'knit_graph / knit-graphs (PyPI)',
+            'type': 'library',
+            'url': 'https://github.com/mhofmann-Khoury/knit_graph',
+            'description': 'MIT-licensed loop/yarn/stitch/crossing representation and visualization. 1 star, 1 fork. Building block for machine programming and design tools.',
+            'difference': 'Graph representation library only. No repair planning, no intervention sequences, no constraint validation for repairs.',
+            'status': 'live, MIT licensed',
+            'evidence': 'GitHub repo read, PyPI page'
+        },
+        {
+            'name': 'Stitch Maps',
+            'type': 'web tool',
+            'url': 'https://stitch-maps.com',
+            'description': 'Visualizes stitch connectivity without grid, shows column pathways, increases/decreases. Can knit from maps.',
+            'difference': 'Visualization and charting tool. No error diagnosis, no repair planning, no intervention computation.',
+            'status': 'live, commercial (affiliate program)',
+            'evidence': 'full site read'
+        },
+        {
+            'name': 'TECHknitting',
+            'type': 'tutorial blog',
+            'url': 'https://techknitting.blogspot.com',
+            'description': 'Detailed manual repair tutorials: laddering down, cable re-knitting (structural), anchored I-cord (cosmetic). Human-authored since 2006.',
+            'difference': 'Tutorials requiring knitter to understand structure. No automated planning, no verification, no adaptation to specific pattern.',
+            'status': 'live, human-authored',
+            'evidence': 'full articles read (cable fix, anchored I-cord)'
+        },
+        {
+            'name': 'A Graph Model and Layout Algorithm for Knitting Patterns (2024)',
+            'type': 'academic',
+            'url': 'https://arxiv.org/abs/2406.13800',
+            'description': 'Models simple patterns as planar graphs with pre-specified edge lengths; evaluates layout algorithms against real patterns.',
+            'difference': 'Pattern visualization and validation at design time. No repair, no existing structure intervention.',
+            'status': 'academic (cs.HC)',
+            'evidence': 'arXiv abstract read'
+        },
+        {
+            'name': 'Laddering of a knitted fabric: topology-induced failure (2026)',
+            'type': 'academic',
+            'url': 'https://arxiv.org/abs/2604.20580',
+            'description': 'Physics experiments + Discrete Element Rod simulations. Laddering velocity ~ bending wave speed, linear scaling with tension. Topology alone does NOT govern physical behavior (tension, friction, curvature matter).',
+            'difference': 'Confirms strongest objection: topological validity ≠ physical feasibility. A symbolic planner cannot capture slack/friction/manipulation access.',
+            'status': 'academic (cond-mat.soft), submitted Apr 2026',
+            'evidence': 'arXiv abstract read'
+        }
+    ],
+    'gap_analysis': {
+        'what_is_missing': 'No tool takes an EXISTING hand-knit structure with a known localized error and computes a constrained, checkable intervention plan (which loops to release, in what order, with boundary/yarn-order/pull-direction validation) that preserves unaffected fabric.',
+        'our_stage_a_result': 'Computational planner (A1) beats full-row rollback (A0) on 6/8 synthetic fixtures (twisted stitch, wrong crossing, yarnover, wrong type). Dropped stitches: both methods minimal (0 releases). Matches exhaustive oracle (A2) on 2/2 testable fixtures. Kill gate NOT FIRED.',
+        'algorithmic_claim_status': 'Prior art (F009): minimum-cost repair planning is prior art 2007-2026. No tool found supplying intervention sequence for existing hand-knit structure.',
+        'physical_validation': 'COMPLETELY UNTESTED (Stage B per Research C). Requires: 6-10 swatches, experienced knitter, measure correctness/time/distortion vs tutorial/rollback.'
+    },
+    'difference_one_sentence': 'A bounded, inspectable symbolic planner that computes minimal-intervention repair sequences for an existing hand-knit structure with a known error, verifying each step against topological constraints (boundary preservation, yarn order, pull-through direction), unlike image-based diagnosis (KnittingFix), design-time graph tools for new textiles (KnitPick, knit_graph), or tutorials requiring the knitter to reason about structure (TECHknitting).',
+    'why_switch': 'Works offline, free, explicit checkable steps vs subscription + internet (KnittingFix); makes structure explicit vs tutorials requiring prior understanding (TECHknitting); targets existing incorrect structures vs design-time tools (KnitPick). For teachers: printable repair maps students can follow without an account.',
+    'surviving_risk': 'Algorithmic advantage is prior art (F009). Physical feasibility untested (2026 physics paper shows topology alone insufficient). Input burden (user must correctly identify error location/type) unmeasured. Yarn slack/friction model missing. Stage B needs physical resources.',
+    'confidence': 'source-supported (prior art), observed (Stage A result), speculative (physical feasibility, adoption)',
+    'limits': 'English web search only. No patent search. No direct testing of KnittingFix AI. No access to KnitPick code. Physical validation impossible in this environment.'
+}
+
+print(json.dumps(findings, indent=2))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "date": "2026-10-18",
+  "candidate": "knitting repair planner",
+  "prior_art": [
+    {
+      "name": "KnittingFix",
+      "type": "commercial",
+      "url": "https://knittingfix.com",
+      "description": "AI-powered knitting diagnosis from photos/videos with human expert (Emma) escalation. Subscription $6-24/mo. Free tier: 3 AI questions/month. Paid plans marked \"Coming soon\".",
+      "difference": "Image-based diagnosis + human backup, not a bounded symbolic planner. Requires subscription and internet.",
+      "status": "live, commercial",
+      "evidence": "full site read"
+    },
+    {
+      "name": "KnitPick (UIST 2019)",
+      "type": "academic",
+      "url": "https://textiles.cs.cmu.edu/publications/2019-knitpick/",
+      "description": "Parses hand-knitting notation into graphs; transforms and combines textures; emits hand/machine instructions. Focus: designing NEW textiles, not repairing existing ones.",
+      "difference": "Design-time tool for fresh textile creation. Does not plan interventions for existing incorrect structures.",
+      "status": "academic, CMU",
+      "evidence": "indexed text, author-hosted PDF found"
+    },
+    {
+      "name": "knit_graph / knit-graphs (PyPI)",
+      "type": "library",
+      "url": "https://github.com/mhofmann-Khoury/knit_graph",
+      "description": "MIT-licensed loop/yarn/stitch/crossing representation and visualization. 1 star, 1 fork. Building block for machine programming and design tools.",
+      "difference": "Graph representation library only. No repair planning, no intervention sequences, no constraint validation for repairs.",
+      "status": "live, MIT licensed",
+      "evidence": "GitHub repo read, PyPI page"
+    },
+    {
+      "name": "Stitch Maps",
+      "type": "web tool",
+      "url": "https://stitch-maps.com",
+      "description": "Visualizes stitch connectivity without grid, shows column pathways, increases/decreases. Can knit from maps.",
+      "difference": "Visualization and charting tool. No error diagnosis, no repair planning, no intervention computation.",
+      "status": "live, commercial (affiliate program)",
+      "evidence": "full site read"
+    },
+    {
+      "name": "TECHknitting",
+      "type": "tutorial blog",
+      "url": "https://techknitting.blogspot.com",
+      "description": "Detailed manual repair tutorials: laddering down, cable re-knitting (structural), anchored I-cord (cosmetic). Human-authored since 2006.",
+      "difference": "Tutorials requiring knitter to understand structure. No automated planning, no verification, no adaptation to specific pattern.",
+      "status": "live, human-authored",
+      "evidence": "full articles read (cable fix, anchored I-cord)"
+    },
+    {
+      "name": "A Graph Model and Layout Algorithm for Knitting Patterns (2024)",
+      "type": "academic",
+      "url": "https://arxiv.org/abs/2406.13800",
+      "description": "Models simple patterns as planar graphs with pre-specified edge lengths; evaluates layout algorithms against real patterns.",
+      "difference": "Pattern visualization and validation at design time. No repair, no existing structure intervention.",
+      "status": "academic (cs.HC)",
+      "evidence": "arXiv abstract read"
+    },
+    {
+      "name": "Laddering of a knitted fabric: topology-induced failure (2026)",
+      "type": "academic",
+      "url": "https://arxiv.org/abs/2604.20580",
+      "description": "Physics experiments + Discrete Element Rod simulations. Laddering velocity ~ bending wave speed, linear scaling with tension. Topology alone does NOT govern physical behavior (tension, friction, curvature matter).",
+      "difference": "Confirms strongest objection: topological validity \u2260 physical feasibility. A symbolic planner cannot capture slack/friction/manipulation access.",
+      "status": "academic (cond-mat.soft), submitted Apr 2026",
+      "evidence": "arXiv abstract read"
+    }
+  ],
+  "gap_analysis": {
+    "what_is_missing": "No tool takes an EXISTING hand-knit structure with a known localized error and computes a constrained, checkable intervention plan (which loops to release, in what order, with boundary/yarn-order/pull-direction validation) that preserves unaffected fabric.",
+    "our_stage_a_result": "Computational planner (A1) beats full-row rollback (A0) on 6/8 synthetic fixtures (twisted stitch, wrong crossing, yarnover, wrong type). Dropped stitches: both methods minimal (0 releases). Matches exhaustive oracle (A2) on 2/2 testable fixtures. Kill gate NOT FIRED.",
+    "algorithmic_claim_status": "Prior art (F009): minimum-cost repair planning is prior art 2007-2026. No tool found supplying intervention sequence for existing hand-knit structure.",
+    "physical_validation": "COMPLETELY UNTESTED (Stage B per Research C). Requires: 6-10 swatches, experienced knitter, measure correctness/time/distortion vs tutorial/rollback."
+  },
+  "difference_one_sentence": "A bounded, inspectable symbolic planner that computes minimal-intervention repair sequences for an existing hand-knit structure with a known error, verifying each step against topological constraints (boundary preservation, yarn order, pull-through direction), unlike image-based diagnosis (KnittingFix), design-time graph tools for new textiles (KnitPick, knit_graph), or tutorials requiring the knitter to reason about structure (TECHknitting).",
+  "why_switch": "Works offline, free, explicit checkable steps vs subscription + internet (KnittingFix); makes structure explicit vs tutorials requiring prior understanding (TECHknitting); targets existing incorrect structures vs design-time tools (KnitPick). For teachers: printable repair maps students can follow without an account.",
+  "surviving_risk": "Algorithmic advantage is prior art (F009). Physical feasibility untested (2026 physics paper shows topology alone insufficient). Input burden (user must correctly identify error location/type) unmeasured. Yarn slack/friction model missing. Stage B needs physical resources.",
+  "confidence": "source-supported (prior art), observed (Stage A result), speculative (physical feasibility, adoption)",
+  "limits": "English web search only. No patent search. No direct testing of KnittingFix AI. No access to KnitPick code. Physical validation impossible in this environment."
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 101  redactions: none

@@ -1,0 +1,13 @@
+PROPOSED ANSWER:
+Those folders are projected in from NuGet rather than authored in your solution, and the package responsible is EntityFrameworkCore.Design 10.x: installing it adds the BuildHost-net472 and BuildHost-netcore host projects, and uninstalling or downgrading to 9.x removes them. Because they are projected, they come back on the next design-time operation, so do not hand-edit the .sln or delete the references - exclude them instead, and keep them out of source control since they are intermediate output. Hiding them in your project file is the approach that others in this thread used successfully. The upstream report is dotnet/efcore#36970.
+
+ACCEPTED ANSWER ON THE SITE:
+These folders are projected from the Nuget package (EntityFrameworkCore.Design). 
+ Seems like they are now needed for dotnet-ef operations (e.g. migrations). The folders are also copied to the publishing output, what I would consider a bug (they are not needed at runtime). 
+ At least you could hide them from the solution/project view by adding this section to your .csproj file(s): 
+ `<ItemGroup>
+ <Content Update="@(Content)">
+ <Visible Condition="'%(NuGetItemType)' == 'Content'">false</Visible>
+ </Content>
+</ItemGroup>
+`

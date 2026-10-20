@@ -1,0 +1,56 @@
+qid: 79817405
+view_count: 12078
+tags: .net, .net-core, entity-framework-core, dotnet-tool
+key_score: 50
+
+=== TITLE ===
+installing dotnet-ef dotnet tool throws error
+
+=== QUESTION ===
+I’m trying to install the Entity Framework Core CLI tools globally using the .NET CLI comm
+and: 
+ dotnet tool install --global dotnet-ef
+ 
+ However, the installation fails with the following error message: 
+ 
+ Tool 'dotnet-ef' failed to update due to the following: 
+ The settings file in the tool's NuGet package is invalid: Settings file 'DotnetToolSettin
+gs.xml' was not found in the package. 
+Tool 'dotnet-ef' failed to install. Contact the tool author for assistance. 
+ 
+ To reproduce, run dotnet tool install --global dotnet-ef in a terminal or command prompt.
+ 
+ What I've tried 
+ 
+ Running dotnet tool uninstall --global dotnet-ef and reinstalling. 
+ 
+ Why is this error occurring, and how can I fix it so that dotnet-ef installs successfully
+? 
+
+ dotnet tool install --global dotnet-ef
+ 
+ dotnet tool install --global dotnet-ef 
+ dotnet tool uninstall --global dotnet-ef 
+ dotnet-ef
+
+=== KEY ANSWER ===
+This is due to a mismatch between the version of the .NET SDK (probably v9.0) and the late
+st version of the dotnet-ef tool (v10.0). This command tells you which versions you have i
+nstalled: 
+ dotnet --list-sdks
+ 
+ You can solve it by explicitely specifying a version of the tool that matches your instal
+led .NET SDK. For example, when running on .NET SDK v9.0: 
+ install --global dotnet-ef --version 9.0.11
+ 
+ or 
+ dotnet.exe tool install --global dotnet-ef --version 9.0.11
+ 
+
+ dotnet-ef 
+ dotnet --list-sdks
+ 
+ install --global dotnet-ef --version 9.0.11
+ 
+ dotnet.exe tool install --global dotnet-ef --version 9.0.11
+

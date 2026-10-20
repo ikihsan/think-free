@@ -1,0 +1,91 @@
+qid: 79672408
+view_count: 473
+tags: c++, c, linux, posix
+key_score: 7
+
+=== TITLE ===
+What&#39;s the difference between pthread_setschedparam and sched_setscheduler?
+
+=== QUESTION ===
+Suppose I want to set a thread to use a particular real time scheduling policy with a give
+n priority. From what I can tell, there are at least two functions that accomplish this. 
+ From the man pages on my system: 
+ sched_setscheduler 
+ "The sched_setscheduler() system call sets both the scheduling policy and parameters for 
+the thread whose ID is specified in pid." 
+ #include <sched.h>
+
+int sched_setscheduler(pid_t pid, int policy,
+ const struct sched_param *param);
+ 
+ pthread_setschedparam 
+ " The pthread_setschedparam() function sets the scheduling policy and parameters of the t
+hread thread ." 
+ #include <pthread.h>
+
+int pthread_setschedparam(pthread_t thread, int policy,
+ const struct sched_param *param);
+ 
+ What are the differences between these two? Is there a compelling reason to use one over 
+the other? 
+
+ sched_setscheduler() 
+ #include <sched.h>
+
+int sched_setscheduler(pid_t pid, int policy,
+ const struct sched_param *param);
+ 
+ The pthread_setschedparam() 
+ thread 
+ #include <pthread.h>
+
+int pthread_setschedparam(pthread_t thread, int policy,
+ const struct sched_param *param);
+
+=== KEY ANSWER ===
+What are the differences between these two? 
+ 
+ sched_setscheduler() is a system-call (wrapper), as we can know from the fact that it is 
+documented in section 2 of the manual, if for no other reason. On Linux, the entities sche
+duled are native threads (not processes, contrary to another answer), identified by their 
+native thread ids. These are the schedulable units. 
+ pthread_setschedparam() is an ordinary-ish userspace function belonging to the Pthreads A
+PI. The entities scheduled are pthreads, which might or might not be tightly associated wi
+th native threads. When pthreads are associated with native threads, as in modern Glibc's 
+pthreads implementation , this function relies on system interfaces such as sched_setsched
+uler() on the back end. It might or might not have additional pthreads-specific effects on
+ the front end. It expects you to identify the subject (p)thread by its pthread ID. 
+ Note well that, at least on Linux, native threads don't have to be created or managed via
+ the Pthreads API. Whether a particular pthreads implementation creates or manages native 
+threads at all is implementation-specific, though implementations that do so are overwhelm
+ingly the norm these days. * On such implementations, all pthreads are closely associated 
+with native threads, but particular native threads are not necessarily associated with pth
+reads. 
+ 
+ Is there a compelling reason to use one over the other? 
+ 
+ It is unspecified what metadata Pthreads maintains about the threads it manages, but ther
+e certainly is some. It follows that it is potentially unsafe to handle a pthreads-managed
+ native thread via interfaces that don't account for Pthreads. And of course, on a system 
+where Pthreads is not implemented on top of native threads, attempting to set scheduling p
+arameters for an individual pthread via sched_setparams() will not have the intended effec
+t. 
+ And that may be why the Linux manual page for sched_setscheduler() says, in the VERSIONS 
+section: 
+ 
+ If you are using the POSIX threads API, then use pthread_setschedparam(3),
+pthread_getschedparam(3), and pthread_setschedprio(3), instead of the sched_*(2) system ca
+lls. 
+ 
+ I don't know whether you would consider that compelling , but it doesn't seem like you ne
+ed to be compelled so much as advised: listen to the manual. If you're using pthreads, the
+n do not bypass its interfaces to the scheduler. 
+ 
+ * Consider the LinuxThreads implementation of Pthreads. 
+
+ sched_setscheduler() 
+ pthread_setschedparam() 
+ sched_setscheduler() 
+ sched_setparams() 
+ sched_setscheduler()
+

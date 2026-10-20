@@ -1,0 +1,26 @@
+qid: 79363302
+view_count: 17834
+tags: vs-code, svg
+key_score: 120
+
+=== TITLE ===
+How to disable svg preview in VS Code 1.97+
+
+=== QUESTION ===
+SVGs have begun to open as image previews, which I do not need, I would like to view them 
+as HTML text. 
+ 
+ I do not know how this has happened. I haven't made any changes to my VS Code, I haven't 
+installed any extensions recently and the day before yesterday this working was fine.
+
+=== KEY ANSWER ===
+It's a new feature for last version . 
+ Go to settings, search for workbench.editorAssociations and add item with key *.svg and v
+alue default 
+ 
+ I found this solution on Reddit . 
+
+ workbench.editorAssociations 
+ *.svg 
+ default
+

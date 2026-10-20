@@ -1,0 +1,304 @@
+qid: 79786682
+view_count: 587
+tags: rust, lifetime, memory-optimization
+key_score: 15
+
+=== TITLE ===
+Share buffer during a loop
+
+=== QUESTION ===
+Just stumble across Why we didn't rewrite our feed handler in Rust from databento 
+ And they say they cannot share a buffer during a loop. What would be the rust way to fix 
+this without making copies of data? I made a minimal example 
+ struct Source {
+ id: usize,
+ data: Vec<u8>,
+}
+
+impl Source {
+ fn fetch_data(&self) -> Vec<u8> {
+ println!("Fetching data from source {}", self.id);
+ self.data.clone()
+ }
+}
+
+const SPLITTER: u8 = b',';
+
+fn process_data(chunks: &[&[u8]]) {
+ println!("Processing {} chunks:", chunks.len());
+ for (i, chunk) in chunks.iter().enumerate() {
+ println!(" Chunk {}: {:?}", i, String::from_utf8_lossy(chunk));
+ }
+}
+
+fn process_sources(sources: Vec<Source>) {
+ let mut buffer: Vec<&[u8]> = Vec::new(); // allocate once
+
+ for source in sources {
+ let data: Vec<u8> = source.fetch_data();
+ buffer.extend(data.split(|b| *b == SPLITTER));
+ process_data(&buffer);
+ buffer.clear();
+ }
+}
+
+fn main() {
+ let sources = vec![
+ Source {
+ id: 1,
+ data: b"hello,world,this,is,source1".to_vec(),
+ },
+ Source {
+ id: 2,
+ data: b"foo,bar,baz".to_vec(),
+ },
+
+ ];
+
+ process_sources(sources);
+}
+ 
+ The error is: 
+ error[E0597]: `data` does not live long enough
+ --> src/main.rs:27:23
+ |
+ | let data: Vec<u8> = source.fetch_data();
+ | ---- binding `data` declared here
+ | buffer.extend(data.split(|b| *b == SPLITTER));
+ | ------ ^^^^ borrowed value does not live long enough
+ | |
+ | borrow later used here
+...
+ | }
+ | - `data` dropped here while still borrowed
+ 
+
+ struct Source {
+ id: usize,
+ data: Vec<u8>,
+}
+
+impl Source {
+ fn fetch_data(&self) -> Vec<u8> {
+ println!("Fetching data from source {}", self.id);
+ self.data.clone()
+ }
+}
+
+const SPLITTER: u8 = b',';
+
+fn process_data(chunks: &[&[u8]]) {
+ println!("Processing {} chunks:", chunks.len());
+ for (i, chunk) in chunks.iter().enumerate() {
+ println!(" Chunk {}: {:?}", i, String::from_utf8_lossy(chunk));
+ }
+}
+
+fn process_sources(sources: Vec<Source>) {
+ let mut buffer: Vec<&[u8]> = Vec::new(); // allocate once
+
+ for source in sources {
+ let data: Vec<u8> = source.fetch_data();
+ buffer.extend(data.split(|b| *b == SPLITTER));
+ process_data(&buffer);
+ buffer.clear();
+ }
+}
+
+fn main() {
+ let sources = vec![
+ Source {
+ id: 1,
+ data: b"hello,world,this,is,source1".to_vec(),
+ },
+ Source {
+ id: 2,
+ data: b"foo,bar,baz".to_vec(),
+ },
+
+ ];
+
+ process_sources(sources);
+}
+ 
+ error[E0597]: `data` does not live long enough
+ --> src/main.rs:27:23
+ |
+ | let data: Vec<u8> = source.fetch_data();
+ | ---- binding `data` declared here
+ | buffer.extend(data.split(|b| *b == SPLITTER));
+ | ------ ^^^^ borrowed value does not live long enough
+ | |
+ | borrow later used here
+...
+ | }
+ | - `data` dropped here while still borrowed
+
+=== KEY ANSWER ===
+The most idiomatic would be to avoid the allocation altogether: 
+ fn process_data<'a, C>(chunks: C)
+where
+ C: IntoIterator<Item = &'a [u8]>,
+{
+ let mut n = 0;
+ for (i, chunk) in chunks.into_iter().enumerate() {
+ println!(" Chunk {}: {:?}", i, String::from_utf8_lossy(chunk));
+ n += 1;
+ }
+ println!("Processed {n} chunks.");
+}
+
+fn process_sources(sources: Vec<Source>) {
+ for source in sources {
+ let data: Vec<u8> = source.fetch_data();
+ process_data(data.split(|b| *b == SPLITTER));
+ }
+}
+ 
+ This doesn't allocate for the chunks at all and avoids looping over the chunks twice but 
+doesn't let us know ahead of time how many chunks there are in total. 
+ 
+ You can also convince the borrow checker that what you're doing is ok. The unsafe escape 
+hatch is there to be used when necessary. Here it is additionaly wrapped in a safe wrapper
+ which doesn't let you accidentially leak a reference like if you used data.split(…).map(|
+x| unsafe { &*(x as *const _) }) directly: 
+ use buffer::Buffer;
+mod buffer {
+ pub struct Buffer<'pseudo, T: ?Sized> {
+ data: Vec<&'pseudo T>,
+ }
+
+ impl<'pseudo, T: ?Sized> Buffer<'pseudo, T> {
+ pub fn new() -> Self {
+ Self { data: Vec::new() }
+ }
+ pub fn set<'a>(
+ &'a mut self,
+ items: impl IntoIterator<Item = &'a T>,
+ ) -> impl std::ops::Deref<Target = [&'a T]>
+ where
+ T: 'a,
+ 'pseudo: 'a,
+ {
+ // make sure there are no remaining items with a different actual lifetime in the buffer
+ self.data.clear();
+ self.data.extend(items.into_iter().map(|x| {
+ // SAFETY:
+ // - `BufferView` only hands out references with the correct lifetime `'a`
+ // - `BufferView` is the only way to retrieve such a reference
+ // - We `clear` our internal buffer so we cannot possibly have
+ // items with two different lifetimes in the buffer at the same time
+ unsafe { &*(x as *const _) }
+ }));
+ BufferView {
+ buffer: self,
+ }
+ }
+ }
+
+ struct BufferView<'a, 'pseudo, T: ?Sized> {
+ buffer: &'a mut Buffer<'pseudo, T>,
+ }
+
+ impl<'a, 'pseudo, T: ?Sized> std::ops::Deref for BufferView<'a, 'pseudo, T>
+ where
+ T: 'a,
+ 'pseudo: 'a,
+ {
+ type Target = [&'a T];
+ fn deref(&self) -> &[&'a T] {
+ &self.buffer.data
+ }
+ }
+}
+
+fn process_sources(sources: Vec<Source>) {
+ let mut buffer = Buffer::new(); // allocate O(log(max(n))) times
+ for source in sources {
+ let data: Vec<u8> = source.fetch_data();
+ let buffer = buffer.set(data.split(|b| *b == SPLITTER));
+ process_data(&buffer);
+ }
+}
+ 
+
+ fn process_data<'a, C>(chunks: C)
+where
+ C: IntoIterator<Item = &'a [u8]>,
+{
+ let mut n = 0;
+ for (i, chunk) in chunks.into_iter().enumerate() {
+ println!(" Chunk {}: {:?}", i, String::from_utf8_lossy(chunk));
+ n += 1;
+ }
+ println!("Processed {n} chunks.");
+}
+
+fn process_sources(sources: Vec<Source>) {
+ for source in sources {
+ let data: Vec<u8> = source.fetch_data();
+ process_data(data.split(|b| *b == SPLITTER));
+ }
+}
+ 
+ unsafe 
+ data.split(…).map(|x| unsafe { &*(x as *const _) }) 
+ use buffer::Buffer;
+mod buffer {
+ pub struct Buffer<'pseudo, T: ?Sized> {
+ data: Vec<&'pseudo T>,
+ }
+
+ impl<'pseudo, T: ?Sized> Buffer<'pseudo, T> {
+ pub fn new() -> Self {
+ Self { data: Vec::new() }
+ }
+ pub fn set<'a>(
+ &'a mut self,
+ items: impl IntoIterator<Item = &'a T>,
+ ) -> impl std::ops::Deref<Target = [&'a T]>
+ where
+ T: 'a,
+ 'pseudo: 'a,
+ {
+ // make sure there are no remaining items with a different actual lifetime in the buffer
+ self.data.clear();
+ self.data.extend(items.into_iter().map(|x| {
+ // SAFETY:
+ // - `BufferView` only hands out references with the correct lifetime `'a`
+ // - `BufferView` is the only way to retrieve such a reference
+ // - We `clear` our internal buffer so we cannot possibly have
+ // items with two different lifetimes in the buffer at the same time
+ unsafe { &*(x as *const _) }
+ }));
+ BufferView {
+ buffer: self,
+ }
+ }
+ }
+
+ struct BufferView<'a, 'pseudo, T: ?Sized> {
+ buffer: &'a mut Buffer<'pseudo, T>,
+ }
+
+ impl<'a, 'pseudo, T: ?Sized> std::ops::Deref for BufferView<'a, 'pseudo, T>
+ where
+ T: 'a,
+ 'pseudo: 'a,
+ {
+ type Target = [&'a T];
+ fn deref(&self) -> &[&'a T] {
+ &self.buffer.data
+ }
+ }
+}
+
+fn process_sources(sources: Vec<Source>) {
+ let mut buffer = Buffer::new(); // allocate O(log(max(n))) times
+ for source in sources {
+ let data: Vec<u8> = source.fetch_data();
+ let buffer = buffer.set(data.split(|b| *b == SPLITTER));
+ process_data(&buffer);
+ }
+}
+

@@ -1,0 +1,25 @@
+TITLE: Error importing langchain modules: No module named &#39;langchain.chains&#39;
+TAGS: python,langchain,modulenotfounderror
+QUESTION AS POSTED:
+I am trying to code a FastAPI RAG application with Google Cloud and Vertex AI with python3.12 using the LangChain library. 
+ However, when I try to import the LangChain library into my project, I keep receiving the same error repeatedly: 
+ 
+ from langchain.chains import create_retrieval_chain 
+ ModuleNotFoundError: No module named 'langchain.chains' 
+ 
+ Here is my import code: 
+ `from langchain.chains import create_retrieval_chain
+` 
+ Here are the LangChain libraries I have installed: 
+ `langchain==1.0.5 
+langchain-community==0.4.1 
+langchain-text-splitters==1.0.0 
+langchain-google-vertexai==3.0.3 
+` 
+ I installed the requirements in a virtual enviroment using `uv` and also tried using Python `venv` .
+
+COMMENTS ON THE QUESTION, in order:
+(none)
+
+COMMENTS ON THE ANSWER THAT WAS ACCEPTED, in order (the accepted answer itself is NOT shown to you):
+- [Nurzhan Amantay] i have installed langchain with version 1.3.0, chatgpt can not fix my problem, so after this post by using langchain_classic instead of langchain it fixed. Thanks a lot

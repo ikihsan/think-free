@@ -215,3 +215,83 @@ so that split is a task.
    vocabularies, and the demand corpus is one-off requests. **Ceiling:** this item
    names where invention work goes; it does not make invention happen, and with
    both generators closed it names an empty seat rather than a queue.
+
+## Moved here 2026-10-19 — the two money-axis screens that preceded E196
+
+Both are closed and both are kept in full because a later session reading
+E196 needs to know what the keyword form was replaced by and why the
+ground-truth-quality line stopped.
+
+## E193/E194 + F142/D121/D122 completed (2026-10-19) — the money axis is opened, and the prototype-shaped gate is retired as a screen
+
+**What was tested.** Two things, in this order. E193 probed ten candidate sources
+for a *price* signal with four controls; E194 then scanned twelve pre-declared
+recurring household jobs against the one that answered. F142 recovered why the
+record had no money evidence at all: **twelve of seventeen sessions on 2026-10-18
+captured zero commands and declared zero artifacts**, six of them planner-shaped
+Stage-A gates of which four reported a pass, none touching a price or a user.
+
+**The result.** Every price-bearing marketplace is **hard-blocked from this
+host** — Etsy, eBay and Reddit `403`, DuckDuckGo `202`, Census key-gated — while
+the iTunes Search API answers. E194's twelve jobs hold **286 on-topic apps and 6
+paid (2.1%)**; nine jobs have no paid app at all; the single high-demand paid row
+is **`TurboScan™ Pro`, a PDF scanner matching the word *receipt***. G2 fired in both
+panels (the API returns ~4 junk free apps for a nonsense term), so this is
+**descriptive, not a gate result**. F142's structural finding is the harder one:
+a gate whose population, baseline and oracle share an author **cannot fire on
+anything outside the model**.
+
+**What this decides.** **D121** retires the Stage-A computational gate as a
+candidate screen: no prototype-shaped candidate is written until its protocol
+names one measurement taken from outside the session that invents it.
+**D122** routes the money axis through **spend** — USAspending contract amounts
+and Comtrade trade values, both `200` from this host, neither ever used here —
+because price is not reachable.
+
+**Do not run:** another consumer app-store scan as a prevalence estimate (fifteen
+hand-declared terms bound nothing outside themselves); a re-run of any 2026-10-18
+planner; a Stage A for the knitting candidate (closed by F009 on 2026-10-03).
+
+**Named next action.** Measure what an organisation **already pays for** in a
+domain where a program could displace a metered unit, and let that measurement
+screen candidates. **E195 has already run this probe: USAspending answers from
+this host with no key and returns award rows carrying amounts and descriptions,
+so the axis is open.** G3 failed on two terms — `knitting` returned **$3.58M of
+combat uniforms**, `laundry` $112,839 of base laundry service — which earns the
+rule that a spend screen must **read the descriptions on the rows it sums**. Next:
+a declared scan addressed by **product and service code (PSC/NAICS)** rather than
+by keyword, because the keyword form is closed as declared, and re-running it with
+the same words is exactly the repair this record keeps refusing. Every total must
+be reported beside its industry distribution.
+
+> **READ FIRST (2026-10-12).** The view-count domain sweep is **STOPPED**
+> (E113, F116, D105). E113's matched-harvest control of E107 showed the
+> effect is a harvest artifact (δ 0.826 → 0.075, stratified p=0.183) and the
+> shared classifier labels only 28% of a representative pool. Every
+> "ALL GATES PASS" below that came from this line is **`untested` on a matched
+> harvest, not confirmed**. Do not run another registry sweep. See
+> [`EXPERIMENTS/113-viewcount-matched-harvest/`](EXPERIMENTS/113-viewcount-matched-harvest/README.md).
+
+## E183/E184 completed (2026-10-18) — the ground-truth-quality axis closes; the three signals are redundant
+
+**What was tested.** Whether vote margin, corroboration count, and residualised
+prescriptive divergence carry answer-quality information a known Stack Overflow
+quality predictor does not already carry. E183's prior-art check found the area
+established (6+ papers, 2015-2022, text + metadata features; vote-based features
+standard). E184 tested whether the three signals add predictive power.
+
+**The result.** 200 questions, 7,822 answer rows, logistic regression, 5-fold CV.
+**Baseline AUC 0.9986, treatment AUC 0.9986, delta −0.0000.** The baseline
+includes `answer_score` — the defining characteristic of the top-voted answer —
+so the model trivially identifies it, and the three signals add **zero**
+predictive power.
+
+**What this decides.** The ground-truth-quality axis, as a product filtering
+Stack Overflow answers for training/evaluation corpora, **does not clear the
+screen**.
+
+**Do not run:** another variant with the same label (is top-voted); the result
+is definitive. **Named next action — taken 2026-10-19 as E193/E194:** return to
+fresh exploration, on an axis with no money evidence in it at all.
+
+[`RESULT.md`](EXPERIMENTS/183-prior-art-ground-truth-quality/RESULT.md).

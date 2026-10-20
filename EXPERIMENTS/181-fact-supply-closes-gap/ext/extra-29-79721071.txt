@@ -1,0 +1,20 @@
+TITLE: Log file filled with attributionTag not declared in manifest
+TAGS: android,android-manifest
+QUESTION AS POSTED:
+I've just noted that my logfile is filled with many entries 
+ 2025-07-31 10:56:31.326 1709-5052 AppOps system_server E attributionTag not declared in manifest of XXXX 
+ 2025-07-31 10:56:31.327 1709-2137 AppOps system_server E attributionTag not declared in manifest of XXXXX 
+ I assume it is related to using the media player in my application and maybe it is related to Android 16 because I didn't see it in the past. 
+ I don't undestand where this error comes from and I'm not using any tag like "attribution" in my manifest. 
+ Using the media player is like: 
+ `mediaPlayer = MediaPlayer.create(context, alarmResourceId)
+` 
+ where alarmResourceId points to an ogg-file part of the resources under the raw directory. 
+ I would like to know what I have to specify in my manifest to get rid of this error message.
+
+COMMENTS ON THE QUESTION, in order:
+- [parohy] Did you figure it out? I am getting this error when using AudioTrack and it makes the playback laggy.
+- [de11833] The problem has disappeared. Maybe has been solved because I've update some packages, but I don't know the exact reason.
+
+COMMENTS ON THE ANSWER THAT WAS ACCEPTED, in order (the accepted answer itself is NOT shown to you):
+- [artman] Adding empty string tag helped. I am using android.media.AudioTrack

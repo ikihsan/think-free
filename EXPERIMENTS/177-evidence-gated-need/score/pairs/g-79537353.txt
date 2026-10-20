@@ -1,0 +1,193 @@
+pid: g-79537353
+
+=== LEFT ===
+Your model is missing one category: an expression evaluates either to a value (rvalue) or 
+to an lvalue, which designates an object. a as an lvalue designates a; the read that turns
+ it into 5 is the lvalue-to-rvalue conversion. Similarly *(ptr+1) is an lvalue designating
+ arr[1]. Evaluating it produces the designation, not a value, and that is the only thing a
+ssignment's left operand needs: it must know which object to store into. For a simple vari
+able the designation is implicit; for *(ptr+1) you must evaluate to get the address, so &*
+(ptr+1) == ptr+1. In your notation, evaluation yields either a value or a designation, and
+ assignment converts the LHS designation into a location plus a store, with the result bei
+ng the stored value.
+
+=== RIGHT ===
+Consider how you would execute a = 3+4 . It is easy to compute the value of 3+4 ; you simp
+ly add 3 and 4, producing 7. Then you store 7 in a . How do you do that? You must figure o
+ut where a is. That is, you must determine which memory has been reserved for a . Evaluati
+ng the left side of an = operation determines where the value is to be stored. 
+ C 2024 6.5.1 tells us: 
+ 
+ An expression is a sequence of operators and operands that specifies computation of a val
+ue, or that designates an object or a function, or that generates side effects, or that pe
+rforms a combination thereof. 
+ 
+ Note that a “sequence” of operators and operands includes trivial sequences that are just
+ a single operand. In the declaration char c[4]; , there is just one expression, 4 . It sp
+ecifies the value 4. 
+ The sequence 3 + 4 specifies computation of the sum of the operands 3 and 4 , each of whi
+ch is also an expression. 
+ a designates an object, and main designates a function. 
+ a = 3 generates the side effect of storing 3 in a (and also computes the value 3). 
+ In *(ptr + 1) = *ptr , the left side is evaluated: 
+ 
+ * is an operator. Its operand (ptr + 1) must be evaluated:
+ 
+ ( … ) is an operator with operand ptr + 1 . ( … ) merely evaluates its operand, produce t
+he operand’s value as its result:
+ 
+ + is an operator with operands ptr and 1 :
+ 
+ ptr designates an object. Evaluating it produces the value in that object. (See “Lvalue c
+onversion” below.) 
+ 1 specifies the value 1. 
+ 
+ 
+ The + is completed by adding the value of ptr and 1. This arithmetic is done in units of 
+the pointed-to type, int , so it produces the address of the int one beyond where ptr poin
+ts. 
+ 
+ 
+ ( … ) is completed by producing the result of the + . 
+ 
+ 
+ * is completed by producing the lvalue corresponding to the computed address. 
+ 
+ Thus, the result of *(ptr + 1) in *(ptr + 1) = *ptr is an lvalue for one beyond where ptr
+ points. ptr points to the first element of arr , so *(ptr + 1) is an lvalue for arr[1] . 
+ That is how the left side of the assignment is computed (in the abstract machine describe
+d by the C standard). 
+ Then *(ptr + 1) = *ptr stores the value of *ptr in arr[1] . 
+ Lvalue conversion 
+ Above, we saw that evaluation of ptr produced the value in ptr , but that did not happen 
+for the lvalue *(ptr + 1) ; it was used to store a value instead. This is because of a gen
+eral rule of expression evaluation in C 2024 6.3.3.1: 
+ 
+ Except when it is the operand of the sizeof operator, or the typeof operators, the unary 
+& operator, the ++ operator, the -- operator, or the left operand of the . operator or an 
+assignment operator, an lvalue that does not have array type is converted to the value sto
+red in the designated object (and is no longer an lvalue); this is called lvalue conversio
+n . 
+ 
+ The ptr in ptr + 1 is not the operand of sizeof , a typeof operator, unary & , ++ , or --
+ , and it is not the left operand of . or an assignment operator. So it is “converted” to 
+the value stored in ptr . This conversion is performed by loading the value from the memor
+y reserved for ptr (in the abstract machine). 
+ *(ptr + 1) is the left operand of = , so it is not converted. It remains an lvalue, and t
+he rules for = in C 2024 6.5.17.1 say it is used to store the value of the right operand: 
+ 
+ An assignment operator stores a value in the object designated by the left operand. 
+ 
+ Array conversion 
+ Notice that in int *ptr = arr; , ptr is initialized with the address of the first element
+ in arr , not with the value of arr . This is because lvalue conversion does not happen fo
+r arrays. Instead, a different rule applies: 
+ 
+ Except when it is the operand of the sizeof operator, or typeof operators, or the unary &
+ operator, or is a string literal used to initialize an array, an expression that has type
+ “array of type ” is converted to an expression with type “pointer to type ” that points t
+o the initial element of the array object and is not an lvalue. 
+ 
+ Supplement 
+ The term lvalue refers to its historic place on the left side of an assignment. In x = y 
+, x and y are both variables, but they are used very different. For y , the value recorded
+ in the variable is retrieved from memory. For x , the value is stored in the variable. Th
+e term lvalue refers to an expression that may designate an object, so it can appear on th
+e left side of an assignment. Whether the object’s value is read or written depends on how
+ the lvalue is used in an expression. 
+ If we ignore optimization, a compiler that is slavishly following the abstract model perf
+orms largely the same work for an address and an lvalue. ptr + 1 is the address of arr[1] 
+. *(ptr + 1) is an lvalue for arr[1] . Having an lvalue means we have what we need to acce
+ss the object, which means we know its address. The data the program has for ptr + 1 is th
+e same as the data it has for *(ptr + 1) ; it is the address of arr[1] . The difference be
+tween them is the type of the expression and other metadata the compiler has about them. p
+tr + 1 has type int * and is not an lvalue. *(ptr + 1) has type int and is an lvalue. The 
+type of an expression and the fact of whether it is an lvalue or not tell the compiler how
+ to treat the expression. 
+
+ a = 3+4 
+ 3+4 
+ a 
+ a 
+ a 
+ = 
+ char c[4]; 
+ 4 
+ 3 + 4 
+ 3 
+ 4 
+ a 
+ main 
+ a = 3 
+ a 
+ *(ptr + 1) = *ptr 
+ * 
+ (ptr + 1) 
+ ( … ) 
+ ptr + 1 
+ ( … ) 
+ + 
+ ptr 
+ 1 
+ ptr 
+ 1 
+ + 
+ ptr 
+ int 
+ int 
+ ptr 
+ ( … ) 
+ + 
+ * 
+ *(ptr + 1) 
+ *(ptr + 1) = *ptr 
+ ptr 
+ ptr 
+ arr 
+ *(ptr + 1) 
+ arr[1] 
+ *(ptr + 1) = *ptr 
+ *ptr 
+ arr[1] 
+ ptr 
+ ptr 
+ *(ptr + 1) 
+ sizeof 
+ & 
+ ++ 
+ -- 
+ . 
+ ptr 
+ ptr + 1 
+ sizeof 
+ & 
+ ++ 
+ -- 
+ . 
+ ptr 
+ ptr 
+ *(ptr + 1) 
+ = 
+ = 
+ int *ptr = arr; 
+ ptr 
+ arr 
+ arr 
+ sizeof 
+ & 
+ x = y 
+ x 
+ y 
+ y 
+ x 
+ ptr + 1 
+ arr[1] 
+ *(ptr + 1) 
+ arr[1] 
+ ptr + 1 
+ *(ptr + 1) 
+ arr[1] 
+ ptr + 1 
+ int * 
+ *(ptr + 1) 
+ int

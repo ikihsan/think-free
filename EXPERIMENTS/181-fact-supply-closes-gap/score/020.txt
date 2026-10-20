@@ -1,0 +1,6 @@
+PROPOSED ANSWER:
+What is left is the APK-level flag, not the library warning, and your own check already ruled the libraries out. Two things from this thread decide it. The warning appears only in the apk - an app bundle from the same project is clean - so verify the bundle and ship the .aab. And it is not always reproducible: some report that debug has no warnings while devRelease or rc does, and that the analyser can show an empty list of offending .so files while Play still flags the upload. So check every variant, and if the store still flags it after a bundle upload, the check_elf_alignment.sh script will tell you whether the libs themselves are the problem. The archive also mentions Play's own guidance about which AGP versions support 16 KB pages, which is worth reading before you spend more time on it.
+
+ACCEPTED ANSWER ON THE SITE:
+This might be a bug due to compressed libraries in Android Studio which was fixed with Android Studio Narwhal Feature Drop | 2025.1.3 Canary 2. See https://issuetracker.google.com/issues/431119350 for more information. 
+ As others mentioned, however, don't forget to zipalign your apk. Read more here: https://developer.android.com/tools/zipalign and

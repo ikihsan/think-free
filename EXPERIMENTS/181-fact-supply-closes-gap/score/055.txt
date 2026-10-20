@@ -1,0 +1,16 @@
+PROPOSED ANSWER:
+This reproduces on 26.3 with Xcode 26.2 as well, so it is a live regression in the new menu presentation path rather than something your two point releases introduced. The _UIReparentingView warning is logged by UIKit when the hosting controller's view gains a reparenting view, which that path does internally - your MRE is not at fault, and other people report the same. The advice in the answer does solve the glitch for most: replace the Menu, or restructure so the presentation has a single owner. Two things to keep in mind. If you see Called -[UIContextMenuInteraction updateVisibleMenuWithBlock:] while no context menu is visible afterwards, that is explicitly a no-op warning and does nothing. And verify on a real device before declaring it fixed, because the animation glitch is not reliably reproduced in the simulator.
+
+ACCEPTED ANSWER ON THE SITE:
+In my case, I was getting the same warning and animation glitch when a `Menu` was inside a `GlassEffectContainer` with `.buttonStyle(.glass)` and . `glassEffectUnion()` . 
+ Adding `.compositingGroup()` before the button style fixed it: 
+ `Menu {
+ // menu content...
+} label: {
+ Image(systemName: "ellipsis")
+}
+.compositingGroup() // fixes _UIReparentingView warning
+.buttonStyle(.glass)
+` 
+ The `.compositingGroup()` creates a rendering boundary that isolates the `Menu` from parent effects, preventing the UIKit view hierarchy conflict when the menu presents. 
+ Even if you're not using glass effects, `.compositingGroup()` on its own might still resolve your issue since it seems to be a general SwiftUI/Menu bug in iOS 26 related to how `Menu` 's UIKit presentation interacts with the view hierarchy.

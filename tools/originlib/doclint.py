@@ -6,7 +6,8 @@ Rules, in the order they are reported:
 2. `origin-meta` block on every Markdown file
 3. relative links must resolve, and inside this repository (rule extended in
    T-0051 after a link that escaped the root was judged by what sat above the
-   checkout; D041, defect 19 in `STATE-defects.md`)
+   checkout; D041, defect 19 in `STATE-defects.md`. The rule itself now lives in
+   `doclint_links`, and it skips files `vendor/MANIFEST.md` declares exempt)
 4. a hand-authored document contains no table row twice (rule added in T-0052
    after commit `eff1126` reached the shared base carrying a byte-identical
    second copy of a `STATE.md` dashboard row, one per VM, with every gate green;
@@ -23,12 +24,14 @@ Rules, in the order they are reported:
    claimed 113/113 checked cases for an artifact whose `cases_with_oracle` is 115;
    defect 22 in `STATE-defects.md`)
 
-Rules 1–4 decide from one file and live here; rules 5–9 decide from the
-repository as a whole and live in `doclint_tree`, split out on 2026-10-04
-(T-0040) when this module reached 299 of the 300 permitted lines. Which side a
-rule is on tells you what it may read, and therefore whether it can be run on
-its own — a property that matters here, because a rule reading the wrong thing
-is the recorded cause of defect 10.
+Rules 1–4 decide from one file; rules 5–9 decide from the repository as a whole
+and live in `doclint_tree`, split out on 2026-10-04 (T-0040) when this module
+reached 299 of the 300 permitted lines. Two of the one-file rules have since
+moved out for the same reason and are documented at their new homes: rule 3 in
+`doclint_links` (2026-10-14, at 312 lines) and rule 4 in `doclint_table`
+(2026-10-04, T-0052). Which side a rule is on tells you what it may read, and
+therefore whether it can be run on its own — a property that matters here,
+because a rule reading the wrong thing is the recorded cause of defect 10.
 
 Every violation is a `finding.Finding`: the text this linter has always printed,
 plus the file and line the rule that found it knows. The location is what
@@ -206,70 +209,6 @@ def check_meta(result: Result, files: list[Path], globs: list[str]) -> None:
             )
 
 
-def _links(text: str) -> list[tuple[str, int]]:
-    """Markdown links outside fenced code blocks, with the line each is on."""
-    found: list[tuple[str, int]] = []
-    fenced = False
-    for number, line in enumerate(text.splitlines(), start=1):
-        if FENCE.match(line):
-            fenced = not fenced
-            continue
-        if fenced:
-            continue
-        found.extend((target, number) for target in LINK.findall(line))
-    return found
-
-
-def _inside_repository(candidate: Path, base: Path) -> bool:
-    """Whether `candidate` names a path inside the repository, decided lexically.
-
-    `os.path.relpath` is the right tool because it never touches the filesystem:
-    containment is a question about the link and the root, and a question answered
-    by `Path.resolve()` would follow symlinks and read the disk again, which is
-    the property D041 exists to remove. A `ValueError` means the two paths share
-    no root at all (a different drive on Windows), which is the same answer.
-    """
-    try:
-        relative = os.path.relpath(str(candidate), str(base))
-    except ValueError:
-        return False
-    return relative != os.pardir and not relative.startswith(os.pardir + os.sep)
-
-
-def check_links(result: Result, files: list[Path]) -> None:
-    """Rule 3: a relative link resolves, and resolves to a document of this repository.
-
-    The existence check is the only filesystem read, and it is asked of a path
-    that has already been shown to be inside the repository. Before T-0051 the
-    candidates were tested for existence wherever they landed, so a link written
-    as `../../docs/x.md` from `tasks/` was decided by whether the *checkout's
-    parent directory* held `docs/x.md` — a green lint in `.worktrees/<name>/` and
-    a red one in the main checkout, from identical bytes (D041, defect 19).
-    """
-    base = paths.repo_root()
-    for path in files:
-        if path.suffix != ".md":
-            continue
-        rel = path.relative_to(base).as_posix()
-        text = path.read_text(encoding="utf-8", errors="replace")
-        for target, line in _links(text):
-            if target.startswith(("http://", "https://", "mailto:", "#")):
-                continue
-            clean = target.split("#", 1)[0]
-            if not clean:
-                continue
-            candidates = [(path.parent / clean), (base / clean)]
-            inside = [one for one in candidates if _inside_repository(one, base)]
-            if not inside:
-                result.violations.append(
-                    Finding.at(rel, f"link leaves the repository -> {target}", line)
-                )
-            elif not any(one.exists() for one in inside):
-                result.violations.append(
-                    Finding.at(rel, f"broken link -> {target}", line)
-                )
-
-
 def check_table_rows(result: Result, files: list[Path]) -> None:
     """Rule 4: a hand-authored document does not contain the same table row twice.
 
@@ -283,14 +222,14 @@ def check_table_rows(result: Result, files: list[Path]) -> None:
 
 
 def lint(root: Path | None = None) -> Result:
-    from . import doclint_tree
+    from . import doclint_links, doclint_tree
 
     files = tracked_files(root)
     result = Result(checked=len(files))
     globs = declared_exemptions()
     check_line_cap(result, files, globs)
     check_meta(result, files, globs)
-    check_links(result, files)
+    doclint_links.check_links(result, files, globs)
     check_table_rows(result, files)
     doclint_tree.check_orphans(result, files, globs)
     doclint_tree.check_generated(result)

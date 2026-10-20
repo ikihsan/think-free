@@ -1,0 +1,31 @@
+qid: 79775796
+view_count: 27416
+tags: typescript, next.js, tailwind-css
+key_score: 166
+
+=== TITLE ===
+Next.js: &quot;Cannot find module or type declarations for side-effect import of &#39;./gl
+obals.css&#39;&quot; ts(2882)
+
+=== QUESTION ===
+I just created a Next.js project using npx create-next-app . 
+ Today, I opened my Next.js projects in VS Code and all of the .css imports suddenly start
+ showing this error: 
+ 
+ Cannot find module or type declarations for side-effect import of './globals.css' ts(2882
+) 
+ 
+ This happens even on newly created Next.js projects. 
+ I did not update any code or dependencies manually before this issue started. I also trie
+d downgrading TypeScript, but the error persists. 
+ Why is this error suddenly happening, and how can I fix it? 
+
+ npx create-next-app
+
+=== KEY ANSWER ===
+Open any .tsx file. Press Ctrl + Shift + p and type: TypeScript: Select TypeScript version
+ After that, select workspace version. It will search your node_modules for your lib and s
+elect it. The error will disappear. 
+ 
+ - Guilherme on Sep 29 at 23:47
+

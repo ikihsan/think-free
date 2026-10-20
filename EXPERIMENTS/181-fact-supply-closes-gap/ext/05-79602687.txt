@@ -1,0 +1,90 @@
+TITLE: React Native Expo + Firebase Auth: “Component auth has not been registered yet” on app launch
+TAGS: javascript,firebase,react-native
+QUESTION AS POSTED:
+I’m building an Expo (SDK 53) React Native app with Firebase Authentication and I keep getting this error on startup: 
+ `[runtime not ready]: Error: Component auth has not been registered yet, js engine: hermes
+` 
+ I’ve tried many variations—renaming files, moving imports, clearing caches, but nothing seems to work. I suspect the native entry point isn’t wired up correctly. Below is a minimal reproduction of my setup. 
+ package.json 
+ `{
+ "main": "index.js",
+ "scripts": {
+ "start": "expo start --dev-client",
+ …
+ },
+ "dependencies": {
+ "expo": "~53.0.5",
+ "firebase": "^11.6.1",
+ "@react-native-async-storage/async-storage": "^1.24.0",
+ "react-native-gesture-handler": "^2.25.0",
+ "react-native-safe-area-context": "^5.4.0",
+ "@react-navigation/native": "^7.1.6",
+ "@react-navigation/native-stack": "^7.3.10",
+ …
+ }
+}
+` 
+ firebase.js 
+ `import AsyncStorage from "@react-native-async-storage/async-storage";
+import { initializeApp } from "firebase/app";
+import { getReactNativePersistence, initializeAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseConfig = {
+ /* my config… */
+};
+
+const app = initializeApp(firebaseConfig);
+export const auth = initializeAuth(app, {
+ persistence: getReactNativePersistence(AsyncStorage),
+});
+export const db = getFirestore(app);
+` 
+ AuthContext.js 
+ `import { onAuthStateChanged } from "firebase/auth";
+import React, { createContext, useEffect, useState } from "react";
+import { auth } from "../services/firebase";
+
+export const AuthContext = createContext({});
+
+export function AuthProvider({ children }) {
+ const [user, setUser] = useState(null);
+ const [loading, setLoading] = useState(true);
+
+ useEffect(() => {
+ const unsub = onAuthStateChanged(auth, u => {
+ setUser(u);
+ setLoading(false);
+ });
+ return unsub;
+ }, []);
+
+ return (
+ <AuthContext.Provider value={{ user, loading, setUser }}>
+ {children}
+ </AuthContext.Provider>
+ );
+}
+` 
+ What I’ve tried 
+ 
+ Clearing Metro cache (expo start -c) 
+ Renaming firebase.js → firebase.client.js 
+ Moving initializeAuth into different modules 
+ Ensuring index.js is present and pointed in package.json 
+ Deleting node_modules, reinstalling 
+ 
+ Nothing fixes it. The native console still complains that it can’t find a registered component named “auth.” I’m not explicitly calling `AppRegistry.registerComponent('auth', …)` , so it looks like Expo/Metro is picking up something strange.
+
+COMMENTS ON THE QUESTION, in order:
+- [Nxele] I am getting the same error message. Still navigating the web for a solution. To me this happened after I installed firebase@latest on a newly created expo 53 prooject. I followed expo instructions @ docs.expo.dev/guides/using-firebase
+- [Pepper 92] Still getting this issue, very annoying.
+- [Jurakin] Did you try minimal example from the library?
+
+COMMENTS ON THE ANSWER THAT WAS ACCEPTED, in order (the accepted answer itself is NOT shown to you):
+- [d2n] Does not seem to fix the issue for Expo v53, React Native 0.79.2 and Firebase 11.6.1.
+- [Zander] It fixed it for me on Expo v53 (~53.0.5) and ReactNative 0.79.2 and firebase 11.6.1. Did you restart the server and removed node_modules?
+- [d2n] @Zander Yes. Plus logging the config also shows the unstable_enablePackageExports got set to false. The only difference in our versions is I'm on Expo 53.0.6.
+- [d2n] Managed to solve it. I needed to import app, auth etc from '@firebase/app' instead of 'firebase/app'.
+- [user_fs10] This is the perfect solution. "expo": "~53.0.9", "react-native": "0.79.2" "firebase": "^11.7.1"... Thank you
+- [Japheth] const { getDefaultConfig } = require('expo/metro-config'); const defaultConfig = getDefaultConfig(__dirname); defaultConfig.resolver.sourceExts.push('cjs'); defaultConfig.resolver.unstable_enablePackageExports = false; module.exports = defaultConfig;

@@ -1,0 +1,948 @@
+{
+  "experiment": "E154 -- Hacker News view-count principle fresh observation",
+  "timestamp": "2026-10-15 14:58:13",
+  "source": "api_fetch",
+  "target_domain": "hn",
+  "sample_size": 99,
+  "classified": {
+    "need-related": 14,
+    "random": 85
+  },
+  "activity": {
+    "need_related_active": 14,
+    "need_related_inactive": 0,
+    "random_active": 85,
+    "random_inactive": 0
+  },
+  "gates": {
+    "G1": {
+      "met": false,
+      "observed": "99 classified (14 need-related, 85 random)",
+      "threshold": ">=30 per arm",
+      "reason": "only 99 classified"
+    },
+    "G2": {
+      "met": false,
+      "observed": {
+        "p_need": 1.0,
+        "p_random": 1.0,
+        "difference_p": 0.0,
+        "mean_diff_percent": -21.864416057145597,
+        "t_stat": -0.6638513919361151,
+        "p_value": 1.0135708589620434
+      },
+      "threshold": "p < 0.05, need-related > random on Welch's t-test on scores"
+    },
+    "G3": {
+      "met": true,
+      "observed": {
+        "need_related_arrival_rate": 1.0,
+        "random_arrival_rate": 1.0
+      },
+      "threshold": ">=80% of need-related stories have score > 0"
+    },
+    "G4": {
+      "met": true,
+      "observed": {
+        "total_with_arrivals": 99,
+        "total_packages": 99,
+        "arrival_rate": 1.0
+      },
+      "threshold": ">=80% of classified stories have score > 0"
+    }
+  },
+  "verdict": "failed: G1 not met; G2 not met",
+  "raw_results": [
+    {
+      "index": 0,
+      "story_id": 50102923,
+      "title": "Libreboot 26.10 \"Ominous Olive\" released with UEFI, Chromebook support",
+      "score": 113,
+      "url": "https://libreboot.org/news/libreboot2610.html",
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 1,
+      "story_id": 50103338,
+      "title": "Wayland desktop for Linux with skeuomorphic design",
+      "score": 58,
+      "url": "https://github.com/fyzugx/DEsk",
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 2,
+      "story_id": 50103000,
+      "title": "Israeli firm's digital ads enabling installation of 'zero-click' spyware",
+      "score": 281,
+      "url": "https://www.theguardian.com/technology/2026/oct/15/israeli-firm-digital-ads-enab",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 3,
+      "story_id": 50103164,
+      "title": "C++26 Contracts: Introduction to Preconditions and Postconditions",
+      "score": 41,
+      "url": "https://www.cppstories.com/2026/cpp26_contracts/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 4,
+      "story_id": 50104310,
+      "title": "Prompt injection in HTTP headers: what 217M web responses show",
+      "score": 6,
+      "url": "https://www.signalscorps.com/blog/prompt-injection-in-http-headers/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 5,
+      "story_id": 50093568,
+      "title": "Things to know when you get cancer",
+      "score": 1700,
+      "url": "https://jjmaxwell4.com/writing/things-to-know-when-you-get-cancer/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 6,
+      "story_id": 50102247,
+      "title": "Show HN: Unfenced \u2013 Land for sale that borders public land",
+      "score": 117,
+      "url": "https://unfenced.land/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 7,
+      "story_id": 50070625,
+      "title": "Wanted to download an ISO, ended up writing a kernel exploit",
+      "score": 237,
+      "url": "https://blog.dfb.sh/blog/eap770-root-for-two-zeros/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 8,
+      "story_id": 50058531,
+      "title": "The Haunted Toys R Us",
+      "score": 32,
+      "url": "https://www.retroist.com/p/the-haunted-toys-r-us",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 9,
+      "story_id": 50101813,
+      "title": "Zero-Click Spyware Delivered via Targeted Ads: AdFection",
+      "score": 50,
+      "url": "https://citizenlab.ca/research/how-discover-tech-turned-targeted-ads-into-a-pipe",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 10,
+      "story_id": 50094994,
+      "title": "OpenCode 2.0",
+      "score": 760,
+      "url": "https://anoma.ly/notes/opencode-2-0/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 11,
+      "story_id": 50096142,
+      "title": "Tiny Little Office",
+      "score": 569,
+      "url": "https://tinylittleoffice.com/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 12,
+      "story_id": 50079701,
+      "title": "The First Social Network: In rural Argentina residents send messages w AM radio",
+      "score": 87,
+      "url": "https://www.newyorker.com/magazine/2026/10/19/the-first-social-network",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 13,
+      "story_id": 50050553,
+      "title": "Do dentists know what they're doing?",
+      "score": 856,
+      "url": "https://mapwriting.substack.com/p/dentists",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 14,
+      "story_id": 50064470,
+      "title": "Show HN: Indigene \u2013 Native plants for where you stand",
+      "score": 82,
+      "url": "https://indigene.app/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 15,
+      "story_id": 50053384,
+      "title": "Catch a Bird \u2013 I made it for my own sanity",
+      "score": 308,
+      "url": "https://catchabird.com",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 16,
+      "story_id": 50103263,
+      "title": "GridSnap \u2013 an open-source Divvy-style window snapper for macOS",
+      "score": 8,
+      "url": "https://github.com/konieczkow/gridsnap",
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 17,
+      "story_id": 50089921,
+      "title": "Americans' social activity has steeply declined in the past 30 years",
+      "score": 501,
+      "url": "https://www.dataforprogress.org/blog/2026/9/29/americans-social-activity-has-ste",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 18,
+      "story_id": 50104299,
+      "title": "Using AI to reverse engineer hardware",
+      "score": 11,
+      "url": "https://blogs.gnome.org/uraeus/2026/10/15/aiandreverseengineerhardware/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 19,
+      "story_id": 50097369,
+      "title": "LFM2.5-24B-A2B: Built for fast on-device agents",
+      "score": 260,
+      "url": "https://www.liquid.ai/blog/lfm2-5-24b-a2b",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 20,
+      "story_id": 50072456,
+      "title": "Show HN: A 3D Configurator for Macropads",
+      "score": 4,
+      "url": "https://npad.ngrok.dev",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 21,
+      "story_id": 50070661,
+      "title": "It took me nine years to hack my Xbox 360",
+      "score": 142,
+      "url": "https://kennedn.com/blog/posts/glitching/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 22,
+      "story_id": 50071068,
+      "title": "Tracing Mystery Network Traffic with eBPF Across HRT's Global Compute Cluster",
+      "score": 29,
+      "url": "https://www.hudsonrivertrading.com/hrtbeat/long-on-research-short-on-bandwidth/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 23,
+      "story_id": 50060547,
+      "title": "Sticky alpine flower confirms Darwin's 150-year-old carnivorous plant prediction",
+      "score": 73,
+      "url": "https://phys.org/news/2026-08-sticky-alpine-darwin-year-carnivorous.html",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 24,
+      "story_id": 50077709,
+      "title": "Donaldson Futuro House in Idyllwild, California, USA",
+      "score": 75,
+      "url": "https://www.wowhaus.co.uk/2026/10/12/donaldson-futuro-house-in-idyllwild-califor",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 25,
+      "story_id": 50065237,
+      "title": "Stopping sand from destroying a hydropower turbine [video]",
+      "score": 23,
+      "url": "https://www.youtube.com/watch?v=kCYrSBexF_4",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 26,
+      "story_id": 50103630,
+      "title": "I know why Mathematicians weep",
+      "score": 69,
+      "url": "https://www.derekthompson.org/p/i-know-why-the-mathematicians-weep",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 27,
+      "story_id": 50096300,
+      "title": "Show HN: Ito \u2013 Build Terminal UIs in Lua",
+      "score": 56,
+      "url": "https://uji.sh/ito/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 28,
+      "story_id": 50099136,
+      "title": "Show HN: Flipflop, Iroh-powered persistent tunnels for filesharing",
+      "score": 74,
+      "url": "https://github.com/andunieee/flipflop",
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 29,
+      "story_id": 50090369,
+      "title": "Better HTTP/1 connection reuse in Go 1.27",
+      "score": 285,
+      "url": "https://go.dev/blog/http-connection-reuse",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 30,
+      "story_id": 50060923,
+      "title": "David Rudnick on \"borderline impossible\" process of designing Arsenal typeface",
+      "score": 51,
+      "url": "https://www.itsnicethat.com/features/david-rudnick-johnnie-campbell-arsenal-roca",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 31,
+      "story_id": 50098274,
+      "title": "The Double Headed Stack Allocator",
+      "score": 84,
+      "url": "https://blog.demofox.org/2026/10/03/the-double-headed-stack-allocator/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 32,
+      "story_id": 50071546,
+      "title": "Your C is not standard C",
+      "score": 117,
+      "url": "https://sebsite.pw/w/20261012-notstdc.html",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 33,
+      "story_id": 50104465,
+      "title": "Siri is so bad at everything",
+      "score": 4,
+      "url": "https://www.reddit.com/r/apple/comments/1x6gz83/siri_is_so_bad_at_everything/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 34,
+      "story_id": 50084757,
+      "title": "How Amazon pushes up prices all across the Internet",
+      "score": 906,
+      "url": "https://www.not-ship.com/how-amazon-pushes-up-prices-all-across-the-internet/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 35,
+      "story_id": 50092470,
+      "title": "Show HN: Petal, open-source CoScreen/ScreenHero finally free",
+      "score": 202,
+      "url": "https://petal.live/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 36,
+      "story_id": 50067325,
+      "title": "Ask HN: CAD for wood working with LLM support?",
+      "score": 105,
+      "url": "no url",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 37,
+      "story_id": 50047576,
+      "title": "The Toftwood Male Voice Choir: A Mystery Pressed in Vinyl",
+      "score": 50,
+      "url": "https://ei3lh.eu/2026/10/11/the-toftwood-male-voice-choir-a-mystery-pressed-in-v",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 38,
+      "story_id": 50091788,
+      "title": "Containment and monitoring failures are to blame for AI hacking reports:\u00a0experts",
+      "score": 927,
+      "url": "https://www.csoonline.com/article/4234854/ai-agents-arent-going-rogue-frontier-l",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 39,
+      "story_id": 50095353,
+      "title": "We\u2019re releasing Jev 1.14.0 along with experimental features for dreamers",
+      "score": 318,
+      "url": "https://typesafe.ai/blog/jev-1-14",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 40,
+      "story_id": 50103427,
+      "title": "ChatGPT Targets Ads to You Based on Your Prompts, Phone Number, and Email",
+      "score": 13,
+      "url": "https://www.404media.co/how-chatgpt-targets-ads-to-you-based-on-your-prompts-pho",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 41,
+      "story_id": 50103752,
+      "title": "Some things are worth dying for: Karl Bushby's 28-year walk",
+      "score": 4,
+      "url": "https://www.theguardian.com/lifeandstyle/2026/oct/13/karl-bushby-incredible-28-y",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 42,
+      "story_id": 50090799,
+      "title": "Has AI tells",
+      "score": 129,
+      "url": "https://theconsensus.dev/blog/2026/10/14/has-ai-tells.html?focus=1",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 43,
+      "story_id": 50102664,
+      "title": "RIAA Flags Anna's Archive and AI Voice Cloner to U.S. Government",
+      "score": 12,
+      "url": "https://torrentfreak.com/riaa-flags-annas-archive-and-ai-voice-cloner-to-u-s-gov",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 44,
+      "story_id": 50054465,
+      "title": "Phloem: Git history grown like a slime mold",
+      "score": 123,
+      "url": "https://phloem.stemdeck.app/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 45,
+      "story_id": 50088935,
+      "title": "Passkeys are not a trap",
+      "score": 623,
+      "url": "https://scotthelme.co.uk/passkeys-are-not-a-trap/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 46,
+      "story_id": 50089229,
+      "title": "Submarine cable resilience",
+      "score": 163,
+      "url": "https://blog.apnic.net/2026/10/14/submarine-cable-resilience/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 47,
+      "story_id": 50092423,
+      "title": "Virtual Oxide Labs: Emulating a Full Oxide Rack",
+      "score": 136,
+      "url": "https://oxide.computer/blog/voxel-labs",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 48,
+      "story_id": 50093612,
+      "title": "Fancy Curl Sites",
+      "score": 137,
+      "url": "https://nytpu.com/gemlog/2026-03-18",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 49,
+      "story_id": 50100345,
+      "title": "How to be more ambitious: A tutorial for humans with models",
+      "score": 15,
+      "url": "https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-m",
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 50,
+      "story_id": 50103525,
+      "title": "Things are finally looking up for NASA's first missions to Venus in a generation",
+      "score": 5,
+      "url": "https://arstechnica.com/space/2026/10/nasas-embattled-venus-missions-are-back-on",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 51,
+      "story_id": 50092730,
+      "title": "Fire at Starlink site in Bulgaria after suspected sabotage in Poland",
+      "score": 373,
+      "url": "https://dpa-international.com/politics/urn:newsml:dpa.com:20090101:261014-930-83",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 52,
+      "story_id": 50086165,
+      "title": "Pg_vectorsearch: An index that is faster than pgvector's IVFFlat and HNSW",
+      "score": 206,
+      "url": "https://github.com/timescale/pg_vectorsearch",
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 53,
+      "story_id": 50084240,
+      "title": "Iosevka is an open-source, sans-serif and slab-serif monospace font",
+      "score": 729,
+      "url": "https://typeof.net/Iosevka/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 54,
+      "story_id": 50099375,
+      "title": "Claude Code Desktop Vulnerability: Preview Pane Data Exfiltration",
+      "score": 15,
+      "url": "https://noma.security/noma-labs/sneakpeek-how-the-preview-pane-in-claude-code-de",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 55,
+      "story_id": 50090349,
+      "title": "Google is silently linking your phone number across all signed-in accounts",
+      "score": 491,
+      "url": "https://www.androidauthority.com/google-auto-phone-number-verification-android-3",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 56,
+      "story_id": 50094694,
+      "title": "Anthropic's Scion is heavily inspired by Mononoke",
+      "score": 393,
+      "url": "https://sunshowers.io/posts/anthropic-mononoke/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 57,
+      "story_id": 50073879,
+      "title": "Gemini 4 Argon",
+      "score": 1453,
+      "url": "https://deepmind.google/models/gemini/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 58,
+      "story_id": 50090932,
+      "title": "Show HN: I wrote an email app that accepts only one sender per inbox",
+      "score": 102,
+      "url": "https://clova.email/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 59,
+      "story_id": 50064673,
+      "title": "The Origin Story of Kid Pix",
+      "score": 195,
+      "url": "http://red-green-blue.com/kid-pix-the-early-years",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 60,
+      "story_id": 50093180,
+      "title": "Suicide rates highest ever among middle-aged men",
+      "score": 453,
+      "url": "https://www.telegraph.co.uk/news/2026/10/13/suicide-rates-highest-ever-among-mid",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 61,
+      "story_id": 50097858,
+      "title": "Why are chip companies allergic to open source?",
+      "score": 20,
+      "url": "https://www.zeroasic.com/blog/hardware-github-stars",
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 62,
+      "story_id": 50097797,
+      "title": "Making all divisions slower to fix a bug in 0.000000000000000000542% of cases",
+      "score": 26,
+      "url": "https://futhark-lang.org/blog/2026-10-14-defining-division.html",
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 63,
+      "story_id": 50065572,
+      "title": "LittleJS is 2D and 3D now",
+      "score": 107,
+      "url": "https://frankforce.com/littlejs-is-2d-and-3d-now/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 64,
+      "story_id": 50063427,
+      "title": "AI is a tool and using it well takes skill",
+      "score": 781,
+      "url": "https://yyhh.org/blog/2026/10/ai-is-a-tool/",
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 65,
+      "story_id": 50083028,
+      "title": "Why is every rationalist blog post way too long?",
+      "score": 397,
+      "url": "https://alexwennerberg.com/blog/2026-10-13-long.html",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 66,
+      "story_id": 50094673,
+      "title": "Yandex outage: data shows that instead of going dark, malicious bots moved",
+      "score": 274,
+      "url": "https://blog.cloudflare.com/yandex-outage/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 67,
+      "story_id": 50085323,
+      "title": "TV4 postpones show after AI agent erases edited material",
+      "score": 151,
+      "url": "https://swedenherald.com/article/tv4-postpones-the-challenge-until-2027-after-te",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 68,
+      "story_id": 50086363,
+      "title": "Nvidia's first GPU: GeForce 256",
+      "score": 77,
+      "url": "https://dfarq.homeip.net/nvidias-first-gpu-geforce-256/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 69,
+      "story_id": 50086313,
+      "title": "Smart people don't think others are stupid (2012)",
+      "score": 115,
+      "url": "https://sive.rs/ss",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 70,
+      "story_id": 50077096,
+      "title": "The Four Colour Theorem: The first time machines mogged mathematicians",
+      "score": 86,
+      "url": "https://newsletter.pessimistsarchive.org/p/the-1st-time-machines-mogged-mathemat",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 71,
+      "story_id": 50080007,
+      "title": "Grace Hopper Celebration Cancelled",
+      "score": 251,
+      "url": "https://anitab.org/press-release",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 72,
+      "story_id": 50054092,
+      "title": "Ledger confirms spy chip implant behind wallet crypto thefts",
+      "score": 790,
+      "url": "https://www.bleepingcomputer.com/news/security/ledger-confirms-hardware-wallet-s",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 73,
+      "story_id": 50055632,
+      "title": "The Gold-Bug: Edgar Allan Poe's story that taught me about cryptography (2024)",
+      "score": 67,
+      "url": "https://robotsinplainenglish.com/e/2024-01-21-gold-bug.html",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 74,
+      "story_id": 50091875,
+      "title": "America didn't lose its rare earth industry, it sold it",
+      "score": 185,
+      "url": "https://www.lawfaremedia.org/article/america-didn-t-lose-its-rare-earth-industry",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 75,
+      "story_id": 50088643,
+      "title": "Running Windows desktop tests from Linux with disposable VMs",
+      "score": 91,
+      "url": "https://www.qawolf.com/blog/how-we-solved-windows-desktop-automation",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 76,
+      "story_id": 50070438,
+      "title": "Webster\u2019s Dictionary: The pleasure of finding things out (2014)",
+      "score": 34,
+      "url": "https://jsomers.net/blog/dictionary",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 77,
+      "story_id": 50100731,
+      "title": "Sunsetting Decomp.dev",
+      "score": 3,
+      "url": "https://decomp.dev/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 78,
+      "story_id": 50087337,
+      "title": "Scientists are teaching birds to sing lost songs",
+      "score": 52,
+      "url": "https://e360.yale.edu/digest/teaching-birds-lost-songs",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 79,
+      "story_id": 50088166,
+      "title": "Gaming on Linux without cheating",
+      "score": 82,
+      "url": "https://onlineservices.epicgames.com/news/introducing-easy-anti-cheat-linux-v2",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 80,
+      "story_id": 50091794,
+      "title": "Neckbeard \u2013 A DevOps/platform/SRE plugin for your agent",
+      "score": 71,
+      "url": "https://github.com/bealesh/neckbeard",
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 81,
+      "story_id": 50082021,
+      "title": "Strafe: A new open-source, E2E Encrypted, and federated alternative to Discord",
+      "score": 116,
+      "url": "https://strafe.chat/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 82,
+      "story_id": 50100791,
+      "title": "AI was great until it was not",
+      "score": 107,
+      "url": "https://thetheorygirlie.substack.com/p/ai-was-great-until-it-was-not",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 83,
+      "story_id": 50102423,
+      "title": "Ubuntu 26.10 (Stonking Stingray) released",
+      "score": 57,
+      "url": "https://lists.ubuntu.com/archives/ubuntu-announce/2026-October/000330.html",
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 84,
+      "story_id": 50098454,
+      "title": "Show HN: My Terminal Themes Web App",
+      "score": 20,
+      "url": "no url",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 85,
+      "story_id": 50073633,
+      "title": "Redesigning source control at Anthropic",
+      "score": 881,
+      "url": "https://www.anthropic.com/engineering/redesigning-source-control",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 86,
+      "story_id": 50100387,
+      "title": "Aidlc: Adaptive workflow steering rules for AI coding agents",
+      "score": 18,
+      "url": "https://github.com/awslabs/aidlc-workflows",
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 87,
+      "story_id": 50103304,
+      "title": "Ask HN: Did you 'invest' in NFTs or memecoins?",
+      "score": 6,
+      "url": "no url",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 88,
+      "story_id": 50085022,
+      "title": "Show HN: A guided 3D Leonardo da Vinci museum, built in code",
+      "score": 89,
+      "url": "https://museumofages.org/w/vinci",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 89,
+      "story_id": 50069499,
+      "title": "11 year old unsoundness bugs found in Rust borrow checker",
+      "score": 744,
+      "url": "https://github.com/rust-lang/rust/issues/164250",
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 90,
+      "story_id": 50071017,
+      "title": "Apple HomeView",
+      "score": 757,
+      "url": "https://www.apple.com/apple-homeview/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 91,
+      "story_id": 50088447,
+      "title": "Strands Decider: Why Not an Encoder?",
+      "score": 37,
+      "url": "https://brooker.co.za:443/blog/2026/10/04/encoders.html",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 92,
+      "story_id": 50092664,
+      "title": "Banks are now trying to offload the AI data center debt they just underwrote",
+      "score": 373,
+      "url": "https://startupfortune.com/banks-are-now-trying-to-offload-the-ai-data-center-de",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 93,
+      "story_id": 50078757,
+      "title": "Marshall Islands Stick Chart",
+      "score": 52,
+      "url": "https://en.wikipedia.org/wiki/Marshall_Islands_stick_chart",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 94,
+      "story_id": 50084416,
+      "title": "What agents mean for Rust (and vice versa)",
+      "score": 70,
+      "url": "https://smallcultfollowing.com/babysteps/blog/2026/10/14/agentic-dev-and-rust/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 95,
+      "story_id": 50085296,
+      "title": "I let an AI run my startup for a week",
+      "score": 65,
+      "url": "https://daily.tinyprojects.dev/221",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 96,
+      "story_id": 50077020,
+      "title": "Show HN: Guitoro, a virtual guitar you strum with your keyboard",
+      "score": 563,
+      "url": "https://guitoro.com/",
+      "classified": "random",
+      "has_activity": true
+    },
+    {
+      "index": 97,
+      "story_id": 50083130,
+      "title": "AOSP Source Releases Are So Late Developers Disassemble Libraries to Report Bugs",
+      "score": 496,
+      "url": "https://github.com/android/ndk/issues/2260",
+      "classified": "need-related",
+      "has_activity": true
+    },
+    {
+      "index": 98,
+      "story_id": 50096513,
+      "title": "Show HN: Ask a technical question, get an animated explainer you can interrupt",
+      "score": 14,
+      "url": "https://openlume.com/examples/3f65f6ce-87bf-4c81-a34b-3a1ec82f0ed1",
+      "classified": "random",
+      "has_activity": true
+    }
+  ]
+}

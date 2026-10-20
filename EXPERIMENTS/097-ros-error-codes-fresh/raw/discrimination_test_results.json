@@ -1,0 +1,136 @@
+{
+  "probes": [
+    {
+      "query": "Nav2 error code NO_PATH_FOUND",
+      "domain": "ROS",
+      "expected": "served",
+      "type": "known-served",
+      "classified": "served",
+      "correct": true,
+      "search_results_count": 12
+    },
+    {
+      "query": "ROS 2 error INVALID_JOINTS",
+      "domain": "ROS",
+      "expected": "served",
+      "type": "known-served",
+      "classified": "served",
+      "correct": true,
+      "search_results_count": 16
+    },
+    {
+      "query": "Gazebo error Code 13 SDF include",
+      "domain": "Gazebo",
+      "expected": "served",
+      "type": "known-served",
+      "classified": "served",
+      "correct": true,
+      "search_results_count": 32
+    },
+    {
+      "query": "ros2_control hardware error INVALID_JOINTS",
+      "domain": "ROS",
+      "expected": "served",
+      "type": "known-served",
+      "classified": "unserved",
+      "correct": false,
+      "search_results_count": 4
+    },
+    {
+      "query": "TF2 error EXTRAPOLATION",
+      "domain": "ROS",
+      "expected": "served",
+      "type": "known-served",
+      "classified": "served",
+      "correct": true,
+      "search_results_count": 6
+    },
+    {
+      "query": "QuantumFlux error 0xDEADBEEF",
+      "domain": "Synthetic",
+      "expected": "unserved",
+      "type": "known-unserved",
+      "classified": "unserved",
+      "correct": true,
+      "search_results_count": 0
+    },
+    {
+      "query": "HyperDrive fault 99999",
+      "domain": "Synthetic",
+      "expected": "unserved",
+      "type": "known-unserved",
+      "classified": "unserved",
+      "correct": true,
+      "search_results_count": 0
+    },
+    {
+      "query": "NeuralLink error XYZ-123",
+      "domain": "Synthetic",
+      "expected": "unserved",
+      "type": "known-unserved",
+      "classified": "unserved",
+      "correct": true,
+      "search_results_count": 0
+    },
+    {
+      "query": "WarpCore breach code 1701",
+      "domain": "Synthetic",
+      "expected": "unserved",
+      "type": "known-unserved",
+      "classified": "unserved",
+      "correct": true,
+      "search_results_count": 0
+    },
+    {
+      "query": "Vintage 1990s ROS 1 error 999",
+      "domain": "Real/obsolete",
+      "expected": "unserved",
+      "type": "known-unserved",
+      "classified": "unserved",
+      "correct": true,
+      "search_results_count": 0
+    }
+  ],
+  "metrics": {
+    "known_served_n": 5,
+    "known_unserved_n": 5,
+    "tp": 4,
+    "fn": 1,
+    "fp": 0,
+    "tn": 5,
+    "tpr": 0.8,
+    "fnr": 0.2,
+    "fpr": 0.0,
+    "tnr": 1.0,
+    "tpr_ci95": [
+      0.3755282641185388,
+      0.9637768390302125
+    ],
+    "fpr_ci95": [
+      0.0,
+      0.43449149475208104
+    ],
+    "diff_ci95": [
+      0.19257995293691643,
+      0.9637768390302125
+    ]
+  },
+  "gates": {
+    "G1_fpr": {
+      "value": 0.0,
+      "threshold": 0.1,
+      "pass": true
+    },
+    "G2_tpr": {
+      "value": 0.8,
+      "threshold": 0.7,
+      "pass": true
+    },
+    "G3_fnr": {
+      "value": 0.2,
+      "threshold": 0.3,
+      "pass": true
+    },
+    "overall_pass": true
+  }
+}

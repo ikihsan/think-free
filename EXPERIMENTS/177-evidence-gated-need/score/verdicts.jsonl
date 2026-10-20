@@ -1,0 +1,70 @@
+{"pid": "g-79468329", "same_resolution": "YES", "why": "Both: CJS vite config loading ESM-only Tailwind; rename to .mjs / declare ESM."}
+{"pid": "g-79589468", "same_resolution": "YES", "why": "Both recommend keeping uint64 source and exposing lo()/hi() shift-mask accessors."}
+{"pid": "g-79723342", "same_resolution": "NO", "why": "LEFT says cosmetic deprecation of compileSdkVersion; RIGHT's fix is adding '=' in Groovy."}
+{"pid": "g-79775796", "same_resolution": "YES", "why": "LEFT includes RIGHT's fix: select workspace TypeScript version, which clears ts(2882)."}
+{"pid": "g-79760145", "same_resolution": "YES", "why": "Both: set only requires operator<, manufactures equivalence; three-way <=> cannot help."}
+{"pid": "g-79408101", "same_resolution": "YES", "why": "Both: PEP 639 license=\"MIT\" plus license-files list, drop old license table."}
+{"pid": "g-79383758", "same_resolution": "YES", "why": "Both: Tailwind v4 configured in CSS via @theme, no tailwind.config.js by default."}
+{"pid": "g-79533324", "same_resolution": "YES", "why": "Both: where must list package roots; move to src layout with where pointing at src."}
+{"pid": "g-79653647", "same_resolution": "NO", "why": "LEFT diagnoses Bitbucket download failure and manual/other-driver installs; RIGHT says phantomver=NULL."}
+{"pid": "g-79556333", "same_resolution": "NO", "why": "LEFT claims ::part styling works; RIGHT says closed shadow root, needs attachShadow patch."}
+{"pid": "g-79434372", "same_resolution": "YES", "why": "Both resolve by filtering googletagmanager 'gmo' errors out of Sentry via ignoreErrors/beforeSend."}
+{"pid": "g-79635270", "same_resolution": "YES", "why": "Both: remove/disable GitHub Copilot components so whole-document completion stops."}
+{"pid": "g-79817405", "same_resolution": "YES", "why": "Both: install dotnet-ef at explicit version matching your SDK instead of latest."}
+{"pid": "g0b-79592958", "same_resolution": "YES", "why": "Identical text: non-capturing lambda converts to function pointer, bypassing const call operator."}
+{"pid": "g-79527331", "same_resolution": "YES", "why": "Both: MAIN/LAUNCHER implicit query reveals all apps without QUERY_ALL_PACKAGES, policy risk."}
+{"pid": "g-79537353", "same_resolution": "YES", "why": "Both: expressions specify a value or designate an object; *(ptr+1) designates arr[1]."}
+{"pid": "g-79602687", "same_resolution": "NO", "why": "LEFT blames missing registerRootComponent/name mismatch; RIGHT fixes Metro resolver package exports."}
+{"pid": "g-79843062", "same_resolution": "NO", "why": "LEFT calls them deletable MSBuild intermediates; RIGHT says NuGet EFCore.Design content, hide via csproj."}
+{"pid": "g-79818015", "same_resolution": "NO", "why": "LEFT replaces UIToolbar accessory with plain view; RIGHT says it is keyboard top, leave inputView background unset."}
+{"pid": "g-79363302", "same_resolution": "YES", "why": "Both: VS Code 1.97 SVG preview; set workbench.editorAssociations for *.svg to text editor."}
+{"pid": "g-79733841", "same_resolution": "YES", "why": "Both: switch on combined 16-bit opcode from the two buffer bytes, factoring common OK response."}
+{"pid": "g-79871713", "same_resolution": "NO", "why": "LEFT suggests MenuPicker/popover/layout changes; RIGHT's fix is adding .compositingGroup()."}
+{"pid": "g-79754247", "same_resolution": "NO", "why": "LEFT: packaging flags, NDK r27, zipalign 16K; RIGHT: IDE compressed-library bug, upgrade Studio."}
+{"pid": "g-79368095", "same_resolution": "NO", "why": "LEFT assigns chat shortcuts in Keyboard Shortcuts; RIGHT just gives Toggle Secondary Side Bar."}
+{"pid": "g-79442076", "same_resolution": "YES", "why": "Both: C++ has no Java-style enums; emulate with struct/table of static constexpr instances."}
+{"pid": "g-79428308", "same_resolution": "NO", "why": "LEFT blames temp staging/Defender and manual install; RIGHT fixes nvm 1.2.2 tmp bug by downgrading to 1.1.12."}
+{"pid": "g-79868298", "same_resolution": "NO", "why": "LEFT blames missing GDT selector entries; RIGHT finds enter_user_mode clobbering EIP plus missing TSS."}
+{"pid": "g-79806553", "same_resolution": "YES", "why": "Both: IDE-only false positive on list indexing; sidestep by not subscripting the list."}
+{"pid": "g-79600161", "same_resolution": "NO", "why": "LEFT suggests forks or internal Maven or Media3; RIGHT's fix is a downloaded local .aar dependency."}
+{"pid": "g-79865748", "same_resolution": "YES", "why": "Both explain const member makes object non-assignable vs const int* leaves pointer mutable."}
+{"pid": "g-79779696", "same_resolution": "YES", "why": "Both: %lx vs 8-byte arg splits 32-bit stack slots, UB desyncs later prints; use inttypes.h macros."}
+{"pid": "g-79791886", "same_resolution": "NO", "why": "LEFT says geometry is correct and deviation is sampling error; RIGHT blames rand() modulo bias."}
+{"pid": "g-79557242", "same_resolution": "YES", "why": "Both produce x, x.1, y, y.1 by interleaving each element with its suffixed duplicate."}
+{"pid": "g-79847613", "same_resolution": "YES", "why": "Both: constrained virtual overrides are banned; constrain the class or use if constexpr/CRTP instead."}
+{"pid": "g-79583661", "same_resolution": "NO", "why": "LEFT offers to_chars/format_to constexpr workarounds; RIGHT states no workaround exists for std::format."}
+{"pid": "g0b-79457269", "same_resolution": "YES", "why": "Identical text: mutex recursion depth unspecified, bounded by word size, bad design if exceeded."}
+{"pid": "g-79718097", "same_resolution": "YES", "why": "Both: llvm-mca's push dependency model is wrong/pessimistic; push is fine and smaller."}
+{"pid": "g-79796450", "same_resolution": "YES", "why": "Both zip the three vectors and build MyData via a lambda, collecting into ranges::to<vector>."}
+{"pid": "g0c-79767311-79730713", "same_resolution": "NO", "why": "LEFT explains dependent-name lookup in T::; RIGHT explains const reference binding to temporaries."}
+{"pid": "g-79779187", "same_resolution": "YES", "why": "Both: retired model id 404s; switch to a currently available Gemini model id."}
+{"pid": "g-79380514", "same_resolution": "YES", "why": "Both: v4 CLI split into @tailwindcss/cli, init obsolete, or install tailwindcss@3."}
+{"pid": "g-79335513", "same_resolution": "NO", "why": "LEFT blames 'RELEASE' version and dead jcenter; RIGHT's fix is running DBeaver as administrator."}
+{"pid": "g0b-79768581", "same_resolution": "YES", "why": "Identical text: CWG244 destructor lookup warning, write Foo::Bar<T>::Bar::~Bar()."}
+{"pid": "g0b-79906660", "same_resolution": "YES", "why": "Identical text: prefer real global module fragment; includes may become restricted imports and are discarded if unused."}
+{"pid": "g-79665976", "same_resolution": "YES", "why": "Both: uv python install 3.9.21 plus uv python pin 3.9.21 to select the interpreter."}
+{"pid": "g-79818917", "same_resolution": "YES", "why": "Both: langchain 1.0 dropped langchain.chains; downgrade to 0.3.x or move off the legacy API."}
+{"pid": "g0b-79340949", "same_resolution": "YES", "why": "Identical text: capturing this makes the lambda a method of one object, so GCC is right."}
+{"pid": "g-79663905", "same_resolution": "YES", "why": "Both: stop relying on tintColor inheritance; set colors via configuration/withTintColor on the image."}
+{"pid": "g0c-80009171-79788851", "same_resolution": "NO", "why": "LEFT answers x86 MOV and store-buffer drain; RIGHT answers locating regex mismatch position."}
+{"pid": "g-79400684", "same_resolution": "YES", "why": "Both: language stores no VLA size; compiler keeps it in a register or hidden slot, you track it yourself."}
+{"pid": "g0c-79753103-79673093", "same_resolution": "NO", "why": "LEFT explains branch/outlining hints; RIGHT deletes Eclipse dialog_settings.xml proposal-size sections."}
+{"pid": "g-79666817", "same_resolution": "YES", "why": "Both: no safety features in C++26; maybe later (C++29), safety profiles only possibly experimental."}
+{"pid": "g-79385315", "same_resolution": "NO", "why": "LEFT gives API-key/SHA-1 mismatch fix; RIGHT says open Google issue with no fix yet."}
+{"pid": "g-79747651", "same_resolution": "YES", "why": "Both: return complex objects by value; C++11/Rust moves make out-parameters unnecessary."}
+{"pid": "g-79513015", "same_resolution": "YES", "why": "Both: IDE-only complaints about Tailwind v4 at-rules; install Tailwind CSS IntelliSense."}
+{"pid": "g-79776559", "same_resolution": "NO", "why": "LEFT says wrong value passed to hash; RIGHT's fix is pinning bcrypt==4.3.0."}
+{"pid": "g-79686551", "same_resolution": "NO", "why": "LEFT configures buildozer android.api/sdk 35; RIGHT sets Expo SDK 53 or expo-build-properties."}
+{"pid": "g-79404124", "same_resolution": "YES", "why": "Both: console is hidden; open it from the View menu (Toggle Console/Developer Tools)."}
+{"pid": "g-79606837", "same_resolution": "YES", "why": "Both: authoritative .slnx schema lives in the VS SolutionPersistence repository (Slnx.xsd)."}
+{"pid": "g-79990062", "same_resolution": "YES", "why": "Both: NULL may be int/void*, so type the sentinel pointer, e.g. (const char*)NULL, to avoid va_arg UB."}
+{"pid": "g-79358893", "same_resolution": "YES", "why": "Both: known intermittent Google-side Apps Script bug; refresh/clear cache, no user code fix."}
+{"pid": "g-80000170", "same_resolution": "NO", "why": "LEFT says wait returns immediately as spurious wake; RIGHT says it deadlocks and fails constant evaluation."}
+{"pid": "g-79442978", "same_resolution": "YES", "why": "Both: your own unlayered CSS overrides utilities; put base/reset rules in @layer base so Tailwind wins."}
+{"pid": "g-79824381", "same_resolution": "YES", "why": "Both: no duplicated C struct; C layout storage plus extern \"C\" wrappers over the C++ template."}
+{"pid": "g-79802282", "same_resolution": "YES", "why": "Both: wide CRT ignores SetConsoleOutputCP; use _setmode(_fileno(stdout), _O_U8TEXT) and don't mix streams."}
+{"pid": "g-79567126", "same_resolution": "NO", "why": "LEFT leads with stale .lock deletion and renaming refs; RIGHT deletes duplicate refs from .git files."}
+{"pid": "g0c-79607696-80009583", "same_resolution": "NO", "why": "LEFT rambles about C++ operator+ templates; RIGHT covers C struct layout exposure practices."}
+{"pid": "g0c-79639673-80009012", "same_resolution": "NO", "why": "LEFT explains Perl fc and U+0130 case folding; RIGHT explains const-qualified pointer cast UB in C."}
+{"pid": "g-79721071", "same_resolution": "NO", "why": "LEFT says no manifest tag needed; RIGHT's fix is declaring attribution tags in the manifest."}
+{"pid": "g-79339258", "same_resolution": "NO", "why": "LEFT blames Defender/temp staging and manual install; RIGHT's fix is downgrading nvm to 1.1.12."}

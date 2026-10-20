@@ -45,6 +45,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from . import docfiles, paths, secrets
+from .doclint import declared_exemptions, is_exempt
 from .finding import Finding
 
 MANIFEST_NAME = "RELEASE-MANIFEST.md"
@@ -231,14 +232,18 @@ def check_secrets(
 ) -> None:
     """Manifest rule 3 covers internal records too, so scan both tables."""
     declared = {item.path.rstrip("/") for item in public + internal}
+    globs = declared_exemptions()
     for path in files:
+        rel = path.relative_to(base).as_posix()
+        if is_exempt(rel, globs):
+            continue
         top = path.relative_to(base).parts[0]
         if not any(_covers(item, top) for item in declared):
             continue
         found = secrets.scan_file(path)
         if found:
             result.violations.append(
-                Finding.at(path.relative_to(base).as_posix(),
+                Finding.at(rel,
                            f"credential-shaped text ({', '.join(found)}); manifest "
                            "rule 3 forbids it in a published or internal record"))
 

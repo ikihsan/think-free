@@ -32,7 +32,7 @@ invariant under rewriting.
 **Why E140 did not see this.** E140 measured 0 false positives in 929 values
 across three correct arms, all on Federal Register final rules, where a dollar
 amount is written with a `$` essentially always. A false-positive rate quoted on
-one arm does not transfer by assumption — F123 said so, F125 sharpened it, and
+one arm does not transfer by assumption — F123 said so, F144 sharpened it, and
 this is the first measurement in this repository where that rule cost the
 instrument rather than the report. **E140's 0.0000 was a true measurement of
 that corpus, and it is a statement about the corpus's writing convention as

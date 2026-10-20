@@ -1,0 +1,52 @@
+TITLE: What is the correct way of specifying the license in pyproject.toml file for a new package?
+TAGS: python,setuptools,pyproject.toml
+QUESTION AS POSTED:
+I am facing an error with the license specification when trying to build and upload a python package. 
+ I have the last version of wheel, setuptools, twine, and build. 
+ building fails if I specify the license according to the python packaging tutorial: https://packaging.python.org/en/latest/tutorials/packaging-projects/ 
+ if I do not specify the license then twine upload fails with the error: 
+ `ERROR InvalidDistribution: Invalid distribution metadata: unrecognized or malformed field 'license-file'
+` 
+ the same upload error occurs if I build with the following: 
+ `[project.license]
+file = "LICENSE"
+` 
+ or 
+ `license = {text = "MIT"}
+` 
+ or 
+ `license = {file = "LICENSE"}
+` 
+ this is my full configuration file: 
+ `[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "name"
+version = "0.0.1"
+authors = [
+ { name="Your Name", email="your.email@example.com" },
+]
+description = "A python package"
+readme = "README.md"
+requires-python = ">=3.8"
+
+classifiers = [
+ "Programming Language :: Python :: 3",
+ "Operating System :: OS Independent",
+]
+
+dependencies = [
+ "requests",
+ "numpy",
+]
+
+`
+
+COMMENTS ON THE QUESTION, in order:
+- [phd] stackoverflow.com/a/75636144/7976758 : `[project]license = {file = "LICENSE"}` Found in stackoverflow.com/search?q=%5Bpyproject.toml%5D+license+file
+- [AmineTrabelsi] I have tried this before. Unfortunately it didn't work, and gives the same error
+
+COMMENTS ON THE ANSWER THAT WAS ACCEPTED, in order (the accepted answer itself is NOT shown to you):
+(none)

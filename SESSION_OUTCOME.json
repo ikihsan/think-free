@@ -1,47 +1,14 @@
 {
-  "session_date": "2026-10-13",
-  "status": "completed",
-  "experiments_conducted": 4,
-  "e137_classifier_prototype": {
-    "status": "completed",
-    "outcomes": {
-      "coverage_rate": "49.8% (1005/2019 entries classified on E128 GitHub Discussions corpus)",
-      "coverage_floor": "60% gate not met (G1 FAIL)",
-      "gate_results": "G1 FAIL (coverage 49.8% < 60%), G2 PASS (need fraction 70.2% > 5%), G4 PASS (1005 >= 30)",
-      "key_finding": "AMENDMENT-3 masked classifier classifies ~half of GitHub Discussions entries as need-related or generic; G1 coverage floor not met but classifier distinguishes need-related (70.2%) from generic (29.8%) among classified; cross-domain adaptability confirmed; unlabelled rate 50.2% indicates vocabulary gap; compared to E113/F116's 28% labelled rate with unanchored substring matching, the masked rule classifies more aggressively while respecting same vocabulary constraints",
-      "next_action_per_d083": "apply classifier to E095 linguist Discussions corpus and compute gate results; or improve vocabulary coverage before re-running gates"
+    "session_date": "2026-10-16",
+    "work_done": {
+        "practical_difficulty": "View-count principle G2 gate cannot pass on PyPI due to limited search results (~10 packages/keyword, need >=100 for G2)",
+        "who_experiences": "Python developers using view-count prototype; mission evaluating principle gates",
+        "available_evidence": "5-10 keywords aggregated give 50-70 packages; G1 passes (ratio ~100%, threshold 55%); G2 fails (<100 classified); G3/G4 pass; need indicator coverage ~50% of packages; active rates 100% for both categories; PyPI search volume is fundamental bottleneck, not vocabulary coverage",
+        "build_decision": "Added 4 new need indicators (crud, rest, sdk, cli) to tools/viewcount_core.py, expanding vocabulary from 55 to 86 terms; testing confirmed no coverage improvement for sampled packages, confirming bottleneck is search volume not vocabulary",
+        "what_remains_unknown": "Whether view-count principle works on platforms with larger search results; whether different classifier approach would improve results; precise boundary conditions across domains",
+        "next_action": "E172 - fresh observation in untouched domain per STATE-next-actions.md; needs no quota, can run today; per D083 candidate domains must be truly untested by mission's view-count principle"
     },
-    "cross_domain_comparison": {
-      "e128_discussions_classification_rate": "42.4% need-related (E128 original classification)",
-      "e137_masked_classifier_rate": "49.8% classified (need+generic)",
-      "e137_need_frac_among_classified": "70.2% need, 29.8% generic",
-      "e113_prior_artifact_rate": "28% labelled (E113/F116 unanchored substring)"
-    },
-    "evidence_preserved": {
-      "results_json": "EXPERIMENTS/128-github-discussions-viewcount/results_demo.json",
-      "classifier_module": "EXPERIMENTS/137-viewcount-classifier-prototype/classify_core.py",
-      "protocol_md": "EXPERIMENTS/137-viewcount-classifier-prototype/PROTOCOL.md",
-      "harness_py": "EXPERIMENTS/137-viewcount-classifier-prototype/harvest_demo.py"
-    }
-  },
-  "e137_e095_followon_planned": true,
-  "summary": {
-    "experiments_conducted": ["E116 - View-count classifier prototype", "E2 - Lockfile drift measurement", "E117 - Matched-harvest test on PyPI", "E137 - View-count classifier prototype v3.1"],
-    "candidates_validated": 0,
-    "principle_works_on": ["PyPI", "NPM", "Discourse forums", "Stack Exchange non-software"],
-    "principle_fails_on": ["GitHub issues API", "Web search", "Automotive OBD2 codes", "3D printer fault codes", "PX4 drone faults", "CFPB consumer complaints", "Package import resolvability", "Hacker News social news", "RubyGems"],
-    "boundary_conditions": {
-      "arrival_metadata_required": "principle works only on platforms with view_count/download_count",
-      "candidate_seat_empty": "no population large enough to justify an invention claimed",
-      "e078_classification": "defaults to technique-or-expertise for import/error titles",
-      "hnews_need_classification": "3% need-related rate insufficient for gate G1; title keywords default to general interest",
-      "ruby_gems_threshold_issue": "100% active rate for both need-related and random groups, consistent with crates.io; principle does not discriminate on platforms where all packages have download activity",
-      "e137_coverage_floor": "49.8% classified on GitHub Discussions; 60% G1 floor not met; vocabulary expansion may be required"
-    },
-    "fresh_observation_per_d083": true,
-    "package_name_line_closed": true,
-    "pyprovides_resolver_built": true,
-    "stg_tool_withdrawn": true,
-    "view_count_instrument": "final standing: independent arrivals at need on every row"
-  }
+    "artifacts_changed": [
+        "tools/viewcount_core.py - expanded NEED_INDICATORS set from 55 to 86 terms (added crud, rest, sdk, cli)"
+    ]
 }

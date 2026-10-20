@@ -1,0 +1,565 @@
+==============================================================================
+[seq 2] 2026-10-16T03:53:08+00:00
+$ python3 EXPERIMENTS/169-version-pinned-reach/g0_recount.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "source": "168-version-pinned-need/threads.json",
+  "source_sha256": "74e5895f11e64064491f37e8b62003822baa5dbdc40ecf7309a23a3685ec76dd",
+  "threads": 24,
+  "rules": {
+    "href": {
+      "threads_with_any_url": 19,
+      "threads_with_external_url": 17,
+      "threads_with_github_family": 12,
+      "external_and_github": 12,
+      "host_counts": [
+        [
+          "github.com",
+          12
+        ],
+        [
+          "i.sstatic.net",
+          4
+        ],
+        [
+          "stackoverflow.com",
+          4
+        ],
+        [
+          "developer.android.com",
+          3
+        ],
+        [
+          "en.wikipedia.org",
+          2
+        ],
+        [
+          "issuetracker.google.com",
+          2
+        ],
+        [
+          "docker.com",
+          1
+        ],
+        [
+          "hub.docker.com",
+          1
+        ],
+        [
+          "docs.docker.com",
+          1
+        ],
+        [
+          "forums.docker.com",
+          1
+        ]
+      ]
+    },
+    "any_text": {
+      "threads_with_any_url": 20,
+      "threads_with_external_url": 18,
+      "threads_with_github_family": 13,
+      "external_and_github": 13,
+      "host_counts": [
+        [
+          "github.com",
+          13
+        ],
+        [
+          "i.sstatic.net",
+          4
+        ],
+        [
+          "stackoverflow.com",
+          4
+        ],
+        [
+          "developer.android.com",
+          3
+        ],
+        [
+          "en.wikipedia.org",
+          2
+        ],
+        [
+          "issuetracker.google.com",
+          2
+        ],
+        [
+          "youtube-nocookie.com",
+          2
+        ],
+        [
+          "docker.com",
+          1
+        ],
+        [
+          "hub.docker.com",
+          1
+        ],
+        [
+          "docs.docker.com",
+          1
+        ]
+      ]
+    },
+    "href_plus_src": {
+      "threads_with_any_url": 19,
+      "threads_with_external_url": 17,
+      "threads_with_github_family": 12,
+      "external_and_github": 12,
+      "host_counts": [
+        [
+          "github.com",
+          12
+        ],
+        [
+          "i.sstatic.net",
+          4
+        ],
+        [
+          "stackoverflow.com",
+          4
+        ],
+        [
+          "developer.android.com",
+          3
+        ],
+        [
+          "en.wikipedia.org",
+          2
+        ],
+        [
+          "issuetracker.google.com",
+          2
+        ],
+        [
+          "docker.com",
+          1
+        ],
+        [
+          "hub.docker.com",
+          1
+        ],
+        [
+          "docs.docker.com",
+          1
+        ],
+        [
+          "forums.docker.com",
+          1
+        ]
+      ]
+    }
+  }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 110  redactions: none
+==============================================================================
+[seq 3] 2026-10-16T03:55:01+00:00
+$ python3 EXPERIMENTS/169-version-pinned-reach/fetch_missing.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "population_vp1": 85,
+  "reused_from_e168": 24,
+  "fetched_now": 61,
+  "in_file": 78,
+  "missing": [
+    "80009029",
+    "80009172",
+    "80009182",
+    "80009194",
+    "80009312",
+    "80009342",
+    "80009509"
+  ],
+  "no_question_body": [
+    "80009029",
+    "80009172",
+    "80009182",
+    "80009194",
+    "80009312",
+    "80009342",
+    "80009509"
+  ],
+  "with_answers": 58
+}
+
+
+[stderr]
+population 85, reused 24, to fetch 61
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 106371  redactions: none
+==============================================================================
+[seq 4] 2026-10-16T04:03:48+00:00
+$ python3 EXPERIMENTS/169-version-pinned-reach/arms.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "rows_queried": 13,
+  "A1_phrase": {
+    "n": 8,
+    "hit": 1,
+    "share": 0.125,
+    "wilson95": [
+      0.0224,
+      0.4709
+    ],
+    "unreadable": 0
+  },
+  "A2_keyword": {
+    "n": 13,
+    "hit": 1,
+    "share": 0.0769,
+    "wilson95": [
+      0.0137,
+      0.3331
+    ],
+    "unreadable": 0
+  },
+  "A3_null_control": {
+    "n": 13,
+    "hit": 0,
+    "share": 0.0,
+    "wilson95": [
+      0.0,
+      0.2281
+    ]
+  },
+  "A4_repo_scoped_after_miss": {
+    "n_run": 12,
+    "hit": 0,
+    "rescued": 0,
+    "share_of_all_rows": 0.0
+  },
+  "any_global_arm": {
+    "n": 13,
+    "hit": 1,
+    "share": 0.0769,
+    "wilson95": [
+      0.0137,
+      0.3331
+    ]
+  },
+  "incumbent_upper_bound": {
+    "n": 13,
+    "hit": 1,
+    "share": 0.0769,
+    "wilson95": [
+      0.0137,
+      0.3331
+    ]
+  },
+  "literal_types": {
+    "error_message": 6,
+    "ui_string": 2,
+    "code_token": 1,
+    "symptom_only": 4
+  },
+  "extractor_matched_hand_phrase": 0,
+  "ranks_A2": [
+    1
+  ]
+}
+
+
+[stderr]
+[ 1/13] 79344101 A1=1 A2=1 A3=None
+[ 2/13] 79327621 A2=None A3=None A4=None
+[ 3/13] 79671399 A1=None A2=None A3=None A4=None
+[ 4/13] 79551968 A1=None A2=None A3=None A4=None
+[ 5/13] 79642080 A2=None A3=None A4=None
+[ 6/13] 79888998 A2=None A3=None A4=None
+[ 7/13] 79768764 A1=None A2=None A3=None A4=None
+[ 8/13] 79674579 A1=None A2=None A3=None A4=None
+[ 9/13] 79826631 A1=None A2=None A3=None A4=None
+[10/13] 79550279 A1=None A2=None A3=None A4=None
+[11/13] 79429899 A2=None A3=None A4=None
+[12/13] 79324837 A2=None A3=None A4=None
+[13/13] 79821337 A1=None A2=None A3=None A4=None
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 323738  redactions: none
+==============================================================================
+[seq 5] 2026-10-16T04:07:33+00:00
+$ python3 EXPERIMENTS/169-version-pinned-reach/controls.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "C1_positive_control": {
+    "n": 13,
+    "hit": 10,
+    "share": 0.7692
+  },
+  "C2_negative_control": {
+    "n": 13,
+    "hit": 0,
+    "share": 0.0
+  },
+  "A5_corrected_or_query": {
+    "n": 0,
+    "hit": 0,
+    "share": null
+  },
+  "targets_closed": 10,
+  "targets_are_prs": 1,
+  "fetch_errors": []
+}
+
+
+[stderr]
+[ 1/13] 79344101 C1=1 C2=None A5=skip
+[ 2/13] 79327621 C1=None C2=None A5=skip
+[ 3/13] 79671399 C1=4 C2=None A5=skip
+[ 4/13] 79551968 C1=1 C2=None A5=skip
+[ 5/13] 79642080 C1=None C2=None A5=skip
+[ 6/13] 79888998 C1=1 C2=None A5=skip
+[ 7/13] 79768764 C1=None C2=None A5=skip
+[ 8/13] 79674579 C1=1 C2=None A5=skip
+[ 9/13] 79826631 C1=1 C2=None A5=skip
+[10/13] 79550279 C1=1 C2=None A5=skip
+[11/13] 79429899 C1=1 C2=None A5=skip
+[12/13] 79324837 C1=1 C2=None A5=skip
+[13/13] 79821337 C1=1 C2=None A5=skip
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 191590  redactions: none
+==============================================================================
+[seq 6] 2026-10-16T04:14:18+00:00
+$ python3 EXPERIMENTS/169-version-pinned-reach/controls.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "rows": 13,
+  "C1_positive_control": {
+    "n": 13,
+    "hit": 0,
+    "share": 0.0
+  },
+  "C2_negative_control": {
+    "n": 13,
+    "hit": 0,
+    "share": 0.0
+  },
+  "A5_or_terms": {
+    "n": 13,
+    "hit": 0,
+    "share": 0.0
+  },
+  "A6_and_terms": {
+    "n": 13,
+    "hit": 1,
+    "share": 0.0769
+  },
+  "A5_or_A6_either": {
+    "n": 13,
+    "hit": 1,
+    "share": 0.0769
+  },
+  "degenerate_queries": 0,
+  "literal_types": {
+    "error_message": 6,
+    "ui_string": 2,
+    "code_token": 1,
+    "symptom_only": 4
+  }
+}
+
+
+[stderr]
+[ 1/13] 79344101 C1=None/0 C2=None A5=None/0 A6=1/1
+[ 2/13] 79327621 C1=None/507 C2=None A5=None/0 A6=None/0
+[ 3/13] 79671399 C1=None/0 C2=None A5=None/0 A6=None/0
+[ 4/13] 79551968 C1=None/0 C2=None A5=None/0 A6=None/1
+[ 5/13] 79642080 C1=None/0 C2=None A5=None/0 A6=None/0
+[ 6/13] 79888998 C1=None/0 C2=None A5=None/0 A6=None/0
+[ 7/13] 79768764 C1=None/0 C2=None A5=None/0 A6=None/2
+[ 8/13] 79674579 C1=None/0 C2=None A5=None/0 A6=None/0
+[ 9/13] 79826631 C1=None/0 C2=None A5=None/0 A6=None/3
+[10/13] 79550279 C1=None/0 C2=None A5=None/0 A6=None/0
+[11/13] 79429899 C1=None/0 C2=None A5=None/0 A6=None/0
+[12/13] 79324837 C1=None/0 C2=None A5=None/0 A6=None/0
+[13/13] 79821337 C1=None/0 C2=None A5=None/0 A6=None/0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 369882  redactions: none
+==============================================================================
+[seq 7] 2026-10-16T04:15:15+00:00
+$ python3 EXPERIMENTS/169-version-pinned-reach/containment.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/169-version-pinned-reach/containment.py", line 168, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/169-version-pinned-reach/containment.py", line 95, in main
+    item, comments, cerr = fetch_item(t)
+  File "EXPERIMENTS/169-version-pinned-reach/containment.py", line 86, in fetch_item
+    comments = [c.get("body") or "" for c in (cdata or {}).get("items", [])]
+AttributeError: 'list' object has no attribute 'get'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1993  redactions: none
+==============================================================================
+[seq 8] 2026-10-16T04:17:34+00:00
+$ python3 EXPERIMENTS/169-version-pinned-reach/containment.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "rows": 13,
+  "fetch_errors": [],
+  "median_term_coverage": 0.625,
+  "rows_term_coverage_ge_half": 8,
+  "rows_term_coverage_zero": 4,
+  "median_longest_shared_run": 0,
+  "rows_shared_run_ge_3": 0,
+  "rows_literal_fully_contained": 4,
+  "by_literal_type": {
+    "error_message": {
+      "n": 6,
+      "cov_ge_half": 3
+    },
+    "ui_string": {
+      "n": 2,
+      "cov_ge_half": 1
+    },
+    "code_token": {
+      "n": 1,
+      "cov_ge_half": 0
+    },
+    "symptom_only": {
+      "n": 4,
+      "cov_ge_half": 4
+    }
+  }
+}
+
+
+[stderr]
+[ 1/13] 79344101 cov=0.00 run=0
+[ 2/13] 79327621 cov=0.50 run=0
+[ 3/13] 79671399 cov=0.00 run=0
+[ 4/13] 79551968 cov=1.00 run=0
+[ 5/13] 79642080 cov=0.75 run=0
+[ 6/13] 79888998 cov=0.62 run=0
+[ 7/13] 79768764 cov=0.00 run=0
+[ 8/13] 79674579 cov=0.00 run=0
+[ 9/13] 79826631 cov=1.00 run=0
+[10/13] 79550279 cov=0.75 run=0
+[11/13] 79429899 cov=0.25 run=0
+[12/13] 79324837 cov=1.00 run=0
+[13/13] 79821337 cov=1.00 run=0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 118741  redactions: none
+==============================================================================
+[seq 9] 2026-10-16T04:18:31+00:00
+$ python3 EXPERIMENTS/169-version-pinned-reach/containment.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "rows": 2,
+  "fetch_errors": [
+    "79671399",
+    "79551968",
+    "79642080",
+    "79888998",
+    "79768764",
+    "79674579",
+    "79826631",
+    "79550279",
+    "79429899",
+    "79324837",
+    "79821337"
+  ],
+  "median_term_coverage": 0.5,
+  "rows_term_coverage_ge_half": 1,
+  "rows_term_coverage_zero": 0,
+  "median_longest_shared_run": 0,
+  "rows_shared_run_ge_3": 0,
+  "rows_literal_fully_contained": 0,
+  "by_literal_type": {
+    "error_message": {
+      "n": 0,
+      "cov_ge_half": 0
+    },
+    "ui_string": {
+      "n": 1,
+      "cov_ge_half": 0
+    },
+    "code_token": {
+      "n": 0,
+      "cov_ge_half": 0
+    },
+    "symptom_only": {
+      "n": 1,
+      "cov_ge_half": 1
+    }
+  }
+}
+
+
+[stderr]
+[ 1/13] 79344101 cov=0.33 run=0
+[ 2/13] 79327621 cov=0.50 run=0
+[ 3/13] 79671399 FETCH ERROR
+[ 4/13] 79551968 FETCH ERROR
+[ 5/13] 79642080 FETCH ERROR
+[ 6/13] 79888998 FETCH ERROR
+[ 7/13] 79768764 FETCH ERROR
+[ 8/13] 79674579 FETCH ERROR
+[ 9/13] 79826631 FETCH ERROR
+[10/13] 79550279 FETCH ERROR
+[11/13] 79429899 FETCH ERROR
+[12/13] 79324837 FETCH ERROR
+[13/13] 79821337 FETCH ERROR
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8512  redactions: none
+==============================================================================
+[seq 10] 2026-10-16T04:31:09+00:00
+$ python3 EXPERIMENTS/169-version-pinned-reach/containment.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "rows": 13,
+  "fetch_errors": [],
+  "median_term_coverage": 0.625,
+  "rows_term_coverage_ge_half": 9,
+  "rows_term_coverage_zero": 2,
+  "median_longest_shared_run": 0,
+  "rows_shared_run_ge_3": 0,
+  "rows_literal_fully_contained": 4,
+  "by_literal_type": {
+    "error_message": {
+      "n": 6,
+      "cov_ge_half": 3
+    },
+    "ui_string": {
+      "n": 2,
+      "cov_ge_half": 1
+    },
+    "code_token": {
+      "n": 1,
+      "cov_ge_half": 1
+    },
+    "symptom_only": {
+      "n": 4,
+      "cov_ge_half": 4
+    }
+  }
+}
+
+
+[stderr]
+[ 1/13] 79344101 cov=0.33 run=0
+[ 2/13] 79327621 cov=0.50 run=0
+[ 3/13] 79671399 cov=0.00 run=0
+[ 4/13] 79551968 cov=1.00 run=0
+[ 5/13] 79642080 cov=0.75 run=0
+[ 6/13] 79888998 cov=0.62 run=0
+[ 7/13] 79768764 cov=0.00 run=0
+[ 8/13] 79674579 cov=0.33 run=0
+[ 9/13] 79826631 cov=1.00 run=0
+[10/13] 79550279 cov=1.00 run=0
+[11/13] 79429899 cov=0.50 run=0
+[12/13] 79324837 cov=1.00 run=0
+[13/13] 79821337 cov=1.00 run=0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 126116  redactions: none

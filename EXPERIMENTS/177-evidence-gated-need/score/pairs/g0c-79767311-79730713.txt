@@ -1,0 +1,57 @@
+pid: g0c-79767311-79730713
+
+=== LEFT ===
+The lookup for T in T:: is defined as happening in the class first and as an unqualified l
+ookup only if that finds nothing ([basic.lookup.qual.general]/3). That rule is, however, q
+uite unsatisfying in cases like this: a template that works with types derived from one of
+ its template parameters has no way of referring to that base class in a way that avoids c
+ollisions with members of the same name in the derived class. (A non-template could always
+ use a fully qualified name for the base class.) 
+ This has been the subject of a core issue for a long time, and I tried to change the rule
+ , but it was CWG’s opinion that the adjacent . (or -> ) was just too important to look pa
+st (even only for dependent names). 
+ The situation with ~T is even weirder, just because destructor “names” can successfully r
+efer only to the type of the object expression or the nested name specifier. Here both qua
+lified and unqualified lookup occur, but all that matters is that at least one matches tha
+t type, and obviously the qualified one will be the same as for T:: . 
+
+ T 
+ T:: 
+ . 
+ -> 
+ ~T 
+ T::
+
+=== RIGHT ===
+Wouldn't this cause a lot of subtle bugs 
+ 
+ It can cause bugs, but there are probably not a lot of them in the wild. 
+ 
+ and why such a thing is allowed as it is not intuitive as a reference? 
+ 
+ To allow for binding references to prvalues to not have to copy them. 
+ Take john's example in the comments: 
+ void foo(const int& ri);
+
+foo(3.14159);
+ 
+ In practice, there's little risk here. You call the function and in most scenarios, the v
+alue ri references is not expected to change during the call. 
+ If you actually do have a situation where another function may change the referenced valu
+e, you can constrain your function to not allow for anything but the exact type you want t
+o bind a reference to to avoid the temporary being created: 
+ void foo(std::same_as<int> auto const& ri);
+ 
+ In reality, most compilers (MSVC with /W2 or higher and icx, clang and gcc with -Wfloat-c
+onversion ) are able to warn for this kind of mistake, further minimizing the risk for bug
+s. 
+
+ void foo(const int& ri);
+
+foo(3.14159);
+ 
+ ri 
+ void foo(std::same_as<int> auto const& ri);
+ 
+ /W2 
+ -Wfloat-conversion

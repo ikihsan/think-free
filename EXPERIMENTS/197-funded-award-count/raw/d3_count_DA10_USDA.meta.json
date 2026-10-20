@@ -1,0 +1,37 @@
+{
+ "request": {
+  "filters": {
+   "agencies": [
+    {
+     "name": "Department of Agriculture",
+     "tier": "toptier",
+     "type": "awarding"
+    }
+   ],
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "DA10"
+   ],
+   "time_period": [
+    {
+     "end_date": "2025-12-31",
+     "start_date": "2020-01-01"
+    }
+   ]
+  },
+  "limit": 1,
+  "page": 1,
+  "subawards": false
+ },
+ "response": {
+  "bytes": 441,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_award_count/",
+  "sha256": "98d22ae9b08499f43a8ac746b5218c3ef1d210aacc8536030fa53309371d9584",
+  "status": 200
+ }
+}

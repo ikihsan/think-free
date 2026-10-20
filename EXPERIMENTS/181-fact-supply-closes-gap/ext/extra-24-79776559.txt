@@ -1,0 +1,23 @@
+TITLE: passlib bcrypt not working when deployed to render. &quot;ValueError: password cannot be longer than 72 bytes&quot;
+TAGS: reactjs,deployment,bcrypt,render.com
+QUESTION AS POSTED:
+Im trying to deploy a react app on render. It works on my localhost but when deployed on render the auth function doesn't work. It shows this error 
+ 
+ ValueError: password cannot be longer than 72 bytes, truncate manually
+if necessary (e.g. my_password[:72]) however my print logs show that
+the password is only 13 bytes. 
+ 
+ Ive tried using crypt context and made sure the bcrypt backend is the same in local and deployment. Im stuck. Please. Help.
+
+COMMENTS ON THE QUESTION, in order:
+- [Community] Please provide enough code so others can better understand or reproduce the problem.
+- [N. P.] Started seeing the same issue on my app (which is fastapi, not react) yesterday. Possibly related to a bug in the latest version of bcrypt, released 2025-09-25. Try pinning your version to 4.3.0 to avoid the new 5.0.0 version, see if that helps.
+
+COMMENTS ON THE ANSWER THAT WAS ACCEPTED, in order (the accepted answer itself is NOT shown to you):
+- [AlexElizard] related issue: foss.heptapod.net/python-libs/passlib/-/issues/196
+- [MDEV] I was working to resolve this issue to my fastapi. now fixed after downgrading bcrypt
+- [Patouche] It may work, but it's not an acceptable solution. We should be able to update bcrypt instead of being stuck on a hardcoded version
+- [N. P.] @Patouche I don't disagree - this solution is only to get things working. Note the final sentence of the solution. It is up to the developers of bcrypt and related software to update compatibility, that's not something I recommend people attempt to do on their own. I will, however, more broadly recommend the pinning of package versions and doing regular testing before updating them.
+- [Muhammad hamthan] then if i use bcrypt 4.3.0 version what is the compatible version for passlib , when to use 5.0.0 version of bcrypt
+- [N. P.] @Muhammadhamthan You can figure that out by looking up the most recently released version of passlib on the date of this answer - use the version history of that to search for it
+- [Niketan Toke] It really worked !! thankss !

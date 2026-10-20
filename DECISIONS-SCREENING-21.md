@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-14
+last-verified: 2026-10-20
 -->
 
 # Screening decisions, part 21
@@ -10,7 +10,7 @@ Split out of [`DECISIONS-SCREENING-20.md`](DECISIONS-SCREENING-20.md), which hel
 D107-D109. This part holds the decision taken when the scoring pass of an
 already-predeclared run returns a number that is wrong twice before it is right.
 
-Decisions **D110**. Each entry records a choice that was genuinely open, the
+Decisions **D124**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
 
 **Invariant:** the same as [`DECISIONS-SCREENING-12.md`](DECISIONS-SCREENING-12.md)
@@ -18,14 +18,20 @@ evidence behind it, the alternatives rejected, and the reason.
 with `origin id next D` against the base, and the heading, `DECISIONS.md`'s row
 and this file's own `Decisions **...**` header all move together.
 
+
+**Identifier note (2026-10-20 lineage merge):** `E140` and `E141` in this file mean
+`EXPERIMENTS/140-judge-form-invariance/` and `EXPERIMENTS/141-valueset-second-genre/`.
+The upstream lineage carried two further directories under those numbers, so an
+unqualified `E140`/`E141` is disambiguated by directory name from here on.
+
 ---
 
-## D110 — a detection rate counts the items where the defect was actually introduced, and it is measured by pairing
+## D124 — a detection rate counts the items where the defect was actually introduced, and it is measured by pairing
 
 **Decided 2026-10-14**, on E140's own scoring pass, which got both halves wrong
 before it got them right. Evidence:
 [`EXPERIMENTS/140-judge-form-invariance/`](EXPERIMENTS/140-judge-form-invariance/RESULT.md),
-AMENDMENT-4 §1, `gates.json`, F125.
+AMENDMENT-4 §1, `gates.json`, F144.
 
 **Rule 1 — the denominator of a detection rate is the arm items in which the
 builder actually introduced the defect.** An item where introduction was

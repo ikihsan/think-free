@@ -1,0 +1,17 @@
+{
+  "experiment": "E137",
+  "name": "Cross-model agreement on gsm cell",
+  "model": "01-ai_yi-6b",
+  "cell": "gsm",
+  "parser": "last number in completion (#### parser fallback)",
+  "published_value": 0.375,
+  "recomputed_mean": 0.375,
+  "diff": 0.0,
+  "rows": 1000,
+  "hits": 375,
+  "agreement_ratio": 0.375,
+  "kill_gate_fired": false,
+  "reach_demonstrated": true,
+  "external_value_unobserved": true,
+  "details": "R1 recomputation from scenario_state.json using last-number-in-completion parser. n=1000, hits=375, mean=0.375 vs published 0.375, diff 0.0. Instrument works across models, establishing cross-model agreement. D111 stands (reach demonstrated, external value still unobserved)."
+}

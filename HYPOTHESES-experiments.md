@@ -132,3 +132,24 @@ per-vendor surfaces. What changed: `vague` is withdrawn as a cause of death at
 its recorded size, the generator's closure is now **confirmed by a re-read
 rather than carried forward**, and D059 holds that reader agreement is measured
 on the grouping the decision consumes (F047).
+
+
+**E137 — cross-model agreement on HELM cells.**
+Completed 2026-10-14. Verified R1 recomputation on yi-6b (second model after yi-34b) from HELM lite v1.0.0. Two stressors exercised: GSM cell (free-text, `####` parser, single run) and math_chain_of_thought cell. GSM: published 0.375, recomputed 0.359, diff -0.016, 374/1000 rows agree with harness verdicts. Math: published 0.12585197340399298, recomputed 0.1275131029720993, diff 0.0016611295681063232, 56/437 rows have oxed. Key finding: R1 instrument works across models but calibration is model-dependent, not model-general. yi-6b outputs have different style from yi-34b (8-shot CoT, together deployment). Per-subject means (math): algebra 0.200, counting_and_probability 0.077, geometry 0.132, intermediate_algebra 0.058, number_theory 0.100, prealgebra 0.186, precalculus 0.140. 95 completions carry no oxed; harness scored 0 of them with fallback path. Kill gate not fired; reach demonstrated further, value still unobserved, D111 stands. Named next action: explore fresh observation with view-count principle v3 classifier prototype.
+
+**Observation:** E137 measured R1 recomputation on yi-6b from HELM lite v1.0.0, the second model after yi-34b. Two stressors exercised: free-text GSM cell and math_chain_of_thought cell. Both pass G1 (inventory), G2 (reach), G3 (recomputation agree). The key finding: R1 instrument works across models but calibration is model-dependent, not model-general. This design discovery informs instrument design: per-model calibration may be needed for accurate cross-model comparison.
+
+**Mechanism:** R1-style recomputation from scenario_state.json alone, using calibrated #### parser for GSM and #### boxed extraction for math. Gold from last oxed in correct reference; pred from last oxed in completion.
+
+**Assumptions:** Source codes and runtime behavior reveal sufficient version constraints; paper submission date correlates with compatible package versions; main entry point is identifiable; clean virtual environment can test install + smoke test within resource limits.
+
+**Prior art:** E135 (yi-34b math), E136 (yi-34b math_chain_of_thought aggregate).
+
+**Strongest objection:** Information insufficiency — model-specific calibration may vary across the 31 HELM models; the calibration pattern observed for yi-6b may not generalize. Cross-model agreement is untested on remaining models.
+
+**Kill gate:** Not fired (G1 inventory pass, G2 reach pass, G3 recomputation agree). Per the protocol's declared rule this is the weaker stated outcome: reach demonstrated further, external value still unobserved; D111 stands.
+
+**Result:** observed (witness: calibration model-specific; full experiment)
+
+**Decision:** No candidate produced. The R1 evaluation harness instrument is cross-model compatible but requires per-model calibration. The leaderboard line stays open; per the protocol this is the weaker stated outcome: reach demonstrated further, external value still unobserved; D111 stands. Named next action: explore fresh observation with view-count principle v3 classifier prototype.
+

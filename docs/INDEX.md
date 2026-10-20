@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-15
+last-verified: 2026-10-20
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -61,6 +61,7 @@ Skill bodies under `.agents/skills/` are indexed by
 
 | Document | Owner index | Status | Verified | Summary |
 |---|---|---|---|---|
+| [`docs/reference/VIEW-COUNT-SUMMARY.md`](reference/VIEW-COUNT-SUMMARY.md) | `docs/INDEX.md` | active | 2026-10-15 | ============================================================ |
 | [`docs/reference/cli-reference.md`](reference/cli-reference.md) | `docs/INDEX.md` | active | 2026-10-04 | Every command the repository's tooling provides. Stdlib Python only, so no |
 | [`docs/reference/ground-truth-issue-discriminating-observation.md`](reference/ground-truth-issue-discriminating-observation.md) | `docs/INDEX.md` | active | 2026-10-14 | owner: docs/INDEX.md |
 | [`docs/reference/identifier-allocation.md`](reference/identifier-allocation.md) | `docs/INDEX.md` | active | 2026-10-04 | How an F, D or T number is chosen, and why the choice is recorded. Every number |
@@ -72,6 +73,7 @@ Skill bodies under `.agents/skills/` are indexed by
 |---|---|---|---|---|
 | [`docs/2026-10-06-strongest-shell-baseline.md`](2026-10-06-strongest-shell-baseline.md) | `docs/INDEX.md` | active | 2026-10-06 | > For agentic workers: This is an experiment plan, not a product implementation. It follows the  |
 | [`docs/METHODOLOGY-SUMMARY.md`](METHODOLOGY-SUMMARY.md) | `docs/INDEX.md` | active | 2026-10-07 | A concise synthesis of patterns across all closed invention claims in this repository. |
+| [`docs/preflight-adapter-plan.md`](preflight-adapter-plan.md) | `docs/INDEX.md` | active | 2026-10-13 | ## Adapter Created |
 
 ## sessions
 
@@ -79,7 +81,7 @@ Skill bodies under `.agents/skills/` are indexed by
 |---|---|---|---|---|
 | [`sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md`](../sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md) | `docs/INDEX.md` | stale | 2026-10-08 | Date: 2026-10-07 |
 | [`sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md`](../sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session 2026-10-08-013, VM instance-20260717-0944, 2026-10-08. Defect 24. |
-| [`sessions/2026-10-14-001-session-summary.md`](../sessions/2026-10-14-001-session-summary.md) | `—` | — | — | ## Goal |
+| [`sessions/2026-10-14-001-session-summary.md`](../sessions/2026-10-14-001-session-summary.md) | `STATE-next-actions-sessions.md` | active | 2026-10-20 | ## Session Summary — 2026-10-14 |
 | [`sessions/README.md`](../sessions/README.md) | `docs/INDEX.md` | active | 2026-10-03 | The append-only record of every working session in this repository. |
 
 ## tasks
@@ -179,10 +181,11 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0090-e091-hand-replicate-e062-s-answerability-sub-tes.md`](../tasks/T-0090-e091-hand-replicate-e062-s-answerability-sub-tes.md) | `tasks/INDEX.md` | active | 2026-10-10 | ## Goal |
 | [`tasks/T-0091-run-a-fresh-observation-experiment-testing-the-v.md`](../tasks/T-0091-run-a-fresh-observation-experiment-testing-the-v.md) | `tasks/INDEX.md` | active | 2026-10-11 | ## Goal |
 | [`tasks/T-0093-test-whether-a-discriminating-observation-proced.md`](../tasks/T-0093-test-whether-a-discriminating-observation-proced.md) | `tasks/INDEX.md` | active | 2026-10-12 | ## Goal |
-| [`tasks/T-0094-harvest-public-issue-trackers-and-practitioner-d.md`](../tasks/T-0094-harvest-public-issue-trackers-and-practitioner-d.md) | `tasks/INDEX.md` | active | 2026-10-13 | ## Goal |
-| [`tasks/T-0095-improve-preflight-usability-and-documentation.md`](../tasks/T-0095-improve-preflight-usability-and-documentation.md) | `tasks/INDEX.md` | active | 2026-10-13 | id: T-0095 |
+| [`tasks/T-0094-run-a-fresh-observation-experiment-testing-the-view-count-principle.md`](../tasks/T-0094-run-a-fresh-observation-experiment-testing-the-view-count-principle.md) | `docs/INDEX.md` | active | 2026-10-15 | ## Goal |
+| [`tasks/T-0095-e172-fresh-observation-view-count-principle-and.md`](../tasks/T-0095-e172-fresh-observation-view-count-principle-and.md) | `tasks/INDEX.md` | active | 2026-10-16 | ## Goal |
 | [`tasks/T-0096-e161-measure-how-often-a-real-spreadsheet-engine.md`](../tasks/T-0096-e161-measure-how-often-a-real-spreadsheet-engine.md) | `tasks/INDEX.md` | active | 2026-10-15 | ## Note on the verify command |
-| [`tasks/T-0097-e164-measure-the-damaging-cell-rate-of-a-real-sp.md`](../tasks/T-0097-e164-measure-the-damaging-cell-rate-of-a-real-sp.md) | `tasks/INDEX.md` | active | 2026-10-15 | ## Goal |
+| [`tasks/T-0098-harvest-public-issue-trackers-and-practitioner-d.md`](../tasks/T-0098-harvest-public-issue-trackers-and-practitioner-d.md) | `tasks/INDEX.md` | active | 2026-10-13 | ## Goal |
+| [`tasks/T-0099-improve-preflight-usability-and-documentation.md`](../tasks/T-0099-improve-preflight-usability-and-documentation.md) | `tasks/INDEX.md` | active | 2026-10-13 | On 2026-10-20 the lineage merge found T-0095 allocated by both lineages from the |
 
 ## RESEARCH
 
@@ -195,6 +198,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `RESEARCH/E.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
 | `RESEARCH/EXPERIMENT-PROTOCOL.md/` | `docs/process/experiment-protocol.md` | archived | 2026-10-03 | 1 documents |
 | `RESEARCH/F.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
+| `RESEARCH/G.md/` | `RESEARCH.md` | sealed | 2026-10-18 | 1 documents |
 | `RESEARCH/PRIOR-ART-E065-E066-E067.md/` | `docs/INDEX.md` | active | 2026-10-08 | 1 documents |
 | `RESEARCH/PRIOR-ART-KNITTING.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
 | `RESEARCH/PRIOR-ART-ORIGIN.md/` | `RESEARCH.md` | sealed | 2026-10-04 | 1 documents |
@@ -389,6 +393,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/116-viewcount-import-resolvability/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-12 | 1 documents |
 | `EXPERIMENTS/116-viewcount-nonsoftware/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
 | `EXPERIMENTS/117-hackage-viewcount/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
+| `EXPERIMENTS/117-viewcount-classifier-prototype-v3/` | `docs/INDEX.md` | planning | 2026-10-14 | 1 documents |
 | `EXPERIMENTS/118-pypi-viewcount-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
 | `EXPERIMENTS/119-hexpm-viewcount-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-12 | 1 documents |
 | `EXPERIMENTS/119-viewcount-prototype/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-12 | 1 documents |
@@ -405,7 +410,9 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/128-github-discussions-viewcount/` | `docs/INDEX.md` | active | 2026-10-12 | 2 documents |
 | `EXPERIMENTS/128-preflight-run-output/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-13 | 1 documents |
 | `EXPERIMENTS/129-preflight-adapter-openai-evals/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-13 | 1 documents |
+| `EXPERIMENTS/130-classifier-coverage-prototype/` | `docs/INDEX.md` | active | 2026-10-13 | owner: docs/INDEX.md |
 | `EXPERIMENTS/130-hex-viewcount-prototype/` | `docs/INDEX.md` | active | 2026-10-13 | ## What This Prototype Does |
+| `EXPERIMENTS/130-preflight-adapter-prototype/` | `docs/INDEX.md` | active | 2026-10-13 | 1 documents |
 | `EXPERIMENTS/130-preflight-adapter-third-harness/` | `EXPERIMENTS/README.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10, instance-20260717-0947. |
 | `EXPERIMENTS/130-preflight-third-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
 | `EXPERIMENTS/131-preflight-fourth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
@@ -413,33 +420,89 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/132-preflight-fifth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
 | `EXPERIMENTS/132-viewcount-rust-repos-matched-harvest/` | `—` | — | — | 1 documents |
 | `EXPERIMENTS/133-preflight-sixth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
+| `EXPERIMENTS/134-preflight-real-run/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 6 documents |
+| `EXPERIMENTS/135-preflight-leaderboard-reach/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/135-preflight-seventh-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
+| `EXPERIMENTS/136-leaderboard-free-text-aggregate/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/136-ultraeval-adapter/` | `—` | — | — | Measures the adapter size for UltraEval-Audio harness output format. |
+| `EXPERIMENTS/137-leaderboard-cross-model-agreement/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/137-preflight-demand-validation/` | `EXPERIMENTS/README.md` | active | 2026-10-13 | 3 documents |
 | `EXPERIMENTS/137-preflight-prototype-release/` | `docs/INDEX.md` | active | 2026-10-13 | Status: Prototype — tool + per-harness adapters confirmed operational across two harness formats |
 | `EXPERIMENTS/137-viewcount-classifier-prototype/` | `docs/INDEX.md` | active | 2026-10-13 | 1 documents |
 | `EXPERIMENTS/138-cicd-debugging-fresh/` | `docs/INDEX.md` | active | 2026-10-13 | Date: 2026-10-13 · Status: Complete — all gates measured |
 | `EXPERIMENTS/138-prometheus-discourse-viewcount/` | `docs/INDEX.md` | active | 2026-10-13 | 2 documents |
+| `EXPERIMENTS/139-evalscope-preflight-test/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/139-px4-discourse-viewcount-matched/` | `docs/INDEX.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/139-viewcount-pubdev-matched-harvest/` | `docs/INDEX.md` | active | 2026-10-14 | owner: docs/INDEX.md |
+| `EXPERIMENTS/140-github-actions-ci-failures/` | `EXPERIMENTS/140-github-actions-ci-failures/PROTOCOL.md` | active | 2026-10-14 | 4 documents |
 | `EXPERIMENTS/140-judge-form-invariance/` | `docs/INDEX.md` | active | 2026-10-14 | 14 documents |
 | `EXPERIMENTS/141-discriminating-observation-procedure/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-14 | 1 documents |
+| `EXPERIMENTS/141-scorer-false-negatives/` | `EXPERIMENTS/README.md` | active | 2026-10-15 | 2 documents |
 | `EXPERIMENTS/141-valueset-second-genre/` | `docs/INDEX.md` | active | 2026-10-14 | 5 documents |
+| `EXPERIMENTS/142-cicd-incumbent-probe/` | `EXPERIMENTS/README.md` | active | 2026-10-15 | 2 documents |
 | `EXPERIMENTS/142-valueset-regulatory-human/` | `docs/INDEX.md` | active | 2026-10-14 | 3 documents |
+| `EXPERIMENTS/143-crossvalidated-service-test/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 2 documents |
 | `EXPERIMENTS/143-fresh-observation-medical-device-alarm-codes/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-14 | 1 documents |
 | `EXPERIMENTS/143-valueset-longer-regulatory/` | `docs/INDEX.md` | active | 2026-10-14 | 3 documents |
 | `EXPERIMENTS/143-valueset-longer-submission/` | `docs/INDEX.md` | active | 2026-10-14 | 2 documents |
+| `EXPERIMENTS/144-electrical-engineering-se/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 2 documents |
 | `EXPERIMENTS/144-ofx-merchant-noise/` | `docs/INDEX.md` | active | 2026-10-15 | 3 documents |
 | `EXPERIMENTS/144-value-pre-pass-regulatory/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-14 | 2 documents |
+| `EXPERIMENTS/144-wordpress-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/145-viewcount-reddit/` | `docs/INDEX.md` | active | 2026-10-15 | Result: GATECLOSED — data accessibility boundary |
 | `EXPERIMENTS/146-reddit-viewcount/` | `docs/INDEX.md` | active | 2026-10-14 | 2 documents |
+| `EXPERIMENTS/146-viewcount-crates/` | `docs/INDEX.md` | active | 2026-10-15 | Result: GATECLOSED — classifier vocabulary mismatch |
 | `EXPERIMENTS/147-postgres-deadlock-classification/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-14 | 2 documents |
+| `EXPERIMENTS/150-huggingface-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 3 documents |
 | `EXPERIMENTS/150-sql-injection-classification/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-14 | 2 documents |
+| `EXPERIMENTS/151-vscode-marketplace-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 3 documents |
 | `EXPERIMENTS/160-medical-diagnosis-classification/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/161-csv-spreadsheet-coercion/` | `docs/INDEX.md` | active | 2026-10-15 | Method, files and how to re-run. The numbers and the verdict are in |
 | `EXPERIMENTS/162-a11y-deterministic-repair/` | `docs/INDEX.md` | active | 2026-10-15 | Method, files and how to re-run. The numbers and the verdict are in |
-| `EXPERIMENTS/163-a11y-content-defect-composition/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/163-a11y-content-defect-composition/` | `docs/INDEX.md` | active | 2026-10-15 | 2 documents |
+| `EXPERIMENTS/165-golang-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 2 documents |
+| `EXPERIMENTS/165-hn-ask-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | owner: docs/INDEX.md |
+| `EXPERIMENTS/165-pypi-tier-analysis/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/165-vscode-marketplace-viewcount/` | `docs/INDEX.md` | active | 2026-10-16 | 1 documents |
+| `EXPERIMENTS/166-devto-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | owner: docs/INDEX.md |
+| `EXPERIMENTS/167-wikipedia-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | owner: docs/INDEX.md |
+| `EXPERIMENTS/168-version-pinned-need/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 2 documents |
+| `EXPERIMENTS/169-version-pinned-reach/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 4 documents |
+| `EXPERIMENTS/170-fix-reachability-rank/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 4 documents |
+| `EXPERIMENTS/171-resolution-fact-locus/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-16 | 4 documents |
+| `EXPERIMENTS/174-scoped-reach-recompute/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 2 documents |
+| `EXPERIMENTS/175-repo-from-report/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 4 documents |
+| `EXPERIMENTS/177-evidence-gated-need/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 8 documents |
+| `EXPERIMENTS/178-evidence-where-does-it-live/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-17 | 5 documents |
+| `EXPERIMENTS/181-fact-supply-closes-gap/` | `docs/INDEX.md` | active | 2026-10-18 | 5 documents |
+| `EXPERIMENTS/182-ground-truth-contest/` | `docs/INDEX.md` | active | 2026-10-18 | 4 documents |
+| `EXPERIMENTS/183-prior-art-ground-truth-quality/` | `docs/INDEX.md` | active | 2026-10-18 | 2 documents |
+| `EXPERIMENTS/185-knitting-repair-planner-stage-a/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-18 | 2 documents |
+| `EXPERIMENTS/186-nhtsa-complaint-recall-prediction/` | `docs/INDEX.md` | active | 2026-10-18 | owner: docs/INDEX.md |
+| `EXPERIMENTS/187-clinical-trial-matching/` | `docs/INDEX.md` | active | 2026-10-18 | owner: docs/INDEX.md |
+| `EXPERIMENTS/193-source-capability-probe/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 3 documents |
+| `EXPERIMENTS/194-appstore-demand-scan/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 3 documents |
+| `EXPERIMENTS/195-spend-axis-probe/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 3 documents |
+| `EXPERIMENTS/196-federal-spend-metered/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 5 documents |
+| `EXPERIMENTS/197-funded-award-count/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 3 documents |
+| `EXPERIMENTS/197-recipient-read-extension/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 1 documents |
+| `EXPERIMENTS/198-recipient-read/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 2 documents |
+| `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
+| `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/E149-github-repo-viewcount-followup/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/E150-so-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/E151-se-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/E161-vscode-extension-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/E162-mozilla-addons-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/E172-discourse-viewcount/` | `docs/INDEX.md` | active | 2026-10-16 | 2 documents |
+| `EXPERIMENTS/E173-github-discussions-viewcount/` | `docs/INDEX.md` | active | 2026-10-16 | 2 documents |
+| `EXPERIMENTS/E179-math-se-ask-patterns/` | `docs/INDEX.md` | active | 2026-10-17 | 1 documents |
+| `EXPERIMENTS/E180-pubdev-viewcount/` | `docs/INDEX.md` | active | 2026-10-17 | 2 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/e138-viewcount-discrimination/` | `docs/INDEX.md` | active | 2026-10-14 | 1 documents |
+| `EXPERIMENTS/preflight-adoption-interest.md/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 1 documents |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/synthesis-view-count-principle.md/` | `EXPERIMENTS/PLAN.md` | withdrawn | 2026-10-10 | 1 documents |
 

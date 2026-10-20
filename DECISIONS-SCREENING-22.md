@@ -1,16 +1,16 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-14
+last-verified: 2026-10-20
 -->
 
 # Screening decisions, part 22
 
 Split out of [`DECISIONS-SCREENING-21.md`](DECISIONS-SCREENING-21.md), which held
-D110. This part holds the decisions taken when a build trigger that fired on
+D124. This part holds the decisions taken when a build trigger that fired on
 one population is measured on a second one.
 
-Decisions **D111, D112**. Each entry records a choice that was genuinely open,
+Decisions **D125, D126**. Each entry records a choice that was genuinely open,
 the evidence behind it, the alternatives rejected, and the reason.
 
 **Invariant:** the same as [`DECISIONS-SCREENING-12.md`](DECISIONS-SCREENING-12.md)
@@ -18,13 +18,19 @@ the evidence behind it, the alternatives rejected, and the reason.
 with `origin id next D` against the base, and the heading, `DECISIONS.md`'s row
 and this file's own `Decisions **...**` header all move together.
 
+
+**Identifier note (2026-10-20 lineage merge):** `E140` and `E141` in this file mean
+`EXPERIMENTS/140-judge-form-invariance/` and `EXPERIMENTS/141-valueset-second-genre/`.
+The upstream lineage carried two further directories under those numbers, so an
+unqualified `E140`/`E141` is disambiguated by directory name from here on.
+
 ---
 
-## D111 — a build trigger fires on a population, and is withdrawn by a second population rather than by a better one
+## D125 — a build trigger fires on a population, and is withdrawn by a second population rather than by a better one
 
 **Decided 2026-10-14**, on E141's scoring pass. Evidence:
 [`EXPERIMENTS/141-valueset-second-genre/`](EXPERIMENTS/141-valueset-second-genre/RESULT.md),
-F126, AMENDMENT-1, AMENDMENT-2.
+F145, AMENDMENT-1, AMENDMENT-2.
 
 E140 ended with the first positive build trigger this line has produced:
 `valueset.py` at 0 false positives in 929 values, 11/11 substitution, 11/11
@@ -67,11 +73,11 @@ scope statement E141 supports is narrower and actionable:
   (D076, F076–F080). This is that measurement.
 
 **Bears on** D076, D109 (E140's own scope: a verifier's rate belongs to an arm),
-F123, F125, F126.
+F123, F144, F145.
 
 ---
 
-## D112 — a control the builder did not write is part of the instrument, and its failure is the finding
+## D126 — a control the builder did not write is part of the instrument, and its failure is the finding
 
 **Decided 2026-10-14**, on the same run. Evidence: `test_squad.py`
 `InstrumentControls`, AMENDMENT-2.

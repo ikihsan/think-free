@@ -1,0 +1,10 @@
+{"name": "requests", "outcome": "pass", "detail": "exists:requests:2.34.2"}
+{"name": "click", "outcome": "pass", "detail": "exists:click:8.5.0"}
+{"name": "jinja2", "outcome": "pass", "detail": "exists:Jinja2:3.1.6"}
+{"name": "clap-utils", "outcome": "fail", "detail": "not_found"}
+{"name": "fast-clap", "outcome": "fail", "detail": "not_found"}
+{"name": "regex-rs", "outcome": "pass", "detail": "exists:regex-rs:0.2.4"}
+{"name": "regex-cli", "outcome": "fail", "detail": "not_found"}
+{"name": "nonexistent-pkg-xyz12345", "outcome": "fail", "detail": "not_found"}
+{"name": "fake-package-abc999", "outcome": "fail", "detail": "not_found"}
+{"name": "does-not-exist-on-pypi-12345", "outcome": "fail", "detail": "not_found"}

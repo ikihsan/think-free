@@ -1,0 +1,41 @@
+{
+  "observed_at_utc": "2026-10-15T17:37:03Z",
+  "user_date": "2026-10-15",
+  "platform": "synthetic-demo",
+  "keyword": "demo-keyword",
+  "sample_size": 100,
+  "classified": {
+    "need-related": 42,
+    "random": 58
+  },
+  "active": {
+    "need-related": 30,
+    "random": 25
+  },
+  "active_rates": {
+    "need-related": 0.7142857142857143,
+    "random": 0.43103448275862066
+  },
+  "gates": {
+    "g1_pass": true,
+    "g2_pass": true,
+    "g3_pass": true,
+    "g4_pass": true,
+    "g1_ratio": 1.6571428571428573,
+    "g1_need_rate": 0.7142857142857143,
+    "g1_random_rate": 0.43103448275862066,
+    "classified_total": 100,
+    "need_related_count": 42,
+    "random_count": 58,
+    "need_related_active": 30,
+    "random_active": 25,
+    "active_rates": {
+      "need-related": 0.7142857142857143,
+      "random": 0.43103448275862066
+    },
+    "conclusion": "pending"
+  },
+  "conclusion": "synthetic_generated",
+  "experiment_description": "View-count principle synthetic experiment for framework validation",
+  "note": "This is a SYNTHETIC experiment generated for framework validation purposes. No real data was fetched. The purpose is to validate the framework's gate computation and results pipeline. Real-world validation requires actual platform data collection per the mission's experiment protocol."
+}

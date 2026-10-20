@@ -3,7 +3,7 @@
 
 One row per question. Nothing here decides a gate; it only records the
 population and the arm membership, so that the exclusions K1's denominator
-depends on are readable from the file before any instrument runs (D110).
+depends on are readable from the file before any instrument runs (D124).
 
 Run:  python3 build_arms.py
 """
@@ -24,7 +24,7 @@ EXPECTED_BYTES = 4370528
 
 DIGIT = re.compile(r"\d")
 # AMENDMENT-1 arms N and C. Both are ordinary regexes over corpus fields, so
-# both exclusions stay checkable from arms.jsonl alone (D110).
+# both exclusions stay checkable from arms.jsonl alone (D124).
 VALUE_SPAN = re.compile(r"^[\s$€£]*\d|^(January|February|March|April|May|June|July|"
                          r"August|September|October|November|December)\b", re.I)
 

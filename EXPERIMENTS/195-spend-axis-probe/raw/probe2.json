@@ -1,0 +1,52 @@
+{
+  "experiment": "E195",
+  "g3_evaluable": true,
+  "gates": {
+    "G1_control_integrity": true,
+    "G2_spend_axis_usable": true,
+    "G3_keyword_discriminates": false,
+    "G4_both_arms_return_amounts": true
+  },
+  "host_python": "3.8.10",
+  "panel": 2,
+  "rows": [
+    {
+      "amount_rows": 5,
+      "amount_total": 112839.14,
+      "bytes": 2186,
+      "excerpt": "{\"spending_level\":\"awards\",\"limit\":5,\"results\":[{\"internal_id\":350577602,\"Award ID\":\"W91ZRS23P0024\",\"Award Amount\":25942.0,\"Description\":\"LAUNDRY SERVICE FOR THEIR OCS TRAINING.\",\"Awarding Agency\":\"Department of Defense\",\"awarding_agency_id\":1173,\"agency_slug\":\"department-of-defense\",\"generated_inte",
+      "json": true,
+      "keyword": "laundry",
+      "results_returned": 5,
+      "role": "spend",
+      "sample_descriptions": [
+        "LAUNDRY SERVICE FOR THEIR OCS TRAINING.",
+        "TY 22 OCS LAUNDRY SERVICE FOR 225 PAX",
+        "TY 21 OCS LAUNDRY SERVICE FOR 225 PAX"
+      ],
+      "sha256": "b30392fbd32c792018cd202c6c4ab4f3a968fbeb336e8a91c92abd2d50a3ccec",
+      "source": "usaspending_laundry",
+      "status": 200,
+      "verdict": "capture"
+    },
+    {
+      "amount_rows": 5,
+      "amount_total": 3582719.3600000003,
+      "bytes": 2229,
+      "excerpt": "{\"spending_level\":\"awards\",\"limit\":5,\"results\":[{\"internal_id\":350271664,\"Award ID\":\"W9133L18C0021\",\"Award Amount\":3225975.12,\"Description\":\"RECRUIT SUSTAINMENT PROGRAM (RSP) ENHANCEMENT ITEMS\",\"Awarding Agency\":\"Department of Defense\",\"awarding_agency_id\":1173,\"agency_slug\":\"department-of-defense\",",
+      "json": true,
+      "keyword": "knitting",
+      "results_returned": 5,
+      "role": "spend",
+      "sample_descriptions": [
+        "RECRUIT SUSTAINMENT PROGRAM (RSP) ENHANCEMENT ITEMS",
+        "FIRE RESISTANT ENVIRONMENTAL ENSEMBLES AND OTHER CAMOUFLAGE COMBAT UNIFORM CLOTHING ITEMS.",
+        "RRB ARMY PHYSICAL FITNESS UNIFORMS"
+      ],
+      "sha256": "1b18c3fb7618dbfe562b8c425096875fa436b94227ad039fa91d3ce7eeb4b601",
+      "source": "usaspending_knitting",
+      "status": 200,
+      "verdict": "capture"
+    }
+  ]
+}

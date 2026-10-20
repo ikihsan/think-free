@@ -1,0 +1,91 @@
+==============================================================================
+[seq 2] 2026-10-14T16:14:43+00:00
+$ pip install modelscope evalscope -q
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+/usr/bin/pip:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  from pkg_resources import load_entry_point
+ERROR: Could not find a version that satisfies the requirement datasets==3.2.0 (from evalscope) (from versions: 0.0.9, 1.0.0, 1.0.1, 1.0.2, 1.1.0, 1.1.1, 1.1.2, 1.1.3, 1.2.0, 1.2.1, 1.3.0, 1.4.0, 1.4.1, 1.5.0, 1.6.0, 1.6.1, 1.6.2, 1.7.0, 1.8.0, 1.9.0, 1.10.0, 1.10.1, 1.10.2, 1.11.0, 1.12.0, 1.12.1, 1.13.0, 1.13.1, 1.13.2, 1.13.3, 1.14.0, 1.15.0, 1.15.1, 1.16.0, 1.16.1, 1.17.0, 1.18.0, 1.18.1, 1.18.2, 1.18.3, 1.18.4, 2.0.0, 2.1.0, 2.2.0, 2.2.1, 2.2.2, 2.3.0, 2.3.1, 2.3.2, 2.4.0, 2.5.0, 2.5.1, 2.5.2, 2.6.0, 2.6.1, 2.6.2, 2.7.0, 2.7.1, 2.8.0, 2.9.0, 2.10.0, 2.10.1, 2.11.0, 2.12.0, 2.13.0, 2.13.1, 2.13.2, 2.14.0, 2.14.1, 2.14.2, 2.14.3, 2.14.4, 2.14.5, 2.14.6, 2.14.7, 2.15.0, 2.16.0, 2.16.1, 2.17.0, 2.17.1, 2.18.0, 2.19.0, 2.19.1, 2.19.2, 2.20.0, 2.21.0, 3.0.0, 3.0.1, 3.0.2, 3.1.0)
+ERROR: No matching distribution found for datasets==3.2.0 (from evalscope)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 15683  redactions: none
+==============================================================================
+[seq 3] 2026-10-14T16:15:20+00:00
+$ pip install modelscope -q
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+/usr/bin/pip:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  from pkg_resources import load_entry_point
+  WARNING: The script tqdm is installed in '/home/ubuntu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script modelscope is installed in '/home/ubuntu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 29699  redactions: none
+==============================================================================
+[seq 4] 2026-10-14T16:15:55+00:00
+$ pip install backports.zoneinfo -q
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+/usr/bin/pip:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  from pkg_resources import load_entry_point
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6332  redactions: none
+==============================================================================
+[seq 5] 2026-10-14T16:19:25+00:00
+$ pip install evalscope -q
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+/usr/bin/pip:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  from pkg_resources import load_entry_point
+ERROR: Could not find a version that satisfies the requirement datasets==3.2.0 (from evalscope) (from versions: 0.0.9, 1.0.0, 1.0.1, 1.0.2, 1.1.0, 1.1.1, 1.1.2, 1.1.3, 1.2.0, 1.2.1, 1.3.0, 1.4.0, 1.4.1, 1.5.0, 1.6.0, 1.6.1, 1.6.2, 1.7.0, 1.8.0, 1.9.0, 1.10.0, 1.10.1, 1.10.2, 1.11.0, 1.12.0, 1.12.1, 1.13.0, 1.13.1, 1.13.2, 1.13.3, 1.14.0, 1.15.0, 1.15.1, 1.16.0, 1.16.1, 1.17.0, 1.18.0, 1.18.1, 1.18.2, 1.18.3, 1.18.4, 2.0.0, 2.1.0, 2.2.0, 2.2.1, 2.2.2, 2.3.0, 2.3.1, 2.3.2, 2.4.0, 2.5.0, 2.5.1, 2.5.2, 2.6.0, 2.6.1, 2.6.2, 2.7.0, 2.7.1, 2.8.0, 2.9.0, 2.10.0, 2.10.1, 2.11.0, 2.12.0, 2.13.0, 2.13.1, 2.13.2, 2.14.0, 2.14.1, 2.14.2, 2.14.3, 2.14.4, 2.14.5, 2.14.6, 2.14.7, 2.15.0, 2.16.0, 2.16.1, 2.17.0, 2.17.1, 2.18.0, 2.19.0, 2.19.1, 2.19.2, 2.20.0, 2.21.0, 3.0.0, 3.0.1, 3.0.2, 3.1.0)
+ERROR: No matching distribution found for datasets==3.2.0 (from evalscope)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 6185  redactions: none
+==============================================================================
+[seq 6] 2026-10-14T16:20:27+00:00
+$ pip install datasets==3.1.0 -q
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+/usr/bin/pip:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  from pkg_resources import load_entry_point
+ERROR: Exception:
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pip/_internal/cli/base_command.py", line 186, in _main
+    status = self.run(options, args)
+  File "/usr/lib/python3/dist-packages/pip/_internal/commands/install.py", line 357, in run
+    resolver.resolve(requirement_set)
+  File "/usr/lib/python3/dist-packages/pip/_internal/legacy_resolve.py", line 177, in resolve
+    discovered_reqs.extend(self._resolve_one(requirement_set, req))
+  File "/usr/lib/python3/dist-packages/pip/_internal/legacy_resolve.py", line 333, in _resolve_one
+    abstract_dist = self._get_abstract_dist_for(req_to_install)
+  File "/usr/lib/python3/dist-packages/pip/_internal/legacy_resolve.py", line 281, in _get_abstract_dist_for
+    req.populate_link(self.finder, upgrade_allowed, require_hashes)
+  File "/usr/lib/python3/dist-packages/pip/_internal/req/req_install.py", line 249, in populate_link
+    self.link = finder.find_requirement(self, upgrade)
+  File "/usr/lib/python3/dist-packages/pip/_internal/index/package_finder.py", line 898, in find_requirement
+    best_candidate_result = self.find_best_candidate(
+  File "/usr/lib/python3/dist-packages/pip/_internal/index/package_finder.py", line 881, in find_best_candidate
+    candidates = self.find_all_candidates(project_name)
+  File "/usr/lib/python3/dist-packages/pip/_internal/index/package_finder.py", line 825, in find_all_candidates
+    package_links = self.process_project_url(
+  File "/usr/lib/python3/dist-packages/pip/_internal/index/package_finder.py", line 797, in process_project_url
+    package_links = self.evaluate_links(
+  File "/usr/lib/python3/dist-packages/pip/_internal/index/package_finder.py", line 779, in evaluate_links
+    candidate = self.get_install_candidate(link_evaluator, link)
+  File "/usr/lib/python3/dist-packages/pip/_internal/index/package_finder.py", line 764, in get_install_candidate
+    return InstallationCandidate(
+  File "/usr/lib/python3/dist-packages/pip/_internal/models/candidate.py", line 18, in __init__
+    self.version = parse_version(version)  # type: _BaseVersion
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/packaging/version.py", line 56, in parse
+    return Version(version)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/packaging/version.py", line 202, in __init__
+    raise InvalidVersion(f"Invalid version: {version!r}")
+packaging.version.InvalidVersion: Invalid version: '2004d'
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 49134  redactions: none

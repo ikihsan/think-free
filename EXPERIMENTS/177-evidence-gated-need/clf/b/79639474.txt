@@ -1,0 +1,304 @@
+qid: 79639474
+view_count: 1049
+tags: c++, cout, stdformat
+key_score: 7
+
+=== TITLE ===
+Why does std::print take so much space?
+
+=== QUESTION ===
+I am trying to understand something about the below code, where I am switching between std
+::cout and the newer std::print . 
+ #include <iostream>
+#include <print>
+
+int main()
+{
+ for (int i{}; i != 3; ++i)
+ {
+ std::print("{0}\n", i);
+ // std::cout << i << std::endl;
+ }
+
+ return 1;
+}
+ 
+
+ g++ -g --std=c++23 print.cpp -o print_03 -O3 //for std::print
+g++ -g --std=c++23 print.cpp -o cout_03 -O3 //For std::cout
+ 
+ Even when compiling with optimizations (check below output), the executable increases by 
+1MB. Why is it so much just for adding a print? 
+ I tried looking at the assembly in godbolt and saw that a lot of hard-coded Unicode varia
+bles are being added, like std::__unicode::__width_edges [] . 
+ 1MB for an O3 optimized version and 600k for a non-optimized build is a lot, compared to 
+the older std::cout . For me, it's an increase in the size of the binary by more than 10x.
+ 
+ total 1.8M
+-rwxr-xr-x 1 questioner questioner 53K May 26 18:59 cout_O3
+-rwxr-xr-x 1 questioner questioner 1.1M May 26 19:00 print_O3
+-rwxr-xr-x 1 questioner questioner 600K May 26 19:00 print
+-rw-r--r-- 1 questioner questioner 183 May 26 19:00 print.cpp
+-rwxr-xr-x 1 questioner questioner 93K May 26 19:00 cout
+
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description: Ubuntu 24.04.2 LTS
+Release: 24.04
+Codename: noble
+ 
+ My configs are: 
+ 
+ Processor: AMD Ryzen 9 5900X 
+ Memory: 32G 
+ 
+
+ std::cout 
+ std::print 
+ #include <iostream>
+#include <print>
+
+int main()
+{
+ for (int i{}; i != 3; ++i)
+ {
+ std::print("{0}\n", i);
+ // std::cout << i << std::endl;
+ }
+
+ return 1;
+}
+ 
+ g++ -g --std=c++23 print.cpp -o print_03 -O3 //for std::print
+g++ -g --std=c++23 print.cpp -o cout_03 -O3 //For std::cout
+ 
+ std::__unicode::__width_edges [] 
+ std::cout 
+ total 1.8M
+-rwxr-xr-x 1 questioner questioner 53K May 26 18:59 cout_O3
+-rwxr-xr-x 1 questioner questioner 1.1M May 26 19:00 print_O3
+-rwxr-xr-x 1 questioner questioner 600K May 26 19:00 print
+-rw-r--r-- 1 questioner questioner 183 May 26 19:00 print.cpp
+-rwxr-xr-x 1 questioner questioner 93K May 26 19:00 cout
+
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description: Ubuntu 24.04.2 LTS
+Release: 24.04
+Codename: noble
+
+=== KEY ANSWER ===
+I am able to reproduce this with GCC 14.2 on Debian Linux under some circumstance. Here is
+ the size of the output program (in KiB) depending on the optimization flags and the prese
+nce of the debugging information: 
+ opt | with -g | without -g 
+------------------------------
+ -O0 | 597 | 225 
+ -O1 | 884 | 107 
+ -O2 | 930 | 108 
+ -O3 | 1062 | 124 
+ -Og | 611 | 114 
+ -Os | 565 | 83 
+ 
+ We can see that debugging information (i.e. -g flag) massively increase the executable si
+ze . It is not that rare for debugging information to make programs significantly heavier,
+ though not that much. Moreover optimizing the compilation for space (i.e. -g flag) help t
+o substantially reduce the size further. 
+ With -O3 -g here is the content of the program elf sections (the size in KiB is rounded t
+o the nearest integer): 
+ Section name | Size (KiB) 
+-----------------------------------
+ .note.gnu.property | 0 
+ .note.gnu.build-id | 0 
+ .interp | 0 
+ .gnu.hash | 0 
+ .dynsym | 1 
+ .dynstr | 2 
+ .gnu.version | 0 
+ .gnu.version_r | 0 
+ .rela.dyn | 1 
+ .rela.plt | 1 
+ .init | 0 
+ .plt | 1 
+ .plt.got | 0 
+ .text | 77 
+ .fini | 0 
+ .rodata | 14 
+ .eh_frame_hdr | 0 
+ .eh_frame | 4 
+ .gcc_except_table | 1 
+ .note.ABI-tag | 0 
+ .init_array | 0 
+ .fini_array | 0 
+ .data.rel.ro | 0 
+ .dynamic | 1 
+ .got | 0 
+ .got.plt | 0 
+ .data | 0 
+ .bss | 0 
+ .comment | 0 
+ .debug_aranges | 1 
+ .debug_info | 361 
+ .debug_abbrev | 6 
+ .debug_line | 93 
+ .debug_str | 140 
+ .debug_line_str | 1 
+ .debug_loclists | 293 
+ .debug_rnglists | 45 
+ 
+ We can see that the sections .debug_info , .debug_loclists , .debug_str and .debug_line t
+akes most of the executable size (887 KiB). Note that .debug sections are not loaded in RA
+M unless you debug the program (e.g. using GDB), so the program section should take only 1
+00 KiB in RAM in this case. You can see that by tracking the ALLOC flag in objdump --heade
+rs (see this post for more information about this). More information about these debugging
+ sections can be found here and there (the later apparently provide a way to mitigate the 
+size of the debugging section). Put it shortly: 
+ 
+ .debug_info : Core DWARF section containing debugging information entries (DIEs) for all 
+of the variables, functions, types, etc. found in a program's source code. 
+ .debug_loclists : describe where a variable's value is located (e.g. in a register or on 
+the stack). It is a DWARF5 more efficient alternative to the previous .debug_loc section. 
+ .debug_str : contains all the strings needed for other DWARF sections (especially .debug_
+info and .debug_line ). This is an indexed so to reduce the overall space of other section
+s. 
+ .debug_line : contains a mapping between assembly instruction addresses and source code l
+ines. 
+ 
+ Interestingly, the .debug_str section contains some recurring words like format appearing
+ 1306 times (so 7.6 KiB just to store all theses occurrences). Most of the occurrence seem
+s to be functions names. It looks like there is about 100 KiB of them and roughly 1500 fun
+ctions (about 1/3 contains the word format and about the same for basic_string ). Some lon
+g string a repeated about 300 times like for example __cxx1112basic_stringIcSt11char_trait
+sIcESaIcEE (so 14 KiB for that). Some function are nearly the same with some varying type.
+ Additionally, some functions contains the string Runtime_format_string . Also note that s
+ome of the functions have a really long signature, like this one (actually executed, givin
+g some hint on what is going on): 
+ std::visit_format_arg<std::__format::_Formatting_scanner<std::__format::_Sink_iter<char>,
+ char>::_M_format_arg(unsigned long)::{lambda(auto:1&)#1}, std::basic_format_context<std::
+__format::_Sink_iter<char>, char> >(std::__format::_Formatting_scanner<std::__format::_Sin
+k_iter<char>, char>::_M_format_arg(unsigned long)::{lambda(auto:1&)#1}&&, std::basic_forma
+t_arg<std::basic_format_context<std::__format::_Sink_iter<char>, char> >)
+ 
+ Based on all data gathered so far, I think all of this is a sign of intensive template ge
+neration . It makes sense since the parser is probably generic but it needs to be fast so 
+many parsing use-case are generated at compile time (certainly with a usual dispatch mecha
+nism to call the specialized function regarding the actual string parsed at runtime). Thus
+, the parser supports all kind of inputs, not just the one in your program. The compiler f
+ails specialize the code so to remove all the code that is not actually useful (i.e. dead 
+code). In fact, this is pretty hard (if even possible) since the parser is probably inhere
+ntly dynamic . Thus, a lot functions are not inlined either. This explains pretty well the
+ relatively resulting executable (considering what it does), and more specifically why deb
+ugging information are also pretty big. 
+ The code (i.e. .text ) itself is relatively small (77 KiB), especially since it is compil
+ed for speed (i.e. -O3 ) and not for space (i.e. -Os ). The read-only data section (i.e. .
+rodata ) is where the Unicode-related lookup tables (LUT) are stored. It is not that big e
+ither for a code doing Unicode operations using LUT (for sake of performance). With -Os , 
+the code takes "only" 28 KiB (2.7 times less than with -O3 ) and the .rodata section takes
+ 12 KiB. 
+ From what I can read of the C++23 documentation, it is totally possible for the implement
+ation to fully generate a parser specialized for your use-case at compile-time. Indeed, in
+ C++23, the fmt parameter of std::print is of type std::format_string<Args...> and certain
+ly a std::basic_format_string which expect compile-time constant in argument (or a runtime
+ string expected to be supported in C++26). Thus, maybe this first C++23 implementation of
+ GCC is not currently optimized enough so it can do that, or maybe they want to share some
+ code with the dynamic-string implementation of C++26, or maybe it is just an unwanted sid
+e effect (e.g. possibly due to the mix of visitors, lambdas, iterators, and a lot of templ
+ates combined with some runtime conditionals). It is hard to know without understanding th
+e 4590 lines of code of /usr/include/c++/14/format or without contacting someone who know/
+wrote this code... 
+ Note that a similar issue happens with Clang 19.1 (and its default standard library) taki
+ng about 440 KiB with -O3 -g , and 90 KiB with only -O3 (better but still not really light
+weight). This alternative implementation generates significantly less bloat. 
+
+ opt | with -g | without -g 
+------------------------------
+ -O0 | 597 | 225 
+ -O1 | 884 | 107 
+ -O2 | 930 | 108 
+ -O3 | 1062 | 124 
+ -Og | 611 | 114 
+ -Os | 565 | 83 
+ 
+ -g 
+ -g 
+ -O3 -g 
+ Section name | Size (KiB) 
+-----------------------------------
+ .note.gnu.property | 0 
+ .note.gnu.build-id | 0 
+ .interp | 0 
+ .gnu.hash | 0 
+ .dynsym | 1 
+ .dynstr | 2 
+ .gnu.version | 0 
+ .gnu.version_r | 0 
+ .rela.dyn | 1 
+ .rela.plt | 1 
+ .init | 0 
+ .plt | 1 
+ .plt.got | 0 
+ .text | 77 
+ .fini | 0 
+ .rodata | 14 
+ .eh_frame_hdr | 0 
+ .eh_frame | 4 
+ .gcc_except_table | 1 
+ .note.ABI-tag | 0 
+ .init_array | 0 
+ .fini_array | 0 
+ .data.rel.ro | 0 
+ .dynamic | 1 
+ .got | 0 
+ .got.plt | 0 
+ .data | 0 
+ .bss | 0 
+ .comment | 0 
+ .debug_aranges | 1 
+ .debug_info | 361 
+ .debug_abbrev | 6 
+ .debug_line | 93 
+ .debug_str | 140 
+ .debug_line_str | 1 
+ .debug_loclists | 293 
+ .debug_rnglists | 45 
+ 
+ .debug_info 
+ .debug_loclists 
+ .debug_str 
+ .debug_line 
+ .debug 
+ objdump --headers 
+ .debug_info 
+ .debug_loclists 
+ .debug_loc 
+ .debug_str 
+ .debug_info 
+ .debug_line 
+ .debug_line 
+ .debug_str 
+ format 
+ format 
+ basic_string 
+ __cxx1112basic_stringIcSt11char_traitsIcESaIcEE 
+ Runtime_format_string 
+ std::visit_format_arg<std::__format::_Formatting_scanner<std::__format::_Sink_iter<char>,
+ char>::_M_format_arg(unsigned long)::{lambda(auto:1&)#1}, std::basic_format_context<std::
+__format::_Sink_iter<char>, char> >(std::__format::_Formatting_scanner<std::__format::_Sin
+k_iter<char>, char>::_M_format_arg(unsigned long)::{lambda(auto:1&)#1}&&, std::basic_forma
+t_arg<std::basic_format_context<std::__format::_Sink_iter<char>, char> >)
+ 
+ .text 
+ -O3 
+ -Os 
+ .rodata 
+ -Os 
+ -O3 
+ .rodata 
+ fmt 
+ std::print 
+ std::format_string<Args...> 
+ std::basic_format_string 
+ /usr/include/c++/14/format 
+ -O3 -g 
+ -O3
+

@@ -1,99 +1,222 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-14
+last-verified: 2026-10-16
 -->
 
 # Findings — failures and negative results, part 41
 
 Split out of [`FAILURES-findings-40.md`](FAILURES-findings-40.md), which held
-F119-F124 and was at 281 of 300 lines. See [`FAILURES.md`](FAILURES.md) for the
-index. **Identifiers are stable across all findings files.**
+F119–F124. See [`FAILURES.md`](FAILURES.md) for the index. **Identifiers are
+stable across all findings files.** F130 and F131 continue in
+[`FAILURES-findings-42.md`](FAILURES-findings-42.md).
 
-## F125 — the verifier question is two questions, and only one of them is solvable cheaply
+## F125 — `preflight` returned a non-blocking `OK` on two paths that measured nothing, and the only way to find out was to point it at a real foreign run (E134)
 
-**Observed 2026-10-14**, session `2026-10-14-001`,
-[`EXPERIMENTS/140-judge-form-invariance/`](EXPERIMENTS/140-judge-form-invariance/RESULT.md).
+**Date:** 2026-10-14. `EXPERIMENTS/134-preflight-real-run/`. Raw:
+[`results_e134.json`](EXPERIMENTS/134-preflight-real-run/results_e134.json).
 
-E114 closed with: the subject was fine (0 of 374 values fabricated) and the
-**verifier was dead** — a checker that passed every declared gate had a
-false-positive rate of 1.00 on faithful paraphrase, and named as the missing
-number *"the false-positive rate of a verifier whose comparison step tolerates
-faithful paraphrase"*, adding that it was not cheap to get. E140 got it, three
-times, on one corpus, with the arms declared before the instruments ran.
+### What was asked
 
-**Population.** E114's 15 committed (document, question, answer) triples over 5
-real Federal Register final rules; 241 numeric and 398 canonical values. Judge
-arm 31 items in 7 batches: 10 verbatim, 10 surface-transformed, 4 re-authored by
-a blind writer, 7 corrupted.
+`preflight` is a stdlib-only package that measures three properties of an
+evaluation instrument and **withholds a rate unless all three hold**. E124 built
+it and validated it on five committed cases, all from this repository. E125 then
+kept it internal after finding only two genuine key/output pairs among 22 popular
+harnesses. E128–E133 re-opened it by writing adapters for four formats *this
+repository had constructed itself*. **No run of a foreign harness had ever been
+observed.** E134 ran one.
 
-| instrument | FP on verbatim | FP on surface-paraphrased | FP on re-authored | detects a swapped value | detects an omission | detects a misattribution |
-|---|---|---|---|---|---|---|
-| M1 `ground.py` (E114's) | 0.3727 | 0.4651 | 0.6019 | 9/11 | — | 6/6 |
-| M2 `valueset.py` (canonicalizer) | **0.0000** | **0.0000** | **0.0000** | **11/11** | 11/11 | **0/6** |
-| J1 shipped `inspect_ai` `model_graded_fact` | 0/10 | 0/10 | 0/4 | 6/7 | not run | not run |
+### What happened
 
-Every rate in the three false-positive columns is a *false*-positive rate because
-K4 machine-verifies that each arm carries the identical value multiset as the
-verbatim answer. J1's 0/24 correct answers is Wilson CI95 [0.0000, 0.1380]; its
-6/7 detection is [0.4869, 0.9743].
+Neither defect was found by reading the code. Both were found by running the
+committed package on output bytes it had never seen, and reading the verdict.
 
-**What is disproved.** Not the judge: it produced zero false positives on 24
-correct-but-reworded answers and found 6 of 7 swapped values, including a
-transposition inside a telephone number. The **incumbent mechanical verifier is
-disproved as a gate, and this time quantitatively**: its false-positive rate is
-not a constant that transfers between arms (F123) but a **monotone function of
-how far the input has been reworded** — 0.3727 verbatim, 0.4651 after mechanical
-surface transforms, 0.6019 after a writer re-authored the same answer in
-different words. E114's 0.3717 reproduces here independently, and the 1.00 of
-F118 is the far end of a curve rather than an outlier.
+**1. C1 reports `OK` when there is no key to join against.** On Arm A, a real run
+of `EleutherAI/lm-evaluation-harness` v0.4.4 on `openbookqa`, the key side could
+not be built at all — the run does not record which split it evaluated, and
+`n-samples.original = 500` matches **both** the declared `validation` and
+`test` splits, which hold 500 rows each. `concordance` returned
+`verdict: OK`, `best_rate: 0.0`, `key_rows: 0`, `output_rows: 5`. The
+`SILENT_NO_MATCH` branch is guarded on `key_rows_n and out_rows_n`, so with no key
+rows the function falls through to the default. A tool whose purpose is to refuse
+to report a rate against a check that saw nothing reported one.
 
-**The finding that changes a build decision.** The paired measurement — *was the
-swapped value itself the flagged one?* — gives M1 **9/11**, where differencing
-aggregate flag counts gives **6/11**. M1 detects most substitutions while
-flagging 37–60% of correct values, so a flag from it is worth about as much on a
-correct answer as on a wrong one: it is not a paraphrase detector, it is a
-paraphrase detector of the wrong thing, and its detection is inseparable from its
-noise. **E114's "the verifier is dead, not the subject" stands, and is now a
-measurement rather than an assertion.**
+**2. C2 reports `OK` on a flagger that flags nothing.** On Arm B, a third-party
+published run, 200 rows were labelled correct by recomputing each verdict from the
+run's own shipped `filtered_resps`, `target` and `doc_to_choice` — an independent
+label, not the shipped `acc`. **Zero** rows were labelled incorrect. The
+margin-abstention flagger at `tau = 0` flags nothing: `verdict: OK`, Wilson lower
+bound `0.0000`, `recall_on_incorrect: None`. `alternate_form_fp` guards an empty
+*correct* arm (`NO_LABELLED_CORRECT_ITEMS`) and had no guard for an empty
+*incorrect* arm. Compounding it, `report.CLEAN` listed that "measured nothing"
+verdict among the passes.
 
-**What survives, and is the first positive build trigger this line has produced.**
-`valueset.py` — canonicalise each value (separators, decimal trailing zeros,
-currency placement, `per`/`each`, percent sign or word, case, whitespace, list
-order) and compare multisets — passes every declared gate: **zero false
-positives in 929 values** across three correct arms, 11/11 substitutions, 11/11
-omissions, K4 15/15 and 4/4. G0 passed first (6/7 ≥ 0.667), so the comparison
-was not void.
+### Why this is the finding and not a bug ticket
 
-**And the weakness the protocol declared, now `observed` rather than inferred.**
-PROTOCOL.md named M2's blind spot before the run: comparing multisets binds
-nothing to what a value is said to be about. Six mechanical misattribution arms
-were built (one value transposed onto the wrong subject, K4-preserving) and **M2
-detected 0 of 6**; M1 flagged 6 of 6. So the cheap pass is blind to binding by
-construction *and by measurement*, while the only instrument here that sees
-binding is the one twice measured unusable as a gate. **The expensive check
-cannot be replaced, only deferred** — M2 is a pre-pass that removes omissions and
-substitutions (22 of 22 of the wrongness built) and hands on the binding
-question, which is now the open problem rather than an assumption.
+F118's rule was that a verifier's control must include the case where the
+subject is right and the form is different. This is the same rule one level
+further out: **a verifier's positive arm is the arm the data cannot supply.** On
+a real published run every row is right, so a flagger that abstains everywhere
+scores a perfect pass on the only number the check reports. D109 already recorded
+that a false-positive rate belongs to an arm rather than to an instrument; this is
+the same fact about the *absence* of an arm, and it is the first time it has been
+observed on a population the package would actually be sold for.
 
-**One practitioner finding with no counterpart in F118/F123.** J1's single miss
-was a corrupted billing code, `4915-01-P` → `1247-01-P`. The judge **found the
-discrepancy in writing** — "This is a factual discrepancy in a data value, not a
-style or punctuation difference" — and then graded it **correct**, because the
-question asked for CFR, U.S.C., docket and FR-document numbers and a billing
-code is none of those. The failure is the rubric's *scope clause outvoting
-evidence in front of it*: a different defect class from context-word mismatch,
-and one that a re-run at larger n does not fix.
+**Rule.** A check that cannot name a case it would condemn must not return a
+clean verdict. "Measured nothing" is a withholding verdict, and the withholding
+is the measurement.
 
-**Ceilings, all declared before the run.** One genre, five documents, one reader,
-one day; expert answers are model-produced, not gold. One rubric, one judge
-model, no panel, no majority reducer, uncontrolled model variation between the
-seven batches. Misattribution by transposition only — a binding wrong in prose is
-`untested`. **Generalisation is the declared next action and is not done**: the
-extractor was written against this corpus's value shapes, so a pass here is
-evidence of mechanism and not of generality.
+### Repaired, and how it was falsified
 
-**Corroborates** F118, F123. **Consumes** the number E114 named as the one it
-could not afford. **Produces** a candidate artifact (`valueset.py`) whose scope
-is fixed by measurement: *value correspondence under rephrasing*, never
-faithfulness.
+`preflight/test_vacuous_passes.py`, 9 tests, four of which are the defect cases.
+Falsified against the pre-fix code: **4 of 4 defect cases reported a
+non-blocking `OK`; 0 of 4 do after the repair.** The repair is three places:
+`concordance` returns `NO_KEY_ROWS` / `NOTHING_TO_COMPARE` before the
+`SILENT_NO_MATCH` branch; `alternate_form_fp` returns
+`NO_LABELLED_INCORRECT_ITEMS` when no arm holds an incorrect item; and
+`report.CLEAN` is `("OK",)`. **Behaviour change, stated rather than absorbed:** a
+C2 run with an empty *correct* arm now withholds where it used to pass. That is
+E124's `test_no_labelled_correct_items_reports_that_it_measured_nothing`, which
+asserted exit 0 "measured nothing, so nothing was condemned" — the reasoning
+E134 disproves on real data. Its assertion is now exit 3, with the reason
+recorded in the test.
+
+### What this does not establish
+
+That `preflight` is useful. E134's declared failure condition fired: Arm A is
+clean under C1, R1 recomputation agrees with every printed rate on both arms, and
+**lm-eval's plumbing is internally consistent on the rows it shipped.** The tool
+found no defect in a foreign harness. It found two in itself.
+
+## F126 — `recall_on_incorrect` computed its complement, so a flagger that caught every wrong item reported `recall 0.0` (E134)
+
+**Date:** 2026-10-14. Same run, same check, found by writing the regression test
+for F125's second arm.
+
+`alternate_form_fp` reported
+`"recall_on_incorrect": round(1.0 - incorrect["rate"], 4)` — the share of *wrong*
+items the flagger **did not** condemn, under the name of the share it did. A
+perfect flagger read `0.0`; a flagger that condemned nothing read `1.0`.
+
+**It had not propagated.** E124's reported arms (0.0069 / 0.1970 / 0.6667 /
+0.9346 / 1.0000) and E134's are all `correct_items` false-positive rates; nothing
+in any record quotes this field, and E134's own runs returned `None` for it. The
+number was wrong and unquoted, which is the smallest bad case available and still
+a case: a field whose name states the opposite of what it computes is the same
+defect as a check that cannot fail, one level in.
+
+Repaired to `round(incorrect["rate"], 4)`, with the complement reported beside it
+under its own name, `miss_rate_on_incorrect`. `preflight/test_vacuous_passes.py`
+holds all four operating points (catches all / three quarters / half / one in
+twenty) to the correct value, so the field cannot drift back to a complement that
+happens to agree at 0.0.
+
+## F127 — the repository's own gate was red on 467 violations while `STATE.md` recorded it as green, and four of the five causes were a class of document no rule can hold (E134)
+
+**Date:** 2026-10-14, found while landing E134.
+
+`tools/origin doc lint` exits 2 on 467 violations in the tree this session
+inherited. `STATE.md` records `doc lint checks 1088 files and exits 0`. Both were
+true of different trees; the second had stopped being true of the first, and no
+gate had said so because the gate is the thing that was broken.
+
+Five causes, all from commits landed in the preceding hours:
+
+| # | cause | count | fix |
+|---|---|---|---|
+| 1 | 30 READMEs and 17 `git ls-tree` listings fetched verbatim from other people's repositories by E125. Their internal links and paths name *that* repository. | 402 | `doclint.check_meta` and the link rule now skip files `vendor/MANIFEST.md` declares exempt, as the cap and the orphan rule already did; globs declared with the reason |
+| 2 | E065's synthetic bank extracts and E126's two grading sheets — machine-written data, never declared exempt | 51 | `exempt:` globs, each with a reason |
+| 3 | E130's `PROTOCOL.md` and `CONTINUATION.md` had no title and no `origin-meta` | 4 | added |
+| 4 | five `RESULT.md` files linked `PRIOR-ART.md`, `PROTOCOL.md` and `test_adapter.py` — **files named and never written** | 6 | links replaced by the plain name, each with a sentence saying the file does not exist and where the search that was actually run is recorded |
+| 5 | two VMs allocated **D046** from the same base against two unrelated decisions and both landed | 1 | the one with no cross-references is renumbered **D110** in a new `DECISIONS-RECORDS-2.md` |
+
+Cause 1 is the one worth keeping. **A link rule for this repository cannot hold a
+third party's README, and the only way to make it hold one is to rewrite upstream
+bytes** — which is the reason the evidence copy exists. The repair is not to
+weaken the rule: the rule is unchanged for every authored document, and the
+exemption is a declared glob covering one class, with the reason written down
+beside it. Cause 4 is the one worth not excusing: five documents claimed a
+prior-art check they do not contain, and a prior-art check is the obligation
+`prior-art-check` exists for.
+
+**Rule.** A gate that has been red since the last land will not announce itself.
+The claim "the gates are green" is a measurement with a date on it, and the date
+has to be the tree it was measured on.
+
+**Second, smaller, and in this session's own work.** The link rule's exemption
+needed `globs` threaded into `check_links`, which pushed `tools/originlib/doclint.py`
+to 312 lines. The repair was the standing one: the rule moved to a new
+`tools/originlib/doclint_links.py`, the seventh time that file has been split at
+its cap, and `doclint._links` was renamed public (`doclint_links.links`) because
+the control in `tests/test_link_escape.py` had been reaching into a private to
+read the tree.
+
+## F128 — Hugging Face Hub view-count principle test fails: need-related models show no systematic activity advantage over base foundation models (E150)
+
+**Date:** 2026-10-15. `EXPERIMENTS/150-huggingface-viewcount/`. Raw:
+[`RESULT.json`](EXPERIMENTS/150-huggingface-viewcount/RESULT.json).
+
+### What was asked
+
+Does the view-count principle — that need-related content shows systematically higher activity metrics than random/general content — extend to Hugging Face Hub models? The principle had previously held on PyPI, NPM, NuGet, CPAN, Hex.pm, Docker Hub, Packagist, RubyGems, and GitHub repositories (per E148/E149).
+
+### What happened
+
+1,900 models were sampled via multiple sort strategies (top downloads, likes, trending, recent, modified, random). Classified by pre-declared rules into:
+- **Need-related (1,151)**: Models with `base_model:` references, explicit fine-tuning/deployment tags (`conversational`, `gguf`, `lora`, `quantized`, etc.), adaptation patterns in model ID (`-it`, `-chat`, `-ft`, etc.), or fine-tuned pipeline tags (`sentence-similarity`, `text-classification`, `automatic-speech-recognition`, etc.)
+- **General/Foundation (170)**: Base models from major labs (Google, Meta, OpenAI, Microsoft, BAAI, etc.) with base pipeline tags (`fill-mask`, `feature-extraction`, `text-generation` without conversational, etc.)
+- **Excluded (579)**: Ambiguous cases
+
+Three activity metrics compared: **likes**, **downloads**, **trendingScore**.
+
+| Metric | Need-related median | General median | Cliff's delta | 95% CI | Shuffle p |
+|--------|---------------------|----------------|---------------|--------|-----------|
+| likes | 186 | 104 | **0.0936** | [0.009, 0.179] | 0.020 |
+| downloads | 54,023 | 256,950 | **-0.0854** | [-0.183, 0.027] | 0.960 |
+| trendingScore | 0 | 0 | **0.1221** | [0.082, 0.169] | 0.000 |
+
+**Kill gate fired**: All three metrics show Cliff's delta < 0.147 (negligible/small effect threshold). The primary kill gate condition — "all metrics show Cliff's delta < 0.147" — is met.
+
+**Direction**: Downloads actually favor general models (base models like BERT, GPT-2, CLIP, T5, ViT are downloaded 4.7× more as dependencies for fine-tuning). Likes and trendingScore slightly favor need-related models but with negligible effect sizes.
+
+### Why this is the finding and not a bug ticket
+
+The classification correctly identifies the semantic distinction: base foundation models vs. task-adapted derivatives. The negative result is real — on Hugging Face, **base models are infrastructure** downloaded massively because they're dependencies, while fine-tuned models get more likes (social signal) but far fewer downloads.
+
+This extends the boundary of the view-count principle: it works on **package registries** (where need-related packages are consumed directly) but **not on model hubs** (where base models are the consumable infrastructure). The principle's domain is "platforms where need-related content is the leaf consumption unit," not "platforms where need-related content is built on general infrastructure."
+
+### What this does not establish
+
+That no view-count signal exists on Hugging Face. The trendingScore signal (delta=0.122, p<0.001) suggests recent activity favors need-related models, but the effect is too small to justify a candidate. A different classification (e.g., spaces/demos vs. models) might yield different results.
+
+## F129 — VS Code Marketplace: a broad keyword classifier returns no activity advantage, and the failure is the classifier, not the platform
+
+**Where.** [`EXPERIMENTS/165-vscode-marketplace-viewcount/RESULT.md`](EXPERIMENTS/165-vscode-marketplace-viewcount/RESULT.md).
+
+**What was measured.** 1,884 extensions fetched from 28 categories through
+the VS Code Marketplace API (v7.1-preview.1), classified by keyword into
+need-related / general / other, and compared on install count. Cliff's delta
+**−0.0266**, below the 0.147 kill gate; the kill gate fired.
+
+**Why it is recorded as a classifier failure and a boundary result at once.**
+The need arm captured **1,706 of 1,884 extensions = 90.5%**. A contrast whose
+treatment arm is nine tenths of the population measures the keyword list, not
+the platform — the same failure E146 and E157–E164 recorded on crates.io and
+GitLab. The contrast is also directionally null: the general arm's median
+installs (1,033) slightly exceed the need arm's (955), which is what a
+near-degenerate split looks like.
+
+E162 on Mozilla Add-ons passed all four gates **with targeted vocabulary**
+(`productivity`, `privacy`) against `average_daily_users`. So this record now
+holds two results on extension marketplaces that differ only in classifier
+specificity, and the honest reading is that **specificity decides the result
+and the platform has not been shown either way** for this class.
+
+**What it does not establish.** That the principle fails on the VS Code
+Marketplace. A targeted two-arm classification on the same API would be needed
+for that, and this run does not license one: five classifier-breadth failures
+(E146, E157, E162–E164, E165) mean the next attempt must pre-declare its
+vocabulary size or the screen is not informative. It also does not disturb
+D105's withdrawal of the sweep on its own terms — E113's matched-harvest
+control already retired the registry passes, and E165 was run afterwards.
+

@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-15
+last-verified: 2026-10-20
 -->
 
 # Next actions — per-session completion notes
@@ -10,6 +10,12 @@ Split out of [`STATE-next-actions.md`](STATE-next-actions.md) at the 300-line
 cap, by invariant: that file is a ranked list of what to do next and this one
 is what individual sessions appended to it. The ranked plan is the other
 file; nothing here is a recommendation.
+
+Scratch outcome summaries that three sessions wrote at the repository root instead
+of in their own session directory are indexed here so they are not orphans:
+[`SESSION_SUMMARY.md`](SESSION_SUMMARY.md),
+[`session-outcome-summary.md`](session-outcome-summary.md) and
+[`2026-10-14-001-session-summary.md`](sessions/2026-10-14-001-session-summary.md).
 
 The durable record of each experiment is its own
 `EXPERIMENTS/NNN-*/RESULT.md` and, for the disproved ones, a finding in
@@ -36,7 +42,7 @@ G3 NEEDS TEST (δ ≈ 0).
 E139 experiment directory: EXPERIMENTS/139-viewcount-pubdev-matched-harvest
 Results: δ ≈ -0.0143, coverage ~13%, 7 strata with fluctuating sign'
 
-## T-0094 completed (2026-10-14): harvest public issue trackers for LLM evaluation frameworks
+## T-0098 completed (2026-10-14): harvest public issue trackers for LLM evaluation frameworks
 Automated GitHub API keyword search across 9 LLM evaluation frameworks (evalscope, evals, promptfoo, 
 deepeval, inspect_ai, inspect-evals-lint, eval-harness, scale-eval-preflight, JudgeBench) found 
 zero issues matching C1 (silent join failures), C2 (alternate-form false positives), or C3 (contaminated 
@@ -47,7 +53,7 @@ This result is consistent with E137: only 2 frameworks (evalscope, evals) had cr
 manually, failing the ≥3 frameworks gate. The automated search confirms the demand is insufficient 
 for preflight candidate consideration.
 
-T-0094 experiment directory: EXPERIMENTS/140-harvest-framework-issues
+T-0098 experiment directory: EXPERIMENTS/140-harvest-framework-issues
 Results: 0 credible reports across 9 frameworks, kill gate met'
 ---
 # Session 2026-10-14 Summary
@@ -61,7 +67,7 @@ EXPERIMENTS COMPLETED:
    Consistent with E113's collapse on all other platforms
    Experiment dir: EXPERIMENTS/139-viewcount-pubdev-matched-harvest
 
-2. T-0094 — harvest public issue trackers for LLM evaluation frameworks
+2. T-0098 — harvest public issue trackers for LLM evaluation frameworks
    Verdict: kill gate met — demand too weak
    0 credible reports across 9 frameworks (C1/C2/C3)
    Consistent with E137: only 2 frameworks had credible reports manually
@@ -74,7 +80,7 @@ EXPERIMENTS COMPLETED:
    Instrument is genre-specific: regulatory text only
 
 STATE UPDATED:
-- STATE-next-actions.md: added E139 and T-0094 results
+- STATE-next-actions.md: added E139 and T-0098 results
 - Confirms narrowing of applicability domains per rigorous negative results
 
 KEY FINDINGS (each narrows the domain of applicability):
@@ -88,7 +94,7 @@ first hypothesis on appliance diagnosis, using a correctly-filtered unanswered p
 Premise: E092's '707 unanswered' pool is 84% answered; /search/advanced?answered=false returns ANSWERED questions.
 
 **E147 completed (2026-10-14): PostgreSQL deadlock classification claim falsified.**
-Fresh observation in new domain per D083. Synthetic fixtures (27), structural vs keyword-only classifiers. Keyword baseline achieves 100% accuracy (non-overlapping keyword signatures by construction); structural classifier achieves 74.1% (parsing conservatism). G2 (Δ≥15pp) FAIL, G3 (≥80%) FAIL, G5 (abstention≤20%) FAIL. Negative controls violated (keyword beats structural). Claim falsified. Lesson: fixture design must force structural reasoning (overlapping keywords, ambiguity) to test structural classifiers. F128 recorded.
+Fresh observation in new domain per D083. Synthetic fixtures (27), structural vs keyword-only classifiers. Keyword baseline achieves 100% accuracy (non-overlapping keyword signatures by construction); structural classifier achieves 74.1% (parsing conservatism). G2 (Δ≥15pp) FAIL, G3 (≥80%) FAIL, G5 (abstention≤20%) FAIL. Negative controls violated (keyword beats structural). Claim falsified. Lesson: fixture design must force structural reasoning (overlapping keywords, ambiguity) to test structural classifiers. F147 recorded.
 
 **E150 completed (2026-10-14): SQL injection technique classification claim falsified.**
 Fresh observation per D083. Synthetic fixtures (16). Keyword-only 81.2%, structural 93.8% (Δ=12.5pp < 15pp gate). G2 FAIL, G1 FAIL (structural 93.8% < 100%). Structural classifier outperforms keyword but not by required margin. Fixture keyword overlap partial (mainly `FROM`/`table`), giving modest edge but not decisive.

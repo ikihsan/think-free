@@ -1,0 +1,14 @@
+pid: g-79335513
+
+=== LEFT ===
+The version string 'RELEASE' is not a real Maven version, so no repository can satisfy it.
+ DBeaver's PostgreSQL driver definition shipped with jcenter() as a fallback, and jcenter 
+was sunset in 2021 and shut down, so artifact resolution now fails. It is not the ODBC DSN
+ or your network. Fix: in DBeaver open Edit Connection -> Driver Settings -> Libraries and
+ set the driver version to a concrete number (for example 42.7.x) and switch Obtain driver
+ from to Maven or Driver Manager, or delete the driver entry and let DBeaver download it a
+gain. Also clear cached artifacts under the DBeaver workspace maven repo and check Prefere
+nces -> Maven for a stale jcenter entry.
+
+=== RIGHT ===
+Just re open your debeaver as an administrator.That worked for me

@@ -1,223 +1,225 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-15
+last-verified: 2026-10-18
 -->
 
-# Failures — recorded finding F127
+# Failure findings 43 - an arm in the raw file and absent from the write-up
 
-Continues [`FAILURES-findings-42.md`](FAILURES-findings-42.md), which held
-F126. See [`FAILURES.md`](FAILURES.md) for the index. **Identifiers are
-stable across all findings files.**
+Continued from [`FAILURES-findings-42.md`](FAILURES-findings-42.md). F137, F138
+and F139 continue in [`FAILURES-findings-44.md`](FAILURES-findings-44.md).
 
-## F127 — a renumbering that resolved one collision created another, and an overwrite that recorded a decision deleted the decision before it
+## F134 — a gate that declared its own product constraint fired and was never reported, and the closure went out on 2 of the experiment's 7 arms (E174)
 
-**Observed 2026-10-14**, session `2026-10-14-002`, while repairing a suite
-that was already red when this session started. Both defects were inherited;
-neither was caused by E141, and both were reproduced on the parent commit
-before anything was changed.
+**Date:** 2026-10-17. `EXPERIMENTS/174-scoped-reach-recompute/`. Raw:
+[`results.json`](EXPERIMENTS/174-scoped-reach-recompute/results.json).
 
-### (1) D044 was overwritten, not edited
+### What was asked
 
-`f65940c4` ("Record D046: release preflight as public prototype with adapter
-interface") is `10 insertions(+), 40 deletions(-)` on
-`DECISIONS-PUBLISHING.md`. The 40 deleted lines are **D044 in full** — *"The
-session's own record is not uncommitted work, and the claim says so"*, T-0055,
-defect 21, F023. The file's own header and `DECISIONS.md`'s row both still
-named `D044–D046`, and the section boundary that recovered D044 is
-`old.index("## D045 —")` — which sits **before** D044 in that file, so a naive
-"from D044 to D045" extraction returns nothing at all and the overwrite is
-invisible to the obvious repair.
+Whether the version-pinned closure (F132) follows from E170's own committed
+evidence. E170 stored seven arms in `raw/summary.json`; its write-up reported
+two.
 
-Three independent gates each caught a different half of it and none of them
-caught the whole: `doc lint` said the header named an id the file does not
-define, `test_decision_header` said the same, and
-`test_identifier_enforcement` said `DECISIONS.md` lists `D044` and nothing
-defines it. D044's body is recovered verbatim from `f65940c4^` and re-appended.
+### What happened
 
-**An overwrite of a section header destroys the section.** The pattern that
-caught it is the one already in the repository's own rules — the index, the
-file header and the heading must all move together (D110's invariant) — and it
-fired correctly. What the rules could not say is *where* the destroyed section
-used to be.
+`raw/summary.json` reports **seven** arms. `RESULT.md` reports **two** — the two
+**global** ones — and F132, the `HYPOTHESES.md` status row and `STATE.md` all
+inherit the conclusion built on them. Recomputed from E170's raw responses with
+rank re-derived from the returned URL lists (never read from a stored rank), all
+seven reproduce exactly (**G1 pass**) and the row-to-record alignment is proven
+from both sides: 97 of 97 records consumed, 0 leftover, **0** mismatches on
+either the replayed query string or the log's own `arm` label (**G2 pass**).
 
-### (2) The D046 → D048 renumbering resolved one collision by creating another
+| | global | repo-scoped |
+|---|---|---|
+| quoted error string | 1/13 = 0.0769 | **5/13 = 0.3846**, median `total_count` **1** |
+| component + symptom words | 2/13 = 0.1538 | **5/13 = 0.3846** |
+| union of arms | 2/13 = 0.1538 | **6/13 = 0.4615** [0.2321, 0.7086] |
 
-`1cc83e2a` ("Resolve D046 identifier collision: renumber DECISIONS-RECORDS D046
-to D048") moved `DECISIONS-RECORDS.md`'s D046 to **D048**, which was already
-defined in `DECISIONS-SCREENING-2.md` since 2026-10-05. It also left
-`DECISIONS.md`'s row for `DECISIONS-RECORDS.md` naming the old id `D046`, and
-left a **stale `D048` in that file's own header** — a leftover from T-0063,
-when D048–D050 moved *verbatim* to `DECISIONS-SCREENING-2.md` and numbering was
-deliberately preserved. So `D048` was in `DECISIONS-RECORDS.md` three times over
-and the identifier check, which reads every source, reported the collision
-correctly.
+Paired on the same 13 rows: union comparison **4 scoped-only, 0 global-only**,
+McNemar exact **p = 0.125**; per arm, p = 0.25 / 0.125 / 0.25. The best scoped
+point estimate, **0.3846**, clears E170's own declared **0.30** build bar; its
+Wilson lower bound, **0.1771**, does not.
 
-Repaired by the standing rule — **the later allocation yields.** `SCREENING-2`'s
-D048 is from 2026-10-05 and is referenced from **ten** places across the record
-(`FAILURES-findings-8.md`, `-9.md`, `STATE-next-actions-closed.md`,
-`DECISIONS-SCREENING.md`, `DECISIONS-SCREENING-3.md`, `DECISIONS.md`'s row,
-`EXPERIMENTS/012-candidate-harvest/README.md` and session summaries).
-`DECISIONS-RECORDS.md`'s is from 2026-10-13, was a mechanical renumbering of an
-existing id, and is referenced only inside its own file. It yields:
-`DECISIONS-RECORDS.md`'s D048 is now **D113**, its header's stale `D048` is
-gone, and `DECISIONS.md`'s row reads `D029, D032, D035, D041, D043, D047,
-D113`.
+The protocol had asked for exactly this. **G1** — "A0 hit rate, bare and quoted,
+**globally and repo-scoped**" — is a declared measurement of the incumbent arm.
+**G3** — "Global versus repo-scoped, for both arms. **If repo-scoped succeeds
+where global fails for both arms**, the mechanism needs the developer to already
+know the repository, which is a product constraint and **is recorded as one**" —
+fired. Neither G1's scoped rows nor G3 appears anywhere in `RESULT.md`.
 
-**The rule this adds.** A renumbering is not finished when the two colliding
-headings differ: it is finished when **every** source of the identifier agrees —
-the index row, the file's own header, and every reference elsewhere. `1cc83e2a`
-updated two of five and checked the free list rather than the used one.
+The kill itself was also scoped without declaration: G2 is "paired comparison of
+A1 against A0 on the same rows, **same scope**", and the comparison reported is
+`A1_global_vs_A0_quoted_global` — the global scope, chosen after the fact, which
+is the scope at which the mechanism looks worst.
 
-### What was left red, and why
+### Why it happened
 
-Adding two new `DECISIONS-SCREENING-*.md` files is itself a four-place edit, and
-the suite names all four: `paths.MISSION_RECORDS` (the list a session obligation
-reaches), `reconcile.IMPLICATIONS["decision"]` (the list that satisfies a
-`decision` event), and the same two names in `tests/test_decision_files.py`,
-which pins each against the other. **All four were updated here**, and the
-repair is worth one sentence for the next session that splits a file: a new
-`DECISIONS-` file is not one index row, it is two source lists in
-`tools/originlib/` and the same two names again in the test that holds them to
-each other.
+The arms were computed, stored and summarised correctly; the reporting stage
+selected the arms that supported the sentence the file was written to make. The
+number of arms in `summary.json` (7) and in the prose (2) disagreeing was visible
+to any reader of both files, which is the cheapest possible check.
 
-Two failures remain, and **neither was caused by this session.** Both were
-reproduced on the parent commit before anything was changed.
+### What it changes
 
-`test_no_tracked_link_leaves_the_repository` fails on **21 links in
-`EXPERIMENTS/125-third-party-harness-preflight/readmes/`** — E125's captured
-third-party READMEs, whose `/owner/repo/path` links are meaningful in *their*
-tree and meaningless here. The same 21 files are the source of ~400 of the 427
-remaining `doc lint` violations. Scoping a link gate away from vendored
-third-party prose is defensible, but it is a change to what a gate enforces, it
-was not this session's work, and **it is not done here on a red suite by a
-session that did not own the debt.** It is named instead, with the exact
-repair: a declared `exempt:` glob in `vendor/MANIFEST.md` for captured
-`readmes/*.md`, honoured by `doclint.check_links` and by
-`test_link_escape`, with a negative control that a link in an *authored*
-document still fails.
+- **F132, E170's `RESULT.md`, the `HYPOTHESES.md` row and `STATE.md` are
+  corrected in place** on 2026-10-17. The vocabulary finding stands; the closure
+  does not.
+- **The version-pinned line is reopened for a fresh-sample measurement**, and the
+  open question is the one G3 named: the mechanism requires knowing the
+  repository. **E175** asks whether the repository can be derived from a failure
+  report — mechanical, registry-backed, no search engine.
+- **Rule: an arm present in `summary.json` and absent from the write-up is a
+  defect in the write-up, and the check is a count.** Declare the number of arms
+  in the protocol and reconcile it against the number reported *before* the
+  sentence is written. A gate that predicts a product constraint is a **result**,
+  and reporting only the gates that closed the line is how a line gets closed on
+  one cell of a 2×2.
 
-`test_ci_annotations.test_the_tip_reports_nothing_and_annotates_nothing`
-fails in the full discover run and passes when its module is run alone — a
-test-ordering dependency, present at baseline, cause `untested`.
+## F135 — a package registry is keyed by distributable name and a failure report carries a symptom name, so the pipeline returns a plausible wrong repository instead of abstaining (E175)
 
-**Corroborates** F117 (two uncoordinated runs writing one identifier and
-returning opposite results — the same failure at file scope rather than
-experiment scope), F121 (a key that could not match what it was compared
-against), F003/F004 (this repository's own record-keeping). **Consumes** the
-`doc lint` and `test_identifier_enforcement` failures as named, dated
-failures. **Ceiling:** the repair restored the gates, it did not explain why
-`f65940c4` overwrote a section rather than appending one, and that cause is
-`untested`.
+**Date:** 2026-10-17. `EXPERIMENTS/175-repo-from-report/`. Raw:
+[`derivation.json`](EXPERIMENTS/175-repo-from-report/derivation.json) and
+[`raw/http.jsonl`](EXPERIMENTS/175-repo-from-report/raw/http.jsonl).
+
+### What was asked
+
+E174 reopened the version-pinned line and left one open step: `report →
+repository`. Could it be mechanical — no model, no search engine — by asking a
+public registry where the artifact a failure report names is developed?
+
+### What happened
+
+**G1 = 0 of 21 = 0.0000**, Wilson [0.0000, 0.1546], against a **declared kill at
+0.20**. Failure classes: **20 `wrong_repo`, 1 `not_in_registry`, 0 correct**. The
+wrong repositories are real and reachable through real registry lookups:
+`hapijs/code` for `microsoft/vscode`, `rumpl/c` for
+`microsoft/vs-solutionpersistence`, `pcattori/namespaces` for `cplusplus/draft`,
+`christkv/node-git` for `powershell/powershell`, `orsinium/advice` for
+`fmtlib/fmt`, `alexfernandez/performance` for `more-itertools/more-itertools`.
+
+**Coverage and collision, both measured.** The 17 gold repositories are
+applications, runtimes, standards bodies and working groups — `microsoft/vscode`,
+`powershell/powershell`, `fmtlib/fmt`, `cplusplus/draft`,
+`itanium-cxx-abi/cxx-abi`, `rust-lang/libs-team`, `git-for-windows/git` — and
+none is a registry entry under the name a report would use. Where a name *is* a
+registry name it is a common word owned by an unrelated package, so **collision
+is worse than absence**: an abstention is honest, `hapijs/code` is not.
+
+### The number that bounds the whole line
+
+A high-arrival Stack Overflow question records its fix as a **repository** link
+in **21 of 145 answered rows = 0.1448**, and as a specific **tracker document**
+in **10 of 145 = 0.0690** (of the 200 drawn: 0.1050 and 0.0500). E174's 0.3846
+was measured on rows drawn from that 1-in-14 population, and E175 measures the
+step that would have to be automatic at **0**. Composing the two is an
+inference across two populations and is labelled one. **79% of answered
+high-arrival questions record no repository link at all** — the largest bucket,
+and the one this line has never had a handle on.
+
+### The instrument cost, declared in full
+
+The 0 was wrong four times, and each repair was declared and committed before the
+next run: document-order candidates with first-hit-wins (so the generic word
+`npm` beat the project's own package name); a 20-entry package whitelist that
+contradicted the protocol and excluded every package the author had not thought
+of; a loose body sweep that treated any hyphenated word as a package name (F131
+had already measured that strategy as noise); and finally the ordering and
+tag-spelling repairs that left the number unmoved. G0's later runs are withdrawn
+as instrument-limited — `403 rate limit exceeded` on the 60/hour core API — and
+the first run's 17 of 17 stands.
+
+### What it changes
+
+- **The registry route is closed, and the step is redirected rather than
+  abandoned**: a *project index* is the right source shape, and those exist
+  (libraries.io, ecosyste.ms, Homebrew and winget manifests, GitHub topics), so
+  no prior-art screen is run and nothing is proposed to build.
+- **Rule: a tool that returns a wrong answer confidently is worse than one that
+  abstains, and an evaluation that only scores correctness hides that.** A
+  candidate pipeline on this population should be scored on **wrong-repo rate** as
+  a first-class number, because 20 of 21 wrong answers with 0 abstentions is a
+  different product from 20 wrong answers and 1 abstention.
+- **Rule: a zero repaired N times is not a zero.** Declare the repairs, declare
+  the last one, and then stop — an instrument that needs a fifth repair against
+  the population it is measured on is measuring its author.
+- **The next candidate may not be a retriever or an extractor over tracker
+  documents** (D117): the population is 7% of high-arrival questions and the
+  reachable share of it is 0.
+
+### Lint note (2026-10-17)
+
+Landing F133's unlogged work cost three `origin-meta` blocks, added here rather
+than invented for them: `CLASSIFICATION-PROTOTYPE.md`, `PROTOCOL-E172.md` and
+`EXPERIMENTS/171-resolution-fact-locus/RESULT.md` were written by other sessions
+and had none, so `doc lint` was red on all three the moment they were committed.
+The blocks record what those files already were, and change nothing in them.
 
 ---
 
-## F128 — PostgreSQL deadlock classification: keyword baseline perfect on synthetic fixtures, structural classifier adds no value
+## F136 — six service closures in a row each measured a mixture and reported it as one number (E177)
 
-**Observed 2026-10-14**, session `2026-10-14-031-run-t-0093-test-discriminating-observati`, experiment `E147` (`EXPERIMENTS/147-postgres-deadlock-classification/`).
+**Date:** 2026-10-17. `EXPERIMENTS/177-evidence-gated-need/`.
 
-**The claim:** A structural classifier using parsed lock modes, relation pairs, and query patterns beats a keyword-only baseline by ≥15pp on PostgreSQL deadlock report root cause classification (accuracy ≥80%).
+### What was asked
 
-**The result:** Claim falsified. On 27 synthetic fixtures (5 per category: fk_lock_contention, index_lock_contention, tuple_lock_contention, advisory_lock_contention, explicit_lock_contention + 2 G4 info-sufficiency pair):
+Whether a free general assistant is measurably worse at reaching a real
+question's community answer when that answer's resolution depends on a fact or
+artefact the question does not contain. Stated and declared before any answer
+body was read: [`PROTOCOL.md`](EXPERIMENTS/177-evidence-gated-need/PROTOCOL.md).
 
-| Classifier | Accuracy |
-|------------|----------|
-| Keyword-only baseline | **100.0%** (27/27) |
-| Structural classifier | **74.1%** (20/27) |
-| Random | 14.8% |
-| Majority | 22.2% |
+### What it found
 
-**Kill gates:**
-- G1 (fixture validity): PASS — all fixtures labelled by construction
-- G2 (Δ≥15pp vs keyword): **FAIL** — structural 74.1% vs keyword 100.0%, Δ = -25.9pp
-- G3 (accuracy ≥80%): **FAIL** — 74.1% < 80%
-- G4 (info-sufficiency witness): PASS — G4 pair correctly distinguished
-- G5 (abstention ≤20%): **FAIL** — 22.2% (6/27) abstained
+Same venue, same key, same treatment, same reader roles, **the only difference
+being whether the question carried its own evidence**:
 
-**Root cause:** Synthetic fixtures have non-overlapping keyword signatures by construction (each category has unique canonical keywords: `ShareLock` for FK, `duplicate key` for index, `tuple`/`ctid` for tuple, `advisory`/`pg_advisory` for advisory, `LOCK TABLE` for explicit). Keyword matching is therefore sufficient and optimal on these fixtures. The structural classifier's parser is too conservative, failing on 5/6 FK fixtures and 2/5 index fixtures.
+| arm | n | reached | rate | Wilson 95% |
+|---|---|---|---|---|
+| SELF — resolution reachable from the question's text | 30 | 26 | **0.8667** | [0.7032, 0.9469] |
+| EVID — resolution needs something the question does not contain | 30 | 12 | **0.4000** | [0.2459, 0.5768] |
 
-**Negative controls violated:** Keyword-only baseline beats structural classifier, so the experiment cannot distinguish signal from noise.
+**gap +0.4667, Fisher exact two-sided p = 0.000368**, against a bar declared as
+`gap >= 0.25` and `p < 0.05`. All four controls green on the same run.
 
-**Classification:** The approach does not work on this fixture design. Do not rebuild this classifier. The finding is that synthetic fixture design critically determines whether keyword or structural classification wins — fixtures must force structural reasoning (overlapping keywords, ambiguity) to test structural classifiers meaningfully.
+CLF's labels put the class at **46 of the 100 highest-arrival rows carrying a
+key answer** — 0.46 of high-arrival answered questions — composed of
+`upstream_source` 19, `other` 8, `version` 7, `configuration` 6, `data_value` 4,
+`platform` 2. Reached rows are spread across the kinds in proportion, so **no
+single mechanical kind carries the failure**.
 
-**Artifacts:** `EXPERIMENTS/147-postgres-deadlock-classification/{PROTOCOL.md,fixtures.jsonl,classifier.py,run.py,results.json,RESULT.md}`
+### Why this is recorded as a failure of the record and not of the assistant
 
----
+Six populations in this record closed on service — E062 0.85, E091 0.25, E092
+0.81, E126 0.6750, E143 1.0, E115 14/14 — and every one of them reported a
+single number for a pool that contains both classes. **0.4000 is the lowest rate
+a free general assistant has scored on a real question population here**, and it
+was inside all six of those pools, unmeasured. D107 built the mission's only
+standing constraint on the inference that the undecidable population was the
+open region; that inference is now measured and **supported**, and the thing
+that was wrong was the screens' arithmetic: a stratified quantity was being
+reported unstratified, five times, and read as a verdict about each population.
 
-## F129 — the deterministic accessibility repairer: the dominant class of real WCAG defects is an author-written string that is not on the page, so every repair of it is a fabrication
+E091 did stratify, by answerability — and got 0.25, which is why it looked like
+an outlier and why the record's explanation was *composition of what the
+community owns*. **Composition is real (F114) and E143's venue-shape result
+stands; but composition of the venue is not the only composition in the pool.**
+E177 finds a second, larger one inside a single venue.
 
-**Observed 2026-10-15**, session `2026-10-15-002-measure-whether-real-accessibility-defec`, experiment `E162` (`EXPERIMENTS/162-a11y-deterministic-repair/`).
+### Rules that come out of it
 
-**The claim:** a small deterministic program can eliminate ≥ 30% of real axe
-AA-tagged violations **without inventing anything** — declared before any page
-was fetched, with the 30% argued from the point where a third of by-hand work
-stops being a linter and becomes a tool.
-
-**The result:** claim falsified on mechanism, by its own kill gate. **0 of 125**
-AA-tagged instances eliminated (0.0%). The same rule table permitted to invent
-eliminated **99 (79.2%)** — and **104 of its 104 repairs were fabrications**
-(every one put a user-facing string into the document that no author wrote).
-27 real pages from three declared frames, fetched and sha256-pinned before any
-repairer was written; axe-core 4.14.0 in jsdom as an independent oracle.
-
-**The mechanism, measured with no repairer in the loop** (`why-not.js`, over the
-216 arm-0 instances axe reported): of the **121** instances whose defect *is* a
-missing name, **120 (99.2%) carry no author-written string anywhere on the node
-axe itself reported** — 1 of 96 `link-name`, 0 of 13 `label`, 0 of 3
-`role-img-alt`, 0 of 2 each `aria-dialog-name`, `frame-title`,
-`aria-progressbar-name`. The information the rule asks for is not on the page.
-
-**And the denominator most accessibility numbers use is mostly plumbing**
-(`oracle-noise.js`): of the 125 WCAG-tagged instances, **92 (73.6%) are aimed at
-anchors no user navigates to** — 90 of them a syntax highlighter's per-line
-anchor on one documentation page, which alone carries 98 of 216 instances. A
-tool that "fixed" those by inventing `link` as their name would improve the
-score by 72 points of cosmetics.
-
-**Three instrument defects the oracle caught, all kept:**
-
-- `region` was not idempotent: 11 applications produced 13 `landmark-unique`
-  and 11 `landmark-no-duplicate-main` violations — it manufactured the defects
-  the rules it was aliased to check for. One declared condition fixed it.
-- arm A's `alt=""` satisfies `image-alt` by declaring an image decorative and
-  **creates** `role-img-alt` on the same element (3 introduced). Silencing one
-  rule and breaking another is a failure.
-- the first version of `why-not.js` counted the HTML `name` attribute as an
-  accessible name, which made **94.8%** of `link-name` instances look readable —
-  because 90 of them are `<a id="__codelineno-0-1" name="__codelineno-0-1">`,
-  whose `name` is a JavaScript anchor. **HTML `name` does not compute an
-  accessible name on `<a>`**, and an instrument that counts plumbing as content
-  reports a mechanism as available when it is not.
-
-**Classification:** the approach does not work; do not rebuild the deterministic
-repairer **as written**. The table carried ten authored-text derivation paths
-(`alt` from `title`/`figcaption`/wrapping `<label>`, link name from a nested
-image's `alt`, button name from `value`, `lang` from `xml:lang`, document title
-from the `h1`) and four structural repairs, and still eliminated nothing: the
-class it would have to beat is the class whose answer is only knowable at
-runtime. The line closes on mechanism whatever the demand turns out to be,
-which is what the predeclared kill gate said would happen. This also explains,
-rather than merely observes, why the 2026 tooling ecosystem is full of LLM
-autofixers: the one thing a language model can do here is write the sentence
-nobody wrote.
-
-**Not closed, and named so the scope is not overread:** a wider repair table.
-What is closed is on-document derivation on this population. Associating a link
-with the code line beside it, or reading a `role="progressbar"`'s value out of
-the script that sets it, is a different instrument — and the second is not
-decidable without executing the page, which Amendment 2 ruled out.
-
-**Ceiling — what this finding does not decide.** `fabrication` is a mechanical
-proxy for "made the page worse", not a screen-reader measurement; jsdom performs
-no layout, so `color-contrast` sits in `incomplete` and every number is about
-DOM-decidable rules; 27 pages cannot estimate how broken the web is, and §4
-shows why one of them would badly distort such an estimate. Demand was never
-measured. **Not a prevalence claim.**
-
-**Corroborates** F128 and the four experiments before it (a fixture that is
-built for the classifier makes the classifier look unnecessary) — E162's
-instrument is the opposite construction, an independent oracle on pages nobody
-here wrote, and it still closed. **Consumes** the preflight and view-count lines'
-shared pattern: the instrument is the deliverable that outlives the candidate.
-
-**Artifacts:** `EXPERIMENTS/162-a11y-deterministic-repair/{PROTOCOL.md,PRIOR-ART.md,RESULT.md,analyze.js,gates.json,results-*.json,lib/,tests/}`
+- **A service screen must stratify on evidence-completeness before it reports a
+  pool rate.** This is D113's rule (stratify on version-dependence, not one
+  pool rate) applied to a second variable, and it is now a general rule: **report
+  the arm, not the pool, whenever the arms differ.** Two arms differing by 0.47
+  at p = 0.00037 is not a pool.
+- **An abstention rate is reported beside every reach rate.** Here it was
+  **0 of 30 against 0 of 30** — the assistant does not notice that the evidence
+  is missing, it answers anyway and is wrong 60% of the time. A confident-wrong
+  rate is a first-class number for any candidate on this population, and this is
+  the same rule F135 reached from the other end (wrong-repo rate with 0
+  abstentions).
+- **No control in a reader protocol tests the arithmetic.** All four of this
+  protocol's controls passed on a run whose p-value was wrong by a factor of
+  2,700 (`AMENDMENT-6`). A hand-written test must be checked against a table
+  with a published value before its output is reported, and the check is
+  committed beside the result.

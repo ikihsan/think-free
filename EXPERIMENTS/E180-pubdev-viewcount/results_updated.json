@@ -1,0 +1,45 @@
+{
+  "observed_at_utc": "2026-10-17T23:58:23Z",
+  "user_date": "2026-10-17",
+  "platform": "Pub.dev",
+  "keyword": "database",
+  "sample_size": 110,
+  "classified": {
+    "need-related": 50,
+    "random": 60
+  },
+  "active": {
+    "need-related": 50,
+    "random": 60
+  },
+  "active_rates": {
+    "need-related": 1.0,
+    "random": 1.0
+  },
+  "g1_pass": true,
+  "g2_pass": true,
+  "g3_pass": true,
+  "g4_pass": true,
+  "all_pass": true,
+  "conclusion": "gates_all_pass",
+  "experiment_description": "View-count principle on Pub.dev for keyword: database",
+  "gates": {
+    "g1_pass": true,
+    "g2_pass": true,
+    "g3_pass": true,
+    "g4_pass": true,
+    "g1_ratio": 1.0,
+    "g1_need_rate": 1.0,
+    "g1_random_rate": 1.0,
+    "classified_total": 110,
+    "need_related_count": 50,
+    "random_count": 60,
+    "need_related_active": 50,
+    "random_active": 60,
+    "active_rates": {
+      "need-related": 1.0,
+      "random": 1.0
+    },
+    "conclusion": "pending"
+  }
+}

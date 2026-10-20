@@ -1,0 +1,43 @@
+pid: g-79358893
+
+=== LEFT ===
+vb.X is a minified identifier in code Google serves to your web app, so this is a Google-s
+ide or injected third-party failure, not your Apps Script code and not something a redeplo
+y of your code can fix. The pattern (works after a refresh, fails across unrelated apps, s
+tarts on a given morning) points at a bad or partially rolled-out client bundle, an A/B ex
+periment, or an extension or ad blocker injecting conflicting globals. Things to try: hard
+ reload and clear cache, test in a private window with extensions disabled, and check whet
+her the deployment is still set to execute as the owner rather than execute as the accessi
+ng user. Capture the HAR and a console trace with timestamps so Google can correlate. As a
+ workaround, roll back to the previous deployment version if the breakage followed a deplo
+yment.
+
+=== RIGHT ===
+It's an intermittent issue and is reported on: Uncaught TypeError: vb.X is not a construct
+or . You may +1 on it to let Google know you're also experiencing the same problem. 
+ As of now, the latest update on Google's end is comment #107 from jp...@google.com<jp...@
+google.com> : 
+ 
+ I am locking comments for this issue as no additional information is needed by the engine
+ering team. Currently, a fix is being rolled out to production. You can subscribe to this 
+issue by clicking the star ⭐ button. Thank you for your patience. 
+ 
+ UPDATE 
+ As of Jan 16, 2025 05:10AM PhST, comment #108 from jp...@google.com<jp...@google.com> ver
+ifies that: 
+ 
+ Marked as fixed.
+This issue has been fixed. 
+ 
+ 
+ SUMMARY 
+ Numerous users reported getting the error Uncaught TypeError: vb.X is not a constructor o
+n their Google Apps Script web apps. The issue is intermittent and is sometimes resolved b
+y doing a refresh on the page. Google implemented a fix with no further action required by
+ its users, and the issue is now resolved. 
+
+ +1 
+ jp...@google.com<jp...@google.com> 
+ Jan 16, 2025 05:10AM 
+ jp...@google.com<jp...@google.com> 
+ Uncaught TypeError: vb.X is not a constructor

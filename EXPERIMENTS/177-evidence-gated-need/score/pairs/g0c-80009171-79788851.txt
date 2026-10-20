@@ -1,0 +1,37 @@
+pid: g0c-80009171-79788851
+
+=== LEFT ===
+no, the standard x86 MOV instruction does not force a drain of the Line Fill Buffers/Write
+-Combining buffers, but that is why your producer thread is stalling 
+
+ MOV
+
+=== RIGHT ===
+Even if your question has been closed for obscure reasons, I want to say: it's a very inte
+resting question about regex! 
+ Most of the time, the goal of a validation regex is build to say if a string is conform t
+o a format. It's a binary choice and doesn't give you more informations about where the fo
+rmat isn't conform in the string. 
+ To find where the pattern fails, you have to build an always successful pattern where all
+ characters on the right are optional. And to know at which character the pattern fails, y
+ou have to be able to know, where is the last successful character. To do that, you need t
+o enclose each character into an optional capture group. 
+ These optional capture groups have to be nested. 
+ Example: 
+ Your validation pattern is: 
+ ^\d{2}/\d{2}/\d{2} \d{2}:\d{2}:\d{2}$
+ 
+ 
+ You have to write it like that: 
+ ^(\d(\d(/(\d(\d(/(\d(\d( (\d(\d(:(\d(\d(:(\d(\d($)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?
+ 
+ 
+ This way, you only have to check what capturing groups exist to know where the pattern fa
+ils. Obviously, C# gives you the offset of each capture group. 
+ If you are interested on particular positions in the string, don't forget to use named ca
+pturing groups. 
+
+ ^\d{2}/\d{2}/\d{2} \d{2}:\d{2}:\d{2}$
+ 
+ 
+ ^(\d(\d(/(\d(\d(/(\d(\d( (\d(\d(:(\d(\d(:(\d(\d($)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?

@@ -1,0 +1,30 @@
+{
+  "experiment": "E130",
+  "title": "View-Count Classifier Prototype v3: Continuation on PyPI (keyword filter)",
+  "platform": "pypi",
+  "keyword": "cache",
+  "pool_size": 200,
+  "classified": {
+    "need-related": 88,
+    "random": 0,
+    "uncertain": 99
+  },
+  "active": {
+    "need-related": 88,
+    "random": 0
+  },
+  "active_rates": {
+    "need-related": 1.0,
+    "random": 0
+  },
+  "g1_sample_size_pass": false,
+  "g2_coverage_floor_pass": false,
+  "g3_cliff_delta_pass": false,
+  "g4_bothrepresented_pass": false,
+  "cliff_delta": 0.0,
+  "need_arm_size": 88,
+  "random_arm_size": 0,
+  "conclusion": "GATE_CLOSED",
+  "domain": "pypi_package_ecosystem",
+  "timestamp": "2026-10-14T14:23:49Z"
+}

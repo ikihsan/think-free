@@ -1,0 +1,186 @@
+pid: g-79556333
+
+=== LEFT ===
+PlaceAutocompleteElement is a custom element with its own shadow DOM, so ordinary descenda
+nt selectors cannot reach the inner input. The supported hook is CSS parts: style place-au
+tocomplete-element::part(input), ::part(placeholder), ::part(matched-substring), ::part(ic
+on) and ::part(clear-button), plus the host itself with a normal class. Set background, bo
+rder, border-radius, padding and font on the input part to match your form and control lay
+out on the host. Check the current Maps JavaScript reference for the exact part names supp
+orted by the API version you load, since they have changed. If you need full control, keep
+ your own input and open the element in a popup, or fall back to the legacy Autocomplete w
+idget, which is freely styleable but deprecated.
+
+=== RIGHT ===
+Currently the answer is you can't, well not easily. The Google PlaceAutocompleteElement el
+ement has a closed Shadow Root, so by design the component has been created with the inten
+tion of its internals and styles not being changeable. Its a fairly new component from Goo
+gle so no doubt they will allow styles to be passed into PlaceAutocompleteElement or expos
+e parts that can be styled in a conventional way. 
+ But, if you want to style the element today you'll need to be creative (and a bit hacky).
+ Until Google allow us to style the element, no other choice. 
+ The below works well. 
+ const attachShadow = Element.prototype.attachShadow;
+
+Element.prototype.attachShadow = function (init: ShadowRootInit) {
+ // Check if we are the new Google places autocomplete element...
+ if (this.localName === "gmp-place-autocomplete") {
+ // If we are, we need to override the default behaviour of attachShadow() to
+ // set the mode to open to allow us to crowbar a style element into the shadow DOM.
+ const shadow = attachShadow.call(this, {
+ ...init,
+ mode: "open"
+ });
+
+ const style = document.createElement("style");
+
+ // Apply our own styles to the shadow DOM.
+ style.textContent = `
+ .widget-container {
+ border: none !important;
+ }
+ .input-container {
+ padding: 0px !important;
+ }
+ .focus-ring {
+ display: none !important;
+ }
+ .dropdown {
+ --tw-bg-opacity: 1 !important;
+ background-color: rgb(48 50 59 / var(--tw-bg-opacity)) !important;
+ color: rgb(185 193 203 / var(--tw-text-opacity)) !important;
+ }
+ .place-autocomplete-element-place-icon {
+ display: none !important;
+ }
+ .place-autocomplete-element-text-div {
+ --tw-bg-opacity: 1 !important;
+ color: rgb(185 193 203 / var(--tw-text-opacity)) !important;
+ }
+ .place-autocomplete-element-place-name {
+ --tw-bg-opacity: 1 !important;
+ color: rgb(185 193 203 / var(--tw-text-opacity)) !important;
+ }
+ .place-autocomplete-element-place-details {
+ --tw-bg-opacity: 1 !important;
+ color: rgb(185 193 203 / var(--tw-text-opacity)) !important;
+ }
+ .place-autocomplete-element-place-result--matched {
+ --tw-bg-opacity: 1 !important;
+ color: rgb(255 178 135 / var(--tw-text-opacity)) !important;
+ }
+ ul {
+ border: none !important;
+ }
+ li {
+ padding: 0px !important;
+ margin: 5px !important;
+ border: none !important;
+ border-radius: 5px !important;
+ min-height: 50px !important;
+ }
+ li:hover {
+ --tw-bg-opacity: 1 !important;
+ cursor: pointer !important;
+ padding: 0px !important;
+ margin: 5px !important;
+ background-color: rgb(62 65 76 / var(--tw-bg-opacity)) !important;
+ }
+ input {
+ --tw-text-opacity: 1;
+ color: rgb(185 193 203 / var(--tw-text-opacity));
+ background-color: transparent;
+ }
+ `;
+
+ shadow.appendChild(style);
+
+ // Set the shadowRoot property to the new shadow root that has our styles in it.
+ return shadow;
+ }
+ // ...for other elements, proceed with the original behaviour of attachShadow().
+ return attachShadow.call(this, init);
+};
+ 
+
+ const attachShadow = Element.prototype.attachShadow;
+
+Element.prototype.attachShadow = function (init: ShadowRootInit) {
+ // Check if we are the new Google places autocomplete element...
+ if (this.localName === "gmp-place-autocomplete") {
+ // If we are, we need to override the default behaviour of attachShadow() to
+ // set the mode to open to allow us to crowbar a style element into the shadow DOM.
+ const shadow = attachShadow.call(this, {
+ ...init,
+ mode: "open"
+ });
+
+ const style = document.createElement("style");
+
+ // Apply our own styles to the shadow DOM.
+ style.textContent = `
+ .widget-container {
+ border: none !important;
+ }
+ .input-container {
+ padding: 0px !important;
+ }
+ .focus-ring {
+ display: none !important;
+ }
+ .dropdown {
+ --tw-bg-opacity: 1 !important;
+ background-color: rgb(48 50 59 / var(--tw-bg-opacity)) !important;
+ color: rgb(185 193 203 / var(--tw-text-opacity)) !important;
+ }
+ .place-autocomplete-element-place-icon {
+ display: none !important;
+ }
+ .place-autocomplete-element-text-div {
+ --tw-bg-opacity: 1 !important;
+ color: rgb(185 193 203 / var(--tw-text-opacity)) !important;
+ }
+ .place-autocomplete-element-place-name {
+ --tw-bg-opacity: 1 !important;
+ color: rgb(185 193 203 / var(--tw-text-opacity)) !important;
+ }
+ .place-autocomplete-element-place-details {
+ --tw-bg-opacity: 1 !important;
+ color: rgb(185 193 203 / var(--tw-text-opacity)) !important;
+ }
+ .place-autocomplete-element-place-result--matched {
+ --tw-bg-opacity: 1 !important;
+ color: rgb(255 178 135 / var(--tw-text-opacity)) !important;
+ }
+ ul {
+ border: none !important;
+ }
+ li {
+ padding: 0px !important;
+ margin: 5px !important;
+ border: none !important;
+ border-radius: 5px !important;
+ min-height: 50px !important;
+ }
+ li:hover {
+ --tw-bg-opacity: 1 !important;
+ cursor: pointer !important;
+ padding: 0px !important;
+ margin: 5px !important;
+ background-color: rgb(62 65 76 / var(--tw-bg-opacity)) !important;
+ }
+ input {
+ --tw-text-opacity: 1;
+ color: rgb(185 193 203 / var(--tw-text-opacity));
+ background-color: transparent;
+ }
+ `;
+
+ shadow.appendChild(style);
+
+ // Set the shadowRoot property to the new shadow root that has our styles in it.
+ return shadow;
+ }
+ // ...for other elements, proceed with the original behaviour of attachShadow().
+ return attachShadow.call(this, init);
+};

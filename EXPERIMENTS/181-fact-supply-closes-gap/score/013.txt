@@ -1,0 +1,6 @@
+PROPOSED ANSWER:
+The warning you are still seeing is not about the native libraries any more - you have already established they are 16 KB aligned. It is an APK-level warning, and the usual cause is that the APK you are analysing was packaged with zipalign's default page size of 4 rather than 16. Check the artefact you built: re-run zipalign with -P 16 instead of 4 and repackage, then confirm with zipalign -c -P 16 and, on the extracted libraries, with check_elf_alignment.sh. Also make sure you are not looking at a stale output from a different build variant - the warning often appears only in release-ish variants. Once zipalign is run with 16 the APK-level flag clears; it is not a further library problem.
+
+ACCEPTED ANSWER ON THE SITE:
+This might be a bug due to compressed libraries in Android Studio which was fixed with Android Studio Narwhal Feature Drop | 2025.1.3 Canary 2. See https://issuetracker.google.com/issues/431119350 for more information. 
+ As others mentioned, however, don't forget to zipalign your apk. Read more here: https://developer.android.com/tools/zipalign and

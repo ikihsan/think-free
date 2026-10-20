@@ -1,0 +1,20 @@
+pid: g-79653647
+
+=== LEFT ===
+The failure is in downloading PhantomJS, not in Selenium or your site. RSelenium's rsDrive
+r tries to fetch the phantomjs binary from the Bitbucket repository ariya/phantomjs, which
+ Bitbucket removed, so the HTTP call fails (402/404) and rsDriver aborts before Chrome sta
+rts. Fixes: install PhantomJS yourself so RSelenium finds it on PATH (npm install -g phant
+omjs-prebuilt), or stop using rsDriver and drive Chrome with chromote, or use RSelenium wi
+th a chromedriver you installed via wdman. If you only need Chrome, calling rsDriver(brows
+er='chrome') without chromever and with your own chromedriver avoids the phantomjs code pa
+th entirely.
+
+=== RIGHT ===
+Try adding phantomver = NULL to rsDriver() call to explicitly exclude PhantomJS, 
+ remote_driver <- rsDriver(..., phantomver = NULL)
+ 
+
+ phantomver = NULL 
+ rsDriver() 
+ remote_driver <- rsDriver(..., phantomver = NULL)

@@ -1,0 +1,30 @@
+TITLE: iOS 26 broken view hierarchy on Menu
+TAGS: ios,swiftui,view,menu
+
+QUESTION AS POSTED:
+I am getting the message: 
+ 
+ Adding '_UIReparentingView' as a subview of UIHostingController.view is not supported and may result in a broken view hierarchy. Add your view above UIHostingController.view in a common superview or insert it into your SwiftUI content in a UIViewRepresentable instead. 
+ 
+ When opening and closing my `Menu` and the drop down animation of the `Menu` is kind of glitchy now. This didn't happen before in iOS 18, so wondering if my code is inherently wrong or if this is a bug. 
+ Here is an MRE of what I am doing in my actual app. Could someone please see If they are getting the same? I am getting the message in iOS 26.1 and 26.2. 
+ `struct ContentView: View {
+ var itemsToList: [String] = ["One", "Two", "Three", "Four", "Five"]
+ 
+ var body: some View {
+ NavigationStack {
+ ZStack {
+ VStack {
+ Menu(content: {
+ ForEach(itemsToList, id: \.self) { item in
+ Button(action: {}, label: { Text(item) })
+ }
+ }, label: {
+ Text("Menu")
+ })
+ }
+ }
+ }
+ }
+}
+`

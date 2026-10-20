@@ -1,0 +1,3805 @@
+# 60 Stack Overflow questions, in shuffled order.
+# Answer every one from your own knowledge. No retrieval,
+# no tools, no files other than this one.
+
+===== qid 79686551 | App must target Android 15 (API level 35) or higher =====
+I have an kivy app and i compile it via Buildozer. 
+ My settings are: 
+ # (int) Target Android API, should be as high as possible.
+android.api = 34
+
+# (int) Minimum API your APK / AAB will support.
+android.minapi = 21
+
+# (int) Android SDK version to use
+android.sdk = 34
+
+# (str) Android NDK version to use
+android.ndk = 25b
+ 
+ Should i change only android.api = 34 to android.api = 35 
+ or 
+ Should i change both android.api = 34 and android.sdk = 34 to android.api = 35 and androi
+d.sdk = 35 
+ Thanks for your replies. 
+
+ # (int) Target Android API, should be as high as possible.
+android.api = 34
+
+# (int) Minimum API your APK / AAB will support.
+android.minapi = 21
+
+# (int) Android SDK version to use
+android.sdk = 34
+
+# (str) Android NDK version to use
+android.ndk = 25b
+
+===== qid 79434372 | Sentry errors &quot;Can&#39;t find variable: gmo&quot;, &quot;invalid or unexpected token&quot; due to Google ads snippet in index.html of our react app =====
+We very recently set up Google ads for our react app. Our React app is a 7-8 year old app 
+originally built with create-react-app. Now, in Sentry we are getting these two errors, bo
+th with steady volume over the last week since launching Google ads: 
+ 
+ 
+ Here is our apps index.html showing the Google tag (with a fake AW-number): 
+ <!-- For Google Ads to be run on Search (not on the website) -->
+ <!-- Google tag (gtag.js) -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=AW-123456789">
+ </script>
+ <script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'AW-123456789');
+ </script>
+ <!-- End -->
+ 
+ LLM suggested to add window.gmo = window.gmo || {}; as the first line in the script (just
+ above window.dataLayer = window.dataLayer || []; ) to resolve the "cant find variable: gm
+o" error, but this isn't something mentioned / included in https://developers.google.com/t
+ag-platform/gtagjs . It thinks gmo = Google Marketing Object. 
+ LLM also suggested to add handling of query/search parameters into our App.js file to res
+olve the "invalid or unexpected token" error. Currently, our app uses nearly zero query/se
+arch params other than this google tag, rather we use route params for all of our routing.
+ LLM suggested for our App.js : 
+ // Add near other useState hooks
+ const [searchParams] = useSearchParams();
+ 
+ // Optional: Save ad parameters if needed
+ useEffect(() => {
+ if (searchParams.get('gclid')) {
+ // Store gclid or handle ad tracking here if needed
+ // Example: localStorage.setItem('gclid', searchParams.get('gclid'));
+ }
+ }, [searchParams]);
+ 
+ Here is Sentry snippet in email showing that the Google code is likely the issue here: 
+ 
+ Fortunately, neither issue is breaking our web app. No fallback to error handling page in
+ the Sentry replays, rather the user is able to continue using the app. 
+ Is this issue something we can ignore in Sentry? Or should we make a change to the Google
+ tag or to something/anything else (in our Google Ads account) to resolve the issues? 
+
+ index.html 
+ <!-- For Google Ads to be run on Search (not on the website) -->
+ <!-- Google tag (gtag.js) -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=AW-123456789">
+ </script>
+ <script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'AW-123456789');
+ </script>
+ <!-- End -->
+ 
+ window.gmo = window.gmo || {}; 
+ window.dataLayer = window.dataLayer || []; 
+ App.js 
+ // Add near other useState hooks
+ const [searchParams] = useSearchParams();
+ 
+ // Optional: Save ad parameters if needed
+ useEffect(() => {
+ if (searchParams.get('gclid')) {
+ // Store gclid or handle ad tracking here if needed
+ // Example: localStorage.setItem('gclid', searchParams.get('gclid'));
+ }
+ }, [searchParams]);
+
+===== qid 79335513 | Error fix : Dbeaver driver error : Maven artifact:org.postgresql:postgresql:RELEASE&#39; can&#39;t be resolved in External Repositories =====
+I have been using Dbeaver for many days but for the past few days while I am connecting to
+ my Staging server through PostgreSQL, I am getting these driver errors 
+ 
+ Dbeaver driver error : Maven artifact:org.postgresql:postgresql:RELEASE' can't be resolve
+d in External Repositories 
+ 
+ I tried changing the preferences in the setting and also tried changing ODBC Datasources 
+from the Control Panel but ended up with the same error - it hasn't been resolved yet.
+
+===== qid 79442076 | Is there a way in C++ to have a scoped enum containing multiple representations? =====
+Is there a way to declare an enumeration that has multiple representations, for example a 
+numeric and a string? 
+ The intent here is to create an enum class with multiple values, each of which has 2 diff
+erent representations, a numeric and a string. Either representation is valid and unique a
+cross the enumeration. 
+ A private constructor is included to prevent the addition of new enumerated values. 
+ The attributes numericCode and alphaCode represent the 2 representations of the enum. 
+ enum class Foo {
+ Value01 { 001, "aa" },
+ Value02 { 002, "bb" },
+ .....
+ ValueN. { nn, "zz" };
+ private:
+ Foo( int numeric, const string alpha ) : numericCode( numeric ), alphaCode( alpha ) {}
+ private:
+ int numericCode;
+ string alphaCode;
+ };
+
+ 
+ Rationale for this is to avoid a common construct of performing string or numeric compari
+sons for when determining an enumerated case; avoid multiple symbols for magic numbers acr
+oss situationally convenient compilation units, or hard to maintain hard coded magic numbe
+rs throughout the codebase, etc. 
+ ISO 3166 is a real world example of this. There are multiple codes that represent a count
+ry; a 2-character alpha, a 3-character alpha, and a 3-digit number. Each code uniquely rep
+resents a specific enumerated value, while multiple representations may uniquely identify 
+a single enumerated value. 
+ This is the goal, but in Java: 
+ public enum Foo {
+ Value01 ( 001, "aa" ),
+ Value02 ( 002, "bb" ),
+ ValueNN ( 999, "zz" );
+
+ private final int numericCode;
+ private final String alphaCode;
+
+ Foo( final int numeric, final String alpha ) {
+ numericCode = numeric;
+ alphaCode = alpha;
+ }
+
+ public String getAlpha() {
+ return alphaCode;
+ }
+
+ public int getNumeric() {
+ return numericCode;
+ }
+}
+ 
+ I attempted the pseudo code in the question. I have implemented this in Java a number of 
+times. 
+
+ numericCode 
+ alphaCode 
+ enum class Foo {
+ Value01 { 001, "aa" },
+ Value02 { 002, "bb" },
+ .....
+ ValueN. { nn, "zz" };
+ private:
+ Foo( int numeric, const string alpha ) : numericCode( numeric ), alphaCode( alpha ) {}
+ private:
+ int numericCode;
+ string alphaCode;
+ };
+
+ 
+ public enum Foo {
+ Value01 ( 001, "aa" ),
+ Value02 ( 002, "bb" ),
+ ValueNN ( 999, "zz" );
+
+ private final int numericCode;
+ private final String alphaCode;
+
+ Foo( final int numeric, final String alpha ) {
+ numericCode = numeric;
+ alphaCode = alpha;
+ }
+
+ public String getAlpha() {
+ return alphaCode;
+ }
+
+ public int getNumeric() {
+ return numericCode;
+ }
+}
+
+===== qid 79733841 | How to reduce repetition in a large amount of if-else statements when reading from a buffer =====
+I'm trying to read a package from a buffer, decode it, and then return a package that migh
+t contain a requested info or call a specific function depending on the package I received
+. I'd like to know if there is any way I can simplify this block of code in order to reduc
+e code repetition: 
+ if (rx_buffer[0] == 0xAA && rx_buffer[1] == 0x88){
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ change_light_intensity(1000);
+}
+else if (rx_buffer[0] == 0xBB && rx_buffer[1] == 0x89){
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ tx_buffer[2] = 0x34;
+ tx_buffer[3] = 0x12;
+}
+
+//...
+//many many more else if statements
+//...
+
+else if (rx_buffer[0] == 0x3D && rx_buffer[1] == 0x76){
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ change_volume(38);
+}
+else {
+ tx_buffer[0] = 'N';
+ tx_buffer[0] = 'O';
+}
+
+ 
+
+ if (rx_buffer[0] == 0xAA && rx_buffer[1] == 0x88){
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ change_light_intensity(1000);
+}
+else if (rx_buffer[0] == 0xBB && rx_buffer[1] == 0x89){
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ tx_buffer[2] = 0x34;
+ tx_buffer[3] = 0x12;
+}
+
+//...
+//many many more else if statements
+//...
+
+else if (rx_buffer[0] == 0x3D && rx_buffer[1] == 0x76){
+ tx_buffer[0] = 'O';
+ tx_buffer[1] = 'K';
+ change_volume(38);
+}
+else {
+ tx_buffer[0] = 'N';
+ tx_buffer[0] = 'O';
+}
+
+===== qid 79990062 | Why does passing NULL to a variadic function trigger a static analyzer warning about undefined behavior? =====
+I am getting multiple varFuncNullUB warnings from my static analyzer when calling a variad
+ic function. The warning points to the NULL argument used as a sentinel. 
+ Example: 
+ static inline int EXAMPLE(char *LineStr, int NoOfWords, ...)
+{
+ /* ... */
+}
+
+...
+
+EXAMPLE(line, 0, "typedef", "unsigned", "int", NULL);
+ 
+ The analyzer reports: 
+ 
+ warning: Passing NULL after the last typed argument to a variadic function leads to undef
+ined behaviour. [varFuncNullUB] 
+ 
+ I found suggestions online to cast NULL to const char * : 
+ EXAMPLE(line, 0,
+ "typedef",
+ "unsigned",
+ "int",
+ (const char *)NULL);
+ 
+ My questions are: 
+ 
+ Why does passing plain NULL to a variadic function trigger this warning? 
+ 
+ Is casting NULL to const char * the correct and portable solution? 
+ 
+ If so, why does the cast make a difference? 
+ 
+ 
+ For context, the variadic arguments are expected to be const char * values terminated by 
+a NULL sentinel. 
+
+ varFuncNullUB 
+ NULL 
+ static inline int EXAMPLE(char *LineStr, int NoOfWords, ...)
+{
+ /* ... */
+}
+
+...
+
+EXAMPLE(line, 0, "typedef", "unsigned", "int", NULL);
+ 
+ NULL 
+ const char * 
+ EXAMPLE(line, 0,
+ "typedef",
+ "unsigned",
+ "int",
+ (const char *)NULL);
+ 
+ NULL 
+ NULL 
+ const char * 
+ const char * 
+ NULL
+
+===== qid 79385315 | SecurityException: Unknown calling package name &#39;com.google.android.gms&#39; in Flutter =====
+I'm encountering the following error in my Flutter project (Flutter 3.27.1, Java 17) while
+ using Google Maps and Firebase: 
+ E/GoogleApiManager( 9509): Failed to get service from broker.
+E/GoogleApiManager( 9509): java.lang.SecurityException: Unknown calling package name 'com.
+google.android.gms'.
+E/GoogleApiManager( 9509): at android.os.Parcel.createExceptionOrNull(Parcel.java:3011)
+E/GoogleApiManager( 9509): at android.os.Parcel.createException(Parcel.java:2995)
+E/GoogleApiManager( 9509): at android.os.Parcel.readException(Parcel.java:2978)
+E/GoogleApiManager( 9509): at android.os.Parcel.readException(Parcel.java:2920)
+E/GoogleApiManager( 9509): at apef.a(:com.google.android.gms@245034029@24.50.34 (190400-71
+3002902):36)
+E/GoogleApiManager( 9509): at apcm.z(:com.google.android.gms@245034029@24.50.34 (190400-71
+3002902):143)
+E/GoogleApiManager( 9509): at aokj.run(:com.google.android.gms@245034029@24.50.34 (190400-
+713002902):54)
+E/GoogleApiManager( 9509): at android.os.Handler.handleCallback(Handler.java:942)
+E/GoogleApiManager( 9509): at android.os.Handler.dispatchMessage(Handler.java:99)
+E/GoogleApiManager( 9509): at bvmf.my(:com.google.android.gms@245034029@24.50.34 (190400-7
+13002902):1)
+E/GoogleApiManager( 9509): at bvmf.dispatchMessage(:com.google.android.gms@245034029@24.50
+.34 (190400-713002902):5)
+E/GoogleApiManager( 9509): at android.os.Looper.loopOnce(Looper.java:201)
+E/GoogleApiManager( 9509): at android.os.Looper.loop(Looper.java:288)
+E/GoogleApiManager( 9509): at android.os.HandlerThread.run(HandlerThread.java:67)
+ 
+ 
+ I generated a new Google Maps API key and updated it in the AndroidManifest.xml file, but
+ the same error persists. 
+ 
+ Based on stackoverflow suggestions, I installed the Google Repository and Google Play Ser
+vices via the Android Studio SDK Manager (Tools > SDK Manager > SDK Tools). However, the i
+ssue still persists. 
+
+ E/GoogleApiManager( 9509): Failed to get service from broker.
+E/GoogleApiManager( 9509): java.lang.SecurityException: Unknown calling package name 'com.
+google.android.gms'.
+E/GoogleApiManager( 9509): at android.os.Parcel.createExceptionOrNull(Parcel.java:3011)
+E/GoogleApiManager( 9509): at android.os.Parcel.createException(Parcel.java:2995)
+E/GoogleApiManager( 9509): at android.os.Parcel.readException(Parcel.java:2978)
+E/GoogleApiManager( 9509): at android.os.Parcel.readException(Parcel.java:2920)
+E/GoogleApiManager( 9509): at apef.a(:com.google.android.gms@245034029@24.50.34 (190400-71
+3002902):36)
+E/GoogleApiManager( 9509): at apcm.z(:com.google.android.gms@245034029@24.50.34 (190400-71
+3002902):143)
+E/GoogleApiManager( 9509): at aokj.run(:com.google.android.gms@245034029@24.50.34 (190400-
+713002902):54)
+E/GoogleApiManager( 9509): at android.os.Handler.handleCallback(Handler.java:942)
+E/GoogleApiManager( 9509): at android.os.Handler.dispatchMessage(Handler.java:99)
+E/GoogleApiManager( 9509): at bvmf.my(:com.google.android.gms@245034029@24.50.34 (190400-7
+13002902):1)
+E/GoogleApiManager( 9509): at bvmf.dispatchMessage(:com.google.android.gms@245034029@24.50
+.34 (190400-713002902):5)
+E/GoogleApiManager( 9509): at android.os.Looper.loopOnce(Looper.java:201)
+E/GoogleApiManager( 9509): at android.os.Looper.loop(Looper.java:288)
+E/GoogleApiManager( 9509): at android.os.HandlerThread.run(HandlerThread.java:67)
+
+===== qid 79363302 | How to disable svg preview in VS Code 1.97+ =====
+SVGs have begun to open as image previews, which I do not need, I would like to view them 
+as HTML text. 
+ 
+ I do not know how this has happened. I haven't made any changes to my VS Code, I haven't 
+installed any extensions recently and the day before yesterday this working was fine.
+
+===== qid 79779696 | Why does a mismatching printf specifier also affect subsequent arguments? =====
+I have a very simple C program where I am printing variables of different sizes. 
+ #include <stdio.h>
+
+unsigned int long long a;
+unsigned int c;
+
+int main() {
+ a = 0x1111111122222222;
+ c = 0x33333333;
+ printf("Sizes: %zu %zu\n", sizeof(a), sizeof(c));
+ printf("Seg: %llx %x\n", a, c);
+ printf("Seg: %lx %x\n", a, c);
+ printf("Seg: %x\n", c);
+ return 0;
+}
+ 
+ On a 64-bit machine, all works fine.
+On a 32-bit machine though, if I use an incorrect formatter for the first argument (second
+ printf ), I get incorrect output for second argument too. Is that because of how varargs 
+are processed? What am I missing? 
+ Output 
+ Sizes: 8 4
+Seg: 1111111122222222 33333333
+Seg: 22222222 11111111
+Seg: 33333333
+a.out: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, inter
+preter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, not stripped
+ 
+ Command used 
+ rm ./a.out ; g++ -m32 test.cpp ; ./a.out ; file a.out
+ 
+
+ #include <stdio.h>
+
+unsigned int long long a;
+unsigned int c;
+
+int main() {
+ a = 0x1111111122222222;
+ c = 0x33333333;
+ printf("Sizes: %zu %zu\n", sizeof(a), sizeof(c));
+ printf("Seg: %llx %x\n", a, c);
+ printf("Seg: %lx %x\n", a, c);
+ printf("Seg: %x\n", c);
+ return 0;
+}
+ 
+ printf 
+ varargs 
+ Sizes: 8 4
+Seg: 1111111122222222 33333333
+Seg: 22222222 11111111
+Seg: 33333333
+a.out: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, inter
+preter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, not stripped
+ 
+ rm ./a.out ; g++ -m32 test.cpp ; ./a.out ; file a.out
+
+===== qid 79537353 | How Does the Left-Hand Side (LHS) of an Assignment Evaluate in C? =====
+I’m working on understanding pointers in C by breaking down the language into three key ar
+eas: syntax , semantics , and idioms .
+To grasp pointers, I’ve been focusing on fundamental concepts:
+what’s an expression , what’s a value , what’s evaluation , and what’s assignment . Here’s
+ my current understanding, followed by a specific question about the LHS in assignments. 
+ Background: 
+An expression is something that needs to be evaluated, like 10 + (15 - 2 * 5), which step-
+by-step becomes 15.
+A value is what evaluates to itself, e.g., ⟦15⟧ = 15 or ⟦<addr>⟧ = <addr> (using ⟦x⟧ as sh
+orthand for "x evaluates to"). 
+ Evaluation is reducing an expression to a value, following rules like: a function execute
+s only when its arguments are values (e.g. if ⟦x⟧ = 15, sqrt(x + 1) → sqrt(15 + 1) → sqrt(
+16) → 4). 
+ Assignment maps a name on the left to a value on the right, where the right side must eva
+luate to a value first (e.g., int a = 5 + 3 → int a = 8 → 8 and as as a side effect the va
+lue is stored).
+[side note: I remember reading that the 8 is the "side effect" of assignment, but it seems
+ to me that storing the value in memory seems like the side effect] 
+ For variables and pointers: 
+ A variable on the right side evaluates to its stored value:
+int a = 5; ⟦a⟧ → 5.
+Pointers store addresses (values), and operators like & and * have evaluation rules: ⟦&a⟧ 
+→ <addr> , ⟦*ptr⟧ → value.
+This mental model worked well for simple examples: 
+ int x = 70; // 70 is a value because it evaluates to itself ⟦70⟧ → 70
+int* p = &x; // &x is not a value, we have to evaluate it. ⟦&x⟧ → <addr>
+int a = *p + 1; // (*p + 1) is an expression and not a value
+// evaluate it. + expects its operands to be values, so we evaluate *p.
+// ⟦*p⟧ → 70 subsequently ⟦70 + 1⟧ → 71
+// and finally, a is an alias for the value 71 which stored in memory.
+ 
+ The Problem : I’ve been treating assignment as "evaluate the right side to a value, forge
+t about the left side", which worked well, but then I struggled with this example: 
+ int arr[5] = {1, 2, 3, 4, 5};
+int *ptr = arr;
+*(ptr + 1) = *ptr; // becomes *(ptr + 1) = 1
+ 
+ To me, the assignment *(ptr + 1) = 1 made it looks as if we have to evaluate the left sid
+e! I failed to find a mental model that explains this statement and how it works. 
+ So, in brief, the LHS (*(ptr + 1)) seems to require evaluation, unlike a simple variable.
+ why does this happen, and how does it fit with evaluating expressions to values? I’d like
+ an explanation aligning with my semantics model. 
+
+ ⟦15⟧ = 15 
+ ⟦<addr>⟧ = <addr> 
+ <addr> 
+ int x = 70; // 70 is a value because it evaluates to itself ⟦70⟧ → 70
+int* p = &x; // &x is not a value, we have to evaluate it. ⟦&x⟧ → <addr>
+int a = *p + 1; // (*p + 1) is an expression and not a value
+// evaluate it. + expects its operands to be values, so we evaluate *p.
+// ⟦*p⟧ → 70 subsequently ⟦70 + 1⟧ → 71
+// and finally, a is an alias for the value 71 which stored in memory.
+ 
+ int arr[5] = {1, 2, 3, 4, 5};
+int *ptr = arr;
+*(ptr + 1) = *ptr; // becomes *(ptr + 1) = 1
+ 
+ *(ptr + 1) = 1 
+ (*(ptr + 1))
+
+===== qid 79383758 | How to set Tailwind CSS v4 global class? =====
+I started a new project using the latest Vite and Tailwind. In version 4.0, I couldn't fin
+d the tailwind.config.js file, which made me confused about how to configure global types.
+ 
+ Especially the container class does not appear in the documentation for version 4.0, and 
+testing its values did affect the layout, so it wasn't removed. Now, I want to set its max
+-width after the xl breakpoint, but I'm not sure how to do that. 
+ Also, how can I add some custom classes with RWD and hover? 
+
+ tailwind.config.js
+
+===== qid 79871713 | iOS 26 broken view hierarchy on Menu =====
+I am getting the message: 
+ 
+ Adding '_UIReparentingView' as a subview of UIHostingController.view is not supported and
+ may result in a broken view hierarchy. Add your view above UIHostingController.view in a 
+common superview or insert it into your SwiftUI content in a UIViewRepresentable instead. 
+ 
+ When opening and closing my Menu and the drop down animation of the Menu is kind of glitc
+hy now. This didn't happen before in iOS 18, so wondering if my code is inherently wrong o
+r if this is a bug. 
+ Here is an MRE of what I am doing in my actual app. Could someone please see If they are 
+getting the same? I am getting the message in iOS 26.1 and 26.2. 
+ struct ContentView: View {
+ var itemsToList: [String] = ["One", "Two", "Three", "Four", "Five"]
+ 
+ var body: some View {
+ NavigationStack {
+ ZStack {
+ VStack {
+ Menu(content: {
+ ForEach(itemsToList, id: \.self) { item in
+ Button(action: {}, label: { Text(item) })
+ }
+ }, label: {
+ Text("Menu")
+ })
+ }
+ }
+ }
+ }
+}
+ 
+
+ Menu 
+ Menu 
+ struct ContentView: View {
+ var itemsToList: [String] = ["One", "Two", "Three", "Four", "Five"]
+ 
+ var body: some View {
+ NavigationStack {
+ ZStack {
+ VStack {
+ Menu(content: {
+ ForEach(itemsToList, id: \.self) { item in
+ Button(action: {}, label: { Text(item) })
+ }
+ }, label: {
+ Text("Menu")
+ })
+ }
+ }
+ }
+ }
+}
+
+===== qid 79653647 | RSelenium error in open.connection(con, &quot;rb&quot;) with rsDriver() =====
+I'm using RSelenium to scrape some data. It was working for me no problem yesterday but wh
+en I got back to it today I'm getting an error I don't understand. Here's what I'm doing: 
+ library(rJava)
+library(rvest)
+library(RSelenium)
+library(netstat)
+library(wdman)
+library(data.table)
+library(berryFunctions)
+
+
+url <- "https://signon.thomsonreuters.com/"
+
+remote_driver <- rsDriver(browser = "chrome", chromever = "114.0.5735.90", verbose = FALSE
+, port = free_port())
+ 
+ But I end up getting this error 
+ remote_driver <- rsDriver(browser = "chrome", chromever = "114.0.5735.90", verbose = FALS
+E, port = free_port())
+Error in open.connection(con, "rb") : 
+ cannot open the connection to 'https://api.bitbucket.org/2.0/repositories/ariya/phantomjs
+/downloads?pagelen=100'
+In addition: Warning message:
+In open.connection(con, "rb") :
+ cannot open URL 'https://api.bitbucket.org/2.0/repositories/ariya/phantomjs/downloads?pag
+elen=100': HTTP status was '402 Payment Required'
+ 
+
+ library(rJava)
+library(rvest)
+library(RSelenium)
+library(netstat)
+library(wdman)
+library(data.table)
+library(berryFunctions)
+
+
+url <- "https://signon.thomsonreuters.com/"
+
+remote_driver <- rsDriver(browser = "chrome", chromever = "114.0.5735.90", verbose = FALSE
+, port = free_port())
+ 
+ remote_driver <- rsDriver(browser = "chrome", chromever = "114.0.5735.90", verbose = FALS
+E, port = free_port())
+Error in open.connection(con, "rb") : 
+ cannot open the connection to 'https://api.bitbucket.org/2.0/repositories/ariya/phantomjs
+/downloads?pagelen=100'
+In addition: Warning message:
+In open.connection(con, "rb") :
+ cannot open URL 'https://api.bitbucket.org/2.0/repositories/ariya/phantomjs/downloads?pag
+elen=100': HTTP status was '402 Payment Required'
+
+===== qid 79442978 | Issues with padding, margin, and space utilities not working =====
+In my first Tailwind project, the padding and margin utilities worked fine. However, in su
+bsequent projects, these utilities stopped working as expected, and I had to use regular C
+SS instead. I'm not sure why they're not applying anymore in these newer projects. 
+ 
+ 
+ * {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+
+.btn-nav {
+ padding-block: 8px;
+ padding-inline: 24px;
+}
+
+/*****/
+
+nav.container {
+ padding: 24px;
+ margin-inline: auto;
+}
+
+.navbar a {
+ /* margin-right: 24px; */
+ margin-inline-end: 24px;
+}
+
+.navbar a:last-child {
+ /* margin-right: 0; */
+ margin-inline-end: 0;
+} 
+ <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+<nav class="container mx-auto p-6">
+ <div class="flex items-center justify-between">
+ <div>
+ <img src="./imgs/Tailwind_LightBG_logo.svg.png" alt="logo tailwind" width="200px">
+ </div>
+ <div class="navbar hidden md:flex space-x-6 items-center">
+ <a href="#" class="text-slate-900 hover:text-slate-500">Portfolio</a>
+ <a href="#" class="text-slate-900 hover:text-slate-500">About</a>
+ <a href="#" class="text-slate-900 hover:text-slate-500">Contact</a>
+ <a href="#" class="text-slate-900 hover:text-slate-500">Social</a>
+ <a href="#" class="btn-nav rounded-full py-2 px-6 text-white bg-orange-500 transition-all
+ duration-500 ease-in-out hover:bg-slate-900">Call Me</a>
+ </div>
+ <div id="mobile-btn" class="md:hidden">
+ <i class="ri-menu-line text-2xl"></i>
+ </div>
+ </div> 
+ 
+ 
+ 
+ I've tried using the standard Tailwind padding and margin utilities like p-4 , m-2 , spac
+e-x-4 , and space-y-4 in my HTML. In my first project, these worked perfectly, but in my s
+ubsequent projects, they don't seem to apply any styles. I expected that the spacing utili
+ties would be applied correctly, but the elements are not spaced as intended. Instead, I h
+ave to manually write the styles in a separate CSS file to get the expected result. 
+
+ * {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+
+.btn-nav {
+ padding-block: 8px;
+ padding-inline: 24px;
+}
+
+/*****/
+
+nav.container {
+ padding: 24px;
+ margin-inline: auto;
+}
+
+.navbar a {
+ /* margin-right: 24px; */
+ margin-inline-end: 24px;
+}
+
+.navbar a:last-child {
+ /* margin-right: 0; */
+ margin-inline-end: 0;
+} 
+ <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+<nav class="container mx-auto p-6">
+ <div class="flex items-center justify-between">
+ <div>
+ <img src="./imgs/Tailwind_LightBG_logo.svg.png" alt="logo tailwind" width="200px">
+ </div>
+ <div class="navbar hidden md:flex space-x-6 items-center">
+ <a href="#" class="text-slate-900 hover:text-slate-500">Portfolio</a>
+ <a href="#" class="text-slate-900 hover:text-slate-500">About</a>
+ <a href="#" class="text-slate-900 hover:text-slate-500">Contact</a>
+ <a href="#" class="text-slate-900 hover:text-slate-500">Social</a>
+ <a href="#" class="btn-nav rounded-full py-2 px-6 text-white bg-orange-500 transition-all
+ duration-500 ease-in-out hover:bg-slate-900">Call Me</a>
+ </div>
+ <div id="mobile-btn" class="md:hidden">
+ <i class="ri-menu-line text-2xl"></i>
+ </div>
+ </div> 
+ p-4 
+ m-2 
+ space-x-4 
+ space-y-4
+
+===== qid 79368095 | How can I toggle the GitHub Copilot Chat panel in VS Code using a keyboard shortcut? =====
+Is there a way to assign a keyboard shortcut in Visual Studio Code to hide or toggle the G
+itHub Copilot Chat side panel? I haven’t found a built-in action for this. So far, the onl
+y method I’ve discovered to hide the panel is by manually resizing it to zero, which is no
+t very convenient.
+
+===== qid 79760145 | Why does std::set::contains() call the spaceship operator twice on a target element? =====
+Consider: 
+ #include <print>
+#include <set>
+
+struct Num {
+ auto operator <=> (const Num& other) const{
+ std::println ("{} <=> {}", val, other.val);
+ return val <=> other.val;
+ };
+ int val;
+};
+
+int main() {
+ std::set<Num> s{{1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}};
+ std::println("------------");
+ return !s.contains({8});
+}
+ 
+ For the part that calls contains this prints out (among other things): 
+ ...
+8 <=> 8
+7 <=> 8
+8 <=> 8
+ 
+ I would expect that after calling the spaceship operator with arguments (8,8) , the set w
+ould know it found the element and can return true immediately. 
+ Is this just because std::set in implementations I checked (libc++ and libstdc++ ) was ne
+ver updated to move from using logic written for operator < , or is there a more fundament
+al reason for this? Is this still faster than all the time checking if compared elements a
+re equal (since that happens at most once during lookup and moves the logic from handling 
+two outcomes to handling three outcomes)? 
+
+ #include <print>
+#include <set>
+
+struct Num {
+ auto operator <=> (const Num& other) const{
+ std::println ("{} <=> {}", val, other.val);
+ return val <=> other.val;
+ };
+ int val;
+};
+
+int main() {
+ std::set<Num> s{{1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}};
+ std::println("------------");
+ return !s.contains({8});
+}
+ 
+ contains 
+ ...
+8 <=> 8
+7 <=> 8
+8 <=> 8
+ 
+ (8,8) 
+ set 
+ true 
+ std::set 
+ operator <
+
+===== qid 79404124 | Is there a way to check console on Bruno? =====
+I'm currently working on API testing using Bruno and trying to debug my scripts by adding 
+console.log statements in the pre-request and post-response script sections. However, I'm 
+having trouble finding where Bruno logs these outputs. 
+ I've checked the UI but couldn't find a dedicated console or log panel where these messag
+es appear. I expected a section similar to Postman’s console or a way to view script outpu
+ts, but I haven't had any luck.
+
+===== qid 79818015 | UITextField custom inputAccessoryView with custom inputView in iOS 26 =====
+I'm trying to use UIPickerView as the textfield's inputView and also add UIToolBar as the 
+textfield's inputAccessoryView . 
+ In iOS 26, it adds some weird transparent background (like a liquid glass effect, I guess
+) under the toolbar. 
+I want to preserve the same look as it had previously. 
+ Please see the example code below with attached images: 
+ let keyboardToolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 100, hei
+ght: 44.0)))
+
+let doneBarButton = UIBarButtonItem()
+ doneBarButton.title = "Done"
+ 
+if #available(iOS 26.0, *) {
+ doneBarButton.hidesSharedBackground = true
+}
+
+keyboardToolbar.items = [doneBarButton]
+textField.inputAccessoryView = keyboardToolbar
+ 
+let picker = UIPickerView()
+picker.backgroundColor = .white
+textField.inputView = picker
+ 
+ iOS 18: 
+ 
+ iOS 26: 
+ 
+ Edit:
+Just to clarify the issue, It seems that assigning a custom view for inputAccessoryView AN
+D a custom view for the inputView makes the system add this gray view between them.
+Here is a simpler example that demonstrate this behavior: 
+ let inputAccessoryView = UIView(frame: CGRect(x: 0, y: 0, width: .zero, height: 70))
+ inputAccessoryView.backgroundColor = .red
+ textField.inputAccessoryView = inputAccessoryView
+ 
+ let inputView = UIView(frame: CGRect(x: 0, y: 0, width: .zero, height: 70))
+ inputView.backgroundColor = .blue
+ textField.inputView = inputView
+ 
+ 
+
+ UIPickerView 
+ inputView 
+ UIToolBar 
+ inputAccessoryView 
+ let keyboardToolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 100, hei
+ght: 44.0)))
+
+let doneBarButton = UIBarButtonItem()
+ doneBarButton.title = "Done"
+ 
+if #available(iOS 26.0, *) {
+ doneBarButton.hidesSharedBackground = true
+}
+
+keyboardToolbar.items = [doneBarButton]
+textField.inputAccessoryView = keyboardToolbar
+ 
+let picker = UIPickerView()
+picker.backgroundColor = .white
+textField.inputView = picker
+ 
+ let inputAccessoryView = UIView(frame: CGRect(x: 0, y: 0, width: .zero, height: 70))
+ inputAccessoryView.backgroundColor = .red
+ textField.inputAccessoryView = inputAccessoryView
+ 
+ let inputView = UIView(frame: CGRect(x: 0, y: 0, width: .zero, height: 70))
+ inputView.backgroundColor = .blue
+ textField.inputView = inputView
+
+===== qid 79513015 | Tailwind CSS v4 - Unknown at rule @plugin, @custom-variant, @theme, @utility, @variant, @apply, @source, @reference in global.css =====
+I'm using Tailwind CSS v4 in my Next.js project and getting the following errors in global
+s.css: 
+ 
+ Unknown at rule @plugin css(unknownAtRules) 
+Unknown at rule @custom-variant css(unknownAtRules) 
+Unknown at rule @theme css(unknownAtRules) 
+Unknown at rule @utility css(unknownAtRules) 
+Unknown at rule @variant css(unknownAtRules) 
+Unknown at rule @apply css(unknownAtRules) 
+Unknown at rule @source css(unknownAtRules) 
+Unknown at rule @reference css(unknownAtRules) 
+ 
+ Here is my globals.css file: 
+ @import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+ /* theme customization */
+}
+ 
+ 
+
+ @import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+ /* theme customization */
+}
+
+===== qid 79718097 | Why do C compilers still prefer PUSH over MOV for saving registers, even when MOV appears faster in llvm-mca? =====
+I noticed that modern C compilers typically use push instructions to save caller-saved reg
+isters, rather than explicit mov + sub sequences. However, based on llvm-mca simulations, 
+the mov approach appears more efficient in some cases. Why is this? 
+ On Skylake , push shows a clear dependency chain in llvm-mca . I also tested this on AMD’
+s Zen 5 (znver5), where push performance approaches mov but remains slower, with the same 
+dependency chain behavior. 
+ I analyzed two ways to save caller-saved registers: 
+ 
+ push sequence : 12x push instructions. 
+ mov sequence : 12x mov to stack + 1x sub rsp, 96 . 
+ 
+ Using llvm-mca (Skylake model), the mov version shows better throughput: 
+ 
+ Total cycles : 27 ( push ) vs 15 ( mov ). 
+ uOps : 36 ( push ) vs 13 ( mov ). 
+ IPC : 0.44 ( push ) vs 0.87 ( mov ). 
+ 
+ llvm-mca -mcpu=skylake -timeline -iterations=1 test_push.s -o test_push.txt 
+ test_push.txt 
+ Iterations: 1
+Instructions: 12
+Total Cycles: 27
+Total uOps: 36
+
+Dispatch Width: 6
+uOps Per Cycle: 1.33
+IPC: 0.44
+Block RThroughput: 12.0
+
+
+Instruction Info:
+[1] [2] [3] [4] [5] [6] Instructions:
+ 3 2 1.00 * pushq %rax
+ 3 2 1.00 * pushq %rbx
+ 3 2 1.00 * pushq %rcx
+ 3 2 1.00 * pushq %rdx
+ 3 2 1.00 * pushq %r8
+ 3 2 1.00 * pushq %r9
+ 3 2 1.00 * pushq %r10
+ 3 2 1.00 * pushq %r11
+ 3 2 1.00 * pushq %r12
+ 3 2 1.00 * pushq %r13
+ 3 2 1.00 * pushq %r14
+ 3 2 1.00 * pushq %r15
+
+
+Resources:
+[0] - SKLDivider
+[1] - SKLFPDivider
+[2] - SKLPort0
+[3] - SKLPort1
+[4] - SKLPort2
+[5] - SKLPort3
+[6] - SKLPort4
+[7] - SKLPort5
+[8] - SKLPort6
+[9] - SKLPort7
+
+
+Resource pressure per iteration:
+[0] [1] [2] [3] [4] [5] [6] [7] [8] [9] 
+ - - 3.00 3.00 4.00 4.00 12.00 3.00 3.00 4.00 
+
+Resource pressure by instruction:
+[0] [1] [2] [3] [4] [5] [6] [7] [8] [9] Instructions:
+ - - - - - - 1.00 - 1.00 1.00 pushq %rax
+ - - - - - 1.00 1.00 1.00 - - pushq %rbx
+ - - - 1.00 1.00 - 1.00 - - - pushq %rcx
+ - - 1.00 - - - 1.00 - - 1.00 pushq %rdx
+ - - - - - 1.00 1.00 - 1.00 - pushq %r8
+ - - - - 1.00 - 1.00 1.00 - - pushq %r9
+ - - - 1.00 - - 1.00 - - 1.00 pushq %r10
+ - - 1.00 - - 1.00 1.00 - - - pushq %r11
+ - - - - 1.00 - 1.00 - 1.00 - pushq %r12
+ - - - - - - 1.00 1.00 - 1.00 pushq %r13
+ - - - 1.00 - 1.00 1.00 - - - pushq %r14
+ - - 1.00 - 1.00 - 1.00 - - - pushq %r15
+
+
+Timeline view:
+ 0123456789 
+Index 0123456789 0123456
+
+[0,0] DeeER. . . . .. pushq %rax
+[0,1] D==eeER . . . .. pushq %rbx
+[0,2] .D===eeER . . . .. pushq %rcx
+[0,3] .D=====eeER . . .. pushq %rdx
+[0,4] . D======eeER . . .. pushq %r8
+[0,5] . D========eeER. . .. pushq %r9
+[0,6] . D=========eeER . .. pushq %r10
+[0,7] . D===========eeER . .. pushq %r11
+[0,8] . D============eeER .. pushq %r12
+[0,9] . D==============eeER .. pushq %r13
+[0,10] . D===============eeER.. pushq %r14
+[0,11] . D=================eeER pushq %r15
+
+
+Average Wait times (based on the timeline view):
+[1]: Average time spent waiting in a scheduler's queue
+[2]: Average time spent waiting in a scheduler's queue while ready
+[3]: Average time elapsed from WB until retire stage
+
+ [0] [1] [2] [3]
+0. 1 1.0 1.0 0.0 pushq %rax
+1. 1 3.0 0.0 0.0 pushq %rbx
+2. 1 4.0 0.0 0.0 pushq %rcx
+3. 1 6.0 0.0 0.0 pushq %rdx
+4. 1 7.0 0.0 0.0 pushq %r8
+5. 1 9.0 0.0 0.0 pushq %r9
+6. 1 10.0 0.0 0.0 pushq %r10
+7. 1 12.0 0.0 0.0 pushq %r11
+8. 1 13.0 0.0 0.0 pushq %r12
+9. 1 15.0 0.0 0.0 pushq %r13
+10. 1 16.0 0.0 0.0 pushq %r14
+11. 1 18.0 0.0 0.0 pushq %r15
+ 1 9.5 0.1 0.0 <total>
+ 
+ llvm-mca -mcpu=skylake -timeline -iterations=1 test_mov.s -o test_mov.txt 
+ test_mov.txt 
+ Iterations: 1
+Instructions: 13
+Total Cycles: 15
+Total uOps: 13
+
+Dispatch Width: 6
+uOps Per Cycle: 0.87
+IPC: 0.87
+Block RThroughput: 12.0
+
+
+Instruction Info:
+[1] [2] [3] [4] [5] [6] Instructions:
+ 1 1 1.00 * movq %rax, -8(%rsp)
+ 1 1 1.00 * movq %rbx, -16(%rsp)
+ 1 1 1.00 * movq %rcx, -24(%rsp)
+ 1 1 1.00 * movq %rdx, -32(%rsp)
+ 1 1 1.00 * movq %r8, -40(%rsp)
+ 1 1 1.00 * movq %r9, -48(%rsp)
+ 1 1 1.00 * movq %r10, -56(%rsp)
+ 1 1 1.00 * movq %r11, -64(%rsp)
+ 1 1 1.00 * movq %r12, -72(%rsp)
+ 1 1 1.00 * movq %r13, -80(%rsp)
+ 1 1 1.00 * movq %r14, -88(%rsp)
+ 1 1 1.00 * movq %r15, -96(%rsp)
+ 1 1 0.25 subq $96, %rsp
+
+
+Resources:
+[0] - SKLDivider
+[1] - SKLFPDivider
+[2] - SKLPort0
+[3] - SKLPort1
+[4] - SKLPort2
+[5] - SKLPort3
+[6] - SKLPort4
+[7] - SKLPort5
+[8] - SKLPort6
+[9] - SKLPort7
+
+
+Resource pressure per iteration:
+[0] [1] [2] [3] [4] [5] [6] [7] [8] [9] 
+ - - - - 4.00 4.00 12.00 - 1.00 4.00 
+
+Resource pressure by instruction:
+[0] [1] [2] [3] [4] [5] [6] [7] [8] [9] Instructions:
+ - - - - - - 1.00 - - 1.00 movq %rax, -8(%rsp)
+ - - - - - 1.00 1.00 - - - movq %rbx, -16(%rsp)
+ - - - - 1.00 - 1.00 - - - movq %rcx, -24(%rsp)
+ - - - - - - 1.00 - - 1.00 movq %rdx, -32(%rsp)
+ - - - - - 1.00 1.00 - - - movq %r8, -40(%rsp)
+ - - - - 1.00 - 1.00 - - - movq %r9, -48(%rsp)
+ - - - - - - 1.00 - - 1.00 movq %r10, -56(%rsp)
+ - - - - - 1.00 1.00 - - - movq %r11, -64(%rsp)
+ - - - - 1.00 - 1.00 - - - movq %r12, -72(%rsp)
+ - - - - - - 1.00 - - 1.00 movq %r13, -80(%rsp)
+ - - - - - 1.00 1.00 - - - movq %r14, -88(%rsp)
+ - - - - 1.00 - 1.00 - - - movq %r15, -96(%rsp)
+ - - - - - - - - 1.00 - subq $96, %rsp
+
+
+Timeline view:
+ 01234
+Index 0123456789 
+
+[0,0] DeER . . . movq %rax, -8(%rsp)
+[0,1] D=eER. . . movq %rbx, -16(%rsp)
+[0,2] D==eER . . movq %rcx, -24(%rsp)
+[0,3] D===eER . . movq %rdx, -32(%rsp)
+[0,4] D====eER . . movq %r8, -40(%rsp)
+[0,5] D=====eER . . movq %r9, -48(%rsp)
+[0,6] .D=====eER. . movq %r10, -56(%rsp)
+[0,7] .D======eER . movq %r11, -64(%rsp)
+[0,8] .D=======eER . movq %r12, -72(%rsp)
+[0,9] .D========eER . movq %r13, -80(%rsp)
+[0,10] .D=========eER. movq %r14, -88(%rsp)
+[0,11] .D==========eER movq %r15, -96(%rsp)
+[0,12] . DeE---------R subq $96, %rsp
+
+
+Average Wait times (based on the timeline view):
+[1]: Average time spent waiting in a scheduler's queue
+[2]: Average time spent waiting in a scheduler's queue while ready
+[3]: Average time elapsed from WB until retire stage
+
+ [0] [1] [2] [3]
+0. 1 1.0 1.0 0.0 movq %rax, -8(%rsp)
+1. 1 2.0 1.0 0.0 movq %rbx, -16(%rsp)
+2. 1 3.0 1.0 0.0 movq %rcx, -24(%rsp)
+3. 1 4.0 1.0 0.0 movq %rdx, -32(%rsp)
+4. 1 5.0 1.0 0.0 movq %r8, -40(%rsp)
+5. 1 6.0 1.0 0.0 movq %r9, -48(%rsp)
+6. 1 6.0 1.0 0.0 movq %r10, -56(%rsp)
+7. 1 7.0 1.0 0.0 movq %r11, -64(%rsp)
+8. 1 8.0 1.0 0.0 movq %r12, -72(%rsp)
+9. 1 9.0 1.0 0.0 movq %r13, -80(%rsp)
+10. 1 10.0 1.0 0.0 movq %r14, -88(%rsp)
+11. 1 11.0 1.0 0.0 movq %r15, -96(%rsp)
+12. 1 1.0 1.0 9.0 subq $96, %rsp
+ 1 5.6 1.0 0.7 <total>
+ 
+ Question : Possible reasons I considered: 
+ 
+ Code size : push is more compact (1 byte vs ~4 bytes for mov with offset). 
+ Hardware optimizations : Do real CPUs handle push better? (Probably stack engine optimiza
+tion, but I can't find information about it) 
+ Compiler heuristics : Is push chosen for legacy compatibility or edge cases? 
+ 
+
+ push 
+ mov 
+ sub 
+ llvm-mca 
+ mov 
+ push 
+ llvm-mca 
+ push 
+ mov 
+ push 
+ push 
+ mov 
+ mov 
+ sub rsp, 96 
+ llvm-mca 
+ mov 
+ push 
+ mov 
+ push 
+ mov 
+ push 
+ mov 
+ llvm-mca -mcpu=skylake -timeline -iterations=1 test_push.s -o test_push.txt 
+ test_push.txt 
+ Iterations: 1
+Instructions: 12
+Total Cycles: 27
+Total uOps: 36
+
+Dispatch Width: 6
+uOps Per Cycle: 1.33
+IPC: 0.44
+Block RThroughput: 12.0
+
+
+Instruction Info:
+[1] [2] [3] [4] [5] [6] Instructions:
+ 3 2 1.00 * pushq %rax
+ 3 2 1.00 * pushq %rbx
+ 3 2 1.00 * pushq %rcx
+ 3 2 1.00 * pushq %rdx
+ 3 2 1.00 * pushq %r8
+ 3 2 1.00 * pushq %r9
+ 3 2 1.00 * pushq %r10
+ 3 2 1.00 * pushq %r11
+ 3 2 1.00 * pushq %r12
+ 3 2 1.00 * pushq %r13
+ 3 2 1.00 * pushq %r14
+ 3 2 1.00 * pushq %r15
+
+
+Resources:
+[0] - SKLDivider
+[1] - SKLFPDivider
+[2] - SKLPort0
+[3] - SKLPort1
+[4] - SKLPort2
+[5] - SKLPort3
+[6] - SKLPort4
+[7] - SKLPort5
+[8] - SKLPort6
+[9] - SKLPort7
+
+
+Resource pressure per iteration:
+[0] [1] [2] [3] [4] [5] [6] [7] [8] [9] 
+ - - 3.00 3.00 4.00 4.00 12.00 3.00 3.00 4.00 
+
+Resource pressure by instruction:
+[0] [1] [2] [3] [4] [5] [6] [7] [8] [9] Instructions:
+ - - - - - - 1.00 - 1.00 1.00 pushq %rax
+ - - - - - 1.00 1.00 1.00 - - pushq %rbx
+ - - - 1.00 1.00 - 1.00 - - - pushq %rcx
+ - - 1.00 - - - 1.00 - - 1.00 pushq %rdx
+ - - - - - 1.00 1.00 - 1.00 - pushq %r8
+ - - - - 1.00 - 1.00 1.00 - - pushq %r9
+ - - - 1.00 - - 1.00 - - 1.00 pushq %r10
+ - - 1.00 - - 1.00 1.00 - - - pushq %r11
+ - - - - 1.00 - 1.00 - 1.00 - pushq %r12
+ - - - - - - 1.00 1.00 - 1.00 pushq %r13
+ - - - 1.00 - 1.00 1.00 - - - pushq %r14
+ - - 1.00 - 1.00 - 1.00 - - - pushq %r15
+
+
+Timeline view:
+ 0123456789 
+Index 0123456789 0123456
+
+[0,0] DeeER. . . . .. pushq %rax
+[0,1] D==eeER . . . .. pushq %rbx
+[0,2] .D===eeER . . . .. pushq %rcx
+[0,3] .D=====eeER . . .. pushq %rdx
+[0,4] . D======eeER . . .. pushq %r8
+[0,5] . D========eeER. . .. pushq %r9
+[0,6] . D=========eeER . .. pushq %r10
+[0,7] . D===========eeER . .. pushq %r11
+[0,8] . D============eeER .. pushq %r12
+[0,9] . D==============eeER .. pushq %r13
+[0,10] . D===============eeER.. pushq %r14
+[0,11] . D=================eeER pushq %r15
+
+
+Average Wait times (based on the timeline view):
+[1]: Average time spent waiting in a scheduler's queue
+[2]: Average time spent waiting in a scheduler's queue while ready
+[3]: Average time elapsed from WB until retire stage
+
+ [0] [1] [2] [3]
+0. 1 1.0 1.0 0.0 pushq %rax
+1. 1 3.0 0.0 0.0 pushq %rbx
+2. 1 4.0 0.0 0.0 pushq %rcx
+3. 1 6.0 0.0 0.0 pushq %rdx
+4. 1 7.0 0.0 0.0 pushq %r8
+5. 1 9.0 0.0 0.0 pushq %r9
+6. 1 10.0 0.0 0.0 pushq %r10
+7. 1 12.0 0.0 0.0 pushq %r11
+8. 1 13.0 0.0 0.0 pushq %r12
+9. 1 15.0 0.0 0.0 pushq %r13
+10. 1 16.0 0.0 0.0 pushq %r14
+11. 1 18.0 0.0 0.0 pushq %r15
+ 1 9.5 0.1 0.0 <total>
+ 
+ llvm-mca -mcpu=skylake -timeline -iterations=1 test_mov.s -o test_mov.txt 
+ test_mov.txt 
+ Iterations: 1
+Instructions: 13
+Total Cycles: 15
+Total uOps: 13
+
+Dispatch Width: 6
+uOps Per Cycle: 0.87
+IPC: 0.87
+Block RThroughput: 12.0
+
+
+Instruction Info:
+[1] [2] [3] [4] [5] [6] Instructions:
+ 1 1 1.00 * movq %rax, -8(%rsp)
+ 1 1 1.00 * movq %rbx, -16(%rsp)
+ 1 1 1.00 * movq %rcx, -24(%rsp)
+ 1 1 1.00 * movq %rdx, -32(%rsp)
+ 1 1 1.00 * movq %r8, -40(%rsp)
+ 1 1 1.00 * movq %r9, -48(%rsp)
+ 1 1 1.00 * movq %r10, -56(%rsp)
+ 1 1 1.00 * movq %r11, -64(%rsp)
+ 1 1 1.00 * movq %r12, -72(%rsp)
+ 1 1 1.00 * movq %r13, -80(%rsp)
+ 1 1 1.00 * movq %r14, -88(%rsp)
+ 1 1 1.00 * movq %r15, -96(%rsp)
+ 1 1 0.25 subq $96, %rsp
+
+
+Resources:
+[0] - SKLDivider
+[1] - SKLFPDivider
+[2] - SKLPort0
+[3] - SKLPort1
+[4] - SKLPort2
+[5] - SKLPort3
+[6] - SKLPort4
+[7] - SKLPort5
+[8] - SKLPort6
+[9] - SKLPort7
+
+
+Resource pressure per iteration:
+[0] [1] [2] [3] [4] [5] [6] [7] [8] [9] 
+ - - - - 4.00 4.00 12.00 - 1.00 4.00 
+
+Resource pressure by instruction:
+[0] [1] [2] [3] [4] [5] [6] [7] [8] [9] Instructions:
+ - - - - - - 1.00 - - 1.00 movq %rax, -8(%rsp)
+ - - - - - 1.00 1.00 - - - movq %rbx, -16(%rsp)
+ - - - - 1.00 - 1.00 - - - movq %rcx, -24(%rsp)
+ - - - - - - 1.00 - - 1.00 movq %rdx, -32(%rsp)
+ - - - - - 1.00 1.00 - - - movq %r8, -40(%rsp)
+ - - - - 1.00 - 1.00 - - - movq %r9, -48(%rsp)
+ - - - - - - 1.00 - - 1.00 movq %r10, -56(%rsp)
+ - - - - - 1.00 1.00 - - - movq %r11, -64(%rsp)
+ - - - - 1.00 - 1.00 - - - movq %r12, -72(%rsp)
+ - - - - - - 1.00 - - 1.00 movq %r13, -80(%rsp)
+ - - - - - 1.00 1.00 - - - movq %r14, -88(%rsp)
+ - - - - 1.00 - 1.00 - - - movq %r15, -96(%rsp)
+ - - - - - - - - 1.00 - subq $96, %rsp
+
+
+Timeline view:
+ 01234
+Index 0123456789 
+
+[0,0] DeER . . . movq %rax, -8(%rsp)
+[0,1] D=eER. . . movq %rbx, -16(%rsp)
+[0,2] D==eER . . movq %rcx, -24(%rsp)
+[0,3] D===eER . . movq %rdx, -32(%rsp)
+[0,4] D====eER . . movq %r8, -40(%rsp)
+[0,5] D=====eER . . movq %r9, -48(%rsp)
+[0,6] .D=====eER. . movq %r10, -56(%rsp)
+[0,7] .D======eER . movq %r11, -64(%rsp)
+[0,8] .D=======eER . movq %r12, -72(%rsp)
+[0,9] .D========eER . movq %r13, -80(%rsp)
+[0,10] .D=========eER. movq %r14, -88(%rsp)
+[0,11] .D==========eER movq %r15, -96(%rsp)
+[0,12] . DeE---------R subq $96, %rsp
+
+
+Average Wait times (based on the timeline view):
+[1]: Average time spent waiting in a scheduler's queue
+[2]: Average time spent waiting in a scheduler's queue while ready
+[3]: Average time elapsed from WB until retire stage
+
+ [0] [1] [2] [3]
+0. 1 1.0 1.0 0.0 movq %rax, -8(%rsp)
+1. 1 2.0 1.0 0.0 movq %rbx, -16(%rsp)
+2. 1 3.0 1.0 0.0 movq %rcx, -24(%rsp)
+3. 1 4.0 1.0 0.0 movq %rdx, -32(%rsp)
+4. 1 5.0 1.0 0.0 movq %r8, -40(%rsp)
+5. 1 6.0 1.0 0.0 movq %r9, -48(%rsp)
+6. 1 6.0 1.0 0.0 movq %r10, -56(%rsp)
+7. 1 7.0 1.0 0.0 movq %r11, -64(%rsp)
+8. 1 8.0 1.0 0.0 movq %r12, -72(%rsp)
+9. 1 9.0 1.0 0.0 movq %r13, -80(%rsp)
+10. 1 10.0 1.0 0.0 movq %r14, -88(%rsp)
+11. 1 11.0 1.0 0.0 movq %r15, -96(%rsp)
+12. 1 1.0 1.0 9.0 subq $96, %rsp
+ 1 5.6 1.0 0.7 <total>
+ 
+ push 
+ mov 
+ push 
+ push
+
+===== qid 79779187 | Google Generative AI: 404 &quot;models/gemini-1.5-flash is not found&quot; error when calling generateContent =====
+I have a Flask application that integrates with Google Generative AI (Gemini) and Google C
+alendar. It used to work fine, but recently I started running into two issues: 
+ 
+ 
+ Model not found (404) error 
+ 
+ Whenever my code calls the Gemini API, I get: 
+ ERROR:gemini_parser:Error extracting candidate info: 404 models/gemini-1.5-flash is not f
+ound for API version v1beta,
+or is not supported for generateContent. Call ListModels to see the list of available mode
+ls and their supported methods.
+ERROR:gemini_parser:Error scoring candidate: 404 models/gemini-1.5-flash is not found for 
+API version v1beta...
+ 
+ This happens for every resume processed, and all candidates get marked as "Parse Error" w
+ith a default score. 
+ Here’s how I initialize the model: 
+ import google.generativeai as genai
+
+genai.configure(api_key="MY_API_KEY")
+model = genai.GenerativeModel("gemini-1.5-flash")
+
+response = model.generate_content("Test prompt")
+print(response.text)
+ 
+ This exact code worked before, but now I get the error above. 
+ 
+ 
+ SSL errors in logs 
+ 
+ At startup, I also see warnings like: 
+ WARNING:tools:SSL/Connection error on attempt 1: [SSL: WRONG_VERSION_NUMBER] wrong versio
+n number (_ssl.c:2580)
+WARNING:tools:SSL/Connection error on attempt 2: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC
+] decryption failed or bad record mac (_ssl.c:2580)
+ERROR:tools:Error checking availability: The read operation timed out
+ 
+ Despite these, my Flask app continues to run on http://127.0.0.1:5000 and processes reque
+sts. 
+ 
+ What I tried: 
+ 
+ Restarted the app and re-authenticated with Google API. 
+ 
+ Verified my API key and credentials are set. 
+ 
+ Tested genai.list_models() — it returns a generator, but I’m not sure if gemini-1.5-flash
+ is still in the list. 
+ 
+ Tried different networks to rule out connectivity. 
+ 
+ 
+ 
+ My Questions: 
+ 
+ Why is models/gemini-1.5-flash returning 404 now? 
+ Did Google deprecate or rename it? 
+ Is it only available under certain API versions (v1 vs v1beta)? 
+ 
+ Could API quota exhaustion cause this behavior? 
+ 
+ What’s the correct way to check the currently available Gemini models? 
+ 
+ Are the SSL errors related to the 404 issue, or just a separate local misconfiguration (F
+lask dev server using HTTP instead of HTTPS)? 
+ 
+ 
+ 
+ Any guidance would be appreciated 🙏 
+
+ ERROR:gemini_parser:Error extracting candidate info: 404 models/gemini-1.5-flash is not f
+ound for API version v1beta,
+or is not supported for generateContent. Call ListModels to see the list of available mode
+ls and their supported methods.
+ERROR:gemini_parser:Error scoring candidate: 404 models/gemini-1.5-flash is not found for 
+API version v1beta...
+ 
+ import google.generativeai as genai
+
+genai.configure(api_key="MY_API_KEY")
+model = genai.GenerativeModel("gemini-1.5-flash")
+
+response = model.generate_content("Test prompt")
+print(response.text)
+ 
+ WARNING:tools:SSL/Connection error on attempt 1: [SSL: WRONG_VERSION_NUMBER] wrong versio
+n number (_ssl.c:2580)
+WARNING:tools:SSL/Connection error on attempt 2: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC
+] decryption failed or bad record mac (_ssl.c:2580)
+ERROR:tools:Error checking availability: The read operation timed out
+
+===== qid 79791886 | Estimation for Pi is precise but inaccurate =====
+My code reliably finds a precise (similar value every time) but in the region of 3.24 and 
+3.26. Competent mathematicians will note this around 0.1 away from an ideal Pi value. 
+ My code revolves around picking random points on a 10,000 x 10,000 grid. The hypotenuse w
+ith respect to (0,0) is calculated and if this hypotenuse is less than 10,000, the point i
+s inside a theoretical circle with radius 10,000. 
+ The ratio of points inside and all points multiplied by 4 should give an estimation for P
+i. 
+ #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+
+int RandomNum(int min, int max);
+
+int main()
+{
+ int d = 0;
+ int n = 0;
+ srand(time(NULL));
+
+
+ for (int i =0; i < 10000; i++)
+ {
+ n++;
+ int xI = RandomNum(-10000, 10000);
+ //double xF = (double) xI/10000;
+ printf("\nx: %f", xI);
+
+ int yI = RandomNum(-10000, 10000);
+ //double yF = (double) yI/10000;
+ printf("\ny: %f", yI);
+
+ double pythag = sqrt(xI*xI+yI*yI);
+ printf("\nhyp: %f\n\n",pythag);
+
+ if (pythag < 10000)
+ {
+ d++;
+ }
+
+ }
+ printf("d = %d\n", d);
+ printf("n = %d\n", n);
+ double DNratio = (double) d/n;
+ double PiEstimate = DNratio * 4;
+ printf("Pi Estimate: %f", PiEstimate);
+ return 0;
+}
+int RandomNum(int min, int max)
+{
+ int r = rand()%(max - min + 1) + min;
+ return r;
+}
+
+//https://www.geeksforgeeks.org/c/generating-random-number-range-c/
+//https://www.tutorialspoint.com/c_standard_library/c_function_srand.htm
+
+ 
+
+ #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+
+int RandomNum(int min, int max);
+
+int main()
+{
+ int d = 0;
+ int n = 0;
+ srand(time(NULL));
+
+
+ for (int i =0; i < 10000; i++)
+ {
+ n++;
+ int xI = RandomNum(-10000, 10000);
+ //double xF = (double) xI/10000;
+ printf("\nx: %f", xI);
+
+ int yI = RandomNum(-10000, 10000);
+ //double yF = (double) yI/10000;
+ printf("\ny: %f", yI);
+
+ double pythag = sqrt(xI*xI+yI*yI);
+ printf("\nhyp: %f\n\n",pythag);
+
+ if (pythag < 10000)
+ {
+ d++;
+ }
+
+ }
+ printf("d = %d\n", d);
+ printf("n = %d\n", n);
+ double DNratio = (double) d/n;
+ double PiEstimate = DNratio * 4;
+ printf("Pi Estimate: %f", PiEstimate);
+ return 0;
+}
+int RandomNum(int min, int max)
+{
+ int r = rand()%(max - min + 1) + min;
+ return r;
+}
+
+//https://www.geeksforgeeks.org/c/generating-random-number-range-c/
+//https://www.tutorialspoint.com/c_standard_library/c_function_srand.htm
+
+===== qid 79533324 | How can I install a local package with UV? =====
+I’m working on a Python project using uv as my package manager and struggling with ModuleN
+otFoundError when importing local packages. My goal is to make config/ and packages/src/ a
+vailable throughout the project (e.g., from config.connection_config import database_confi
+g ) after an editable install with uv pip install -e . . 
+ Here’s my project structure: 
+ dashboard/
+├── config/
+│ ├── __init__.py
+│ └── connection_config.py
+│ └── env/
+├── packages/
+│ └── src/
+│ └── (other packages/modules with __init__.py)
+├── services/
+│ └── data_ingestion/
+│ └── ingest_data.py
+├── pyproject.toml
+└── .venv/
+ 
+ And my pyproject.toml file: 
+ [project]
+name = "dashboard"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+ "loguru>=0.7.3",
+ "mysql-connector>=2.2.9",
+ "pandas>=2.2.3",
+ "paramiko>=3.5.1",
+ "polars>=1.23.0",
+ "pydantic-settings>=2.8.0",
+ "streamlit>=1.41.1",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.3.5"]
+
+[tool.setuptools.packages.find]
+where = ["packages/src", "config"] # Search in both directories
+include = ["*"] # Include all packages found
+exclude = ["tests*"] # Exclude test directories
+
+[tool.pytest.ini_options]
+pythonpath = "."
+ 
+ I run uv pip install -e . from the root (dashboard/), expecting config and packages/src t
+o be importable anywhere in the project. However, when running python services/data_ingest
+ion/ingest_data.py (which does from config.connection_config import database_config), I ge
+t: 
+ ModuleNotFoundError: No module named 'config'
+ 
+ I suspect I’m misconfiguring pyproject.toml or misunderstanding how uv and setuptools han
+dle editable installs. Things I’ve tried: 
+ Running uv pip install -e . from the root.
+Verifying init .py exists in config/.
+Running the script from different directories (root and services/data_ingestion/), same er
+ror. 
+ How should I configure pyproject.toml to make config/ and packages/src/ importable projec
+t-wide? Are there best practices for structuring and running such a project with uv, I wou
+ld really like to understand this better? 
+
+ from config.connection_config import database_config 
+ uv pip install -e . 
+ dashboard/
+├── config/
+│ ├── __init__.py
+│ └── connection_config.py
+│ └── env/
+├── packages/
+│ └── src/
+│ └── (other packages/modules with __init__.py)
+├── services/
+│ └── data_ingestion/
+│ └── ingest_data.py
+├── pyproject.toml
+└── .venv/
+ 
+ [project]
+name = "dashboard"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+ "loguru>=0.7.3",
+ "mysql-connector>=2.2.9",
+ "pandas>=2.2.3",
+ "paramiko>=3.5.1",
+ "polars>=1.23.0",
+ "pydantic-settings>=2.8.0",
+ "streamlit>=1.41.1",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.3.5"]
+
+[tool.setuptools.packages.find]
+where = ["packages/src", "config"] # Search in both directories
+include = ["*"] # Include all packages found
+exclude = ["tests*"] # Exclude test directories
+
+[tool.pytest.ini_options]
+pythonpath = "."
+ 
+ uv pip install -e . 
+ ModuleNotFoundError: No module named 'config'
+ 
+ uv pip install -e .
+
+===== qid 79776559 | passlib bcrypt not working when deployed to render. &quot;ValueError: password cannot be longer than 72 bytes&quot; =====
+Im trying to deploy a react app on render. It works on my localhost but when deployed on r
+ender the auth function doesn't work. It shows this error 
+ 
+ ValueError: password cannot be longer than 72 bytes, truncate manually
+if necessary (e.g. my_password[:72]) however my print logs show that
+the password is only 13 bytes. 
+ 
+ Ive tried using crypt context and made sure the bcrypt backend is the same in local and d
+eployment. Im stuck. Please. Help.
+
+===== qid 79635270 | How to disable Copilot code completion in Visual Studio? =====
+The regular code completion in Visual Studio somehow turned into Copilot code completion: 
+ 
+ It does not work though, replaces contents of the whole document with single-line propose
+d completion. 
+ 
+ How can I return to the regular refactorings? 
+ These are my Copilot options: 
+ 
+ Bonus question: How to turn off Github Copilot completely?
+
+===== qid 79468329 | Adding tailwindcss to an upgraded Vite v6 codebase causes ERROR Failed to resolve &quot;@tailwindcss/vite&quot; =====
+The Problem 
+ I have a very basic React + Vite web project (no backend/no APIs) that deploys to Github 
+pages. 
+ I was previously running Vite 5 and have just upgraded to Vite 6. The upgrade went smooth
+ly, no issues. Local runs and cloud deploy all work. 
+ Today, I've been trying to setup tailwindcss (and ultimately DaisyUI ) in this simple cod
+ebase but after following the official tailwindcss v4 docs here:
+ https://tailwindcss.com/docs/installation/using-vite 
+ Also following the official DaisyUI v5 Beta docs here:
+ https://v5.daisyui.com/docs/install/vite/ 
+ It should be a relatively simple process, but when I run npm run dev which just runs vite
+ I'm hit with the following error: 
+ ✘ [ERROR] Failed to resolve "@tailwindcss/vite". This package is ESM only but it was trie
+d to load by `require`. See https://vite.dev/guide/troubleshooting.html#this-package-is-es
+m-only for more details. [plugin externalize-deps]
+ 
+ 
+ 
+ What I've tried 
+ I've double checked vite.config.js : 
+ import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+ plugins: [react(), tailwindcss()],
+ base: "/",
+});
+ 
+ package.json also has the latest of these libraries as of today 26 Feb 2025: 
+ "dependencies": {
+ "@tailwindcss/vite": "^4.0.9",
+ "@testing-library/jest-dom": "^6.6.3",
+ "@testing-library/react": "^16.2.0",
+ "@testing-library/user-event": "^14.6.1",
+ "daisyui": "^5.0.0-beta.8",
+ "gh-pages": "^6.3.0",
+ "react": "^19.0.0",
+ "react-dom": "^19.0.0",
+ "react-icons": "^5.5.0",
+ "tailwindcss": "^4.0.9",
+ "web-vitals": "^4.2.4"
+ },
+ "devDependencies": {
+ "@vitejs/plugin-react": "^4.3.4",
+ "vite": "^6.2.0"
+ },
+ 
+ Checking NodeJS version shows node --version : 
+ v23.4.0
+ 
+ Followed the docs exactly as prescribed but no dice. Unsure if I've accidentally missed s
+omething in my upgrade from v5 to v6. 
+
+ npm run dev 
+ vite 
+ ✘ [ERROR] Failed to resolve "@tailwindcss/vite". This package is ESM only but it was trie
+d to load by `require`. See https://vite.dev/guide/troubleshooting.html#this-package-is-es
+m-only for more details. [plugin externalize-deps]
+ 
+ vite.config.js 
+ import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+ plugins: [react(), tailwindcss()],
+ base: "/",
+});
+ 
+ package.json 
+ "dependencies": {
+ "@tailwindcss/vite": "^4.0.9",
+ "@testing-library/jest-dom": "^6.6.3",
+ "@testing-library/react": "^16.2.0",
+ "@testing-library/user-event": "^14.6.1",
+ "daisyui": "^5.0.0-beta.8",
+ "gh-pages": "^6.3.0",
+ "react": "^19.0.0",
+ "react-dom": "^19.0.0",
+ "react-icons": "^5.5.0",
+ "tailwindcss": "^4.0.9",
+ "web-vitals": "^4.2.4"
+ },
+ "devDependencies": {
+ "@vitejs/plugin-react": "^4.3.4",
+ "vite": "^6.2.0"
+ },
+ 
+ node --version 
+ v23.4.0
+
+===== qid 79556333 | How to style Google Maps PlaceAutocompleteElement to match existing form inputs? =====
+I'm migrating from the legacy Google Places Autocomplete to the new PlaceAutocompleteEleme
+nt in my Rails application. The new component is working functionally, but I can't get it 
+to match the styling of my existing form inputs.
+Instead of enhancing my existing street address input field, the PlaceAutocompleteElement 
+renders it as a completely separate input with Google's default styling, creating an incon
+sistent UI. 
+ Do you know how to remove the black border and change styles overall in https://developer
+s.google.com/maps/documentation/javascript/examples/place-autocomplete-element#maps_place_
+autocomplete_element-javascript ? 
+ I can't find any example with styled widget. I found only for legacy places.
+
+===== qid 79817405 | installing dotnet-ef dotnet tool throws error =====
+I’m trying to install the Entity Framework Core CLI tools globally using the .NET CLI comm
+and: 
+ dotnet tool install --global dotnet-ef
+ 
+ However, the installation fails with the following error message: 
+ 
+ Tool 'dotnet-ef' failed to update due to the following: 
+ The settings file in the tool's NuGet package is invalid: Settings file 'DotnetToolSettin
+gs.xml' was not found in the package. 
+Tool 'dotnet-ef' failed to install. Contact the tool author for assistance. 
+ 
+ To reproduce, run dotnet tool install --global dotnet-ef in a terminal or command prompt.
+ 
+ What I've tried 
+ 
+ Running dotnet tool uninstall --global dotnet-ef and reinstalling. 
+ 
+ Why is this error occurring, and how can I fix it so that dotnet-ef installs successfully
+? 
+
+ dotnet tool install --global dotnet-ef
+ 
+ dotnet tool install --global dotnet-ef 
+ dotnet tool uninstall --global dotnet-ef 
+ dotnet-ef
+
+===== qid 79600161 | Could not find com.arthenica:ffmpeg-kit-full:6.0-2 =====
+I started receiving this message when I build my project 
+ > Could not find com.arthenica:ffmpeg-kit-full:6.0-2.
+ Searched in the following locations:
+ - https://dl.google.com/dl/android/maven2/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-
+full-6.0-2.pom
+ - https://repo.maven.apache.org/maven2/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-ful
+l-6.0-2.pom
+ - https://jcenter.bintray.com/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.p
+om
+ - https://jitpack.io/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom
+ - https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/mav
+en/v1/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom
+ - https://oss.sonatype.org/content/repositories/snapshots/com/arthenica/ffmpeg-kit-full/6
+.0-2/ffmpeg-kit-full-6.0-2.pom
+ Required by:
+ project :presentation > project :domain
+ 
+ These are the project's repositories 
+ allprojects { 
+ repositories {
+ google()
+ mavenCentral()
+ jcenter()
+ maven { url 'https://jitpack.io' }
+ maven { url "https://oss.sonatype.org/content/repositories/snapshots" } 
+ } 
+}
+ 
+ And this is the dependency I'm adding 
+ implementation(libs.arthenica.ffmpeg.full)
+ 
+ This is my libs.version.toml 
+ ffmpeg = "6.0-2"
+arthenica-ffmpeg-full = { group = "com.arthenica", name = "ffmpeg-kit-full", version.ref =
+ "ffmpeg" }
+ 
+ AFAICS in the project's github page , it will not be maintained anymore
+ 
+ In the short term, do you know any other repository that still servers this dependency? 
+ On the other hand, do you know any other project to replace Arthenica ffmpeg-kit-full dep
+endency? 
+
+ > Could not find com.arthenica:ffmpeg-kit-full:6.0-2.
+ Searched in the following locations:
+ - https://dl.google.com/dl/android/maven2/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-
+full-6.0-2.pom
+ - https://repo.maven.apache.org/maven2/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-ful
+l-6.0-2.pom
+ - https://jcenter.bintray.com/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.p
+om
+ - https://jitpack.io/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom
+ - https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/mav
+en/v1/com/arthenica/ffmpeg-kit-full/6.0-2/ffmpeg-kit-full-6.0-2.pom
+ - https://oss.sonatype.org/content/repositories/snapshots/com/arthenica/ffmpeg-kit-full/6
+.0-2/ffmpeg-kit-full-6.0-2.pom
+ Required by:
+ project :presentation > project :domain
+ 
+ allprojects { 
+ repositories {
+ google()
+ mavenCentral()
+ jcenter()
+ maven { url 'https://jitpack.io' }
+ maven { url "https://oss.sonatype.org/content/repositories/snapshots" } 
+ } 
+}
+ 
+ implementation(libs.arthenica.ffmpeg.full)
+ 
+ ffmpeg = "6.0-2"
+arthenica-ffmpeg-full = { group = "com.arthenica", name = "ffmpeg-kit-full", version.ref =
+ "ffmpeg" }
+
+===== qid 79843062 | .NET 10 version update generates BuildHost-net472 and BuildHost-netcore folder shortcuts =====
+After updating a .NET Core app version from .NET 8 to .NET 10, BuildHost-net472 and BuildH
+ost-netcore folder shortcuts appeared in both projects in the solution, then deleted and w
+orks well, they also appeared in published project files. Are those files important?
+
+===== qid 79400684 | Where is the size of a VLA stored in C? =====
+In C, you can do this: 
+ int arr[i];
+ 
+ From what I understand, this is called a VLA —variable length array—which is an array who
+se size is not known at compile time, which in most implementations is stored on the stack
+. 
+ In the implementations of VLAs that store the array on the stack, do they store the size 
+of the array somewhere at runtime? If yes, where? If not, how do you know at runtime how m
+uch to decrement the stack pointer once the array goes out of scope? 
+ Note: The same question also applies for alloca . 
+
+ int arr[i];
+ 
+ alloca
+
+===== qid 79663905 | Unable to tint a custom view in a UIBarButtonItem in iOS 26 =====
+Under iOS 26, the look of navigation bars and toolbars has changed quite a bit. I am runni
+ng into an issue trying to tint the added items. For "standard" UIBarButtonItem instances,
+ you simply set the tintColor and it works fine. For example: 
+ let itemText = UIBarButtonItem(title: "Text")
+itemText.tintColor = .systemGreen
+ 
+ The text will appear green in a toolbar or navbar. Same works as expected if created with
+ an SF Symbol image. 
+ The issue lies when I need to create a UIBarButtonItem with a custom view. I've experimen
+ted with UIButton , UISegmentedControl , and UISwitch . If I create and tint such controls
+ and add them to the view controller's view, the colors work as expected. When the same co
+lored controls are used with UIBarButtonItem(customView:) and added to a navbar or toolbar
+, then all colors are lost (oddly, except for the UISwitch onTintColor ). 
+ Am I missing the correct way to tint custom views used in this manner, or is this an issu
+e with iOS 26? 
+ Here's some sample code to demonstrate the issue. Create a new iOS app storyboard project
+ in Xcode 26. Setup the storyboard to display a navigation controller with a plain view co
+ntroller as its root. Replace the ViewController code with the following: 
+ import UIKit
+
+class ViewController: UIViewController {
+ func createButton() -> UIButton {
+ var cfg = UIButton.Configuration.plain()
+ cfg.image = UIImage(systemName: "eye")
+ let button = UIButton(configuration: cfg)
+
+ return button
+ }
+
+ func createSegment() -> UISegmentedControl {
+ let i1 = UIImage(systemName: "eye")!
+ let i2 = UIImage(systemName: "eye")!
+ let seg = UISegmentedControl(items: [i1, i2])
+ seg.selectedSegmentIndex = 0
+ return seg
+ }
+
+ override func viewDidLoad() {
+ super.viewDidLoad()
+
+ view.backgroundColor = .systemBackground
+
+ let b1 = createButton()
+ b1.tintColor = .systemRed
+ b1.translatesAutoresizingMaskIntoConstraints = false
+ view.addSubview(b1)
+
+ let s1 = createSegment()
+ s1.selectedSegmentTintColor = .systemYellow
+ s1.translatesAutoresizingMaskIntoConstraints = false
+ view.addSubview(s1)
+
+ let w1 = UISwitch()
+ w1.onTintColor = .systemCyan
+ w1.thumbTintColor = .systemPink
+ w1.translatesAutoresizingMaskIntoConstraints = false
+ view.addSubview(w1)
+
+ NSLayoutConstraint.activate([
+ b1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+ b1.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+ s1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+ s1.topAnchor.constraint(equalTo: b1.bottomAnchor, constant: 20),
+ w1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+ w1.topAnchor.constraint(equalTo: s1.bottomAnchor, constant: 20),
+ ])
+
+ // Despite all these attempts to set a color, the views in the navbar remain black
+ let b2 = createButton()
+ b2.tintColor = .systemRed // Nope
+ let nb1 = UIBarButtonItem(customView: b2)
+ nb1.tintColor = .systemYellow // Nope
+
+ let s2 = createSegment()
+ s2.selectedSegmentTintColor = .systemRed // Nope
+ let nb2 = UIBarButtonItem(customView: s2)
+ nb2.tintColor = .systemMint // Nope
+
+ let w2 = UISwitch()
+ w2.onTintColor = .systemCyan // This actually works
+ w2.thumbTintColor = .systemPink // But this doesn't
+ let nb3 = UIBarButtonItem(customView: w2)
+ nb3.tintColor = .systemBrown // Neither does this
+
+ let nb4 = UIBarButtonItem(title: "Text")
+ nb4.tintColor = .systemGreen // This works on the text if not changed below with the titl
+eTextAttributes
+
+ navigationItem.rightBarButtonItems = [nb1, nb3]
+ navigationItem.leftBarButtonItems = [nb2, nb4]
+
+ self.navigationController?.navigationBar.tintColor = .systemRed // Nothing
+ self.navigationController?.navigationBar.barTintColor = .systemYellow // Nothing
+
+ // This works on the text color but not the others
+ self.navigationController?.navigationBar.standardAppearance.buttonAppearance.normal.title
+TextAttributes = [ .foregroundColor : UIColor.systemPurple ]
+ }
+}
+ 
+ Run this on an iOS 26 simulator or device. The center of the screen will show a properly 
+colored button, segmented control, and switch. 
+ The navigation bar will show a segmented control, some text, a switch, and a button. 
+ The text will have the appropriate color depending on which code is commented. But this d
+oes not involve a custom view. 
+ The switch retains its onTintColor but not the thumbTintColor . 
+ The button loses its tintColor . 
+ The segmented control loses its selectSegmentTintColor . 
+ Setting the tintColor of each UIBarButtonItem created with a custom view has no effect. 
+
+ UIBarButtonItem 
+ tintColor 
+ let itemText = UIBarButtonItem(title: "Text")
+itemText.tintColor = .systemGreen
+ 
+ UIBarButtonItem 
+ UIButton 
+ UISegmentedControl 
+ UISwitch 
+ UIBarButtonItem(customView:) 
+ UISwitch onTintColor 
+ import UIKit
+
+class ViewController: UIViewController {
+ func createButton() -> UIButton {
+ var cfg = UIButton.Configuration.plain()
+ cfg.image = UIImage(systemName: "eye")
+ let button = UIButton(configuration: cfg)
+
+ return button
+ }
+
+ func createSegment() -> UISegmentedControl {
+ let i1 = UIImage(systemName: "eye")!
+ let i2 = UIImage(systemName: "eye")!
+ let seg = UISegmentedControl(items: [i1, i2])
+ seg.selectedSegmentIndex = 0
+ return seg
+ }
+
+ override func viewDidLoad() {
+ super.viewDidLoad()
+
+ view.backgroundColor = .systemBackground
+
+ let b1 = createButton()
+ b1.tintColor = .systemRed
+ b1.translatesAutoresizingMaskIntoConstraints = false
+ view.addSubview(b1)
+
+ let s1 = createSegment()
+ s1.selectedSegmentTintColor = .systemYellow
+ s1.translatesAutoresizingMaskIntoConstraints = false
+ view.addSubview(s1)
+
+ let w1 = UISwitch()
+ w1.onTintColor = .systemCyan
+ w1.thumbTintColor = .systemPink
+ w1.translatesAutoresizingMaskIntoConstraints = false
+ view.addSubview(w1)
+
+ NSLayoutConstraint.activate([
+ b1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+ b1.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+ s1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+ s1.topAnchor.constraint(equalTo: b1.bottomAnchor, constant: 20),
+ w1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+ w1.topAnchor.constraint(equalTo: s1.bottomAnchor, constant: 20),
+ ])
+
+ // Despite all these attempts to set a color, the views in the navbar remain black
+ let b2 = createButton()
+ b2.tintColor = .systemRed // Nope
+ let nb1 = UIBarButtonItem(customView: b2)
+ nb1.tintColor = .systemYellow // Nope
+
+ let s2 = createSegment()
+ s2.selectedSegmentTintColor = .systemRed // Nope
+ let nb2 = UIBarButtonItem(customView: s2)
+ nb2.tintColor = .systemMint // Nope
+
+ let w2 = UISwitch()
+ w2.onTintColor = .systemCyan // This actually works
+ w2.thumbTintColor = .systemPink // But this doesn't
+ let nb3 = UIBarButtonItem(customView: w2)
+ nb3.tintColor = .systemBrown // Neither does this
+
+ let nb4 = UIBarButtonItem(title: "Text")
+ nb4.tintColor = .systemGreen // This works on the text if not changed below with the titl
+eTextAttributes
+
+ navigationItem.rightBarButtonItems = [nb1, nb3]
+ navigationItem.leftBarButtonItems = [nb2, nb4]
+
+ self.navigationController?.navigationBar.tintColor = .systemRed // Nothing
+ self.navigationController?.navigationBar.barTintColor = .systemYellow // Nothing
+
+ // This works on the text color but not the others
+ self.navigationController?.navigationBar.standardAppearance.buttonAppearance.normal.title
+TextAttributes = [ .foregroundColor : UIColor.systemPurple ]
+ }
+}
+ 
+ onTintColor 
+ thumbTintColor 
+ tintColor 
+ selectSegmentTintColor 
+ tintColor 
+ UIBarButtonItem
+
+===== qid 79818917 | Error importing langchain modules: No module named &#39;langchain.chains&#39; =====
+I am trying to code a FastAPI RAG application with Google Cloud and Vertex AI with python3
+.12 using the LangChain library. 
+ However, when I try to import the LangChain library into my project, I keep receiving the
+ same error repeatedly: 
+ 
+ from langchain.chains import create_retrieval_chain 
+ ModuleNotFoundError: No module named 'langchain.chains' 
+ 
+ Here is my import code: 
+ from langchain.chains import create_retrieval_chain
+ 
+ Here are the LangChain libraries I have installed: 
+ langchain==1.0.5 
+langchain-community==0.4.1 
+langchain-text-splitters==1.0.0 
+langchain-google-vertexai==3.0.3 
+ 
+ I installed the requirements in a virtual enviroment using uv and also tried using Python
+ venv . 
+
+ from langchain.chains import create_retrieval_chain
+ 
+ langchain==1.0.5 
+langchain-community==0.4.1 
+langchain-text-splitters==1.0.0 
+langchain-google-vertexai==3.0.3 
+ 
+ uv 
+ venv
+
+===== qid 79723342 | Did Android Gradle Plugin 8.12.0 deprecated compileSdk? =====
+Recently I updated my Android Gradle Plugin to version 8.12.0 the upgrade was smooth and e
+ffortless all the project got upgraded to new Agp version no errors all good. 
+ My project level Build.gradle file is looking a little bit awkward as I am seeing a strik
+ethrough text on "compileSdk" and the summary stating that compileSdk is deprecated. It wa
+s strange because as I remember Google has shifted to "compileSdk" from "compileSdkVersion
+" which was deprecated some years ago. 
+ There was no clear documentation on the Internet. Each time I found only is that "compile
+SdkVersion" deprecated and "compileSdk" is the new keyword to use. 
+ android {
+ compileSdk 36
+}
+ 
+ compileSdk showing a warning of deprecated in Android Studio
+Any suggestions please? 
+ I was expecting "compileSdk" is the accepted keyword but it is showing as deprecated in t
+he Agp version 8.12.0. Although the project is compiling and working 
+
+ android {
+ compileSdk 36
+}
+
+===== qid 79602687 | React Native Expo + Firebase Auth: “Component auth has not been registered yet” on app launch =====
+I’m building an Expo (SDK 53) React Native app with Firebase Authentication and I keep get
+ting this error on startup: 
+ [runtime not ready]: Error: Component auth has not been registered yet, js engine: hermes
+ 
+ I’ve tried many variations—renaming files, moving imports, clearing caches, but nothing s
+eems to work. I suspect the native entry point isn’t wired up correctly. Below is a minima
+l reproduction of my setup. 
+ package.json 
+ {
+ "main": "index.js",
+ "scripts": {
+ "start": "expo start --dev-client",
+ …
+ },
+ "dependencies": {
+ "expo": "~53.0.5",
+ "firebase": "^11.6.1",
+ "@react-native-async-storage/async-storage": "^1.24.0",
+ "react-native-gesture-handler": "^2.25.0",
+ "react-native-safe-area-context": "^5.4.0",
+ "@react-navigation/native": "^7.1.6",
+ "@react-navigation/native-stack": "^7.3.10",
+ …
+ }
+}
+ 
+ firebase.js 
+ import AsyncStorage from "@react-native-async-storage/async-storage";
+import { initializeApp } from "firebase/app";
+import { getReactNativePersistence, initializeAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseConfig = {
+ /* my config… */
+};
+
+const app = initializeApp(firebaseConfig);
+export const auth = initializeAuth(app, {
+ persistence: getReactNativePersistence(AsyncStorage),
+});
+export const db = getFirestore(app);
+ 
+ AuthContext.js 
+ import { onAuthStateChanged } from "firebase/auth";
+import React, { createContext, useEffect, useState } from "react";
+import { auth } from "../services/firebase";
+
+export const AuthContext = createContext({});
+
+export function AuthProvider({ children }) {
+ const [user, setUser] = useState(null);
+ const [loading, setLoading] = useState(true);
+
+ useEffect(() => {
+ const unsub = onAuthStateChanged(auth, u => {
+ setUser(u);
+ setLoading(false);
+ });
+ return unsub;
+ }, []);
+
+ return (
+ <AuthContext.Provider value={{ user, loading, setUser }}>
+ {children}
+ </AuthContext.Provider>
+ );
+}
+ 
+ What I’ve tried 
+ 
+ Clearing Metro cache (expo start -c) 
+ Renaming firebase.js → firebase.client.js 
+ Moving initializeAuth into different modules 
+ Ensuring index.js is present and pointed in package.json 
+ Deleting node_modules, reinstalling 
+ 
+ Nothing fixes it. The native console still complains that it can’t find a registered comp
+onent named “auth.” I’m not explicitly calling AppRegistry.registerComponent('auth', …) , 
+so it looks like Expo/Metro is picking up something strange. 
+
+ [runtime not ready]: Error: Component auth has not been registered yet, js engine: hermes
+ 
+ {
+ "main": "index.js",
+ "scripts": {
+ "start": "expo start --dev-client",
+ …
+ },
+ "dependencies": {
+ "expo": "~53.0.5",
+ "firebase": "^11.6.1",
+ "@react-native-async-storage/async-storage": "^1.24.0",
+ "react-native-gesture-handler": "^2.25.0",
+ "react-native-safe-area-context": "^5.4.0",
+ "@react-navigation/native": "^7.1.6",
+ "@react-navigation/native-stack": "^7.3.10",
+ …
+ }
+}
+ 
+ import AsyncStorage from "@react-native-async-storage/async-storage";
+import { initializeApp } from "firebase/app";
+import { getReactNativePersistence, initializeAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseConfig = {
+ /* my config… */
+};
+
+const app = initializeApp(firebaseConfig);
+export const auth = initializeAuth(app, {
+ persistence: getReactNativePersistence(AsyncStorage),
+});
+export const db = getFirestore(app);
+ 
+ import { onAuthStateChanged } from "firebase/auth";
+import React, { createContext, useEffect, useState } from "react";
+import { auth } from "../services/firebase";
+
+export const AuthContext = createContext({});
+
+export function AuthProvider({ children }) {
+ const [user, setUser] = useState(null);
+ const [loading, setLoading] = useState(true);
+
+ useEffect(() => {
+ const unsub = onAuthStateChanged(auth, u => {
+ setUser(u);
+ setLoading(false);
+ });
+ return unsub;
+ }, []);
+
+ return (
+ <AuthContext.Provider value={{ user, loading, setUser }}>
+ {children}
+ </AuthContext.Provider>
+ );
+}
+ 
+ AppRegistry.registerComponent('auth', …)
+
+===== qid 79806553 | How to fix this：Type alias is not generic or already specialized =====
+As shown in the image, I got a warning in PyCharm at the list index positions like [0][1][
+2]... . The program still runs, but I don't understand what this warning means or how to r
+esolve it. 
+ invitation_list = ["Allen", "Lucas", "Peter"]
+message = "Pls come to my house for the dinner,"
+print(f"{message} {invitation_list[0]}, {invitation_list[1]}, {invitation_list[2]}.")
+
+print(f"But, {invitation_list[0]} can not join the dinner.")
+
+invitation_list[0] = "John"
+message_2= "I just found a bigger table."
+print(message_2)
+
+ 
+ 
+
+ [0][1][2]... 
+ invitation_list = ["Allen", "Lucas", "Peter"]
+message = "Pls come to my house for the dinner,"
+print(f"{message} {invitation_list[0]}, {invitation_list[1]}, {invitation_list[2]}.")
+
+print(f"But, {invitation_list[0]} can not join the dinner.")
+
+invitation_list[0] = "John"
+message_2= "I just found a bigger table."
+print(message_2)
+
+===== qid 79666817 | What is the progress on safety for C++? =====
+I have been reading up on safety profiles , safe C++ and some other articles on the matter
+ ( example ). I would like one of these features to be adopted, and the only one that I be
+lieve has actually been prototyped is the safe c++ proposal . There also seems to be some 
+strongly worded papers talking about all the problems with profiles ( example ), which I b
+elieve has now been voted as the way forward for investment. 
+ What is the current state of affairs with safe C++ making its way to the standard? Could 
+users hope for C++26? C++29? Also, is there a list of checks/safety features that may get 
+merged? This paper seems to claim C++26 may be on the agenda, but I'm not sure whether thi
+s is still on the table.
+
+===== qid 79865748 | Does a const qualifier inside a struct member declaration do anything? =====
+struct foo {
+ const int bar;
+};
+
+struct foo {
+ const int *bar;
+}
+ 
+ Do the 2 const qualifiers have any role? 
+
+ struct foo {
+ const int bar;
+};
+
+struct foo {
+ const int *bar;
+}
+ 
+ const
+
+===== qid 79796450 | How can I combine corresponding items from several vectors into a single vector of structs? =====
+I have three std::vector s, 
+ std::vector<std::string> vec1{ "one", "two", "three" };
+std::vector<std::string> vec2{ "1", "2", "3" };
+std::vector<std::string> vec3{ "i", "ii", "iii" };
+ 
+ and a struct , 
+ struct MyData {
+ std::string str1;
+ std::string str2;
+ std::string str3;
+};
+ 
+ I need to obtain a std::vector<MyData> , which is filled from the data of the three vecto
+rs: 
+ std::vector<MyData> myData;
+myData.reserve(vec1.size());
+for (int i = 0; i < vec1.size(); ++i) {
+ myData.emplace_back(vec1[i], vec2[i], vec3[i]);
+}
+ 
+ Is there a more elegant way instead of using this for loop (like using views or similar) 
+for C++20 ? It is guaranteed that the three vectors are of the same length. 
+
+ std::vector 
+ std::vector<std::string> vec1{ "one", "two", "three" };
+std::vector<std::string> vec2{ "1", "2", "3" };
+std::vector<std::string> vec3{ "i", "ii", "iii" };
+ 
+ struct 
+ struct MyData {
+ std::string str1;
+ std::string str2;
+ std::string str3;
+};
+ 
+ std::vector<MyData> 
+ std::vector<MyData> myData;
+myData.reserve(vec1.size());
+for (int i = 0; i < vec1.size(); ++i) {
+ myData.emplace_back(vec1[i], vec2[i], vec3[i]);
+}
+
+===== qid 79868298 | Why is my kernel logging an exception and interrupt when I run it, attempting to enter user mode? =====
+I was following "The little book about OS development" . I've "completed" the basic idt, g
+dt and segmentation, but I believe there are errors, but I already tested running without 
+them and it still returns these errors. 
+ I'm using Bochs to emulate a 32-bit system, but when I enter user mode and run a basic 32
+-bit program that just moves 0xDEADBEEF to EAX, in user mode, my Bochs instantly reloads a
+nd reruns. 
+ In the ideal circumstances, there wouldn't be any interrupts and exception. In addition, 
+it would correctly fault, giving the correct errors when I run privileged assembly, like c
+li, lgdt, etc. Here are the two errors I'm seeing, 
+ 00158586416e[CPU0 ] exception(): 3rd (13) exception with no resolution, shutdown status i
+s 00h, resetting
+ 
+ and 
+ 00156991803i[BIOS ] *** int 15h function AX=00c0, BX=0000 not yet supported!
+00158586416e[CPU0 ] fetch_raw_descriptor: GDT: index (ff57) 1fea > limit (2f)
+00158586416e[CPU0 ] interrupt(): gate descriptor is not valid sys seg (vector=0x08)
+00158586416i[CPU0 ] CPU is in protected mode (active)
+ 
+ I cannot tell what the issue is. My current code can be found at the following link on th
+e branch, https://github.com/EworkAcc/x86-os/tree/os-9 . 
+ The bochslog.txt file is also on there. 
+ I will also provide the minimal functional code below: 
+ Makefile 
+ OBJECTS = loader.o drivers/IO/io.o memory/SEG/gdt.o drivers/INTERRUPTS/idt.o drivers/INTE
+RRUPTS/interrupt_handler.o kmain.o drivers/FB/fb_driver.o memory/SEG/seg_driver.o drivers/
+SP/sp_driver.o drivers/INTERRUPTS/interrupt_driver.o drivers/INTERRUPTS/pic_driver.o drive
+rs/INTERRUPTS/kb_driver.o memory/PAGING/common_driver.o memory/PAGING/ep.o memory/PAGING/k
+heap_driver.o memory/PAGING/paging_driver.o um.o
+CC = gcc
+CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
+ -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c
+LDFLAGS = -T link.ld -melf_i386
+AS = nasm
+ASFLAGS = -f elf32
+
+all: kernel.elf
+
+kernel.elf: $(OBJECTS)
+ ld $(LDFLAGS) $(OBJECTS) -o kernel.elf
+
+os.iso: kernel.elf
+ cp kernel.elf iso/boot/kernel.elf
+ genisoimage -R\
+ -b boot/grub/stage2_eltorito\
+ -no-emul-boot\
+ -boot-load-size 4\
+ -A os\
+ -input-charset utf8\
+ -quiet\
+ -boot-info-table\
+ -o os.iso\
+ iso
+
+run: os.iso
+ bochs -f bochsrc.txt -q
+
+%.o: %.c
+ $(CC) $(CFLAGS) $< -o $@
+
+%.o: %.s
+ $(AS) $(ASFLAGS) $< -o $@
+
+clean:
+ rm -rf *.o kernel.elf os.iso bochslog.txt co1.out
+ rm -rf iso/boot/kernel.elf
+ rm -rf drivers/*/*.o
+ rm -rf memory/*/*.o
+ rm -rf iso/modules/*.o
+ rm -rf user/*.o
+ 
+ um.s 
+ global enter_user_mode
+
+enter_user_mode:
+ cli
+
+ mov eax, [esp + 4]
+
+ mov ax, 0x23
+ mov ds, ax
+ mov es, ax
+ mov fs, ax
+ mov gs, ax
+
+ push 0x23
+ push 0x800000
+ pushf
+ push 0x1b
+ push eax
+
+ iret
+ 
+ kmain.c 
+ #include "multiboot.h"
+#include "drivers/IO/io.h"
+#include "drivers/SP/sp.h"
+#include "drivers/FB/fb.h"
+#include "drivers/INTERRUPTS/pic.h"
+#include "drivers/INTERRUPTS/interrupt.h"
+#include "drivers/INTERRUPTS/kb.h"
+#include "memory/PAGING/paging.h"
+#include "memory/SEG/seg.h"
+
+extern void enter_user_mode(unsigned int entry_point);
+
+int kmain(unsigned int ebx) {
+ multiboot_info_t *mbinfo = (multiboot_info_t *) ebx;
+ multiboot_module_t* modules = (multiboot_module_t *) mbinfo->mods_addr;
+ unsigned int address_of_module = modules->mod_start;
+
+ enter_user_mode(address_of_module);
+ return 0;
+}
+ 
+ loader.s 
+ global loader
+ MAGIC_NUMBER equ 0x1badb002
+ ALIGN_MODULES equ 0x00000001
+ CHECKSUM equ -(MAGIC_NUMBER + ALIGN_MODULES)
+ FLAGS equ 0x0
+
+KERNEL_STACK_SIZE equ 4096
+
+ section .bss
+ align 4
+ kernel_stack:
+ resb KERNEL_STACK_SIZE
+
+ section .text
+ align 4
+ dd MAGIC_NUMBER
+ dd ALIGN_MODULES
+ dd CHECKSUM
+ dd FLAGS
+
+ loader:
+ mov esp, kernel_stack + KERNEL_STACK_SIZE
+
+ push ebx
+
+ extern kmain
+
+ call kmain
+
+ .loop:
+ jmp .loop
+ 
+ multiboot.h 
+ #ifndef MULTIBOOT_HEADER
+
+#define MULTIBOOT_HEADER 1
+#define MULTIBOOT_SEARCH 8192
+#define MULTIBOOT_HEADER_ALIGN 4
+#define MULTIBOOT_HEADER_MAGIC 0x1BADB002
+#define MULTIBOOT_BOOTLOADER_MAGIC 0x2BADB002
+#define MULTIBOOT_MOD_ALIGN 0x00001000
+#define MULTIBOOT_INFO_ALIGN 0x00000004
+#define MULTIBOOT_PAGE_ALIGN 0x00000001
+#define MULTIBOOT_MEMORY_INFO 0x00000002
+#define MULTIBOOT_VIDEO_MODE 0x00000004
+#define MULTIBOOT_AOUT_KLUDGE 0x00010000
+#define MULTIBOOT_INFO_MEMORY 0x00000001
+#define MULTIBOOT_INFO_BOOTDEV 0x00000002
+#define MULTIBOOT_INFO_CMDLINE 0x00000004
+#define MULTIBOOT_INFO_MODS 0x00000008
+#define MULTIBOOT_INFO_AOUT_SYMS 0x00000010
+#define MULTIBOOT_INFO_ELF_SHDR 0X00000020
+#define MULTIBOOT_INFO_MEM_MAP 0x00000040
+#define MULTIBOOT_INFO_DRIVE_INFO 0x00000080
+#define MULTIBOOT_INFO_CONFIG_TABLE 0x00000100
+#define MULTIBOOT_INFO_BOOT_LOADER_NAME 0x00000200
+#define MULTIBOOT_INFO_APM_TABLE 0x00000400
+#define MULTIBOOT_INFO_VBE_INFO 0x00000800
+#define MULTIBOOT_INFO_FRAMEBUFFER_INFO 0x00001000
+
+#ifndef ASM_FILE
+
+typedef unsigned char multiboot_uint8_t;
+typedef unsigned short multiboot_uint16_t;
+typedef unsigned int multiboot_uint32_t;
+typedef unsigned long long multiboot_uint64_t;
+
+struct multiboot_header
+{
+ multiboot_uint32_t magic;
+ multiboot_uint32_t flags;
+ multiboot_uint32_t checksum;
+ multiboot_uint32_t header_addr;
+ multiboot_uint32_t load_addr;
+ multiboot_uint32_t load_end_addr;
+ multiboot_uint32_t bss_end_addr;
+ multiboot_uint32_t entry_addr;
+ multiboot_uint32_t mode_type;
+ multiboot_uint32_t width;
+ multiboot_uint32_t height;
+ multiboot_uint32_t depth;
+};
+
+struct multiboot_aout_symbol_table
+{
+ multiboot_uint32_t tabsize;
+ multiboot_uint32_t strsize;
+ multiboot_uint32_t addr;
+ multiboot_uint32_t reserved;
+};
+typedef struct multiboot_aout_symbol_table multiboot_aout_symbol_table_t;
+
+struct multiboot_elf_section_header_table
+{
+ multiboot_uint32_t num;
+ multiboot_uint32_t size;
+ multiboot_uint32_t addr;
+ multiboot_uint32_t shndx;
+};
+typedef struct multiboot_elf_section_header_table multiboot_elf_section_header_table_t;
+
+struct multiboot_info
+{
+ multiboot_uint32_t flags;
+ multiboot_uint32_t mem_lower;
+ multiboot_uint32_t mem_upper;
+ multiboot_uint32_t boot_device;
+ multiboot_uint32_t cmdline;
+ multiboot_uint32_t mods_count;
+ multiboot_uint32_t mods_addr;
+ union
+ {
+ multiboot_aout_symbol_table_t aout_sym;
+ multiboot_elf_section_header_table_t elf_sec;
+ } u;
+ multiboot_uint32_t mmap_length;
+ multiboot_uint32_t mmap_addr;
+ multiboot_uint32_t drives_length;
+ multiboot_uint32_t drives_addr;
+ multiboot_uint32_t config_table;
+ multiboot_uint32_t boot_loader_name;
+ multiboot_uint32_t apm_table;
+ multiboot_uint32_t vbe_control_info;
+ multiboot_uint32_t vbe_mode_info;
+ multiboot_uint16_t vbe_mode;
+ multiboot_uint16_t vbe_interface_seg;
+ multiboot_uint16_t vbe_interface_off;
+ multiboot_uint16_t vbe_interface_len;
+ multiboot_uint64_t framebuffer_addr;
+ multiboot_uint32_t framebuffer_pitch;
+ multiboot_uint32_t framebuffer_width;
+ multiboot_uint32_t framebuffer_height;
+ multiboot_uint8_t framebuffer_bpp;
+#define MULTIBOOT_FRAMEBUFFER_TYPE_INDEXED 0
+#define MULTIBOOT_FRAMEBUFFER_TYPE_RGB 1
+#define MULTIBOOT_FRAMEBUFFER_TYPE_EGA_TEXT 2
+ multiboot_uint8_t framebuffer_type;
+ union
+ {
+ struct
+ {
+ multiboot_uint32_t framebuffer_palette_addr;
+ multiboot_uint16_t framebuffer_palette_num_colors;
+ };
+ struct
+ {
+ multiboot_uint8_t framebuffer_red_field_position;
+ multiboot_uint8_t framebuffer_red_mask_size;
+ multiboot_uint8_t framebuffer_green_field_position;
+ multiboot_uint8_t framebuffer_green_mask_size;
+ multiboot_uint8_t framebuffer_blue_field_position;
+ multiboot_uint8_t framebuffer_blue_mask_size;
+ };
+ };
+};
+typedef struct multiboot_info multiboot_info_t;
+
+struct multiboot_color
+{
+ multiboot_uint8_t red;
+ multiboot_uint8_t green;
+ multiboot_uint8_t blue;
+};
+
+struct multiboot_mmap_entry
+{
+ multiboot_uint32_t size;
+ multiboot_uint64_t addr;
+ multiboot_uint64_t len;
+#define MULTIBOOT_MEMORY_AVAILABLE 1
+#define MULTIBOOT_MEMORY_RESERVED 2
+#define MULTIBOOT_MEMORY_ACPI_RECLAIMABLE 3
+#define MULTIBOOT_MEMORY_NVS 4
+#define MULTIBOOT_MEMORY_BADRAM 5
+ multiboot_uint32_t type;
+} __attribute__((packed));
+typedef struct multiboot_mmap_entry multiboot_memory_map_t;
+
+struct multiboot_mod_list
+{
+ multiboot_uint32_t mod_start;
+ multiboot_uint32_t mod_end;
+ multiboot_uint32_t cmdline;
+ multiboot_uint32_t pad;
+};
+typedef struct multiboot_mod_list multiboot_module_t;
+
+struct multiboot_apm_info
+{
+ multiboot_uint16_t version;
+ multiboot_uint16_t cseg;
+ multiboot_uint32_t offset;
+ multiboot_uint16_t cseg_16;
+ multiboot_uint16_t dseg;
+ multiboot_uint16_t flags;
+ multiboot_uint16_t cseg_len;
+ multiboot_uint16_t cseg_16_len;
+ multiboot_uint16_t dseg_len;
+};
+
+#endif
+
+#endif
+ 
+
+ 00158586416e[CPU0 ] exception(): 3rd (13) exception with no resolution, shutdown status i
+s 00h, resetting
+ 
+ 00156991803i[BIOS ] *** int 15h function AX=00c0, BX=0000 not yet supported!
+00158586416e[CPU0 ] fetch_raw_descriptor: GDT: index (ff57) 1fea > limit (2f)
+00158586416e[CPU0 ] interrupt(): gate descriptor is not valid sys seg (vector=0x08)
+00158586416i[CPU0 ] CPU is in protected mode (active)
+ 
+ OBJECTS = loader.o drivers/IO/io.o memory/SEG/gdt.o drivers/INTERRUPTS/idt.o drivers/INTE
+RRUPTS/interrupt_handler.o kmain.o drivers/FB/fb_driver.o memory/SEG/seg_driver.o drivers/
+SP/sp_driver.o drivers/INTERRUPTS/interrupt_driver.o drivers/INTERRUPTS/pic_driver.o drive
+rs/INTERRUPTS/kb_driver.o memory/PAGING/common_driver.o memory/PAGING/ep.o memory/PAGING/k
+heap_driver.o memory/PAGING/paging_driver.o um.o
+CC = gcc
+CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
+ -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c
+LDFLAGS = -T link.ld -melf_i386
+AS = nasm
+ASFLAGS = -f elf32
+
+all: kernel.elf
+
+kernel.elf: $(OBJECTS)
+ ld $(LDFLAGS) $(OBJECTS) -o kernel.elf
+
+os.iso: kernel.elf
+ cp kernel.elf iso/boot/kernel.elf
+ genisoimage -R\
+ -b boot/grub/stage2_eltorito\
+ -no-emul-boot\
+ -boot-load-size 4\
+ -A os\
+ -input-charset utf8\
+ -quiet\
+ -boot-info-table\
+ -o os.iso\
+ iso
+
+run: os.iso
+ bochs -f bochsrc.txt -q
+
+%.o: %.c
+ $(CC) $(CFLAGS) $< -o $@
+
+%.o: %.s
+ $(AS) $(ASFLAGS) $< -o $@
+
+clean:
+ rm -rf *.o kernel.elf os.iso bochslog.txt co1.out
+ rm -rf iso/boot/kernel.elf
+ rm -rf drivers/*/*.o
+ rm -rf memory/*/*.o
+ rm -rf iso/modules/*.o
+ rm -rf user/*.o
+ 
+ global enter_user_mode
+
+enter_user_mode:
+ cli
+
+ mov eax, [esp + 4]
+
+ mov ax, 0x23
+ mov ds, ax
+ mov es, ax
+ mov fs, ax
+ mov gs, ax
+
+ push 0x23
+ push 0x800000
+ pushf
+ push 0x1b
+ push eax
+
+ iret
+ 
+ #include "multiboot.h"
+#include "drivers/IO/io.h"
+#include "drivers/SP/sp.h"
+#include "drivers/FB/fb.h"
+#include "drivers/INTERRUPTS/pic.h"
+#include "drivers/INTERRUPTS/interrupt.h"
+#include "drivers/INTERRUPTS/kb.h"
+#include "memory/PAGING/paging.h"
+#include "memory/SEG/seg.h"
+
+extern void enter_user_mode(unsigned int entry_point);
+
+int kmain(unsigned int ebx) {
+ multiboot_info_t *mbinfo = (multiboot_info_t *) ebx;
+ multiboot_module_t* modules = (multiboot_module_t *) mbinfo->mods_addr;
+ unsigned int address_of_module = modules->mod_start;
+
+ enter_user_mode(address_of_module);
+ return 0;
+}
+ 
+ global loader
+ MAGIC_NUMBER equ 0x1badb002
+ ALIGN_MODULES equ 0x00000001
+ CHECKSUM equ -(MAGIC_NUMBER + ALIGN_MODULES)
+ FLAGS equ 0x0
+
+KERNEL_STACK_SIZE equ 4096
+
+ section .bss
+ align 4
+ kernel_stack:
+ resb KERNEL_STACK_SIZE
+
+ section .text
+ align 4
+ dd MAGIC_NUMBER
+ dd ALIGN_MODULES
+ dd CHECKSUM
+ dd FLAGS
+
+ loader:
+ mov esp, kernel_stack + KERNEL_STACK_SIZE
+
+ push ebx
+
+ extern kmain
+
+ call kmain
+
+ .loop:
+ jmp .loop
+ 
+ #ifndef MULTIBOOT_HEADER
+
+#define MULTIBOOT_HEADER 1
+#define MULTIBOOT_SEARCH 8192
+#define MULTIBOOT_HEADER_ALIGN 4
+#define MULTIBOOT_HEADER_MAGIC 0x1BADB002
+#define MULTIBOOT_BOOTLOADER_MAGIC 0x2BADB002
+#define MULTIBOOT_MOD_ALIGN 0x00001000
+#define MULTIBOOT_INFO_ALIGN 0x00000004
+#define MULTIBOOT_PAGE_ALIGN 0x00000001
+#define MULTIBOOT_MEMORY_INFO 0x00000002
+#define MULTIBOOT_VIDEO_MODE 0x00000004
+#define MULTIBOOT_AOUT_KLUDGE 0x00010000
+#define MULTIBOOT_INFO_MEMORY 0x00000001
+#define MULTIBOOT_INFO_BOOTDEV 0x00000002
+#define MULTIBOOT_INFO_CMDLINE 0x00000004
+#define MULTIBOOT_INFO_MODS 0x00000008
+#define MULTIBOOT_INFO_AOUT_SYMS 0x00000010
+#define MULTIBOOT_INFO_ELF_SHDR 0X00000020
+#define MULTIBOOT_INFO_MEM_MAP 0x00000040
+#define MULTIBOOT_INFO_DRIVE_INFO 0x00000080
+#define MULTIBOOT_INFO_CONFIG_TABLE 0x00000100
+#define MULTIBOOT_INFO_BOOT_LOADER_NAME 0x00000200
+#define MULTIBOOT_INFO_APM_TABLE 0x00000400
+#define MULTIBOOT_INFO_VBE_INFO 0x00000800
+#define MULTIBOOT_INFO_FRAMEBUFFER_INFO 0x00001000
+
+#ifndef ASM_FILE
+
+typedef unsigned char multiboot_uint8_t;
+typedef unsigned short multiboot_uint16_t;
+typedef unsigned int multiboot_uint32_t;
+typedef unsigned long long multiboot_uint64_t;
+
+struct multiboot_header
+{
+ multiboot_uint32_t magic;
+ multiboot_uint32_t flags;
+ multiboot_uint32_t checksum;
+ multiboot_uint32_t header_addr;
+ multiboot_uint32_t load_addr;
+ multiboot_uint32_t load_end_addr;
+ multiboot_uint32_t bss_end_addr;
+ multiboot_uint32_t entry_addr;
+ multiboot_uint32_t mode_type;
+ multiboot_uint32_t width;
+ multiboot_uint32_t height;
+ multiboot_uint32_t depth;
+};
+
+struct multiboot_aout_symbol_table
+{
+ multiboot_uint32_t tabsize;
+ multiboot_uint32_t strsize;
+ multiboot_uint32_t addr;
+ multiboot_uint32_t reserved;
+};
+typedef struct multiboot_aout_symbol_table multiboot_aout_symbol_table_t;
+
+struct multiboot_elf_section_header_table
+{
+ multiboot_uint32_t num;
+ multiboot_uint32_t size;
+ multiboot_uint32_t addr;
+ multiboot_uint32_t shndx;
+};
+typedef struct multiboot_elf_section_header_table multiboot_elf_section_header_table_t;
+
+struct multiboot_info
+{
+ multiboot_uint32_t flags;
+ multiboot_uint32_t mem_lower;
+ multiboot_uint32_t mem_upper;
+ multiboot_uint32_t boot_device;
+ multiboot_uint32_t cmdline;
+ multiboot_uint32_t mods_count;
+ multiboot_uint32_t mods_addr;
+ union
+ {
+ multiboot_aout_symbol_table_t aout_sym;
+ multiboot_elf_section_header_table_t elf_sec;
+ } u;
+ multiboot_uint32_t mmap_length;
+ multiboot_uint32_t mmap_addr;
+ multiboot_uint32_t drives_length;
+ multiboot_uint32_t drives_addr;
+ multiboot_uint32_t config_table;
+ multiboot_uint32_t boot_loader_name;
+ multiboot_uint32_t apm_table;
+ multiboot_uint32_t vbe_control_info;
+ multiboot_uint32_t vbe_mode_info;
+ multiboot_uint16_t vbe_mode;
+ multiboot_uint16_t vbe_interface_seg;
+ multiboot_uint16_t vbe_interface_off;
+ multiboot_uint16_t vbe_interface_len;
+ multiboot_uint64_t framebuffer_addr;
+ multiboot_uint32_t framebuffer_pitch;
+ multiboot_uint32_t framebuffer_width;
+ multiboot_uint32_t framebuffer_height;
+ multiboot_uint8_t framebuffer_bpp;
+#define MULTIBOOT_FRAMEBUFFER_TYPE_INDEXED 0
+#define MULTIBOOT_FRAMEBUFFER_TYPE_RGB 1
+#define MULTIBOOT_FRAMEBUFFER_TYPE_EGA_TEXT 2
+ multiboot_uint8_t framebuffer_type;
+ union
+ {
+ struct
+ {
+ multiboot_uint32_t framebuffer_palette_addr;
+ multiboot_uint16_t framebuffer_palette_num_colors;
+ };
+ struct
+ {
+ multiboot_uint8_t framebuffer_red_field_position;
+ multiboot_uint8_t framebuffer_red_mask_size;
+ multiboot_uint8_t framebuffer_green_field_position;
+ multiboot_uint8_t framebuffer_green_mask_size;
+ multiboot_uint8_t framebuffer_blue_field_position;
+ multiboot_uint8_t framebuffer_blue_mask_size;
+ };
+ };
+};
+typedef struct multiboot_info multiboot_info_t;
+
+struct multiboot_color
+{
+ multiboot_uint8_t red;
+ multiboot_uint8_t green;
+ multiboot_uint8_t blue;
+};
+
+struct multiboot_mmap_entry
+{
+ multiboot_uint32_t size;
+ multiboot_uint64_t addr;
+ multiboot_uint64_t len;
+#define MULTIBOOT_MEMORY_AVAILABLE 1
+#define MULTIBOOT_MEMORY_RESERVED 2
+#define MULTIBOOT_MEMORY_ACPI_RECLAIMABLE 3
+#define MULTIBOOT_MEMORY_NVS 4
+#define MULTIBOOT_MEMORY_BADRAM 5
+ multiboot_uint32_t type;
+} __attribute__((packed));
+typedef struct multiboot_mmap_entry multiboot_memory_map_t;
+
+struct multiboot_mod_list
+{
+ multiboot_uint32_t mod_start;
+ multiboot_uint32_t mod_end;
+ multiboot_uint32_t cmdline;
+ multiboot_uint32_t pad;
+};
+typedef struct multiboot_mod_list multiboot_module_t;
+
+struct multiboot_apm_info
+{
+ multiboot_uint16_t version;
+ multiboot_uint16_t cseg;
+ multiboot_uint32_t offset;
+ multiboot_uint16_t cseg_16;
+ multiboot_uint16_t dseg;
+ multiboot_uint16_t flags;
+ multiboot_uint16_t cseg_len;
+ multiboot_uint16_t cseg_16_len;
+ multiboot_uint16_t dseg_len;
+};
+
+#endif
+
+#endif
+
+===== qid 79847613 | Why doesn&#39;t C++ allow virtual function overrides to be constrained by a concept/requires clause? =====
+I tried to write the following code and it was rejected by the compiler: 
+ #include <type_traits>
+struct Base {
+ virtual void f() {}
+};
+
+template <typename T>
+struct Derived : Base {
+ virtual void f() requires std::is_same_v<T, int> override {}
+};
+ 
+ I found the relevant section in the standard here: 
+ 
+ 11.7.3 Virtual functions 
+6 A virtual function shall not have a trailing requires-clause ([dcl.decl]). 
+[Example 5: 
+ template<typename T>
+struct A {
+ virtual void f() requires true; // error: virtual function cannot be constrained ([temp.c
+onstr.decl])
+};
+ 
+ — end example] 
+ 
+ but I don't understand the motivation behind this. Seeing as it is perfectly reasonable f
+or a derived class not to override a base class' virtual function, why is it not considere
+d OK to decide whether this override exists based on a (compile time) constraint? 
+ This restriction seems particularly silly (at least in this example), since this code is 
+legal and achieves essentially the same thing more verbosely: 
+ template <typename T>
+struct Derived : Base {
+};
+
+template <typename T>
+requires std::is_same_v<T, int>
+struct Derived<T> : Base {
+ virtual void f() override {}
+};
+ 
+ Edit 
+ I seem to have caused some confusion by my omission of the virtual specifiers on the over
+ride functions in Derived . I have added them to make it clear that I'm intending to overr
+ide the base class' virtual function (with another virtual function). 
+
+ #include <type_traits>
+struct Base {
+ virtual void f() {}
+};
+
+template <typename T>
+struct Derived : Base {
+ virtual void f() requires std::is_same_v<T, int> override {}
+};
+ 
+ template<typename T>
+struct A {
+ virtual void f() requires true; // error: virtual function cannot be constrained ([temp.c
+onstr.decl])
+};
+ 
+ template <typename T>
+struct Derived : Base {
+};
+
+template <typename T>
+requires std::is_same_v<T, int>
+struct Derived<T> : Base {
+ virtual void f() override {}
+};
+ 
+ virtual 
+ Derived
+
+===== qid 79606837 | Where is the documentation for the &#39;.slnx&#39; solution format? =====
+All I can find from Microsoft is two blog posts: 
+ 
+ "Introducing support for SLNX, a new, simpler solution file format
+in the .NET CLI" dated March 13th, 2025, says that it is a preview feature. 
+ 
+ "New, Simpler Solution File Format" 
+ also dated March 13th, 2025 says that it is fully supported and contains no mention of pr
+eview. 
+ 
+ 
+ These blog posts explain: 
+ 
+ how to enable it 
+ how to convert your old solution files to it 
+ how cool it is 
+ etc. 
+ 
+ ...but being mere blog posts, they do not constitute documentation . 
+ More specifically, they do not explain: 
+ 
+ what XML elements are supported and what they do. 
+ what XML attributes each element supports, and what they do. 
+ 
+ So, where is the documentation?
+
+===== qid 79358893 | Unable to load Apps Script Web App because of error &quot;vb.X is not a constructor&quot; =====
+When loading an Apps Script Web App the console shows the following error: 
+ 
+ Uncaught TypeError: vb.X is not a constructor 
+ 
+ This started only this morning (1/15/2025) and has never been an issue before. This also 
+happens across different apps. It will work randomly after a refresh or 2 (or 3...), but s
+eems to happen at random.
+
+===== qid 79589468 | How to create a uint64 whose lower and upper bits reference uint32s? =====
+auto lo = 0u;
+auto hi = 1u;
+auto combined = (((std::uint64_t)hi) << 32) | lo;
+ 
+ But if I do combined++ then lo and hi are not changed, because combined is a copy. 
+ How do I make the lower bits of combined reference lo , and the upper bits reference hi ,
+ so when I do arithmetic on combined , lo and hi are also updated? 
+
+ auto lo = 0u;
+auto hi = 1u;
+auto combined = (((std::uint64_t)hi) << 32) | lo;
+ 
+ combined++ 
+ lo 
+ hi 
+ combined 
+ combined 
+ lo 
+ hi 
+ combined 
+ lo 
+ hi
+
+===== qid 79754247 | How to fix warning &quot;APK does not support 16 Kb devices&quot; =====
+My project is using some external libraries which have native code. I've got warning from 
+Google, about migrating my app to support 16 Kb pages. In apk analyser I noticed, that .so
+ libraries were not compiled to support 16 kb. I have updated external libraries with late
+st versions with 16 Kb pages support. Warnings about those libraries disappeared, but I st
+ill see warning "Apk does not support 16 kb devices". Maybe this happens because I am anal
+yzing apk, that was built under processor architecture which is not supporting 16 Kb pages
+ size? 
+ How to solve this issue, help me please
+
+===== qid 79408101 | What is the correct way of specifying the license in pyproject.toml file for a new package? =====
+I am facing an error with the license specification when trying to build and upload a pyth
+on package. 
+ I have the last version of wheel, setuptools, twine, and build. 
+ building fails if I specify the license according to the python packaging tutorial: https
+://packaging.python.org/en/latest/tutorials/packaging-projects/ 
+ if I do not specify the license then twine upload fails with the error: 
+ ERROR InvalidDistribution: Invalid distribution metadata: unrecognized or malformed field
+ 'license-file'
+ 
+ the same upload error occurs if I build with the following: 
+ [project.license]
+file = "LICENSE"
+ 
+ or 
+ license = {text = "MIT"}
+ 
+ or 
+ license = {file = "LICENSE"}
+ 
+ this is my full configuration file: 
+ [build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "name"
+version = "0.0.1"
+authors = [
+ { name="Your Name", email="your.email@example.com" },
+]
+description = "A python package"
+readme = "README.md"
+requires-python = ">=3.8"
+
+classifiers = [
+ "Programming Language :: Python :: 3",
+ "Operating System :: OS Independent",
+]
+
+dependencies = [
+ "requests",
+ "numpy",
+]
+
+ 
+
+ ERROR InvalidDistribution: Invalid distribution metadata: unrecognized or malformed field
+ 'license-file'
+ 
+ [project.license]
+file = "LICENSE"
+ 
+ license = {text = "MIT"}
+ 
+ license = {file = "LICENSE"}
+ 
+ [build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "name"
+version = "0.0.1"
+authors = [
+ { name="Your Name", email="your.email@example.com" },
+]
+description = "A python package"
+readme = "README.md"
+requires-python = ">=3.8"
+
+classifiers = [
+ "Programming Language :: Python :: 3",
+ "Operating System :: OS Independent",
+]
+
+dependencies = [
+ "requests",
+ "numpy",
+]
+
+===== qid 79721071 | Log file filled with attributionTag not declared in manifest =====
+I've just noted that my logfile is filled with many entries 
+ 2025-07-31 10:56:31.326 1709-5052 AppOps system_server E attributionTag not declared in m
+anifest of XXXX 
+ 2025-07-31 10:56:31.327 1709-2137 AppOps system_server E attributionTag not declared in m
+anifest of XXXXX 
+ I assume it is related to using the media player in my application and maybe it is relate
+d to Android 16 because I didn't see it in the past. 
+ I don't undestand where this error comes from and I'm not using any tag like "attribution
+" in my manifest. 
+ Using the media player is like: 
+ mediaPlayer = MediaPlayer.create(context, alarmResourceId)
+ 
+ where alarmResourceId points to an ogg-file part of the resources under the raw directory
+. 
+ I would like to know what I have to specify in my manifest to get rid of this error messa
+ge. 
+
+ mediaPlayer = MediaPlayer.create(context, alarmResourceId)
+
+===== qid 79380514 | Tailwind CSS: &quot;npm error could not determine executable to run&quot; =====
+I've been using Tailwind CSS for my projects for a long time.
+Starting my new project, I installed the package and created the tailwind.config.js file v
+ia the command npx tailwindcss init -p , as I'm used to.
+But then I ran into an unexpected error – npm can't find the executable called by npx tail
+windcss , even though I installed it. 
+ Reproducing the error message is as simple as running the following two commands from the
+ root of the project : 
+ $ npm install -D tailwindcss
+$ npx tailwindcss init -p
+
+ npm error could not determine executable to run
+ npm error A complete log of this run can be found in:
+ ...
+ 
+ 
+ Why am I running into this error when it used to work before? 
+
+ tailwind.config.js 
+ npx tailwindcss init -p 
+ npx tailwindcss 
+ $ npm install -D tailwindcss
+$ npx tailwindcss init -p
+
+ npm error could not determine executable to run
+ npm error A complete log of this run can be found in:
+ ...
+
+===== qid 80000170 | What does constexpr atomic&lt;T&gt;::wait() do at compile time? =====
+What does constexpr void wait(T old, /*...*/) const noexcept; do during constant evaluatio
+n, now that it's constexpr in C++26? 
+ The description says that it in a loop: 
+ 
+ Blocks until it is unblocked by an atomic notifying operation or is unblocked spuriously.
+ 
+ 
+ But since there is no multithreading at compile time, it seems like blocking the main thr
+ead means deadlocking the compiler. 
+
+ constexpr void wait(T old, /*...*/) const noexcept; 
+ constexpr
+
+===== qid 79775796 | Next.js: &quot;Cannot find module or type declarations for side-effect import of &#39;./globals.css&#39;&quot; ts(2882) =====
+I just created a Next.js project using npx create-next-app . 
+ Today, I opened my Next.js projects in VS Code and all of the .css imports suddenly start
+ showing this error: 
+ 
+ Cannot find module or type declarations for side-effect import of './globals.css' ts(2882
+) 
+ 
+ This happens even on newly created Next.js projects. 
+ I did not update any code or dependencies manually before this issue started. I also trie
+d downgrading TypeScript, but the error persists. 
+ Why is this error suddenly happening, and how can I fix it? 
+
+ npx create-next-app
+
+===== qid 79567126 | Git debugging - &quot;error: could not delete references: cannot lock ref&quot; &quot;File exists&quot; =====
+Different from other answers, I could find no results anywhere for this specific error: 
+ git pull --prune
+
+error: could not delete references: cannot lock ref 'refs/remotes/origin/branchname': Unab
+le to create 'C:/develop/repo/.git/refs/remotes/origin/branchname.lock': File exists.
+ 
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue. From github.com/repo
+ 
+ annoyingly, it is trying to cleanup 100s of branches that were deleted on the server... e
+ach time I run a pull or fetch, it does the same mass deletion, making no progress :( 
+
+ git pull --prune
+
+error: could not delete references: cannot lock ref 'refs/remotes/origin/branchname': Unab
+le to create 'C:/develop/repo/.git/refs/remotes/origin/branchname.lock': File exists.
+ 
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue. From github.com/repo
+
+===== qid 79665976 | Create project with specific (downgraded) Python version =====
+At work, I am running 3.9.21. At home, I am running Python 3.13.2 on Linux, but also use u
+v install Python 3.9.21 to be in sync with work. 
+ In my home machine, I created a new project: 
+ uv init --package --python "python==3.9.21" sandbox
+cd sandbox
+uv sync
+ 
+ At this time, I got the following error: 
+ Using CPython 3.13.2
+error: The requested interpreter resolved to Python 3.13.2, which is incompatible with the
+ project's Python requirement: `==3.9.21`
+ 
+ How can I create a project with this specific version (3.9.21) of Python? 
+
+ uv 
+ uv init --package --python "python==3.9.21" sandbox
+cd sandbox
+uv sync
+ 
+ Using CPython 3.13.2
+error: The requested interpreter resolved to Python 3.13.2, which is incompatible with the
+ project's Python requirement: `==3.9.21`
+
+===== qid 79747651 | Why is &quot;return by value&quot; idiomatic in Rust (as opposed to out parameters)? =====
+I am starting to learn Rust. In a lot of examples I have come across so far, I have notice
+d that functions are often implemented to return variables by value even if they are of a 
+complex data type like a struct. This seems to be especially true for the idiomatic constr
+uctor functions new like in this example from Listing 12-7 of the Rust book ( new returns 
+a complex data type Config ): 
+ fn main() {
+ let args: Vec<String> = env::args().collect();
+
+ let config = Config::new(&args);
+
+ // --snip--
+}
+
+// --snip--
+
+impl Config {
+ fn new(args: &[String]) -> Config {
+ let query = args[1].clone();
+ let file_path = args[2].clone();
+
+ Config { query, file_path }
+ }
+}
+ 
+ Having a bit of C++ experience, I know that it is more efficient to handle complex data t
+ypes by reference (if the complex type is bigger than a pointer). I.e., the calling contex
+t is in charge of setting up the variable and only passes an address / a reference of it t
+o the function as a so called output parameter . The function then writes the data directl
+y to the variable. 
+ I have come across this blog post dealing with this exact topic. One of the arguments for
+ returning by value raised in the post is: 
+ 
+ [Using an] out parameter is a performance optimization that you as a programmer do by han
+d[.] 
+ 
+ and 
+ 
+ [O]ptimizations can be done by the compiler[.] 
+ 
+ This other question and this reddit post also seem to indicate that one should return by 
+value and the compiler will deal with making it efficient. 
+ I understand that this sort of optimization is called Return Value Optimization (RVO) and
+ it also exists for C++ compilers. However, as far as I know, it is far from normal for C+
++ code to return by value and expect the compiler to make it as efficient as possible. 
+ So, my question is: "Why is it idiomatic in Rust to return by value and thus rely on comp
+iler optimzations?" Is there a rule that I as a programmer can memorize to know when retur
+ning by value is 100 % fine and will be optimized? If not, I would rather swallow the pill
+ of using an output parameter to be sure that my code is efficient which seems to be the n
+orm for C++ programs. 
+
+ new 
+ new 
+ Config 
+ fn main() {
+ let args: Vec<String> = env::args().collect();
+
+ let config = Config::new(&args);
+
+ // --snip--
+}
+
+// --snip--
+
+impl Config {
+ fn new(args: &[String]) -> Config {
+ let query = args[1].clone();
+ let file_path = args[2].clone();
+
+ Config { query, file_path }
+ }
+}
+
+===== qid 79339258 | NVM installation error on Windows. Cannot find the npm file =====
+I was using NVM to insall node js. But when i try to install this specific version nvm ins
+tall 14.17.3 it is not able to detect the npm file. the .zip file for npm is not found in 
+the specified directory. 
+ C:\Users\Infra>nvm install 14.17.3
+Downloading node.js version 14.17.3 (64-bit)...
+Complete
+Downloading npm...
+Creating C:\Users\Infra\AppData\Local\Temp\nvm-install-3421872285\temp
+
+Downloading npm version 6.14.13... Complete
+Installing npm v6.14.13...
+error installing 14.17.3: open C:\Users\Infra\AppData\Local\Temp\nvm-npm-2947621574\npm-v6
+.14.13.zip: The system cannot find the file specified.
+ 
+
+ nvm install 14.17.3 
+ C:\Users\Infra>nvm install 14.17.3
+Downloading node.js version 14.17.3 (64-bit)...
+Complete
+Downloading npm...
+Creating C:\Users\Infra\AppData\Local\Temp\nvm-install-3421872285\temp
+
+Downloading npm version 6.14.13... Complete
+Installing npm v6.14.13...
+error installing 14.17.3: open C:\Users\Infra\AppData\Local\Temp\nvm-npm-2947621574\npm-v6
+.14.13.zip: The system cannot find the file specified.
+
+===== qid 79824381 | Is it possible to expose C++ template struct (fully specialized) to C? =====
+I want to use circular queue with different types and lengths in a project which mainly co
+nsists of C code. I'm thinking about implementing the circular queue as a C++ template str
+uct. How to expose the fully specialized C++ template struct to C? 
+ // C++ implementation
+// queue.hpp
+template <typename T, size_t MAX_LEN>
+struct Queue {
+ T data[MAX_LEN];
+ size_t readIdx = 0;
+ size_t writeIdx = 0;
+
+ bool PushBack(T);
+ bool PopFront(T *);
+};
+ 
+ // expected C API
+typedef struct {
+ int data[8];
+ size_t readIdx;
+ size_t writeIdx;
+} Qint8;
+bool Qint8_PushBack(Qint8 *, int);
+bool Qint8_PopFront(Qint8 *, int *);
+// C code won't access struct members directly
+// but should be able to know the struct's size
+// e.g. define an instance, or embed the circular queue in anouther struct
+extern Qint8 g_qint8;
+
+typedef struct {
+ char data[4];
+ size_t readIdx;
+ size_t writeIdx;
+} Qchar4;
+bool Qchar4_PushBack(Qchar4 *, char);
+bool Qchar4_PopFront(Qchar4 *, char *);
+ 
+
+ // C++ implementation
+// queue.hpp
+template <typename T, size_t MAX_LEN>
+struct Queue {
+ T data[MAX_LEN];
+ size_t readIdx = 0;
+ size_t writeIdx = 0;
+
+ bool PushBack(T);
+ bool PopFront(T *);
+};
+ 
+ // expected C API
+typedef struct {
+ int data[8];
+ size_t readIdx;
+ size_t writeIdx;
+} Qint8;
+bool Qint8_PushBack(Qint8 *, int);
+bool Qint8_PopFront(Qint8 *, int *);
+// C code won't access struct members directly
+// but should be able to know the struct's size
+// e.g. define an instance, or embed the circular queue in anouther struct
+extern Qint8 g_qint8;
+
+typedef struct {
+ char data[4];
+ size_t readIdx;
+ size_t writeIdx;
+} Qchar4;
+bool Qchar4_PushBack(Qchar4 *, char);
+bool Qchar4_PopFront(Qchar4 *, char *);
+
+===== qid 79583661 | Using std::format to create compile time objects with constexpr =====
+std::format insists that its format string argument should be a compile time constant. 
+ I thought this was so that std::format could be used to create compile time constant valu
+es. 
+ However, having tried the following example, I found that the code does not compile. 
+ #include <format>
+
+int main() {
+
+ constexpr auto zero = 0;
+ constexpr auto my_string = std::format("{}", zero);
+ return 0;
+}
+ 
+ I attempted to compile this with 
+ $ g++ main.cpp -std=c++23
+ 
+ and obtained the following error output 
+ main.cpp: In function ‘int main()’:
+main.cpp:6:43: error: call to non-‘constexpr’ function ‘std::string std::format(format_str
+ing<_Args ...>, _Args&& ...) [with _Args = {const int&}; string = __cxx11::basic_string<ch
+ar>; format_string<_Args ...> = basic_format_string<char, const int&>]’
+ 6 | constexpr auto my_string = std::format("{}", zero);
+ | ~~~~~~~~~~~^~~~~~~~~~~~
+In file included from main.cpp:1:
+/usr/include/c++/14/format:4293:5: note: ‘std::string std::format(format_string<_Args ...>
+, _Args&& ...) [with _Args = {const int&}; string = __cxx11::basic_string<char>; format_st
+ring<_Args ...> = basic_format_string<char, const int&>]’ declared here
+ 4293 | format(format_string<_Args...> __fmt, _Args&&... __args)
+ 
+ It seems as if std::format cannot be used as a constexpr after all. 
+ Is there a solution, or a workaround, to this? Or am I simply missing something which can
+ make this work. 
+ 
+ Comment: As pointed out in the comments and answer, part of the reason why this isn't so 
+is because std::string allocates its data on the heap. I guess what I am actually looking 
+for is something which returns a const char * const , rather than strictly a std::string t
+ype. In other words, the data should be stored statically within the compiled executable. 
+
+ std::format 
+ std::format 
+ #include <format>
+
+int main() {
+
+ constexpr auto zero = 0;
+ constexpr auto my_string = std::format("{}", zero);
+ return 0;
+}
+ 
+ $ g++ main.cpp -std=c++23
+ 
+ main.cpp: In function ‘int main()’:
+main.cpp:6:43: error: call to non-‘constexpr’ function ‘std::string std::format(format_str
+ing<_Args ...>, _Args&& ...) [with _Args = {const int&}; string = __cxx11::basic_string<ch
+ar>; format_string<_Args ...> = basic_format_string<char, const int&>]’
+ 6 | constexpr auto my_string = std::format("{}", zero);
+ | ~~~~~~~~~~~^~~~~~~~~~~~
+In file included from main.cpp:1:
+/usr/include/c++/14/format:4293:5: note: ‘std::string std::format(format_string<_Args ...>
+, _Args&& ...) [with _Args = {const int&}; string = __cxx11::basic_string<char>; format_st
+ring<_Args ...> = basic_format_string<char, const int&>]’ declared here
+ 4293 | format(format_string<_Args...> __fmt, _Args&&... __args)
+ 
+ std::format 
+ constexpr 
+ std::string 
+ const char * const 
+ std::string
+
+===== qid 79428308 | Error downloading node 14.21.3/14.20.0 with NVM. The system cannot find the file specified =====
+I want to install version 14 for an old project that uses that version. I use nvm and all 
+installations from 16 onwards work perfectly. 
+ But, in version 14.20.0 and 14.21.3, it fails and gives me this error: 
+ Usuario@DESKTOP-VMRUVSP MINGW64 ~
+$ nvm install 14.21.3
+Downloading node.js version 14.21.3 (64-bit)...
+Complete
+Downloading npm...
+Creating C:\Users\Usuario\AppData\Local\Temp\nvm-install-11959995\temp
+
+Downloading npm version 6.14.18... Complete
+Installing npm v6.14.18...
+error installing 14.21.3: open C:\Users\Usuario\AppData\Local\Temp\nvm-npm-2920922696\npm-
+v6.14.18.zip: The system cannot find the file specified.
+
+ 
+ Delete the temporary folders that start with nvm-install and nvm-npm and nothing, it keep
+s giving the error. So, I don't know what to do. 
+ What do you recommend I do? Thank you 
+ How to install Node version 14 
+
+ Usuario@DESKTOP-VMRUVSP MINGW64 ~
+$ nvm install 14.21.3
+Downloading node.js version 14.21.3 (64-bit)...
+Complete
+Downloading npm...
+Creating C:\Users\Usuario\AppData\Local\Temp\nvm-install-11959995\temp
+
+Downloading npm version 6.14.18... Complete
+Installing npm v6.14.18...
+error installing 14.21.3: open C:\Users\Usuario\AppData\Local\Temp\nvm-npm-2920922696\npm-
+v6.14.18.zip: The system cannot find the file specified.
+
+===== qid 79557242 | How do I create a new vector from a previous vector with elements in a specific order in R? =====
+I have a vector in R 
+ vec <- c("x", "y", "z")
+ 
+ I want to generate a new vector with elements, in order, based off the elements of vec. I
+ want the result to be: 
+ "x" "x.1" "y" "y.1" "z" "z.1"
+ 
+ Now, I know that I could do the following: 
+ vec <- c(vec, paste0(vec,".1"))
+ 
+ But this yields 
+ "x" "y" "z" "x.1" "y.1" "z.1"
+ 
+ ... which is not what I want. 
+
+ vec <- c("x", "y", "z")
+ 
+ "x" "x.1" "y" "y.1" "z" "z.1"
+ 
+ vec <- c(vec, paste0(vec,".1"))
+ 
+ "x" "y" "z" "x.1" "y.1" "z.1"
+
+===== qid 79802282 | Why doesn&#39;t printing a Unicode character with wprintf work? =====
+I made a small C program that should print an emoji: 
+ #include <stdio.h>
+#include <windows.h>
+
+int main(void) {
+ SetConsoleOutputCP(CP_UTF8);
+ printf("\U0001F625\n"); // 😥
+ return 0;
+}
+ 
+ And it worked fine. But I wanted to try wprintf and wrote this program: 
+ #include <stdio.h>
+
+int main(void) {
+ wprintf(L"\U0001F625\n"); // 😥
+ return 0;
+}
+ 
+ But it didn't work. Why did it not work? 
+
+ #include <stdio.h>
+#include <windows.h>
+
+int main(void) {
+ SetConsoleOutputCP(CP_UTF8);
+ printf("\U0001F625\n"); // 😥
+ return 0;
+}
+ 
+ wprintf 
+ #include <stdio.h>
+
+int main(void) {
+ wprintf(L"\U0001F625\n"); // 😥
+ return 0;
+}
+
+===== qid 79527331 | &quot;android.intent.action.MAIN&quot; intent in queries element in AndroidManifest.xml =====
+By including the following <intent> element within the <queries> tag in the AndroidManifes
+t.xml file, I can access a list of all installed apps on a device: 
+ <queries>
+ <intent>
+ <action android:name="android.intent.action.MAIN" />
+ </intent>
+</queries>
+ 
+ Since most Android apps have a launcher activity, doing the following returns all the app
+s installed in an android device: 
+ getPackageManager().queryIntentActivities(new Intent(Intent.ACTION_MAIN), PackageManager.
+MATCH_ALL) 
+ Isn't this a potential privacy loophole and almost equivalent to the very sensitive QUERY
+_ALL_PACKAGES permission? I see so many apps with this intent element under the queries el
+ement in their manifest files. 
+
+ <intent> 
+ <queries> 
+ AndroidManifest.xml 
+ <queries>
+ <intent>
+ <action android:name="android.intent.action.MAIN" />
+ </intent>
+</queries>
+ 
+ getPackageManager().queryIntentActivities(new Intent(Intent.ACTION_MAIN), PackageManager.
+MATCH_ALL) 
+ QUERY_ALL_PACKAGES

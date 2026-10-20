@@ -1,0 +1,185 @@
+#!/usr/bin/env python3
+"""
+G0 Discrimination probes for E144.
+20 construction-labelled probes (10 answerable diagnosis, 10 specific diagnosis).
+Labels known by construction and independent of any thread.
+"""
+
+import json
+from pathlib import Path
+
+# 10 answerable diagnosis probes - general knowledge suffices
+answerable_probes = [
+    {
+        "id": "A1",
+        "title": "Op-amp oscillates at high gain",
+        "body": "My non-inverting op-amp circuit oscillates when I set the gain above 100. The op-amp is a TL072. What causes this and how do I fix it?",
+        "true_label": "answerable",
+        "rationale": "Textbook stability issue: gain-bandwidth product, phase margin, compensation capacitor needed. General knowledge suffices."
+    },
+    {
+        "id": "A2",
+        "title": "MOSFET gets hot in switching circuit",
+        "body": "My IRF540N MOSFET runs very hot when switching a 12V 5A load at 20kHz with an Arduino. Gate drive is 5V from the MCU. Why is it overheating?",
+        "true_label": "answerable",
+        "rationale": "Standard switching loss / gate drive voltage issue. IRF540N needs 10V Vgs for full enhancement. General knowledge."
+    },
+    {
+        "id": "A3",
+        "title": "555 timer output stays high",
+        "body": "My 555 timer in astable mode has output stuck high. I've checked R1, R2, C values. Pin 5 (control voltage) is floating. What's wrong?",
+        "true_label": "answerable",
+        "rationale": "Classic 555 troubleshooting: floating control voltage pin, incorrect wiring. General knowledge."
+    },
+    {
+        "id": "A4",
+        "title": "Voltage regulator output drops under load",
+        "body": "My LM7805 outputs 5V no-load but drops to 3.8V at 500mA. Input is 12V, heatsink is warm but not hot. Capacitors are 0.33uF in, 0.1uF out.",
+        "true_label": "answerable",
+        "rationale": "Thermal shutdown or dropout voltage issue. LM7805 needs ~2.5V headroom, 12V->5V at 500mA = 3.5W, needs proper heatsink. General knowledge."
+    },
+    {
+        "id": "A5",
+        "title": "I2C bus hangs when slave stretches clock",
+        "body": "My I2C master (STM32) hangs when the slave (AT24C256) stretches the clock. The master doesn't support clock stretching. How to handle this?",
+        "true_label": "answerable",
+        "rationale": "Known I2C limitation: master must support clock stretching or use polling. General knowledge."
+    },
+    {
+        "id": "A6",
+        "title": "Crystal oscillator fails to start",
+        "body": "My 16MHz crystal with 22pF caps won't start. MCU is STM32F103. I've tried different cap values. What are the common causes?",
+        "true_label": "answerable",
+        "rationale": "Standard crystal startup issues: cap values, drive level, PCB layout, ESR. General knowledge."
+    },
+    {
+        "id": "A7",
+        "title": "Boost converter output voltage sags",
+        "body": "My boost converter (LM2577) outputs 12V at no load but sags to 9V at 500mA. Inductor is 100uH, input is 5V. What's the likely cause?",
+        "true_label": "answerable",
+        "rationale": "Inductor saturation, current limit, or diode loss. Standard boost converter troubleshooting. General knowledge."
+    },
+    {
+        "id": "A8",
+        "title": "ADC readings noisy with long wires",
+        "body": "My ADC (STM32 built-in) reads noisy values when the sensor is connected with 2m wires. At the PCB it's clean. Why?",
+        "true_label": "answerable",
+        "rationale": "EMI pickup, ground loops, impedance mismatch. Standard ADC noise issue. General knowledge."
+    },
+    {
+        "id": "A9",
+        "title": "RS485 communication fails with long cables",
+        "body": "My RS485 network works at 1m but fails at 100m. Termination resistors are 120 ohms at both ends. Baud rate is 9600.",
+        "true_label": "answerable",
+        "rationale": "Signal reflection, common-mode voltage, biasing resistors needed. Standard RS485 issue. General knowledge."
+    },
+    {
+        "id": "A10",
+        "title": "Switching regulator radiates EMI",
+        "body": "My buck converter passes conducted emissions but fails radiated emissions at 30-100MHz. Layout looks good. What else to check?",
+        "true_label": "answerable",
+        "rationale": "Common-mode radiation, switch node ringing, snubbers, spread spectrum. Standard EMI debugging. General knowledge."
+    }
+]
+
+# 10 specific diagnosis probes - needs asker's schematic/measurements/environment
+specific_probes = [
+    {
+        "id": "S1",
+        "title": "My custom PCB has 200mV ripple on 3.3V rail",
+        "body": "I designed a 4-layer PCB with LM1117-3.3 regulator. The 3.3V rail has 200mVpp ripple at 500kHz. My schematic: [attached], layout: [attached]. Input is 5V from USB. What's causing this?",
+        "true_label": "specific",
+        "rationale": "Requires asker's schematic, layout, component choices, measurement setup. Cannot answer from general knowledge."
+    },
+    {
+        "id": "S2",
+        "title": "STM32 ADC reads 0xFFF on channel 3 only",
+        "body": "On my custom board, ADC channel 3 (PA3) always reads 4095. Other channels work. I've checked the pin with a multimeter and it shows 1.65V. My schematic shows a 10k pull-up on PA3. Why does only this channel fail?",
+        "true_label": "specific",
+        "rationale": "Requires asker's schematic (pull-up on ADC pin), board layout, pin configuration. Specific to their design."
+    },
+    {
+        "id": "S3",
+        "title": "My buck converter output has 500mV spike at switch node",
+        "body": "Using TI TPS5430 on my 2-layer board. Switch node (pin 4) shows 500mV overshoot. My layout: [photo attached]. Inductor is 4.7uH Coilcraft. Input 12V, output 3.3V. How to reduce this spike?",
+        "true_label": "specific",
+        "rationale": "Requires asker's layout photo, component selection, board stackup. Specific to their implementation."
+    },
+    {
+        "id": "S4",
+        "title": "Differential pair impedance mismatch on my USB lines",
+        "body": "My USB 2.0 differential pair measures 110 ohms differential instead of 90. Stackup: 4-layer, 0.2mm prepreg, trace width 0.15mm, spacing 0.15mm. My stackup details: [attached]. How to fix?",
+        "true_label": "specific",
+        "rationale": "Requires asker's exact stackup, trace geometry, materials. Specific to their PCB design."
+    },
+    {
+        "id": "S5",
+        "title": "Custom motor driver MOSFETs fail after 10 minutes",
+        "body": "My BLDC driver with IRFS7530 MOSFETs fails after ~10 minutes at 20A. Gate drive is 12V, dead time 500ns. My schematic: [attached], thermal images: [attached]. What's killing them?",
+        "true_label": "specific",
+        "rationale": "Requires asker's schematic, thermal data, gate drive waveforms, layout. Specific to their design."
+    },
+    {
+        "id": "S6",
+        "title": "My SPI flash fails at 80MHz but works at 40MHz",
+        "body": "Winbond W25Q128 on my board. Works at 40MHz SPI, fails at 80MHz. Trace length 40mm, no termination. My board: [photo]. Why does it fail at higher speed?",
+        "true_label": "specific",
+        "rationale": "Requires asker's board layout, trace length, signal integrity. Specific to their implementation."
+    },
+    {
+        "id": "S7",
+        "title": "Op-amp output clips at 2.8V instead of 3.3V rail",
+        "body": "Using MCP6004 rail-to-rail op-amp on 3.3V supply. Output clips at 2.8V. My circuit: [schematic attached]. Load is 10k to ground. Why doesn't it reach rail?",
+        "true_label": "specific",
+        "rationale": "Requires asker's schematic, load conditions, supply voltage measurement. Specific to their circuit."
+    },
+    {
+        "id": "S8",
+        "title": "CAN bus errors only on my node B",
+        "body": "3-node CAN network. Node A and C communicate fine. Node B (my custom board with MCP2515) shows error frames. My node B schematic: [attached]. Oscilloscope shows clean signals on bus. Why only node B?",
+        "true_label": "specific",
+        "rationale": "Requires asker's node B schematic, layout, oscillator accuracy, termination. Specific to their node."
+    },
+    {
+        "id": "S9",
+        "title": "My LDO overheats at 200mA despite 1W rating",
+        "body": "Using AMS1117-3.3 (1A rated) with 5V input, 200mA load. Tab temperature reaches 120C. My PCB copper pour for tab is 50mm². Why so hot?",
+        "true_label": "specific",
+        "rationale": "Requires asker's PCB thermal design, copper area, ambient, airflow. Specific to their implementation."
+    },
+    {
+        "id": "S10",
+        "title": "FPGA configuration fails on my board only",
+        "body": "Xilinx Artix-7 configures fine on dev kit but fails on my custom board via JTAG. My board: [schematic attached], power sequencing: [described]. What could be different?",
+        "true_label": "specific",
+        "rationale": "Requires asker's schematic, power sequencing, JTAG layout, clock source. Specific to their board."
+    }
+]
+
+probes = []
+for p in answerable_probes:
+    probes.append({
+        "id": p["id"],
+        "title": p["title"],
+        "body": p["body"],
+        "true_label": p["true_label"],
+        "rationale": p["rationale"]
+    })
+for p in specific_probes:
+    probes.append({
+        "id": p["id"],
+        "title": p["title"],
+        "body": p["body"],
+        "true_label": p["true_label"],
+        "rationale": p["rationale"]
+    })
+
+# Save probes
+out_dir = Path(__file__).parent
+with open(out_dir / 'g0_probes.json', 'w') as f:
+    json.dump(probes, f, indent=2)
+
+print(f"Created {len(probes)} G0 probes")
+print(f"  Answerable: {len(answerable_probes)}")
+print(f"  Specific: {len(specific_probes)}")
+print(f"Saved to {out_dir}/g0_probes.json")

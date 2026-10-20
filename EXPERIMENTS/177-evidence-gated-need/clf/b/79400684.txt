@@ -1,0 +1,146 @@
+qid: 79400684
+view_count: 1960
+tags: c, stack, variable-length-array
+key_score: 22
+
+=== TITLE ===
+Where is the size of a VLA stored in C?
+
+=== QUESTION ===
+In C, you can do this: 
+ int arr[i];
+ 
+ From what I understand, this is called a VLA —variable length array—which is an array who
+se size is not known at compile time, which in most implementations is stored on the stack
+. 
+ In the implementations of VLAs that store the array on the stack, do they store the size 
+of the array somewhere at runtime? If yes, where? If not, how do you know at runtime how m
+uch to decrement the stack pointer once the array goes out of scope? 
+ Note: The same question also applies for alloca . 
+
+ int arr[i];
+ 
+ alloca
+
+=== KEY ANSWER ===
+The compiler can store the size anywhere it sees fit, it is usually going to be in the sta
+ck or in some register just like a variable. Here is an example: 
+ #include <stddef.h>
+
+size_t g();
+
+void f()
+{
+ volatile char arr1[g()];
+ for (size_t i = 0; i < sizeof(arr1); ++i)
+ arr1[i] = 0;
+}
+ 
+ GCC compiles the code above to this x64 code: 
+ f:
+ push rbp
+ xor eax, eax
+ mov rbp, rsp
+ call g
+ lea rdx, [rax+15]
+ and rdx, -16
+ sub rsp, rdx
+ test rax, rax
+ je .L1
+ mov rcx, rsp
+ xor edx, edx
+ test al, 1
+ je .L3
+ mov BYTE PTR [rsp], 0
+ mov edx, 1
+ cmp rax, 1
+ je .L1
+.L3:
+ mov BYTE PTR [rcx+rdx], 0
+ mov BYTE PTR [rcx+1+rdx], 0
+ add rdx, 2
+ cmp rax, rdx
+ jne .L3
+.L1:
+ leave
+ ret
+ 
+ This C code creates a VLA using the result of calling a function g defined elsewhere. Sin
+ce in x64 Linux functions return integers in rax , the compiler uses the value in rax to c
+alculate a new size for the stack frame. Then it uses rax in the loop condition because th
+e array’s size was already there anyway: 
+ add rdx, 2
+cmp rax, rdx
+jne .L3
+ 
+ So in this case the array’s size stays always in rax . 
+ In general, if the array size is calculated at runtime the compiler can simply reuse the 
+same register where the final calculation is. It might also move it to the stack if it dec
+ides to use the register for something else. So in the generated machine code the size of 
+a VLA behaves just like a variable. 
+ That being said, the above Assembly code shows how you don’t need the size of the array t
+o undo the new stack frame. The stack frame is created by pushing the base pointer rbp ont
+o the stack, moving the value in the stack pointer rsp to rbp and then decrementing rsp . 
+When returning we simply move the value in rbp back to rsp , making rsp point to the top o
+f the stack where the previous value of rbp was, then we pop the value from the top of the
+ stack back into rbp . This is what the leave instruction does. 
+
+ #include <stddef.h>
+
+size_t g();
+
+void f()
+{
+ volatile char arr1[g()];
+ for (size_t i = 0; i < sizeof(arr1); ++i)
+ arr1[i] = 0;
+}
+ 
+ f:
+ push rbp
+ xor eax, eax
+ mov rbp, rsp
+ call g
+ lea rdx, [rax+15]
+ and rdx, -16
+ sub rsp, rdx
+ test rax, rax
+ je .L1
+ mov rcx, rsp
+ xor edx, edx
+ test al, 1
+ je .L3
+ mov BYTE PTR [rsp], 0
+ mov edx, 1
+ cmp rax, 1
+ je .L1
+.L3:
+ mov BYTE PTR [rcx+rdx], 0
+ mov BYTE PTR [rcx+1+rdx], 0
+ add rdx, 2
+ cmp rax, rdx
+ jne .L3
+.L1:
+ leave
+ ret
+ 
+ g 
+ rax 
+ rax 
+ rax 
+ add rdx, 2
+cmp rax, rdx
+jne .L3
+ 
+ rax 
+ rbp 
+ rsp 
+ rbp 
+ rsp 
+ rbp 
+ rsp 
+ rsp 
+ rbp 
+ rbp 
+ leave
+

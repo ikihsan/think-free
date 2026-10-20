@@ -1,0 +1,27 @@
+TITLE: Where is the documentation for the &#39;.slnx&#39; solution format?
+TAGS: c#,.net,.net-core,msbuild,solution
+
+QUESTION AS POSTED:
+All I can find from Microsoft is two blog posts: 
+ 
+ "Introducing support for SLNX, a new, simpler solution file format
+in the .NET CLI" dated March 13th, 2025, says that it is a preview feature. 
+ 
+ "New, Simpler Solution File Format" 
+ also dated March 13th, 2025 says that it is fully supported and contains no mention of preview. 
+ 
+ 
+ These blog posts explain: 
+ 
+ how to enable it 
+ how to convert your old solution files to it 
+ how cool it is 
+ etc. 
+ 
+ ...but being mere blog posts, they do not constitute documentation . 
+ More specifically, they do not explain: 
+ 
+ what XML elements are supported and what they do. 
+ what XML attributes each element supports, and what they do. 
+ 
+ So, where is the documentation?

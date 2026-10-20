@@ -1,0 +1,57 @@
+PROPOSED ANSWER:
+The uv installation detail is from another thread and does not bear on this. The reason npx cannot find the executable is that the Tailwind CLI is no longer exposed by the tailwindcss package in recent versions - it is its own package now, and the JavaScript config file has gone with it. So install and run the CLI as npx @tailwindcss/cli init, and configure in CSS rather than in tailwind.config.js: @import "tailwindcss", @theme for tokens, @utility for extensions, @source for files to scan. Where the v4 docs and the upgrade guide disagree, the upgrade guide is right, because the reference page was still being corrected shortly after release.
+
+ACCEPTED ANSWER ON THE SITE:
+TL;DR (for `init` process) : Since v4, there is no need for a `tailwind.config.js` file , so the `init` process is also unnecessary , making both outdated. Review the v4 installation guides , where the init step is not included. Or install v3 with specifically changed guide . 
+ TL;DR (for Tailwind CLI) : Previous content + In v4, Tailwind CLI was separated from the core package, so an additional package needs to be installed see below and in How to use Tailwind CLI . 
+ TailwindCSS v4 
+ TailwindCSS has just released its new v4 version, so all the older v3 documentation has become somewhat outdated. 
+ 
+ Upgrade guide - TailwindCSS v3 to v4 
+ 
+ Changed `npx tailwindcss` to `npx @tailwindcss/cli` 
+ The command to run is now no longer `npx tailwindcss` but `npx @tailwindcss/cli` . 
+ 
+ PostCSS plugin and CLI are separate packages — the main `tailwindcss` package doesn't include these anymore since not everyone needs them, instead they should be installed separately using `@tailwindcss/postcss` and `@tailwindcss/cli` . 
+ 
+ Source: Open-sourcing our progress on Tailwind CSS v4.0 - Whats changed 
+ 
+ This is basically only necessary if you're not using it with a framework and want to run it from the command line. For this, a standalone `@tailwindcss/cli` package will help from v4 onwards. 
+ `npm install tailwindcss @tailwindcss/cli
+` 
+ 
+ Get started with Tailwind CSS - TailwindCSS v4 Docs 
+ TailwindCSS v4 Alpha: Using the CLI 
+ 
+ Deprecated `init` process 
+ In v4, the installation process has changed. It's now simpler. The `init` command has become obsolete and is no longer usable from v4 onwards because it's not needed anymore. 
+ 
+ tailwindlabs/tailwindcss #15791 - `init` process not available - GitHub 
+ 
+ Using the upgrade tool 
+ 
+ If you'd like to try upgrading a project from v3 to v4, you can use our upgrade tool to do the vast majority of the heavy lifting for you: 
+ `npx @tailwindcss/upgrade@next
+` 
+ 
+ 
+ How to using the upgrade tool - Tailwind CSS v4 Docs 
+ Unable to upgrade Tailwind CSS v3 to v4 - Related: an interesting fact about this 
+ 
+ Other related changes from v4 
+ 
+ Removed @tailwind directives 
+ Deprecated: Sass, Less and Stylus preprocessors support 
+ `@import "tailwindcss";` does not work when used in a file with an `.scss` extension 
+ Automatic Source Detection from TailwindCSS v4 
+ Adding an external source or a package from within node_modules for detection 
+ [postcss] It looks like you're trying to use tailwindcss directly as a PostCSS plugin 
+ 
+ 
+ TailwindCSS v3 
+ For a installation, you'll already be installing v4. However, if you want to install v3, use the old documentation with the following command: 
+ `npm install tailwindcss@3
+` 
+ 
+ Get started - TailwindCSS v3 Docs 
+ Cannot build frontend using Vite, TailwindCSS with PostCSS - StackOverflow

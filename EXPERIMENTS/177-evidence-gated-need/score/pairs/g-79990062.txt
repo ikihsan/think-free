@@ -1,0 +1,59 @@
+pid: g-79990062
+
+=== LEFT ===
+In C, NULL is commonly ((void*)0) and in C++ it is __null; it is not a typed const char*. 
+In a variadic call only the default argument promotions apply, and the callee recovers val
+ues with va_arg using the type it expects. If the sentinel's actual type differs from what
+ va_arg assumes, that va_arg call is undefined behaviour, which is what the analyzer repor
+ts. Casting to (const char *)0 is the portable, correct fix: it becomes a genuine null poi
+nter constant of exactly the expected type, promotes to itself, and matches va_arg(const c
+har *). Better still, replace the NULL sentinel with an explicit count, since a typed null
+ cannot express end-of-list as safely. Do not silence varFuncNullUB without the cast.
+
+=== RIGHT ===
+For historic reasons, the C standard allows NULL to be either an integer constant expressi
+on with value 0 or such an expression cast to void * . So NULL could be defined as 0 , whi
+ch would have type int . It could even be 0L or 0ULL , which would have type long or unsig
+ned long long , respectively, since these are also integer constant expressions with value
+ 0. 
+ Then the sentinel argument to your variadic function would have a type incompatible with 
+the type of the strings you are passing. You could be passing int while the strings result
+ in char * . When your function attempted to get the value of this sentinel argument using
+ va_arg(…, char *) , the behavior would not be defined. 
+ Additionally, note that your string arguments have type char * , not const char * . Again
+, this is for historic reasons; const was not originally in C, so string literals had type
+ char * , and this was not changed when const was introduced. 
+ So, to make your sentinel argument exactly match the strings, you should pass (char *) NU
+LL . 
+ Note 
+ You can use (const char *) NULL even though const char * is not compatible with char * . 
+This is because the C standard makes some exceptions in what types may be used with va_arg
+ . C 2024 7.16.2.1 says it will work if: 
+ 
+ … both types [the actual type of the argument and the type passed to va_arg ] are pointer
+s to qualified or unqualified versions of compatible types;… 
+ 
+
+ NULL 
+ void * 
+ NULL 
+ 0 
+ int 
+ 0L 
+ 0ULL 
+ long 
+ unsigned long long 
+ int 
+ char * 
+ va_arg(…, char *) 
+ char * 
+ const char * 
+ const 
+ char * 
+ const 
+ (char *) NULL 
+ (const char *) NULL 
+ const char * 
+ char * 
+ va_arg 
+ va_arg

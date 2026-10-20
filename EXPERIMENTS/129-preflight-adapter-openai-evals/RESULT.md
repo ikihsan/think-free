@@ -88,3 +88,7 @@ or to release the tool with a per-harness adapter interface.
 
 No candidate. The tool stays internal until the adapter is prototyped
 and measured.
+
+## See also
+
+- [`docs/preflight-adapter-plan.md`](docs/preflight-adapter-plan.md) — Preflight adapter prototype results and test plan

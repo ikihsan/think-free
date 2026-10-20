@@ -1,0 +1,116 @@
+qid: 79779696
+view_count: 2397
+tags: c, printf, undefined-behavior, variadic-functions, calling-convention
+key_score: 23
+
+=== TITLE ===
+Why does a mismatching printf specifier also affect subsequent arguments?
+
+=== QUESTION ===
+I have a very simple C program where I am printing variables of different sizes. 
+ #include <stdio.h>
+
+unsigned int long long a;
+unsigned int c;
+
+int main() {
+ a = 0x1111111122222222;
+ c = 0x33333333;
+ printf("Sizes: %zu %zu\n", sizeof(a), sizeof(c));
+ printf("Seg: %llx %x\n", a, c);
+ printf("Seg: %lx %x\n", a, c);
+ printf("Seg: %x\n", c);
+ return 0;
+}
+ 
+ On a 64-bit machine, all works fine.
+On a 32-bit machine though, if I use an incorrect formatter for the first argument (second
+ printf ), I get incorrect output for second argument too. Is that because of how varargs 
+are processed? What am I missing? 
+ Output 
+ Sizes: 8 4
+Seg: 1111111122222222 33333333
+Seg: 22222222 11111111
+Seg: 33333333
+a.out: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, inter
+preter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, not stripped
+ 
+ Command used 
+ rm ./a.out ; g++ -m32 test.cpp ; ./a.out ; file a.out
+ 
+
+ #include <stdio.h>
+
+unsigned int long long a;
+unsigned int c;
+
+int main() {
+ a = 0x1111111122222222;
+ c = 0x33333333;
+ printf("Sizes: %zu %zu\n", sizeof(a), sizeof(c));
+ printf("Seg: %llx %x\n", a, c);
+ printf("Seg: %lx %x\n", a, c);
+ printf("Seg: %x\n", c);
+ return 0;
+}
+ 
+ printf 
+ varargs 
+ Sizes: 8 4
+Seg: 1111111122222222 33333333
+Seg: 22222222 11111111
+Seg: 33333333
+a.out: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, inter
+preter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, not stripped
+ 
+ rm ./a.out ; g++ -m32 test.cpp ; ./a.out ; file a.out
+
+=== KEY ANSWER ===
+The second printf where the conversion format does not match the actual type passed has un
+defined behavior, so the C Standard imposes no requirements and anything you observe is po
+ssible, including expected behavior, as you observe on 64-bit targets and different behavi
+or as you want to analyse on your 32-bit target. 
+ Here is a tentative explanation (assuming little endian and stack based ABI): 
+ 
+ on your 32-bit target, vararg arguments are passed on the stack, 32-bit aligned 
+ passing an unsigned long long uses 2 stack slots in little endian order 
+ passing an unsigned int uses a single slot 
+ on this target, unsigned long , expected by printf for %lx has 32 bits (as is the case on
+ most targets), so it uses a single slot 
+ hence in this target, the first number is retrieved from the first slot and the value is 
+the low 32-bits of the 64-bit value passed in little endian order 
+ the second number is retrieved from the second slot, where the most significant 32-bits h
+ave been stored by the caller. 
+ this explains the output: Seg: 22222222 11111111 
+ 
+ Remember that undefined behavior is by definition not defined, so other side effects may 
+happen and something completely different may be output, even on the same host with the sa
+me binary. 
+ As commented by @GlennWillen, in particular, you cannot count on the damage being limited
+ to a particular line of code, or function, or file; and you cannot count on it being limi
+ted to consequences which would actually be possible in any straightforward interpretation
+ of the code; and you cannot count on it being limited to things happening chronologically
+ after the UB in many cases. If the code could execute UB when some condition is true, the
+ compiler may act as though that condition is false everywhere and for all purposes, even 
+if this is absurd or contradictory. 
+ Here are some take-aways: 
+ 
+ always turn on extra warnings so this kind of bug is reported by the compiler ( -Wall -We
+xtra or similar). 
+ fix the code to compile without any warnings (adding -Werror will force this) and think t
+wice before using casts to silence a warning. 
+ use the formatting macros from <inttypes.h> for types defined in <stdint.h> 
+ 
+
+ printf 
+ unsigned long long 
+ unsigned int 
+ unsigned long 
+ printf 
+ %lx 
+ Seg: 22222222 11111111 
+ -Wall -Wextra 
+ -Werror 
+ <inttypes.h> 
+ <stdint.h>
+

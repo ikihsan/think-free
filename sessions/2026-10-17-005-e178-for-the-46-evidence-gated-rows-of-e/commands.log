@@ -1,0 +1,75 @@
+==============================================================================
+[seq 2] 2026-10-17T07:59:58+00:00
+$ python3 EXPERIMENTS/178-evidence-where-does-it-live/controls.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+G0d: 46 reader inputs checked, 4 leak(s)
+  FAIL ('b1', 79408101, 'inherited token \\bconfiguration\\b')
+  FAIL ('b2', 79663905, 'inherited token \\bconfiguration\\b')
+  FAIL ('b4', 79848893, 'inherited token \\bconfiguration\\b')
+  FAIL ('b5', 79999095, 'inherited token \\bconfiguration\\b')
+G0b: not run - fetch has not produced comments.json yet
+blindness FAIL, fetch completeness not run
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 211  redactions: none
+==============================================================================
+[seq 3] 2026-10-17T08:00:20+00:00
+$ python3 EXPERIMENTS/178-evidence-where-does-it-live/controls.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+G0d: 46 reader inputs checked, 0 leak(s)
+G0d: dropped natural-English kind values, rows they would flag: {'\\bconfiguration\\b': 4}
+G0b: not run - fetch has not produced comments.json yet
+blindness PASS, fetch completeness not run
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 278  redactions: none
+==============================================================================
+[seq 4] 2026-10-17T08:00:44+00:00
+$ python3 EXPERIMENTS/178-evidence-where-does-it-live/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+default-filter records: 98 (expected 98); comment_count present on 98
+G0a control set (rule: 5 SELF rows, most comments first): [79363302, 79383758, 79400684, 79404124, 79434372] -> [0, 0, 0, 0, 0]
+question comment threads returned for 33 of 46 (no thread: [79339258, 79358893, 79385315, 79556333, 79567126, 79598477, 79639474, 79665976, 79686551, 79715742, 79817405, 79818917, 79846974])
+comment_count reconciliation mismatches: [(79779187, 0, 1), (79380514, 0, 4), (79335513, 0, 2), (79513015, 0, 1), (79776559, 0, 2), (79368095, 0, 2), (79600161, 0, 3), (79602687, 0, 3), (79754247, 0, 11), (79408101, 0, 2), (79428308, 0, 1), (79723342, 0, 4), (79606837, 0, 22), (79721071, 0, 2), (79718097, 0, 3), (79663905, 0, 10), (79843062, 0, 11), (79871713, 0, 3), (79791886, 0, 16), (79818015, 0, 4), (79666817, 0, 5), (80002935, 0, 3), (79848893, 0, 9), (79873559, 0, 14), (79904504, 0, 1), (79865375, 0, 9), (79760365, 0, 5), (79885892, 0, 5), (79999095, 0, 1), (79831573, 0, 2), (80008925, 0, 1), (79810849, 0, 3), (79820806, 0, 3)]
+key-answer comment threads: 32 of 46; control set fetched: 0
+problems: ['questions/%s/comments: has_more true for chunk starting 79385315']
+quota remaining at the default-filter stage: 145
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 12426  redactions: none
+==============================================================================
+[seq 5] 2026-10-17T08:02:32+00:00
+$ python3 EXPERIMENTS/178-evidence-where-does-it-live/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+G0a control set (rule: 5 SELF rows, most comments first): [79792501, 79836280, 79927761, 79835432, 79769322] -> [24, 24, 17, 16, 15]
+SELF arm comment counts, top 10 by count: [(79792501, 24), (79836280, 24), (79927761, 17), (79835432, 16), (79769322, 15), (79802282, 15), (79935258, 14), (79452303, 11), (79400684, 10), (79743460, 9)]
+question comment threads returned for 37 of 46; 9 with no comments: [79339258, 79556333, 79567126, 79665976, 79686551, 79715742, 79817405, 79818917, 79846974]
+chunks that paged: question [(79385315, 1)], answer [], self_arm [(79716280, 1)]
+pagesize-50 re-fetch disagreements: question none, answer none
+key-answer comment threads: 32 of 46; total question comments 214
+problems: none
+requests on disk: 28; quota_remaining on the last: 118
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 35183  redactions: none
+==============================================================================
+[seq 6] 2026-10-17T08:02:51+00:00
+$ python3 EXPERIMENTS/178-evidence-where-does-it-live/controls.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+G0d: 46 reader inputs checked, 0 leak(s)
+G0d: dropped natural-English kind values, rows they would flag: {'\\bconfiguration\\b': 4}
+G0b: 46 rows; chunks that paged: question [[79385315, 1]], answer []; pagesize-50 agreement: question agree, answer agree
+G0b: every response has_more false on its last page: True
+G0b: 0 problem(s)
+blindness PASS, fetch completeness PASS
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 305  redactions: none
+==============================================================================
+[seq 7] 2026-10-17T08:04:09+00:00
+$ python3 EXPERIMENTS/178-evidence-where-does-it-live/sheet.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/home/ubuntu/think-free/EXPERIMENTS/178-evidence-where-does-it-live/raw/view_g0a.txt: 116 lines, 5 control questions, 96 comments
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 488  redactions: none

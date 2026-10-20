@@ -1,0 +1,119 @@
+qid: 79990062
+view_count: 1315
+tags: c, variadic, cppcheck
+key_score: 14
+
+=== TITLE ===
+Why does passing NULL to a variadic function trigger a static analyzer warning about undef
+ined behavior?
+
+=== QUESTION ===
+I am getting multiple varFuncNullUB warnings from my static analyzer when calling a variad
+ic function. The warning points to the NULL argument used as a sentinel. 
+ Example: 
+ static inline int EXAMPLE(char *LineStr, int NoOfWords, ...)
+{
+ /* ... */
+}
+
+...
+
+EXAMPLE(line, 0, "typedef", "unsigned", "int", NULL);
+ 
+ The analyzer reports: 
+ 
+ warning: Passing NULL after the last typed argument to a variadic function leads to undef
+ined behaviour. [varFuncNullUB] 
+ 
+ I found suggestions online to cast NULL to const char * : 
+ EXAMPLE(line, 0,
+ "typedef",
+ "unsigned",
+ "int",
+ (const char *)NULL);
+ 
+ My questions are: 
+ 
+ Why does passing plain NULL to a variadic function trigger this warning? 
+ 
+ Is casting NULL to const char * the correct and portable solution? 
+ 
+ If so, why does the cast make a difference? 
+ 
+ 
+ For context, the variadic arguments are expected to be const char * values terminated by 
+a NULL sentinel. 
+
+ varFuncNullUB 
+ NULL 
+ static inline int EXAMPLE(char *LineStr, int NoOfWords, ...)
+{
+ /* ... */
+}
+
+...
+
+EXAMPLE(line, 0, "typedef", "unsigned", "int", NULL);
+ 
+ NULL 
+ const char * 
+ EXAMPLE(line, 0,
+ "typedef",
+ "unsigned",
+ "int",
+ (const char *)NULL);
+ 
+ NULL 
+ NULL 
+ const char * 
+ const char * 
+ NULL
+
+=== KEY ANSWER ===
+For historic reasons, the C standard allows NULL to be either an integer constant expressi
+on with value 0 or such an expression cast to void * . So NULL could be defined as 0 , whi
+ch would have type int . It could even be 0L or 0ULL , which would have type long or unsig
+ned long long , respectively, since these are also integer constant expressions with value
+ 0. 
+ Then the sentinel argument to your variadic function would have a type incompatible with 
+the type of the strings you are passing. You could be passing int while the strings result
+ in char * . When your function attempted to get the value of this sentinel argument using
+ va_arg(…, char *) , the behavior would not be defined. 
+ Additionally, note that your string arguments have type char * , not const char * . Again
+, this is for historic reasons; const was not originally in C, so string literals had type
+ char * , and this was not changed when const was introduced. 
+ So, to make your sentinel argument exactly match the strings, you should pass (char *) NU
+LL . 
+ Note 
+ You can use (const char *) NULL even though const char * is not compatible with char * . 
+This is because the C standard makes some exceptions in what types may be used with va_arg
+ . C 2024 7.16.2.1 says it will work if: 
+ 
+ … both types [the actual type of the argument and the type passed to va_arg ] are pointer
+s to qualified or unqualified versions of compatible types;… 
+ 
+
+ NULL 
+ void * 
+ NULL 
+ 0 
+ int 
+ 0L 
+ 0ULL 
+ long 
+ unsigned long long 
+ int 
+ char * 
+ va_arg(…, char *) 
+ char * 
+ const char * 
+ const 
+ char * 
+ const 
+ (char *) NULL 
+ (const char *) NULL 
+ const char * 
+ char * 
+ va_arg 
+ va_arg
+

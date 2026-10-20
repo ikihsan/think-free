@@ -1,0 +1,809 @@
+{
+  "experiment": "E110",
+  "platform": "RubyGems",
+  "collected_at": "2026-10-11T20:27:45Z",
+  "need_related_count": 100,
+  "random_count": 0,
+  "packages": [
+    {
+      "name": "pincers",
+      "description": "Web automation DSL on top of webdriver and nokogiri",
+      "downloads_total": 637110,
+      "downloads_version": 2935,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "flame",
+      "description": "Use controller's classes with instance methods as routing actions,\nmounting its in application class.\n",
+      "downloads_total": 223972,
+      "downloads_version": 641,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "yabeda-puma-plugin",
+      "description": "Extends Yabeda metrics with puma web server values by using puma plugin",
+      "downloads_total": 8886934,
+      "downloads_version": 1550955,
+      "classification": "need-related",
+      "source_query": "web framework"
+    },
+    {
+      "name": "ruby_http_client",
+      "description": "Quickly and easily access any REST or REST-like API.",
+      "downloads_total": 60657973,
+      "downloads_version": 1609400,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "http-client",
+      "description": "Light weight wrapper around Net::HTTP",
+      "downloads_total": 286194,
+      "downloads_version": 261864,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "nxt_http_client",
+      "description": "NxtHttpClient allows you to easily create and configure http clients.",
+      "downloads_total": 171526,
+      "downloads_version": 7572,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "rabbitmq_http_api_client",
+      "description": "RabbitMQ HTTP API client for Ruby",
+      "downloads_total": 881340,
+      "downloads_version": 51145,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "chimera_http_client",
+      "description": "The Chimera http client offers an easy to learn interface and consistent error handling.\nIt is lightweight, fast and enables you to queue HTTP requests to run them in parallel\nfor better performance and simple aggregating of distributed data. Despite it's simple\ninterface it allows for advanced features like using custom deserializers, loggers,\ncaching requests individiually, and instrumentation support (soon to be implemented).\n",
+      "downloads_total": 90553,
+      "downloads_version": 560,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "clerk-http-client",
+      "description": "A Ruby wrapper for the Clerk Backend API",
+      "downloads_total": 63380,
+      "downloads_version": 56089,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "http_streaming_client",
+      "description": "Ruby HTTP client with streaming support for GZIP compressed streams and chunked transfer encoding. Also includes extensible OAuth support for Adobe and Twitter streaming APIs.",
+      "downloads_total": 51989,
+      "downloads_version": 3703,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "soar_http_client",
+      "description": "Rest client for services at Hetzner",
+      "downloads_total": 43390,
+      "downloads_version": 31521,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "http_api_client",
+      "description": "Http client wrapper for simplified api access",
+      "downloads_total": 41545,
+      "downloads_version": 5352,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "http-client-generator",
+      "description": "Ruby Http Client generator",
+      "downloads_total": 20980,
+      "downloads_version": 1281,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "http-rest_client",
+      "description": "A HTTP/REST Client to help you wrap APIs easily.",
+      "downloads_total": 19701,
+      "downloads_version": 11741,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "salesforce_http_client",
+      "description": "This gem provides a simple way to download report data from salesforce.com. It works well with any ruby applications, include such as Ruby on Rails.You can access salesfore.com using only your sales force login id (=email) and password. A security token is no need.",
+      "downloads_total": 17053,
+      "downloads_version": 3977,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "es-http-client",
+      "description": "A simple HTTP client for EventStore",
+      "downloads_total": 9776,
+      "downloads_version": 3224,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "ipfs-http-client",
+      "description": "Ruby HTTP client for the Interplanetary File System",
+      "downloads_total": 7692,
+      "downloads_version": 3251,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "cookie_http_client",
+      "description": "HTTP clinet with cookie support.",
+      "downloads_total": 7036,
+      "downloads_version": 4161,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "async-http-client-jars",
+      "description": "Async HTTP Client JARs",
+      "downloads_total": 19670,
+      "downloads_version": 5463,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "textbringer-http_client",
+      "description": "HTTP client plugin for Textbringer.",
+      "downloads_total": 4392,
+      "downloads_version": 2593,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "simple_http_client",
+      "description": "Simple Http Client aims to provide a simpler interface to Net:HTTP request objects",
+      "downloads_total": 3917,
+      "downloads_version": 3917,
+      "classification": "need-related",
+      "source_query": "http client"
+    },
+    {
+      "name": "sequel-hexspace",
+      "description": "This is a hexspace adapter for Sequel, designed to be used with Spark (not\nHive). You can use the hexspace:// protocol in the Sequel connection URL\nto use this adapter.\n",
+      "downloads_total": 938,
+      "downloads_version": 191,
+      "classification": "need-related",
+      "source_query": "database driver"
+    },
+    {
+      "name": "auth-lh",
+      "description": "Authentication with auth lh api",
+      "downloads_total": 202071,
+      "downloads_version": 3837,
+      "classification": "need-related",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "devise_auth_proxy",
+      "description": "For authentication through proxy auth",
+      "downloads_total": 37721,
+      "downloads_version": 3040,
+      "classification": "need-related",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "omniauth-pfas",
+      "description": "PFAS Auth authentication strategy for OmniAuth",
+      "downloads_total": 7814,
+      "downloads_version": 4450,
+      "classification": "need-related",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "trestle-omniauth",
+      "description": "Use omniauth auth providers to authenticate with Trestle",
+      "downloads_total": 11079,
+      "downloads_version": 3531,
+      "classification": "need-related",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "devise_jwt_auth",
+      "description": "Supports silent refresh with client side single page apps in mind.",
+      "downloads_total": 19857,
+      "downloads_version": 1080,
+      "classification": "need-related",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "snoopier",
+      "description": "Add this gem to your Gemfile and set some ENV variables to activate a basic auth layer",
+      "downloads_total": 6091,
+      "downloads_version": 3498,
+      "classification": "need-related",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "rack-authenticate",
+      "description": "A rack middleware that authenticates requests either using basic auth or via signed HMAC.",
+      "downloads_total": 46181,
+      "downloads_version": 16702,
+      "classification": "need-related",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "artemis-api_auth",
+      "description": "Net::HTTP adapter that adds Api Auth authentication for Artemis GraphQL Client",
+      "downloads_total": 4211,
+      "downloads_version": 4211,
+      "classification": "need-related",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "google_authenticator_auth",
+      "description": "google authenticator auth",
+      "downloads_total": 13711,
+      "downloads_version": 13711,
+      "classification": "need-related",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "grape_simple_auth",
+      "description": "Grape Simple Auth is a Grape middleware to connect your API resources with your API authenticator.",
+      "downloads_total": 9041,
+      "downloads_version": 1013,
+      "classification": "need-related",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "rack-auth-ldap",
+      "description": "rack-auth-ldap : provide LDAP authentication for Rack middelware",
+      "downloads_total": 16724,
+      "downloads_version": 1003,
+      "classification": "need-related",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "yt-auth",
+      "description": "Yt::Auth makes it easy to authenticate users to any\n    web application by means of their Google account.",
+      "downloads_total": 58427,
+      "downloads_version": 10833,
+      "classification": "need-related",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "groovestack-auth",
+      "description": "Groovestack::Auth is an authentication extension for the Groovestack Platform.",
+      "downloads_total": 2774,
+      "downloads_version": 637,
+      "classification": "need-related",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "omniauth-hack_club",
+      "description": "An OmniAuth strategy for authenticating with Hack Club Auth using OAuth2.",
+      "downloads_total": 4504,
+      "downloads_version": 4504,
+      "classification": "need-related",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "rack-auth-gitlabapi",
+      "description": "rack-auth-gitlabapi : provide GitLab API authentication for Rack middleware",
+      "downloads_total": 5202,
+      "downloads_version": 213,
+      "classification": "need-related",
+      "source_query": "auth authentication"
+    },
+    {
+      "name": "redis-rack-cache",
+      "description": "A Redis backend store for Rack::Cache",
+      "downloads_total": 5540443,
+      "downloads_version": 2570990,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "redis-cache",
+      "description": "ActiveSupport cache adapter for Redis",
+      "downloads_total": 47381,
+      "downloads_version": 27082,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "cache_store_redis",
+      "description": "This is the redis cache_store implementation.",
+      "downloads_total": 150778,
+      "downloads_version": 640,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "redis_cache",
+      "description": "simple activesupport cache implementation in redis",
+      "downloads_total": 4972,
+      "downloads_version": 4972,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "rails_redis_cache",
+      "description": "Rails 3.1 cache store implementation using Redis. See http://github.com/phoet/rails_redis_cache for more information.",
+      "downloads_total": 23672,
+      "downloads_version": 5039,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "sprockets-cache-redis",
+      "description": "A Redis cache store for Sprockets",
+      "downloads_total": 21729,
+      "downloads_version": 4919,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "atomic_redis_cache",
+      "description": "Use Redis as a multi-process atomic cache to avoid thundering herds and long calculations",
+      "downloads_total": 14573,
+      "downloads_version": 4438,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "sinatra-redis-cache",
+      "description": "A simple redis backed cache for Sinatra",
+      "downloads_total": 13787,
+      "downloads_version": 5927,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "mondrian_redis_segment_cache",
+      "description": "Segment Cache for Mondrian written in JRuby with Redis as the cache store",
+      "downloads_total": 44488,
+      "downloads_version": 2699,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "simple_redis_cache",
+      "description": "simple api for caching strings in redis and passing a time to live",
+      "downloads_total": 8697,
+      "downloads_version": 5320,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "tdiary-cache-redis",
+      "description": "tDiary cache with redis",
+      "downloads_total": 7496,
+      "downloads_version": 4438,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "redis_counter_cache",
+      "description": "Counter cache function by Redis",
+      "downloads_total": 6824,
+      "downloads_version": 6824,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "cache-machine-redis",
+      "description": "Redis adapter for Cache Machine gem.",
+      "downloads_total": 5727,
+      "downloads_version": 5725,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "redis_cache_mailer_delivery",
+      "description": "Use Redis to store the Mail::Message when using in Rails",
+      "downloads_total": 24513,
+      "downloads_version": 7267,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "light_redis_cache",
+      "description": "A basic Ruby client for Redis",
+      "downloads_total": 4552,
+      "downloads_version": 2678,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "counter_cache_redis",
+      "description": "ActiveRecord extentions for counter_cache.",
+      "downloads_total": 3466,
+      "downloads_version": 3466,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "activesupport-cache-redis_multiplexer",
+      "description": "RedisMultiplexer enables to handle redis-servers both primary and read-replica, in your Rails application.",
+      "downloads_total": 12758,
+      "downloads_version": 9687,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "sprockets-cache-redis-devio",
+      "description": "A Redis cache store for Sprockets",
+      "downloads_total": 8224,
+      "downloads_version": 3537,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "redis_cluster_cache_benchmark",
+      "description": "redis benchmark as a cache",
+      "downloads_total": 4149,
+      "downloads_version": 4149,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "readthis",
+      "description": "Pooled active support compliant caching with redis",
+      "downloads_total": 4408190,
+      "downloads_version": 3554504,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "h2ocube_rails_cache",
+      "description": "Just an redis cache.",
+      "downloads_total": 69187,
+      "downloads_version": 4260,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "redrecord",
+      "description": "Redis cacheing for ActiveRecord",
+      "downloads_total": 24493,
+      "downloads_version": 4607,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "active_support-encrypted_redis_cache_store",
+      "description": "active_support-encrypted_redis_store provides a encrypted cache for ActiveSupport. It protects your critical data by enabling runtime encryption in the redis_cache",
+      "downloads_total": 3246,
+      "downloads_version": 3246,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "shadow_model",
+      "description": "A rails plugin use reids to cache models data.",
+      "downloads_total": 38536,
+      "downloads_version": 4151,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "coffee_table",
+      "description": "rails cache gem to fragment cache with smart cache key management",
+      "downloads_total": 54401,
+      "downloads_version": 2479,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "object-cache",
+      "description": "Easily cache objects in Ruby, using a Redis store backend",
+      "downloads_total": 53962,
+      "downloads_version": 7649,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "rcache",
+      "description": "ActiveRecord redis query cache",
+      "downloads_total": 19034,
+      "downloads_version": 4261,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "ultracache",
+      "description": "Ultracache reduces computational costs occur from dynamic attributes by caching them into Redis",
+      "downloads_total": 17894,
+      "downloads_version": 4728,
+      "classification": "need-related",
+      "source_query": "cache redis"
+    },
+    {
+      "name": "queue_worker",
+      "description": "A light STOMP wrapper to ease interaction with a queueing system (e.g. ActiveMQ)",
+      "downloads_total": 19673,
+      "downloads_version": 3767,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "judoscale-solid_queue",
+      "description": "Autoscaling for Solid Queue workers.",
+      "downloads_total": 132783,
+      "downloads_version": 30926,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "ost",
+      "description": "Ost lets you manage queues and workers with Redis.",
+      "downloads_total": 63208,
+      "downloads_version": 20994,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "txgh-queue",
+      "description": "Queue worker for processing Txgh webhooks.",
+      "downloads_total": 31825,
+      "downloads_version": 2484,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "stalker",
+      "description": "A job queueing and background workers system using Beanstalkd.  Inspired by the Minion gem.",
+      "downloads_total": 121747,
+      "downloads_version": 54125,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "rails-autoscale-solid_queue",
+      "description": "Autoscaling for Solid Queue workers.",
+      "downloads_total": 9624,
+      "downloads_version": 248,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "peek-resque",
+      "description": "Take a peek into your Resque queues and workers.",
+      "downloads_total": 36542,
+      "downloads_version": 27030,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "hardcode",
+      "description": "stack-encode on steroids (using a rabbitmq worker queue)",
+      "downloads_total": 45722,
+      "downloads_version": 2801,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "resque-locket",
+      "description": "A Resque plugin to ensure unique workers while preventing queue starvation",
+      "downloads_total": 181505,
+      "downloads_version": 178602,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "work_queue",
+      "description": "A tunable work queue, designed to coordinate work between a producer and a pool of worker threads.",
+      "downloads_total": 621845,
+      "downloads_version": 517046,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "resque-pool-lifeguard",
+      "description": "Adds live GUI queue/worker management to resque-pool",
+      "downloads_total": 69288,
+      "downloads_version": 47950,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "qtrix",
+      "description": "Central worker queues config",
+      "downloads_total": 4401,
+      "downloads_version": 4401,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "squeese",
+      "description": "A job queueing and background workers system using SQS.  Inspired by the Stalker gem.",
+      "downloads_total": 23352,
+      "downloads_version": 5022,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "igor",
+      "description": "A rack inspired approach to message queue workers.",
+      "downloads_total": 5368,
+      "downloads_version": 5368,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "resque-dynamic-queues",
+      "description": "A resque plugin for specifying the queues a worker pulls from with wildcards, negations, or dynamic look up from redis",
+      "downloads_total": 1076531,
+      "downloads_version": 829863,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "ost-scheduler",
+      "description": "Ost-scheduler lets you manage queues and workers with Redis.",
+      "downloads_total": 3565,
+      "downloads_version": 3552,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "resque-picky_worker",
+      "description": "Resque worker that evaluates queues and chooses which one to pull jobs from",
+      "downloads_total": 11409,
+      "downloads_version": 4616,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "resque-queue-priority",
+      "description": "A resque plugin for specifying the priority between queues that workers use to determine what to work on next",
+      "downloads_total": 230327,
+      "downloads_version": 125592,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "mandrill_queue",
+      "description": "An easy to use DSL to send mailers using Mailchimps Mandrill api.",
+      "downloads_total": 34353,
+      "downloads_version": 4719,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "psyho-stalker",
+      "description": "A job queueing and background workers system using Beanstalkd.  Inspired by the Minion gem.",
+      "downloads_total": 8707,
+      "downloads_version": 5105,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "glimpse-resque",
+      "description": "Provide a glimpse into your Resque queues and workers.",
+      "downloads_total": 4623,
+      "downloads_version": 4623,
+      "classification": "need-related",
+      "source_query": "queue worker"
+    },
+    {
+      "name": "json_parser",
+      "description": "Json Parser",
+      "downloads_total": 19240,
+      "downloads_version": 3094,
+      "classification": "need-related",
+      "source_query": "json parser"
+    },
+    {
+      "name": "json-parser",
+      "description": "A simple JSON parser",
+      "downloads_total": 9614,
+      "downloads_version": 9614,
+      "classification": "need-related",
+      "source_query": "json parser"
+    },
+    {
+      "name": "embulk-parser-json",
+      "description": "Json parser plugin is Embulk plugin to fetch entries in json format with jsonpath.",
+      "downloads_total": 52363,
+      "downloads_version": 17449,
+      "classification": "need-related",
+      "source_query": "json parser"
+    },
+    {
+      "name": "pb_json_parser",
+      "description": "Parser of JSON dumps generated by protoc-gen-json.",
+      "downloads_total": 10341,
+      "downloads_version": 6482,
+      "classification": "need-related",
+      "source_query": "json parser"
+    },
+    {
+      "name": "hangouts_json_parser",
+      "description": "Parses JSON formatted Hangouts data (from Takeout or the 'API') into more useful data structures",
+      "downloads_total": 6495,
+      "downloads_version": 3734,
+      "classification": "need-related",
+      "source_query": "json parser"
+    },
+    {
+      "name": "fluent-plugin-json-parser",
+      "description": "fluentd plugin to json parse single field, or to combine log structure into single field",
+      "downloads_total": 26907,
+      "downloads_version": 21363,
+      "classification": "need-related",
+      "source_query": "json parser"
+    },
+    {
+      "name": "rack-json_parser",
+      "description": "Provides a middleware for parsing json from request bodies to be accessed from request params",
+      "downloads_total": 5060,
+      "downloads_version": 3033,
+      "classification": "need-related",
+      "source_query": "json parser"
+    },
+    {
+      "name": "json-expect-parser",
+      "description": "An alternative JSON parser",
+      "downloads_total": 3905,
+      "downloads_version": 3905,
+      "classification": "need-related",
+      "source_query": "json parser"
+    },
+    {
+      "name": "rack-middleware-json-parser",
+      "description": "Rack middleware for parsing json requests.",
+      "downloads_total": 7819,
+      "downloads_version": 4902,
+      "classification": "need-related",
+      "source_query": "json parser"
+    },
+    {
+      "name": "json_api_query_parser",
+      "description": "Parse JSON API endpoint and its query parameters to a usable Hash",
+      "downloads_total": 6163,
+      "downloads_version": 2389,
+      "classification": "need-related",
+      "source_query": "json parser"
+    },
+    {
+      "name": "ruby_json_parser",
+      "description": "A JSON parser written in pure Ruby. Built for educational purposes.",
+      "downloads_total": 1542,
+      "downloads_version": 679,
+      "classification": "need-related",
+      "source_query": "json parser"
+    },
+    {
+      "name": "fluent-plugin-lazy-json-parser",
+      "description": "fluentd plugin to json parse single field if possible or simply forward the data if impossible. Can also combine log structure into single field",
+      "downloads_total": 13167,
+      "downloads_version": 6069,
+      "classification": "need-related",
+      "source_query": "json parser"
+    },
+    {
+      "name": "json_schema_ref_parser",
+      "description": "Resolves references ($ref) to local yaml files and returns a single hash object",
+      "downloads_total": 3698,
+      "downloads_version": 3698,
+      "classification": "need-related",
+      "source_query": "json parser"
+    },
+    {
+      "name": "fast_jsonparser",
+      "description": "Fast Json Parser",
+      "downloads_total": 892440,
+      "downloads_version": 747290,
+      "classification": "need-related",
+      "source_query": "json parser"
+    }
+  ]
+}

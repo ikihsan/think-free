@@ -1,0 +1,28 @@
+{
+  "rows": 13,
+  "fetch_errors": [],
+  "median_term_coverage": 0.625,
+  "rows_term_coverage_ge_half": 9,
+  "rows_term_coverage_zero": 2,
+  "median_longest_shared_run": 0,
+  "rows_shared_run_ge_3": 0,
+  "rows_literal_fully_contained": 4,
+  "by_literal_type": {
+    "error_message": {
+      "n": 6,
+      "cov_ge_half": 3
+    },
+    "ui_string": {
+      "n": 2,
+      "cov_ge_half": 1
+    },
+    "code_token": {
+      "n": 1,
+      "cov_ge_half": 1
+    },
+    "symptom_only": {
+      "n": 4,
+      "cov_ge_half": 4
+    }
+  }
+}

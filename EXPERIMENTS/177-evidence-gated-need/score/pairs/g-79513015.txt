@@ -1,0 +1,53 @@
+pid: g-79513015
+
+=== LEFT ===
+These are editor and tooling complaints, not Tailwind errors. VS Code's built-in CSS servi
+ce does not know Tailwind's v4 at-rules; install or update the Tailwind CSS IntelliSense e
+xtension, or set 'css.lint.unknownAtRules': 'ignore' in VS Code settings to silence it. If
+ Tailwind is actually failing to build, the usual cause is still using the old PostCSS plu
+gin: in v4 you must use @tailwindcss/postcss in postcss.config (or the @tailwindcss/vite p
+lugin), and @import 'tailwindcss' replaces the three @tailwind directives. Verify by runni
+ng the dev server and inspecting the emitted CSS for utility classes; if they are present,
+ only your editor is unhappy.
+
+=== RIGHT ===
+These are custom TailwindCSS directives that CSS IDEs don't understand by default. For VSC
+ode, use the official TailwindCSS IntelliSense extension. 
+ 
+ TailwindCSS IntelliSense - VSCode Marketplace 
+ 
+ After that, tell VSCode that you want to treat your .css files as TailwindCSS. You can do
+ this in the settings under files.associations like this: 
+ {
+ "files.associations": {
+ "*.css": "tailwindcss",
+ "*.scss": "tailwindcss",
+ },
+}
+ 
+ 
+ Recommended VSCode settings for TailwindCSS IntelliSense - GitHub 
+ 
+ Since these are just IDE error messages, the code will work as expected if you have prope
+rly installed TailwindCSS. However, they can be frustrating, so it is definitely recommend
+ed to use the extension. 
+ Known Issues 
+ 
+ Auto-completion and suggestions not working with TailwindCSS v4 - StackOverflow 
+ 
+ It may happen that the syntax highlighting for the mentioned syntax will not work properl
+y with the solution, this is a known issue: 
+ 
+ tailwindlabs/tailwindcss-intellisense issue #1250 - GitHub 
+ 
+
+ .css 
+ files.associations 
+ {
+ "files.associations": {
+ "*.css": "tailwindcss",
+ "*.scss": "tailwindcss",
+ },
+}
+ 
+ tailwindlabs/tailwindcss-intellisense

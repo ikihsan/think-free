@@ -1,0 +1,503 @@
+{
+ "arms": 71,
+ "plan": [
+  {
+   "arm": "A1_global",
+   "has_number": false,
+   "qid": "79324837",
+   "query": "rstudio console up arrow history not working",
+   "target": "rstudio/rstudio#7945"
+  },
+  {
+   "arm": "A1_repo",
+   "has_number": false,
+   "qid": "79324837",
+   "query": "repo:rstudio/rstudio rstudio console up arrow history not working",
+   "target": "rstudio/rstudio#7945"
+  },
+  {
+   "arm": "A2_global",
+   "has_number": false,
+   "qid": "79324837",
+   "query": "console up arrow history not working",
+   "target": "rstudio/rstudio#7945"
+  },
+  {
+   "arm": "A1_global",
+   "has_number": false,
+   "qid": "79327621",
+   "query": "paste slow delay visual studio code",
+   "target": "microsoft/vscode#235959"
+  },
+  {
+   "arm": "A1_repo",
+   "has_number": false,
+   "qid": "79327621",
+   "query": "repo:microsoft/vscode paste slow delay visual studio code",
+   "target": "microsoft/vscode#235959"
+  },
+  {
+   "arm": "A2_global",
+   "has_number": false,
+   "qid": "79327621",
+   "query": "paste slow delay visual studio code",
+   "target": "microsoft/vscode#235959"
+  },
+  {
+   "arm": "A0_bare_global",
+   "has_number": false,
+   "qid": "79344101",
+   "query": "Docker.app will damage your computer",
+   "target": "docker/for-mac#7520"
+  },
+  {
+   "arm": "A0_quoted_global",
+   "has_number": false,
+   "qid": "79344101",
+   "query": "\"Docker.app will damage your computer\"",
+   "target": "docker/for-mac#7520"
+  },
+  {
+   "arm": "A0_bare_repo",
+   "has_number": false,
+   "qid": "79344101",
+   "query": "repo:docker/for-mac Docker.app will damage your computer",
+   "target": "docker/for-mac#7520"
+  },
+  {
+   "arm": "A0_quoted_repo",
+   "has_number": false,
+   "qid": "79344101",
+   "query": "repo:docker/for-mac \"Docker.app will damage your computer\"",
+   "target": "docker/for-mac#7520"
+  },
+  {
+   "arm": "A1_global",
+   "has_number": false,
+   "qid": "79344101",
+   "query": "Docker.app will damage your computer",
+   "target": "docker/for-mac#7520"
+  },
+  {
+   "arm": "A1_repo",
+   "has_number": false,
+   "qid": "79344101",
+   "query": "repo:docker/for-mac Docker.app will damage your computer",
+   "target": "docker/for-mac#7520"
+  },
+  {
+   "arm": "A2_global",
+   "has_number": false,
+   "qid": "79344101",
+   "query": "will damage your computer",
+   "target": "docker/for-mac#7520"
+  },
+  {
+   "arm": "A1_global",
+   "has_number": true,
+   "qid": "79429899",
+   "query": "IsNullOrEmpty Microsoft.Identity.Web 3.7.0 removed",
+   "target": "AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet#1722"
+  },
+  {
+   "arm": "A1_repo",
+   "has_number": true,
+   "qid": "79429899",
+   "query": "repo:AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet IsNullOrEmpty Microsoft.Identity.Web 3.7.0 removed",
+   "target": "AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet#1722"
+  },
+  {
+   "arm": "A2_global",
+   "has_number": true,
+   "qid": "79429899",
+   "query": "IsNullOrEmpty Microsoft.Identity.Web 3.7.0 removed",
+   "target": "AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet#1722"
+  },
+  {
+   "arm": "A0_bare_global",
+   "has_number": true,
+   "qid": "79550279",
+   "query": "Library not loaded: @rpath/libgfortran.5.dylib",
+   "target": "conda-forge/numpy-feedstock#347"
+  },
+  {
+   "arm": "A0_quoted_global",
+   "has_number": true,
+   "qid": "79550279",
+   "query": "\"Library not loaded: @rpath/libgfortran.5.dylib\"",
+   "target": "conda-forge/numpy-feedstock#347"
+  },
+  {
+   "arm": "A0_bare_repo",
+   "has_number": true,
+   "qid": "79550279",
+   "query": "repo:conda-forge/numpy-feedstock Library not loaded: @rpath/libgfortran.5.dylib",
+   "target": "conda-forge/numpy-feedstock#347"
+  },
+  {
+   "arm": "A0_quoted_repo",
+   "has_number": true,
+   "qid": "79550279",
+   "query": "repo:conda-forge/numpy-feedstock \"Library not loaded: @rpath/libgfortran.5.dylib\"",
+   "target": "conda-forge/numpy-feedstock#347"
+  },
+  {
+   "arm": "A1_global",
+   "has_number": true,
+   "qid": "79550279",
+   "query": "Library not loaded @rpath/libgfortran.5.dylib numpy macOS",
+   "target": "conda-forge/numpy-feedstock#347"
+  },
+  {
+   "arm": "A1_repo",
+   "has_number": true,
+   "qid": "79550279",
+   "query": "repo:conda-forge/numpy-feedstock Library not loaded @rpath/libgfortran.5.dylib numpy macOS",
+   "target": "conda-forge/numpy-feedstock#347"
+  },
+  {
+   "arm": "A2_global",
+   "has_number": true,
+   "qid": "79550279",
+   "query": "Library not loaded @rpath/libgfortran.5.dylib numpy macOS",
+   "target": "conda-forge/numpy-feedstock#347"
+  },
+  {
+   "arm": "A0_bare_global",
+   "has_number": false,
+   "qid": "79551968",
+   "query": "A template argument list is expected after a name prefixed by the template keyword",
+   "target": "firebase/firebase-ios-sdk#14643"
+  },
+  {
+   "arm": "A0_quoted_global",
+   "has_number": false,
+   "qid": "79551968",
+   "query": "\"A template argument list is expected after a name prefixed by the template keyword\"",
+   "target": "firebase/firebase-ios-sdk#14643"
+  },
+  {
+   "arm": "A0_bare_repo",
+   "has_number": false,
+   "qid": "79551968",
+   "query": "repo:firebase/firebase-ios-sdk A template argument list is expected after a name prefixed by the template keyword",
+   "target": "firebase/firebase-ios-sdk#14643"
+  },
+  {
+   "arm": "A0_quoted_repo",
+   "has_number": false,
+   "qid": "79551968",
+   "query": "repo:firebase/firebase-ios-sdk \"A template argument list is expected after a name prefixed by the template keyword\"",
+   "target": "firebase/firebase-ios-sdk#14643"
+  },
+  {
+   "arm": "A1_global",
+   "has_number": true,
+   "qid": "79551968",
+   "query": "gRPC-Core Xcode 16.3 template keyword argument list",
+   "target": "firebase/firebase-ios-sdk#14643"
+  },
+  {
+   "arm": "A1_repo",
+   "has_number": true,
+   "qid": "79551968",
+   "query": "repo:firebase/firebase-ios-sdk gRPC-Core Xcode 16.3 template keyword argument list",
+   "target": "firebase/firebase-ios-sdk#14643"
+  },
+  {
+   "arm": "A2_global",
+   "has_number": true,
+   "qid": "79551968",
+   "query": "gRPC-Core Xcode 16.3 template keyword argument list",
+   "target": "firebase/firebase-ios-sdk#14643"
+  },
+  {
+   "arm": "A1_global",
+   "has_number": true,
+   "qid": "79642080",
+   "query": "Claude Sonnet 4 not showing up model list Anthropic bring your own key",
+   "target": "microsoft/vscode#255783"
+  },
+  {
+   "arm": "A1_repo",
+   "has_number": true,
+   "qid": "79642080",
+   "query": "repo:microsoft/vscode Claude Sonnet 4 not showing up model list Anthropic bring your own key",
+   "target": "microsoft/vscode#255783"
+  },
+  {
+   "arm": "A2_global",
+   "has_number": true,
+   "qid": "79642080",
+   "query": "Claude Sonnet 4 not showing up model list Anthropic bring your own key",
+   "target": "microsoft/vscode#255783"
+  },
+  {
+   "arm": "A0_bare_global",
+   "has_number": true,
+   "qid": "79671399",
+   "query": "UpdateService error: The operation couldn't be completed. (OSStatus error -60006.)",
+   "target": "microsoft/vscode#7426"
+  },
+  {
+   "arm": "A0_quoted_global",
+   "has_number": true,
+   "qid": "79671399",
+   "query": "\"UpdateService error: The operation couldn't be completed. (OSStatus error -60006.)\"",
+   "target": "microsoft/vscode#7426"
+  },
+  {
+   "arm": "A0_bare_repo",
+   "has_number": true,
+   "qid": "79671399",
+   "query": "repo:microsoft/vscode UpdateService error: The operation couldn't be completed. (OSStatus error -60006.)",
+   "target": "microsoft/vscode#7426"
+  },
+  {
+   "arm": "A0_quoted_repo",
+   "has_number": true,
+   "qid": "79671399",
+   "query": "repo:microsoft/vscode \"UpdateService error: The operation couldn't be completed. (OSStatus error -60006.)\"",
+   "target": "microsoft/vscode#7426"
+  },
+  {
+   "arm": "A1_global",
+   "has_number": true,
+   "qid": "79671399",
+   "query": "UpdateService error OSStatus -60006",
+   "target": "microsoft/vscode#7426"
+  },
+  {
+   "arm": "A1_repo",
+   "has_number": true,
+   "qid": "79671399",
+   "query": "repo:microsoft/vscode UpdateService error OSStatus -60006",
+   "target": "microsoft/vscode#7426"
+  },
+  {
+   "arm": "A2_global",
+   "has_number": true,
+   "qid": "79671399",
+   "query": "UpdateService error OSStatus -60006",
+   "target": "microsoft/vscode#7426"
+  },
+  {
+   "arm": "A0_bare_global",
+   "has_number": false,
+   "qid": "79674579",
+   "query": "Could not find file 'app.component.ts'",
+   "target": "dotnet/aspnetcore#62258"
+  },
+  {
+   "arm": "A0_quoted_global",
+   "has_number": false,
+   "qid": "79674579",
+   "query": "\"Could not find file 'app.component.ts'\"",
+   "target": "dotnet/aspnetcore#62258"
+  },
+  {
+   "arm": "A0_bare_repo",
+   "has_number": false,
+   "qid": "79674579",
+   "query": "repo:dotnet/aspnetcore Could not find file 'app.component.ts'",
+   "target": "dotnet/aspnetcore#62258"
+  },
+  {
+   "arm": "A0_quoted_repo",
+   "has_number": false,
+   "qid": "79674579",
+   "query": "repo:dotnet/aspnetcore \"Could not find file 'app.component.ts'\"",
+   "target": "dotnet/aspnetcore#62258"
+  },
+  {
+   "arm": "A1_global",
+   "has_number": false,
+   "qid": "79674579",
+   "query": "Could not find file app.component.ts Angular visual studio project",
+   "target": "dotnet/aspnetcore#62258"
+  },
+  {
+   "arm": "A1_repo",
+   "has_number": false,
+   "qid": "79674579",
+   "query": "repo:dotnet/aspnetcore Could not find file app.component.ts Angular visual studio project",
+   "target": "dotnet/aspnetcore#62258"
+  },
+  {
+   "arm": "A2_global",
+   "has_number": false,
+   "qid": "79674579",
+   "query": "Could not find file app.component.ts Angular visual studio project",
+   "target": "dotnet/aspnetcore#62258"
+  },
+  {
+   "arm": "A0_bare_global",
+   "has_number": false,
+   "qid": "79768764",
+   "query": "Unable to find a destination matching the provided destination specifier",
+   "target": "flutter/flutter#163984"
+  },
+  {
+   "arm": "A0_quoted_global",
+   "has_number": false,
+   "qid": "79768764",
+   "query": "\"Unable to find a destination matching the provided destination specifier\"",
+   "target": "flutter/flutter#163984"
+  },
+  {
+   "arm": "A0_bare_repo",
+   "has_number": false,
+   "qid": "79768764",
+   "query": "repo:flutter/flutter Unable to find a destination matching the provided destination specifier",
+   "target": "flutter/flutter#163984"
+  },
+  {
+   "arm": "A0_quoted_repo",
+   "has_number": false,
+   "qid": "79768764",
+   "query": "repo:flutter/flutter \"Unable to find a destination matching the provided destination specifier\"",
+   "target": "flutter/flutter#163984"
+  },
+  {
+   "arm": "A1_global",
+   "has_number": false,
+   "qid": "79768764",
+   "query": "Unable to find a destination matching the provided destination specifier",
+   "target": "flutter/flutter#163984"
+  },
+  {
+   "arm": "A1_repo",
+   "has_number": false,
+   "qid": "79768764",
+   "query": "repo:flutter/flutter Unable to find a destination matching the provided destination specifier",
+   "target": "flutter/flutter#163984"
+  },
+  {
+   "arm": "A2_global",
+   "has_number": false,
+   "qid": "79768764",
+   "query": "Unable to find a destination matching the provided destination specifier",
+   "target": "flutter/flutter#163984"
+  },
+  {
+   "arm": "A0_bare_global",
+   "has_number": false,
+   "qid": "79821337",
+   "query": "Data grid",
+   "target": "microsoft/vscode-data-wrangler#586"
+  },
+  {
+   "arm": "A0_quoted_global",
+   "has_number": false,
+   "qid": "79821337",
+   "query": "\"Data grid\"",
+   "target": "microsoft/vscode-data-wrangler#586"
+  },
+  {
+   "arm": "A0_bare_repo",
+   "has_number": false,
+   "qid": "79821337",
+   "query": "repo:microsoft/vscode-data-wrangler Data grid",
+   "target": "microsoft/vscode-data-wrangler#586"
+  },
+  {
+   "arm": "A0_quoted_repo",
+   "has_number": false,
+   "qid": "79821337",
+   "query": "repo:microsoft/vscode-data-wrangler \"Data grid\"",
+   "target": "microsoft/vscode-data-wrangler#586"
+  },
+  {
+   "arm": "A1_global",
+   "has_number": false,
+   "qid": "79821337",
+   "query": "Data Wrangler shows \"Data grid\" instead of dataframe name",
+   "target": "microsoft/vscode-data-wrangler#586"
+  },
+  {
+   "arm": "A1_repo",
+   "has_number": false,
+   "qid": "79821337",
+   "query": "repo:microsoft/vscode-data-wrangler Data Wrangler shows \"Data grid\" instead of dataframe name",
+   "target": "microsoft/vscode-data-wrangler#586"
+  },
+  {
+   "arm": "A2_global",
+   "has_number": false,
+   "qid": "79821337",
+   "query": "Data Wrangler shows \"Data grid\" instead of dataframe name",
+   "target": "microsoft/vscode-data-wrangler#586"
+  },
+  {
+   "arm": "A0_bare_global",
+   "has_number": false,
+   "qid": "79826631",
+   "query": "certificate verify failed (unable to get certificate CRL)",
+   "target": "openssl/openssl#28758"
+  },
+  {
+   "arm": "A0_quoted_global",
+   "has_number": false,
+   "qid": "79826631",
+   "query": "\"certificate verify failed (unable to get certificate CRL)\"",
+   "target": "openssl/openssl#28758"
+  },
+  {
+   "arm": "A0_bare_repo",
+   "has_number": false,
+   "qid": "79826631",
+   "query": "repo:openssl/openssl certificate verify failed (unable to get certificate CRL)",
+   "target": "openssl/openssl#28758"
+  },
+  {
+   "arm": "A0_quoted_repo",
+   "has_number": false,
+   "qid": "79826631",
+   "query": "repo:openssl/openssl \"certificate verify failed (unable to get certificate CRL)\"",
+   "target": "openssl/openssl#28758"
+  },
+  {
+   "arm": "A1_global",
+   "has_number": false,
+   "qid": "79826631",
+   "query": "ruby OpenSSL certificate verify failed unable to get certificate CRL",
+   "target": "openssl/openssl#28758"
+  },
+  {
+   "arm": "A1_repo",
+   "has_number": false,
+   "qid": "79826631",
+   "query": "repo:openssl/openssl ruby OpenSSL certificate verify failed unable to get certificate CRL",
+   "target": "openssl/openssl#28758"
+  },
+  {
+   "arm": "A2_global",
+   "has_number": false,
+   "qid": "79826631",
+   "query": "ruby certificate verify failed unable to get certificate CRL",
+   "target": "openssl/openssl#28758"
+  },
+  {
+   "arm": "A1_global",
+   "has_number": false,
+   "qid": "79888998",
+   "query": "Ollama models missing from Copilot Chat model selection menu",
+   "target": "microsoft/vscode-copilot-chat#3566"
+  },
+  {
+   "arm": "A1_repo",
+   "has_number": false,
+   "qid": "79888998",
+   "query": "repo:microsoft/vscode-copilot-chat Ollama models missing from Copilot Chat model selection menu",
+   "target": "microsoft/vscode-copilot-chat#3566"
+  },
+  {
+   "arm": "A2_global",
+   "has_number": false,
+   "qid": "79888998",
+   "query": "Ollama models missing from Copilot Chat model selection menu",
+   "target": "microsoft/vscode-copilot-chat#3566"
+  }
+ ],
+ "rows": 13
+}

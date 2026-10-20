@@ -1,0 +1,121 @@
+pid: g-79383758
+
+=== LEFT ===
+Tailwind v4 is configured in CSS, not JS: there is no tailwind.config.js unless you ask fo
+r one. Put settings in the stylesheet, for example @import 'tailwindcss'; then @theme { --
+breakpoint-xl: 80rem; } for breakpoints, and for container-like behaviour either write you
+r own with @utility container { margin-inline: auto; width: 100%; max-width: var(--contain
+er-xl); } or just use mx-auto plus a max-w-* utility. For custom component classes with re
+sponsive and hover variants, define them in a @layer components block and use @apply md:fl
+ex hover:text-slate-500 inside, which keeps variants working. Arbitrary variants (md:, hov
+er:) work on any class you author yourself.
+
+=== RIGHT ===
+New "CSS-first" configuration from v4 (instead of tailwind.config.js ) 
+ 
+ CSS-First Configuration : Customize and extend the framework directly in CSS instead of J
+avaScript. 
+ 
+ 
+ Which TailwindCSS v4 namespace matches a given TailwindCSS v3's theme keys? 
+ 
+ With TailwindCSS v4, you have the option to omit the tailwind.config.js file. You can fin
+d many new directives, such as @theme , which allows you to declare your custom settings d
+irectly in your CSS file, or @plugin , which lets you import TailwindCSS v4-compatible plu
+gins directly in your CSS file. 
+ I won't list all the new directives, but you can check them out here: 
+ 
+ Functions and directives - TailwindCSS v4 Docs 
+ 
+ 
+ Customizing your theme 
+ If you want to change things like your color palette, spacing scale, typography scale, or
+ breakpoints, add your customizations using the @theme directive in your CSS: 
+ @theme {
+ --font-display: "Satoshi", "sans-serif";
+ --breakpoint-3xl: 1920px;
+ --color-avocado-100: oklch(0.99 0 0);
+ --color-avocado-200: oklch(0.98 0.04 113.22);
+ --color-avocado-300: oklch(0.94 0.11 115.03);
+ --color-avocado-400: oklch(0.92 0.19 114.08);
+ --color-avocado-500: oklch(0.84 0.18 117.33);
+ --color-avocado-600: oklch(0.53 0.12 118.34);
+ --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+ --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+ /* ... */
+}
+ 
+ Learn more about customizing your theme in the theme variables documentation . 
+ 
+ 
+ Which TailwindCSS v4 namespace matches a given TailwindCSS v3's theme keys? 
+ Adding Custom Styles: Customizing your theme - TailwindCSS v4 Docs 
+ 
+ 
+ @plugin 
+ Use the @plugin directive to load a legacy JavaScript-based plugin: 
+ @plugin "@tailwindcss/typography";
+ 
+ The @plugin directive accepts either a package name or a local path. 
+ 
+ 
+ @plugin directive - TailwindCSS v4 Docs 
+ 
+ Related questions/answers for new CSS-first theme handling: 
+ 
+ How to use custom color themes in TailwindCSS v4 
+ How to override theme variables in TailwindCSS v4 - @theme vs @layer theme vs :root 
+ When should I use * and when should I use :root, :host as the parent selector? 
+ Should I use @theme or @theme inline ? 
+ How to switch to a CSS-first configuration in Tailwind CSS v4 and above 
+ 
+ TailwindCSS v4 is backwards compatible with v3 
+ 
+ Using a JavaScript config file 
+ JavaScript config files are still supported for backward compatibility, but they are no l
+onger detected automatically in v4. 
+ If you still need to use a JavaScript config file, you can load it explicitly using the @
+config directive: 
+ @config "../../tailwind.config.js";
+ 
+ 
+ 
+ Using a JavaScript config file - TailwindCSS v4 Update Guide 
+ 
+ The configuration setting has changed by default. However, you have the option to declare
+ the location of your tailwind.config.js file using a relative path in your default CSS fi
+le so you can use it again. 
+
+ tailwind.config.js 
+ @theme 
+ @plugin 
+ @theme 
+ @theme {
+ --font-display: "Satoshi", "sans-serif";
+ --breakpoint-3xl: 1920px;
+ --color-avocado-100: oklch(0.99 0 0);
+ --color-avocado-200: oklch(0.98 0.04 113.22);
+ --color-avocado-300: oklch(0.94 0.11 115.03);
+ --color-avocado-400: oklch(0.92 0.19 114.08);
+ --color-avocado-500: oklch(0.84 0.18 117.33);
+ --color-avocado-600: oklch(0.53 0.12 118.34);
+ --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+ --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+ /* ... */
+}
+ 
+ @plugin 
+ @plugin "@tailwindcss/typography";
+ 
+ @plugin 
+ @plugin 
+ @theme 
+ @layer theme 
+ :root 
+ * 
+ :root, :host 
+ @theme 
+ @theme inline 
+ @config "../../tailwind.config.js";
+ 
+ tailwind.config.js

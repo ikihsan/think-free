@@ -1,0 +1,492 @@
+pid: g-79533324
+
+=== LEFT ===
+Your find directive is wrong: config is itself a package directory, not a folder containin
+g packages, and where must list roots. Use a flat layout where the project root holds the 
+packages, for example [tool.setuptools.packages.find] where = ['.'] include = ['config*','
+packages*'] with a matching package-dir, or a src layout where = ['packages/src'] and move
+ config under packages/src. Also note that a top-level module named config is a bad global
+ name likely to collide with other packages. A cleaner option is hatchling with [tool.hatc
+h.build.targets.wheel] packages = ['config','packages/src'], or a single src/ layout, and 
+renaming config to yourapp.config. Finally, uv pip install -e . only helps if you run the 
+script with that interpreter.
+
+=== RIGHT ===
+The correct pyproject.toml file for your case will be: 
+ [project]
+name = "dashboard"
+version = "0.1.0"
+description = "Dashboard with modular packages"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+dashboard-ingest = "services.data_ingestion.ingest_data:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["config", "packages/src", "services"]
+include = ["*"]
+exclude = ["tests*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["config", "packages/src", "services"]
+ 
+ You need [tool.pytest.ini_options] so that pytest can find your packages.
+The where = ["config", "packages/src", "services"] tells setuptools where to search for ne
+w modules. 
+ It is very important, where you place a __init__.py so that the module system works
+correctly. 
+ You can create your project structure by: 
+ # Step 1: Create base project folder and enter it
+mkdir dashboard
+cd dashboard
+
+# Step 2: Create required folders
+mkdir -p config
+mkdir -p services/data_ingestion
+mkdir -p packages/src/pkg1
+mkdir -p packages/src/pkg2
+mkdir -p tests
+
+# Step 3: Create __init__.py files
+touch config/__init__.py
+touch services/data_ingestion/__init__.py
+touch packages/src/__init__.py
+touch packages/src/pkg1/__init__.py
+touch packages/src/pkg2/__init__.py
+ 
+ And you can try this: 
+ nano config/connection_config.py and save this: 
+ def get_connection_info():
+ return {"host": "localhost", "port": 5432}
+ 
+ nano packages/src/pkg1/utils.py and save: 
+ def fetch_data(connection):
+ return f"Fetched data from {connection['host']}:{connection['port']}"
+ 
+ nano packages/src/pkg2/core.py and save: 
+ def process_data(data):
+ return f"Processed: {data}"
+ 
+ nano services/data_ingestion/ingest_data.py and save: 
+ from config.connection_config import get_connection_info
+from pkg1.utils import fetch_data
+from pkg2.core import process_data
+
+def ingest():
+ conn = get_connection_info()
+ raw_data = fetch_data(conn)
+ return process_data(raw_data)
+
+def main():
+ result = ingest()
+ print(f"Data ingestion result: {result}")
+ 
+ So as you can see, the config and pkg1 , pkg2 are on the primary level.
+Not under dashboard , so not from dashboard.config.connection_config import get_connection
+_info . 
+ You can add a test repository by: 
+ nano tests/test_ingest.py 
+ from services.data_ingestion.ingest_data import ingest
+
+def test_ingest_returns_something():
+ result = ingest()
+ assert result is not None
+ 
+ The 
+ [project.scripts]
+dashboard-ingest = "services.data_ingestion.ingest_data:main"
+ 
+ allows you to start the main function in the ingest_data file directly
+from the command line - this is very cool with uv .
+And you can write more such CLI commands by adding such definitions.
+Note, you have to give the full path connected with . to the file.
+Starting from the points you have given under where = .
+But this works only from inside the folder - because you need to be in that virtual enviro
+nment from uv . 
+ For me, my brain wants to import always starting from dashboard . But setuptools doesn't 
+start from the outer folder but from where we told it to start to look for.
+This is the reason, why mostly the setting is:
+ src/dashboard/ and then to put everything inside src/dashboard/ , the config , packages ,
+ services .
+And to set as entry point where = "src" .
+In this way, you would import starting from import dashboard 
+and all the other ocmponents would be then submodules from dashboard : dashboard.config. .
+.. , dashboard.services. ... and so on.
+So maybe this is the more logical structuring which you had actually in mind? 
+ Also I find it quite arbitrary, why you do packages/src/ while not services/src/ . 
+ More logical package structure 
+ # Step 1: Create root project folder and go inside
+mkdir dashboard && cd dashboard
+
+# Step 2: Create src layout
+mkdir -p src/dashboard/config
+mkdir -p src/dashboard/packages/pkg1
+mkdir -p src/dashboard/packages/pkg2
+mkdir -p src/dashboard/services/data_ingestion
+mkdir -p tests
+
+# Step 3: Create __init__.py files
+touch src/dashboard/__init__.py
+touch src/dashboard/config/__init__.py
+touch src/dashboard/packages/__init__.py
+touch src/dashboard/packages/pkg1/__init__.py
+touch src/dashboard/packages/pkg2/__init__.py
+touch src/dashboard/services/__init__.py
+touch src/dashboard/services/data_ingestion/__init__.py
+ 
+ And the file contents: 
+ File pyproject.toml 
+ [project]
+name = "dashboard"
+version = "0.1.0"
+description = "Clean src-based dashboard"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+dashboard-ingest = "dashboard.services.data_ingestion.ingest_data:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["dashboard*"]
+exclude = ["tests*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+ 
+ File src/dashboard/ init .py 
+ from . import config, packages, services
+ 
+ File src/dashboard/config/ init .py 
+ from .connection_config import get_connection_info
+ 
+ File src/dashboard/config/connection_config.py 
+ def get_connection_info():
+ return {"host": "localhost", "port": 5432}
+ 
+ File src/dashboard/packages/ init .py 
+ from . import pkg1, pkg2
+ 
+ File src/dashboard/packages/pkg1/ init .py 
+ from .utils import fetch_data
+ 
+ File src/dashboard/packages/pkg1/utils.py 
+ def fetch_data(connection):
+ return f"Fetched data from {connection['host']}:{connection['port']}"
+ 
+ File lang-src/dashboard/packages/pkg2/ init .py 
+ from .core import process_data
+ 
+ File src/dashboard/packages/pkg2/core.py 
+ def process_data(data):
+ return f"Processed: {data}"
+ 
+ File src/dashboard/services/ init .py 
+ from . import data_ingestion
+ 
+ File src/dashboard/services/data_ingestion/ init .py 
+ from .ingest_data import ingest
+ 
+ File src/dashboard/services/data_ingestion/ingest_data.py 
+ from dashboard.config import get_connection_info
+from dashboard.packages.pkg1 import fetch_data
+from dashboard.packages.pkg2 import process_data
+
+def ingest():
+ conn = get_connection_info()
+ raw_data = fetch_data(conn)
+ return process_data(raw_data)
+
+def main():
+ result = ingest()
+ print(f"Ingestion Result: {result}")
+ 
+ File tests/test_ingest.py 
+ from dashboard.services.data_ingestion import ingest
+
+def test_ingest():
+ result = ingest()
+ assert "Processed: Fetched" in result
+ 
+ Install by: 
+ uv pip install -e .
+uv pip install pytest
+ 
+ Run the test by: 
+ pytest
+ 
+ The output should be like: 
+ ============================================= test session starts =======================
+=======================
+platform darwin -- Python 3.12.2, pytest-8.3.5, pluggy-1.5.0
+rootdir: ~/projects/python/dashboard
+configfile: pyproject.toml
+collected 1 item
+
+tests/test_ingest.py . [100%]
+
+============================================== 1 passed in 0.01s =========================
+======================
+ 
+ The [project.scripts] sections makes an entry into
+ ~/.venv/bin/ under the command name dashboard-ingest , thus creates an executable file:
+ ~/.venv/bin/dashboard-ingest 
+with a script to run it. 
+ #!/Users/josephus/.venv/bin/python3
+# -*- coding: utf-8 -*-
+import sys
+from dashboard.services.data_ingestion import main
+if __name__ == "__main__":
+ if sys.argv[0].endswith("-script.pyw"):
+ sys.argv[0] = sys.argv[0][:-11]
+ elif sys.argv[0].endswith(".exe"):
+ sys.argv[0] = sys.argv[0][:-4]
+ sys.exit(main())
+ 
+ Since ~/.venv/bin is added to your PATH variable when you installed uv (by using the glob
+al script, not by pip install uv or within a virtual environment), you can call the CLI co
+mmand from everywhere after the install! 
+ So, finally you would have a more logical package structure.
+Although for this, you have to make some entries into the __init__.py files—some imports—t
+o manipulate the final composition of the namespace (e.g., you don't want certain file nam
+es to appear in the module structure visible from the outside). 
+
+ [project]
+name = "dashboard"
+version = "0.1.0"
+description = "Dashboard with modular packages"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+dashboard-ingest = "services.data_ingestion.ingest_data:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["config", "packages/src", "services"]
+include = ["*"]
+exclude = ["tests*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["config", "packages/src", "services"]
+ 
+ [tool.pytest.ini_options] 
+ pytest 
+ where = ["config", "packages/src", "services"] 
+ setuptools 
+ __init__.py 
+ # Step 1: Create base project folder and enter it
+mkdir dashboard
+cd dashboard
+
+# Step 2: Create required folders
+mkdir -p config
+mkdir -p services/data_ingestion
+mkdir -p packages/src/pkg1
+mkdir -p packages/src/pkg2
+mkdir -p tests
+
+# Step 3: Create __init__.py files
+touch config/__init__.py
+touch services/data_ingestion/__init__.py
+touch packages/src/__init__.py
+touch packages/src/pkg1/__init__.py
+touch packages/src/pkg2/__init__.py
+ 
+ nano config/connection_config.py 
+ def get_connection_info():
+ return {"host": "localhost", "port": 5432}
+ 
+ nano packages/src/pkg1/utils.py 
+ def fetch_data(connection):
+ return f"Fetched data from {connection['host']}:{connection['port']}"
+ 
+ nano packages/src/pkg2/core.py 
+ def process_data(data):
+ return f"Processed: {data}"
+ 
+ nano services/data_ingestion/ingest_data.py 
+ from config.connection_config import get_connection_info
+from pkg1.utils import fetch_data
+from pkg2.core import process_data
+
+def ingest():
+ conn = get_connection_info()
+ raw_data = fetch_data(conn)
+ return process_data(raw_data)
+
+def main():
+ result = ingest()
+ print(f"Data ingestion result: {result}")
+ 
+ config 
+ pkg1 
+ pkg2 
+ dashboard 
+ from dashboard.config.connection_config import get_connection_info 
+ nano tests/test_ingest.py 
+ from services.data_ingestion.ingest_data import ingest
+
+def test_ingest_returns_something():
+ result = ingest()
+ assert result is not None
+ 
+ [project.scripts]
+dashboard-ingest = "services.data_ingestion.ingest_data:main"
+ 
+ main 
+ ingest_data 
+ uv 
+ . 
+ where = 
+ uv 
+ dashboard 
+ setuptools 
+ src/dashboard/ 
+ src/dashboard/ 
+ config 
+ packages 
+ services 
+ where = "src" 
+ import dashboard 
+ dashboard 
+ dashboard.config. ... 
+ dashboard.services. ... 
+ packages/src/ 
+ services/src/ 
+ # Step 1: Create root project folder and go inside
+mkdir dashboard && cd dashboard
+
+# Step 2: Create src layout
+mkdir -p src/dashboard/config
+mkdir -p src/dashboard/packages/pkg1
+mkdir -p src/dashboard/packages/pkg2
+mkdir -p src/dashboard/services/data_ingestion
+mkdir -p tests
+
+# Step 3: Create __init__.py files
+touch src/dashboard/__init__.py
+touch src/dashboard/config/__init__.py
+touch src/dashboard/packages/__init__.py
+touch src/dashboard/packages/pkg1/__init__.py
+touch src/dashboard/packages/pkg2/__init__.py
+touch src/dashboard/services/__init__.py
+touch src/dashboard/services/data_ingestion/__init__.py
+ 
+ [project]
+name = "dashboard"
+version = "0.1.0"
+description = "Clean src-based dashboard"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+dashboard-ingest = "dashboard.services.data_ingestion.ingest_data:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["dashboard*"]
+exclude = ["tests*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+ 
+ from . import config, packages, services
+ 
+ from .connection_config import get_connection_info
+ 
+ def get_connection_info():
+ return {"host": "localhost", "port": 5432}
+ 
+ from . import pkg1, pkg2
+ 
+ from .utils import fetch_data
+ 
+ def fetch_data(connection):
+ return f"Fetched data from {connection['host']}:{connection['port']}"
+ 
+ from .core import process_data
+ 
+ def process_data(data):
+ return f"Processed: {data}"
+ 
+ from . import data_ingestion
+ 
+ from .ingest_data import ingest
+ 
+ from dashboard.config import get_connection_info
+from dashboard.packages.pkg1 import fetch_data
+from dashboard.packages.pkg2 import process_data
+
+def ingest():
+ conn = get_connection_info()
+ raw_data = fetch_data(conn)
+ return process_data(raw_data)
+
+def main():
+ result = ingest()
+ print(f"Ingestion Result: {result}")
+ 
+ from dashboard.services.data_ingestion import ingest
+
+def test_ingest():
+ result = ingest()
+ assert "Processed: Fetched" in result
+ 
+ uv pip install -e .
+uv pip install pytest
+ 
+ pytest
+ 
+ ============================================= test session starts =======================
+=======================
+platform darwin -- Python 3.12.2, pytest-8.3.5, pluggy-1.5.0
+rootdir: ~/projects/python/dashboard
+configfile: pyproject.toml
+collected 1 item
+
+tests/test_ingest.py . [100%]
+
+============================================== 1 passed in 0.01s =========================
+======================
+ 
+ [project.scripts] 
+ ~/.venv/bin/ 
+ dashboard-ingest 
+ ~/.venv/bin/dashboard-ingest 
+ #!/Users/josephus/.venv/bin/python3
+# -*- coding: utf-8 -*-
+import sys
+from dashboard.services.data_ingestion import main
+if __name__ == "__main__":
+ if sys.argv[0].endswith("-script.pyw"):
+ sys.argv[0] = sys.argv[0][:-11]
+ elif sys.argv[0].endswith(".exe"):
+ sys.argv[0] = sys.argv[0][:-4]
+ sys.exit(main())
+ 
+ ~/.venv/bin 
+ PATH 
+ uv 
+ pip install uv 
+ __init__.py

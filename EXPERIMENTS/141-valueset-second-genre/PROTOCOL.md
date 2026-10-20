@@ -37,7 +37,7 @@ a lesson the record has already paid for:
    (F116). K3 and K4 below exist because of that, not because of anything
    observed in SQuAD.
 3. **Every denominator is the items in which the condition can hold, and the
-   exclusion is checkable from the arm file** (D110). K1's denominator is
+   exclusion is checkable from the arm file** (D124). K1's denominator is
    stated as a one-line regex over the corpus, readable before any instrument
    runs.
 
@@ -107,12 +107,12 @@ second is where the false positives live and where the real errors live.
 | **B∧D** | B items whose question contains a digit | unsupported |
 
 `D` is `\d` over the question text. It is one regex, readable from
-`arms.jsonl` without running anything, which is what D110 requires of an
+`arms.jsonl` without running anything, which is what D124 requires of an
 exclusion.
 
 **K1's denominator is B∧D, not B.** A B item whose question asserts no value
 cannot carry a value error, so scoring it as a miss would charge the
-instrument for a population the pre-pass was never written for — F125's own
+instrument for a population the pre-pass was never written for — F144's own
 error, in the same shape. Such items are `not_evaluated` for K1 and are
 reported with their count.
 
@@ -153,7 +153,7 @@ denominators. E140 measured M1's false-positive rate as 0.3727 → 0.4651 →
 0.6019 as rephrasing deepened on the regulatory corpus. **What is asked here
 is whether that transfers**, on a genre whose values are years, counts and
 quantities rather than dollar amounts, thresholds and citations. A number
-quoted on one arm does not transfer by assumption (F123, F125); it transfers
+quoted on one arm does not transfer by assumption (F123, F144); it transfers
 only by measurement.
 
 No LLM judge runs in this experiment. E140's `model_graded_fact` arm is the

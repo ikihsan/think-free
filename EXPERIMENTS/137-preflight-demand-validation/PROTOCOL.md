@@ -16,7 +16,7 @@ last-verified: 2026-10-13
 
 E124 built `preflight` to catch three defects this repository's own harnesses silently produced (F118, F121, F122, F123, F124). E125 tested it on 22 third-party harnesses and found the defect C1 catches (separate key/output files joined by ID) **does not occur in committed state** — real harnesses use different architectures (inline expected values, event streams, single files). E128/E129 confirmed run output *can* be adapted, but E125's external validation failed: G1 (5 qualified pairs vs 10 needed), G3 (0 external occurrences), G5 (0 baseline gaps).
 
-Before investing in a released tool with adapter interface (T-0095), we must validate that practitioners *actually experience and report* these defects. The Anthropic playbook names C2/C3 as manual practices, but no automated tool for C3 was found (PRIOR-ART.md). Demand must be measured, not assumed.
+Before investing in a released tool with adapter interface (T-0099), we must validate that practitioners *actually experience and report* these defects. The Anthropic playbook names C2/C3 as manual practices, but no automated tool for C3 was found (PRIOR-ART.md). Demand must be measured, not assumed.
 
 ## Target frameworks (population)
 
@@ -122,8 +122,8 @@ EXPERIMENTS/137-preflight-demand-validation/
 
 ## What would change the build decision
 
-- **GATE_CLOSED**: Preflight stays internal. No release. The adapter work (T-0095) is documented as evidence but not pursued as a product.
-- **GATE_OPEN**: Demand validated. Proceed to T-0095 completion (adapter catalog, documentation, release preparation). But still requires: prior-art check on released form, user validation beyond agent synthetic cases.
+- **GATE_CLOSED**: Preflight stays internal. No release. The adapter work (T-0099) is documented as evidence but not pursued as a product.
+- **GATE_OPEN**: Demand validated. Proceed to T-0099 completion (adapter catalog, documentation, release preparation). But still requires: prior-art check on released form, user validation beyond agent synthetic cases.
 
 ## Ceilings declared now
 
