@@ -1,0 +1,30 @@
+{
+ "request": {
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "DA01"
+   ],
+   "time_period": [
+    {
+     "end_date": "2025-12-31",
+     "start_date": "2020-01-01"
+    }
+   ]
+  },
+  "limit": 100,
+  "page": 2,
+  "spending_level": "awards"
+ },
+ "response": {
+  "bytes": 16672,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_category/federal_account/",
+  "sha256": "cfb38a5d69954762a584b9cdb4918c12a5804e980606386782ff73b8e9df8fb3",
+  "status": 200
+ }
+}

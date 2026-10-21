@@ -1,0 +1,30 @@
+{
+ "request": {
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "D304"
+   ],
+   "time_period": [
+    {
+     "end_date": "2025-12-31",
+     "start_date": "2020-01-01"
+    }
+   ]
+  },
+  "limit": 100,
+  "page": 1,
+  "spending_level": "awards"
+ },
+ "response": {
+  "bytes": 11885,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_category/funding_agency/",
+  "sha256": "2fc86008d70f8bc065909685a0605bf605f4379db9b78763606aec823192fabd",
+  "status": 200
+ }
+}

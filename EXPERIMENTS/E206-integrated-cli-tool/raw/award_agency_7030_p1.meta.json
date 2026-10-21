@@ -1,0 +1,43 @@
+{
+ "request": {
+  "fields": [
+   "Award ID",
+   "Award Amount",
+   "Description",
+   "Recipient Name",
+   "PSC Code",
+   "NAICS Code",
+   "Agency Name",
+   "Funding Agency Name",
+   "Start Date",
+   "End Date",
+   "Award Type",
+   "Type of Contract Pricing"
+  ],
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "7030"
+   ],
+   "time_period": [
+    {
+     "end_date": "2025-12-31",
+     "start_date": "2020-01-01"
+    }
+   ]
+  },
+  "limit": 100,
+  "page": 1
+ },
+ "response": {
+  "bytes": 43890,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+  "sha256": "b1f6b45eb57b2369cccd21a5c02273e0040c6d56fa8cf8a8dc075716b5bc0f76",
+  "status": 200
+ }
+}

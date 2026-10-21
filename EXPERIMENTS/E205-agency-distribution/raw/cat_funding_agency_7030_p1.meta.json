@@ -1,0 +1,24 @@
+{
+ "request": {
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "7030"
+   ]
+  },
+  "limit": 100,
+  "page": 1,
+  "spending_level": "awards"
+ },
+ "response": {
+  "bytes": 14154,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_category/funding_agency/",
+  "sha256": "a981faa50536d218599efb0d4da379c926f9fc31bc54ce7ed44aec32e8e01ccb",
+  "status": 200
+ }
+}

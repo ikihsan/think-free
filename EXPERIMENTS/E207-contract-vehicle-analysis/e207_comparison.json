@@ -1,0 +1,378 @@
+{
+  "experiment": "E207",
+  "description": "Contract vehicle analysis for 5 IT/software PSC codes",
+  "codes_analyzed": [
+    "7030",
+    "DA10",
+    "7A21",
+    "DA01",
+    "D304"
+  ],
+  "results": {
+    "7030": {
+      "total_awards": 5000,
+      "total_obligation": 4739244127.990001,
+      "vehicle_share": {
+        "Army ITES/CHESS": 5.087166802530856,
+        "Air Force": 0.2537451660060457,
+        "Direct/Unknown": 61.66024260496095,
+        "GSA MAS": 14.838696757920724,
+        "DoD ESI/DISA": 1.8250859452282366,
+        "SEWP": 8.374873083576183,
+        "Navy SEAPORT": 4.734645306511493,
+        "Other Federal": 0.163585752297763,
+        "Other/Unknown": 2.635863820608473,
+        "CIO-SP": 0.4260947603592749
+      },
+      "small_vendor_count_awards": 1168,
+      "small_vendor_count_money": 673,
+      "sv_vehicle_share": {
+        "Direct/Unknown": 88.70222364844584,
+        "Other Federal": 0.09518248378214507,
+        "GSA MAS": 2.746748304898802,
+        "Army ITES/CHESS": 0.9374898616188151,
+        "SEWP": 1.9802438394270716,
+        "Navy SEAPORT": 1.5507305668696674,
+        "Other/Unknown": 2.385080102562935,
+        "Air Force": 0.32884098539898327,
+        "CIO-SP": 1.2734602069957461
+      },
+      "vehicle_stats": {
+        "Army ITES/CHESS": {
+          "awards": 717,
+          "obligation": 241093253.97000024,
+          "recipients": 68
+        },
+        "Air Force": {
+          "awards": 12,
+          "obligation": 12025602.879999999,
+          "recipients": 9
+        },
+        "Direct/Unknown": {
+          "awards": 2347,
+          "obligation": 2922229426.9600005,
+          "recipients": 1205
+        },
+        "GSA MAS": {
+          "awards": 599,
+          "obligation": 703242064.7700006,
+          "recipients": 174
+        },
+        "DoD ESI/DISA": {
+          "awards": 108,
+          "obligation": 86495278.49,
+          "recipients": 7
+        },
+        "SEWP": {
+          "awards": 599,
+          "obligation": 396905680.83999944,
+          "recipients": 91
+        },
+        "Navy SEAPORT": {
+          "awards": 420,
+          "obligation": 224386399.6700001,
+          "recipients": 31
+        },
+        "Other Federal": {
+          "awards": 32,
+          "obligation": 7752728.160000001,
+          "recipients": 26
+        },
+        "Other/Unknown": {
+          "awards": 164,
+          "obligation": 124920021.33999994,
+          "recipients": 33
+        },
+        "CIO-SP": {
+          "awards": 2,
+          "obligation": 20193670.91,
+          "recipients": 1
+        }
+      }
+    },
+    "DA10": {
+      "total_awards": 5000,
+      "total_obligation": 2986397123.5199995,
+      "vehicle_share": {
+        "Army ITES/CHESS": 8.173250257564598,
+        "Direct/Unknown": 25.092819886483564,
+        "Navy SEAPORT": 4.867278104282122,
+        "GSA MAS": 21.688964456493604,
+        "Other Federal": 0.6131215298124225,
+        "DoD ESI/DISA": 0.4908891072973143,
+        "Other/Unknown": 20.84049511829206,
+        "SEWP": 18.20824352117878,
+        "CIO-SP": 0.024938018595537015
+      },
+      "small_vendor_count_awards": 684,
+      "small_vendor_count_money": 438,
+      "sv_vehicle_share": {
+        "Direct/Unknown": 41.77846007602013,
+        "GSA MAS": 26.59495955279474,
+        "Other Federal": 1.9182836103775782,
+        "Navy SEAPORT": 3.6549620346704303,
+        "SEWP": 1.57322331529641,
+        "Army ITES/CHESS": 9.761445828436091,
+        "Other/Unknown": 14.687332339347739,
+        "CIO-SP": 0.03133324305687616
+      },
+      "vehicle_stats": {
+        "Army ITES/CHESS": {
+          "awards": 925,
+          "obligation": 244085710.59000012,
+          "recipients": 67
+        },
+        "Direct/Unknown": {
+          "awards": 1576,
+          "obligation": 749371251.2999996,
+          "recipients": 666
+        },
+        "Navy SEAPORT": {
+          "awards": 544,
+          "obligation": 145356253.30000007,
+          "recipients": 26
+        },
+        "GSA MAS": {
+          "awards": 405,
+          "obligation": 647718610.6500001,
+          "recipients": 133
+        },
+        "Other Federal": {
+          "awards": 38,
+          "obligation": 18310243.73,
+          "recipients": 26
+        },
+        "DoD ESI/DISA": {
+          "awards": 35,
+          "obligation": 14659898.179999998,
+          "recipients": 4
+        },
+        "Other/Unknown": {
+          "awards": 202,
+          "obligation": 622379946.74,
+          "recipients": 30
+        },
+        "SEWP": {
+          "awards": 1267,
+          "obligation": 543770460.7599998,
+          "recipients": 96
+        },
+        "CIO-SP": {
+          "awards": 8,
+          "obligation": 744748.2699999999,
+          "recipients": 6
+        }
+      }
+    },
+    "7A21": {
+      "total_awards": 5000,
+      "total_obligation": 3099758058.159999,
+      "vehicle_share": {
+        "Direct/Unknown": 17.480591925346673,
+        "Army ITES/CHESS": 16.45207181210519,
+        "Navy SEAPORT": 12.474732166339958,
+        "GSA MAS": 20.22758226628136,
+        "Other/Unknown": 14.109115399787298,
+        "SEWP": 17.256978060975776,
+        "DoD ESI/DISA": 1.8788259782626529,
+        "Other Federal": 0.12010239090111066
+      },
+      "small_vendor_count_awards": 657,
+      "small_vendor_count_money": 407,
+      "sv_vehicle_share": {
+        "Direct/Unknown": 80.68097790133083,
+        "GSA MAS": 5.396431905296479,
+        "Army ITES/CHESS": 5.296857390747359,
+        "Other Federal": 0.23605609289879176,
+        "Navy SEAPORT": 0.961493250500183,
+        "SEWP": 3.192741474840579,
+        "Other/Unknown": 4.2354419843857825
+      },
+      "vehicle_stats": {
+        "Direct/Unknown": {
+          "awards": 1473,
+          "obligation": 541856056.8199996,
+          "recipients": 669
+        },
+        "Army ITES/CHESS": {
+          "awards": 1361,
+          "obligation": 509974421.7300004,
+          "recipients": 68
+        },
+        "Navy SEAPORT": {
+          "awards": 588,
+          "obligation": 386686515.56000024,
+          "recipients": 25
+        },
+        "GSA MAS": {
+          "awards": 491,
+          "obligation": 627006111.2699994,
+          "recipients": 125
+        },
+        "Other/Unknown": {
+          "awards": 140,
+          "obligation": 437348441.5400001,
+          "recipients": 23
+        },
+        "SEWP": {
+          "awards": 850,
+          "obligation": 534924568.0399997,
+          "recipients": 98
+        },
+        "DoD ESI/DISA": {
+          "awards": 63,
+          "obligation": 58239059.660000004,
+          "recipients": 4
+        },
+        "Other Federal": {
+          "awards": 34,
+          "obligation": 3722883.5399999996,
+          "recipients": 20
+        }
+      }
+    },
+    "DA01": {
+      "total_awards": 5000,
+      "total_obligation": 5391397431.509998,
+      "vehicle_share": {
+        "Direct/Unknown": 13.431438666675803,
+        "Army ITES/CHESS": 15.507504923372654,
+        "SEWP": 0.6203389444920387,
+        "GSA MAS": 19.91542119367144,
+        "Navy SEAPORT": 7.3205370018411005,
+        "Other/Unknown": 42.33375820136414,
+        "Air Force": 0.8635906811076957,
+        "Other Federal": 0.007410387475146739
+      },
+      "small_vendor_count_awards": 398,
+      "small_vendor_count_money": 124,
+      "sv_vehicle_share": {
+        "Direct/Unknown": 36.07370533550827,
+        "Army ITES/CHESS": 24.936107854929563,
+        "SEWP": 1.0113257580852333,
+        "GSA MAS": 6.186542353741868,
+        "Other/Unknown": 29.109054929865803,
+        "Navy SEAPORT": 0.23297798959321572,
+        "Air Force": 2.429438998981709,
+        "Other Federal": 0.020846779294324026
+      },
+      "vehicle_stats": {
+        "Direct/Unknown": {
+          "awards": 290,
+          "obligation": 724142239.29,
+          "recipients": 224
+        },
+        "Army ITES/CHESS": {
+          "awards": 555,
+          "obligation": 836071222.1299998,
+          "recipients": 103
+        },
+        "SEWP": {
+          "awards": 62,
+          "obligation": 33444937.92000001,
+          "recipients": 25
+        },
+        "GSA MAS": {
+          "awards": 82,
+          "obligation": 1073719506.7099999,
+          "recipients": 56
+        },
+        "Navy SEAPORT": {
+          "awards": 3657,
+          "obligation": 394679243.8900001,
+          "recipients": 11
+        },
+        "Other/Unknown": {
+          "awards": 348,
+          "obligation": 2282381152.3299994,
+          "recipients": 86
+        },
+        "Air Force": {
+          "awards": 4,
+          "obligation": 46559605.8,
+          "recipients": 3
+        },
+        "Other Federal": {
+          "awards": 2,
+          "obligation": 399523.43999999994,
+          "recipients": 1
+        }
+      }
+    },
+    "D304": {
+      "total_awards": 5000,
+      "total_obligation": 7324455417.540008,
+      "vehicle_share": {
+        "Army ITES/CHESS": 4.362411662371959,
+        "Other/Unknown": 9.182472071976813,
+        "GSA MAS": 4.499696353134361,
+        "Direct/Unknown": 81.46530974495363,
+        "Other Federal": 0.026717253344375497,
+        "Air Force": 0.19567465119220534,
+        "Navy SEAPORT": 0.24130243960084094,
+        "SEWP": 0.024832267196881537,
+        "CIO-SP": 0.0015835562289347013
+      },
+      "small_vendor_count_awards": 411,
+      "small_vendor_count_money": 226,
+      "sv_vehicle_share": {
+        "GSA MAS": 5.122607993445172,
+        "Direct/Unknown": 91.47833467079965,
+        "Other/Unknown": 0.24023814513282105,
+        "Army ITES/CHESS": 2.992707737160768,
+        "Other Federal": 0.041374516122550074,
+        "Air Force": 0.010675005225881884,
+        "CIO-SP": 0.002452305702255745,
+        "SEWP": 0.038455414044765164,
+        "Navy SEAPORT": 0.07315421236611111
+      },
+      "vehicle_stats": {
+        "Army ITES/CHESS": {
+          "awards": 384,
+          "obligation": 319522897.34000003,
+          "recipients": 38
+        },
+        "Other/Unknown": {
+          "awards": 2310,
+          "obligation": 672566073.1400038,
+          "recipients": 27
+        },
+        "GSA MAS": {
+          "awards": 241,
+          "obligation": 329578253.3099998,
+          "recipients": 37
+        },
+        "Direct/Unknown": {
+          "awards": 1687,
+          "obligation": 5966890293.030004,
+          "recipients": 436
+        },
+        "Other Federal": {
+          "awards": 3,
+          "obligation": 1956893.31,
+          "recipients": 3
+        },
+        "Air Force": {
+          "awards": 20,
+          "obligation": 14332102.589999998,
+          "recipients": 6
+        },
+        "Navy SEAPORT": {
+          "awards": 348,
+          "obligation": 17674089.61,
+          "recipients": 5
+        },
+        "SEWP": {
+          "awards": 5,
+          "obligation": 1818828.34,
+          "recipients": 5
+        },
+        "CIO-SP": {
+          "awards": 2,
+          "obligation": 115986.87,
+          "recipients": 2
+        }
+      }
+    }
+  }
+}

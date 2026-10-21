@@ -1,0 +1,24 @@
+{
+ "request": {
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "7A21"
+   ]
+  },
+  "limit": 100,
+  "page": 1,
+  "spending_level": "awards"
+ },
+ "response": {
+  "bytes": 11543,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_category/awarding_agency/",
+  "sha256": "58f7508edfef5237eccc246aecf61e27685ed16ee217229ad9f9bc2804e6d17f",
+  "status": 200
+ }
+}

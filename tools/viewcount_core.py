@@ -149,6 +149,31 @@ FALLBACK_PACKAGES = [
     {"name": "beautifulsoup4", "version": "4.12.2", "summary": "Screen-scraping library for Python."},
     {"name": "sqlalchemy", "version": "2.0.23", "summary": "SQL toolkit and Object Relational Mapper for Python."},
     {"name": "marshmallow", "version": "3.21.0", "summary": "A lightweight library for converting objects to/from JSON."},
+    {"name": "black", "version": "23.7.0", "summary": "The uncompromising code formatter."},
+    {"name": "flake8", "version": "6.0.1", "summary": "Modular source code checker: pep8 pyflakes and co"},
+
+    {"name": "click", "version": "8.2.0", "summary": "Command line interfaces in a pleasant and usable way."},
+    {"name": "pytest", "version": "7.4.3", "summary": "Simple powerful testing with Python"},
+
+    {"name": "pyyaml", "version": "6.0.1", "summary": "YAML parser and emitter for Python."},
+    {"name": "jinja2", "version": "3.1.2", "summary": "A very fast and expressive template engine."},
+    {"name": "httpx", "version": "0.25.0", "summary": "The next generation HTTP client."},
+    {"name": "urllib3", "version": "2.2.2", "summary": "HTTP library with thread-safe connection pooling"},
+
+    {"name": "cython", "version": "0.29.35", "summary": "The Cython compiler for writing C extensions"},
+    {"name": "cffi", "version": "1.17.0", "summary": "Foreign Function Interface for Python calling C code"},
+    {"name": "mypy", "version": "1.7.1", "summary": "Optional static typing for Python"},
+    {"name": "wheel", "version": "0.43.0", "summary": "Command line tool for manipulating wheel files"},
+
+    {"name": "setuptools", "version": "65.5.0", "summary": "Most extensible Python build backend"},
+    {"name": "virtualenv", "version": "20.16.0", "summary": "Virtual Python Environment builder"},
+    {"name": "tqdm", "version": "4.66.2", "summary": "Fast, extensible progress bars (Python)"},
+    {"name": "rich", "version": "13.7.1", "summary": "Rich text and beautiful formatting in the terminal"},
+
+    {"name": "python-dotenv", "version": "1.0.0", "summary": "Loads environment variables from .env files"},
+    {"name": "web3", "version": "5.31.0", "summary": "Python library for Ethereum"},
+    {"name": "aiohttp", "version": "3.8.1", "summary": "Async http client/server framework (asyncio)"},
+    {"name": "pendulum", "version": "2.2.2", "summary": "Python datetime library (better timedelta)"},
 ]
 
 
@@ -171,7 +196,7 @@ def fetch_fallback_packages(keyword):
         for pkg in FALLBACK_PACKAGES:
             desc = pkg.get("description") or pkg.get("summary") or ""
             normalized.append(dict(pkg, description=desc))
-        return normalized[:20]
+        return normalized
     return matched
 
 

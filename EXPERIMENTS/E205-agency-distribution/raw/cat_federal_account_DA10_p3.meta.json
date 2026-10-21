@@ -1,0 +1,24 @@
+{
+ "request": {
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "DA10"
+   ]
+  },
+  "limit": 100,
+  "page": 3,
+  "spending_level": "awards"
+ },
+ "response": {
+  "bytes": 16801,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_category/federal_account/",
+  "sha256": "9479bfb4e9d768bde506bb1d347c6e5f888ea4f858b92a4fcf6248f0e2cc235c",
+  "status": 200
+ }
+}

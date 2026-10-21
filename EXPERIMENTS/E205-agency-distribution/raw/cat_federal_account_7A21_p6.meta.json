@@ -1,0 +1,24 @@
+{
+ "request": {
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "7A21"
+   ]
+  },
+  "limit": 100,
+  "page": 6,
+  "spending_level": "awards"
+ },
+ "response": {
+  "bytes": 16123,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_category/federal_account/",
+  "sha256": "540df0bd821065604231c7aedba931bc30a5f2d9045889e136ead92ab45a5e40",
+  "status": 200
+ }
+}

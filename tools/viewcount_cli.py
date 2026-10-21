@@ -15,7 +15,7 @@ import os
 import sys
 import time
 
-from viewcount_core import run_prototype  # v3 prototype entry point
+from viewcount_prototype import run_prototype  # v3 prototype entry point
 
 
 # ---------------------------------------------------------------------------

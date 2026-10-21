@@ -1,0 +1,98 @@
+{
+  "category": "recipient",
+  "spending_level": "awards",
+  "limit": 100,
+  "page_metadata": {
+    "page": 37,
+    "next": null,
+    "previous": 36,
+    "hasNext": false,
+    "hasPrevious": true
+  },
+  "results": [
+    {
+      "amount": 0.0,
+      "recipient_id": "9b7505aa-dc92-3c98-68a1-ac23ac004be0-C",
+      "name": "CP MARINE, LLC",
+      "code": "063340272",
+      "uei": "RFVGJGX8H5A8",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 0.0,
+      "recipient_id": "9c49c6ee-d164-5a69-317b-58af617ea9eb-C",
+      "name": "IQUASAR LLC",
+      "code": "150426869",
+      "uei": "FWDJE9V4FP33",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 0.0,
+      "recipient_id": "a3f57baf-b0bd-e78a-dc28-7431a3462949-C",
+      "name": "SYSTEMATIC INC.",
+      "code": "945825453",
+      "uei": "KX2KRN414218",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 0.0,
+      "recipient_id": "bf98a33d-90e9-ad37-ccea-eac381012c0d-C",
+      "name": "PNT DATA CORP",
+      "code": "005106838",
+      "uei": "CDCGQ3A2S2U6",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 0.0,
+      "recipient_id": "c823bd48-f0ea-e7e4-946e-a00a1c323154-C",
+      "name": "MCAPS LLC",
+      "code": "081246416",
+      "uei": "LQK4GJNJARK1",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 0.0,
+      "recipient_id": "cd4fefcc-1484-ee0f-e242-82b7420b26c7-C",
+      "name": "OPEX CORP",
+      "code": "067380386",
+      "uei": "TPUHSANK6X84",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 0.0,
+      "recipient_id": "de47f193-a919-4bdb-6077-ab95ada4efb5-C",
+      "name": "CHITRA PRODUCTIONS LLC",
+      "code": "828460712",
+      "uei": "FZA5KT3QE4H3",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 0.0,
+      "recipient_id": "dfdb41ec-beb2-d191-c797-0c7a924fd20d-C",
+      "name": "ATTAINX INC",
+      "code": "080903473",
+      "uei": "T5LZCR6MR4Y7",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 0.0,
+      "recipient_id": "f0873e05-7141-6964-f566-0675200bc5f7-C",
+      "name": "WEX INC.",
+      "code": "108185406",
+      "uei": "EGTLGQKY23N1",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 0.0,
+      "recipient_id": "fe0d5916-1b4b-93c0-8b23-97a2cfa4a9b3-C",
+      "name": "OSCTECH, LLC",
+      "code": "117137076",
+      "uei": "EZHGMEKTMZE8",
+      "total_outlays": 0.0
+    }
+  ],
+  "messages": [
+    "For searches, time period start and end dates are currently limited to an earliest date of 2007-10-01.  For data going back to 2000-10-01, use either the Custom Award Download feature on the website or one of our download or bulk_download API endpoints as listed on https://api.usaspending.gov/docs/endpoints. ",
+    "'subawards' will be deprecated in the future. Set \u2018spending_level\u2019 to \u2018subawards\u2019 instead. See documentation for more information. "
+  ]
+}

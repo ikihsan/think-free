@@ -82,6 +82,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md`](../sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md) | `docs/INDEX.md` | stale | 2026-10-08 | Date: 2026-10-07 |
 | [`sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md`](../sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session 2026-10-08-013, VM instance-20260717-0944, 2026-10-08. Defect 24. |
 | [`sessions/2026-10-14-001-session-summary.md`](../sessions/2026-10-14-001-session-summary.md) | `STATE-next-actions-sessions.md` | active | 2026-10-20 | ## Session Summary — 2026-10-14 |
+| [`sessions/2026-10-20-002-e224-fresh-domain-observation-per-projec/summary.md`](../sessions/2026-10-20-002-e224-fresh-domain-observation-per-projec/summary.md) | `—` | — | — | Improve view-count prototype v3 tooling and run a fresh observation experiment assessing the vie |
 | [`sessions/README.md`](../sessions/README.md) | `docs/INDEX.md` | active | 2026-10-03 | The append-only record of every working session in this repository. |
 
 ## tasks
@@ -306,6 +307,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/072-merchant-noise-raw/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 did not fire. No |
 | `EXPERIMENTS/072-npm-view-count-prototype/` | `docs/INDEX.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/073-piecewise-price/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 fail. The pwc repair |
+| `EXPERIMENTS/073-viewcount-prototype-v3/` | `docs/INDEX.md` | active | 2026-10-20 | 1 documents |
 | `EXPERIMENTS/074-diy-problem-taxonomy/` | `docs/INDEX.md` | active | 2026-10-09 | Fresh observation in the DIY (home improvement) Stack Exchange domain to discover whether a conc |
 | `EXPERIMENTS/074-mfg-cost-estimation/` | `docs/INDEX.md` | active | 2026-10-09 | owner: docs/INDEX.md |
 | `EXPERIMENTS/075-clinical-trial-failures/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | Session 2026-10-09-008, VM instance-20260717-0944, declared 2026-10-09. |
@@ -490,6 +492,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/223-award-description-terms/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-20 | 1 documents |
 | `EXPERIMENTS/224-fresh-domain-observation/` | `EXPERIMENTS/224-fresh-domain-observation/INDEX.md` | active | 2026-10-20 | 1 documents |
+| `EXPERIMENTS/225-answer-distribution/` | `docs/INDEX.md` | active | 2026-10-20 | 1 documents |
+| `EXPERIMENTS/226-keyword-disambiguation/` | `—` | — | — | 2 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E149-github-repo-viewcount-followup/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
@@ -498,9 +502,22 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/E161-vscode-extension-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E162-mozilla-addons-viewcount/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E172-discourse-viewcount/` | `docs/INDEX.md` | active | 2026-10-16 | 2 documents |
+| `EXPERIMENTS/E172-fresh-observation-pypi/` | `docs/INDEX.md` | active | 2026-10-20 | 2 documents |
+| `EXPERIMENTS/E173-fresh-observation-github-issues/` | `docs/INDEX.md` | active | 2026-10-20 | 2 documents |
 | `EXPERIMENTS/E173-github-discussions-viewcount/` | `docs/INDEX.md` | active | 2026-10-16 | 2 documents |
 | `EXPERIMENTS/E179-math-se-ask-patterns/` | `docs/INDEX.md` | active | 2026-10-17 | 1 documents |
 | `EXPERIMENTS/E180-pubdev-viewcount/` | `docs/INDEX.md` | active | 2026-10-17 | 2 documents |
+| `EXPERIMENTS/E199-candidate-screen/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-20 | 2 documents |
+| `EXPERIMENTS/E200-prototype-7030-validation/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-20 | 2 documents |
+| `EXPERIMENTS/E201-prototype-7030-mvp/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-20 | 2 documents |
+| `EXPERIMENTS/E202-cli-tool-7030-entry/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-20 | 2 documents |
+| `EXPERIMENTS/E203-award-description-categorization/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-20 | 1 documents |
+| `EXPERIMENTS/E204-time-window-analysis/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-20 | 1 documents |
+| `EXPERIMENTS/E205-agency-distribution/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-20 | 1 documents |
+| `EXPERIMENTS/E206-integrated-cli-tool/` | `docs/INDEX.md` | active | 2026-10-20 | 2 documents |
+| `EXPERIMENTS/E207-contract-vehicle-analysis/` | `docs/INDEX.md` | active | 2026-10-20 | 1 documents |
+| `EXPERIMENTS/E209-subcontract-analysis/` | `docs/INDEX.md` | active | 2026-10-20 | 1 documents |
+| `EXPERIMENTS/E210-vehicle-sin-sewp-analysis/` | `docs/INDEX.md` | active | 2026-10-20 | 1 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/e138-viewcount-discrimination/` | `docs/INDEX.md` | active | 2026-10-14 | 1 documents |

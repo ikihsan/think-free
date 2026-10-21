@@ -1,0 +1,1894 @@
+==============================================================================
+[seq 2] 2026-10-20T21:24:25+00:00
+$ python3 -c 
+import requests
+import json
+
+# Test USAspending award endpoint to see if SIN data is available
+url = 'https://api.usaspending.gov/api/v2/search/spending_by_award/'
+payload = {
+    'filters': {
+        'psc_codes': ['7030'],
+        'time_period': [{'start_date': '2024-10-01', 'end_date': '2025-09-30'}]
+    },
+    'fields': ['Award ID', 'Recipient Name', 'Award Amount', 'generated_internal_id', 'Contract IDV PIID', 'NAICS Code', 'PSC Code'],
+    'page': 1,
+    'limit': 5
+}
+r = requests.post(url, json=payload, timeout=30)
+print('Status:', r.status_code)
+if r.status_code == 200:
+    data = r.json()
+    for award in data.get('results', []):
+        print(json.dumps(award, indent=2))
+        print('---')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 422
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1797  redactions: none
+==============================================================================
+[seq 3] 2026-10-20T21:24:40+00:00
+$ python3 -c 
+import requests
+import json
+
+# Test USAspending award endpoint with simpler filters
+url = 'https://api.usaspending.gov/api/v2/search/spending_by_award/'
+payload = {
+    'filters': {
+        'psc_codes': ['7030']
+    },
+    'fields': ['Award ID', 'Recipient Name', 'Award Amount', 'generated_internal_id'],
+    'page': 1,
+    'limit': 3
+}
+r = requests.post(url, json=payload, timeout=30)
+print('Status:', r.status_code)
+if r.status_code == 200:
+    data = r.json()
+    for award in data.get('results', []):
+        print(json.dumps(award, indent=2))
+        print('---')
+else:
+    print(r.text[:500])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 422
+{"detail":"Missing value: 'filters|award_type_codes' is a required field"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1683  redactions: none
+==============================================================================
+[seq 4] 2026-10-20T21:25:40+00:00
+$ python3 -c 
+import requests
+import json
+
+# Check USAspending API documentation for available fields
+# First, let's see what fields are available for spending_by_award
+url = 'https://api.usaspending.gov/api/v2/search/spending_by_award/'
+payload = {
+    'fields': ['Award ID', 'Award Amount', 'Description', 'Recipient Name', 'generated_internal_id', 'PSC Code', 'NAICS Code', 'Contract IDV PIID'],
+    'filters': {'award_type_codes': ['A', 'B', 'C', 'D'], 'psc_codes': ['7030']},
+    'page': 1,
+    'limit': 1
+}
+r = requests.post(url, json=payload, timeout=30)
+print('Status:', r.status_code)
+if r.status_code == 200:
+    data = r.json()
+    print('Fields in result:', list(data.get('results', [{}])[0].keys()) if data.get('results') else 'no results')
+    # Also check page_metadata
+    print('Page metadata:', data.get('page_metadata'))
+else:
+    print(r.text[:1000])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 200
+Fields in result: ['internal_id', 'Award ID', 'Award Amount', 'Description', 'Recipient Name', 'generated_internal_id', 'PSC Code', 'NAICS Code', 'Contract IDV PIID']
+Page metadata: {'page': 1, 'hasNext': True, 'last_record_unique_id': 350880171, 'last_record_sort_value': 'ZZ03'}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1760  redactions: none
+==============================================================================
+[seq 5] 2026-10-20T21:26:01+00:00
+$ python3 -c 
+import requests
+import json
+
+# Check subawards endpoint for more fields
+url = 'https://api.usaspending.gov/api/v2/search/spending_by_award/'
+payload = {
+    'fields': ['Award ID', 'Award Amount', 'Description', 'Recipient Name', 'generated_internal_id', 'PSC Code', 'NAICS Code', 'Contract IDV PIID', 'IDV Type', 'IDV Agency', 'SIN'],
+    'filters': {'award_type_codes': ['A', 'B', 'C', 'D'], 'psc_codes': ['7030']},
+    'page': 1,
+    'limit': 1
+}
+r = requests.post(url, json=payload, timeout=30)
+print('Status:', r.status_code)
+if r.status_code == 200:
+    data = r.json()
+    for award in data.get('results', []):
+        print(json.dumps(award, indent=2))
+else:
+    print(r.text[:1000])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 200
+{
+  "internal_id": 350880171,
+  "Award ID": "ZZ03",
+  "Award Amount": 52436.39,
+  "Description": "AUTOMATIC SWITCH INTERFACE MODULES",
+  "Recipient Name": "COUNTERTRADE PRODUCTS, INC.",
+  "generated_internal_id": "CONT_AWD_ZZ03_9700_FA873213D0015_9700",
+  "PSC Code": null,
+  "NAICS Code": null,
+  "Contract IDV PIID": null,
+  "IDV Type": null,
+  "IDV Agency": null,
+  "SIN": null
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1881  redactions: none
+==============================================================================
+[seq 6] 2026-10-20T21:26:24+00:00
+$ python3 -c 
+import requests
+import json
+
+# Check subawards endpoint
+url = 'https://api.usaspending.gov/api/v2/search/spending_by_award/'
+payload = {
+    'fields': ['Award ID', 'Award Amount', 'Description', 'Recipient Name', 'generated_internal_id', 'PSC Code', 'NAICS Code', 'Contract IDV PIID', 'IDV Type', 'IDV Agency', 'SIN', 'Prime Award ID', 'Sub-Award ID'],
+    'filters': {'award_type_codes': ['A', 'B', 'C', 'D'], 'psc_codes': ['DA10']},
+    'page': 1,
+    'limit': 3
+}
+r = requests.post(url, json=payload, timeout=30)
+print('Status:', r.status_code)
+if r.status_code == 200:
+    data = r.json()
+    for award in data.get('results', []):
+        print(json.dumps(award, indent=2))
+        print('---')
+else:
+    print(r.text[:1000])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 200
+{
+  "internal_id": 350581752,
+  "Award ID": "W91ZRU23F0002",
+  "Award Amount": 37376.1,
+  "Description": "MANUFACTURER: VARONIS SYSTEMS. PARTS: DAW-751-1000MS, DP-751-1000MS, DCF-751-1000MS, CL-1-5-MS (1).",
+  "Recipient Name": "WORLD WIDE TECHNOLOGY LLC",
+  "generated_internal_id": "CONT_AWD_W91ZRU23F0002_9700_W52P1J20D0069_9700",
+  "PSC Code": null,
+  "NAICS Code": null,
+  "Contract IDV PIID": null,
+  "IDV Type": null,
+  "IDV Agency": null,
+  "SIN": null,
+  "Prime Award ID": null,
+  "Sub-Award ID": null
+}
+---
+{
+  "internal_id": 350571985,
+  "Award ID": "W91ZLK23P0036",
+  "Award Amount": 228478.0,
+  "Description": "THE OBJECTIVE OF THIS CONTRACT IS TO PROVIDE SOFTWARE MAINTENANCE AND REPAIR ON A PROPRIETARY DATABASE UTILIZED TO ELECTRONICALLY CAPTURE SAMPLE AND CUSTOMER INFORMATION AND ANALYTICAL RESULTS.",
+  "Recipient Name": "CLINISYS, INC.",
+  "generated_internal_id": "CONT_AWD_W91ZLK23P0036_9700_-NONE-_-NONE-",
+  "PSC Code": null,
+  "NAICS Code": null,
+  "Contract IDV PIID": null,
+  "IDV Type": null,
+  "IDV Agency": null,
+  "SIN": null,
+  "Prime Award ID": null,
+  "Sub-Award ID": null
+}
+---
+{
+  "internal_id": 350571747,
+  "Award ID": "W91ZLK23F0015",
+  "Award Amount": 97700.4,
+  "Description": "SOLAR WINDS ANNUAL MAINTENANCE AND LICENSE RENEWAL",
+  "Recipient Name": "CDW GOVERNMENT LLC",
+  "generated_internal_id": "CONT_AWD_W91ZLK23F0015_9700_W52P1J20D0043_9700",
+  "PSC Code": null,
+  "NAICS Code": null,
+  "Contract IDV PIID": null,
+  "IDV Type": null,
+  "IDV Agency": null,
+  "SIN": null,
+  "Prime Award ID": null,
+  "Sub-Award ID": null
+}
+---
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1835  redactions: none
+==============================================================================
+[seq 7] 2026-10-20T21:26:48+00:00
+$ python3 -c 
+import requests
+import json
+
+# Check subawards endpoint
+url = 'https://api.usaspending.gov/api/v2/search/subawards/'
+payload = {
+    'fields': ['Sub-Award ID', 'Sub-Award Amount', 'Sub-Awardee Name', 'Prime Award ID', 'PSC Code', 'NAICS Code'],
+    'filters': {'psc_codes': ['7030']},
+    'page': 1,
+    'limit': 3
+}
+r = requests.post(url, json=payload, timeout=30)
+print('Status:', r.status_code)
+if r.status_code == 200:
+    data = r.json()
+    for award in data.get('results', []):
+        print(json.dumps(award, indent=2))
+        print('---')
+else:
+    print(r.text[:1000])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 404
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Not Found</title>
+</head>
+<body>
+  <h1>Not Found</h1><p>The requested resource was not found on this server.</p>
+</body>
+</html>
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1581  redactions: none
+==============================================================================
+[seq 8] 2026-10-20T21:27:04+00:00
+$ python3 -c 
+import requests
+import json
+
+# Try different subawards endpoints
+for endpoint in ['/api/v2/search/subaward/', '/api/v2/subawards/', '/api/v2/search/subawards']:
+    url = 'https://api.usaspending.gov' + endpoint
+    payload = {
+        'fields': ['Sub-Award ID', 'Sub-Award Amount', 'Sub-Awardee Name', 'Prime Award ID', 'PSC Code', 'NAICS Code'],
+        'filters': {'psc_codes': ['7030']},
+        'page': 1,
+        'limit': 1
+    }
+    r = requests.post(url, json=payload, timeout=30)
+    print(f'{endpoint}: {r.status_code}')
+    if r.status_code == 200:
+        data = r.json()
+        print(json.dumps(data, indent=2)[:500])
+        break
+    elif r.status_code != 404:
+        print(r.text[:200])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/api/v2/search/subaward/: 404
+/api/v2/subawards/: 200
+{
+  "page_metadata": {
+    "page": 1,
+    "next": 2,
+    "previous": null,
+    "hasNext": true,
+    "hasPrevious": false
+  },
+  "results": [
+    {
+      "id": 2040919,
+      "subaward_number": "ZZRZX5QAANX3 MAYA BRIDGE UCP OY2",
+      "description": "LANGUAGE ACCESS AND TRANSLATION SERVICES",
+      "action_date": "2024-09-05",
+      "amount": 71000.0,
+      "recipient_name": "MAYA BRIDGE LLC"
+    }
+  ]
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2739  redactions: none
+==============================================================================
+[seq 9] 2026-10-20T21:27:26+00:00
+$ python3 -c 
+import requests
+import json
+
+# Explore subawards endpoint with more fields
+url = 'https://api.usaspending.gov/api/v2/subawards/'
+payload = {
+    'fields': ['subaward_number', 'description', 'action_date', 'amount', 'recipient_name', 'prime_award_id', 'prime_award_piid', 'psc_code', 'naics_code', 'prime_recipient_name'],
+    'filters': {'psc_codes': ['7030']},
+    'page': 1,
+    'limit': 5
+}
+r = requests.post(url, json=payload, timeout=30)
+print('Status:', r.status_code)
+if r.status_code == 200:
+    data = r.json()
+    for award in data.get('results', []):
+        print(json.dumps(award, indent=2))
+        print('---')
+    print('Page metadata:', data.get('page_metadata'))
+else:
+    print(r.text[:1000])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 200
+{
+  "id": 2040919,
+  "subaward_number": "ZZRZX5QAANX3 MAYA BRIDGE UCP OY2",
+  "description": "LANGUAGE ACCESS AND TRANSLATION SERVICES",
+  "action_date": "2024-09-05",
+  "amount": 71000.0,
+  "recipient_name": "MAYA BRIDGE LLC"
+}
+---
+{
+  "id": 9842855,
+  "subaward_number": "ZZGCMPVGF7K5",
+  "description": "ECONOMIC DEVELOPMENT THROUGH INSTALLATION OF SEWER INFRASTRUCTURE TO SUPPORT RV CAMPGROUND.",
+  "action_date": "2017-09-15",
+  "amount": 200000.0,
+  "recipient_name": "EASTERN KENTUCKY PRIDE INC"
+}
+---
+{
+  "id": 9837558,
+  "subaward_number": "ZZGCMPVGF7K5",
+  "description": "DEVELOPMENT OF A FULL-SERVICE RV CAMPGROUND ASSOCIATED WITH AN\nADJACENT TRAIL SYSTEM TO REVITALIZE LOCAL ECONOMY.",
+  "action_date": "2017-09-15",
+  "amount": 500000.0,
+  "recipient_name": "EASTERN KENTUCKY PRIDE INC"
+}
+---
+{
+  "id": 9630134,
+  "subaward_number": "ZZGCMPVGF7K5",
+  "description": "ECONOMIC DEVELOPMENT THROUGH WILDLIFE HABITAT RESTORATION, BUILDING FOUNDATION AND SITE PREPARATION, ROAD/TRAIL CONSTRUCTION, PARKING  AREA CONSTRUCTION, INSTALLATION OF UTILITIES (ELECTRIC, SEWER, AND MUNICIPAL WATER), PROPERTY PURCHASE, AND PROJECT ADMINISTRATION.",
+  "action_date": "2017-06-16",
+  "amount": 12380000.0,
+  "recipient_name": "EASTERN KENTUCKY PRIDE INC"
+}
+---
+{
+  "id": 3208559,
+  "subaward_number": "ZZEMSP02",
+  "description": "TO PROVIDE FINANCIAL ASSISTANCE IN MEETING THE TRANSPORTATION NEEDS OF SENIORS AND INDIVIDUALS WITH DISABILITIES WHERE PUBLIC TRANSPORTATION SERVICES ARE UNAVAILABLE, INSUFFICIENT OR INAPPROPRIATE. THE SECTION 5310 PROGRAM IS DESIGNED TO SUPPLEMENT FTA'S OTHER CAPITAL ASSISTANCE PROGRAMS BY FUNDING TRANSPORTATION PROJECTS FOR SENIORS AND INDIVIDUALS WITH DISABILITIES IN ALL AREAS - URBANIZED, SMALL URBAN, AND RURAL. THE PROGRAM INCLUDES NEW FREEDOM PROGRAM ACTIVITIES AS ELIGIBLE PROJECTS.",
+  "action_date": "2021-09-23",
+  "amount": 54115.0,
+  "recipient_name": "EAST TENNESSEE HUMAN RESOURCE AGENCY, INC."
+}
+---
+Page metadata: {'page': 1, 'next': 2, 'previous': None, 'hasNext': True, 'hasPrevious': False}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1601  redactions: none
+==============================================================================
+[seq 10] 2026-10-20T21:27:46+00:00
+$ python3 -c 
+import requests
+import json
+
+# Try subawards with prime award filter
+url = 'https://api.usaspending.gov/api/v2/subawards/'
+payload = {
+    'fields': ['subaward_number', 'description', 'action_date', 'amount', 'recipient_name', 'prime_award_id', 'prime_award_piid', 'psc_code', 'naics_code', 'prime_recipient_name'],
+    'filters': {'prime_award_piid': 'GS35F0001X'},  # Try a GSA MAS PIID
+    'page': 1,
+    'limit': 5
+}
+r = requests.post(url, json=payload, timeout=30)
+print('Status:', r.status_code)
+if r.status_code == 200:
+    data = r.json()
+    for award in data.get('results', []):
+        print(json.dumps(award, indent=2))
+        print('---')
+    print('Page metadata:', data.get('page_metadata'))
+else:
+    print(r.text[:1000])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 200
+{
+  "id": 2040919,
+  "subaward_number": "ZZRZX5QAANX3 MAYA BRIDGE UCP OY2",
+  "description": "LANGUAGE ACCESS AND TRANSLATION SERVICES",
+  "action_date": "2024-09-05",
+  "amount": 71000.0,
+  "recipient_name": "MAYA BRIDGE LLC"
+}
+---
+{
+  "id": 9842855,
+  "subaward_number": "ZZGCMPVGF7K5",
+  "description": "ECONOMIC DEVELOPMENT THROUGH INSTALLATION OF SEWER INFRASTRUCTURE TO SUPPORT RV CAMPGROUND.",
+  "action_date": "2017-09-15",
+  "amount": 200000.0,
+  "recipient_name": "EASTERN KENTUCKY PRIDE INC"
+}
+---
+{
+  "id": 9837558,
+  "subaward_number": "ZZGCMPVGF7K5",
+  "description": "DEVELOPMENT OF A FULL-SERVICE RV CAMPGROUND ASSOCIATED WITH AN\nADJACENT TRAIL SYSTEM TO REVITALIZE LOCAL ECONOMY.",
+  "action_date": "2017-09-15",
+  "amount": 500000.0,
+  "recipient_name": "EASTERN KENTUCKY PRIDE INC"
+}
+---
+{
+  "id": 9630134,
+  "subaward_number": "ZZGCMPVGF7K5",
+  "description": "ECONOMIC DEVELOPMENT THROUGH WILDLIFE HABITAT RESTORATION, BUILDING FOUNDATION AND SITE PREPARATION, ROAD/TRAIL CONSTRUCTION, PARKING  AREA CONSTRUCTION, INSTALLATION OF UTILITIES (ELECTRIC, SEWER, AND MUNICIPAL WATER), PROPERTY PURCHASE, AND PROJECT ADMINISTRATION.",
+  "action_date": "2017-06-16",
+  "amount": 12380000.0,
+  "recipient_name": "EASTERN KENTUCKY PRIDE INC"
+}
+---
+{
+  "id": 3208559,
+  "subaward_number": "ZZEMSP02",
+  "description": "TO PROVIDE FINANCIAL ASSISTANCE IN MEETING THE TRANSPORTATION NEEDS OF SENIORS AND INDIVIDUALS WITH DISABILITIES WHERE PUBLIC TRANSPORTATION SERVICES ARE UNAVAILABLE, INSUFFICIENT OR INAPPROPRIATE. THE SECTION 5310 PROGRAM IS DESIGNED TO SUPPLEMENT FTA'S OTHER CAPITAL ASSISTANCE PROGRAMS BY FUNDING TRANSPORTATION PROJECTS FOR SENIORS AND INDIVIDUALS WITH DISABILITIES IN ALL AREAS - URBANIZED, SMALL URBAN, AND RURAL. THE PROGRAM INCLUDES NEW FREEDOM PROGRAM ACTIVITIES AS ELIGIBLE PROJECTS.",
+  "action_date": "2021-09-23",
+  "amount": 54115.0,
+  "recipient_name": "EAST TENNESSEE HUMAN RESOURCE AGENCY, INC."
+}
+---
+Page metadata: {'page': 1, 'next': 2, 'previous': None, 'hasNext': True, 'hasPrevious': False}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1506  redactions: none
+==============================================================================
+[seq 11] 2026-10-20T21:28:03+00:00
+$ python3 -c 
+import requests
+import json
+
+# Try subawards with different filter format
+url = 'https://api.usaspending.gov/api/v2/subawards/'
+payload = {
+    'filters': {'prime_award_piid': 'GS35F0001X'},
+    'page': 1,
+    'limit': 3
+}
+r = requests.post(url, json=payload, timeout=30)
+print('Status:', r.status_code)
+if r.status_code == 200:
+    data = r.json()
+    for award in data.get('results', []):
+        print(json.dumps(award, indent=2))
+        print('---')
+else:
+    print(r.text[:1000])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 200
+{
+  "id": 2040919,
+  "subaward_number": "ZZRZX5QAANX3 MAYA BRIDGE UCP OY2",
+  "description": "LANGUAGE ACCESS AND TRANSLATION SERVICES",
+  "action_date": "2024-09-05",
+  "amount": 71000.0,
+  "recipient_name": "MAYA BRIDGE LLC"
+}
+---
+{
+  "id": 9842855,
+  "subaward_number": "ZZGCMPVGF7K5",
+  "description": "ECONOMIC DEVELOPMENT THROUGH INSTALLATION OF SEWER INFRASTRUCTURE TO SUPPORT RV CAMPGROUND.",
+  "action_date": "2017-09-15",
+  "amount": 200000.0,
+  "recipient_name": "EASTERN KENTUCKY PRIDE INC"
+}
+---
+{
+  "id": 9837558,
+  "subaward_number": "ZZGCMPVGF7K5",
+  "description": "DEVELOPMENT OF A FULL-SERVICE RV CAMPGROUND ASSOCIATED WITH AN\nADJACENT TRAIL SYSTEM TO REVITALIZE LOCAL ECONOMY.",
+  "action_date": "2017-09-15",
+  "amount": 500000.0,
+  "recipient_name": "EASTERN KENTUCKY PRIDE INC"
+}
+---
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1652  redactions: none
+==============================================================================
+[seq 12] 2026-10-20T21:28:35+00:00
+$ python3 -c 
+import requests
+import json
+
+# Check award details endpoint for a specific award
+url = 'https://api.usaspending.gov/api/v2/awards/ZZ03/'
+r = requests.get(url, timeout=30)
+print('Status:', r.status_code)
+if r.status_code == 200:
+    data = r.json()
+    print(json.dumps(data, indent=2)[:3000])
+else:
+    print(r.text[:1000])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 404
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Not Found</title>
+</head>
+<body>
+  <h1>Not Found</h1><p>The requested resource was not found on this server.</p>
+</body>
+</html>
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1459  redactions: none
+==============================================================================
+[seq 13] 2026-10-20T21:28:51+00:00
+$ python3 -c 
+import requests
+import json
+
+# Try award details with generated_internal_id
+url = 'https://api.usaspending.gov/api/v2/awards/CONT_AWD_ZZ03_9700_FA873213D0015_9700/'
+r = requests.get(url, timeout=30)
+print('Status:', r.status_code)
+if r.status_code == 200:
+    data = r.json()
+    print(json.dumps(data, indent=2)[:3000])
+else:
+    print(r.text[:1000])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 200
+{
+  "id": 350880171,
+  "generated_unique_award_id": "CONT_AWD_ZZ03_9700_FA873213D0015_9700",
+  "piid": "ZZ03",
+  "category": "contract",
+  "type": "C",
+  "type_description": "DELIVERY ORDER",
+  "description": "AUTOMATIC SWITCH INTERFACE MODULES",
+  "total_obligation": 52436.39,
+  "subaward_count": 0,
+  "total_subaward_amount": null,
+  "date_signed": "2015-09-25",
+  "base_exercised_options": 52436.39,
+  "base_and_all_options": 52436.39,
+  "total_account_outlay": 0,
+  "total_account_obligation": 0,
+  "account_outlays_by_defc": [],
+  "account_obligations_by_defc": [],
+  "parent_award": {
+    "agency_id": 1173,
+    "agency_name": "Department of Defense",
+    "agency_slug": "department-of-defense",
+    "sub_agency_id": "9700",
+    "sub_agency_name": "Department of Defense",
+    "award_id": 351193212,
+    "generated_unique_award_id": "CONT_IDV_FA873213D0015_9700",
+    "idv_type_description": "IDC",
+    "multiple_or_single_aw_desc": "MULTIPLE AWARD",
+    "piid": "FA873213D0015",
+    "type_of_idc_description": "INDEFINITE DELIVERY / INDEFINITE QUANTITY"
+  },
+  "latest_transaction_contract_data": {
+    "idv_type_description": null,
+    "type_of_idc_description": null,
+    "referenced_idv_agency_iden": "9700",
+    "referenced_idv_agency_desc": "DEPT OF DEFENSE",
+    "solicitation_identifier": null,
+    "solicitation_procedures": "MAFO",
+    "number_of_offers_received": "2",
+    "extent_competed": "A",
+    "type_set_aside": "NONE",
+    "type_set_aside_description": "NO SET ASIDE USED.",
+    "evaluated_preference": "NONE",
+    "fed_biz_opps": "X",
+    "fed_biz_opps_description": "NOT APPLICABLE",
+    "small_business_competitive": false,
+    "product_or_service_code": "7030",
+    "naics": "334210",
+    "naics_description": "TELEPHONE APPARATUS MANUFACTURING",
+    "sea_transportation": "N",
+    "clinger_cohen_act_planning": "N",
+    "labor_standards": "X",
+    "cost_or_pricing_data": "N",
+    "domestic_or_foreign_entity": "A",
+    "foreign_funding": "X",
+    "major_program": null,
+    "program_acronym": null,
+    "subcontracting_plan": "B",
+    "multi_year_contract": "N",
+    "consolidated_contract": "N",
+    "type_of_contract_pricing": "J",
+    "national_interest_action": "NONE",
+    "multiple_or_single_award_description": null,
+    "solicitation_procedures_description": "SUBJECT TO MULTIPLE AWARD FAIR OPPORTUNITY",
+    "extent_competed_description": "FULL AND OPEN COMPETITION",
+    "other_than_full_and_open": null,
+    "other_than_full_and_open_description": null,
+    "commercial_item_acquisition": "A",
+    "commercial_item_acquisition_description": "COMMERCIAL ITEM",
+    "commercial_item_test_program": "N",
+    "commercial_item_test_program_description": "NO",
+    "evaluated_preference_description": "NO PREFERENCE USED",
+    "fair_opportunity_limited": "OSA",
+    "fair_opportunity_limited_description": "OTHER STATUTORY AUTHORITY",
+    "product_or_service_description": "ADP SOFTWARE",
+    "dod_claimant_program": "C9E",
+    "dod_claimant_program_description":
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1814  redactions: none
+==============================================================================
+[seq 14] 2026-10-20T21:29:06+00:00
+$ python3 -c 
+import requests
+import json
+
+# Get full award details
+url = 'https://api.usaspending.gov/api/v2/awards/CONT_AWD_ZZ03_9700_FA873213D0015_9700/'
+r = requests.get(url, timeout=30)
+data = r.json()
+# Print all keys and interesting fields
+for key, value in data.items():
+    if isinstance(value, dict):
+        print(f'{key}: (dict with keys: {list(value.keys())})')
+    elif isinstance(value, list):
+        print(f'{key}: (list with {len(value)} items)')
+    else:
+        print(f'{key}: {value}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+id: 350880171
+generated_unique_award_id: CONT_AWD_ZZ03_9700_FA873213D0015_9700
+piid: ZZ03
+category: contract
+type: C
+type_description: DELIVERY ORDER
+description: AUTOMATIC SWITCH INTERFACE MODULES
+total_obligation: 52436.39
+subaward_count: 0
+total_subaward_amount: None
+date_signed: 2015-09-25
+base_exercised_options: 52436.39
+base_and_all_options: 52436.39
+total_account_outlay: 0
+total_account_obligation: 0
+account_outlays_by_defc: (list with 0 items)
+account_obligations_by_defc: (list with 0 items)
+parent_award: (dict with keys: ['agency_id', 'agency_name', 'agency_slug', 'sub_agency_id', 'sub_agency_name', 'award_id', 'generated_unique_award_id', 'idv_type_description', 'multiple_or_single_aw_desc', 'piid', 'type_of_idc_description'])
+latest_transaction_contract_data: (dict with keys: ['idv_type_description', 'type_of_idc_description', 'referenced_idv_agency_iden', 'referenced_idv_agency_desc', 'solicitation_identifier', 'solicitation_procedures', 'number_of_offers_received', 'extent_competed', 'type_set_aside', 'type_set_aside_description', 'evaluated_preference', 'fed_biz_opps', 'fed_biz_opps_description', 'small_business_competitive', 'product_or_service_code', 'naics', 'naics_description', 'sea_transportation', 'clinger_cohen_act_planning', 'labor_standards', 'cost_or_pricing_data', 'domestic_or_foreign_entity', 'foreign_funding', 'major_program', 'program_acronym', 'subcontracting_plan', 'multi_year_contract', 'consolidated_contract', 'type_of_contract_pricing', 'national_interest_action', 'multiple_or_single_award_description', 'solicitation_procedures_description', 'extent_competed_description', 'other_than_full_and_open', 'other_than_full_and_open_description', 'commercial_item_acquisition', 'commercial_item_acquisition_description', 'commercial_item_test_program', 'commercial_item_test_program_description', 'evaluated_preference_description', 'fair_opportunity_limited', 'fair_opportunity_limited_description', 'product_or_service_description', 'dod_claimant_program', 'dod_claimant_program_description', 'dod_acquisition_program', 'dod_acquisition_program_description', 'information_technology_commercial_item_category', 'information_technology_commercial_item_category_description', 'sea_transportation_description', 'clinger_cohen_act_planning_description', 'construction_wage_rate', 'construction_wage_rate_description', 'labor_standards_description', 'materials_supplies', 'materials_supplies_description', 'cost_or_pricing_data_description', 'domestic_or_foreign_entity_description', 'foreign_funding_description', 'interagency_contracting_authority', 'interagency_contracting_authority_description', 'price_evaluation_adjustment', 'subcontracting_plan_description', 'multi_year_contract_description', 'purchase_card_as_payment_method', 'purchase_card_as_payment_method_description', 'consolidated_contract_description', 'type_of_contract_pricing_description', 'national_interest_action_description'])
+funding_agency: (dict with keys: ['id', 'has_agency_page', 'toptier_agency', 'subtier_agency', 'office_agency_name'])
+awarding_agency: (dict with keys: ['id', 'has_agency_page', 'toptier_agency', 'subtier_agency', 'office_agency_name'])
+period_of_performance: (dict with keys: ['start_date', 'end_date', 'last_modified_date', 'potential_end_date'])
+recipient: (dict with keys: ['recipient_hash', 'recipient_name', 'recipient_uei', 'recipient_unique_id', 'parent_recipient_hash', 'parent_recipient_name', 'parent_recipient_uei', 'parent_recipient_unique_id', 'business_categories', 'location'])
+executive_details: (dict with keys: ['officers'])
+place_of_performance: (dict with keys: ['location_country_code', 'country_name', 'county_code', 'county_name', 'city_name', 'state_code', 'state_name', 'congressional_code', 'zip4', 'zip5', 'address_line1', 'address_line2', 'address_line3', 'foreign_province', 'foreign_postal_code'])
+psc_hierarchy: (dict with keys: ['toptier_code', 'midtier_code', 'subtier_code', 'base_code'])
+naics_hierarchy: (dict with keys: ['toptier_code', 'midtier_code', 'base_code'])
+total_outlay: None
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1456  redactions: none
+==============================================================================
+[seq 15] 2026-10-20T21:31:13+00:00
+$ python3 EXPERIMENTS/E210-vehicle-sin-sewp-analysis/e210_sin_sewp.py 7030
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Fetching awards for PSC 7030...
+Fetched 5000 awards
+
+================================================================================
+GSA MAS SIN / SEWP CATEGORY ANALYSIS: 7030
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+GSA MAS SCHEDULE 70 SIN ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+SIN          Name                                  Awards      Obligation   Recips   Small% Affinity
+----------------------------------------------------------------------------------------------------
+511210       Software Publishing                      629 $ 707,259,736      198    6.4%   85.0%
+54151S       IT Professional Services                 629 $ 707,259,736      198    6.4%   60.0%
+518210C      Cloud Computing Services - Commerc       589 $ 692,923,322      169    4.8%   75.0%
+33411        Computer and Peripheral Equipment        524 $ 429,288,989      169    9.6%   20.0%
+517311       Wired Telecommunications Carriers        517 $ 428,912,110      166    9.6%   15.0%
+54151HACS    Highly Adaptive Cybersecurity Serv       103 $ 277,761,185       39    1.3%   55.0%
+54151SOC     Security Operations Center Service       103 $ 277,761,185       39    1.3%   40.0%
+54151RM      Risk Management Services                 103 $ 277,761,185       39    1.3%   50.0%
+
+Small Vendor Opportunity (High Affinity SINs):
+  511210 (Software Publishing): Commercial software products, licenses, subscriptions, SaaS
+    Market: $707,259,736 | Small vendor share: 6.4% | Affinity: 85%
+  54151S (IT Professional Services): Software development, integration, consulting, implementation
+    Market: $707,259,736 | Small vendor share: 6.4% | Affinity: 60%
+  518210C (Cloud Computing Services - Commercial Cloud): IaaS, PaaS, SaaS cloud services
+    Market: $692,923,322 | Small vendor share: 4.8% | Affinity: 75%
+
+────────────────────────────────────────────────────────────────────────────────
+SEWP CATEGORY ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+Cat    Name                        Awards      Obligation   Recips   Small% Affinity
+--------------------------------------------------------------------------------
+A      IT Hardware                    599 $ 396,905,681       91    7.9%   20.0%
+B      IT Software                    599 $ 396,905,681       91    7.9%   80.0%
+C      IT Services                    599 $ 396,905,681       91    7.9%   60.0%
+D      Telecommunications             599 $ 396,905,681       91    7.9%   15.0%
+E      Audio/Visual                   599 $ 396,905,681       91    7.9%   25.0%
+
+Small Vendor Opportunity (High Affinity Categories):
+  Category B (IT Software): Commercial software, licenses, SaaS, cloud services
+    Market: $396,905,681 | Small vendor share: 7.9% | Affinity: 80%
+  Category C (IT Services): Professional services, integration, consulting, maintenance
+    Market: $396,905,681 | Small vendor share: 7.9% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+TOP GSA MAS PIIDs
+────────────────────────────────────────────────────────────────────────────────
+PIID                   Awards      Obligation   Recips Small Vendors Est. SINs
+------------------------------------------------------------------------------------------
+47QTCA19A0001               1 $ 263,399,879        1            0 511210, 518210C, 54151S
+GS35F309AA                  2 $  87,627,786        1            0 511210, 518210C, 54151S
+GS35F5086H                  1 $  74,493,382        1            0 511210, 518210C, 54151S
+GS35F0119Y                 64 $  63,076,027        1            0 511210, 518210C, 54151S
+GS35F0926R                  4 $  48,976,342        1            0 511210, 518210C, 54151S
+GS35F253CA                 24 $  39,318,542        1            0 511210, 518210C, 54151S
+GS00Q12NSD0005              1 $   9,795,864        1            0 511210, 54151S, 33411
+GS35F0111K                  2 $   8,702,967        1            0 511210, 518210C, 54151S
+GS35F681GA                  1 $   7,500,000        1            0 511210, 518210C, 54151S
+GS35F0265X                 37 $   7,256,075        1            0 511210, 518210C, 54151S
+
+────────────────────────────────────────────────────────────────────────────────
+TOP SEWP PIIDs
+--------------------------------------------------------------------------------
+PIID                   Awards      Obligation   Recips Small Vendors Est. Cats
+------------------------------------------------------------------------------------------
+NNG15SC59B                  7 $  67,670,099        1            0 A, B, C, D, E
+NNG15SC71B                 26 $  35,995,970        1            0 A, B, C, D, E
+NNG15SC10B                  6 $  29,572,587        1            0 A, B, C, D, E
+NNG15SD87B                  4 $  29,065,311        1            0 A, B, C, D, E
+NNG15SD11B                 16 $  22,424,986        1            0 A, B, C, D, E
+NNG15SC33B                 10 $  20,043,494        1            0 A, B, C, D, E
+NNG15SD82B                  2 $  18,322,696        1            0 A, B, C, D, E
+NNG15SC91B                  5 $  14,452,195        1            0 A, B, C, D, E
+NNG15SC04B                  5 $  11,520,868        1            0 A, B, C, D, E
+NNG15SC22B                  3 $  11,268,278        1            0 A, B, C, D, E
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 507  redactions: none
+==============================================================================
+[seq 16] 2026-10-20T21:31:32+00:00
+$ python3 EXPERIMENTS/E210-vehicle-sin-sewp-analysis/e210_sin_sewp.py DA10
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Fetching awards for PSC DA10...
+Fetched 5000 awards
+
+================================================================================
+GSA MAS SIN / SEWP CATEGORY ANALYSIS: DA10
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+GSA MAS SCHEDULE 70 SIN ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+SIN          Name                                  Awards      Obligation   Recips   Small% Affinity
+----------------------------------------------------------------------------------------------------
+511210       Software Publishing                      435 $ 665,853,392      152   32.3%   85.0%
+54151S       IT Professional Services                 435 $ 665,853,392      152   32.3%   60.0%
+518210C      Cloud Computing Services - Commerc       394 $ 608,774,568      124   26.6%   75.0%
+33411        Computer and Peripheral Equipment        254 $ 231,385,013       98   61.9%   20.0%
+517311       Wired Telecommunications Carriers        252 $ 231,320,371       96   62.0%   15.0%
+54151HACS    Highly Adaptive Cybersecurity Serv       135 $  76,407,833       58   85.4%   55.0%
+54151SOC     Security Operations Center Service       135 $  76,407,833       58   85.4%   40.0%
+54151RM      Risk Management Services                 135 $  76,407,833       58   85.4%   50.0%
+
+Small Vendor Opportunity (High Affinity SINs):
+  511210 (Software Publishing): Commercial software products, licenses, subscriptions, SaaS
+    Market: $665,853,392 | Small vendor share: 32.3% | Affinity: 85%
+  54151S (IT Professional Services): Software development, integration, consulting, implementation
+    Market: $665,853,392 | Small vendor share: 32.3% | Affinity: 60%
+  518210C (Cloud Computing Services - Commercial Cloud): IaaS, PaaS, SaaS cloud services
+    Market: $608,774,568 | Small vendor share: 26.6% | Affinity: 75%
+
+────────────────────────────────────────────────────────────────────────────────
+SEWP CATEGORY ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+Cat    Name                        Awards      Obligation   Recips   Small% Affinity
+--------------------------------------------------------------------------------
+A      IT Hardware                   1267 $ 543,770,461       96    2.2%   20.0%
+B      IT Software                   1267 $ 543,770,461       96    2.2%   80.0%
+C      IT Services                   1267 $ 543,770,461       96    2.2%   60.0%
+D      Telecommunications            1267 $ 543,770,461       96    2.2%   15.0%
+E      Audio/Visual                  1267 $ 543,770,461       96    2.2%   25.0%
+
+Small Vendor Opportunity (High Affinity Categories):
+  Category B (IT Software): Commercial software, licenses, SaaS, cloud services
+    Market: $543,770,461 | Small vendor share: 2.2% | Affinity: 80%
+  Category C (IT Services): Professional services, integration, consulting, maintenance
+    Market: $543,770,461 | Small vendor share: 2.2% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+TOP GSA MAS PIIDs
+────────────────────────────────────────────────────────────────────────────────
+PIID                   Awards      Obligation   Recips Small Vendors Est. SINs
+------------------------------------------------------------------------------------------
+47QTCK18D0011               1 $ 344,407,758        1            0 511210, 518210C, 54151S
+GS35F0040X                  1 $  51,533,489        1            0 511210, 518210C, 54151S
+47QTCA21D00DZ               1 $  36,480,441        1            0 511210, 518210C, 54151S
+GS35F0119Y                 14 $  33,280,955        1            0 511210, 518210C, 54151S
+GS00F029DA                  1 $  32,152,095        1            0 511210, 54151S, 33411
+GS35F0875N                  1 $  21,407,122        1            0 511210, 518210C, 54151S
+GS35F0431Y                  2 $  16,198,710        1            0 511210, 518210C, 54151S
+GS35F320AA                  1 $  13,227,629        1            0 511210, 518210C, 54151S
+GS35F0696M                  1 $  10,809,315        1            0 511210, 518210C, 54151S
+GS10F0311W                  1 $   9,968,480        1            0 511210, 54151S, 33411
+
+────────────────────────────────────────────────────────────────────────────────
+TOP SEWP PIIDs
+--------------------------------------------------------------------------------
+PIID                   Awards      Obligation   Recips Small Vendors Est. Cats
+------------------------------------------------------------------------------------------
+NNG15SC98B                 55 $ 287,713,486        1            0 A, B, C, D, E
+NNG15SC59B                  6 $  83,239,204        1            0 A, B, C, D, E
+NNG15SC73B                 28 $  29,717,135        1            0 A, B, C, D, E
+NNG15SC82B                153 $  13,467,928        1            0 A, B, C, D, E
+NNG15SC27B                 18 $  12,358,119        1            0 A, B, C, D, E
+NNG15SD09B                 46 $  11,510,110        1            0 A, B, C, D, E
+NNG15SD38B                 42 $  10,597,694        1            0 A, B, C, D, E
+NNG15SC89B                 18 $   9,567,836        1            0 A, B, C, D, E
+NNG15SC33B                 10 $   5,128,897        1            0 A, B, C, D, E
+NNG15SD18B                  2 $   5,027,098        1            0 A, B, C, D, E
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 419  redactions: none
+==============================================================================
+[seq 17] 2026-10-20T21:35:32+00:00
+$ python3 EXPERIMENTS/E210-vehicle-sin-sewp-analysis/e210_sin_sewp.py 7030
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Fetching awards for PSC 7030...
+Fetched 5000 awards
+
+================================================================================
+GSA MAS SIN / SEWP CATEGORY ANALYSIS: 7030
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+GSA MAS SCHEDULE 70 SIN ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+SIN          Name                                  Awards      Obligation   Recips   Small% Affinity
+----------------------------------------------------------------------------------------------------
+511210       Software Publishing                      561 $ 675,058,398      183    5.9%   85.0%
+511210S      Software Publishing - SaaS               385 $ 509,451,382      148    4.5%   80.0%
+518210C      Cloud Computing Services - Commerc       385 $ 509,451,382      148    4.5%   75.0%
+54151S       IT Professional Services                 211 $ 193,776,286       87   11.0%   60.0%
+33411        Computer and Peripheral Equipment        202 $ 167,705,846       81   10.5%   20.0%
+517311       Wired Telecommunications Carriers        183 $ 167,540,255       73   10.2%   15.0%
+54151HACS    Highly Adaptive Cybersecurity Serv        35 $  28,169,269       23   15.5%   55.0%
+54151SOC     Security Operations Center Service        35 $  28,169,269       23   15.5%   40.0%
+54151RM      Risk Management Services                  35 $  28,169,269       23   15.5%   50.0%
+541611       Administrative Management Consulti        35 $  28,169,269       23   15.5%    0.0%
+811212       Computer and Office Machine Repair        26 $   2,098,830       20   29.6%   30.0%
+132-52       IT Hardware (Legacy)                      26 $   2,098,830       20   29.6%    0.0%
+132-33       Peripherals and Storage (Legacy)          26 $   2,098,830       20   29.6%    0.0%
+132-34       Data Communications (Legacy)              26 $   2,098,830       20   29.6%    0.0%
+517312       Wireless Telecommunications Carrie         7 $   1,933,238        6    3.4%   15.0%
+517911       Telecommunications Resellers               7 $   1,933,238        6    3.4%   25.0%
+132-54       Telecommunications Services (Legac         7 $   1,933,238        6    3.4%    0.0%
+
+Small Vendor Opportunity (High Affinity SINs):
+  511210 (Software Publishing): Commercial software products, licenses, subscriptions, SaaS
+    Market: $675,058,398 | Small vendor share: 5.9% | Affinity: 85%
+  511210S (Software Publishing - SaaS): Software as a Service offerings
+    Market: $509,451,382 | Small vendor share: 4.5% | Affinity: 80%
+  518210C (Cloud Computing Services - Commercial Cloud): IaaS, PaaS, SaaS cloud services
+    Market: $509,451,382 | Small vendor share: 4.5% | Affinity: 75%
+  54151S (IT Professional Services): Software development, integration, consulting, implementation
+    Market: $193,776,286 | Small vendor share: 11.0% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+SEWP CATEGORY ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+Cat    Name                        Awards      Obligation   Recips   Small% Affinity
+--------------------------------------------------------------------------------
+B      IT Software                    511 $ 359,910,836       87    6.0%   80.0%
+C      IT Services                    351 $ 256,984,276       81   12.0%   60.0%
+A      IT Hardware                    262 $ 127,654,184       73   14.5%   20.0%
+E      Audio/Visual                   200 $ 102,011,953       61   10.9%   25.0%
+D      Telecommunications             206 $  62,680,580       60   17.7%   15.0%
+
+Small Vendor Opportunity (High Affinity Categories):
+  Category B (IT Software): Commercial software, licenses, SaaS, cloud services
+    Market: $359,910,836 | Small vendor share: 6.0% | Affinity: 80%
+  Category C (IT Services): Professional services, integration, consulting, maintenance
+    Market: $256,984,276 | Small vendor share: 12.0% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+TOP GSA MAS PIIDs
+────────────────────────────────────────────────────────────────────────────────
+PIID                   Awards      Obligation   Recips Small Vendors Est. SINs
+------------------------------------------------------------------------------------------
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/E210-vehicle-sin-sewp-analysis/e210_sin_sewp.py", line 547, in <module>
+    print_sin_sewp_analysis(psc_code, analysis)
+  File "EXPERIMENTS/E210-vehicle-sin-sewp-analysis/e210_sin_sewp.py", line 513, in print_sin_sewp_analysis
+    print(f"{piid:<20} {stats['count']:>8} ${stats['obligation']:>12,.0f} {stats['unique_recipients']:>8} {small_count:>12} {sins}")
+KeyError: 'unique_recipients'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 995  redactions: none
+==============================================================================
+[seq 18] 2026-10-20T21:36:02+00:00
+$ python3 EXPERIMENTS/E210-vehicle-sin-sewp-analysis/e210_sin_sewp.py 7030
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Fetching awards for PSC 7030...
+Fetched 5000 awards
+
+================================================================================
+GSA MAS SIN / SEWP CATEGORY ANALYSIS: 7030
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+GSA MAS SCHEDULE 70 SIN ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+SIN          Name                                  Awards      Obligation   Recips   Small% Affinity
+----------------------------------------------------------------------------------------------------
+511210       Software Publishing                      561 $ 675,058,398      183    5.9%   85.0%
+511210S      Software Publishing - SaaS               385 $ 509,451,382      148    4.5%   80.0%
+518210C      Cloud Computing Services - Commerc       385 $ 509,451,382      148    4.5%   75.0%
+54151S       IT Professional Services                 211 $ 193,776,286       87   11.0%   60.0%
+33411        Computer and Peripheral Equipment        202 $ 167,705,846       81   10.5%   20.0%
+517311       Wired Telecommunications Carriers        183 $ 167,540,255       73   10.2%   15.0%
+54151HACS    Highly Adaptive Cybersecurity Serv        35 $  28,169,269       23   15.5%   55.0%
+54151SOC     Security Operations Center Service        35 $  28,169,269       23   15.5%   40.0%
+54151RM      Risk Management Services                  35 $  28,169,269       23   15.5%   50.0%
+541611       Administrative Management Consulti        35 $  28,169,269       23   15.5%    0.0%
+811212       Computer and Office Machine Repair        26 $   2,098,830       20   29.6%   30.0%
+132-52       IT Hardware (Legacy)                      26 $   2,098,830       20   29.6%    0.0%
+132-33       Peripherals and Storage (Legacy)          26 $   2,098,830       20   29.6%    0.0%
+132-34       Data Communications (Legacy)              26 $   2,098,830       20   29.6%    0.0%
+517312       Wireless Telecommunications Carrie         7 $   1,933,238        6    3.4%   15.0%
+517911       Telecommunications Resellers               7 $   1,933,238        6    3.4%   25.0%
+132-54       Telecommunications Services (Legac         7 $   1,933,238        6    3.4%    0.0%
+
+Small Vendor Opportunity (High Affinity SINs):
+  511210 (Software Publishing): Commercial software products, licenses, subscriptions, SaaS
+    Market: $675,058,398 | Small vendor share: 5.9% | Affinity: 85%
+  511210S (Software Publishing - SaaS): Software as a Service offerings
+    Market: $509,451,382 | Small vendor share: 4.5% | Affinity: 80%
+  518210C (Cloud Computing Services - Commercial Cloud): IaaS, PaaS, SaaS cloud services
+    Market: $509,451,382 | Small vendor share: 4.5% | Affinity: 75%
+  54151S (IT Professional Services): Software development, integration, consulting, implementation
+    Market: $193,776,286 | Small vendor share: 11.0% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+SEWP CATEGORY ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+Cat    Name                        Awards      Obligation   Recips   Small% Affinity
+--------------------------------------------------------------------------------
+B      IT Software                    511 $ 359,910,836       87    6.0%   80.0%
+C      IT Services                    351 $ 256,984,276       81   12.0%   60.0%
+A      IT Hardware                    262 $ 127,654,184       73   14.5%   20.0%
+E      Audio/Visual                   200 $ 102,011,953       61   10.9%   25.0%
+D      Telecommunications             206 $  62,680,580       60   17.7%   15.0%
+
+Small Vendor Opportunity (High Affinity Categories):
+  Category B (IT Software): Commercial software, licenses, SaaS, cloud services
+    Market: $359,910,836 | Small vendor share: 6.0% | Affinity: 80%
+  Category C (IT Services): Professional services, integration, consulting, maintenance
+    Market: $256,984,276 | Small vendor share: 12.0% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+TOP GSA MAS PIIDs
+────────────────────────────────────────────────────────────────────────────────
+PIID                   Awards      Obligation   Recips Small Vendors Est. SINs
+------------------------------------------------------------------------------------------
+47QTCA19A0001               1 $ 263,399,879        1            0 511210, 511210S, 518210C
+GS35F309AA                  2 $  87,627,786        1            0 511210, 54151S, 33411
+GS35F5086H                  1 $  74,493,382        1            0 511210, 511210S, 518210C
+GS35F0119Y                 64 $  63,076,027        1            0 511210, 54151S, 33411
+GS35F0926R                  4 $  48,976,342        1            0 511210, 511210S, 518210C
+GS35F253CA                 24 $  39,318,542        1            0 511210, 511210S, 518210C
+GS00Q12NSD0005              1 $   9,795,864        1            1 511210, 54151S, 33411
+GS35F0111K                  2 $   8,702,967        1            0 511210, 54151S, 33411
+GS35F681GA                  1 $   7,500,000        1            0 511210, 511210S, 518210C
+GS35F0265X                 37 $   7,256,075        1            0 511210, 511210S, 518210C
+
+────────────────────────────────────────────────────────────────────────────────
+TOP SEWP PIIDs
+--------------------------------------------------------------------------------
+PIID                   Awards      Obligation   Recips Small Vendors Est. Cats
+------------------------------------------------------------------------------------------
+NNG15SC59B                  7 $  67,670,099        1            0 B, C
+NNG15SC71B                 26 $  35,995,970        1            0 B, C
+NNG15SC10B                  6 $  29,572,587        1            0 B, C, A
+NNG15SD87B                  4 $  29,065,311        1            0 B
+NNG15SD11B                 16 $  22,424,986        1            0 A, B, C, D, E
+NNG15SC33B                 10 $  20,043,494        1            0 C
+NNG15SD82B                  2 $  18,322,696        1            1 C
+NNG15SC91B                  5 $  14,452,195        1            0 B
+NNG15SC04B                  5 $  11,520,868        1            0 B, C, A
+NNG15SC22B                  3 $  11,268,278        1            0 B, C
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 464  redactions: none
+==============================================================================
+[seq 19] 2026-10-20T21:36:17+00:00
+$ python3 EXPERIMENTS/E210-vehicle-sin-sewp-analysis/e210_sin_sewp.py DA10
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Fetching awards for PSC DA10...
+Fetched 5000 awards
+
+================================================================================
+GSA MAS SIN / SEWP CATEGORY ANALYSIS: DA10
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+GSA MAS SCHEDULE 70 SIN ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+SIN          Name                                  Awards      Obligation   Recips   Small% Affinity
+----------------------------------------------------------------------------------------------------
+511210       Software Publishing                      383 $ 535,617,026      133   28.3%   85.0%
+511210S      Software Publishing - SaaS               266 $ 516,183,485      101   27.2%   80.0%
+518210C      Cloud Computing Services - Commerc       266 $ 516,183,485      101   27.2%   75.0%
+54151S       IT Professional Services                 147 $ 114,008,220       81   65.6%   60.0%
+54151HACS    Highly Adaptive Cybersecurity Serv        30 $  94,574,679       28   67.0%   55.0%
+54151SOC     Security Operations Center Service        30 $  94,574,679       28   67.0%   40.0%
+54151RM      Risk Management Services                  30 $  94,574,679       28   67.0%   50.0%
+541611       Administrative Management Consulti        30 $  94,574,679       28   67.0%    0.0%
+33411        Computer and Peripheral Equipment        133 $  50,885,391       62   22.6%   20.0%
+811212       Computer and Office Machine Repair        16 $  31,451,849        9    0.2%   30.0%
+132-52       IT Hardware (Legacy)                      16 $  31,451,849        9    0.2%    0.0%
+132-33       Peripherals and Storage (Legacy)          16 $  31,451,849        9    0.2%    0.0%
+132-34       Data Communications (Legacy)              16 $  31,451,849        9    0.2%    0.0%
+517311       Wired Telecommunications Carriers        123 $  23,643,379       60   48.4%   15.0%
+517312       Wireless Telecommunications Carrie         6 $   4,209,838        5    0.0%   15.0%
+517911       Telecommunications Resellers               6 $   4,209,838        5    0.0%   25.0%
+132-54       Telecommunications Services (Legac         6 $   4,209,838        5    0.0%    0.0%
+
+Small Vendor Opportunity (High Affinity SINs):
+  511210 (Software Publishing): Commercial software products, licenses, subscriptions, SaaS
+    Market: $535,617,026 | Small vendor share: 28.3% | Affinity: 85%
+  511210S (Software Publishing - SaaS): Software as a Service offerings
+    Market: $516,183,485 | Small vendor share: 27.2% | Affinity: 80%
+  518210C (Cloud Computing Services - Commercial Cloud): IaaS, PaaS, SaaS cloud services
+    Market: $516,183,485 | Small vendor share: 27.2% | Affinity: 75%
+  54151S (IT Professional Services): Software development, integration, consulting, implementation
+    Market: $114,008,220 | Small vendor share: 65.6% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+SEWP CATEGORY ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+Cat    Name                        Awards      Obligation   Recips   Small% Affinity
+--------------------------------------------------------------------------------
+E      Audio/Visual                   638 $ 336,753,937       84    2.4%   25.0%
+B      IT Software                   1145 $ 244,522,454       91    1.6%   80.0%
+C      IT Services                    854 $ 191,704,304       90    4.8%   60.0%
+A      IT Hardware                    708 $  90,266,601       85    3.7%   20.0%
+D      Telecommunications             638 $  60,210,093       83    8.4%   15.0%
+
+Small Vendor Opportunity (High Affinity Categories):
+  Category B (IT Software): Commercial software, licenses, SaaS, cloud services
+    Market: $244,522,454 | Small vendor share: 1.6% | Affinity: 80%
+  Category C (IT Services): Professional services, integration, consulting, maintenance
+    Market: $191,704,304 | Small vendor share: 4.8% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+TOP GSA MAS PIIDs
+────────────────────────────────────────────────────────────────────────────────
+PIID                   Awards      Obligation   Recips Small Vendors Est. SINs
+------------------------------------------------------------------------------------------
+47QTCK18D0011               1 $ 344,407,758        1            0 511210, 511210S, 518210C
+GS35F0040X                  1 $  51,533,489        1            1 511210, 511210S, 518210C
+47QTCA21D00DZ               1 $  36,480,441        1            1 511210, 511210S, 518210C
+GS35F0119Y                 14 $  33,280,955        1            0 511210, 54151S, 33411
+GS00F029DA                  1 $  32,152,095        1            1 511210, 511210S, 518210C
+GS35F0875N                  1 $  21,407,122        1            1 54151S, 54151HACS, 54151SOC
+GS35F0431Y                  2 $  16,198,710        1            0 511210, 511210S, 518210C
+GS35F320AA                  1 $  13,227,629        1            1 54151S, 54151HACS, 54151SOC
+GS35F0696M                  1 $  10,809,315        1            0 54151S, 54151HACS, 54151SOC
+GS10F0311W                  1 $   9,968,480        1            1 54151S, 54151HACS, 54151SOC
+
+────────────────────────────────────────────────────────────────────────────────
+TOP SEWP PIIDs
+--------------------------------------------------------------------------------
+PIID                   Awards      Obligation   Recips Small Vendors Est. Cats
+------------------------------------------------------------------------------------------
+NNG15SC98B                 55 $ 287,713,486        1            0 A, B, C, D, E
+NNG15SC59B                  6 $  83,239,204        1            0 A, B, C, D, E
+NNG15SC73B                 28 $  29,717,135        1            0 A, B, C, D, E
+NNG15SC82B                153 $  13,467,928        1            0 A, B, C, D, E
+NNG15SC27B                 18 $  12,358,119        1            0 A, B, C, D, E
+NNG15SD09B                 46 $  11,510,110        1            0 A, B, C, D, E
+NNG15SD38B                 42 $  10,597,694        1            0 A, B, C, D, E
+NNG15SC89B                 18 $   9,567,836        1            0 A, B, C, D, E
+NNG15SC33B                 10 $   5,128,897        1            0 A, B, C, D, E
+NNG15SD18B                  2 $   5,027,098        1            1 C, E
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 535  redactions: none
+==============================================================================
+[seq 20] 2026-10-20T21:36:33+00:00
+$ python3 EXPERIMENTS/E210-vehicle-sin-sewp-analysis/e210_sin_sewp.py 7A21
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Fetching awards for PSC 7A21...
+Fetched 5000 awards
+
+================================================================================
+GSA MAS SIN / SEWP CATEGORY ANALYSIS: 7A21
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+GSA MAS SCHEDULE 70 SIN ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+SIN          Name                                  Awards      Obligation   Recips   Small% Affinity
+----------------------------------------------------------------------------------------------------
+511210       Software Publishing                      470 $ 580,873,893      126    4.0%   85.0%
+511210S      Software Publishing - SaaS               320 $ 555,040,380      105    3.2%   80.0%
+518210C      Cloud Computing Services - Commerc       320 $ 555,040,380      105    3.2%   75.0%
+54151S       IT Professional Services                 179 $  72,339,501       64   14.2%   60.0%
+54151HACS    Highly Adaptive Cybersecurity Serv        29 $  46,505,988       17   10.4%   55.0%
+54151SOC     Security Operations Center Service        29 $  46,505,988       17   10.4%   40.0%
+54151RM      Risk Management Services                  29 $  46,505,988       17   10.4%   50.0%
+541611       Administrative Management Consulti        29 $  46,505,988       17   10.4%    0.0%
+33411        Computer and Peripheral Equipment        163 $  27,335,804       60   23.9%   20.0%
+517311       Wired Telecommunications Carriers        154 $  26,158,649       57   21.0%   15.0%
+811212       Computer and Office Machine Repair        14 $   1,553,257       12   72.3%   30.0%
+132-52       IT Hardware (Legacy)                      14 $   1,553,257       12   72.3%    0.0%
+132-33       Peripherals and Storage (Legacy)          14 $   1,553,257       12   72.3%    0.0%
+132-34       Data Communications (Legacy)              14 $   1,553,257       12   72.3%    0.0%
+517312       Wireless Telecommunications Carrie         5 $     376,102        4   21.7%   15.0%
+517911       Telecommunications Resellers               5 $     376,102        4   21.7%   25.0%
+132-54       Telecommunications Services (Legac         5 $     376,102        4   21.7%    0.0%
+132-56       Health IT (Legacy)                         1 $      50,965        1    0.0%   70.0%
+
+Small Vendor Opportunity (High Affinity SINs):
+  511210 (Software Publishing): Commercial software products, licenses, subscriptions, SaaS
+    Market: $580,873,893 | Small vendor share: 4.0% | Affinity: 85%
+  511210S (Software Publishing - SaaS): Software as a Service offerings
+    Market: $555,040,380 | Small vendor share: 3.2% | Affinity: 80%
+  518210C (Cloud Computing Services - Commercial Cloud): IaaS, PaaS, SaaS cloud services
+    Market: $555,040,380 | Small vendor share: 3.2% | Affinity: 75%
+  54151S (IT Professional Services): Software development, integration, consulting, implementation
+    Market: $72,339,501 | Small vendor share: 14.2% | Affinity: 60%
+  132-56 (Health IT (Legacy)): Legacy SIN for health IT systems and services
+    Market: $50,965 | Small vendor share: 0.0% | Affinity: 70%
+
+────────────────────────────────────────────────────────────────────────────────
+SEWP CATEGORY ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+Cat    Name                        Awards      Obligation   Recips   Small% Affinity
+--------------------------------------------------------------------------------
+B      IT Software                    725 $ 477,578,606       89    3.1%   80.0%
+C      IT Services                    450 $ 365,316,976       78    2.6%   60.0%
+A      IT Hardware                    302 $ 125,778,180       71    3.3%   20.0%
+D      Telecommunications             212 $ 109,775,807       62    3.0%   15.0%
+E      Audio/Visual                   197 $  88,089,447       59    9.1%   25.0%
+
+Small Vendor Opportunity (High Affinity Categories):
+  Category B (IT Software): Commercial software, licenses, SaaS, cloud services
+    Market: $477,578,606 | Small vendor share: 3.1% | Affinity: 80%
+  Category C (IT Services): Professional services, integration, consulting, maintenance
+    Market: $365,316,976 | Small vendor share: 2.6% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+TOP GSA MAS PIIDs
+────────────────────────────────────────────────────────────────────────────────
+PIID                   Awards      Obligation   Recips Small Vendors Est. SINs
+------------------------------------------------------------------------------------------
+47QTCA22A0003               1 $ 183,218,776        1            0 511210, 511210S, 518210C
+GS35F0119Y                 38 $ 182,090,369        1            0 511210, 511210S, 518210C
+47QTCA24A0001               1 $  92,761,164        1            0 511210, 511210S, 518210C
+GS35F253CA                 25 $  51,628,935        1            0 511210, 511210S, 518210C
+GS35F636GA                  7 $  19,121,266        1            0 511210, 511210S, 518210C
+47QTCA21D005F               4 $  16,233,091        1            0 511210, 511210S, 518210C
+GS35F0926R                  3 $  11,364,360        1            0 511210, 511210S, 518210C
+47QSWA18D008F              29 $  10,363,581        1            0 511210, 54151S, 33411
+47QTCA19D00EP               2 $   7,297,744        1            1 511210, 511210S, 518210C
+47QTCA18D0081              16 $   3,804,850        1            0 511210, 54151S, 33411
+
+────────────────────────────────────────────────────────────────────────────────
+TOP SEWP PIIDs
+--------------------------------------------------------------------------------
+PIID                   Awards      Obligation   Recips Small Vendors Est. Cats
+------------------------------------------------------------------------------------------
+NNG15SC33B                 27 $ 113,051,458        1            0 A, B, C, D, E
+NNG15SC59B                 15 $  61,506,010        1            0 B
+NNG15SC82B                 85 $  37,107,399        1            0 C
+NNG15SC55B                 16 $  34,542,993        1            0 B
+NNG15SC92B                 23 $  28,187,800        1            0 D
+NNG15SC71B                 32 $  26,516,161        1            0 B
+NNG15SC91B                  7 $  23,816,096        1            0 B
+NNG15SD27B                  7 $  20,660,879        1            0 B
+NNG15SC98B                 48 $  16,851,544        1            0 B
+NNG15SD26B                 13 $  13,998,714        1            0 B, C
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 494  redactions: none
+==============================================================================
+[seq 21] 2026-10-20T21:36:48+00:00
+$ python3 EXPERIMENTS/E210-vehicle-sin-sewp-analysis/e210_sin_sewp.py DA01
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Fetching awards for PSC DA01...
+Fetched 5000 awards
+
+================================================================================
+GSA MAS SIN / SEWP CATEGORY ANALYSIS: DA01
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+GSA MAS SCHEDULE 70 SIN ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+SIN          Name                                  Awards      Obligation   Recips   Small% Affinity
+----------------------------------------------------------------------------------------------------
+511210       Software Publishing                       51 $1,010,095,227       37    5.5%   85.0%
+511210S      Software Publishing - SaaS                40 $ 983,092,001       30    4.2%   80.0%
+518210C      Cloud Computing Services - Commerc        40 $ 983,092,001       30    4.2%   75.0%
+54151S       IT Professional Services                  38 $  89,027,408       30   85.2%   60.0%
+54151HACS    Highly Adaptive Cybersecurity Serv        27 $  62,024,182       22   99.7%   55.0%
+54151SOC     Security Operations Center Service        27 $  62,024,182       22   99.7%   40.0%
+54151RM      Risk Management Services                  27 $  62,024,182       22   99.7%   50.0%
+541611       Administrative Management Consulti        27 $  62,024,182       22   99.7%    0.0%
+517311       Wired Telecommunications Carriers         12 $  28,265,728       12   53.9%   15.0%
+33411        Computer and Peripheral Equipment         16 $  27,740,347       14   53.0%   20.0%
+517312       Wireless Telecommunications Carrie         1 $   1,262,501        1  100.0%   15.0%
+517911       Telecommunications Resellers               1 $   1,262,501        1  100.0%   25.0%
+132-54       Telecommunications Services (Legac         1 $   1,262,501        1  100.0%    0.0%
+811212       Computer and Office Machine Repair         5 $     737,120        4   98.3%   30.0%
+132-52       IT Hardware (Legacy)                       5 $     737,120        4   98.3%    0.0%
+132-33       Peripherals and Storage (Legacy)           5 $     737,120        4   98.3%    0.0%
+132-34       Data Communications (Legacy)               5 $     737,120        4   98.3%    0.0%
+
+Small Vendor Opportunity (High Affinity SINs):
+  511210 (Software Publishing): Commercial software products, licenses, subscriptions, SaaS
+    Market: $1,010,095,227 | Small vendor share: 5.5% | Affinity: 85%
+  511210S (Software Publishing - SaaS): Software as a Service offerings
+    Market: $983,092,001 | Small vendor share: 4.2% | Affinity: 80%
+  518210C (Cloud Computing Services - Commercial Cloud): IaaS, PaaS, SaaS cloud services
+    Market: $983,092,001 | Small vendor share: 4.2% | Affinity: 75%
+  54151S (IT Professional Services): Software development, integration, consulting, implementation
+    Market: $89,027,408 | Small vendor share: 85.2% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+SEWP CATEGORY ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+Cat    Name                        Awards      Obligation   Recips   Small% Affinity
+--------------------------------------------------------------------------------
+C      IT Services                     32 $  30,144,179       20   63.7%   60.0%
+B      IT Software                     46 $   9,355,747       19    3.5%   80.0%
+A      IT Hardware                     10 $   1,410,031        9   27.5%   20.0%
+E      Audio/Visual                     6 $     879,253        6   31.6%   25.0%
+D      Telecommunications               6 $     692,492        6   13.1%   15.0%
+
+Small Vendor Opportunity (High Affinity Categories):
+  Category C (IT Services): Professional services, integration, consulting, maintenance
+    Market: $30,144,179 | Small vendor share: 63.7% | Affinity: 60%
+  Category B (IT Software): Commercial software, licenses, SaaS, cloud services
+    Market: $9,355,747 | Small vendor share: 3.5% | Affinity: 80%
+
+────────────────────────────────────────────────────────────────────────────────
+TOP GSA MAS PIIDs
+────────────────────────────────────────────────────────────────────────────────
+PIID                   Awards      Obligation   Recips Small Vendors Est. SINs
+------------------------------------------------------------------------------------------
+47QTCA22D004D               5 $ 748,823,889        1            0 511210, 511210S, 518210C
+GS35F0926R                  2 $ 117,887,187        1            0 511210, 511210S, 518210C
+47QTCK18D0036               1 $  50,199,137        1            0 511210, 511210S, 518210C
+47QTCA21D00DZ               1 $  23,677,469        1            1 54151S, 54151HACS, 54151SOC
+47QRAD20D8114               2 $  11,640,430        1            1 54151S, 54151HACS, 54151SOC
+47QTCB21D0186               1 $  10,612,819        1            0 511210, 54151S, 33411
+GS35F0131R                  1 $   8,684,967        1            0 511210, 511210S, 518210C
+47QTCB21D0107               3 $   8,523,101        1            1 511210, 511210S, 518210C
+47QRAA18D00A1               1 $   7,845,461        1            0 511210, 511210S, 518210C
+47QTCA19D00BW               1 $   7,822,889        1            1 511210, 511210S, 518210C
+
+────────────────────────────────────────────────────────────────────────────────
+TOP SEWP PIIDs
+--------------------------------------------------------------------------------
+PIID                   Awards      Obligation   Recips Small Vendors Est. Cats
+------------------------------------------------------------------------------------------
+NNG15SC69B                  1 $  12,884,253        1            1 C
+NNG15SC82B                 21 $   7,271,834        1            0 B
+NNG15SD76B                  5 $   4,266,009        1            0 B
+NNG15SC20B                  1 $   3,664,355        1            1 C
+NNG15SD07B                  1 $   1,878,393        1            1 C
+NNG15SD74B                  5 $   1,221,118        1            0 B, C
+NNG15SD60B                  3 $     708,592        1            0 C
+NNG15SD72B                  2 $     346,900        1            1 B, C, A
+NNG15SC73B                  1 $     293,227        1            0 A, B, C, D, E
+NNG15SC59B                  2 $     255,001        1            0 B, C, A
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 697  redactions: none
+==============================================================================
+[seq 22] 2026-10-20T21:37:53+00:00
+$ python3 EXPERIMENTS/E210-vehicle-sin-sewp-analysis/e210_sin_sewp.py D304
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Fetching awards for PSC D304...
+Fetched 5000 awards
+
+================================================================================
+GSA MAS SIN / SEWP CATEGORY ANALYSIS: D304
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+GSA MAS SCHEDULE 70 SIN ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+SIN          Name                                  Awards      Obligation   Recips   Small% Affinity
+----------------------------------------------------------------------------------------------------
+54151S       IT Professional Services                 204 $ 316,719,366       23   75.5%   60.0%
+511210       Software Publishing                      207 $ 283,235,961       30   85.5%   85.0%
+517311       Wired Telecommunications Carriers        196 $ 281,514,055       15   84.3%   15.0%
+33411        Computer and Peripheral Equipment        186 $ 275,049,481       15   86.3%   20.0%
+54151HACS    Highly Adaptive Cybersecurity Serv        21 $  41,724,794       13    4.8%   55.0%
+54151SOC     Security Operations Center Service        21 $  41,724,794       13    4.8%   40.0%
+54151RM      Risk Management Services                  21 $  41,724,794       13    4.8%   50.0%
+541611       Administrative Management Consulti        21 $  41,724,794       13    4.8%    0.0%
+511210S      Software Publishing - SaaS                24 $   8,241,389       18   58.0%   80.0%
+518210C      Cloud Computing Services - Commerc        24 $   8,241,389       18   58.0%   75.0%
+517312       Wireless Telecommunications Carrie        13 $   6,519,483        5    2.6%   15.0%
+517911       Telecommunications Resellers              13 $   6,519,483        5    2.6%   25.0%
+132-54       Telecommunications Services (Legac        13 $   6,519,483        5    2.6%    0.0%
+811212       Computer and Office Machine Repair         3 $      54,908        2   59.0%   30.0%
+132-52       IT Hardware (Legacy)                       3 $      54,908        2   59.0%    0.0%
+132-33       Peripherals and Storage (Legacy)           3 $      54,908        2   59.0%    0.0%
+132-34       Data Communications (Legacy)               3 $      54,908        2   59.0%    0.0%
+
+Small Vendor Opportunity (High Affinity SINs):
+  54151S (IT Professional Services): Software development, integration, consulting, implementation
+    Market: $316,719,366 | Small vendor share: 75.5% | Affinity: 60%
+  511210 (Software Publishing): Commercial software products, licenses, subscriptions, SaaS
+    Market: $283,235,961 | Small vendor share: 85.5% | Affinity: 85%
+  511210S (Software Publishing - SaaS): Software as a Service offerings
+    Market: $8,241,389 | Small vendor share: 58.0% | Affinity: 80%
+  518210C (Cloud Computing Services - Commercial Cloud): IaaS, PaaS, SaaS cloud services
+    Market: $8,241,389 | Small vendor share: 58.0% | Affinity: 75%
+
+────────────────────────────────────────────────────────────────────────────────
+SEWP CATEGORY ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+Cat    Name                        Awards      Obligation   Recips   Small% Affinity
+--------------------------------------------------------------------------------
+C      IT Services                      5 $   1,818,828        5  100.0%   60.0%
+A      IT Hardware                      4 $   1,809,354        4  100.0%   20.0%
+B      IT Software                      4 $   1,809,354        4  100.0%   80.0%
+D      Telecommunications               4 $      83,554        4  100.0%   15.0%
+E      Audio/Visual                     4 $      83,554        4  100.0%   25.0%
+
+Small Vendor Opportunity (High Affinity Categories):
+  Category C (IT Services): Professional services, integration, consulting, maintenance
+    Market: $1,818,828 | Small vendor share: 100.0% | Affinity: 60%
+  Category B (IT Software): Commercial software, licenses, SaaS, cloud services
+    Market: $1,809,354 | Small vendor share: 100.0% | Affinity: 80%
+
+────────────────────────────────────────────────────────────────────────────────
+TOP GSA MAS PIIDs
+────────────────────────────────────────────────────────────────────────────────
+PIID                   Awards      Obligation   Recips Small Vendors Est. SINs
+------------------------------------------------------------------------------------------
+47QTCK18D0008               1 $ 235,200,864        1            1 511210, 54151S, 33411
+GS00T07NSD0038             57 $  29,637,505        1            0 511210, 54151S, 33411
+GS35F0119P                  4 $  20,884,409        1            0 54151S, 54151HACS, 54151SOC
+GS35F0297K                  5 $  17,508,867        1            0 517311, 517312, 517911
+GS00T07NSD0041             73 $   7,794,706        1            0 511210, 54151S, 33411
+GS00T07NSD0008             14 $   4,564,143        1            0 511210, 54151S, 33411
+47QTCA19D00MV               1 $   4,270,601        1            0 54151S, 54151HACS, 54151SOC
+47QTCA19D0039               1 $   2,195,046        1            1 511210, 511210S, 518210C
+GS06F0851Z                  1 $   1,819,291        1            1 511210, 511210S, 518210C
+GS00T07NSD0002             44 $   1,016,423        1            0 511210, 54151S, 33411
+
+────────────────────────────────────────────────────────────────────────────────
+TOP SEWP PIIDs
+--------------------------------------------------------------------------------
+PIID                   Awards      Obligation   Recips Small Vendors Est. Cats
+------------------------------------------------------------------------------------------
+NNG15SE07B                  1 $   1,735,275        1            1 B, C, A
+NNG15SD60B                  1 $      43,302        1            1 A, B, C, D, E
+NNG15SD91B                  1 $      23,842        1            1 A, B, C, D, E
+NNG15SD19B                  1 $       9,474        1            1 C, D, E
+NNG15SC70B                  1 $       6,935        1            1 A, B, C, D, E
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 437  redactions: none
+==============================================================================
+[seq 23] 2026-10-20T21:41:23+00:00
+$ python3 EXPERIMENTS/E206-integrated-cli-tool/run.py --code 7030 --modules vehicle_sin
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== E206 Integrated Assessment: 7030 ===
+Modules: vehicle_sin
+Max pages per fetch: 50
+
+############################################################
+# MODULE: Vehicle SIN/SEWP Analysis (E210)
+############################################################
+Fetching awards for vehicle SIN analysis (max 50 pages)...
+Fetched 1114 awards
+
+================================================================================
+GSA MAS SIN / SEWP CATEGORY ANALYSIS: 7030
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+GSA MAS SCHEDULE 70 SIN ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+SIN          Name                                  Awards      Obligation   Recips   Small% Affinity
+----------------------------------------------------------------------------------------------------
+511210       Software Publishing                       17 $  42,461,565       13   53.6%   85.0%
+511210S      Software Publishing - SaaS                13 $  42,107,878        9   53.2%   80.0%
+518210C      Cloud Computing Services - Commerc        13 $  42,107,878        9   53.2%   75.0%
+33411        Computer and Peripheral Equipment          5 $     536,418        5  100.0%   20.0%
+54151S       IT Professional Services                   4 $     353,687        4  100.0%   60.0%
+517311       Wired Telecommunications Carriers          4 $     353,687        4  100.0%   15.0%
+811212       Computer and Office Machine Repair         1 $     182,731        1  100.0%   30.0%
+132-52       IT Hardware (Legacy)                       1 $     182,731        1  100.0%    0.0%
+132-33       Peripherals and Storage (Legacy)           1 $     182,731        1  100.0%    0.0%
+132-34       Data Communications (Legacy)               1 $     182,731        1  100.0%    0.0%
+
+Small Vendor Opportunity (High Affinity SINs):
+  511210 (Software Publishing): Commercial software products, licenses, subscriptions, SaaS
+    Market: $42,461,565 | Small vendor share: 53.6% | Affinity: 85%
+  511210S (Software Publishing - SaaS): Software as a Service offerings
+    Market: $42,107,878 | Small vendor share: 53.2% | Affinity: 80%
+  518210C (Cloud Computing Services - Commercial Cloud): IaaS, PaaS, SaaS cloud services
+    Market: $42,107,878 | Small vendor share: 53.2% | Affinity: 75%
+  54151S (IT Professional Services): Software development, integration, consulting, implementation
+    Market: $353,687 | Small vendor share: 100.0% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+SEWP CATEGORY ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+Cat    Name                        Awards      Obligation   Recips   Small% Affinity
+--------------------------------------------------------------------------------
+B      IT Software                     17 $  53,720,835       14   11.0%   80.0%
+C      IT Services                     12 $  39,351,329        9    0.1%   60.0%
+E      Audio/Visual                    10 $  30,639,551        7    0.1%   25.0%
+A      IT Hardware                      9 $  28,541,901        7    0.1%   20.0%
+D      Telecommunications               6 $  26,771,185        5    0.1%   15.0%
+
+Small Vendor Opportunity (High Affinity Categories):
+  Category B (IT Software): Commercial software, licenses, SaaS, cloud services
+    Market: $53,720,835 | Small vendor share: 11.0% | Affinity: 80%
+  Category C (IT Services): Professional services, integration, consulting, maintenance
+    Market: $39,351,329 | Small vendor share: 0.1% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+TOP GSA MAS PIIDs
+────────────────────────────────────────────────────────────────────────────────
+PIID                   Awards      Obligation   Recips Small Vendors Est. SINs
+------------------------------------------------------------------------------------------
+GS35F253CA                  3 $  16,179,472        1            0 511210, 511210S, 518210C
+GS35F0069L                  2 $  12,678,456        1            1 511210, 511210S, 518210C
+GS10F0114T                  1 $   6,720,185        1            1 511210, 511210S, 518210C
+GS35F0119Y                  2 $   3,526,633        1            0 511210, 511210S, 518210C
+GS35F650GA                  1 $   2,476,765        1            1 511210, 511210S, 518210C
+GS35F0649S                  1 $     341,499        1            1 511210, 511210S, 518210C
+GS24F0030M                  1 $     262,987        1            1 511210, 54151S, 33411
+GS35F317DA                  1 $     182,731        1            1 33411, 811212, 132-52
+GS35F0462X                  1 $     147,627        1            1 511210, 511210S, 518210C
+47QTCA18D003G               1 $      58,492        1            1 511210, 54151S, 33411
+
+────────────────────────────────────────────────────────────────────────────────
+TOP SEWP PIIDs
+--------------------------------------------------------------------------------
+PIID                   Awards      Obligation   Recips Small Vendors Est. Cats
+------------------------------------------------------------------------------------------
+NNG15SD00B                  1 $  15,040,083        1            0 A, B, C, D, E
+NNG15SD22B                  1 $  10,085,147        1            0 A, B, C, D, E
+NNG15SC07B                  1 $   9,740,612        1            0 B
+NNG15SC22B                  1 $   7,991,671        1            0 B, C
+NNG15SC42B                  1 $   5,620,684        1            1 B
+NNG15SD74B                  2 $   2,331,480        1            0 B, C, E
+NNG15SC89B                  2 $   1,939,778        1            0 B, C, A, E
+NNG15SC27B                  1 $   1,416,408        1            0 C
+NNG15SC23B                  2 $   1,161,703        1            0 A, B, C, D, E
+NNG15SC20B                  1 $     269,549        1            0 A, B, C, D, E
+
+=== End of E206 Integrated Tool ===
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 20695  redactions: none
+==============================================================================
+[seq 24] 2026-10-20T21:42:15+00:00
+$ python3 EXPERIMENTS/E206-integrated-cli-tool/run.py --code 7030 --modules vehicle_sin
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== E206 Integrated Assessment: 7030 ===
+Modules: vehicle_sin
+Max pages per fetch: 50
+
+############################################################
+# MODULE: Vehicle SIN/SEWP Analysis (E210)
+############################################################
+Fetching awards for vehicle SIN analysis (max 50 pages)...
+Fetched 1114 awards
+
+================================================================================
+GSA MAS SIN / SEWP CATEGORY ANALYSIS: 7030
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+GSA MAS SCHEDULE 70 SIN ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+SIN          Name                                  Awards      Obligation   Recips   Small% Affinity
+----------------------------------------------------------------------------------------------------
+511210       Software Publishing                       17 $  42,461,565       13   53.6%   85.0%
+511210S      Software Publishing - SaaS                13 $  42,107,878        9   53.2%   80.0%
+518210C      Cloud Computing Services - Commerc        13 $  42,107,878        9   53.2%   75.0%
+33411        Computer and Peripheral Equipment          5 $     536,418        5  100.0%   20.0%
+54151S       IT Professional Services                   4 $     353,687        4  100.0%   60.0%
+517311       Wired Telecommunications Carriers          4 $     353,687        4  100.0%   15.0%
+811212       Computer and Office Machine Repair         1 $     182,731        1  100.0%   30.0%
+132-52       IT Hardware (Legacy)                       1 $     182,731        1  100.0%    0.0%
+132-33       Peripherals and Storage (Legacy)           1 $     182,731        1  100.0%    0.0%
+132-34       Data Communications (Legacy)               1 $     182,731        1  100.0%    0.0%
+
+Small Vendor Opportunity (High Affinity SINs):
+  511210 (Software Publishing): Commercial software products, licenses, subscriptions, SaaS
+    Market: $42,461,565 | Small vendor share: 53.6% | Affinity: 85%
+  511210S (Software Publishing - SaaS): Software as a Service offerings
+    Market: $42,107,878 | Small vendor share: 53.2% | Affinity: 80%
+  518210C (Cloud Computing Services - Commercial Cloud): IaaS, PaaS, SaaS cloud services
+    Market: $42,107,878 | Small vendor share: 53.2% | Affinity: 75%
+  54151S (IT Professional Services): Software development, integration, consulting, implementation
+    Market: $353,687 | Small vendor share: 100.0% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+SEWP CATEGORY ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+Cat    Name                        Awards      Obligation   Recips   Small% Affinity
+--------------------------------------------------------------------------------
+B      IT Software                     17 $  53,720,835       14   11.0%   80.0%
+C      IT Services                     12 $  39,351,329        9    0.1%   60.0%
+E      Audio/Visual                    10 $  30,639,551        7    0.1%   25.0%
+A      IT Hardware                      9 $  28,541,901        7    0.1%   20.0%
+D      Telecommunications               6 $  26,771,185        5    0.1%   15.0%
+
+Small Vendor Opportunity (High Affinity Categories):
+  Category B (IT Software): Commercial software, licenses, SaaS, cloud services
+    Market: $53,720,835 | Small vendor share: 11.0% | Affinity: 80%
+  Category C (IT Services): Professional services, integration, consulting, maintenance
+    Market: $39,351,329 | Small vendor share: 0.1% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+TOP GSA MAS PIIDs
+────────────────────────────────────────────────────────────────────────────────
+PIID                   Awards      Obligation   Recips Small Vendors Est. SINs
+------------------------------------------------------------------------------------------
+GS35F253CA                  3 $  16,179,472        1            0 511210, 511210S, 518210C
+GS35F0069L                  2 $  12,678,456        1            1 511210, 511210S, 518210C
+GS10F0114T                  1 $   6,720,185        1            1 511210, 511210S, 518210C
+GS35F0119Y                  2 $   3,526,633        1            0 511210, 511210S, 518210C
+GS35F650GA                  1 $   2,476,765        1            1 511210, 511210S, 518210C
+GS35F0649S                  1 $     341,499        1            1 511210, 511210S, 518210C
+GS24F0030M                  1 $     262,987        1            1 511210, 54151S, 33411
+GS35F317DA                  1 $     182,731        1            1 33411, 811212, 132-52
+GS35F0462X                  1 $     147,627        1            1 511210, 511210S, 518210C
+47QTCA18D003G               1 $      58,492        1            1 511210, 54151S, 33411
+
+────────────────────────────────────────────────────────────────────────────────
+TOP SEWP PIIDs
+--------------------------------------------------------------------------------
+PIID                   Awards      Obligation   Recips Small Vendors Est. Cats
+------------------------------------------------------------------------------------------
+NNG15SD00B                  1 $  15,040,083        1            0 A, B, C, D, E
+NNG15SD22B                  1 $  10,085,147        1            0 A, B, C, D, E
+NNG15SC07B                  1 $   9,740,612        1            0 B
+NNG15SC22B                  1 $   7,991,671        1            0 B, C
+NNG15SC42B                  1 $   5,620,684        1            1 B
+NNG15SD74B                  2 $   2,331,480        1            0 B, C, E
+NNG15SC89B                  2 $   1,939,778        1            0 B, C, A, E
+NNG15SC27B                  1 $   1,416,408        1            0 C
+NNG15SC23B                  2 $   1,161,703        1            0 A, B, C, D, E
+NNG15SC20B                  1 $     269,549        1            0 A, B, C, D, E
+
+=== End of E206 Integrated Tool ===
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 350  redactions: none
+==============================================================================
+[seq 25] 2026-10-20T21:44:07+00:00
+$ python3 EXPERIMENTS/E206-integrated-cli-tool/run.py --code 7030 --modules vehicle_sin
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== E206 Integrated Assessment: 7030 ===
+Modules: vehicle_sin
+Max pages per fetch: 50
+
+############################################################
+# MODULE: Vehicle SIN/SEWP Analysis (E210)
+############################################################
+Fetching awards for vehicle SIN analysis (max 50 pages)...
+Fetched 5000 awards
+
+================================================================================
+GSA MAS SIN / SEWP CATEGORY ANALYSIS: 7030
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+GSA MAS SCHEDULE 70 SIN ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+SIN          Name                                  Awards      Obligation   Recips   Small% Affinity
+----------------------------------------------------------------------------------------------------
+511210       Software Publishing                      561 $ 675,058,398      183    5.9%   85.0%
+511210S      Software Publishing - SaaS               385 $ 509,451,382      148    4.5%   80.0%
+518210C      Cloud Computing Services - Commerc       385 $ 509,451,382      148    4.5%   75.0%
+54151S       IT Professional Services                 211 $ 193,776,286       87   11.0%   60.0%
+33411        Computer and Peripheral Equipment        202 $ 167,705,846       81   10.5%   20.0%
+517311       Wired Telecommunications Carriers        183 $ 167,540,255       73   10.2%   15.0%
+54151HACS    Highly Adaptive Cybersecurity Serv        35 $  28,169,269       23   15.5%   55.0%
+54151SOC     Security Operations Center Service        35 $  28,169,269       23   15.5%   40.0%
+54151RM      Risk Management Services                  35 $  28,169,269       23   15.5%   50.0%
+541611       Administrative Management Consulti        35 $  28,169,269       23   15.5%    0.0%
+811212       Computer and Office Machine Repair        26 $   2,098,830       20   29.6%   30.0%
+132-52       IT Hardware (Legacy)                      26 $   2,098,830       20   29.6%    0.0%
+132-33       Peripherals and Storage (Legacy)          26 $   2,098,830       20   29.6%    0.0%
+132-34       Data Communications (Legacy)              26 $   2,098,830       20   29.6%    0.0%
+517312       Wireless Telecommunications Carrie         7 $   1,933,238        6    3.4%   15.0%
+517911       Telecommunications Resellers               7 $   1,933,238        6    3.4%   25.0%
+132-54       Telecommunications Services (Legac         7 $   1,933,238        6    3.4%    0.0%
+
+Small Vendor Opportunity (High Affinity SINs):
+  511210 (Software Publishing): Commercial software products, licenses, subscriptions, SaaS
+    Market: $675,058,398 | Small vendor share: 5.9% | Affinity: 85%
+  511210S (Software Publishing - SaaS): Software as a Service offerings
+    Market: $509,451,382 | Small vendor share: 4.5% | Affinity: 80%
+  518210C (Cloud Computing Services - Commercial Cloud): IaaS, PaaS, SaaS cloud services
+    Market: $509,451,382 | Small vendor share: 4.5% | Affinity: 75%
+  54151S (IT Professional Services): Software development, integration, consulting, implementation
+    Market: $193,776,286 | Small vendor share: 11.0% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+SEWP CATEGORY ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+Cat    Name                        Awards      Obligation   Recips   Small% Affinity
+--------------------------------------------------------------------------------
+B      IT Software                    511 $ 359,910,836       87    6.0%   80.0%
+C      IT Services                    351 $ 256,984,276       81   12.0%   60.0%
+A      IT Hardware                    262 $ 127,654,184       73   14.5%   20.0%
+E      Audio/Visual                   200 $ 102,011,953       61   10.9%   25.0%
+D      Telecommunications             206 $  62,680,580       60   17.7%   15.0%
+
+Small Vendor Opportunity (High Affinity Categories):
+  Category B (IT Software): Commercial software, licenses, SaaS, cloud services
+    Market: $359,910,836 | Small vendor share: 6.0% | Affinity: 80%
+  Category C (IT Services): Professional services, integration, consulting, maintenance
+    Market: $256,984,276 | Small vendor share: 12.0% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+TOP GSA MAS PIIDs
+────────────────────────────────────────────────────────────────────────────────
+PIID                   Awards      Obligation   Recips Small Vendors Est. SINs
+------------------------------------------------------------------------------------------
+47QTCA19A0001               1 $ 263,399,879        1            0 511210, 511210S, 518210C
+GS35F309AA                  2 $  87,627,786        1            0 511210, 54151S, 33411
+GS35F5086H                  1 $  74,493,382        1            0 511210, 511210S, 518210C
+GS35F0119Y                 64 $  63,076,027        1            0 511210, 54151S, 33411
+GS35F0926R                  4 $  48,976,342        1            0 511210, 511210S, 518210C
+GS35F253CA                 24 $  39,318,542        1            0 511210, 511210S, 518210C
+GS00Q12NSD0005              1 $   9,795,864        1            1 511210, 54151S, 33411
+GS35F0111K                  2 $   8,702,967        1            0 511210, 54151S, 33411
+GS35F681GA                  1 $   7,500,000        1            0 511210, 511210S, 518210C
+GS35F0265X                 37 $   7,256,075        1            0 511210, 511210S, 518210C
+
+────────────────────────────────────────────────────────────────────────────────
+TOP SEWP PIIDs
+--------------------------------------------------------------------------------
+PIID                   Awards      Obligation   Recips Small Vendors Est. Cats
+------------------------------------------------------------------------------------------
+NNG15SC59B                  7 $  67,670,099        1            0 B, C
+NNG15SC71B                 26 $  35,995,970        1            0 B, C
+NNG15SC10B                  6 $  29,572,587        1            0 B, C, A
+NNG15SD87B                  4 $  29,065,311        1            0 B
+NNG15SD11B                 16 $  22,424,986        1            0 A, B, C, D, E
+NNG15SC33B                 10 $  20,043,494        1            0 C
+NNG15SD82B                  2 $  18,322,696        1            1 C
+NNG15SC91B                  5 $  14,452,195        1            0 B
+NNG15SC04B                  5 $  11,520,868        1            0 B, C, A
+NNG15SC22B                  3 $  11,268,278        1            0 B, C
+
+=== End of E206 Integrated Tool ===
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 71916  redactions: none
+==============================================================================
+[seq 26] 2026-10-20T21:45:36+00:00
+$ python3 EXPERIMENTS/E206-integrated-cli-tool/run.py --code DA10 --modules recipient,award,vehicle_sin --output /tmp/da10_test.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== E206 Integrated Assessment: DA10 ===
+Modules: award, recipient, vehicle_sin
+Max pages per fetch: 50
+
+############################################################
+# MODULE: Recipient Analysis (E202)
+############################################################
+WARNING: Reached page limit of 100, stopping
+Fetched 3651 recipient rows
+
+============================================================
+PSC Code: DA10
+Total Obligation: $33,009,831,584
+
+--- Screen Metrics ---
+Distinct recipients: 3,651
+Top-10 share: 35.8%
+  (baseline: 35.8%, diff: -0.0 pp)
+Screen score: 2345.1 (baseline: 2345.0, diff: +0.1)
+
+--- Small-Team Entry ---
+≤ $40k: 990 (27.1%)
+≤ $100k: 1534 (42.0%)
+> $100k: 2117 (58.0%)
+Single-award recipients: 3651 (100.0%)
+
+--- Accessibility ---
+~64.2% of obligation potentially accessible to newcomers
+
+############################################################
+# MODULE: Award Categorization (E203)
+############################################################
+Fetching full period awards (max 50 pages)...
+Fetched 5000 awards (full period)
+
+============================================================
+AWARD CATEGORIZATION: DA10
+============================================================
+
+Total awards: 5,000 | Unique recipients: 882 | Total obligation: $2,986,397,124
+
+--- Category Distribution ---
+  software    :  2891 ( 57.8%)  |  $  1,932,210,187 ( 64.7%)
+  service     :   385 (  7.7%)  |  $    646,561,533 ( 21.7%)
+  hardware    :   125 (  2.5%)  |  $     50,538,041 (  1.7%)
+  telecom     :    48 (  1.0%)  |  $     12,161,315 (  0.4%)
+  other       :  1551 ( 31.0%)  |  $    344,926,049 ( 11.5%)
+  unknown     :     0 (  0.0%)  |  $              0 (  0.0%)
+
+--- Small-Team Entry by Category ---
+  software    : 1443/2891 ( 49.9%) ≤ $40k | 2016/2891 ( 69.7%) ≤ $100k
+  service     :  165/385 ( 42.9%) ≤ $40k |  234/385 ( 60.8%) ≤ $100k
+  hardware    :   71/125 ( 56.8%) ≤ $40k |   99/125 ( 79.2%) ≤ $100k
+  telecom     :   27/48 ( 56.2%) ≤ $40k |   34/48 ( 70.8%) ≤ $100k
+
+--- Software Market Fit ---
+  Software: 2891 (57.8% count, 64.7% obligation)
+  Software ≤ $40k: 1443/2891 (49.9%)
+  Software ≤ $100k: 2016/2891 (69.7%)
+  ✅ STRONG software market fit
+
+############################################################
+# MODULE: Vehicle SIN/SEWP Analysis (E210)
+############################################################
+Fetching awards for vehicle SIN analysis (max 50 pages)...
+Fetched 5000 awards
+
+================================================================================
+GSA MAS SIN / SEWP CATEGORY ANALYSIS: DA10
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+GSA MAS SCHEDULE 70 SIN ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+SIN          Name                                  Awards      Obligation   Recips   Small% Affinity
+----------------------------------------------------------------------------------------------------
+511210       Software Publishing                      383 $ 535,617,026      133   28.3%   85.0%
+511210S      Software Publishing - SaaS               266 $ 516,183,485      101   27.2%   80.0%
+518210C      Cloud Computing Services - Commerc       266 $ 516,183,485      101   27.2%   75.0%
+54151S       IT Professional Services                 147 $ 114,008,220       81   65.6%   60.0%
+54151HACS    Highly Adaptive Cybersecurity Serv        30 $  94,574,679       28   67.0%   55.0%
+54151SOC     Security Operations Center Service        30 $  94,574,679       28   67.0%   40.0%
+54151RM      Risk Management Services                  30 $  94,574,679       28   67.0%   50.0%
+541611       Administrative Management Consulti        30 $  94,574,679       28   67.0%    0.0%
+33411        Computer and Peripheral Equipment        133 $  50,885,391       62   22.6%   20.0%
+811212       Computer and Office Machine Repair        16 $  31,451,849        9    0.2%   30.0%
+132-52       IT Hardware (Legacy)                      16 $  31,451,849        9    0.2%    0.0%
+132-33       Peripherals and Storage (Legacy)          16 $  31,451,849        9    0.2%    0.0%
+132-34       Data Communications (Legacy)              16 $  31,451,849        9    0.2%    0.0%
+517311       Wired Telecommunications Carriers        123 $  23,643,379       60   48.4%   15.0%
+517312       Wireless Telecommunications Carrie         6 $   4,209,838        5    0.0%   15.0%
+517911       Telecommunications Resellers               6 $   4,209,838        5    0.0%   25.0%
+132-54       Telecommunications Services (Legac         6 $   4,209,838        5    0.0%    0.0%
+
+Small Vendor Opportunity (High Affinity SINs):
+  511210 (Software Publishing): Commercial software products, licenses, subscriptions, SaaS
+    Market: $535,617,026 | Small vendor share: 28.3% | Affinity: 85%
+  511210S (Software Publishing - SaaS): Software as a Service offerings
+    Market: $516,183,485 | Small vendor share: 27.2% | Affinity: 80%
+  518210C (Cloud Computing Services - Commercial Cloud): IaaS, PaaS, SaaS cloud services
+    Market: $516,183,485 | Small vendor share: 27.2% | Affinity: 75%
+  54151S (IT Professional Services): Software development, integration, consulting, implementation
+    Market: $114,008,220 | Small vendor share: 65.6% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+SEWP CATEGORY ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+Cat    Name                        Awards      Obligation   Recips   Small% Affinity
+--------------------------------------------------------------------------------
+E      Audio/Visual                   638 $ 336,753,937       84    2.4%   25.0%
+B      IT Software                   1145 $ 244,522,454       91    1.6%   80.0%
+C      IT Services                    854 $ 191,704,304       90    4.8%   60.0%
+A      IT Hardware                    708 $  90,266,601       85    3.7%   20.0%
+D      Telecommunications             638 $  60,210,093       83    8.4%   15.0%
+
+Small Vendor Opportunity (High Affinity Categories):
+  Category B (IT Software): Commercial software, licenses, SaaS, cloud services
+    Market: $244,522,454 | Small vendor share: 1.6% | Affinity: 80%
+  Category C (IT Services): Professional services, integration, consulting, maintenance
+    Market: $191,704,304 | Small vendor share: 4.8% | Affinity: 60%
+
+────────────────────────────────────────────────────────────────────────────────
+TOP GSA MAS PIIDs
+────────────────────────────────────────────────────────────────────────────────
+PIID                   Awards      Obligation   Recips Small Vendors Est. SINs
+------------------------------------------------------------------------------------------
+47QTCK18D0011               1 $ 344,407,758        1            0 511210, 511210S, 518210C
+GS35F0040X                  1 $  51,533,489        1            1 511210, 511210S, 518210C
+47QTCA21D00DZ               1 $  36,480,441        1            1 511210, 511210S, 518210C
+GS35F0119Y                 14 $  33,280,955        1            0 511210, 54151S, 33411
+GS00F029DA                  1 $  32,152,095        1            1 511210, 511210S, 518210C
+GS35F0875N                  1 $  21,407,122        1            1 54151S, 54151HACS, 54151SOC
+GS35F0431Y                  2 $  16,198,710        1            0 511210, 511210S, 518210C
+GS35F320AA                  1 $  13,227,629        1            1 54151S, 54151HACS, 54151SOC
+GS35F0696M                  1 $  10,809,315        1            0 54151S, 54151HACS, 54151SOC
+GS10F0311W                  1 $   9,968,480        1            1 54151S, 54151HACS, 54151SOC
+
+────────────────────────────────────────────────────────────────────────────────
+TOP SEWP PIIDs
+--------------------------------------------------------------------------------
+PIID                   Awards      Obligation   Recips Small Vendors Est. Cats
+------------------------------------------------------------------------------------------
+NNG15SC98B                 55 $ 287,713,486        1            0 A, B, C, D, E
+NNG15SC59B                  6 $  83,239,204        1            0 A, B, C, D, E
+NNG15SC73B                 28 $  29,717,135        1            0 A, B, C, D, E
+NNG15SC82B                153 $  13,467,928        1            0 A, B, C, D, E
+NNG15SC27B                 18 $  12,358,119        1            0 A, B, C, D, E
+NNG15SD09B                 46 $  11,510,110        1            0 A, B, C, D, E
+NNG15SD38B                 42 $  10,597,694        1            0 A, B, C, D, E
+NNG15SC89B                 18 $   9,567,836        1            0 A, B, C, D, E
+NNG15SC33B                 10 $   5,128,897        1            0 A, B, C, D, E
+NNG15SD18B                  2 $   5,027,098        1            1 C, E
+
+JSON output saved to /tmp/da10_test.json
+
+=== End of E206 Integrated Tool ===
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 74392  redactions: none
+==============================================================================
+[seq 27] 2026-10-20T21:45:52+00:00
+$ python3 -c 
+import json
+with open('/tmp/da10_test.json') as f:
+    data = json.load(f)
+print('Keys:', data.keys())
+print('Vehicle SIN keys:', data.get('vehicle_sin', {}).keys() if data.get('vehicle_sin') else 'None')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Keys: dict_keys(['experiment', 'psc_code', 'modules_run', 'recipient', 'award_categorization', 'full_period', 'recent_period', 'funding_agencies', 'awarding_agencies', 'federal_accounts', 'recipient_stats', 'vehicle_sin'])
+Vehicle SIN keys: dict_keys(['gsa_mas', 'sewp', 'small_vendors', 'small_vendor_set'])
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 108  redactions: none
+==============================================================================
+[seq 8650] 2026-10-20T22:18:49+00:00
+$ echo Session work completed successfully
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Session work completed successfully
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2  redactions: none

@@ -31,9 +31,11 @@ _none_
 
 ## Commands
 
-0 captured, 0 non-zero exit.
+1 captured, 0 non-zero exit.
 
-_none_
+| # | command | exit | ms |
+|---|---|---|---|
+| 3 | ['python3', '-c', '\nimport json\nresults = json.load(open(\'EXPERIMENTS/225-award-description-generalizability/results.json\'))\nprint(\'=== E225 PRO | 0 | 102 |
 
 ## Integrity
 
@@ -50,6 +52,11 @@ _none_
 |---|---|---|---|
 | 1 | 12:04:07 | session_start | E224 fresh domain observation per project direction |
 | 2 | 12:16:02 | session_end | E224 fresh domain observation per project direction |
+| 3 | 12:35:47 | command | $ python3 -c  import json results = json.load(open('EXPERIMENTS/225-award-description-generalizability/results.json')) print('=== E225 PROTOTY |
+| 4 | 13:00:22 | milestone | Completed prototype improvement and fresh observation experiment |
+| 5 | 13:45:28 | milestone | prototype built and evidence gathered |
+| 6 | 15:53:32 | milestone | checking session state |
+| 7 | 15:55:39 | milestone | documenting decision and continuation |
 
 ## Reproduce this record
 

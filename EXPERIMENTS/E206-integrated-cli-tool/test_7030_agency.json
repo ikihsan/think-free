@@ -1,0 +1,5950 @@
+{
+  "experiment": "E206",
+  "psc_code": "7030",
+  "modules_run": [
+    "agency"
+  ],
+  "recipient": null,
+  "award_categorization": null,
+  "full_period": {
+    "total_awards": 200,
+    "unique_recipients": 84,
+    "total_obligation": 92424178.67000002,
+    "median_obligation": 54931.83,
+    "under_40k": 81,
+    "under_100k": 127,
+    "over_100k": 73,
+    "categories": {
+      "other": 38,
+      "service": 19,
+      "software": 130,
+      "hardware": 9,
+      "telecom": 4
+    },
+    "category_breakdown": {
+      "software": {
+        "count": 130,
+        "total_obligation": 49982738.91000001,
+        "median_obligation": 63579.59,
+        "under_40k": 50,
+        "under_100k": 78
+      },
+      "service": {
+        "count": 19,
+        "total_obligation": 12960789.790000001,
+        "median_obligation": 45412.99,
+        "under_40k": 9,
+        "under_100k": 12
+      },
+      "hardware": {
+        "count": 9,
+        "total_obligation": 683673.39,
+        "median_obligation": 30232.8,
+        "under_40k": 5,
+        "under_100k": 8
+      },
+      "telecom": {
+        "count": 4,
+        "total_obligation": 15738564.81,
+        "median_obligation": 60059.58,
+        "under_40k": 2,
+        "under_100k": 3
+      },
+      "other": {
+        "count": 38,
+        "total_obligation": 13058411.77,
+        "median_obligation": 52689.68,
+        "under_40k": 15,
+        "under_100k": 26
+      },
+      "unknown": {
+        "count": 0,
+        "total_obligation": 0,
+        "median_obligation": 0,
+        "under_40k": 0,
+        "under_100k": 0
+      }
+    },
+    "top10_share": 0.867223184489241,
+    "top10_recipients": [
+      [
+        "IRON BOW TECHNOLOGIES, LLC",
+        21205669.249999996
+      ],
+      [
+        "IMMIXTECHNOLOGY INC",
+        15878644.08
+      ],
+      [
+        "GENERAL DYNAMICS INFORMATION TECHNOLOGY, INC.",
+        15805725.54
+      ],
+      [
+        "UNICOM GOVERNMENT, INC.",
+        8047736.0
+      ],
+      [
+        "CARAHSOFT TECHNOLOGY CORP",
+        5458823.969999999
+      ],
+      [
+        "TVAR SOLUTIONS, LLC",
+        4202488.84
+      ],
+      [
+        "UNIQUE COMMUNICATIONS SOLUTIONS",
+        3595529.34
+      ],
+      [
+        "MICROTECHNOLOGIES LLC",
+        3296052.55
+      ],
+      [
+        "WORLD WIDE TECHNOLOGY LLC",
+        1353006.5499999998
+      ],
+      [
+        "DLT SOLUTIONS, LLC",
+        1308714.4300000002
+      ]
+    ],
+    "new_entrant_awards": 36,
+    "new_entrant_obligation": 762643.2300000001,
+    "new_entrant_share": 0.008251555393562255
+  },
+  "recent_period": null,
+  "funding_agencies": [
+    {
+      "id": 1173,
+      "code": "DOD",
+      "name": "Department of Defense",
+      "agency_slug": "department-of-defense",
+      "amount": 11481607553.87,
+      "total_outlays": 430557577.95
+    },
+    {
+      "id": 766,
+      "code": "DHS",
+      "name": "Department of Homeland Security",
+      "agency_slug": "department-of-homeland-security",
+      "amount": 2636399295.57,
+      "total_outlays": 94970270.9
+    },
+    {
+      "id": 539,
+      "code": "SSA",
+      "name": "Social Security Administration",
+      "agency_slug": "social-security-administration",
+      "amount": 1899286081.34,
+      "total_outlays": 1325122951.87
+    },
+    {
+      "id": 456,
+      "code": "TREAS",
+      "name": "Department of the Treasury",
+      "agency_slug": "department-of-the-treasury",
+      "amount": 1496777116.67,
+      "total_outlays": 913936400.75
+    },
+    {
+      "id": 315,
+      "code": "DOS",
+      "name": "Department of State",
+      "agency_slug": "department-of-state",
+      "amount": 1260661954.75,
+      "total_outlays": 332178194.25
+    },
+    {
+      "id": 806,
+      "code": "HHS",
+      "name": "Department of Health and Human Services",
+      "agency_slug": "department-of-health-and-human-services",
+      "amount": 1184257500.7,
+      "total_outlays": 233138009.65
+    },
+    {
+      "id": 95,
+      "code": "USDA",
+      "name": "Department of Agriculture",
+      "agency_slug": "department-of-agriculture",
+      "amount": 1027784377.68,
+      "total_outlays": 901809424.22
+    },
+    {
+      "id": 252,
+      "code": "DOJ",
+      "name": "Department of Justice",
+      "agency_slug": "department-of-justice",
+      "amount": 881394949.71,
+      "total_outlays": 520716781.29
+    },
+    {
+      "id": 561,
+      "code": "VA",
+      "name": "Department of Veterans Affairs",
+      "agency_slug": "department-of-veterans-affairs",
+      "amount": 679734426.78,
+      "total_outlays": 23053251.24
+    },
+    {
+      "id": 183,
+      "code": "DOC",
+      "name": "Department of Commerce",
+      "agency_slug": "department-of-commerce",
+      "amount": 537247277.51,
+      "total_outlays": 8307610.09
+    },
+    {
+      "id": 731,
+      "code": "DOT",
+      "name": "Department of Transportation",
+      "agency_slug": "department-of-transportation",
+      "amount": 393819313.8,
+      "total_outlays": 222792938.71
+    },
+    {
+      "id": 700,
+      "code": "EPA",
+      "name": "Environmental Protection Agency",
+      "agency_slug": "environmental-protection-agency",
+      "amount": 364331301.28,
+      "total_outlays": 16339312.67
+    },
+    {
+      "id": 930,
+      "code": "DOE",
+      "name": "Department of Energy",
+      "agency_slug": "department-of-energy",
+      "amount": 328800698.37,
+      "total_outlays": 142555642.52
+    },
+    {
+      "id": 209,
+      "code": "DOI",
+      "name": "Department of the Interior",
+      "agency_slug": "department-of-the-interior",
+      "amount": 234304527.41,
+      "total_outlays": 121173513.6
+    },
+    {
+      "id": 882,
+      "code": "HUD",
+      "name": "Department of Housing and Urban Development",
+      "agency_slug": "department-of-housing-and-urban-development",
+      "amount": 144458195.73,
+      "total_outlays": 66391186.83
+    },
+    {
+      "id": 680,
+      "code": "SEC",
+      "name": "Securities and Exchange Commission",
+      "agency_slug": "securities-and-exchange-commission",
+      "amount": 137373550.38,
+      "total_outlays": 67952307.82
+    },
+    {
+      "id": 503,
+      "code": "OPM",
+      "name": "Office of Personnel Management",
+      "agency_slug": "office-of-personnel-management",
+      "amount": 137147510.62,
+      "total_outlays": 15505840.46
+    },
+    {
+      "id": 1068,
+      "code": "ED",
+      "name": "Department of Education",
+      "agency_slug": "department-of-education",
+      "amount": 132139994.92,
+      "total_outlays": 49689450.7
+    },
+    {
+      "id": 538,
+      "code": "FCC",
+      "name": "Federal Communications Commission",
+      "agency_slug": "federal-communications-commission",
+      "amount": 88463873.88,
+      "total_outlays": 54258512.44
+    },
+    {
+      "id": 803,
+      "code": "SBA",
+      "name": "Small Business Administration",
+      "agency_slug": "small-business-administration",
+      "amount": 81639563.49,
+      "total_outlays": 66613200.85
+    },
+    {
+      "id": 614,
+      "code": "GSA",
+      "name": "General Services Administration",
+      "agency_slug": "general-services-administration",
+      "amount": 75901414.92,
+      "total_outlays": 2845977.73
+    },
+    {
+      "id": 267,
+      "code": "DOL",
+      "name": "Department of Labor",
+      "agency_slug": "department-of-labor",
+      "amount": 72731323.63,
+      "total_outlays": 38693229.03
+    },
+    {
+      "id": 801,
+      "code": "USAID",
+      "name": "Agency for International Development",
+      "agency_slug": "agency-for-international-development",
+      "amount": 67058011.46,
+      "total_outlays": 24463007.98
+    },
+    {
+      "id": 554,
+      "code": "NRC",
+      "name": "Nuclear Regulatory Commission",
+      "agency_slug": "nuclear-regulatory-commission",
+      "amount": 60395150.27,
+      "total_outlays": 40250529.46
+    },
+    {
+      "id": 1158,
+      "code": "CFPB",
+      "name": "Consumer Financial Protection Bureau",
+      "agency_slug": "consumer-financial-protection-bureau",
+      "amount": 60314498.7,
+      "total_outlays": 46757422.32
+    },
+    {
+      "id": 1412,
+      "code": "USACE",
+      "name": "Corps of Engineers - Civil Works",
+      "agency_slug": "corps-of-engineers-civil-works",
+      "amount": 41788854.39,
+      "total_outlays": 5298196.09
+    },
+    {
+      "id": 48,
+      "code": "EOP",
+      "name": "Executive Office of the President",
+      "agency_slug": "executive-office-of-the-president",
+      "amount": 32063794.36,
+      "total_outlays": 21866377.67
+    },
+    {
+      "id": 655,
+      "code": "NSF",
+      "name": "National Science Foundation",
+      "agency_slug": "national-science-foundation",
+      "amount": 27852567.66,
+      "total_outlays": 6492831.85
+    },
+    {
+      "id": 89,
+      "code": "PC",
+      "name": "Peace Corps",
+      "agency_slug": "peace-corps",
+      "amount": 25525895.97,
+      "total_outlays": 17780635.35
+    },
+    {
+      "id": 308,
+      "code": "PBGC",
+      "name": "Pension Benefit Guaranty Corporation",
+      "agency_slug": "pension-benefit-guaranty-corporation",
+      "amount": 24605535.73,
+      "total_outlays": 6041258.23
+    },
+    {
+      "id": 611,
+      "code": "EEOC",
+      "name": "Equal Employment Opportunity Commission",
+      "agency_slug": "equal-employment-opportunity-commission",
+      "amount": 21983409.89,
+      "total_outlays": 889295.48
+    },
+    {
+      "id": 552,
+      "code": "FTC",
+      "name": "Federal Trade Commission",
+      "agency_slug": "federal-trade-commission",
+      "amount": 21791396.63,
+      "total_outlays": 13528372.01
+    },
+    {
+      "id": 1129,
+      "code": "CFTC",
+      "name": "Commodity Futures Trading Commission",
+      "agency_slug": "commodity-futures-trading-commission",
+      "amount": 21654495.83,
+      "total_outlays": 2842650.71
+    },
+    {
+      "id": 925,
+      "code": "NARA",
+      "name": "National Archives and Records Administration",
+      "agency_slug": "national-archives-and-records-administration",
+      "amount": 17883508.78,
+      "total_outlays": 11788810.43
+    },
+    {
+      "id": 862,
+      "code": "NASA",
+      "name": "National Aeronautics and Space Administration",
+      "agency_slug": "national-aeronautics-and-space-administration",
+      "amount": 16245736.73,
+      "total_outlays": 10250202.27
+    },
+    {
+      "id": 1163,
+      "code": "USAGM",
+      "name": "U.S. Agency for Global Media",
+      "agency_slug": "us-agency-for-global-media",
+      "amount": 15713298.24,
+      "total_outlays": 274466.04
+    },
+    {
+      "id": 878,
+      "code": "EXIM",
+      "name": "Export-Import Bank of the United States",
+      "agency_slug": "export-import-bank-of-the-united-states",
+      "amount": 15102251.95,
+      "total_outlays": 3855241.88
+    },
+    {
+      "id": 1528,
+      "code": "CSOSA",
+      "name": "Court Services and Offender Supervision Agency",
+      "agency_slug": "court-services-and-offender-supervision-agency",
+      "amount": 11564887.75,
+      "total_outlays": 1627783.88
+    },
+    {
+      "id": 1128,
+      "code": "FEC",
+      "name": "Federal Election Commission",
+      "agency_slug": "federal-election-commission",
+      "amount": 11024144.52,
+      "total_outlays": 2062050.68
+    },
+    {
+      "id": 11,
+      "code": "GAO",
+      "name": "Government Accountability Office",
+      "agency_slug": "government-accountability-office",
+      "amount": 8298552.04,
+      "total_outlays": 141678.81
+    },
+    {
+      "id": 1522,
+      "code": "DFC",
+      "name": "U.S. International Development Finance Corporation",
+      "agency_slug": "us-international-development-finance-corporation",
+      "amount": 6824194.33,
+      "total_outlays": 760609.14
+    },
+    {
+      "id": 693,
+      "code": "RRB",
+      "name": "Railroad Retirement Board",
+      "agency_slug": "railroad-retirement-board",
+      "amount": 6201408.92,
+      "total_outlays": 18729.9
+    },
+    {
+      "id": 559,
+      "code": "NGA",
+      "name": "National Gallery of Art",
+      "agency_slug": null,
+      "amount": 5988038.42,
+      "total_outlays": 0.0
+    },
+    {
+      "id": 610,
+      "code": "MSPB",
+      "name": "Merit Systems Protection Board",
+      "agency_slug": "merit-systems-protection-board",
+      "amount": 4492599.96,
+      "total_outlays": 2981463.83
+    },
+    {
+      "id": 555,
+      "code": "SI",
+      "name": "Smithsonian Institution",
+      "agency_slug": null,
+      "amount": 3792331.28,
+      "total_outlays": 0.0
+    },
+    {
+      "id": 1166,
+      "code": "CNCS",
+      "name": "Corporation for National and Community Service",
+      "agency_slug": "corporation-for-national-and-community-service",
+      "amount": 3220681.49,
+      "total_outlays": 601219.26
+    },
+    {
+      "id": 697,
+      "code": "NLRB",
+      "name": "National Labor Relations Board",
+      "agency_slug": "national-labor-relations-board",
+      "amount": 3017772.25,
+      "total_outlays": 728732.57
+    },
+    {
+      "id": 1130,
+      "code": "NTSB",
+      "name": "National Transportation Safety Board",
+      "agency_slug": "national-transportation-safety-board",
+      "amount": 2899582.17,
+      "total_outlays": 157760.0
+    },
+    {
+      "id": 694,
+      "code": "CPSC",
+      "name": "Consumer Product Safety Commission",
+      "agency_slug": "consumer-product-safety-commission",
+      "amount": 2224338.71,
+      "total_outlays": 1707355.71
+    },
+    {
+      "id": 800,
+      "code": "OPIC",
+      "name": "Overseas Private Investment Corporation",
+      "agency_slug": "overseas-private-investment-corporation",
+      "amount": 1535693.53,
+      "total_outlays": 0.0
+    },
+    {
+      "id": 1146,
+      "code": "USAB",
+      "name": "Access Board",
+      "agency_slug": "access-board",
+      "amount": 1358889.79,
+      "total_outlays": 433744.91
+    },
+    {
+      "id": 1137,
+      "code": "DNFSB",
+      "name": "Defense Nuclear Facilities Safety Board",
+      "agency_slug": "defense-nuclear-facilities-safety-board",
+      "amount": 1327543.86,
+      "total_outlays": 585178.71
+    },
+    {
+      "id": 560,
+      "code": "USITC",
+      "name": "International Trade Commission",
+      "agency_slug": "international-trade-commission",
+      "amount": 1250417.21,
+      "total_outlays": 1730583.61
+    },
+    {
+      "id": 1125,
+      "code": "FMCS",
+      "name": "Federal Mediation and Conciliation Service",
+      "agency_slug": "federal-mediation-and-conciliation-service",
+      "amount": 1079045.97,
+      "total_outlays": 1166409.69
+    },
+    {
+      "id": 687,
+      "code": "NEA",
+      "name": "National Endowment for the Arts",
+      "agency_slug": "national-endowment-for-the-arts",
+      "amount": 770276.59,
+      "total_outlays": 685475.45
+    },
+    {
+      "id": 695,
+      "code": "OSC",
+      "name": "Office of Special Counsel",
+      "agency_slug": "office-of-special-counsel",
+      "amount": 656207.66,
+      "total_outlays": 0.0
+    },
+    {
+      "id": 879,
+      "code": "AFRH",
+      "name": "Armed Forces Retirement Home",
+      "agency_slug": "armed-forces-retirement-home",
+      "amount": 641364.01,
+      "total_outlays": 637519.21
+    },
+    {
+      "id": 90,
+      "code": "USTDA",
+      "name": "United States Trade and Development Agency",
+      "agency_slug": "united-states-trade-and-development-agency",
+      "amount": 548833.93,
+      "total_outlays": 0.0
+    },
+    {
+      "id": 1142,
+      "code": "NMB",
+      "name": "National Mediation Board",
+      "agency_slug": "national-mediation-board",
+      "amount": 539539.86,
+      "total_outlays": 512939.78
+    },
+    {
+      "id": 699,
+      "code": "FMC",
+      "name": "Federal Maritime Commission",
+      "agency_slug": "federal-maritime-commission",
+      "amount": 520203.05,
+      "total_outlays": 345259.92
+    },
+    {
+      "id": 1475,
+      "code": "NEH",
+      "name": "National Endowment for the Humanities",
+      "agency_slug": "national-endowment-for-the-humanities",
+      "amount": 487120.76,
+      "total_outlays": 0.0
+    },
+    {
+      "id": 1474,
+      "code": "IMLS",
+      "name": "Institute of Museum and Library Services",
+      "agency_slug": "institute-of-museum-and-library-services",
+      "amount": 485277.44,
+      "total_outlays": 485277.44
+    },
+    {
+      "id": 1154,
+      "code": "MCC",
+      "name": "Millennium Challenge Corporation",
+      "agency_slug": "millennium-challenge-corporation",
+      "amount": 477934.19,
+      "total_outlays": 0.0
+    },
+    {
+      "id": 1144,
+      "code": "ACHP",
+      "name": "Advisory Council on Historic Preservation",
+      "agency_slug": "advisory-council-on-historic-preservation",
+      "amount": 448945.02,
+      "total_outlays": 300442.01
+    },
+    {
+      "id": 1127,
+      "code": "FMSHRC",
+      "name": "Federal Mine Safety and Health Review Commission",
+      "agency_slug": "federal-mine-safety-and-health-review-commission",
+      "amount": 387204.23,
+      "total_outlays": 387204.23
+    },
+    {
+      "id": 1067,
+      "code": "SSS",
+      "name": "Selective Service System",
+      "agency_slug": "selective-service-system",
+      "amount": 381435.01,
+      "total_outlays": 82056.13
+    },
+    {
+      "id": 1157,
+      "code": "OGE",
+      "name": "Office of Government Ethics",
+      "agency_slug": "office-of-government-ethics",
+      "amount": 281437.25,
+      "total_outlays": 253015.1
+    },
+    {
+      "id": 28,
+      "code": "JUD BRANCH",
+      "name": "The Judicial Branch",
+      "agency_slug": null,
+      "amount": 276603.92,
+      "total_outlays": 271085.6
+    },
+    {
+      "id": 1147,
+      "code": "GCERC",
+      "name": "Gulf Coast Ecosystem Restoration Council",
+      "agency_slug": "gulf-coast-ecosystem-restoration-council",
+      "amount": 241253.86,
+      "total_outlays": 61678.26
+    },
+    {
+      "id": 1162,
+      "code": "CSB",
+      "name": "United States Chemical Safety Board",
+      "agency_slug": "united-states-chemical-safety-board",
+      "amount": 228066.4,
+      "total_outlays": 204755.6
+    },
+    {
+      "id": 1141,
+      "code": "EAC",
+      "name": "Election Assistance Commission",
+      "agency_slug": "election-assistance-commission",
+      "amount": 221300.1,
+      "total_outlays": 89401.11
+    },
+    {
+      "id": 1143,
+      "code": "PCLOB",
+      "name": "Privacy and Civil Liberties Oversight Board",
+      "agency_slug": "privacy-and-civil-liberties-oversight-board",
+      "amount": 220386.4,
+      "total_outlays": 201753.85
+    },
+    {
+      "id": 1523,
+      "code": "DC COURTS",
+      "name": "District of Columbia Courts",
+      "agency_slug": "district-of-columbia-courts",
+      "amount": 110206.87,
+      "total_outlays": 0.0
+    },
+    {
+      "id": 1526,
+      "code": "IAF",
+      "name": "Inter-American Foundation",
+      "agency_slug": "inter-american-foundation",
+      "amount": 79972.0,
+      "total_outlays": 79972.0
+    }
+  ],
+  "awarding_agencies": [
+    {
+      "id": 1173,
+      "code": "DOD",
+      "name": "Department of Defense",
+      "agency_slug": "department-of-defense",
+      "amount": 11099465840.81,
+      "total_outlays": 393334127.29
+    },
+    {
+      "id": 766,
+      "code": "DHS",
+      "name": "Department of Homeland Security",
+      "agency_slug": "department-of-homeland-security",
+      "amount": 2636375835.57,
+      "total_outlays": 94970270.9
+    },
+    {
+      "id": 539,
+      "code": "SSA",
+      "name": "Social Security Administration",
+      "agency_slug": "social-security-administration",
+      "amount": 1899286081.34,
+      "total_outlays": 1325122951.87
+    },
+    {
+      "id": 456,
+      "code": "TREAS",
+      "name": "Department of the Treasury",
+      "agency_slug": "department-of-the-treasury",
+      "amount": 1524523944.26,
+      "total_outlays": 935295031.69
+    },
+    {
+      "id": 315,
+      "code": "DOS",
+      "name": "Department of State",
+      "agency_slug": "department-of-state",
+      "amount": 1259455932.45,
+      "total_outlays": 332178194.25
+    },
+    {
+      "id": 806,
+      "code": "HHS",
+      "name": "Department of Health and Human Services",
+      "agency_slug": "department-of-health-and-human-services",
+      "amount": 1143061417.62,
+      "total_outlays": 202032507.45
+    },
+    {
+      "id": 95,
+      "code": "USDA",
+      "name": "Department of Agriculture",
+      "agency_slug": "department-of-agriculture",
+      "amount": 1027784377.68,
+      "total_outlays": 901809424.22
+    },
+    {
+      "id": 252,
+      "code": "DOJ",
+      "name": "Department of Justice",
+      "agency_slug": "department-of-justice",
+      "amount": 881671182.89,
+      "total_outlays": 520987866.89
+    },
+    {
+      "id": 561,
+      "code": "VA",
+      "name": "Department of Veterans Affairs",
+      "agency_slug": "department-of-veterans-affairs",
+      "amount": 678839559.41,
+      "total_outlays": 23053251.24
+    },
+    {
+      "id": 183,
+      "code": "DOC",
+      "name": "Department of Commerce",
+      "agency_slug": "department-of-commerce",
+      "amount": 537247277.51,
+      "total_outlays": 8307610.09
+    },
+    {
+      "id": 614,
+      "code": "GSA",
+      "name": "General Services Administration",
+      "agency_slug": "general-services-administration",
+      "amount": 530386151.66,
+      "total_outlays": 44860736.96
+    },
+    {
+      "id": 731,
+      "code": "DOT",
+      "name": "Department of Transportation",
+      "agency_slug": "department-of-transportation",
+      "amount": 393827313.8,
+      "total_outlays": 222792938.71
+    },
+    {
+      "id": 700,
+      "code": "EPA",
+      "name": "Environmental Protection Agency",
+      "agency_slug": "environmental-protection-agency",
+      "amount": 357625171.98,
+      "total_outlays": 16339312.67
+    },
+    {
+      "id": 930,
+      "code": "DOE",
+      "name": "Department of Energy",
+      "agency_slug": "department-of-energy",
+      "amount": 328800698.37,
+      "total_outlays": 142555642.52
+    },
+    {
+      "id": 209,
+      "code": "DOI",
+      "name": "Department of the Interior",
+      "agency_slug": "department-of-the-interior",
+      "amount": 305535780.91,
+      "total_outlays": 153556751.58
+    },
+    {
+      "id": 680,
+      "code": "SEC",
+      "name": "Securities and Exchange Commission",
+      "agency_slug": "securities-and-exchange-commission",
+      "amount": 137373550.38,
+      "total_outlays": 67952307.82
+    },
+    {
+      "id": 503,
+      "code": "OPM",
+      "name": "Office of Personnel Management",
+      "agency_slug": "office-of-personnel-management",
+      "amount": 136636206.45,
+      "total_outlays": 15493773.46
+    },
+    {
+      "id": 1068,
+      "code": "ED",
+      "name": "Department of Education",
+      "agency_slug": "department-of-education",
+      "amount": 132139994.92,
+      "total_outlays": 49689450.7
+    },
+    {
+      "id": 882,
+      "code": "HUD",
+      "name": "Department of Housing and Urban Development",
+      "agency_slug": "department-of-housing-and-urban-development",
+      "amount": 99278239.21,
+      "total_outlays": 66042750.66
+    },
+    {
+      "id": 538,
+      "code": "FCC",
+      "name": "Federal Communications Commission",
+      "agency_slug": "federal-communications-commission",
+      "amount": 88463873.88,
+      "total_outlays": 54258512.44
+    },
+    {
+      "id": 803,
+      "code": "SBA",
+      "name": "Small Business Administration",
+      "agency_slug": "small-business-administration",
+      "amount": 75923818.9,
+      "total_outlays": 66375037.8
+    },
+    {
+      "id": 267,
+      "code": "DOL",
+      "name": "Department of Labor",
+      "agency_slug": "department-of-labor",
+      "amount": 72731323.63,
+      "total_outlays": 38693229.03
+    },
+    {
+      "id": 801,
+      "code": "USAID",
+      "name": "Agency for International Development",
+      "agency_slug": "agency-for-international-development",
+      "amount": 67055617.56,
+      "total_outlays": 24463007.98
+    },
+    {
+      "id": 554,
+      "code": "NRC",
+      "name": "Nuclear Regulatory Commission",
+      "agency_slug": "nuclear-regulatory-commission",
+      "amount": 60395150.27,
+      "total_outlays": 40250529.46
+    },
+    {
+      "id": 1158,
+      "code": "CFPB",
+      "name": "Consumer Financial Protection Bureau",
+      "agency_slug": "consumer-financial-protection-bureau",
+      "amount": 37892230.03,
+      "total_outlays": 28301479.59
+    },
+    {
+      "id": 48,
+      "code": "EOP",
+      "name": "Executive Office of the President",
+      "agency_slug": "executive-office-of-the-president",
+      "amount": 31523841.97,
+      "total_outlays": 21701692.67
+    },
+    {
+      "id": 655,
+      "code": "NSF",
+      "name": "National Science Foundation",
+      "agency_slug": "national-science-foundation",
+      "amount": 27852567.66,
+      "total_outlays": 6492831.85
+    },
+    {
+      "id": 89,
+      "code": "PC",
+      "name": "Peace Corps",
+      "agency_slug": "peace-corps",
+      "amount": 25525895.97,
+      "total_outlays": 17780635.35
+    },
+    {
+      "id": 308,
+      "code": "PBGC",
+      "name": "Pension Benefit Guaranty Corporation",
+      "agency_slug": "pension-benefit-guaranty-corporation",
+      "amount": 24605535.73,
+      "total_outlays": 6041258.23
+    },
+    {
+      "id": 611,
+      "code": "EEOC",
+      "name": "Equal Employment Opportunity Commission",
+      "agency_slug": "equal-employment-opportunity-commission",
+      "amount": 21983409.89,
+      "total_outlays": 889295.48
+    },
+    {
+      "id": 552,
+      "code": "FTC",
+      "name": "Federal Trade Commission",
+      "agency_slug": "federal-trade-commission",
+      "amount": 21791396.63,
+      "total_outlays": 13528372.01
+    },
+    {
+      "id": 1129,
+      "code": "CFTC",
+      "name": "Commodity Futures Trading Commission",
+      "agency_slug": "commodity-futures-trading-commission",
+      "amount": 21654495.83,
+      "total_outlays": 2842650.71
+    },
+    {
+      "id": 925,
+      "code": "NARA",
+      "name": "National Archives and Records Administration",
+      "agency_slug": "national-archives-and-records-administration",
+      "amount": 17883508.78,
+      "total_outlays": 11788810.43
+    },
+    {
+      "id": 862,
+      "code": "NASA",
+      "name": "National Aeronautics and Space Administration",
+      "agency_slug": "national-aeronautics-and-space-administration",
+      "amount": 16245736.73,
+      "total_outlays": 10250202.27
+    },
+    {
+      "id": 1163,
+      "code": "USAGM",
+      "name": "U.S. Agency for Global Media",
+      "agency_slug": "us-agency-for-global-media",
+      "amount": 15713298.24,
+      "total_outlays": 274466.04
+    },
+    {
+      "id": 878,
+      "code": "EXIM",
+      "name": "Export-Import Bank of the United States",
+      "agency_slug": "export-import-bank-of-the-united-states",
+      "amount": 15102251.95,
+      "total_outlays": 3855241.88
+    },
+    {
+      "id": 1528,
+      "code": "CSOSA",
+      "name": "Court Services and Offender Supervision Agency",
+      "agency_slug": "court-services-and-offender-supervision-agency",
+      "amount": 11564887.75,
+      "total_outlays": 1627783.88
+    },
+    {
+      "id": 1128,
+      "code": "FEC",
+      "name": "Federal Election Commission",
+      "agency_slug": "federal-election-commission",
+      "amount": 11024144.52,
+      "total_outlays": 2062050.68
+    },
+    {
+      "id": 11,
+      "code": "GAO",
+      "name": "Government Accountability Office",
+      "agency_slug": "government-accountability-office",
+      "amount": 8298552.04,
+      "total_outlays": 141678.81
+    },
+    {
+      "id": 1522,
+      "code": "DFC",
+      "name": "U.S. International Development Finance Corporation",
+      "agency_slug": "us-international-development-finance-corporation",
+      "amount": 6824194.33,
+      "total_outlays": 760609.14
+    },
+    {
+      "id": 693,
+      "code": "RRB",
+      "name": "Railroad Retirement Board",
+      "agency_slug": "railroad-retirement-board",
+      "amount": 6201408.92,
+      "total_outlays": 18729.9
+    },
+    {
+      "id": 559,
+      "code": "NGA",
+      "name": "National Gallery of Art",
+      "agency_slug": null,
+      "amount": 5988038.42,
+      "total_outlays": 0.0
+    },
+    {
+      "id": 610,
+      "code": "MSPB",
+      "name": "Merit Systems Protection Board",
+      "agency_slug": "merit-systems-protection-board",
+      "amount": 4492599.96,
+      "total_outlays": 2981463.83
+    },
+    {
+      "id": 555,
+      "code": "SI",
+      "name": "Smithsonian Institution",
+      "agency_slug": null,
+      "amount": 3792331.28,
+      "total_outlays": 0.0
+    },
+    {
+      "id": 1166,
+      "code": "CNCS",
+      "name": "Corporation for National and Community Service",
+      "agency_slug": "corporation-for-national-and-community-service",
+      "amount": 3133809.91,
+      "total_outlays": 573658.12
+    },
+    {
+      "id": 697,
+      "code": "NLRB",
+      "name": "National Labor Relations Board",
+      "agency_slug": "national-labor-relations-board",
+      "amount": 3017772.25,
+      "total_outlays": 728732.57
+    },
+    {
+      "id": 1130,
+      "code": "NTSB",
+      "name": "National Transportation Safety Board",
+      "agency_slug": "national-transportation-safety-board",
+      "amount": 2899582.17,
+      "total_outlays": 157760.0
+    },
+    {
+      "id": 694,
+      "code": "CPSC",
+      "name": "Consumer Product Safety Commission",
+      "agency_slug": "consumer-product-safety-commission",
+      "amount": 2177058.71,
+      "total_outlays": 1660075.71
+    },
+    {
+      "id": 800,
+      "code": "OPIC",
+      "name": "Overseas Private Investment Corporation",
+      "agency_slug": "overseas-private-investment-corporation",
+      "amount": 1535693.53,
+      "total_outlays": 0.0
+    },
+    {
+      "id": 1137,
+      "code": "DNFSB",
+      "name": "Defense Nuclear Facilities Safety Board",
+      "agency_slug": "defense-nuclear-facilities-safety-board",
+      "amount": 1327543.86,
+      "total_outlays": 585178.71
+    },
+    {
+      "id": 560,
+      "code": "USITC",
+      "name": "International Trade Commission",
+      "agency_slug": "international-trade-commission",
+      "amount": 1250417.21,
+      "total_outlays": 1730583.61
+    },
+    {
+      "id": 1125,
+      "code": "FMCS",
+      "name": "Federal Mediation and Conciliation Service",
+      "agency_slug": "federal-mediation-and-conciliation-service",
+      "amount": 1079045.97,
+      "total_outlays": 1166409.69
+    },
+    {
+      "id": 687,
+      "code": "NEA",
+      "name": "National Endowment for the Arts",
+      "agency_slug": "national-endowment-for-the-arts",
+      "amount": 680093.17,
+      "total_outlays": 625353.17
+    },
+    {
+      "id": 90,
+      "code": "USTDA",
+      "name": "United States Trade and Development Agency",
+      "agency_slug": "united-states-trade-and-development-agency",
+      "amount": 548833.93,
+      "total_outlays": 0.0
+    },
+    {
+      "id": 699,
+      "code": "FMC",
+      "name": "Federal Maritime Commission",
+      "agency_slug": "federal-maritime-commission",
+      "amount": 520203.05,
+      "total_outlays": 345259.92
+    },
+    {
+      "id": 1475,
+      "code": "NEH",
+      "name": "National Endowment for the Humanities",
+      "agency_slug": "national-endowment-for-the-humanities",
+      "amount": 487120.76,
+      "total_outlays": 0.0
+    },
+    {
+      "id": 1474,
+      "code": "IMLS",
+      "name": "Institute of Museum and Library Services",
+      "agency_slug": "institute-of-museum-and-library-services",
+      "amount": 485277.44,
+      "total_outlays": 485277.44
+    },
+    {
+      "id": 1154,
+      "code": "MCC",
+      "name": "Millennium Challenge Corporation",
+      "agency_slug": "millennium-challenge-corporation",
+      "amount": 477934.19,
+      "total_outlays": 0.0
+    },
+    {
+      "id": 1127,
+      "code": "FMSHRC",
+      "name": "Federal Mine Safety and Health Review Commission",
+      "agency_slug": "federal-mine-safety-and-health-review-commission",
+      "amount": 387204.23,
+      "total_outlays": 387204.23
+    },
+    {
+      "id": 1067,
+      "code": "SSS",
+      "name": "Selective Service System",
+      "agency_slug": "selective-service-system",
+      "amount": 381435.01,
+      "total_outlays": 82056.13
+    },
+    {
+      "id": 1523,
+      "code": "DC COURTS",
+      "name": "District of Columbia Courts",
+      "agency_slug": "district-of-columbia-courts",
+      "amount": 110206.87,
+      "total_outlays": 0.0
+    }
+  ],
+  "federal_accounts": [
+    {
+      "amount": 1875793035.23,
+      "id": 4618,
+      "code": "028-8704",
+      "name": "Salaries and Expenses, Social Security Administration",
+      "total_outlays": 1324513997.79
+    },
+    {
+      "amount": 1740864598.5,
+      "id": 5974,
+      "code": "097-0130",
+      "name": "Defense Health Program, Defense",
+      "total_outlays": 6671718.04
+    },
+    {
+      "amount": 1671255287.26,
+      "id": 4807,
+      "code": "057-3400",
+      "name": "Operation and Maintenance, Air Force",
+      "total_outlays": 94291781.36
+    },
+    {
+      "amount": 1453134914.21,
+      "id": 4501,
+      "code": "021-2020",
+      "name": "Operation and Maintenance, Army",
+      "total_outlays": 42687760.87
+    },
+    {
+      "amount": 1053282286.77,
+      "id": 4214,
+      "code": "019-0113",
+      "name": "Diplomatic and Consular Programs, State",
+      "total_outlays": 314408155.69
+    },
+    {
+      "amount": 983710985.16,
+      "id": 6018,
+      "code": "097-4930",
+      "name": "Defense Working Capital Fund, Defense",
+      "total_outlays": 82541060.77
+    },
+    {
+      "amount": 965596789.59,
+      "id": 4334,
+      "code": "020-0919",
+      "name": "Operations Support, Internal Revenue Service, Treasury",
+      "total_outlays": 572585435.32
+    },
+    {
+      "amount": 962536261.64,
+      "id": 4810,
+      "code": "057-3600",
+      "name": "Research, Development, Test, and Evaluation, Air Force",
+      "total_outlays": 37875941.16
+    },
+    {
+      "amount": 956877895.12,
+      "id": 4175,
+      "code": "017-1804",
+      "name": "Operation and Maintenance, Navy",
+      "total_outlays": 34003343.3
+    },
+    {
+      "amount": 921020486.85,
+      "id": 5965,
+      "code": "097-0100",
+      "name": "Operation and Maintenance, Defense-Wide, Defense",
+      "total_outlays": 39104040.7
+    },
+    {
+      "amount": 833310948.13,
+      "id": 4215,
+      "code": "019-0120",
+      "name": "Capital Investment Fund, State",
+      "total_outlays": 273089909.7
+    },
+    {
+      "amount": 769474026.26,
+      "id": 3577,
+      "code": "012-4609",
+      "name": "Working Capital Fund, Agriculture",
+      "total_outlays": 703411422.82
+    },
+    {
+      "amount": 758437503.06,
+      "id": 5198,
+      "code": "070-0530",
+      "name": "Operations and Support, U.S. Customs and Border Protection, Homeland Security",
+      "total_outlays": 29582346.7
+    },
+    {
+      "amount": 639942238.2,
+      "id": 4256,
+      "code": "019-4519",
+      "name": "Working Capital Fund, State",
+      "total_outlays": 243683825.47
+    },
+    {
+      "amount": 602119932.22,
+      "id": 4156,
+      "code": "017-1106",
+      "name": "Operation and Maintenance, Marine Corps",
+      "total_outlays": 35816354.92
+    },
+    {
+      "amount": 508986761.86,
+      "id": 4730,
+      "code": "047-4534",
+      "name": "Acquisition Services Fund, General Services Administration",
+      "total_outlays": 43186506.11
+    },
+    {
+      "amount": 417426140.8,
+      "id": 5284,
+      "code": "070-5595",
+      "name": "Electronic System for Travel Authorization, U.S. Customs and Border Protection, Homeland Security",
+      "total_outlays": 7431109.78
+    },
+    {
+      "amount": 413080838.98,
+      "id": 3457,
+      "code": "012-1000",
+      "name": "Conservation Operations, Natural Resources Conservation Service, Agriculture",
+      "total_outlays": 354259985.85
+    },
+    {
+      "amount": 396920264.48,
+      "id": 4403,
+      "code": "020-4560",
+      "name": "Treasury Franchise Fund, Treasury",
+      "total_outlays": 247185156.85
+    },
+    {
+      "amount": 388963784.9,
+      "id": 5281,
+      "code": "070-5543",
+      "name": "International Registered Traveler Program Fund, U.S. Customs and Border Protection, Homeland Security",
+      "total_outlays": 820750.0
+    },
+    {
+      "amount": 382306854.27,
+      "id": 6279,
+      "code": "019-5713",
+      "name": "Consular and Border Security Programs, Administration of Foreign Affairs, State",
+      "total_outlays": 104647982.98
+    },
+    {
+      "amount": 356667763.96,
+      "id": 3452,
+      "code": "012-0600",
+      "name": "Salaries and Expenses, Farm Service Agency, Agriculture",
+      "total_outlays": 348084413.01
+    },
+    {
+      "amount": 347189655.89,
+      "id": 3564,
+      "code": "012-4085",
+      "name": "Federal Crop Insurance Corporation Fund, Risk Management Agency, Agriculture",
+      "total_outlays": 342548414.12000006
+    },
+    {
+      "amount": 318241409.35,
+      "id": 3551,
+      "code": "012-3505",
+      "name": "Supplemental Nutrition Assistance Program, Food and Nutrition Service, Agriculture",
+      "total_outlays": 320033045.23
+    },
+    {
+      "amount": 314014174.75,
+      "id": 3495,
+      "code": "012-1600",
+      "name": "Salaries and Expenses, Animal and Plant Health Inspection Service, Agriculture",
+      "total_outlays": 311586211.55
+    },
+    {
+      "amount": 313652092.25,
+      "id": 4047,
+      "code": "015-4526",
+      "name": "Working Capital Fund, Justice",
+      "total_outlays": 239577403.87
+    },
+    {
+      "amount": 308277498.34,
+      "id": 3486,
+      "code": "012-1400",
+      "name": "Salaries and Expenses, Agricultural Research Service, Agriculture",
+      "total_outlays": 307202888.27000004
+    },
+    {
+      "amount": 301775192.22,
+      "id": 3498,
+      "code": "012-1801",
+      "name": "National Agricultural Statistics Service, Agriculture",
+      "total_outlays": 301227844.22
+    },
+    {
+      "amount": 301723447.16,
+      "id": 3556,
+      "code": "012-3539",
+      "name": "Child Nutrition Programs, Food and Nutrition Service",
+      "total_outlays": 301785616.6
+    },
+    {
+      "amount": 298043457.81,
+      "id": 3553,
+      "code": "012-3508",
+      "name": "Nutrition Programs Administration, Food and Nutrition Service, Agriculture",
+      "total_outlays": 297592768.33000004
+    },
+    {
+      "amount": 290180148.2,
+      "id": 4887,
+      "code": "068-4565",
+      "name": "Working Capital Fund, Environmental Protection Agency",
+      "total_outlays": 5087536.99
+    },
+    {
+      "amount": 276682486.9,
+      "id": 4522,
+      "code": "021-2091",
+      "name": "Afghanistan Security Forces Fund, Army",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 274940579.75,
+      "id": 4804,
+      "code": "057-3080",
+      "name": "Other Procurement, Air Force",
+      "total_outlays": 8523084.96
+    },
+    {
+      "amount": 272364142.27,
+      "id": 4507,
+      "code": "021-2035",
+      "name": "Other Procurement, Army",
+      "total_outlays": 37530723.19
+    },
+    {
+      "amount": 268096122.84,
+      "id": 4335,
+      "code": "020-0921",
+      "name": "Business Systems Modernization, Internal Revenue Service, Treasury",
+      "total_outlays": 161620119.33
+    },
+    {
+      "amount": 249053971.23,
+      "id": 5212,
+      "code": "070-0550",
+      "name": "Operations and Support, Transportation Security Administration, Homeland Security",
+      "total_outlays": 11756788.04
+    },
+    {
+      "amount": 248825176.39,
+      "id": 4508,
+      "code": "021-2040",
+      "name": "Research, Development, Test and Evaluation, Army",
+      "total_outlays": 22454271.87
+    },
+    {
+      "amount": 236471860.62,
+      "id": 5205,
+      "code": "070-0540",
+      "name": "Operations and Support, U.S. Immigration and Customs Enforcement, Homeland Security",
+      "total_outlays": 21978509.53
+    },
+    {
+      "amount": 224685085.9,
+      "id": 3413,
+      "code": "012-0013",
+      "name": "Expenses, Office of the Chief Information Officer, Agriculture",
+      "total_outlays": 163820763.19
+    },
+    {
+      "amount": 223236871.7,
+      "id": 5572,
+      "code": "075-4554",
+      "name": "Service and Supply Fund, National Institutes of Health, Health and Human Services",
+      "total_outlays": 43798888.42
+    },
+    {
+      "amount": 216834409.36,
+      "id": 5449,
+      "code": "075-0511",
+      "name": "Program Management, Centers for Medicare and Medicaid Services, Health and Human Services",
+      "total_outlays": 44082154.45
+    },
+    {
+      "amount": 195929473.4,
+      "id": 4007,
+      "code": "015-0200",
+      "name": "Salaries and Expenses, Federal Bureau of Investigation, Justice",
+      "total_outlays": 166020758.53
+    },
+    {
+      "amount": 192221968.16,
+      "id": 5268,
+      "code": "070-5088",
+      "name": "Immigration Examination Fees, Immigration Services, Homeland Security",
+      "total_outlays": 491833.74
+    },
+    {
+      "amount": 187079992.42,
+      "id": 5988,
+      "code": "097-0400",
+      "name": "Research, Development, Test, and Evaluation, Defense-Wide",
+      "total_outlays": 14275622.85
+    },
+    {
+      "amount": 182393197.92,
+      "id": 4166,
+      "code": "017-1319",
+      "name": "Research, Development, Test, and Evaluation, Navy",
+      "total_outlays": 28523673.11
+    },
+    {
+      "amount": 181512464.53,
+      "id": 3681,
+      "code": "013-1006",
+      "name": "Salaries and Expenses, United States Patent and Trademark Office, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 173073225.96,
+      "id": 5787,
+      "code": "089-0240",
+      "name": "Weapons Activities, National Nuclear Security Administration, Energy",
+      "total_outlays": 65494609.64
+    },
+    {
+      "amount": 171719738.98,
+      "id": 3667,
+      "code": "013-0450",
+      "name": "Periodic Censuses and Programs, Bureau of the Census, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 158274680.54,
+      "id": 5199,
+      "code": "070-0531",
+      "name": "Automation Modernization, U.S. Customs and Border Protection, Homeland Security",
+      "total_outlays": 5979255.35
+    },
+    {
+      "amount": 154165126.61,
+      "id": 5789,
+      "code": "089-0243",
+      "name": "Other Defense Activities, Environmental and Other Defense Activities, Energy",
+      "total_outlays": 55633700.69
+    },
+    {
+      "amount": 148978669.83,
+      "id": 5822,
+      "code": "089-4563",
+      "name": "Working Capital Fund, Departmental Administration, Energy",
+      "total_outlays": 52004382.88
+    },
+    {
+      "amount": 144609190.74,
+      "id": 5046,
+      "code": "069-1301",
+      "name": "Operations, Federal Aviation Administration, Transportation",
+      "total_outlays": 107464279.56
+    },
+    {
+      "amount": 141641360.23,
+      "id": 5264,
+      "code": "070-4640",
+      "name": "Working Capital Fund, Departmental Management, Intelligence, Situational Awareness, and Oversight, Homeland Security",
+      "total_outlays": 1552856.35
+    },
+    {
+      "amount": 138339360.23,
+      "id": 5570,
+      "code": "075-4552",
+      "name": "HHS Service and Supply Fund, Program Support Center, Health and Human Services",
+      "total_outlays": 16262702.55
+    },
+    {
+      "amount": 136754166.6,
+      "id": 4762,
+      "code": "050-0100",
+      "name": "Salaries and Expenses, Securities and Exchange Commission",
+      "total_outlays": 67875297.82
+    },
+    {
+      "amount": 134955898.36,
+      "id": 5167,
+      "code": "070-0112",
+      "name": "Operations and Support, Management Directorate, Departmental Management, Intelligence, Situational Awareness, and Oversight, Homeland Security",
+      "total_outlays": 17470158.47
+    },
+    {
+      "amount": 133045570.75,
+      "id": 5461,
+      "code": "075-0600",
+      "name": "Salaries and Expenses, Food and Drug Administration, Health and Human Services",
+      "total_outlays": 28195088.91
+    },
+    {
+      "amount": 129436571.59,
+      "id": 5237,
+      "code": "070-0702",
+      "name": "Disaster Relief Fund, Federal Emergency Management Agency, Homeland Security",
+      "total_outlays": -73.33
+    },
+    {
+      "amount": 124623464.66,
+      "id": 4229,
+      "code": "019-0529",
+      "name": "Office of the Inspector General, State",
+      "total_outlays": 48854648.67
+    },
+    {
+      "amount": 123670435.0,
+      "id": 5875,
+      "code": "091-0202",
+      "name": "Student and Administration, Education",
+      "total_outlays": 46393199.27
+    },
+    {
+      "amount": 117190333.65,
+      "id": 4799,
+      "code": "057-3010",
+      "name": "Aircraft Procurement, Air Force",
+      "total_outlays": 15956121.53
+    },
+    {
+      "amount": 111422416.39,
+      "id": 4568,
+      "code": "024-0100",
+      "name": "Salaries and Expenses, Office of Personnel Management",
+      "total_outlays": 14723999.71
+    },
+    {
+      "amount": 105222759.47,
+      "id": 6280,
+      "code": "089-0342",
+      "name": "Indian Energy Policy and Programs, Energy Programs, Energy",
+      "total_outlays": 42159486.35999999
+    },
+    {
+      "amount": 105100280.98,
+      "id": 5611,
+      "code": "075-8393",
+      "name": "Health Care Fraud and Abuse Control Account, Health and Human Services",
+      "total_outlays": 38911746.37
+    },
+    {
+      "amount": 104587284.79,
+      "id": 5406,
+      "code": "075-0125",
+      "name": "Nonrecurring Expense Fund, Office of the Secretary, Health and Human Services",
+      "total_outlays": 17535233.19
+    },
+    {
+      "amount": 101864378.77,
+      "id": 4575,
+      "code": "024-4571",
+      "name": "Revolving Fund, Undistributed SIBAC Chargebacks for Washington, DC, Office of Personnel Management",
+      "total_outlays": 9248022.79
+    },
+    {
+      "amount": 100432432.09,
+      "id": 4170,
+      "code": "017-1506",
+      "name": "Aircraft Procurement, Navy",
+      "total_outlays": 4716558.82
+    },
+    {
+      "amount": 100344363.29,
+      "id": 5573,
+      "code": "075-4613",
+      "name": "FDA Working Capital Fund, Food and Drug Administration, Health and Human Services",
+      "total_outlays": 17783758.42
+    },
+    {
+      "amount": 97698595.38,
+      "id": 4231,
+      "code": "019-0535",
+      "name": "Embassy Security, Construction, and Maintenance, State",
+      "total_outlays": 26559390.61
+    },
+    {
+      "amount": 97270727.81,
+      "id": 3842,
+      "code": "014-4529",
+      "name": "Interior Franchise Fund, Departmental Management",
+      "total_outlays": 39566126.59
+    },
+    {
+      "amount": 94177857.37,
+      "id": 5081,
+      "code": "069-4520",
+      "name": "Working Capital Fund, Office of the Secretary,Transportation",
+      "total_outlays": 58024547.36
+    },
+    {
+      "amount": 94133196.9,
+      "id": 4179,
+      "code": "017-1810",
+      "name": "Other Procurement, Navy",
+      "total_outlays": 17179990.91
+    },
+    {
+      "amount": 93990150.58,
+      "id": 4690,
+      "code": "036-4539",
+      "name": "Franchise Fund, Veterans Affairs",
+      "total_outlays": 21676922.83
+    },
+    {
+      "amount": 93627064.07,
+      "id": 4042,
+      "code": "015-1100",
+      "name": "Salaries and Expenses, Drug Enforcement Administration, Justice",
+      "total_outlays": 65717277.9
+    },
+    {
+      "amount": 91793882.91,
+      "id": 5226,
+      "code": "070-0610",
+      "name": "Operations and Support, Coast Guard, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 88463873.88,
+      "id": 4593,
+      "code": "027-0100",
+      "name": "Salaries and Expenses, Federal Communications Commission",
+      "total_outlays": 54258512.44
+    },
+    {
+      "amount": 86447353.54,
+      "id": 5235,
+      "code": "070-0700",
+      "name": "Operations and Support,  Federal Emergency Management Agency, Homeland Security",
+      "total_outlays": 100091.29
+    },
+    {
+      "amount": 83358621.87,
+      "id": 3839,
+      "code": "014-4523",
+      "name": "Working Capital Fund, Departmental Management",
+      "total_outlays": 26335794.78
+    },
+    {
+      "amount": 83269567.34,
+      "id": 5455,
+      "code": "075-0519",
+      "name": "Quality Improvements Organizations, Centers for Medicare and Medicaid, Health and Human Services",
+      "total_outlays": 38890761.87
+    },
+    {
+      "amount": 80395119.91,
+      "id": 5565,
+      "code": "075-3966",
+      "name": "Management Fund, National Institutes of Health",
+      "total_outlays": 8229165.3
+    },
+    {
+      "amount": 80285057.3,
+      "id": 3576,
+      "code": "012-4605",
+      "name": "Working Capital Fund, Forest Service,  Agriculture",
+      "total_outlays": 64666550.62
+    },
+    {
+      "amount": 77727591.79,
+      "id": 5984,
+      "code": "097-0350",
+      "name": "National Guard and Reserve Equipment Account, Defense",
+      "total_outlays": 21646065.19
+    },
+    {
+      "amount": 75731654.25,
+      "id": 5373,
+      "code": "073-0100",
+      "name": "Salaries and Expenses, Small Business Administration",
+      "total_outlays": 66269769.25
+    },
+    {
+      "amount": 75083401.05,
+      "id": 5806,
+      "code": "089-0321",
+      "name": "Energy Efficiency and Renewable Energy, Energy Programs, Energy",
+      "total_outlays": 26088434.63
+    },
+    {
+      "amount": 72822078.27,
+      "id": 4818,
+      "code": "057-3840",
+      "name": "Operation and Maintenance, Air National Guard",
+      "total_outlays": 5582748.08
+    },
+    {
+      "amount": 72013979.2,
+      "id": 5748,
+      "code": "086-4586",
+      "name": "Information Technology Fund, Management and Administration, Housing and Urban Development",
+      "total_outlays": 57620768.03
+    },
+    {
+      "amount": 71865169.97,
+      "id": 5128,
+      "code": "069-8107",
+      "name": "Facilities and Equipment, Airport and Airway Trust Fund, Federal Aviation Administration, Transportation",
+      "total_outlays": 54133346.32
+    },
+    {
+      "amount": 69160148.7,
+      "id": 4053,
+      "code": "015-5131",
+      "name": "Diversion Control Fee Account, Justice",
+      "total_outlays": 52018803.59
+    },
+    {
+      "amount": 67427835.2,
+      "id": 5907,
+      "code": "091-1400",
+      "name": "Office of the Inspector General, Departmental Management, Education",
+      "total_outlays": 22834377.12
+    },
+    {
+      "amount": 66089102.21,
+      "id": 6294,
+      "code": "097-4932",
+      "name": "Defense Counterintelligence and Security Agency Working Capital Fund, Defense",
+      "total_outlays": 24787299.04
+    },
+    {
+      "amount": 63800371.96,
+      "id": 3685,
+      "code": "013-1450",
+      "name": "Operations, Research and Facilities, National Oceanic and Atmospheric Administration, Commerce",
+      "total_outlays": 3823668.35
+    },
+    {
+      "amount": 63476989.61,
+      "id": 3683,
+      "code": "013-1250",
+      "name": "Operations and Administration, International Trade Administration, Commerce",
+      "total_outlays": 4441359.32
+    },
+    {
+      "amount": 63273352.82,
+      "id": 4262,
+      "code": "019-5515",
+      "name": "H-1B and L Fraud Prevention and Detection Account, State",
+      "total_outlays": 26713525.95
+    },
+    {
+      "amount": 63192263.17,
+      "id": 3356,
+      "code": "011-1022",
+      "name": "International Narcotics Control and Law Enforcement, International Security Assistance, State",
+      "total_outlays": 26071465.03
+    },
+    {
+      "amount": 61493380.24,
+      "id": 4260,
+      "code": "019-5177",
+      "name": "International Litigation Fund, State",
+      "total_outlays": 25930100.93
+    },
+    {
+      "amount": 60737213.88,
+      "id": 4252,
+      "code": "019-1143",
+      "name": "Migration and Refugee Assistance, State",
+      "total_outlays": 25930100.93
+    },
+    {
+      "amount": 60614463.31,
+      "id": 4220,
+      "code": "019-0209",
+      "name": "Educational and Cultural Exchange Programs, State",
+      "total_outlays": 23029380.59
+    },
+    {
+      "amount": 59665213.5,
+      "id": 3998,
+      "code": "015-0128",
+      "name": "Salaries and Expenses, General Legal Activities, Justice",
+      "total_outlays": 4917159.49
+    },
+    {
+      "amount": 59568641.19,
+      "id": 6275,
+      "code": "581-5577",
+      "name": "Bureau of Consumer Financial Protection Fund, Bureau of Consumer Financial Protection",
+      "total_outlays": 46757422.32
+    },
+    {
+      "amount": 59537163.6,
+      "id": 5944,
+      "code": "096-4902",
+      "name": "Revolving Fund, Corps of Engineers, Civil",
+      "total_outlays": 7805591.4
+    },
+    {
+      "amount": 58691976.29,
+      "id": 5413,
+      "code": "075-0140",
+      "name": "Public Health and Social Services Emergency Fund, Office of the Secretary, Health and Human Services",
+      "total_outlays": 32402055.89
+    },
+    {
+      "amount": 56775219.08,
+      "id": 4872,
+      "code": "068-0108",
+      "name": "Environmental Programs and Management, Environmental Protection Agency",
+      "total_outlays": 15596526.81
+    },
+    {
+      "amount": 56520056.53,
+      "id": 5261,
+      "code": "070-4236",
+      "name": "National Flood Insurance Fund, Federal Emergency Management Agency, Homeland Security",
+      "total_outlays": 1579671.0
+    },
+    {
+      "amount": 55420611.62,
+      "id": 5200,
+      "code": "070-0532",
+      "name": "Procurement, Construction, and Improvements, U.S. Customs and Border Protection, Homeland Security",
+      "total_outlays": 1132434.3
+    },
+    {
+      "amount": 53985679.62,
+      "id": 5770,
+      "code": "089-0212",
+      "name": "Salaries and Expenses, Federal Energy Regulatory Commission, Energy",
+      "total_outlays": 27061989.55
+    },
+    {
+      "amount": 53763977.0,
+      "id": 5334,
+      "code": "072-1000",
+      "name": "Operating Expenses of the United States Agency for International Development, Funds Appropriated to the President",
+      "total_outlays": 23049951.74
+    },
+    {
+      "amount": 53060034.13,
+      "id": 5197,
+      "code": "070-0521",
+      "name": "Office of Biometric Identity Management, National Protection and Programs Directorate, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 53045682.22,
+      "id": 5485,
+      "code": "075-0872",
+      "name": "National Heart, Lung, and Blood Institute, National Institutes of Health, Health and Human Services",
+      "total_outlays": 8310380.51
+    },
+    {
+      "amount": 49944925.46,
+      "id": 4871,
+      "code": "068-0107",
+      "name": "Science and Technology, Environmental Protection Agency",
+      "total_outlays": 5685539.09
+    },
+    {
+      "amount": 49783024.83,
+      "id": 5186,
+      "code": "070-0413",
+      "name": "Federal Assistance, Federal Emergency Management Agency, Homeland Security",
+      "total_outlays": -73.33
+    },
+    {
+      "amount": 49638443.7,
+      "id": 5900,
+      "code": "091-0800",
+      "name": "Program Administration, Departmental Management,  Education",
+      "total_outlays": 25916072.62
+    },
+    {
+      "amount": 49539204.03,
+      "id": 5781,
+      "code": "089-0228",
+      "name": "Departmental Administration, Energy Programs, Energy",
+      "total_outlays": 16037261.68
+    },
+    {
+      "amount": 48594214.45,
+      "id": 4157,
+      "code": "017-1107",
+      "name": "Operation and Maintenance, Marine Corps Reserve",
+      "total_outlays": 15199087.8
+    },
+    {
+      "amount": 47055755.03,
+      "id": 5324,
+      "code": "072-0300",
+      "name": "Capital Investment Fund of the United States Agency for International Development, Funds Appropriated to the President",
+      "total_outlays": 17812903.75
+    },
+    {
+      "amount": 46395516.51,
+      "id": 4129,
+      "code": "016-4601",
+      "name": "Working Capital Fund, Labor",
+      "total_outlays": 28269168.77
+    },
+    {
+      "amount": 46303278.31,
+      "id": 5899,
+      "code": "091-0700",
+      "name": "Office for Civil Rights, Departmental Management, Education",
+      "total_outlays": 23214666.03
+    },
+    {
+      "amount": 45329265.18,
+      "id": 4899,
+      "code": "068-8145",
+      "name": "Hazardous Substance Superfund, Environmental Protection Agency",
+      "total_outlays": 8110235.71
+    },
+    {
+      "amount": 45302759.32,
+      "id": 4622,
+      "code": "031-0200",
+      "name": "Salaries and Expenses, Nuclear Regulatory Commission",
+      "total_outlays": 40236529.46
+    },
+    {
+      "amount": 42571853.97,
+      "id": 5290,
+      "code": "070-5702",
+      "name": "9-11 Response and Biometric Exit Account, U.S. Customs and Border Protection, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 41999838.37,
+      "id": 5379,
+      "code": "073-1152",
+      "name": "Disaster Loans Program Account, Small Business Administration",
+      "total_outlays": 41855066.71
+    },
+    {
+      "amount": 41573046.03,
+      "id": 4764,
+      "code": "050-5566",
+      "name": "Securities and Exchange Commission Reserve Fund, Securities and Exchange Commission",
+      "total_outlays": 18771511.59
+    },
+    {
+      "amount": 38882710.95,
+      "id": 4814,
+      "code": "057-3740",
+      "name": "Operation and Maintenance, Air Force Reserve",
+      "total_outlays": 79222.56
+    },
+    {
+      "amount": 38465961.09,
+      "id": 4667,
+      "code": "036-0167",
+      "name": "Information Technology Systems, Departmental Administration, Veterans Affairs",
+      "total_outlays": 14498545.87
+    },
+    {
+      "amount": 38042267.78,
+      "id": 5571,
+      "code": "075-4553",
+      "name": "CDC Working Capital Fund, Centers for Disease Control and Prevention, Health and Human Services",
+      "total_outlays": 928219.74
+    },
+    {
+      "amount": 37412060.64,
+      "id": 5443,
+      "code": "075-0390",
+      "name": "Indian Health Services, Indian Health Service, Health and Human Services",
+      "total_outlays": 1483017.39
+    },
+    {
+      "amount": 37063003.94,
+      "id": 5244,
+      "code": "070-0715",
+      "name": "Radiological Emergency Preparedness Program, Federal Emergency Management Agency, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 36761755.35,
+      "id": 5793,
+      "code": "089-0251",
+      "name": "Defense Environmental Cleanup, Environmental and Other Defense Activities, Energy",
+      "total_outlays": 6758288.01
+    },
+    {
+      "amount": 36711893.95,
+      "id": 4116,
+      "code": "016-0200",
+      "name": "Salaries and Expenses, Bureau of Labor Statistics",
+      "total_outlays": 18915113.03
+    },
+    {
+      "amount": 36679574.08,
+      "id": 3530,
+      "code": "012-2707",
+      "name": "Administrative and Operating Expenses, Office of Risk Management, Agriculture",
+      "total_outlays": 31531101.98
+    },
+    {
+      "amount": 36127256.79,
+      "id": 5475,
+      "code": "075-0846",
+      "name": "Office of the Director, National Institutes of Health, Health and Human Services",
+      "total_outlays": 12793998.67
+    },
+    {
+      "amount": 34011634.18,
+      "id": 4159,
+      "code": "017-1109",
+      "name": "Procurement, Marine Corps",
+      "total_outlays": 6930337.15
+    },
+    {
+      "amount": 33683078.98,
+      "id": 5176,
+      "code": "070-0400",
+      "name": "Operations and Support, United States Secret Service, Homeland Security",
+      "total_outlays": 957859.75
+    },
+    {
+      "amount": 33307012.29,
+      "id": 5494,
+      "code": "075-0888",
+      "name": "National Institute of Arthritis and Musculoskeletal and Skin Diseases, National Institutes of Health, Health and Human Services",
+      "total_outlays": 127472.0
+    },
+    {
+      "amount": 33217971.87,
+      "id": 5813,
+      "code": "089-0337",
+      "name": "Advanced Research Projects Agency-Energy, Energy Programs, Energy",
+      "total_outlays": 6109218.56
+    },
+    {
+      "amount": 33151200.5,
+      "id": 5771,
+      "code": "089-0213",
+      "name": "Fossil Energy, Energy Programs, Energy",
+      "total_outlays": 4924252.79
+    },
+    {
+      "amount": 32837311.01,
+      "id": 5468,
+      "code": "075-0838",
+      "name": "Buildings and Facilities, National Institutes of Health, Health and Human Services",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 32788313.61,
+      "id": 5181,
+      "code": "070-0406",
+      "name": "Procurement, Construction, and Improvements, Management Directorate, Departmental Management, Intelligence, Situational Awareness, and Oversight, Homeland Security",
+      "total_outlays": 7886162.87
+    },
+    {
+      "amount": 30289606.39,
+      "id": 3760,
+      "code": "014-0804",
+      "name": "Surveys, Investigations and Research, U.S. Geological Survey",
+      "total_outlays": 24290264.44
+    },
+    {
+      "amount": 30289346.8,
+      "id": 5491,
+      "code": "075-0885",
+      "name": "National Institute of Allergy and Infectious Diseases, National Institutes of Health, Health and Human Services",
+      "total_outlays": 3922725.97
+    },
+    {
+      "amount": 29867422.68,
+      "id": 6281,
+      "code": "089-2250",
+      "name": "Cybersecurity, Energy Security, and Emergency Response, Energy Programs, Energy",
+      "total_outlays": 6698002.92
+    },
+    {
+      "amount": 29342538.19,
+      "id": 3322,
+      "code": "011-0038",
+      "name": "Salaries and Expenses, Office of Administration, Executive",
+      "total_outlays": 20044461.99
+    },
+    {
+      "amount": 29041568.58,
+      "id": 6479,
+      "code": "036-1126",
+      "name": "Cost of War Toxic Exposures Fund, Departmental Administration, Veterans Affairs",
+      "total_outlays": 13365212.35
+    },
+    {
+      "amount": 28922846.04,
+      "id": 5518,
+      "code": "075-0943",
+      "name": "CDC-Wide Activities and Program Support, Centers for Disease Control and Prevention, Health and Human Services",
+      "total_outlays": 8945133.81
+    },
+    {
+      "amount": 28864008.22,
+      "id": 5525,
+      "code": "075-0951",
+      "name": "Immunization and Respiratory Diseases, Centers for Disease Control and Prevention, Health and Human Services",
+      "total_outlays": 956628.64
+    },
+    {
+      "amount": 28841675.96,
+      "id": 5905,
+      "code": "091-1100",
+      "name": "Institute of Education Sciences, Department of Education",
+      "total_outlays": 14620830.78
+    },
+    {
+      "amount": 28801171.55,
+      "id": 4089,
+      "code": "016-0106",
+      "name": "Office of the Inspector General, Departmental Management, Labor",
+      "total_outlays": 20592196.43
+    },
+    {
+      "amount": 28758187.83,
+      "id": 4104,
+      "code": "016-0172",
+      "name": "Program Administration, Employment and Training Administration, Labor",
+      "total_outlays": 18155922.62
+    },
+    {
+      "amount": 28633210.69,
+      "id": 3705,
+      "code": "013-4511",
+      "name": "Working Capital Fund, Departmental Management, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 28351116.88,
+      "id": 3690,
+      "code": "013-1460",
+      "name": "Procurement, Acquisition and Construction, National Oceanic and Atmospheric Administration, Commerce",
+      "total_outlays": 2227623.93
+    },
+    {
+      "amount": 27943020.62,
+      "id": 5175,
+      "code": "070-0300",
+      "name": "Operations and Support, U.S. Citizenship and Immigration Services, Homeland Security",
+      "total_outlays": 410311.53
+    },
+    {
+      "amount": 26832087.14,
+      "id": 5885,
+      "code": "091-0241",
+      "name": "College Housing and Academic Facilities Loans Program,  Education",
+      "total_outlays": 12564360.63
+    },
+    {
+      "amount": 26801179.74,
+      "id": 4571,
+      "code": "024-0400",
+      "name": "Salaries and Expenses, Office of Inspector General, Office of Personnel Management",
+      "total_outlays": 7045270.98
+    },
+    {
+      "amount": 26748135.58,
+      "id": 5909,
+      "code": "091-1901",
+      "name": "Historically Black College and University Capital Financing Program Account, Education",
+      "total_outlays": 12564360.63
+    },
+    {
+      "amount": 26461502.8,
+      "id": 5438,
+      "code": "075-0360",
+      "name": "Primary Health Care, Health Resources and Services Administration, Health and Human Services",
+      "total_outlays": 7706292.48
+    },
+    {
+      "amount": 25945909.18,
+      "id": 5776,
+      "code": "089-0218",
+      "name": "Strategic Petroleum Reserve, Energy Programs, Energy",
+      "total_outlays": 2918984.59
+    },
+    {
+      "amount": 25667550.71,
+      "id": 5774,
+      "code": "089-0216",
+      "name": "Energy Information Administration, Energy Programs, Energy",
+      "total_outlays": 3392156.12
+    },
+    {
+      "amount": 25594353.97,
+      "id": 6347,
+      "code": "012-1122",
+      "name": "Forest Service Operations, Forest Service, Agriculture",
+      "total_outlays": 21426947.68
+    },
+    {
+      "amount": 25522745.97,
+      "id": 3343,
+      "code": "011-0100",
+      "name": "Peace Corps, Funds Appropriated to the President",
+      "total_outlays": 17780635.35
+    },
+    {
+      "amount": 25441397.47,
+      "id": 4097,
+      "code": "016-0164",
+      "name": "Veterans Employment and Training, Departmental Management, Labor",
+      "total_outlays": 17167507.32
+    },
+    {
+      "amount": 25409390.79,
+      "id": 4240,
+      "code": "019-1031",
+      "name": "Global Health Programs, State",
+      "total_outlays": 14310942.16
+    },
+    {
+      "amount": 25323303.1,
+      "id": 4802,
+      "code": "057-3021",
+      "name": "Space Procurement, Air Force",
+      "total_outlays": 2436275.56
+    },
+    {
+      "amount": 24605535.73,
+      "id": 4127,
+      "code": "016-4204",
+      "name": "Pension Benefit Guaranty Corporation Fund, Pension Benefit Guaranty Corporation, Labor",
+      "total_outlays": 6041258.23
+    },
+    {
+      "amount": 24175879.66,
+      "id": 5674,
+      "code": "086-0186",
+      "name": "Guarantees of Mortgage-Backed Securities Loan Guarantees, Program Account, Government National Mortgage Association, Housing and Urban Development",
+      "total_outlays": 6131863.7
+    },
+    {
+      "amount": 23906966.77,
+      "id": 4415,
+      "code": "020-5590",
+      "name": "Financial Research Fund, Departmental Offices, Treasury",
+      "total_outlays": 19755819.0
+    },
+    {
+      "amount": 23694179.71,
+      "id": 5283,
+      "code": "070-5569",
+      "name": "APEC Business Travel Card Account, Customs and Border Protection, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 23469197.03,
+      "id": 4401,
+      "code": "020-4502",
+      "name": "Bureau of Engraving and Printing Fund, Treasury",
+      "total_outlays": 18378647.78
+    },
+    {
+      "amount": 23342128.11,
+      "id": 5348,
+      "code": "072-1035",
+      "name": "International Disaster Assistance, Funds Appropriated to the President, US Agency for International Development",
+      "total_outlays": 13510148.7
+    },
+    {
+      "amount": 23325651.08,
+      "id": 3523,
+      "code": "012-2278",
+      "name": "Food for Peace Title II Grants, Foreign Agricultural Service, Agriculture",
+      "total_outlays": 13493671.67
+    },
+    {
+      "amount": 23249652.36,
+      "id": 3472,
+      "code": "012-1115",
+      "name": "Wildland Fire Management, Forest Service, Agriculture",
+      "total_outlays": 18544170.79
+    },
+    {
+      "amount": 23135461.24,
+      "id": 5223,
+      "code": "070-0566",
+      "name": "Operations and Support, Cybersecurity and Infrastructure Security Agency, Homeland Security",
+      "total_outlays": 6545867.46
+    },
+    {
+      "amount": 22801223.54,
+      "id": 5804,
+      "code": "089-0319",
+      "name": "Nuclear Energy, Energy Programs, Energy",
+      "total_outlays": 679632.71
+    },
+    {
+      "amount": 22188929.77,
+      "id": 5785,
+      "code": "089-0236",
+      "name": "Office of the Inspector General, Energy Programs, Energy",
+      "total_outlays": 1296228.14
+    },
+    {
+      "amount": 22031685.27,
+      "id": 5450,
+      "code": "075-0512",
+      "name": "Grants to States for Medicaid, Centers for Medicare and Medicaid Services, Health and Human Services",
+      "total_outlays": 1031310.54
+    },
+    {
+      "amount": 21961189.16,
+      "id": 4706,
+      "code": "045-0100",
+      "name": "Salaries and Expenses, Equal Employment Opportunity Commission",
+      "total_outlays": 889295.48
+    },
+    {
+      "amount": 21791396.63,
+      "id": 4619,
+      "code": "029-0100",
+      "name": "Salaries and Expenses, Federal Trade Commission",
+      "total_outlays": 13528372.01
+    },
+    {
+      "amount": 21723684.24,
+      "id": 5807,
+      "code": "089-0322",
+      "name": "Advanced Technology Vehicles Manufacturing Loan Program, Energy Programs, Energy",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 21654495.83,
+      "id": 6101,
+      "code": "339-1400",
+      "name": "Commodity Futures Trading Commission",
+      "total_outlays": 2842650.71
+    },
+    {
+      "amount": 21361988.07,
+      "id": 4749,
+      "code": "049-0100",
+      "name": "Research and Related Activities, National Science Foundation",
+      "total_outlays": 5413434.88
+    },
+    {
+      "amount": 21280709.5,
+      "id": 5433,
+      "code": "075-0354",
+      "name": "Maternal and Child Health, Health Resources and Services Administration, Health and Human Services",
+      "total_outlays": 7254805.4
+    },
+    {
+      "amount": 21210461.13,
+      "id": 5434,
+      "code": "075-0356",
+      "name": "Ryan White HIV/AIDS Program, Health Resources and Services Administration, Health and Human Services",
+      "total_outlays": 7257779.41
+    },
+    {
+      "amount": 21093044.0,
+      "id": 5083,
+      "code": "069-4562",
+      "name": "Administrative Services Franchise Fund, Federal Aviation Administration, Transportation",
+      "total_outlays": 15363550.74
+    },
+    {
+      "amount": 20905341.68,
+      "id": 5457,
+      "code": "075-0522",
+      "name": "Centers for Medicare and Medicaid Innovation, Centers for Medicare and Medicaid, Health and Human Services",
+      "total_outlays": 443927.5
+    },
+    {
+      "amount": 20466868.07,
+      "id": 5777,
+      "code": "089-0219",
+      "name": "Naval Petroleum and Oil Shale Reserves, Energy Programs, Energy",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 20466868.07,
+      "id": 5767,
+      "code": "089-0208",
+      "name": "Title 17 Innovative Technology Loan Guarantee Program, Energy Programs, Energy",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 19504688.95,
+      "id": 3442,
+      "code": "012-0180",
+      "name": "Farm Production and Conservation Business Center, Farm Production and Conservation Programs, Agriculture",
+      "total_outlays": 12866164.56
+    },
+    {
+      "amount": 19372021.59,
+      "id": 5432,
+      "code": "075-0353",
+      "name": "Health Workforce, Health Resources and Services Administration, Health and Human Services",
+      "total_outlays": 7224850.92
+    },
+    {
+      "amount": 19181437.32,
+      "id": 5341,
+      "code": "072-1021",
+      "name": "Development Assistance, Agency for International Development, Funds Appropriated to the President",
+      "total_outlays": 14316927.3
+    },
+    {
+      "amount": 19080038.04,
+      "id": 4316,
+      "code": "020-0173",
+      "name": "Salaries and Expenses, Financial Crimes Enforcement Network",
+      "total_outlays": 11935776.28
+    },
+    {
+      "amount": 18972804.96,
+      "id": 5407,
+      "code": "075-0128",
+      "name": "Office of the Inspector General, Office of the Secretary, Health and Human Services",
+      "total_outlays": 2186505.55
+    },
+    {
+      "amount": 18739341.38,
+      "id": 5523,
+      "code": "075-0949",
+      "name": "Emerging and Zoonotic Infectious Diseases, Centers for Disease Control and Prevention, Health and Human Services",
+      "total_outlays": 2580181.56
+    },
+    {
+      "amount": 18396914.05,
+      "id": 5969,
+      "code": "097-0111",
+      "name": "Department of Defense Acquisition Workforce Development Account, Defense",
+      "total_outlays": 792177.79
+    },
+    {
+      "amount": 18369773.49,
+      "id": 4333,
+      "code": "020-0913",
+      "name": "Enforcement, Internal Revenue Service",
+      "total_outlays": 17652451.22
+    },
+    {
+      "amount": 18342921.26,
+      "id": 4008,
+      "code": "015-0203",
+      "name": "Construction, Federal Bureau of Investigation, Justice",
+      "total_outlays": 18338801.29
+    },
+    {
+      "amount": 17976281.63,
+      "id": 5436,
+      "code": "075-0358",
+      "name": "Rural Health, Health Resources and Services Administration, Health and Human Services",
+      "total_outlays": 7254805.4
+    },
+    {
+      "amount": 17782641.93,
+      "id": 3840,
+      "code": "014-4524",
+      "name": "Working Capital Fund, Bureau of Reclamation",
+      "total_outlays": 11697381.4
+    },
+    {
+      "amount": 17542264.69,
+      "id": 4513,
+      "code": "021-2065",
+      "name": "Operation and Maintenance, Army National Guard",
+      "total_outlays": 369091.11
+    },
+    {
+      "amount": 17449586.48,
+      "id": 6304,
+      "code": "057-3410",
+      "name": "Operation and Maintenance, Space Force",
+      "total_outlays": 15880145.43
+    },
+    {
+      "amount": 17389255.81,
+      "id": 5439,
+      "code": "075-0361",
+      "name": "Program Management, Health Resources and Services Administration, Health and Human Services",
+      "total_outlays": 7735372.22
+    },
+    {
+      "amount": 16883498.15,
+      "id": 3471,
+      "code": "012-1106",
+      "name": "National Forest System, Forest Service, Agriculture",
+      "total_outlays": 13196725.71
+    },
+    {
+      "amount": 16799419.7,
+      "id": 5272,
+      "code": "070-5378",
+      "name": "Student and Exchange Visitor Program, Border and Transportation Security, Homeland Security",
+      "total_outlays": 3379745.48
+    },
+    {
+      "amount": 16652467.54,
+      "id": 5823,
+      "code": "089-5068",
+      "name": "Construction, Rehabilitation, Operation, and Maintenance, Western Area Power Administration, Power Marketing Administration, Energy",
+      "total_outlays": 8494924.4
+    },
+    {
+      "amount": 16351781.85,
+      "id": 4050,
+      "code": "015-5042",
+      "name": "Assets Forfeiture Fund, Justice",
+      "total_outlays": 6993903.61
+    },
+    {
+      "amount": 16337061.44,
+      "id": 5526,
+      "code": "075-0952",
+      "name": "Injury Prevention and Control, Centers for Disease Control and Prevention, Health and Human Services",
+      "total_outlays": 1570556.79
+    },
+    {
+      "amount": 16185463.99,
+      "id": 4323,
+      "code": "020-0520",
+      "name": "Salaries and Expenses, Bureau of the Fiscal Service, Treasury",
+      "total_outlays": 12181972.83
+    },
+    {
+      "amount": 16173522.55,
+      "id": 5431,
+      "code": "075-0352",
+      "name": "Primary Health Care Access, Health Resources and Services Administration, Health and Human Services",
+      "total_outlays": 7224850.92
+    },
+    {
+      "amount": 16047531.13,
+      "id": 5758,
+      "code": "088-0300",
+      "name": "Operating Expenses, National Archives and Records Administration",
+      "total_outlays": 10190202.78
+    },
+    {
+      "amount": 15775783.38,
+      "id": 4173,
+      "code": "017-1611",
+      "name": "Shipbuilding and Conversion, Navy",
+      "total_outlays": 324324.2
+    },
+    {
+      "amount": 15674664.89,
+      "id": 5210,
+      "code": "070-0545",
+      "name": "Procurement, Construction, and Improvements, U.S. Immigration and Customs Enforcement, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 15512302.08,
+      "id": 5201,
+      "code": "070-0533",
+      "name": "Border Security Fencing, Infrastructure, and Technology, U.S. Customs and Border Protection, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 15424674.4,
+      "id": 5273,
+      "code": "070-5382",
+      "name": "Immigration User Fee Account, BICE, Homeland Security",
+      "total_outlays": 3625521.76
+    },
+    {
+      "amount": 15142694.84,
+      "id": 6244,
+      "code": "514-0206",
+      "name": "International Broadcasting Operations, United States Agency for Global Media",
+      "total_outlays": 274466.04
+    },
+    {
+      "amount": 14882485.99,
+      "id": 5522,
+      "code": "075-0948",
+      "name": "Chronic Disease Prevention and Health Promotion, Centers for Disease Control and Prevention, Health and Human Services",
+      "total_outlays": 631005.89
+    },
+    {
+      "amount": 14744203.88,
+      "id": 4753,
+      "code": "049-0180",
+      "name": "Agency Operations and Award Management, National Science Foundation",
+      "total_outlays": 1664616.15
+    },
+    {
+      "amount": 14723425.71,
+      "id": 5763,
+      "code": "088-4578",
+      "name": "Records Center Revolving Fund, National Archives and Records Administration",
+      "total_outlays": 9143568.4
+    },
+    {
+      "amount": 14558901.16,
+      "id": 5478,
+      "code": "075-0849",
+      "name": "National Cancer Institute, National Institutes of Health, Health and Human Services",
+      "total_outlays": 768456.47
+    },
+    {
+      "amount": 14502074.73,
+      "id": 3773,
+      "code": "014-1109",
+      "name": "Management of Lands and Resources, Bureau of Land Management, Interior",
+      "total_outlays": 13046430.41
+    },
+    {
+      "amount": 14459871.1,
+      "id": 4883,
+      "code": "068-4310",
+      "name": "Reregistration and Expedited Processing Revolving Fund, Environmental Protection Agency",
+      "total_outlays": 6757191.77
+    },
+    {
+      "amount": 14401987.96,
+      "id": 5530,
+      "code": "075-0956",
+      "name": "Public Health Preparedness and Response, Centers for Disease Control and Prevention, Health and Human Services",
+      "total_outlays": 969116.5
+    },
+    {
+      "amount": 14244370.53,
+      "id": 5650,
+      "code": "083-0100",
+      "name": "Administration Expenses, Export-Import Bank of the United States",
+      "total_outlays": 3855241.88
+    },
+    {
+      "amount": 14229385.06,
+      "id": 5968,
+      "code": "097-0107",
+      "name": "Office of the Inspector General, Defense",
+      "total_outlays": 1398633.23
+    },
+    {
+      "amount": 14167536.74,
+      "id": 4011,
+      "code": "015-0322",
+      "name": "Salaries and Expenses, United States Attorneys, Justice",
+      "total_outlays": 4419728.86
+    },
+    {
+      "amount": 13773216.4,
+      "id": 3807,
+      "code": "014-2100",
+      "name": "Operation of Indian Programs, Bureau of Indian Affairs and Bureau of Indian Education, Interior",
+      "total_outlays": 8914872.15
+    },
+    {
+      "amount": 13609256.87,
+      "id": 4731,
+      "code": "047-4540",
+      "name": "Working Capital Fund, General Services Administration",
+      "total_outlays": 2844184.24
+    },
+    {
+      "amount": 13504447.1,
+      "id": 3527,
+      "code": "012-2500",
+      "name": "Marketing Services, Agricultural Marketing Service, Agriculture",
+      "total_outlays": 11866778.28
+    },
+    {
+      "amount": 13053451.09,
+      "id": 3791,
+      "code": "014-1611",
+      "name": "Resource Management, United States Fish and Wildlife Service, Interior",
+      "total_outlays": 8702359.07
+    },
+    {
+      "amount": 12875768.39,
+      "id": 3563,
+      "code": "012-4050",
+      "name": "Inspection and Weighing Services, Grain Inspection, Packers and Stockyards Administration, Agriculture",
+      "total_outlays": 5257879.82
+    },
+    {
+      "amount": 12679757.24,
+      "id": 5798,
+      "code": "089-0309",
+      "name": "Defense Nuclear Nonproliferation, National Nuclear Security Administration, Energy",
+      "total_outlays": 6100968.56
+    },
+    {
+      "amount": 12172164.0,
+      "id": 3470,
+      "code": "012-1105",
+      "name": "State and Private Forestry, Forest Service, Agriculture",
+      "total_outlays": 9652328.25
+    },
+    {
+      "amount": 11878170.53,
+      "id": 3446,
+      "code": "012-0403",
+      "name": "Salaries and Expenses, Rural Development, Agriculture",
+      "total_outlays": 721895.44
+    },
+    {
+      "amount": 11739948.45,
+      "id": 4356,
+      "code": "020-1008",
+      "name": "Salaries and Expenses, Alcohol and Tobacco Tax and Trade Bureau, Treasury",
+      "total_outlays": 7965249.09
+    },
+    {
+      "amount": 11685337.61,
+      "id": 5634,
+      "code": "080-0124",
+      "name": "Exploration, National Aeronautics and Space Administration",
+      "total_outlays": 8869729.28
+    },
+    {
+      "amount": 11635846.49,
+      "id": 4022,
+      "code": "015-0401",
+      "name": "Research, Evaluation, and Statistics, Office of Justice Programs, Justice",
+      "total_outlays": 2568690.43
+    },
+    {
+      "amount": 11559957.65,
+      "id": 6236,
+      "code": "511-1734",
+      "name": "Salaries and Expenses, Federal Payment to the Court Services and Offender Supervision Agency for the District of Columbia",
+      "total_outlays": 1627783.88
+    },
+    {
+      "amount": 11348059.32,
+      "id": 5403,
+      "code": "075-0120",
+      "name": "General Departmental Management, Departmental Management, Health and Human Services",
+      "total_outlays": 4234004.94
+    },
+    {
+      "amount": 11273150.95,
+      "id": 5532,
+      "code": "075-0959",
+      "name": "Public Health Scientific Services, Centers for Disease Control and Prevention, Health and Human Services",
+      "total_outlays": 1039868.6
+    },
+    {
+      "amount": 11207604.84,
+      "id": 3799,
+      "code": "014-1700",
+      "name": "Offshore Safety and Environmental Enforcement, Bureau of Safety and Environmental Enforcement, Interior",
+      "total_outlays": 7745099.68
+    },
+    {
+      "amount": 11173077.14,
+      "id": 5524,
+      "code": "075-0950",
+      "name": "HIV/AIDS, Viral Hepatitis, Sexually Transmitted Diseases, and Tuberculosis Prevention, Centers for Disease Control and Prevention, Health and Human Services",
+      "total_outlays": 1440391.82
+    },
+    {
+      "amount": 11147999.35,
+      "id": 3469,
+      "code": "012-1104",
+      "name": "Forest and Rangeland Research, Forest Service, Agriculture",
+      "total_outlays": 8628163.6
+    },
+    {
+      "amount": 11118518.31,
+      "id": 3706,
+      "code": "013-4512",
+      "name": "Census Working Capital Fund, Bureau of the Census, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 11111486.89,
+      "id": 4003,
+      "code": "015-0134",
+      "name": "Justice Information Sharing Technology, General Administration, Justice",
+      "total_outlays": 10328403.72
+    },
+    {
+      "amount": 11024144.52,
+      "id": 6123,
+      "code": "360-1600",
+      "name": "Salaries and Expenses, Federal Election Commission",
+      "total_outlays": 2062050.68
+    },
+    {
+      "amount": 10811993.48,
+      "id": 4503,
+      "code": "021-2031",
+      "name": "Aircraft Procurement, Army",
+      "total_outlays": 58245.16
+    },
+    {
+      "amount": 10740354.09,
+      "id": 4930,
+      "code": "069-0159",
+      "name": "Cyber Security Initiatives, Office of the Secretary, Transportation",
+      "total_outlays": 1940810.94
+    },
+    {
+      "amount": 10614434.81,
+      "id": 5582,
+      "code": "075-5629",
+      "name": "FDA Innovation, CURES Act, Food and Drug Administration, Health and Human Services",
+      "total_outlays": 2627705.19
+    },
+    {
+      "amount": 10459603.97,
+      "id": 4177,
+      "code": "017-1806",
+      "name": "Operation and Maintenance, Navy Reserve",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 10416150.95,
+      "id": 3468,
+      "code": "012-1103",
+      "name": "Capital Improvement and Maintenance, Forest Service, Agriculture",
+      "total_outlays": 7896315.2
+    },
+    {
+      "amount": 10292415.51,
+      "id": 3688,
+      "code": "013-1455",
+      "name": "Gulf Coast Ecosystem Restoration Science, Observation, Monitoring and Technology, National Oceanic and Atmospheric Administration, Commerce",
+      "total_outlays": 1076231.6300000001
+    },
+    {
+      "amount": 10225810.02,
+      "id": 3699,
+      "code": "013-4316",
+      "name": "Damage Assessment and Restoration Revolving Fund, National Oceanic and Atmospheric Administration, Commerce",
+      "total_outlays": 1110248.3
+    },
+    {
+      "amount": 10218617.8,
+      "id": 5435,
+      "code": "075-0357",
+      "name": "Health Care Systems, Health Resources and Services Administration, Health and Human Services",
+      "total_outlays": 7217300.58
+    },
+    {
+      "amount": 10185591.8,
+      "id": 3586,
+      "code": "012-5206",
+      "name": "Expenses, Brush Disposal, Forest Service,  Agriculture",
+      "total_outlays": 7665756.05
+    },
+    {
+      "amount": 10166614.23,
+      "id": 4296,
+      "code": "020-0119",
+      "name": "Salaries and Expenses, Treasury Inspector General for Tax Administration, Departmental Offices, Treasury",
+      "total_outlays": 7852358.39
+    },
+    {
+      "amount": 10106272.44,
+      "id": 5000,
+      "code": "069-0650",
+      "name": "Operations and Research, National Highway Traffic Safety Administration, Transportation",
+      "total_outlays": 347370.28
+    },
+    {
+      "amount": 9974853.89,
+      "id": 5286,
+      "code": "070-5687",
+      "name": "Customs and Border Protection, Transfer and Expenses of Operation, Puerto Rico, USCS, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 9963583.61,
+      "id": 4020,
+      "code": "015-0339",
+      "name": "Executive Office for Immigration Review, General Administration, Justice",
+      "total_outlays": 7352965.3
+    },
+    {
+      "amount": 9920108.95,
+      "id": 3607,
+      "code": "012-5367",
+      "name": "State and Private Forestry, Forest Service,  Agriculture",
+      "total_outlays": 7400273.2
+    },
+    {
+      "amount": 9903633.75,
+      "id": 3638,
+      "code": "012-8028",
+      "name": "Cooperative Work, Forest Service,  Agriculture",
+      "total_outlays": 7383798.0
+    },
+    {
+      "amount": 9903633.75,
+      "id": 3578,
+      "code": "012-5004",
+      "name": "Land Acquisition, Forest Service, Agriculture",
+      "total_outlays": 7383798.0
+    },
+    {
+      "amount": 9903633.75,
+      "id": 3641,
+      "code": "012-8046",
+      "name": "Reforestation Trust Fund, Forest Service, Agriculture",
+      "total_outlays": 7383798.0
+    },
+    {
+      "amount": 9903633.75,
+      "id": 3584,
+      "code": "012-5204",
+      "name": "Timber Salvage Sales, Forest Service,  Agriculture",
+      "total_outlays": 7383798.0
+    },
+    {
+      "amount": 9824910.74,
+      "id": 3784,
+      "code": "014-1125",
+      "name": "Wildland Fire Management, Department-Wide Programs, Interior",
+      "total_outlays": 9184393.42
+    },
+    {
+      "amount": 9803112.45,
+      "id": 5122,
+      "code": "069-8083",
+      "name": "Federal-Aid Highways, Liquidation of Contract Authorization, Federal Highway Administration, Transportation",
+      "total_outlays": 6882914.08
+    },
+    {
+      "amount": 9762219.35,
+      "id": 5488,
+      "code": "075-0875",
+      "name": "National Center for Advancing Translational Sciences, National Institutes of Health, Health and Human Services",
+      "total_outlays": 2082924.36
+    },
+    {
+      "amount": 9739251.33,
+      "id": 5440,
+      "code": "075-0365",
+      "name": "Health Centers Malpractice Claims, Health Resources and Services Administration, Health and Human Services",
+      "total_outlays": 7217300.58
+    },
+    {
+      "amount": 9715240.71,
+      "id": 5427,
+      "code": "075-0343",
+      "name": "Covered Countermeasure Process Fund, Health Resources and Services Administration, Health and Human Services",
+      "total_outlays": 7217300.58
+    },
+    {
+      "amount": 9715240.71,
+      "id": 5602,
+      "code": "075-8175",
+      "name": "Vaccine Injury Compensation Trust Fund - Treasury Managed, Health and Human Services",
+      "total_outlays": 7217300.58
+    },
+    {
+      "amount": 9712832.5,
+      "id": 5543,
+      "code": "075-1503",
+      "name": "Refugee and Entrant Assistance, Administration for Children and Families, Health and Human Services",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 9526334.67,
+      "id": 4040,
+      "code": "015-1060",
+      "name": "Salaries and Expenses, Federal Prison System, Justice",
+      "total_outlays": 12292092.27
+    },
+    {
+      "amount": 9439128.34,
+      "id": 3778,
+      "code": "014-1116",
+      "name": "Oregon and California Grant Lands, Bureau of Land Management",
+      "total_outlays": 8780888.36
+    },
+    {
+      "amount": 9203079.33,
+      "id": 4724,
+      "code": "047-0603",
+      "name": "Pre-Election Presidential Transition, General Services Administration",
+      "total_outlays": 1238283.25
+    },
+    {
+      "amount": 9074991.24,
+      "id": 5060,
+      "code": "069-1750",
+      "name": "Operations and Training, Maritime Administration, Transportation",
+      "total_outlays": 7612420.62
+    },
+    {
+      "amount": 9042977.32,
+      "id": 5983,
+      "code": "097-0300",
+      "name": "Procurement, Defense-Wide",
+      "total_outlays": 97101.12
+    },
+    {
+      "amount": 8998159.9,
+      "id": 4516,
+      "code": "021-2080",
+      "name": "Operation and Maintenance, Army Reserve",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 8920180.62,
+      "id": 5521,
+      "code": "075-0947",
+      "name": "Environmental Health, Centers for Disease Control and Prevention, Health and Human Services",
+      "total_outlays": 875996.81
+    },
+    {
+      "amount": 8376323.76,
+      "id": 3765,
+      "code": "014-1036",
+      "name": "Operation of the National Park System, National Park Service, Interior",
+      "total_outlays": 7852745.65
+    },
+    {
+      "amount": 8333208.47,
+      "id": 5006,
+      "code": "069-0700",
+      "name": "Safety and Operations, Federal Railroad Administration, Transportation",
+      "total_outlays": 7080456.23
+    },
+    {
+      "amount": 8319817.68,
+      "id": 4048,
+      "code": "015-4575",
+      "name": "Justice Prisoner and Alien Transportation System Fund, United States Marshals Service, Justice",
+      "total_outlays": 5466868.98
+    },
+    {
+      "amount": 8298552.04,
+      "id": 3255,
+      "code": "005-0107",
+      "name": "Salaries and Expenses, Government Accountability Office",
+      "total_outlays": 141678.81
+    },
+    {
+      "amount": 8292737.27,
+      "id": 3419,
+      "code": "012-0115",
+      "name": "Processing, Research and Marketing, Office of the Secretary, Agriculture",
+      "total_outlays": 5913929.1
+    },
+    {
+      "amount": 8232533.26,
+      "id": 3637,
+      "code": "012-8015",
+      "name": "Expenses and Refunds, Inspection and Grading of Farm Products, Agricultural Marketing Service, Agriculture",
+      "total_outlays": 8232533.26
+    },
+    {
+      "amount": 8188564.33,
+      "id": 5249,
+      "code": "070-0800",
+      "name": "Operations and Support, Science and Technology Directorate, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 8153566.11,
+      "id": 3589,
+      "code": "012-5209",
+      "name": "Funds for Strengthening Markets, Income, and Supply (Section 32), Agriculture",
+      "total_outlays": 4640398.03
+    },
+    {
+      "amount": 8077404.42,
+      "id": 5173,
+      "code": "070-0200",
+      "name": "Operations and Support, Office of the Inspector General, Homeland Security",
+      "total_outlays": 96333.52
+    },
+    {
+      "amount": 8073969.49,
+      "id": 4376,
+      "code": "020-1804",
+      "name": "Salaries and Expenses, Office of Terrorism and Financial Intelligence, Departmental Offices, Treasury",
+      "total_outlays": 2999946.87
+    },
+    {
+      "amount": 8049010.26,
+      "id": 5229,
+      "code": "070-0613",
+      "name": "Procurement, Construction, and Improvements, Coast Guard, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 7943155.24,
+      "id": 4689,
+      "code": "036-4537",
+      "name": "Supply Fund, Veterans Affairs",
+      "total_outlays": 242994.89
+    },
+    {
+      "amount": 7858474.94,
+      "id": 5531,
+      "code": "075-0958",
+      "name": "Birth Defects, Developmental Disabilities, Disabilities and Health, Centers for Disease Control and Prevention, Health and Human Services",
+      "total_outlays": 95085.78
+    },
+    {
+      "amount": 7628015.27,
+      "id": 5496,
+      "code": "075-0890",
+      "name": "National Institute on Deafness and Other Communication Disorders, National Institutes of Health, Health and Human Services",
+      "total_outlays": 7217638.98
+    },
+    {
+      "amount": 7271737.71,
+      "id": 4801,
+      "code": "057-3020",
+      "name": "Missile Procurement, Air Force",
+      "total_outlays": 571696.0
+    },
+    {
+      "amount": 7103482.15,
+      "id": 5207,
+      "code": "070-0542",
+      "name": "Federal Protective Service, Management Directorate, Departmental Management, Intelligence, Situational Awareness, and Oversight, Homeland Security",
+      "total_outlays": 969917.44
+    },
+    {
+      "amount": 7051907.16,
+      "id": 5127,
+      "code": "069-8106",
+      "name": "Grants-In-Aid for Airports, Liquidation of Contract Authorization, Airport and Airway Trust Fund, Federal Aviation Administration, Transportation",
+      "total_outlays": 1622834.16
+    },
+    {
+      "amount": 6951793.23,
+      "id": 3420,
+      "code": "012-0117",
+      "name": "Agriculture Buildings and Facilities, Agriculture",
+      "total_outlays": 6569200.65
+    },
+    {
+      "amount": 6750448.43,
+      "id": 5529,
+      "code": "075-0955",
+      "name": "Global Health, Centers for Disease Control and Prevention, Health and Human Services",
+      "total_outlays": 5841.22
+    },
+    {
+      "amount": 6741517.7,
+      "id": 5129,
+      "code": "069-8108",
+      "name": "Research, Engineering and Development, Airport and Airway Trust Fund, Federal Aviation Administration, Transportation",
+      "total_outlays": 1312444.7
+    },
+    {
+      "amount": 6704960.33,
+      "id": 4385,
+      "code": "020-1855",
+      "name": "Cybersecurity Enhancement Account, Departmental Offices, Treasury",
+      "total_outlays": 3207658.87
+    },
+    {
+      "amount": 6343068.49,
+      "id": 3531,
+      "code": "012-2900",
+      "name": "Salaries and Expenses, Foreign Agricultural Service, Agriculture",
+      "total_outlays": 1114833.52
+    },
+    {
+      "amount": 6316734.14,
+      "id": 3580,
+      "code": "012-5161",
+      "name": "Agricultural Quarantine Inspection User Fee Account, Animal and Plant Health Inspection Service, Agriculture",
+      "total_outlays": 631803.48
+    },
+    {
+      "amount": 6220169.13,
+      "id": 3526,
+      "code": "012-2400",
+      "name": "Salaries and Expenses, Grain Inspection, Packers and Stockyards Administration, Agriculture",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 6201408.92,
+      "id": 4857,
+      "code": "060-8237",
+      "name": "Limitation on Administration, Railroad Retirement Board",
+      "total_outlays": 18729.9
+    },
+    {
+      "amount": 6184692.49,
+      "id": 5140,
+      "code": "069-8350",
+      "name": "Formula and Bus Grants, Liquidation of Contract Authorization, Federal Transit Administration, Transportation",
+      "total_outlays": 350111.16
+    },
+    {
+      "amount": 6145621.52,
+      "id": 6317,
+      "code": "077-4483",
+      "name": "Corporate Capital Account, United States International Development Finance Corporation",
+      "total_outlays": 760609.14
+    },
+    {
+      "amount": 6078095.25,
+      "id": 5215,
+      "code": "070-0554",
+      "name": "Transportation Security Support, Transportation Security Administration, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 5959480.72,
+      "id": 3555,
+      "code": "012-3510",
+      "name": "Special Supplemental Nutrition Program for Women, Infants and Children (WIC), Food and Nutrition Service",
+      "total_outlays": 5962935.16
+    },
+    {
+      "amount": 5925333.5,
+      "id": 3739,
+      "code": "014-0102",
+      "name": "Departmental Operations, Office of the Secretary, Interior",
+      "total_outlays": 747387.26
+    },
+    {
+      "amount": 5883618.87,
+      "id": 4035,
+      "code": "015-0700",
+      "name": "Salaries and Expenses, Bureau of Alcohol, Tobacco, Firearms and Explosives, Justice",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 5870000.0,
+      "id": 6366,
+      "code": "012-0470",
+      "name": "Office of Safety, Security, and Protection, Executive Operations, Agriculture",
+      "total_outlays": 5870000.0
+    },
+    {
+      "amount": 5770451.4,
+      "id": 5208,
+      "code": "070-0543",
+      "name": "Automation Modernization, U.S. Immigration and Customs Enforcement, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 5745991.71,
+      "id": 4031,
+      "code": "015-0420",
+      "name": "Salaries and Expenses, Office of Justice Programs, Justice",
+      "total_outlays": 345582.0
+    },
+    {
+      "amount": 5660684.89,
+      "id": 5527,
+      "code": "075-0953",
+      "name": "National Institute For Occupational Safety and Health, Centers for Disease Control and Prevention, Health and Human Services",
+      "total_outlays": 89621.22
+    },
+    {
+      "amount": 5652881.48,
+      "id": 5464,
+      "code": "075-0807",
+      "name": "National Library of Medicine, National Institutes of Health, Health and Human Services",
+      "total_outlays": 15004.42
+    },
+    {
+      "amount": 5566781.23,
+      "id": 4098,
+      "code": "016-0165",
+      "name": "Salaries and Expenses, Departmental Management, Labor",
+      "total_outlays": 704574.05
+    },
+    {
+      "amount": 5505151.36,
+      "id": 4732,
+      "code": "047-4542",
+      "name": "Federal Buildings Fund, General Services Administration",
+      "total_outlays": -110000.0
+    },
+    {
+      "amount": 5306813.2,
+      "id": 4754,
+      "code": "049-0300",
+      "name": "Office of Inspector General, National Science Foundation",
+      "total_outlays": 4130926.73
+    },
+    {
+      "amount": 5180391.72,
+      "id": 5519,
+      "code": "075-0944",
+      "name": "Toxic Substances and Environmental Public Health, Agency for Toxic Substances and Disease Registry, Health and Human Services",
+      "total_outlays": 5841.22
+    },
+    {
+      "amount": 5143360.66,
+      "id": 5055,
+      "code": "069-1710",
+      "name": "Ready Reserve Force, Maritime Administration, Transportation",
+      "total_outlays": 4654502.05
+    },
+    {
+      "amount": 4963283.37,
+      "id": 5675,
+      "code": "086-0189",
+      "name": "Office of Inspector General, Management and Administration, Housing and Urban Development",
+      "total_outlays": 2341068.1
+    },
+    {
+      "amount": 4885749.98,
+      "id": 5322,
+      "code": "071-4184",
+      "name": "Insurance and Equity Non Credit Account, United States International Development Finance Corporation",
+      "total_outlays": 267267.5
+    },
+    {
+      "amount": 4827147.16,
+      "id": 3804,
+      "code": "014-1917",
+      "name": "Ocean Energy Management, Bureau of Ocean Energy Management, Interior",
+      "total_outlays": 3621296.07
+    },
+    {
+      "amount": 4731002.52,
+      "id": 4124,
+      "code": "016-1700",
+      "name": "Salaries and Expenses, Employee Benefits Security Administration, Labor",
+      "total_outlays": 1919627.39
+    },
+    {
+      "amount": 4685334.2,
+      "id": 4012,
+      "code": "015-0323",
+      "name": "Interagency Crime and Drug Enforcement, Interagency Law Enforcement, Justice",
+      "total_outlays": 4379051.81
+    },
+    {
+      "amount": 4559010.62,
+      "id": 5606,
+      "code": "075-8250",
+      "name": "Gifts and Donations, Centers for Disease Control, Health and Human Services",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 4547239.25,
+      "id": 4290,
+      "code": "020-0101",
+      "name": "Salaries and Expenses, Departmental Offices, Treasury",
+      "total_outlays": 491672.58
+    },
+    {
+      "amount": 4492599.96,
+      "id": 6142,
+      "code": "389-0100",
+      "name": "Salaries and Expenses, Merit Systems Protection Board",
+      "total_outlays": 2981463.83
+    },
+    {
+      "amount": 4480761.27,
+      "id": 4110,
+      "code": "016-0181",
+      "name": "Office of Job Corps, Employment and Training Administration, Labor",
+      "total_outlays": 2652040.08
+    },
+    {
+      "amount": 4407238.9,
+      "id": 5482,
+      "code": "075-0862",
+      "name": "National Institute of Environmental Health Sciences, National Institutes of Health, Health and Human Services",
+      "total_outlays": 161931.88
+    },
+    {
+      "amount": 4252933.69,
+      "id": 3834,
+      "code": "014-4081",
+      "name": "Upper Colorado River Basin Fund, Bureau of Reclamation",
+      "total_outlays": 3282462.49
+    },
+    {
+      "amount": 4212754.36,
+      "id": 3752,
+      "code": "014-0680",
+      "name": "Water and Related Resources, Bureau of Reclamation, Interior",
+      "total_outlays": 3128193.53
+    },
+    {
+      "amount": 4156356.32,
+      "id": 4109,
+      "code": "016-0179",
+      "name": "State Unemployment Insurance and Employment Service Operations, Employment and Training Administration, Labor",
+      "total_outlays": 1073324.8
+    },
+    {
+      "amount": 4036836.21,
+      "id": 5528,
+      "code": "075-0954",
+      "name": "Energy Employees Occupational Illness Compensation Program, Centers for Disease Control and Prevention, Health and Human Services",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 4036836.21,
+      "id": 5520,
+      "code": "075-0946",
+      "name": "World Trade Center Health Program Fund, Centers for Disease Control and Prevention, Health and Human Services",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 4013978.67,
+      "id": 3492,
+      "code": "012-1500",
+      "name": "Research and Education Activities, National Institute of Food and Agriculture, Agriculture",
+      "total_outlays": 3926489.35
+    },
+    {
+      "amount": 4010411.76,
+      "id": 4094,
+      "code": "016-0150",
+      "name": "Salaries and Expenses, Office of Labor Management and Standards, Labor",
+      "total_outlays": 2741509.72
+    },
+    {
+      "amount": 3924623.92,
+      "id": 3866,
+      "code": "014-5065",
+      "name": "Policy and Administration, Bureau of Reclamation, Interior",
+      "total_outlays": 3588062.44
+    },
+    {
+      "amount": 3818129.41,
+      "id": 3708,
+      "code": "013-4650",
+      "name": "Working Capital Fund, National Institute of Standards and Technology, Commerce",
+      "total_outlays": 25458.9
+    },
+    {
+      "amount": 3780608.66,
+      "id": 4889,
+      "code": "068-5374",
+      "name": "Pesticide Registration Fund, Environmental Protection Agency",
+      "total_outlays": 1317224.7
+    },
+    {
+      "amount": 3777640.71,
+      "id": 4095,
+      "code": "016-0162",
+      "name": "IT Modernization, Departmental Management, Labor",
+      "total_outlays": 1002854.49
+    },
+    {
+      "amount": 3760385.66,
+      "id": 5105,
+      "code": "069-8016",
+      "name": "Operation and Research, Liquidation of Contract Authorization, Limitation on Obligations, Highway Trust Fund, Transportation",
+      "total_outlays": 1949159.22
+    },
+    {
+      "amount": 3718879.3,
+      "id": 4010,
+      "code": "015-0319",
+      "name": "Salaries and Expenses, Antitrust Division, Justice",
+      "total_outlays": 3411092.94
+    },
+    {
+      "amount": 3709485.5,
+      "id": 5492,
+      "code": "075-0886",
+      "name": "National Institute of Neurological Disorders and Stroke, National Institutes of Health, Health and Human Services",
+      "total_outlays": 355824.5
+    },
+    {
+      "amount": 3645800.85,
+      "id": 5782,
+      "code": "089-0233",
+      "name": "SPR Petroleum Account, Energy Programs, Energy",
+      "total_outlays": 2402221.82
+    },
+    {
+      "amount": 3328121.75,
+      "id": 5194,
+      "code": "070-0509",
+      "name": "Operations and Support, Federal Law Enforcement Training Centers, Homeland Security",
+      "total_outlays": 35584.0
+    },
+    {
+      "amount": 3320037.17,
+      "id": 4093,
+      "code": "016-0148",
+      "name": "Salaries and Expenses, Office of Federal Contract and Compliance Programs, Labor",
+      "total_outlays": 1139996.28
+    },
+    {
+      "amount": 3255938.24,
+      "id": 4396,
+      "code": "020-4159",
+      "name": "United States Mint Public Enterprise Fund, Treasury",
+      "total_outlays": 3200272.52
+    },
+    {
+      "amount": 3249898.8,
+      "id": 5497,
+      "code": "075-0891",
+      "name": "National Human Genome Research Institute, National Institutes of Health, Health and Human Services",
+      "total_outlays": 56107.04
+    },
+    {
+      "amount": 3214144.61,
+      "id": 5252,
+      "code": "070-0803",
+      "name": "Research and Development, Science and Technology Directorate, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 3202808.13,
+      "id": 3744,
+      "code": "014-0120",
+      "name": "Federal Trust Programs, Bureau of Trust Funds Administration, Interior",
+      "total_outlays": 1150009.78
+    },
+    {
+      "amount": 3194804.7,
+      "id": 5498,
+      "code": "075-0892",
+      "name": "National Institute of Mental Health, National Institutes of Health, Health and Human Services",
+      "total_outlays": 1301487.1600000001
+    },
+    {
+      "amount": 3106683.2,
+      "id": 5632,
+      "code": "080-0122",
+      "name": "Safety, Security and Mission Services, National Aeronautics and Space Administration",
+      "total_outlays": 2050770.54
+    },
+    {
+      "amount": 3025110.27,
+      "id": 5472,
+      "code": "075-0843",
+      "name": "National Institute on Aging, National Institutes of Health, Health and Human Services",
+      "total_outlays": 115334.94
+    },
+    {
+      "amount": 3007212.75,
+      "id": 6216,
+      "code": "485-2722",
+      "name": "Salaries and Expenses, Corporation for National and Community Service",
+      "total_outlays": 501233.06
+    },
+    {
+      "amount": 3002113.23,
+      "id": 4016,
+      "code": "015-0328",
+      "name": "Office of Inspector General, General Administration, Justice",
+      "total_outlays": 2001627.31
+    },
+    {
+      "amount": 2909407.72,
+      "id": 3843,
+      "code": "014-4556",
+      "name": "Working Capital Fund, Geological Survey",
+      "total_outlays": 1843902.76
+    },
+    {
+      "amount": 2867635.3,
+      "id": 3460,
+      "code": "012-1004",
+      "name": "Farm Security and Rural Investment Programs, Natural Resources Conservation Service, Agriculture",
+      "total_outlays": 1549959.5
+    },
+    {
+      "amount": 2858991.28,
+      "id": 5630,
+      "code": "080-0120",
+      "name": "Science, National Aeronautics and Space Administration",
+      "total_outlays": 1410969.25
+    },
+    {
+      "amount": 2778163.43,
+      "id": 4505,
+      "code": "021-2033",
+      "name": "Procurement of Weapons and Tracked Combat Vehicles, Army",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 2762855.28,
+      "id": 5051,
+      "code": "069-1400",
+      "name": "Operational Expenses, Pipeline and Hazardous Materials Safety Administration, Transportation",
+      "total_outlays": 948964.06
+    },
+    {
+      "amount": 2706318.33,
+      "id": 5636,
+      "code": "080-0126",
+      "name": "Aeronautics, National Aeronautics and Space Administration",
+      "total_outlays": 1417691.71
+    },
+    {
+      "amount": 2671636.74,
+      "id": 3463,
+      "code": "012-1072",
+      "name": "Watershed and Flood Prevention Operations, Natural Resources Conservation Service, Agriculture",
+      "total_outlays": 1839336.74
+    },
+    {
+      "amount": 2639212.31,
+      "id": 6219,
+      "code": "485-2728",
+      "name": "Operating Expenses, Corporation for National and Community Service",
+      "total_outlays": 328774.71
+    },
+    {
+      "amount": 2637388.29,
+      "id": 4291,
+      "code": "020-0106",
+      "name": "Salaries and Expenses, Office of Inspector General, Treasury",
+      "total_outlays": 2302355.03
+    },
+    {
+      "amount": 2590782.94,
+      "id": 4121,
+      "code": "016-1521",
+      "name": "Special Benefits, Office of Workers Compensation Program, Labor",
+      "total_outlays": 1040708.38
+    },
+    {
+      "amount": 2585552.18,
+      "id": 6172,
+      "code": "424-0310",
+      "name": "Salaries and Expenses, National Transportation Safety Board",
+      "total_outlays": 157760.0
+    },
+    {
+      "amount": 2418898.46,
+      "id": 5778,
+      "code": "089-0222",
+      "name": "Science, Energy Programs, Energy",
+      "total_outlays": 2342020.07
+    },
+    {
+      "amount": 2417835.25,
+      "id": 4390,
+      "code": "020-1881",
+      "name": "Community Development Financial Institutions Fund, Program Account, Treasury",
+      "total_outlays": 1514787.82
+    },
+    {
+      "amount": 2382271.53,
+      "id": 4934,
+      "code": "069-0500",
+      "name": "Emergency Relief Program, Federal Highway Administration, Transportation",
+      "total_outlays": 1782263.63
+    },
+    {
+      "amount": 2381508.11,
+      "id": 4332,
+      "code": "020-0912",
+      "name": "Taxpayer Services, Internal Revenue Service, Treasury",
+      "total_outlays": 2381508.11
+    },
+    {
+      "amount": 2375420.37,
+      "id": 6165,
+      "code": "420-0100",
+      "name": "Salaries and Expenses, National Labor Relations Board",
+      "total_outlays": 728732.57
+    },
+    {
+      "amount": 2329346.2,
+      "id": 3776,
+      "code": "014-1113",
+      "name": "Office of Natural Resources Revenue, Department-Wide Programs, Interior",
+      "total_outlays": 762115.59
+    },
+    {
+      "amount": 2302431.13,
+      "id": 4051,
+      "code": "015-5073",
+      "name": "United States Trustee System Fund, Justice",
+      "total_outlays": 2426036.21
+    },
+    {
+      "amount": 2296361.24,
+      "id": 5168,
+      "code": "070-0113",
+      "name": "Office of the Chief Information Officer, Departmental Management, Intelligence, Situational Awareness, and Oversight, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 2233425.08,
+      "id": 5133,
+      "code": "069-8159",
+      "name": "Motor Carrier Safety Operations and Programs, Federal Motor Carrier Safety Administration, Transportation",
+      "total_outlays": 741029.94
+    },
+    {
+      "amount": 2224338.71,
+      "id": 4859,
+      "code": "061-0100",
+      "name": "Salaries and Expenses, Consumer Product Safety Commission",
+      "total_outlays": 1707355.71
+    },
+    {
+      "amount": 2196698.77,
+      "id": 5257,
+      "code": "070-0861",
+      "name": "Operations and Support, Countering Weapons of Mass Destruction Office, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 2175299.67,
+      "id": 4922,
+      "code": "069-0130",
+      "name": "Salaries and Expenses, Office of Inspector General, Transportation",
+      "total_outlays": 1280543.1500000001
+    },
+    {
+      "amount": 2171058.73,
+      "id": 3918,
+      "code": "014-5474",
+      "name": "State and Tribal Wildlife Grants, U.S. Fish and Wildlife Service",
+      "total_outlays": 1477984.9
+    },
+    {
+      "amount": 2018077.26,
+      "id": 5275,
+      "code": "070-5389",
+      "name": "H-1B and L Fraud Prevention and Detection Account, Citizenship and Immigration Services, Homeland Security",
+      "total_outlays": 411729.27
+    },
+    {
+      "amount": 2009415.73,
+      "id": 5803,
+      "code": "089-0318",
+      "name": "Electricity, Energy Programs, Energy",
+      "total_outlays": 752599.56
+    },
+    {
+      "amount": 1970928.69,
+      "id": 4885,
+      "code": "068-4330",
+      "name": "Hazardous Waste Electronic Manifest System Fund, Environmental Protection Agency",
+      "total_outlays": 410884.11
+    },
+    {
+      "amount": 1938527.88,
+      "id": 5473,
+      "code": "075-0844",
+      "name": "Eunice Kennedy Shriver National Institute of Child Health and Human Development, National Institute of Health, Health and Human Services",
+      "total_outlays": 976023.0
+    },
+    {
+      "amount": 1914461.19,
+      "id": 4410,
+      "code": "020-5445",
+      "name": "Debt Collection Fund, Bureau of the Fiscal Service, Treasury",
+      "total_outlays": 1914461.2
+    },
+    {
+      "amount": 1907140.3,
+      "id": 5183,
+      "code": "070-0410",
+      "name": "Procurement, Construction, and Improvements, Transportation Security Administration, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 1887975.29,
+      "id": 5639,
+      "code": "080-0131",
+      "name": "Space Technology, National Aeronautics Space Administration",
+      "total_outlays": 1340815.34
+    },
+    {
+      "amount": 1821048.49,
+      "id": 6282,
+      "code": "075-0945",
+      "name": "Infectious Diseases Rapid Response Reserve Fund, Centers for Disease Control, Health and Human Services",
+      "total_outlays": 650563.47
+    },
+    {
+      "amount": 1814220.15,
+      "id": 5490,
+      "code": "075-0884",
+      "name": "National Institute of Diabetes and Digestive and Kidney Diseases, National Institutes of Health, Health and Human Services",
+      "total_outlays": 244482.85
+    },
+    {
+      "amount": 1744187.31,
+      "id": 4013,
+      "code": "015-0324",
+      "name": "Salaries and Expenses, United States Marshals Service, Justice",
+      "total_outlays": 1469439.8
+    },
+    {
+      "amount": 1740610.25,
+      "id": 4119,
+      "code": "016-0400",
+      "name": "Salaries and Expenses, Occupational Safety and Health Administration",
+      "total_outlays": 477598.67
+    },
+    {
+      "amount": 1700358.18,
+      "id": 5187,
+      "code": "070-0414",
+      "name": "Procurement, Construction, and Improvements, Federal Emergency Management Agency, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 1686360.21,
+      "id": 3657,
+      "code": "013-0120",
+      "name": "Salaries and Expenses, Departmental Management, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 1637432.76,
+      "id": 3560,
+      "code": "012-3700",
+      "name": "Food Safety and Inspection Service, Agriculture",
+      "total_outlays": 719574.19
+    },
+    {
+      "amount": 1606548.7,
+      "id": 3953,
+      "code": "014-5656",
+      "name": "Colorado River Dam Fund, Boulder Canyon Project, Bureau of Reclamation",
+      "total_outlays": 1561748.7
+    },
+    {
+      "amount": 1594549.59,
+      "id": 5486,
+      "code": "075-0873",
+      "name": "National Institute of Dental and Craniofacial Research, National Institutes of Health, Health and Human Services",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 1546989.87,
+      "id": 5022,
+      "code": "069-0745",
+      "name": "Railroad Research and Development, Federal Railroad Administration, Transportation",
+      "total_outlays": 469750.11
+    },
+    {
+      "amount": 1546387.13,
+      "id": 5637,
+      "code": "080-0128",
+      "name": "Science, Technology, Engineering, and Mathematics Engagement, National Aeronautics and Space Administration",
+      "total_outlays": 1237747.0
+    },
+    {
+      "amount": 1534225.62,
+      "id": 3670,
+      "code": "013-0513",
+      "name": "Wireless Innovation(WIN) Fund, National Institute of Standards and Technology, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 1475225.05,
+      "id": 4715,
+      "code": "047-0108",
+      "name": "Office of Inspector General, General Services Administration",
+      "total_outlays": 111793.49
+    },
+    {
+      "amount": 1472905.0,
+      "id": 3674,
+      "code": "013-0525",
+      "name": "Industrial Technology Services, National Institute of Standards and Technology, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 1462888.03,
+      "id": 3676,
+      "code": "013-0550",
+      "name": "Salaries and Expenses, National Telecommunications and Information Administration, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 1361746.55,
+      "id": 4092,
+      "code": "016-0143",
+      "name": "Salaries and Expenses, Wage and Hour Division, Labor",
+      "total_outlays": 1150673.64
+    },
+    {
+      "amount": 1348814.28,
+      "id": 5084,
+      "code": "069-5172",
+      "name": "Pipeline Safety, Pipeline and Hazardous Materials Safety Administration, Transportation",
+      "total_outlays": 567469.32
+    },
+    {
+      "amount": 1333321.0,
+      "id": 3660,
+      "code": "013-0123",
+      "name": "Renovation and Modernization, Departmental Management, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 1329932.05,
+      "id": 4120,
+      "code": "016-1200",
+      "name": "Salaries and Expenses, Mine Safety and Health Administration",
+      "total_outlays": 317304.53
+    },
+    {
+      "amount": 1285372.23,
+      "id": 6112,
+      "code": "347-3900",
+      "name": "Salaries and Expenses, Defense Nuclear Facilities Safety Board",
+      "total_outlays": 585178.71
+    },
+    {
+      "amount": 1250417.21,
+      "id": 4644,
+      "code": "034-0100",
+      "name": "Salaries and Expenses, International Trade Commission",
+      "total_outlays": 1730583.61
+    },
+    {
+      "amount": 1239723.56,
+      "id": 5551,
+      "code": "075-1536",
+      "name": "Children and Families Services Programs, Administration for Children and Families, Health and Human Services",
+      "total_outlays": 417532.07
+    },
+    {
+      "amount": 1239337.24,
+      "id": 5082,
+      "code": "069-4522",
+      "name": "Working Capital Fund, Transportation Systems Center, Transportation",
+      "total_outlays": 1097268.62
+    },
+    {
+      "amount": 1220158.22,
+      "id": 5929,
+      "code": "096-3123",
+      "name": "Operation and Maintenance, Corps of Engineers-Civil",
+      "total_outlays": 92223.0
+    },
+    {
+      "amount": 1209281.07,
+      "id": 5336,
+      "code": "072-1007",
+      "name": "Operating Expenses of the United States Agency for International Development, Office of Inspector General, Funds Appropriated to the President",
+      "total_outlays": 1016807.35
+    },
+    {
+      "amount": 1173059.88,
+      "id": 3525,
+      "code": "012-2300",
+      "name": "Office of the General Counsel, Agriculture",
+      "total_outlays": 1165624.68
+    },
+    {
+      "amount": 1124368.63,
+      "id": 5493,
+      "code": "075-0887",
+      "name": "National Eye Institute, National Institutes of Health, Health and Human Services",
+      "total_outlays": 114985.79
+    },
+    {
+      "amount": 1115532.26,
+      "id": 3819,
+      "code": "014-2628",
+      "name": "Indian Guaranteed Loan Program Account, Bureau of Indian Affairs and Bureau of Indian Education, Interior",
+      "total_outlays": 50000.0
+    },
+    {
+      "amount": 1091722.63,
+      "id": 5171,
+      "code": "070-0117",
+      "name": "Operations and Support, Cybersecurity and Infrastructure Security Agency, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 1074320.0,
+      "id": 3664,
+      "code": "013-0201",
+      "name": "Minority Business Development, Minority Business Development Agency, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 1067200.77,
+      "id": 5922,
+      "code": "093-0100",
+      "name": "Salaries and Expenses, Federal Mediation and Conciliation Service",
+      "total_outlays": 1166409.69
+    },
+    {
+      "amount": 1033606.0,
+      "id": 3663,
+      "code": "013-0126",
+      "name": "Office of the Inspector General, Departmental Management, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 1018659.82,
+      "id": 5162,
+      "code": "070-0100",
+      "name": "Operations and Support, Office of the Secretary and Executive Management, Departmental Management, Intelligence, Situational Awareness, and Oversight, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 941706.51,
+      "id": 3562,
+      "code": "012-3800",
+      "name": "Office of Civil Rights, Agriculture",
+      "total_outlays": 342544.93
+    },
+    {
+      "amount": 940427.36,
+      "id": 4105,
+      "code": "016-0174",
+      "name": "Training and Employment Service, Employment and Training Administration, Labor",
+      "total_outlays": 144923.12
+    },
+    {
+      "amount": 931072.38,
+      "id": 3669,
+      "code": "013-0500",
+      "name": "Scientific and Technical Research and Services, National Institute of Standards and Technology, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 930963.13,
+      "id": 4311,
+      "code": "020-0141",
+      "name": "Small Business Lending Fund, Departmental Offices, Treasury",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 913636.02,
+      "id": 6308,
+      "code": "014-2106",
+      "name": "Operation of Indian Education Programs, Bureau of Indian Education, Interior",
+      "total_outlays": 880182.02
+    },
+    {
+      "amount": 910660.59,
+      "id": 5499,
+      "code": "075-0893",
+      "name": "National Institute on Drug Abuse, National Institutes of Health, Health and Human Services",
+      "total_outlays": 259687.48
+    },
+    {
+      "amount": 909091.39,
+      "id": 4719,
+      "code": "047-0401",
+      "name": "Expenses, Government-Wide Policy, General Services Administration",
+      "total_outlays": 6443.68
+    },
+    {
+      "amount": 900184.09,
+      "id": 3320,
+      "code": "011-0036",
+      "name": "Information Technology Oversight and Reform, Funds Appropriated to the President, Executive Office of the President",
+      "total_outlays": 753895.98
+    },
+    {
+      "amount": 890193.03,
+      "id": 5217,
+      "code": "070-0557",
+      "name": "Intelligence and Vetting , Transportation Security Administration, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 879179.78,
+      "id": 4740,
+      "code": "047-5381",
+      "name": "Acquisition Workforce Training Fund, General Services Administration",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 871550.66,
+      "id": 4045,
+      "code": "015-1300",
+      "name": "Salaries and Expenses, National Security Division, Justice",
+      "total_outlays": 704293.14
+    },
+    {
+      "amount": 860097.67,
+      "id": 4510,
+      "code": "021-2050",
+      "name": "Military Construction, Army",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 845668.46,
+      "id": 3740,
+      "code": "014-0104",
+      "name": "Salaries and Expenses, Office of the Inspector General, Interior",
+      "total_outlays": 612461.95
+    },
+    {
+      "amount": 832601.0,
+      "id": 5801,
+      "code": "089-0314",
+      "name": "Naval Reactors, National Nuclear Security Administration, Energy",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 832543.76,
+      "id": 4174,
+      "code": "017-1612",
+      "name": "National Sea-Based Deterrence Fund, Navy",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 782982.55,
+      "id": 4239,
+      "code": "019-1030",
+      "name": "Global HIV/AIDS Initiative, State",
+      "total_outlays": 454013.37
+    },
+    {
+      "amount": 781936.57,
+      "id": 5765,
+      "code": "088-8436",
+      "name": "National Archives Trust Fund, National Archives and Records Administration",
+      "total_outlays": 643125.51
+    },
+    {
+      "amount": 778554.15,
+      "id": 3456,
+      "code": "012-0900",
+      "name": "Office of the Inspector General, Agriculture",
+      "total_outlays": 754364.15
+    },
+    {
+      "amount": 746969.38,
+      "id": 5256,
+      "code": "070-0860",
+      "name": "Research and Development, Countering Weapons of Mass Destruction Office, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 734345.56,
+      "id": 5500,
+      "code": "075-0894",
+      "name": "National Institute on Alcohol Abuse and Alcoholism, National Institutes of Health, Health and Human Services",
+      "total_outlays": 180849.86
+    },
+    {
+      "amount": 708409.26,
+      "id": 3350,
+      "code": "011-0300",
+      "name": "Salaries and Expenses, Office of Management and Budget, Executive Office of the President",
+      "total_outlays": 555011.4
+    },
+    {
+      "amount": 702420.69,
+      "id": 5876,
+      "code": "091-0203",
+      "name": "Safe Schools and Citizenship Education,  Education",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 696717.6,
+      "id": 5966,
+      "code": "097-0104",
+      "name": "United States Court of Appeals for the Armed Forces, Defense",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 689726.47,
+      "id": 3742,
+      "code": "014-0107",
+      "name": "Salaries and Expenses, Office of the Solicitor, Interior",
+      "total_outlays": 101186.9
+    },
+    {
+      "amount": 688833.35,
+      "id": 5444,
+      "code": "075-0391",
+      "name": "Indian Health Facilities, Indian Health Service, Health and Human Services",
+      "total_outlays": 181761.86
+    },
+    {
+      "amount": 681883.34,
+      "id": 4601,
+      "code": "028-0400",
+      "name": "Office of the Inspector General, Social Security Administration",
+      "total_outlays": 608954.08
+    },
+    {
+      "amount": 673465.43,
+      "id": 5029,
+      "code": "069-1120",
+      "name": "Administrative Expenses, Federal Transit Administration, Transportation",
+      "total_outlays": 162476.64
+    },
+    {
+      "amount": 670093.65,
+      "id": 3665,
+      "code": "013-0300",
+      "name": "Operations and Administration, Bureau of Industry and Security, Commerce",
+      "total_outlays": 17123.52
+    },
+    {
+      "amount": 641364.01,
+      "id": 5658,
+      "code": "084-8522",
+      "name": "Armed Forces Retirement Home Trust Fund, Armed Forces Retirement Home",
+      "total_outlays": 637519.21
+    },
+    {
+      "amount": 638240.72,
+      "id": 4479,
+      "code": "020-8413",
+      "name": "Assessment Funds, Office of the Comptroller of the Currency, Treasury",
+      "total_outlays": 292674.46
+    },
+    {
+      "amount": 625353.17,
+      "id": 6152,
+      "code": "417-0100",
+      "name": "Grants and Administration, National Endowment for the Arts",
+      "total_outlays": 625353.17
+    },
+    {
+      "amount": 596410.35,
+      "id": 5052,
+      "code": "069-1401",
+      "name": "Hazardous Materials Safety, Pipeline and Hazardous Materials Safety Administration, Transportation",
+      "total_outlays": 93718.56
+    },
+    {
+      "amount": 592435.67,
+      "id": 5347,
+      "code": "072-1033",
+      "name": "HIV/AIDS Working Capital Fund, Agency for International Development",
+      "total_outlays": 32847.5
+    },
+    {
+      "amount": 591924.48,
+      "id": 5503,
+      "code": "075-0898",
+      "name": "National Institute of Biomedical Imaging and Bioengineering, National Institutes of Health, Health and Human Services",
+      "total_outlays": 38360.4
+    },
+    {
+      "amount": 589662.7,
+      "id": 5375,
+      "code": "073-0200",
+      "name": "Office of Inspector General, Small Business Administration",
+      "total_outlays": 589662.7
+    },
+    {
+      "amount": 579728.16,
+      "id": 5557,
+      "code": "075-1553",
+      "name": "Children's Research and Technical Assistance, Administration for Children and Families, Health and Human Services",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 550682.06,
+      "id": 4009,
+      "code": "015-0311",
+      "name": "Fees and Expenses of Witnesses, Justice",
+      "total_outlays": 495362.84
+    },
+    {
+      "amount": 539539.86,
+      "id": 6169,
+      "code": "421-2400",
+      "name": "Salaries and Expenses, National Mediation Board",
+      "total_outlays": 512939.78
+    },
+    {
+      "amount": 536732.88,
+      "id": 5931,
+      "code": "096-3125",
+      "name": "Flood Control and Coastal Emergencies, Corps of Engineers, Civil",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 530360.0,
+      "id": 3693,
+      "code": "013-1500",
+      "name": "Salaries and Expenses, Economic and Statistical Analysis, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 528782.92,
+      "id": 3292,
+      "code": "010-0930",
+      "name": "Court Security, Court of Appeals, District Courts, and Other Judicial Services, The Judiciary",
+      "total_outlays": 523264.6
+    },
+    {
+      "amount": 520203.05,
+      "id": 4862,
+      "code": "065-0100",
+      "name": "Salaries and Expenses, Federal Maritime Commission",
+      "total_outlays": 345259.92
+    },
+    {
+      "amount": 503086.66,
+      "id": 5501,
+      "code": "075-0896",
+      "name": "National Center for Complementary and Integrative Health, National Institute of Health, Health and Human Services",
+      "total_outlays": 71448.90000000001
+    },
+    {
+      "amount": 496220.27,
+      "id": 5349,
+      "code": "072-1037",
+      "name": "Economic Support Fund, Funds Appropriated to the President",
+      "total_outlays": 163209.37
+    },
+    {
+      "amount": 492179.0,
+      "id": 4039,
+      "code": "015-1020",
+      "name": "Federal Prisoner Detention, United States Marshals Service, Justice",
+      "total_outlays": 492179.0
+    },
+    {
+      "amount": 487120.76,
+      "id": 6161,
+      "code": "418-0200",
+      "name": "Grants and Administration, National Endowment for the Humanities, National Foundation on the Arts and Humanities",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 485277.44,
+      "id": 6205,
+      "code": "474-0301",
+      "name": "Office of Museum and Library Services: Grants and Administration, Institute of Museum and Library Services",
+      "total_outlays": 485277.44
+    },
+    {
+      "amount": 477934.19,
+      "id": 6256,
+      "code": "524-2750",
+      "name": "Expenses, Millennium Challenge Corporation",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 445023.65,
+      "id": 5169,
+      "code": "070-0115",
+      "name": "Operations and Support, Intelligence, Analysis, and Operations Coordination, Departmental Management, Intelligence, Situational Awareness, and Oversight, Homeland Security",
+      "total_outlays": 38245.8
+    },
+    {
+      "amount": 442441.0,
+      "id": 5715,
+      "code": "086-0335",
+      "name": "Administrative Support Offices, Management and Administration, Housing and Urban Development",
+      "total_outlays": 297487.0
+    },
+    {
+      "amount": 427342.4,
+      "id": 5177,
+      "code": "070-0401",
+      "name": "Procurement, Construction, and Improvements, United States Secret Service, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 387204.23,
+      "id": 6130,
+      "code": "368-2800",
+      "name": "Salaries and Expenses, Federal Mine Safety and Health Review Commission",
+      "total_outlays": 387204.23
+    },
+    {
+      "amount": 386934.72,
+      "id": 4875,
+      "code": "068-0112",
+      "name": "Office of Inspector General, Environmental Protection Agency",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 375134.83,
+      "id": 3846,
+      "code": "014-5015",
+      "name": "Abandoned Mine Reclamation Fund, Office of Surface Mining Reclamation and Enforcement",
+      "total_outlays": 303150.33
+    },
+    {
+      "amount": 370241.98,
+      "id": 4498,
+      "code": "021-1805",
+      "name": "Salaries and Expenses, Cemeterial Expenses, Army",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 364076.08,
+      "id": 3800,
+      "code": "014-1801",
+      "name": "Regulation and Technology, Office of Surface Mining Reclamation and Enforcement",
+      "total_outlays": 300407.58
+    },
+    {
+      "amount": 349265.68,
+      "id": 4504,
+      "code": "021-2032",
+      "name": "Missile Procurement, Army",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 347806.0,
+      "id": 5651,
+      "code": "083-0105",
+      "name": "Inspector General, Export-Import Bank of the United States",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 310333.2,
+      "id": 3766,
+      "code": "014-1039",
+      "name": "Construction, National Park Service, Interior",
+      "total_outlays": 256292.2
+    },
+    {
+      "amount": 299714.86,
+      "id": 3497,
+      "code": "012-1701",
+      "name": "Economic Research Service, Agriculture",
+      "total_outlays": 299714.86
+    },
+    {
+      "amount": 296403.77,
+      "id": 5502,
+      "code": "075-0897",
+      "name": "National Institute on Minority Health and Health Disparities, National Institutes of Health, Health and Human Services",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 288277.76,
+      "id": 3552,
+      "code": "012-3507",
+      "name": "Commodity Assistance Program, Food and Nutrition Service, Agriculture",
+      "total_outlays": 350447.2
+    },
+    {
+      "amount": 285337.65,
+      "id": 5164,
+      "code": "070-0102",
+      "name": "Department-Wide Technology Investments, Departmental Management, Intelligence, Situational Awareness, and Oversight, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 284228.51,
+      "id": 5418,
+      "code": "075-0145",
+      "name": "Transfers from the Patient-Centered Outcome Research Trust Fund, Departmental Management, Health and Human Services",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 281437.25,
+      "id": 6182,
+      "code": "434-1100",
+      "name": "Salaries and Expenses, Office of Government Ethics",
+      "total_outlays": 253015.1
+    },
+    {
+      "amount": 277407.47,
+      "id": 4905,
+      "code": "069-0102",
+      "name": "Salaries and Expenses, Office of the Secretary, Transportation",
+      "total_outlays": 204284.47
+    },
+    {
+      "amount": 276735.36,
+      "id": 3874,
+      "code": "014-5110",
+      "name": "Recreation Enhancement Fee Program, National Park Service",
+      "total_outlays": 202718.56
+    },
+    {
+      "amount": 273690.99,
+      "id": 6089,
+      "code": "310-3200",
+      "name": "Salaries and Expenses, Access Board",
+      "total_outlays": 273690.99
+    },
+    {
+      "amount": 273095.06,
+      "id": 4735,
+      "code": "047-4549",
+      "name": "Federal Citizen Services Fund, General Services Administration",
+      "total_outlays": 6443.68
+    },
+    {
+      "amount": 272511.1,
+      "id": 5832,
+      "code": "089-5231",
+      "name": "Uranium Enrichment Decontamination and Decommissioning Fund, Energy Programs, Energy",
+      "total_outlays": 84822.0
+    },
+    {
+      "amount": 271197.52,
+      "id": 3958,
+      "code": "014-5670",
+      "name": "Trust Land Consolidation Fund, Bureau of Trust Funds Administration, Interior",
+      "total_outlays": 122200.1
+    },
+    {
+      "amount": 267925.0,
+      "id": 5927,
+      "code": "096-3121",
+      "name": "Investigations, Corps of Engineers-Civil",
+      "total_outlays": 92223.0
+    },
+    {
+      "amount": 263450.78,
+      "id": 4800,
+      "code": "057-3011",
+      "name": "Procurement of Ammunition, Air Force",
+      "total_outlays": 41640.020000000004
+    },
+    {
+      "amount": 245446.48,
+      "id": 5437,
+      "code": "075-0359",
+      "name": "Family Planning, Health Resources and Services Administration, Health and Human Services",
+      "total_outlays": 14700.0
+    },
+    {
+      "amount": 241253.86,
+      "id": 6201,
+      "code": "471-1770",
+      "name": "Gulf Coast Ecosystem Restoration Council",
+      "total_outlays": 61678.26
+    },
+    {
+      "amount": 238620.85,
+      "id": 3351,
+      "code": "011-0400",
+      "name": "Salaries and Expenses, Office of the United States Trade Representative, Executive Office of the President",
+      "total_outlays": 142562.66999999998
+    },
+    {
+      "amount": 235824.54,
+      "id": 3608,
+      "code": "012-5410",
+      "name": "Inspector General Assets Forfeiture, Justice",
+      "total_outlays": 235824.54
+    },
+    {
+      "amount": 231362.0,
+      "id": 5251,
+      "code": "070-0802",
+      "name": "Research and Development, Transportation Security Administration, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 228066.4,
+      "id": 6233,
+      "code": "510-3850",
+      "name": "Salaries and Expenses, Chemical Safety and Hazard Investigation Board",
+      "total_outlays": 204755.6
+    },
+    {
+      "amount": 226795.01,
+      "id": 5861,
+      "code": "090-0400",
+      "name": "Salaries and Expenses, Selective Service System",
+      "total_outlays": 82056.13
+    },
+    {
+      "amount": 226244.42,
+      "id": 4241,
+      "code": "019-1069",
+      "name": "Salaries and Expenses, International Boundary and Water Commission, United States and Mexico, State",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 221300.1,
+      "id": 6257,
+      "code": "525-1650",
+      "name": "Salaries and Expenses, Election Assistance Commission",
+      "total_outlays": 89401.11
+    },
+    {
+      "amount": 216691.88,
+      "id": 3347,
+      "code": "011-0110",
+      "name": "Salaries and Expenses, the White House, Executive Office of the President",
+      "total_outlays": 155416.87
+    },
+    {
+      "amount": 205378.2,
+      "id": 5800,
+      "code": "089-0313",
+      "name": "Federal Salaries and Expenses, National Nuclear Security Administration, Energy",
+      "total_outlays": 52744.0
+    },
+    {
+      "amount": 202217.99,
+      "id": 5424,
+      "code": "075-0321",
+      "name": "Maternal, Infant, and Early Childhood Home Visiting Programs, Health Resources and Services Administration, Health and Human Services",
+      "total_outlays": 61495.56
+    },
+    {
+      "amount": 201753.85,
+      "id": 6262,
+      "code": "535-2724",
+      "name": "Salaries and Expenses, Privacy and Civil Liberties Oversight Board",
+      "total_outlays": 201753.85
+    },
+    {
+      "amount": 192416.22,
+      "id": 3672,
+      "code": "013-0515",
+      "name": "Construction of Research Facilities, National Institute of Standards and Technology, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 192023.75,
+      "id": 3701,
+      "code": "013-4358",
+      "name": "Network Construction Fund, Telecommunications and Information Administration, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 191382.0,
+      "id": 5453,
+      "code": "075-0516",
+      "name": "State Grants and Demonstration, Centers for Medicare and Medicaid Services, Health and Human Services",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 189979.14,
+      "id": 4025,
+      "code": "015-0404",
+      "name": "State and Local Law Enforcement Assistance, Office of Justice Programs, Justice",
+      "total_outlays": 68673.54000000001
+    },
+    {
+      "amount": 187503.46,
+      "id": 4305,
+      "code": "020-0133",
+      "name": "Special Inspector General for the Troubled Asset Relief Program, Salaries and Expenses, Departmental Offices, Treasury",
+      "total_outlays": 115997.83
+    },
+    {
+      "amount": 185694.15,
+      "id": 3735,
+      "code": "013-8233",
+      "name": "Public Safety Trust Fund, National Telecommunications and Information Administration, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 185617.41,
+      "id": 6346,
+      "code": "075-5745",
+      "name": "Debt Collection Fund, Office of the Secretary, Health and Human Services",
+      "total_outlays": 126913.61
+    },
+    {
+      "amount": 179354.5,
+      "id": 3851,
+      "code": "014-5029",
+      "name": "Federal Aid to Wildlife Restoration, United States Fish and Wildlife Service",
+      "total_outlays": 179354.5
+    },
+    {
+      "amount": 179354.5,
+      "id": 3988,
+      "code": "014-8151",
+      "name": "Sport Fish Restoration Account, United States Fish and Wildlife Service",
+      "total_outlays": 179354.5
+    },
+    {
+      "amount": 174753.64,
+      "id": 4416,
+      "code": "020-5622",
+      "name": "Special Compliance Personnel Program, Internal Revenue Service, Treasury",
+      "total_outlays": 174753.64
+    },
+    {
+      "amount": 167320.64,
+      "id": 3892,
+      "code": "014-5232",
+      "name": "Southern Nevada Public Land Management, Bureau of Land Management",
+      "total_outlays": 167320.64
+    },
+    {
+      "amount": 164690.74,
+      "id": 5412,
+      "code": "075-0139",
+      "name": "Office of Medicare Hearings and Appeals, Office of the Secretary, Health and Human Services",
+      "total_outlays": 424.54
+    },
+    {
+      "amount": 164685.0,
+      "id": 6397,
+      "code": "166-0700",
+      "name": "African Development Foundation",
+      "total_outlays": 164685.0
+    },
+    {
+      "amount": 158576.5,
+      "id": 5329,
+      "code": "072-0306",
+      "name": "Assistance for Europe, Eurasia, and Central Asia, Funds Appropriated to the President, US Agency for International Development",
+      "total_outlays": 498.3299999999997
+    },
+    {
+      "amount": 154500.0,
+      "id": 4844,
+      "code": "057-8928",
+      "name": "Department of the Air Force General Gift Fund, Air Force",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 150634.02,
+      "id": 6215,
+      "code": "485-2721",
+      "name": "Office of Inspector General, Corporation for National and Community Service",
+      "total_outlays": 84062.05
+    },
+    {
+      "amount": 144956.58,
+      "id": 5467,
+      "code": "075-0819",
+      "name": "John E. Fogarty International Center, National Institutes of Health, Health and Human Services",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 129284.69,
+      "id": 5622,
+      "code": "080-0109",
+      "name": "Office of Inspector General, National Aeronautics and Space Administration",
+      "total_outlays": 103102.49
+    },
+    {
+      "amount": 129122.14,
+      "id": 4171,
+      "code": "017-1507",
+      "name": "Weapons Procurement, Navy",
+      "total_outlays": 483652.56
+    },
+    {
+      "amount": 124634.92,
+      "id": 5287,
+      "code": "070-5694",
+      "name": "Customs and Border Protection Services at User Fee Facilities, U.S. Customs and Border Protection, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 120151.65,
+      "id": 5627,
+      "code": "080-0115",
+      "name": "Space Operations, National Aeronautics and Space Administration",
+      "total_outlays": 120151.65
+    },
+    {
+      "amount": 120056.7,
+      "id": 3832,
+      "code": "014-4053",
+      "name": "Helium Fund, Bureau of Land Management",
+      "total_outlays": 2646.0
+    },
+    {
+      "amount": 115218.35,
+      "id": 3713,
+      "code": "013-5284",
+      "name": "Limited Access System Administration Fund, National Oceanic and Atmospheric Administration, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 112563.36,
+      "id": 5495,
+      "code": "075-0889",
+      "name": "National Institute of Nursing Research, National Institutes of Health, Health and Human Services",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 110073.45,
+      "id": 3999,
+      "code": "015-0129",
+      "name": "Salaries and Expenses, General Administration, Justice",
+      "total_outlays": 72219.87
+    },
+    {
+      "amount": 109961.01,
+      "id": 5990,
+      "code": "097-0460",
+      "name": "Operational Test and Evaluation, Defense",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 106098.85,
+      "id": 4033,
+      "code": "015-0500",
+      "name": "Salaries and Expenses, Community Relations Service, Justice",
+      "total_outlays": 106098.85
+    },
+    {
+      "amount": 101707.16,
+      "id": 4751,
+      "code": "049-0106",
+      "name": "STEM Education, National Science Foundation",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 100202.67,
+      "id": 4216,
+      "code": "019-0121",
+      "name": "Conflict Stabilization Operations, State",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 93267.5,
+      "id": 4099,
+      "code": "016-0166",
+      "name": "Salaries and Expenses, Office of Disability Employment Policy, Labor",
+      "total_outlays": 70567.5
+    },
+    {
+      "amount": 88923.7,
+      "id": 3381,
+      "code": "011-1900",
+      "name": "Salaries and Expenses, Council of Economic Advisers, Executive Office of the President",
+      "total_outlays": 50343.76
+    },
+    {
+      "amount": 86671.34,
+      "id": 5378,
+      "code": "073-0400",
+      "name": "Entrepreneurial Development Programs, Small Business Administration",
+      "total_outlays": 62730.55
+    },
+    {
+      "amount": 83373.68,
+      "id": 4027,
+      "code": "015-0406",
+      "name": "Community Oriented Policing Services, Office of Justice Programs, Justice",
+      "total_outlays": 36611.72
+    },
+    {
+      "amount": 79972.0,
+      "id": 6394,
+      "code": "164-3100",
+      "name": "Inter-American Foundation",
+      "total_outlays": 79972.0
+    },
+    {
+      "amount": 69920.57,
+      "id": 6020,
+      "code": "097-4950",
+      "name": "Pentagon Reservation Maintenance Revolving Fund",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 69498.01,
+      "id": 3768,
+      "code": "014-1042",
+      "name": "National Recreation and Preservation, National Park Service, Interior",
+      "total_outlays": 69498.01
+    },
+    {
+      "amount": 69180.0,
+      "id": 5762,
+      "code": "088-0305",
+      "name": "Office of Inspector General, National Archives and Records Administration",
+      "total_outlays": 56660.0
+    },
+    {
+      "amount": 69115.19,
+      "id": 3365,
+      "code": "011-1075",
+      "name": "Non-Proliferation, Anti-Terrorism, Demining and Related Programs, International Security Assistance, State",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 59310.91,
+      "id": 3854,
+      "code": "014-5035",
+      "name": "Land Acquisition and State Assistance, National Park Service",
+      "total_outlays": 59310.91
+    },
+    {
+      "amount": 57513.0,
+      "id": 6055,
+      "code": "097-8164",
+      "name": "Commissary Stores Surcharge Program, Defense",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 54455.89,
+      "id": 5576,
+      "code": "075-5146",
+      "name": "Cooperative Research and Development Agreements, Centers for Disease Control, Health and Human Services",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 51633.9,
+      "id": 5986,
+      "code": "097-0390",
+      "name": "Chemical Agents and Munitions Destruction, Defense",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 43500.0,
+      "id": 4913,
+      "code": "069-0119",
+      "name": "Small and Disadvantaged Business Utilization and Outreach, Office of the Secretary, Transportation",
+      "total_outlays": 43500.0
+    },
+    {
+      "amount": 41161.93,
+      "id": 4096,
+      "code": "016-0163",
+      "name": "Salaries and Expenses, Office  of Workers' Compensation Programs, Labor",
+      "total_outlays": 2358.36
+    },
+    {
+      "amount": 40712.5,
+      "id": 5796,
+      "code": "089-0303",
+      "name": "Operation and Maintenance, Southwestern Power Administration, Power Marketing Administrations, Energy",
+      "total_outlays": 40712.5
+    },
+    {
+      "amount": 37000.0,
+      "id": 3885,
+      "code": "014-5163",
+      "name": "Park Buildings Lease and Maintenance Fund, National Park Service",
+      "total_outlays": 37000.0
+    },
+    {
+      "amount": 36600.0,
+      "id": 4506,
+      "code": "021-2034",
+      "name": "Procurement of Ammunition, Army",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 34125.0,
+      "id": 4046,
+      "code": "015-4500",
+      "name": "Prison Industries Fund, Justice",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 30923.0,
+      "id": 5764,
+      "code": "088-8127",
+      "name": "National Archives Gift Fund, National Archives and Records Administration",
+      "total_outlays": 30923.0
+    },
+    {
+      "amount": 30000.0,
+      "id": 5575,
+      "code": "075-5145",
+      "name": "Cooperative Research and Development Agreements, National Institutes of Health, Health and Human Services",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 29600.0,
+      "id": 3719,
+      "code": "013-5583",
+      "name": "Fisheries Enforcement Asset Forfeiture Fund, National Oceanic and Atmospheric Administration, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 28060.0,
+      "id": 4793,
+      "code": "057-0745",
+      "name": "Family Housing Operation and Maintenance, Air Force",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 26574.0,
+      "id": 5928,
+      "code": "096-3122",
+      "name": "Construction, Corps of Engineers - Civil",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 24540.0,
+      "id": 4900,
+      "code": "068-8153",
+      "name": "Leaking Underground Storage Tank Trust Fund, Environmental Protection Agency",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 23701.56,
+      "id": 4869,
+      "code": "068-0103",
+      "name": "State and Tribal Assistance Grants, Environmental Protection Agency",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 23600.0,
+      "id": 5607,
+      "code": "075-8253",
+      "name": "National Institutes of Health Conditional Gift Fund, Health and Human Services",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 23500.0,
+      "id": 3592,
+      "code": "012-5215",
+      "name": "Restoration of Forest Lands and Improvements, Forest Service, Agriculture",
+      "total_outlays": 23500.0
+    },
+    {
+      "amount": 22043.88,
+      "id": 3435,
+      "code": "012-0136",
+      "name": "Office of Ethics, Agriculture",
+      "total_outlays": 757.8
+    },
+    {
+      "amount": 21728.93,
+      "id": 4561,
+      "code": "021-8927",
+      "name": "Department of the Army General Gift Fund, Army",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 21274.03,
+      "id": 3891,
+      "code": "014-5198",
+      "name": "Natural Resource Damage Assessment and Restoration Fund, Office of the Secretary",
+      "total_outlays": 12130.0
+    },
+    {
+      "amount": 20291.17,
+      "id": 3912,
+      "code": "014-5431",
+      "name": "Park Concessions Franchise Fees, National Park Service",
+      "total_outlays": 20291.17
+    },
+    {
+      "amount": 19681.63,
+      "id": 3984,
+      "code": "014-8037",
+      "name": "Donations, National Park Service",
+      "total_outlays": 19681.63
+    },
+    {
+      "amount": 19671.17,
+      "id": 5959,
+      "code": "096-8862",
+      "name": "Rivers and Harbors Contributed and Advance Funds, Corps of Engineers, Civil",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 19331.39,
+      "id": 3794,
+      "code": "014-1618",
+      "name": "Natural Resource Damage Assessment Fund, Natural Resource Damage Assessment and Restoration, Interior",
+      "total_outlays": 10187.36
+    },
+    {
+      "amount": 18975.15,
+      "id": 5874,
+      "code": "091-0201",
+      "name": "Higher Education, Department of Education",
+      "total_outlays": 18975.15
+    },
+    {
+      "amount": 16477.03,
+      "id": 5345,
+      "code": "072-1027",
+      "name": "Transition Initiatives, Funds Appropriated to the President, US Agency for International Development",
+      "total_outlays": 16477.03
+    },
+    {
+      "amount": 14000.0,
+      "id": 4623,
+      "code": "031-0300",
+      "name": "Office of the Inspector General, Nuclear Regulatory Commission",
+      "total_outlays": 14000.0
+    },
+    {
+      "amount": 13704.0,
+      "id": 3414,
+      "code": "012-0014",
+      "name": "Expenses, Office of the Chief Financial Officer, Agriculture",
+      "total_outlays": 13704.0
+    },
+    {
+      "amount": 11606.0,
+      "id": 5992,
+      "code": "097-0500",
+      "name": "Military Construction, Defense-Wide",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 9825.18,
+      "id": 3697,
+      "code": "013-4295",
+      "name": "NTIS Revolving Fund, National Technical Information Service, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 9683.5,
+      "id": 5184,
+      "code": "070-0411",
+      "name": "Federal Assistance, Countering Weapons of Mass Destruction Office, Homeland Security",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 9144.03,
+      "id": 3994,
+      "code": "014-8562",
+      "name": "Contributed Funds, Geological Survey, Interior",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 8856.1,
+      "id": 3704,
+      "code": "013-4421",
+      "name": "First Responder Network Authority, National Telecommunications and Information Administration, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 8000.0,
+      "id": 5078,
+      "code": "069-4303",
+      "name": "Vessel Operations Revolving Fund, Maritime Administration, Transportation",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 6465.12,
+      "id": 3666,
+      "code": "013-0401",
+      "name": "Current Surveys and Programs, Bureau of the Census, Commerce",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 3792.0,
+      "id": 3376,
+      "code": "011-1457",
+      "name": "Salaries and Expenses, Office of National Drug Control Policy, Executive Office of the President",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 1682.92,
+      "id": 3902,
+      "code": "014-5252",
+      "name": "Recreation Fee Enhancement Program, U.S. Fish and Wildlife Service",
+      "total_outlays": 1682.92
+    },
+    {
+      "amount": 609.54,
+      "id": 3886,
+      "code": "014-5164",
+      "name": "Transportation Systems Fund, National Park Service",
+      "total_outlays": 609.54
+    },
+    {
+      "amount": 0.0,
+      "id": 4666,
+      "code": "036-0165",
+      "name": "DOD-VA Health Care Sharing Incentive Fund, Veterans Affairs",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 0.0,
+      "id": 3647,
+      "code": "012-8214",
+      "name": "Miscellaneous Contributed Funds, Agricultural Research Service, Agriculture",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 0.0,
+      "id": 4654,
+      "code": "036-0129",
+      "name": "National Cemetery Administration, Veterans Health Administration, Veterans Affairs",
+      "total_outlays": 0.0
+    },
+    {
+      "amount": 0.0,
+      "id": 4130,
+      "code": "016-5142",
+      "name": "Salaries and Expenses, H-1B Funded, State Unemployment Insurance and Employment Operations, Employment and Training Administration, Labor",
+      "total_outlays": 0.0
+    }
+  ],
+  "recipient_stats": {
+    "CARAHSOFT TECHNOLOGY CORP": {
+      "awards": 25,
+      "obligation": 5458823.969999999,
+      "software_awards": 19,
+      "software_obligation": 4623643.47,
+      "small_awards": 11,
+      "small_obligation": 526198.17
+    },
+    "GENERAL DYNAMICS INFORMATION TECHNOLOGY, INC.": {
+      "awards": 2,
+      "obligation": 15805725.54,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "MICROTECHNOLOGIES LLC": {
+      "awards": 4,
+      "obligation": 3296052.55,
+      "software_awards": 2,
+      "software_obligation": 3282962.55,
+      "small_awards": 3,
+      "small_obligation": 46861.88
+    },
+    "AFFIGENT, LLC": {
+      "awards": 7,
+      "obligation": 705046.82,
+      "software_awards": 6,
+      "software_obligation": 629598.62,
+      "small_awards": 5,
+      "small_obligation": 242259.75
+    },
+    "SIRIUS FEDERAL LLC": {
+      "awards": 6,
+      "obligation": 561668.7000000001,
+      "software_awards": 2,
+      "software_obligation": 171422.19,
+      "small_awards": 4,
+      "small_obligation": 157677.76
+    },
+    "ROUGH RIDER CONSULTING LLC": {
+      "awards": 1,
+      "obligation": 44000.0,
+      "software_awards": 1,
+      "software_obligation": 44000.0,
+      "small_awards": 1,
+      "small_obligation": 44000.0
+    },
+    "FOUR LLC": {
+      "awards": 11,
+      "obligation": 1026790.86,
+      "software_awards": 9,
+      "software_obligation": 926759.0,
+      "small_awards": 7,
+      "small_obligation": 231376.41999999998
+    },
+    "TECHNICAL COMMUNITIES, INC.": {
+      "awards": 1,
+      "obligation": 47837.09,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 47837.09
+    },
+    "TRACE3 GOVERNMENT, LLC": {
+      "awards": 1,
+      "obligation": 16165.48,
+      "software_awards": 1,
+      "software_obligation": 16165.48,
+      "small_awards": 1,
+      "small_obligation": 16165.48
+    },
+    "DESKTOP ALERT INC": {
+      "awards": 1,
+      "obligation": 49276.0,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 49276.0
+    },
+    "LYME COMPUTER SYSTEMS, INC.": {
+      "awards": 2,
+      "obligation": 138572.15,
+      "software_awards": 1,
+      "software_obligation": 52233.35,
+      "small_awards": 2,
+      "small_obligation": 138572.15
+    },
+    "INNOVMETRIC LOGICIELS INC": {
+      "awards": 1,
+      "obligation": 43510.0,
+      "software_awards": 1,
+      "software_obligation": 43510.0,
+      "small_awards": 1,
+      "small_obligation": 43510.0
+    },
+    "SPHERA SOLUTIONS, INC.": {
+      "awards": 1,
+      "obligation": 60059.58,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 60059.58
+    },
+    "DS GOVERNMENT SOLUTIONS CORP": {
+      "awards": 1,
+      "obligation": 41310.0,
+      "software_awards": 1,
+      "software_obligation": 41310.0,
+      "small_awards": 1,
+      "small_obligation": 41310.0
+    },
+    "HORIZON LAB SYSTEMS LLC": {
+      "awards": 2,
+      "obligation": 378778.0,
+      "software_awards": 2,
+      "software_obligation": 378778.0,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "THERMO ELECTRON NORTH AMERICA LLC": {
+      "awards": 1,
+      "obligation": 67392.46,
+      "software_awards": 1,
+      "software_obligation": 67392.46,
+      "small_awards": 1,
+      "small_obligation": 67392.46
+    },
+    "SIMULATIONS PLUS INC": {
+      "awards": 1,
+      "obligation": 160321.25,
+      "software_awards": 1,
+      "software_obligation": 160321.25,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "CDW GOVERNMENT LLC": {
+      "awards": 5,
+      "obligation": 674829.51,
+      "software_awards": 5,
+      "software_obligation": 674829.51,
+      "small_awards": 4,
+      "small_obligation": 199157.51
+    },
+    "DELL FEDERAL SYSTEMS L.P": {
+      "awards": 4,
+      "obligation": 355842.82,
+      "software_awards": 2,
+      "software_obligation": 57547.270000000004,
+      "small_awards": 3,
+      "small_obligation": 122148.08000000002
+    },
+    "SOFTWARE INFORMATION RESOURCE CORP.": {
+      "awards": 2,
+      "obligation": 58361.7,
+      "software_awards": 2,
+      "software_obligation": 58361.7,
+      "small_awards": 2,
+      "small_obligation": 58361.7
+    },
+    "EXECUTIVE INFORMATION SYSTEMS, L.L.C.": {
+      "awards": 2,
+      "obligation": 105134.83,
+      "software_awards": 1,
+      "software_obligation": 54931.83,
+      "small_awards": 2,
+      "small_obligation": 105134.83
+    },
+    "WILDFLOWER INTERNATIONAL, LTD.": {
+      "awards": 12,
+      "obligation": 1076977.93,
+      "software_awards": 8,
+      "software_obligation": 558828.4099999999,
+      "small_awards": 9,
+      "small_obligation": 282280.3400000001
+    },
+    "IMMIXTECHNOLOGY INC": {
+      "awards": 5,
+      "obligation": 15878644.08,
+      "software_awards": 3,
+      "software_obligation": 230005.15000000002,
+      "small_awards": 3,
+      "small_obligation": 118790.73000000001
+    },
+    "WORLD WIDE TECHNOLOGY LLC": {
+      "awards": 11,
+      "obligation": 1353006.5499999998,
+      "software_awards": 3,
+      "software_obligation": 108945.14,
+      "small_awards": 8,
+      "small_obligation": 315898.50999999995
+    },
+    "GOVERNMENT ACQUISITIONS LLC": {
+      "awards": 4,
+      "obligation": 159907.06,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 4,
+      "small_obligation": 159907.06
+    },
+    "CAPTURE 3D LLC": {
+      "awards": 1,
+      "obligation": 28100.0,
+      "software_awards": 1,
+      "software_obligation": 28100.0,
+      "small_awards": 1,
+      "small_obligation": 28100.0
+    },
+    "SIRSI CORPORATION": {
+      "awards": 1,
+      "obligation": 15865.0,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 15865.0
+    },
+    "CRFS, INC.": {
+      "awards": 2,
+      "obligation": 57359.0,
+      "software_awards": 2,
+      "software_obligation": 57359.0,
+      "small_awards": 2,
+      "small_obligation": 57359.0
+    },
+    "DLT SOLUTIONS, LLC": {
+      "awards": 4,
+      "obligation": 1308714.4300000002,
+      "software_awards": 3,
+      "software_obligation": 1297047.76,
+      "small_awards": 1,
+      "small_obligation": 11666.67
+    },
+    "ENVIRONMENTAL SYSTEMS RESEARCH INSTITUTE, INC.": {
+      "awards": 1,
+      "obligation": 67542.26,
+      "software_awards": 1,
+      "software_obligation": 67542.26,
+      "small_awards": 1,
+      "small_obligation": 67542.26
+    },
+    "RECSOLU, INC": {
+      "awards": 1,
+      "obligation": 422107.0,
+      "software_awards": 1,
+      "software_obligation": 422107.0,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "WATERS TECHNOLOGIES CORPORATION": {
+      "awards": 1,
+      "obligation": 9375.32,
+      "software_awards": 1,
+      "software_obligation": 9375.32,
+      "small_awards": 1,
+      "small_obligation": 9375.32
+    },
+    "PROVATION SOFTWARE, INC.": {
+      "awards": 1,
+      "obligation": 112154.0,
+      "software_awards": 1,
+      "software_obligation": 112154.0,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "TIMECLOCK PLUS, LLC": {
+      "awards": 1,
+      "obligation": 14975.0,
+      "software_awards": 1,
+      "software_obligation": 14975.0,
+      "small_awards": 1,
+      "small_obligation": 14975.0
+    },
+    "ESI ACQUISITION INC": {
+      "awards": 2,
+      "obligation": 83365.67,
+      "software_awards": 2,
+      "software_obligation": 83365.67,
+      "small_awards": 2,
+      "small_obligation": 83365.67
+    },
+    "MEDBRIDGE EDUCATION, LLC": {
+      "awards": 1,
+      "obligation": 36600.0,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 36600.0
+    },
+    "ESO SOLUTIONS, INC.": {
+      "awards": 1,
+      "obligation": 0,
+      "software_awards": 1,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 0
+    },
+    "COX SUBSCRIPTIONS, INC.": {
+      "awards": 1,
+      "obligation": 41250.0,
+      "software_awards": 1,
+      "software_obligation": 41250.0,
+      "small_awards": 1,
+      "small_obligation": 41250.0
+    },
+    "BIOMEDICAL SYNERGIES, INC.": {
+      "awards": 2,
+      "obligation": 409978.08,
+      "software_awards": 1,
+      "software_obligation": 87000.0,
+      "small_awards": 1,
+      "small_obligation": 87000.0
+    },
+    "MEDIALAB SOLUTIONS LLC": {
+      "awards": 1,
+      "obligation": 18187.5,
+      "software_awards": 1,
+      "software_obligation": 18187.5,
+      "small_awards": 1,
+      "small_obligation": 18187.5
+    },
+    "CENSIS TECHNOLOGIES, INC.": {
+      "awards": 1,
+      "obligation": 147627.2,
+      "software_awards": 1,
+      "software_obligation": 147627.2,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "MUMPS AUDIOFAX, INC": {
+      "awards": 1,
+      "obligation": 48364.0,
+      "software_awards": 1,
+      "software_obligation": 48364.0,
+      "small_awards": 1,
+      "small_obligation": 48364.0
+    },
+    "DOVE TREE CANYON SOFTWARE, INC": {
+      "awards": 1,
+      "obligation": 108398.09,
+      "software_awards": 1,
+      "software_obligation": 108398.09,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "ACUSTAF DEVELOPMENT CORP": {
+      "awards": 1,
+      "obligation": 104333.76,
+      "software_awards": 1,
+      "software_obligation": 104333.76,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "TOPCON HEALTHCARE, INC.": {
+      "awards": 1,
+      "obligation": 0,
+      "software_awards": 1,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 0
+    },
+    "JOINT COMMISSION RESOURCES, INC.": {
+      "awards": 1,
+      "obligation": 23077.0,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 23077.0
+    },
+    "CENTRAL JERSEY OFFICE EQUIPMENT, INC.": {
+      "awards": 1,
+      "obligation": 97734.95,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 97734.95
+    },
+    "NORSEMAN INC": {
+      "awards": 1,
+      "obligation": 21148.0,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 21148.0
+    },
+    "TRANSOURCE SERVICES CORP.": {
+      "awards": 1,
+      "obligation": 12600.0,
+      "software_awards": 1,
+      "software_obligation": 12600.0,
+      "small_awards": 1,
+      "small_obligation": 12600.0
+    },
+    "ENTERPRISE TECHNOLOGY SOLUTIONS, INC.": {
+      "awards": 1,
+      "obligation": 12704.81,
+      "software_awards": 1,
+      "software_obligation": 12704.81,
+      "small_awards": 1,
+      "small_obligation": 12704.81
+    },
+    "DENNIS MILLICAN & ASSOCIATES INC": {
+      "awards": 1,
+      "obligation": 111032.76,
+      "software_awards": 1,
+      "software_obligation": 111032.76,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "IRON BOW TECHNOLOGIES, LLC": {
+      "awards": 16,
+      "obligation": 21205669.249999996,
+      "software_awards": 11,
+      "software_obligation": 18193952.779999997,
+      "small_awards": 7,
+      "small_obligation": 153582.06
+    },
+    "STERLING COMPUTERS CORPORATION": {
+      "awards": 2,
+      "obligation": 457847.24000000005,
+      "software_awards": 1,
+      "software_obligation": 443320.84,
+      "small_awards": 1,
+      "small_obligation": 14526.4
+    },
+    "UNIQUE COMMUNICATIONS SOLUTIONS": {
+      "awards": 3,
+      "obligation": 3595529.34,
+      "software_awards": 3,
+      "software_obligation": 3595529.34,
+      "small_awards": 1,
+      "small_obligation": 8737.26
+    },
+    "L3HARRIS TECHNOLOGIES, INC.": {
+      "awards": 1,
+      "obligation": 75288.96,
+      "software_awards": 1,
+      "software_obligation": 75288.96,
+      "small_awards": 1,
+      "small_obligation": 75288.96
+    },
+    "AITA CONSULTING SERVICES INC": {
+      "awards": 1,
+      "obligation": 14840.0,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 14840.0
+    },
+    "BERKELEY VARITRONICS SYSTEMS, INC": {
+      "awards": 1,
+      "obligation": 10180.0,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 10180.0
+    },
+    "EAGLE HARBOR SOLUTIONS LLC": {
+      "awards": 2,
+      "obligation": 179996.82,
+      "software_awards": 1,
+      "software_obligation": 124011.88,
+      "small_awards": 1,
+      "small_obligation": 55984.94
+    },
+    "MYTHICS, LLC": {
+      "awards": 1,
+      "obligation": 12950.34,
+      "software_awards": 1,
+      "software_obligation": 12950.34,
+      "small_awards": 1,
+      "small_obligation": 12950.34
+    },
+    "EMC CORPORATION": {
+      "awards": 1,
+      "obligation": 31818.58,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 31818.58
+    },
+    "TELLUS SOLUTIONS, INC.": {
+      "awards": 1,
+      "obligation": 30232.8,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 30232.8
+    },
+    "AGSI, LLC": {
+      "awards": 1,
+      "obligation": 17798.0,
+      "software_awards": 1,
+      "software_obligation": 17798.0,
+      "small_awards": 1,
+      "small_obligation": 17798.0
+    },
+    "TVAR SOLUTIONS, LLC": {
+      "awards": 1,
+      "obligation": 4202488.84,
+      "software_awards": 1,
+      "software_obligation": 4202488.84,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "STRATEGIC CYBER LLC": {
+      "awards": 1,
+      "obligation": 25000.0,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 25000.0
+    },
+    "RESONANT SCIENCES LLC": {
+      "awards": 1,
+      "obligation": 107040.0,
+      "software_awards": 1,
+      "software_obligation": 107040.0,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "TRANE U.S. INC.": {
+      "awards": 1,
+      "obligation": 88627.78,
+      "software_awards": 1,
+      "software_obligation": 88627.78,
+      "small_awards": 1,
+      "small_obligation": 88627.78
+    },
+    "UNICOM GOVERNMENT, INC.": {
+      "awards": 2,
+      "obligation": 8047736.0,
+      "software_awards": 1,
+      "software_obligation": 6220356.0,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "CACI IDT, LLC": {
+      "awards": 1,
+      "obligation": 17766.06,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 17766.06
+    },
+    "CALLOWAY & ASSOCIATES, INC": {
+      "awards": 1,
+      "obligation": 29789.0,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 29789.0
+    },
+    "SPEAR INCORPORATED": {
+      "awards": 1,
+      "obligation": 344425.24,
+      "software_awards": 1,
+      "software_obligation": 344425.24,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "DYNAMIC SYSTEMS INC": {
+      "awards": 1,
+      "obligation": 2716.13,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 2716.13
+    },
+    "VENTRAQ CORP": {
+      "awards": 1,
+      "obligation": 634819.0,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "GLOBAL NETWAVE LLC": {
+      "awards": 1,
+      "obligation": 636712.0,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "TECH DATA GOVERNMENT SOLUTIONS, LLC": {
+      "awards": 1,
+      "obligation": 111788.16,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "KNOWMADICS INC": {
+      "awards": 1,
+      "obligation": 465347.3,
+      "software_awards": 1,
+      "software_obligation": 465347.3,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "CATALOGIC SOFTWARE INC": {
+      "awards": 1,
+      "obligation": 22111.2,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 22111.2
+    },
+    "TRELLIX PUBLIC SECTOR LLC": {
+      "awards": 1,
+      "obligation": 336335.65,
+      "software_awards": 1,
+      "software_obligation": 336335.65,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "HANJIN BESTPAC CO., LTD": {
+      "awards": 3,
+      "obligation": 22864.13,
+      "software_awards": 3,
+      "software_obligation": 22864.13,
+      "small_awards": 3,
+      "small_obligation": 22864.13
+    },
+    "UBITECH GLOBAL": {
+      "awards": 1,
+      "obligation": 100774.21,
+      "software_awards": 1,
+      "software_obligation": 100774.21,
+      "small_awards": 0,
+      "small_obligation": 0
+    },
+    "ROUTEWARE INC": {
+      "awards": 1,
+      "obligation": 29172.0,
+      "software_awards": 1,
+      "software_obligation": 29172.0,
+      "small_awards": 1,
+      "small_obligation": 29172.0
+    },
+    "R.S. MEANS COMPANY LLC": {
+      "awards": 1,
+      "obligation": 52499.77,
+      "software_awards": 0,
+      "software_obligation": 0,
+      "small_awards": 1,
+      "small_obligation": 52499.77
+    },
+    "SURVEYMONKEY INC.": {
+      "awards": 1,
+      "obligation": 15300.0,
+      "software_awards": 1,
+      "software_obligation": 15300.0,
+      "small_awards": 1,
+      "small_obligation": 15300.0
+    },
+    "THOMSON REUTERS SPECIAL SERVICES LLC": {
+      "awards": 1,
+      "obligation": 5035.79,
+      "software_awards": 1,
+      "software_obligation": 5035.79,
+      "small_awards": 1,
+      "small_obligation": 5035.79
+    },
+    "EXECUTIVE BUSINESS SERVICES, INC.": {
+      "awards": 1,
+      "obligation": 617050.32,
+      "software_awards": 1,
+      "software_obligation": 617050.32,
+      "small_awards": 0,
+      "small_obligation": 0
+    }
+  }
+}
