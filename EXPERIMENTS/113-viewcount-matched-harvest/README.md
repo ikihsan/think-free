@@ -6,6 +6,10 @@ status: active
 last-verified: 2026-10-12
 -->
 
+Classifier follow-up: [`IMPROVEMENT-SUMMARY.md`](IMPROVEMENT-SUMMARY.md)
+records the v2 labeler built against this experiment's ~30% coverage
+constraint (the G1 gate failure F116/D106 named).
+
 ## Verdict: the principle does not survive a matched harvest
 
 **`observed`, session `2026-10-12-001`, VM `instance-20260717-0947`.**

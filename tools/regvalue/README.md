@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-21
+-->
+
 # regvalue — Regulatory Value Verification Tool
 
 A deterministic, standard-library-only tool that verifies whether values (money, dates, citations, percentages, quantities, numbers) in a regulatory summary/submission are grounded in the source regulatory text.

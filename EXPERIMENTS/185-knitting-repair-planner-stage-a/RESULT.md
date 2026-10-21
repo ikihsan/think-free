@@ -8,7 +8,7 @@ last-verified: 2026-10-18
 
 **Date:** 2026-10-18. **Status:** complete. **Outcome: Kill gate NOT FIRED — local planner achieves meaningful improvement over full-row rollback on 6 of 8 fixtures.**
 
-Protocol [`PROTOCOL.md`](PROTOCOL.md). Implementation: [`knitting_graph.py`](knitting_graph.py), [`planner.py`](planner.py). Raw results: [`results.json`](results.json).
+Protocol [`PROTOCOL.md`](PROTOCOL.md). Implementation: [`knitting_graph.py`](knitting_graph.py), [`planner.py`](planner.py). Raw results: a `results.json` that was never committed and is not preserved in the tree.
 
 ## 1. Experiment Summary
 

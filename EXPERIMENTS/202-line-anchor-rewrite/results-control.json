@@ -1,0 +1,143 @@
+{
+  "fixture": "fixtures/k1.html",
+  "arms": {
+    "0": {
+      "violations": [
+        {
+          "id": "link-name",
+          "impact": "serious",
+          "tags": [
+            "cat.name-role-value",
+            "wcag2a",
+            "wcag244",
+            "wcag412",
+            "section508",
+            "section508.22.a",
+            "TTv5",
+            "TT6.a",
+            "EN-301-549",
+            "EN-9.2.4.4",
+            "EN-9.4.1.2",
+            "ACT",
+            "RGAAv4",
+            "RGAA-6.2.1"
+          ],
+          "help": "Links must have discernible text",
+          "target": [
+            "#__codelineno-2-1"
+          ],
+          "html": "<a id=\"__codelineno-2-1\" name=\"__codelineno-2-1\" href=\"#__codelineno-2-1\"></a>",
+          "wcag": [
+            "wcag2a"
+          ]
+        },
+        {
+          "id": "link-name",
+          "impact": "serious",
+          "tags": [
+            "cat.name-role-value",
+            "wcag2a",
+            "wcag244",
+            "wcag412",
+            "section508",
+            "section508.22.a",
+            "TTv5",
+            "TT6.a",
+            "EN-301-549",
+            "EN-9.2.4.4",
+            "EN-9.4.1.2",
+            "ACT",
+            "RGAAv4",
+            "RGAA-6.2.1"
+          ],
+          "help": "Links must have discernible text",
+          "target": [
+            "#__codelineno-2-2"
+          ],
+          "html": "<a id=\"__codelineno-2-2\" name=\"__codelineno-2-2\" href=\"#__codelineno-2-2\"></a>",
+          "wcag": [
+            "wcag2a"
+          ]
+        },
+        {
+          "id": "link-name",
+          "impact": "serious",
+          "tags": [
+            "cat.name-role-value",
+            "wcag2a",
+            "wcag244",
+            "wcag412",
+            "section508",
+            "section508.22.a",
+            "TTv5",
+            "TT6.a",
+            "EN-301-549",
+            "EN-9.2.4.4",
+            "EN-9.4.1.2",
+            "ACT",
+            "RGAAv4",
+            "RGAA-6.2.1"
+          ],
+          "help": "Links must have discernible text",
+          "target": [
+            "#bare-anchor"
+          ],
+          "html": "<a id=\"bare-anchor\" href=\"#bare-anchor\"></a>",
+          "wcag": [
+            "wcag2a"
+          ]
+        }
+      ],
+      "incomplete": {
+        "color-contrast": 1,
+        "landmark-one-main": 1,
+        "page-has-heading-one": 1
+      },
+      "testEngine": {
+        "name": "axe-core",
+        "version": "4.14.0"
+      }
+    },
+    "2": {
+      "violations": [
+        {
+          "id": "link-name",
+          "impact": "serious",
+          "tags": [
+            "cat.name-role-value",
+            "wcag2a",
+            "wcag244",
+            "wcag412",
+            "section508",
+            "section508.22.a",
+            "TTv5",
+            "TT6.a",
+            "EN-301-549",
+            "EN-9.2.4.4",
+            "EN-9.4.1.2",
+            "ACT",
+            "RGAAv4",
+            "RGAA-6.2.1"
+          ],
+          "help": "Links must have discernible text",
+          "target": [
+            "#bare-anchor"
+          ],
+          "html": "<a id=\"bare-anchor\" href=\"#bare-anchor\"></a>",
+          "wcag": [
+            "wcag2a"
+          ]
+        }
+      ],
+      "incomplete": {
+        "color-contrast": 1,
+        "landmark-one-main": 1,
+        "page-has-heading-one": 1
+      },
+      "testEngine": {
+        "name": "axe-core",
+        "version": "4.14.0"
+      }
+    }
+  }
+}

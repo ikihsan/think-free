@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: EXPERIMENTS/INDEX.md
+status: active
+last-verified: 2026-10-21
+-->
+
 # OFX Test Fixture Sources
 
 Fetched on: 2026-10-15

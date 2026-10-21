@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: EXPERIMENTS/INDEX.md
+status: active
+last-verified: 2026-10-21
+-->
+
 # E130 — Hex.pm View-Count Prototype
 
 ## What This Prototype Does

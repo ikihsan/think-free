@@ -8,11 +8,13 @@ last-verified: 2026-10-15
 
 Session `2026-10-15-001`, VM `instance-20260717-0947`, 2026-10-15.
 Protocol: [`PROTOCOL.md`](PROTOCOL.md), declared before any row was read for
-this question. Numbers: [`results.json`](results.json),
-[`recovered_rows.json`](recovered_rows.json),
+this question. Numbers: [`recovered_rows.json`](recovered_rows.json),
 [`recall_audit_sample.json`](recall_audit_sample.json),
 [`nobox_candidates.json`](nobox_candidates.json),
-[`population_verification.json`](population_verification.json).
+[`population_verification.json`](population_verification.json). (A
+`results.json` also named in the original write-up was never committed and is
+not preserved in the tree; the four files above are the raw evidence that
+survives.)
 
 ## The answer
 

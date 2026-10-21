@@ -1,0 +1,16 @@
+{
+  "name": "202-line-anchor-rewrite",
+  "version": "1.0.0",
+  "main": "run-arms.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "E202 - deterministic line-anchor rewrite against the axe oracle. Reaches E162's install through a symlink (node_modules -> ../162-a11y-deterministic-repair/node_modules), the same wiring E163 uses; the declared versions below are the record, the tree is E162's lockfile.",
+  "dependencies": {
+    "axe-core": "^4.14.0",
+    "jsdom": "^29.1.1"
+  }
+}

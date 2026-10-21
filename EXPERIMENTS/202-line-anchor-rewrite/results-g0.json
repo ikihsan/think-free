@@ -1,0 +1,187 @@
+{
+  "g0_clause1": {
+    "declared": "axe completes on >= 0.90 of fetched pages",
+    "declared_denominator": "D200 (HTTP 200), AMENDMENT-2",
+    "readings": {
+      "with_retry_supersession": {
+        "D200": {
+          "records": {
+            "num": 76,
+            "den": 79,
+            "rate": 0.962025
+          },
+          "files": {
+            "num": 70,
+            "den": 73,
+            "rate": 0.958904
+          },
+          "never_handed": 0
+        },
+        "DALL": {
+          "records": {
+            "num": 77,
+            "den": 98,
+            "rate": 0.785714
+          },
+          "files": {
+            "num": 70,
+            "den": 85,
+            "rate": 0.823529
+          },
+          "never_handed": 12
+        },
+        "DBODY": {
+          "records": {
+            "num": 76,
+            "den": 94,
+            "rate": 0.808511
+          },
+          "files": {
+            "num": 70,
+            "den": 82,
+            "rate": 0.853659
+          },
+          "never_handed": 9
+        }
+      },
+      "literal_no_supersession": {
+        "D200": {
+          "records": {
+            "num": 75,
+            "den": 79,
+            "rate": 0.949367
+          },
+          "files": {
+            "num": 69,
+            "den": 73,
+            "rate": 0.945205
+          },
+          "never_handed": 0
+        },
+        "DALL": {
+          "records": {
+            "num": 76,
+            "den": 98,
+            "rate": 0.77551
+          },
+          "files": {
+            "num": 69,
+            "den": 85,
+            "rate": 0.811765
+          },
+          "never_handed": 12
+        },
+        "DBODY": {
+          "records": {
+            "num": 75,
+            "den": 94,
+            "rate": 0.797872
+          },
+          "files": {
+            "num": 69,
+            "den": 82,
+            "rate": 0.841463
+          },
+          "never_handed": 9
+        }
+      }
+    },
+    "verdict_line": {
+      "reading_used": "with_retry_supersession (AMENDMENT-3 §1)",
+      "D200_records": {
+        "num": 76,
+        "den": 79,
+        "rate": 0.962025
+      },
+      "D200_files": {
+        "num": 70,
+        "den": 73,
+        "rate": 0.958904
+      },
+      "pass": true,
+      "literal_D200_files": {
+        "num": 69,
+        "den": 73,
+        "rate": 0.945205
+      }
+    },
+    "timeout_files": [
+      {
+        "file": "pages/005-github.com.html",
+        "attempts": 2,
+        "error": "axe timeout",
+        "attempts_by": [
+          "main",
+          "part0"
+        ]
+      },
+      {
+        "file": "pages/011-python-dev.best-of.org.html",
+        "attempts": 2,
+        "error": "axe timeout",
+        "attempts_by": [
+          "main",
+          "part2"
+        ]
+      },
+      {
+        "file": "pages/054-smilingwayne.github.io.html",
+        "attempts": 1,
+        "error": "axe timeout",
+        "attempts_by": [
+          "part0"
+        ]
+      }
+    ]
+  },
+  "g0_clause2": {
+    "declared": ">= 8 qualifying pages hold >= 1 AA-tagged instance",
+    "qualifying_pages": 3,
+    "qualifying_with_aa": 3,
+    "pass": false,
+    "note": "denominator is capped by the corpus: only 3 qualifying pages exist (G4)"
+  },
+  "g4_population": {
+    "declared": ">= 12 qualifying pages across >= 6 hosts",
+    "qualifying_pages": 3,
+    "hosts": 3,
+    "pass": false,
+    "stage1": {
+      "fetched": 69,
+      "http200": 65,
+      "qualifying": 3,
+      "hosts": 3
+    },
+    "stage2": {
+      "targets": 29,
+      "fetched": 29,
+      "http200": 14,
+      "qualifying": 0
+    }
+  },
+  "merge": {
+    "records_total": 82,
+    "distinct_files_with_sweep": 73,
+    "merged_records": 73,
+    "duplicate_files": 9,
+    "completed_run_disagreements": 0,
+    "completed_disagreement_detail": [],
+    "retry_pairs": [
+      {
+        "file": "pages/006-aws-nuke.ekristen.dev.html",
+        "records": [
+          "main:axe timeout",
+          "part1:ok"
+        ]
+      }
+    ],
+    "files_blocking_literal_merge": [
+      "pages/006-aws-nuke.ekristen.dev.html"
+    ],
+    "manifest_records": 98,
+    "manifest_distinct_files": 85
+  },
+  "engine": [
+    "4.14.0"
+  ]
+}

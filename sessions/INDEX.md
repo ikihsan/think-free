@@ -3,18 +3,30 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-19
+last-verified: 2026-10-21
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
 
-525 recorded session(s). One `events.jsonl` per session, so concurrent
+537 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 500 older session(s) are in the directory listing.
+Showing the 25 most recent. 512 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-21-001-verify-whether-the-nih-sbir-category-101](2026-10-21-001-verify-whether-the-nih-sbir-category-101/README.md) | unknown-agent | **unfinished** | Verify whether the NIH SBIR category-101 accessibility finding (E204/E | 2026-10-21T00:04 |
+| [2026-10-20-011-finalize-nih-sbir-multi-category-accessi](2026-10-20-011-finalize-nih-sbir-multi-category-accessi/README.md) | unknown-agent | worked | Finalize NIH SBIR multi-category accessibility screener and record exp | 2026-10-20T23:59 |
+| [2026-10-20-010-build-nih-sbir-multi-category-accessibil](2026-10-20-010-build-nih-sbir-multi-category-accessibil/README.md) | unknown-agent | worked | Build NIH SBIR multi-category accessibility screener and produce fresh | 2026-10-20T23:30 |
+| [2026-10-20-009-summarize-session-t-0095-contributions](2026-10-20-009-summarize-session-t-0095-contributions/README.md) | unknown-agent | worked | Summarize session T-0095 contributions | 2026-10-20T23:11 |
+| [2026-10-20-008-prototype-ic-recommendation-feature-for](2026-10-20-008-prototype-ic-recommendation-feature-for/README.md) | unknown-agent | worked | Prototype IC recommendation feature for NIH SBIR accessibility mapper | 2026-10-20T23:10 |
+| [2026-10-20-007-continue-e206-follow-up-practical-resour](2026-10-20-007-continue-e206-follow-up-practical-resour/README.md) | unknown-agent | worked | Continue E206 follow-up: practical resource or fresh observation | 2026-10-20T22:40 |
+| [2026-10-20-006-review-session-outcomes-and-prepare-for](2026-10-20-006-review-session-outcomes-and-prepare-for/README.md) | unknown-agent | worked | Review session outcomes and prepare for continuation | 2026-10-20T21:54 |
+| [2026-10-20-005-run-sub-segment-screen-within-nih-sbir-c](2026-10-20-005-run-sub-segment-screen-within-nih-sbir-c/README.md) | unknown-agent | worked | Run sub-segment screen within NIH SBIR category 101 to identify most a | 2026-10-20T21:48 |
+| [2026-10-20-004-continue-e204-nih-sbir-experiment-and-do](2026-10-20-004-continue-e204-nih-sbir-experiment-and-do/README.md) | unknown-agent | worked | Continue E204 NIH SBIR experiment and document findings | 2026-10-20T21:38 |
+| [2026-10-20-003-investigate-view-count-principle-general](2026-10-20-003-investigate-view-count-principle-general/README.md) | unknown-agent | worked | Investigate view-count principle generalizability across domains and d | 2026-10-20T20:54 |
+| [2026-10-20-002-verify-and-record-e203-experiment-contin](2026-10-20-002-verify-and-record-e203-experiment-contin/README.md) | unknown-agent | worked | Verify and record E203 experiment continuation, ensure all artifacts a | 2026-10-20T20:35 |
+| [2026-10-20-001-land-the-two-diverged-lineages-then-run](2026-10-20-001-land-the-two-diverged-lineages-then-run/README.md) | unknown-agent | worked | land the two diverged lineages, then run the deterministic line-anchor | 2026-10-20T20:23 |
 | [2026-10-19-006-run-recipient-read-experiment-for-remain](2026-10-19-006-run-recipient-read-experiment-for-remain/README.md) | unknown-agent | partial | Run recipient read experiment for remaining 3 IT codes (7A21, 7030, D3 | 2026-10-19T08:29 |
 | [2026-10-19-005-e197-settle-whether-e196-s-25-code-addre](2026-10-19-005-e197-settle-whether-e196-s-25-code-addre/README.md) | unknown-agent | **unfinished** | E197: settle whether E196's 25 code-addressed federal cells hold real  | 2026-10-19T05:11 |
 | [2026-10-19-002-recover-and-label-the-unevidenced-2026-1](2026-10-19-002-recover-and-label-the-unevidenced-2026-1/README.md) | unknown-agent | worked | Recover and label the unevidenced 2026-10-18 record honestly, then run | 2026-10-19T02:05 |
@@ -28,18 +40,6 @@ Showing the 25 most recent. 500 older session(s) are in the directory listing.
 | [2026-10-18-015-conduct-structured-fresh-exploration-of](2026-10-18-015-conduct-structured-fresh-exploration-of/README.md) | unknown-agent | worked | Conduct structured fresh exploration of mushroom cultivation planning  | 2026-10-18T19:39 |
 | [2026-10-18-014-begin-fresh-exploration-for-a-new-invent](2026-10-18-014-begin-fresh-exploration-for-a-new-invent/README.md) | unknown-agent | partial | Begin fresh exploration for a new invention axis after closing unserve | 2026-10-18T19:32 |
 | [2026-10-18-013-expand-woodworking-repair-planner-vocabu](2026-10-18-013-expand-woodworking-repair-planner-vocabu/README.md) | unknown-agent | worked | Expand woodworking repair planner vocabulary to address F5 pocket hole | 2026-10-18T16:07 |
-| [2026-10-18-012-fresh-exploration-identify-a-new-testabl](2026-10-18-012-fresh-exploration-identify-a-new-testabl/README.md) | unknown-agent | worked | Fresh exploration: identify a new testable invention candidate in an u | 2026-10-18T14:24 |
-| [2026-10-18-011-build-diy-repair-advisor-prototype-to-cl](2026-10-18-011-build-diy-repair-advisor-prototype-to-cl/README.md) | unknown-agent | worked | Build DIY Repair Advisor prototype to classify home repair questions i | 2026-10-18T13:56 |
-| [2026-10-18-010-prior-art-check-on-knitting-repair-plann](2026-10-18-010-prior-art-check-on-knitting-repair-plann/README.md) | unknown-agent | worked | Prior-art check on knitting repair planning tools before deciding on S | 2026-10-18T11:45 |
-| [2026-10-18-009-extend-knitting-repair-planner-experimen](2026-10-18-009-extend-knitting-repair-planner-experimen/README.md) | unknown-agent | worked | Extend knitting repair planner experiment with computational experimen | 2026-10-18T11:30 |
-| [2026-10-18-008-fresh-exploration-identify-a-new-inventi](2026-10-18-008-fresh-exploration-identify-a-new-inventi/README.md) | unknown-agent | worked | Fresh exploration: identify a new invention axis outside the public-Q& | 2026-10-18T08:58 |
-| [2026-10-18-007-repair-the-red-tree-left-by-the-e183-e18](2026-10-18-007-repair-the-red-tree-left-by-the-e183-e18/README.md) | unknown-agent | worked | Repair the red tree left by the E183/E184 session, commit that closure | 2026-10-18T08:30 |
-| [2026-10-18-006-build-classifier-v4-prototype](2026-10-18-006-build-classifier-v4-prototype/README.md) | unknown-agent | worked | build classifier v4 prototype | 2026-10-18T06:00 |
-| [2026-10-18-005-fresh-exploration-find-a-concrete-proble](2026-10-18-005-fresh-exploration-find-a-concrete-proble/README.md) | unknown-agent | worked | Fresh exploration: find a concrete problem domain with accessible data | 2026-10-18T03:55 |
-| [2026-10-18-004-prior-art-check-the-ground-truth-quality](2026-10-18-004-prior-art-check-the-ground-truth-quality/README.md) | unknown-agent | worked | Prior-art-check the ground-truth-quality axis: do vote margin, corrobo | 2026-10-18T03:41 |
-| [2026-10-18-003-measure-whether-e177-s-ground-truth-is-c](2026-10-18-003-measure-whether-e177-s-ground-truth-is-c/README.md) | opencode | worked | Measure whether E177's ground truth is contestable where the assistant | 2026-10-18T03:17 |
-| [2026-10-18-002-log-e181-s-two-undeclared-artifacts-that](2026-10-18-002-log-e181-s-two-undeclared-artifacts-that/README.md) | space-bunny-free | worked | Log E181's two undeclared artifacts that session finish reported | 2026-10-18T01:23 |
-| [2026-10-18-001-e181-test-whether-supplying-the-specific](2026-10-18-001-e181-test-whether-supplying-the-specific/README.md) | space-bunny-free | worked | E181: test whether supplying the specific missing fact closes the 0.40 | 2026-10-18T01:22 |
 
 
 ## Reading a session

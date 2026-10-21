@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>E202 K1 control — does the oracle see CSS at all?</title>
+  <!-- Arm 2's rule is injected by run-arms.js; on this page the same markup is
+       evaluated with and without it, so the difference is the control's own. -->
+</head>
+<body>
+  <header><h1>K1 control</h1></header>
+  <main>
+    <p>A control page for E202. Two empty links that axe should call
+      <code>link-name</code> violations, one of which arm 2's stylesheet hides.</p>
+    <h2>Line anchors, the shape pymdownx.highlight emits</h2>
+    <pre><code>def hello():
+    <a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>print("hi")
+    <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>return 2
+</code></pre>
+    <h2>An empty link arm 2 does not target</h2>
+    <p><a id="bare-anchor" href="#bare-anchor"></a></p>
+  </main>
+  <footer><p>control fixture, hand-written, no corpus bytes</p></footer>
+</body>
+</html>

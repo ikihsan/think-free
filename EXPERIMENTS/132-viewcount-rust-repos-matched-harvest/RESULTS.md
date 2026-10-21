@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: EXPERIMENTS/INDEX.md
+status: active
+last-verified: 2026-10-21
+-->
+
 # E132 — view-count principle on Rust GitHub repos, matched harvest design, base v2 classifier
 
 ## Experiment conducted

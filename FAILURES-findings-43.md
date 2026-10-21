@@ -12,7 +12,7 @@ and F139 continue in [`FAILURES-findings-44.md`](FAILURES-findings-44.md).
 ## F134 — a gate that declared its own product constraint fired and was never reported, and the closure went out on 2 of the experiment's 7 arms (E174)
 
 **Date:** 2026-10-17. `EXPERIMENTS/174-scoped-reach-recompute/`. Raw:
-[`results.json`](EXPERIMENTS/174-scoped-reach-recompute/results.json).
+`results.json` (never committed; not preserved in the tree).
 
 ### What was asked
 
@@ -79,8 +79,8 @@ to any reader of both files, which is the cheapest possible check.
 ## F135 — a package registry is keyed by distributable name and a failure report carries a symptom name, so the pipeline returns a plausible wrong repository instead of abstaining (E175)
 
 **Date:** 2026-10-17. `EXPERIMENTS/175-repo-from-report/`. Raw:
-[`derivation.json`](EXPERIMENTS/175-repo-from-report/derivation.json) and
-[`raw/http.jsonl`](EXPERIMENTS/175-repo-from-report/raw/http.jsonl).
+[`derivation.json`](EXPERIMENTS/175-repo-from-report/derivation.json) (the
+`raw/http.jsonl` capture was never committed; not preserved in the tree).
 
 ### What was asked
 

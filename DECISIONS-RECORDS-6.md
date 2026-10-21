@@ -6,10 +6,11 @@ last-verified: 2026-10-19
 
 # Decisions — records (part 6)
 
-Decisions **D123**. Same invariant and shape as
+Decisions **D123, D127, D128**. Same invariant and shape as
 [`DECISIONS-RECORDS-5.md`](DECISIONS-RECORDS-5.md): a choice that was genuinely
 open, the evidence behind it, the alternatives rejected, and the reason. Split
-2026-10-19 because part 5 was near its cap.
+2026-10-19 because part 5 was near its cap; D127 added 2026-10-20; D128 added
+2026-10-21.
 
 ## D123 — a candidate screen may be addressed by money, and the unit it counts must be a unit a program can displace
 
@@ -72,3 +73,95 @@ read `spending_by_category/recipient/` under the same `psc_codes` filter to name
 who is paid for the small purchases. That is a named, reachable, falsifiable
 step, and it is the first in this record where a buyer, a unit and a budget are
 all known at the same time.
+
+## D127 — the line-anchor rewrite route closes as dominated; the remedy is build configuration
+
+**Date:** 2026-10-20. **Session:** 2026-10-20-001. **Evidence:**
+[E202](EXPERIMENTS/202-line-anchor-rewrite/RESULT.md),
+[F149](FAILURES-findings-48.md).
+
+**The choice that was open.** E162 closed the deterministic *repairer* (0 of
+125 eliminated) but left one class it could not touch: the machine-generated
+empty self-link `<a id="__codelineno-N-M" name="…" href="#…"></a>` that
+`pymdownx.highlight` emits with `anchor_linenums` on. Two routes existed —
+rewrite the element after the fact, or change the build so it is never emitted.
+
+**What E202 measured.** On the 3 pages where the class appears, the rewrite
+eliminates **83/83** empty-self-link instances, adds **0** strings, introduces
+no regression and keeps **260/260** targets resolvable. The upstream CSS
+mitigation (`a[id^="__codelineno"]{visibility:hidden}`) removes **83/83** too,
+changes nothing in the DOM, loses no target and needs no migration. The protocol
+declared the outcome in advance: if arm 2 removes as much as arm 1, arm 1 is
+dominated. **G4 fires on population** — 3 pages / 3 hosts against ≥ 12 / ≥ 6.
+
+**What is decided.**
+
+1. **The rewrite route closes.** No line-anchor rewriter is built. The remedy
+   is build configuration — `anchor_linenums: false`, the CSS rule, or authored
+   text inside the anchor — all of which prior art already ships.
+2. **A dominated mechanism is not a candidate, whatever its gate rate.** G1 =
+   1.0, G2 = 0, G5 = 1.0 and the route still closes, because the strongest
+   accessible alternative does the same job with none of the migration.
+3. **E162's "dominant class" is scoped to its corpus, not withdrawn.** A fresh
+   mkdocs harvest puts the pattern on 3 of 65 pages (4.6%) against E162's 90 of
+   125 instances (72.0%) on 27 fame-selected pages.
+
+**Rejected.** (a) *Ship the rewrite as a post-processor for sites that cannot
+change their build.* It is dominated wherever the stylesheet ships, which is the
+normal case; the uncovered scope (a raw HTML export, a pasted fragment) is a
+scope statement, not a market. (b) *Treat G1 = 1.0 as a result.* G4 fired, so
+the population is too thin to validate anything, and a mechanism demonstration
+on 3 pages is not a product.
+
+## D128 — a number at the reload point is verified by re-deriving it from the population it names, and a committed prototype whose sampling cannot produce that number is a provenance defect even when the number is correct
+
+**Date:** 2026-10-21. **Session:** 2026-10-21-001. **Evidence:**
+[E207](EXPERIMENTS/E207-sbir-category101-census/RESULT.md).
+
+**The choice that was open.** E204/E206 sat at `STATE.md`'s reload point
+reporting NIH SBIR category 101 = 147 grants, 134 distinct orgs, top-5 share
+11.6% — "the most fragmented market measured in this repository" — and a
+committed prototype (`tools/nih_accessibility_prototype.py`, T-0095) encoded a
+derived IC consensus (NIAID, NCI, NHLB, NIA) as recommendations. Three observed
+facts made the number unverifiable *as recorded*: (1) E204/E206 directories
+hold only a `RESULT.md`, no script and no raw data — the F142/D121 pattern; (2)
+the prototype's `fetch_grants()` has **no `activity_codes` filter** — it pulls
+from all 85,133 FY2023 projects, caps at 2,000 in default order, then filters
+that slice — so it cannot produce a 368-row population; (3) the API does report
+exactly 368 for FY2023 `R41`/`R42`, so a correct census is reachable. Either
+re-run the census or leave the reload-point number unbacked.
+
+**What E207 measured.** A complete `R41`/`R42` FY2023 census (368 rows, stopped
+by the API's own `meta.total`, no cap, no sampling) returns **147 grants, 134
+orgs, top-5 share 0.1159, total $63,254,235** — matching E204 to the dollar,
+with the top-5 orgs also matching to the dollar. All five predeclared gates
+PASS (G1 population, G2 count, G3 orgs, G4 concentration, G5 category set).
+
+**What is decided.**
+
+1. **E204's category-101 finding is real and now source-supported** (it was
+   previously *untested* from the repo). The accessibility pattern on this
+   population survives its own replication.
+2. **The record was defective independently of the science.** E204/E206 carried
+   no runnable instrument and no raw data; the smallest repair is to commit the
+   census script and the full 368-row `raw/census.json` so the number is
+   reproducible from the repo. E207 is that repair.
+3. **A committed prototype whose sampling cannot produce the population its
+   RESULT.md names is a provenance defect even when the number it quotes is
+   correct.** The prototype's IC consensus rests on an unfiltered 2,000-row
+   slice of 85,133, not the 368-grant census — so the recommendations' stated
+   basis does not match their actual basis. This is **un-repaired** and does not
+   change E204's correctness.
+
+**Rejected.** (a) *Leave the reload-point number as-is because it is probably
+right.* It was, but "probably" is not the standard; the mission's non-negotiable
+is that a claim carries something a reader can re-run, and the F142 day is the
+cost of skipping that. (b) *Fix the prototype's sampling in the same pass.* It
+is a separate instrument defect; folding it into a replication muddies what the
+census established. It is recorded, not silently repaired.
+
+**Rule.** A number presented at the reload point is verified by re-deriving it
+from the population it names, and the re-derivation is committed as a script plus
+raw data — not a `RESULT.md` alone. A prototype whose fetch cannot produce the
+population it claims to analyze carries a provenance defect recorded beside the
+number, whether or not the number is independently correct.

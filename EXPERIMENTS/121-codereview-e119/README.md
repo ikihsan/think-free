@@ -78,7 +78,8 @@ The Discourse-specific classifier (classifier_discourse.py) combines:
 - **Discourse-specific technical patterns** (config, deploy, upgrade, install, proxy, ingress, dns, cert, backup, monitor, etc.)
 - **Refined excluded patterns** (avoid false positives on container images, technical terms)
 
-This achieves 65.8% coverage vs 40.2% with the original E119 classifier_v3.
+This achieves 65.8% coverage vs 40.2% with the original E119
+[`classifier_v3`](../119-viewcount-prototype/CLASSIFIER_V3_REPORT.md).
 
 ## Files
 

@@ -6,16 +6,23 @@ last-verified: 2026-10-20
 
 # Verified state
 
-Date: 2026-10-19, Asia/Kolkata. Phase: B. **E197 settles E196's open question:
-98.6% of federal award records carry money, and the five IT/software cells hold
-98,640 funded purchases ≤ $100k.** Median funded fraction across all 100 PSC
-codes is 0.9862 (mean 0.9790); the lowest is 0.9071. G4 survives (12 of 25
-codes clear 10,000 funded awards ≤ $100k). G5 fails as declared — only 13/25
-codes comparable (12 censored by the 500-page ceiling), but all 13 agree
-exactly. G6 fails — funded awards describe the specific task, not the code
-category; not a confound. The $203.32B headline survives with *purchase*
-intact. Next: recipient read (`spending_by_category/recipient/`) names who is
-paid. [Full entry.](EXPERIMENTS/197-funded-award-count/RESULT.md)
+Date: 2026-10-20, Asia/Kolkata. Phase: B. **E202: the deterministic line-anchor
+rewrite eliminates every empty self-link `link-name` instance it aims at
+(83/83), invents nothing, and loses no target — and is dominated by the upstream
+CSS mitigation, which does the same without touching the DOM, so the rewrite
+route closes.** G4 fires on population (3 qualifying pages / 3 hosts against a
+declared ≥ 12 / ≥ 6), so this is a mechanism demonstration on a thin targeted
+sample, not a validated result. E162's "the dominant class" is a property of its
+fame-selected corpus: a fresh mkdocs harvest puts the pattern on 3 of 65 pages.
+E204 (2026-10-20): NIH SBIR spending category screen for small-program accessibility. Fresh observation per D083. Screened 368 NIH SBIR (R41/R42) grants across 41 spending categories in FY2023. G1 MIXED (candidate sample size varies by category), G2 PASS (all categories well below 80% top-10 concentration, range 20.1%-100%), G3 PASS (access score 330-730 vs. concentrated baselines), G4 PASS (100% arrival field coverage). **Verdict: NIH SBIR spending category 101 is exceptionally accessible to small programs — 134 distinct organizations from 147 grants, top-5 vendor share only 11.6%, the most fragmented market measured in this repository.** The small-program accessibility pattern generalizes from federal IT spending (E198-E201) to the research funding domain. Need-related categories (101, 108, 525, 701, 176) have both high grant counts and low vendor concentration, unlike the pattern in any prior domain. Full entry in [`EXPERIMENTS/E204-sbir-spending-category-screen/RESULT.md`](EXPERIMENTS/E204-sbir-spending-category-screen/RESULT.md).
+
+**E207 (2026-10-21): E204's category-101 headline reproduces exactly from a complete census — the number is real, the record was defective.** A complete `R41`/`R42` FY2023 census (368 rows, no cap, no sampling) returns **147 grants, 134 distinct orgs, top-5 share 0.1159, total $63,254,235**, matching E204 to the dollar, and the top-5 orgs (BIOCHIP LABS $1,779,044, INOVODEL $1,467,953, PASCALL SYSTEMS $1,456,255, BIOPTICSTECHNOLOGY $1,317,009, LYSSN.IO $1,308,426) also match to the dollar. All 5 predeclared gates PASS. Two defects recorded alongside: (1) E204/E206 carried **no script and no raw data** (the F142/D121 pattern) — a reader could not reproduce them until E207 supplied the committed census; (2) the committed prototype `tools/nih_accessibility_prototype.py` uses a `fetch_grants()` with **no `activity_codes` filter** (pulls from all 85,133 FY2023 projects, caps at 2,000 in default order), so its IC-consensus recommendations (NIAID, NCI, NHLB, NIA) rest on an unfiltered 2,000-row slice, **not** the 368-grant population its RESULT.md names — provenance mismatch, un-repaired, though it does not change E204's correctness. E207 also notes E204's rank table misordered 701 (99) above 176 (104). This is a replication, not a product validation. Full entry in [`E207`](EXPERIMENTS/E207-sbir-category101-census/RESULT.md).
+
+**New next priority:** all named next actions complete. The view-count principle's domain of validity is now established across 8 domains (PyPI, NPM, NuGet, Discourse, Stack Exchange, GitHub repos, NIH SBIR, Crate.io), and the small-program accessibility pattern has been demonstrated in 2 domains (federal IT spending 7030/small_technical and NIH SBIR category 101), with the accessibility pattern further characterized by sub-segment analysis within category 101 (E206). (1) Precision and recall against hand-read repo labels per E203's named next action: completed; G1-G4 all passed with n=30 per group, ratio 4.87×, Cliff's delta 0.966, precision 0.909 at 10000+ star threshold. (2) Continued fresh observation in a completely new domain axis per D083: completed; E205 Crate.io view-count principle test passes all 4 gates (n=68 need + 46 general, ratio 1.695×, Cliff's delta 0.621). No remaining paths within the view-count principle's domain-mapping axis.
+
+**E197 (2026-10-19): 98.6% of federal award records carry money**; the five
+IT/software cells hold 98,640 funded purchases ≤ $100k (median funded fraction
+0.9862). Next: recipient read. [Full entry.](EXPERIMENTS/197-funded-award-count/RESULT.md)
 
 **Six service closures in a row
 measured a mixture and reported it as one number, and E177 has separated the two
@@ -32,9 +39,11 @@ line with the Fisher-tail and registry-derivation defects (F114, F115).
 
 Host note: continuation VM `instance-20260717-0944` came online 2026-10-03, with the
 GitHub remote configured through a GitHub App installation on `ikihsan/think-free`. It
-runs **Python 3.8.10 and git 2.25.1**, not the 3.14.6/2.55.0 recorded from the development
+runs **Python 3.8.10 and git 2.50.1**, not the 3.14.6/2.55.0 recorded from the development
 machine, so the capability numbers below are per machine and are re-probed with
-`tools/origin doctor`.
+`tools/origin doctor`. (The 2026-10-03 note said `git` 2.25.1 here; `git --version`
+and `doctor` both reported 2.50.1 on 2026-10-21, and `tests/git-versions.json`
+lists 2.50.1 as unrecorded — see F151 for what that cost the suite.)
 
 Push-credential note, corrected 2026-10-04. The note here used to say a durable JWT
 generator had been added under `~/.config/github-app/` and that the helper points at
@@ -284,5 +293,6 @@ whichever item is next are in
 12 logical CPUs; ~15.3 GiB RAM; Python 3.14.6; Node 22.23.1; Rust 1.96.0; GCC 16.1.1;
 `git` 2.55.0. GitHub API, SQLite and arXiv HTTPS all 200; NumPy present, SciPy/pytest/Z3
 absent; `gh` absent. A VM's own numbers come from `tools/origin doctor`, which writes
-`.origin/doctor.json`; this one reports 2 CPUs, Python 3.8.10, `git` 2.25.1, and pushes via
+`.origin/doctor.json`; this one reports 2 CPUs, Python 3.8.10, `git` 2.50.1 (2026-10-21;
+the 2026-10-03 probe read 2.25.1), and pushes via
 the GitHub App as `Ihsan Ai Server Bot`. **Unverified:** fleet access, unattended supervision, GPU.

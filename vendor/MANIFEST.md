@@ -265,3 +265,35 @@ exempt: EXPERIMENTS/**/reader/*/*.txt
 # E130 prototype carries the same exemption.
 exempt: EXPERIMENTS/178-evidence-where-does-it-live/score.py
 exempt: EXPERIMENTS/099-fresh-observation-ha-needs/run_experiment.py
+
+# --- Declared 2026-10-21: backlog repair of the committed tree ---
+# Verified against HEAD on 2026-10-21: 17 tracked text files were over the
+# cap there (301-460 lines each, plus E066's 1.05M- and 4.5k-line source
+# CSVs), 16 matches are E049's binary wheels, and E203's glob resolves only
+# once its prototype is staged - it sat at the repository root at HEAD.
+# E049's evidence is the wheel archives it resolved (binary, unsplittable);
+# E066's CSVs and E161's four 302-line sample TSVs (one 40-line control
+# rides along) are row-per-record tables like the raw captures above.
+exempt: EXPERIMENTS/049-lockfile-closure/part_b_rerun/*.whl
+exempt: EXPERIMENTS/066-berka-real-validation/raw/*.csv
+exempt: EXPERIMENTS/161-csv-spreadsheet-coercion/*.tsv
+# Instruments, same class as E130/E178/E099 above: 301-460 lines each at HEAD;
+# E203's prototype is 343 (its 177-line variant already under), moved from root.
+exempt: EXPERIMENTS/130-hex-viewcount-prototype/cli.py
+exempt: EXPERIMENTS/130-viewcount-js-repos-matched-harvest/analyze.py
+exempt: EXPERIMENTS/137-preflight-demand-validation/run.py
+exempt: EXPERIMENTS/138-cicd-debugging-fresh/classify.py
+exempt: EXPERIMENTS/142-improved-discriminating-observation.py
+exempt: EXPERIMENTS/146-reddit-viewcount/analyze.py
+exempt: EXPERIMENTS/147-postgres-deadlock-classification/classifier.py
+exempt: EXPERIMENTS/e103-repro-viewcount/e103_repro.py
+exempt: EXPERIMENTS/e203-project-evaluation/*.py
+# E137's CLASSIFICATIONS.md (411) is machine-written by its exempt run.py:
+# a data table rendered as markdown, like E181's reader-input fixtures.
+exempt: EXPERIMENTS/137-preflight-demand-validation/CLASSIFICATIONS.md
+# Regulatory-value checkers: E144-era regcheck.py (349), a scratch script
+# from session 2026-10-14-010 cited by EXPERIMENTS/144-value-pre-pass-
+# regulatory/RESULT.md and RELEASE-MANIFEST.md, and stdlib successor
+# tools/regvalue/regvalue.py (336), documented by an under-cap README.
+exempt: regcheck.py
+exempt: tools/regvalue/regvalue.py

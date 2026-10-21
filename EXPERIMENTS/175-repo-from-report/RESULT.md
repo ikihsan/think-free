@@ -144,5 +144,6 @@ with its ceiling named.
 [`sample.py`](sample.py) · [`derive.py`](derive.py) · [`qtext.py`](qtext.py) ·
 [`run.py`](run.py) · [`sample.json`](sample.json) · [`queries.json`](queries.json)
 (seed and drawn ids, committed before the first request) ·
-[`derivation.json`](derivation.json) · [`raw/se.jsonl`](raw/se.jsonl) ·
-[`raw/http.jsonl`](raw/http.jsonl) · [`raw/repos.jsonl`](raw/repos.jsonl)
+[`derivation.json`](derivation.json) — the three raw capture files named in the
+original write-up (`raw/se.jsonl`, `raw/http.jsonl`, `raw/repos.jsonl`) were
+never committed and are not preserved in the tree.

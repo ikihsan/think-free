@@ -1,0 +1,798 @@
+==============================================================================
+[seq 4] 2026-10-20T11:58:03+00:00
+$ bash /tmp/opencode/e200-probes.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+200 probe-codelineno.json
+200 probe-anchor-linenums.json
+200 issue-codecrew57.json
+200 issue-crawl4ai5.json
+200 issue-ras462.json
+200 search-repoA.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4055  redactions: none
+==============================================================================
+[seq 5] 2026-10-20T12:01:55+00:00
+$ node EXPERIMENTS/200-line-anchor-rewrite/fetch.js
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+after query A: fetched=37 qualifying=1
+query B status=200
+after query B: fetched=69 qualifying=3
+wrote corpus-manifest.json: fetched=69 qualifying=3 hosts=3
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 39981  redactions: none
+==============================================================================
+[seq 6] 2026-10-20T12:04:49+00:00
+$ node EXPERIMENTS/200-line-anchor-rewrite/fetch2.js
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+stage 2 targets: 29
+stage1 qualifying=3  stage2 qualifying=0  union=3 hosts=3 fetched=98
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 23192  redactions: none
+==============================================================================
+[seq 7] 2026-10-20T12:08:17+00:00
+$ node EXPERIMENTS/200-line-anchor-rewrite/run-arms.js control
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+control: arm0 link-name=3 arm2 link-name=1
+
+
+[stderr]
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8107  redactions: none
+==============================================================================
+[seq 8] 2026-10-20T12:11:34+00:00
+$ node EXPERIMENTS/200-line-anchor-rewrite/run-arms.js arms
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+arms on johnthagen.github.io: rewritten=7
+arms on fasthttp.ndugram.dev: rewritten=227
+arms on h4m5t.top: rewritten=26
+wrote results-arms.json for 3 qualifying pages
+
+
+[stderr]
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 173306  redactions: none
+==============================================================================
+[seq 9] 2026-10-20T12:41:32+00:00
+$ node EXPERIMENTS/200-line-anchor-rewrite/run-arms.js sweep
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+node:internal/modules/cjs/loader:1228
+  throw err;
+  ^
+
+Error: Cannot find module 'axe-core'
+Require stack:
+- /home/ubuntu/think-free/EXPERIMENTS/200-line-anchor-rewrite/run-arms.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1225:15)
+    at Function.resolve (node:internal/modules/helpers:146:19)
+    at Object.<anonymous> (/home/ubuntu/think-free/EXPERIMENTS/200-line-anchor-rewrite/run-arms.js:9:41)
+    at Module._compile (node:internal/modules/cjs/loader:1554:14)
+    at Object..js (node:internal/modules/cjs/loader:1706:10)
+    at Module.load (node:internal/modules/cjs/loader:1289:32)
+    at Function._load (node:internal/modules/cjs/loader:1108:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:220:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:170:5) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/ubuntu/think-free/EXPERIMENTS/200-line-anchor-rewrite/run-arms.js'
+  ]
+}
+
+Node.js v22.14.0
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 686  redactions: none
+==============================================================================
+[seq 10] 2026-10-20T12:49:27+00:00
+$ node EXPERIMENTS/200-line-anchor-rewrite/analyze.js
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "k1_oracle_sees_css": {
+    "bare_reported_without_and_with_css": true,
+    "css_hidden_not_reported": true,
+    "arm0_link_name": 3,
+    "arm2_link_name": 1,
+    "pass": true
+  },
+  "g1_elimination": {
+    "aa_selflink_instances": 83,
+    "eliminated_by_arm1": 83,
+    "still_reported": 0,
+    "rate": 1,
+    "declared": ">= 0.90",
+    "kill": "< 0.60"
+  },
+  "g2_no_fabrication": {
+    "added_strings": 0,
+    "declared": "0",
+    "pass": true
+  },
+  "g3_no_regression": {
+    "new_rules": [],
+    "pages_with_aa_increase": [],
+    "pass": true
+  },
+  "g5_target_survival": {
+    "wanted": 260,
+    "alive": 260,
+    "rate": 1,
+    "declared": "1.0"
+  },
+  "baseline_dominance": {
+    "class_instances": 83,
+    "eliminated_by_arm1": 83,
+    "eliminated_by_arm2_css": 83,
+    "arm2_equals_arm1": true,
+    "note": "declared in PROTOCOL.md: if K1 passes and arm 2 removes as much of the class as arm 1, arm 1 is dominated"
+  },
+  "arm3_price": {
+    "targets_destroyed": 260
+  },
+  "population": {
+    "qualifying_pages": 3,
+    "hosts": 3
+  },
+  "per_page": [
+    {
+      "url": "https://johnthagen.github.io/python-blueprint/",
+      "host": "johnthagen.github.io",
+      "aa_arm0": 8,
+      "aa_arm1": 1,
+      "aa_selflink_arm0": 7,
+      "eliminated_arm1": 7,
+      "still_arm1": 0,
+      "eliminated_arm2": 7,
+      "g1_rate": 1,
+      "new_rules_arm1": [],
+      "aa_increased": false,
+      "added_strings": 0,
+      "survival": {
+        "wanted": 7,
+        "alive": 7
+      },
+      "rewritten": 7,
+      "lost_targets_arm3": 7
+    },
+    {
+      "url": "https://fasthttp.ndugram.dev",
+      "host": "fasthttp.ndugram.dev",
+      "aa_arm0": 53,
+      "aa_arm1": 3,
+      "aa_selflink_arm0": 50,
+      "eliminated_arm1": 50,
+      "still_arm1": 0,
+      "eliminated_arm2": 50,
+      "g1_rate": 1,
+      "new_rules_arm1": [],
+      "aa_increased": false,
+      "added_strings": 0,
+      "survival": {
+        "wanted": 227,
+        "alive": 227
+      },
+      "rewritten": 227,
+      "lost_targets_arm3": 227
+    },
+    {
+      "url": "https://h4m5t.top/SecNotes",
+      "host": "h4m5t.top",
+      "aa_arm0": 28,
+      "aa_arm1": 2,
+      "aa_selflink_arm0": 26,
+      "eliminated_arm1": 26,
+      "still_arm1": 0,
+      "eliminated_arm2": 26,
+      "g1_rate": 1,
+      "new_rules_arm1": [],
+      "aa_increased": false,
+      "added_strings": 0,
+      "survival": {
+        "wanted": 26,
+        "alive": 26
+      },
+      "rewritten": 26,
+      "lost_targets_arm3": 26
+    }
+  ]
+}
+wrote /home/ubuntu/think-free/EXPERIMENTS/200-line-anchor-rewrite/gates.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 38809  redactions: none
+==============================================================================
+[seq 11] 2026-10-20T12:53:12+00:00
+$ node EXPERIMENTS/200-line-anchor-rewrite/analyze.js
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "k1_oracle_sees_css": {
+    "bare_reported_without_and_with_css": true,
+    "css_hidden_not_reported": true,
+    "arm0_link_name": 3,
+    "arm2_link_name": 1,
+    "pass": true
+  },
+  "g1_elimination": {
+    "aa_selflink_instances": 83,
+    "eliminated_by_arm1": 83,
+    "still_reported": 0,
+    "rate": 1,
+    "declared": ">= 0.90",
+    "kill": "< 0.60"
+  },
+  "g2_no_fabrication": {
+    "added_strings": 0,
+    "declared": "0",
+    "pass": true
+  },
+  "g3_no_regression": {
+    "new_rules": [],
+    "pages_with_aa_increase": [],
+    "pass": true
+  },
+  "g5_target_survival": {
+    "wanted": 260,
+    "alive": 260,
+    "rate": 1,
+    "declared": "1.0"
+  },
+  "baseline_dominance": {
+    "class_instances": 83,
+    "eliminated_by_arm1": 83,
+    "eliminated_by_arm2_css": 83,
+    "arm2_equals_arm1": true,
+    "note": "declared in PROTOCOL.md: if K1 passes and arm 2 removes as much of the class as arm 1, arm 1 is dominated"
+  },
+  "arm3_price": {
+    "targets_destroyed": 260
+  },
+  "population": {
+    "qualifying_pages": 3,
+    "hosts": 3
+  },
+  "per_page": [
+    {
+      "url": "https://johnthagen.github.io/python-blueprint/",
+      "host": "johnthagen.github.io",
+      "aa_arm0": 8,
+      "aa_arm1": 1,
+      "aa_selflink_arm0": 7,
+      "eliminated_arm1": 7,
+      "still_arm1": 0,
+      "eliminated_arm2": 7,
+      "g1_rate": 1,
+      "new_rules_arm1": [],
+      "aa_increased": false,
+      "added_strings": 0,
+      "survival": {
+        "wanted": 7,
+        "alive": 7
+      },
+      "rewritten": 7,
+      "lost_targets_arm3": 7
+    },
+    {
+      "url": "https://fasthttp.ndugram.dev",
+      "host": "fasthttp.ndugram.dev",
+      "aa_arm0": 53,
+      "aa_arm1": 3,
+      "aa_selflink_arm0": 50,
+      "eliminated_arm1": 50,
+      "still_arm1": 0,
+      "eliminated_arm2": 50,
+      "g1_rate": 1,
+      "new_rules_arm1": [],
+      "aa_increased": false,
+      "added_strings": 0,
+      "survival": {
+        "wanted": 227,
+        "alive": 227
+      },
+      "rewritten": 227,
+      "lost_targets_arm3": 227
+    },
+    {
+      "url": "https://h4m5t.top/SecNotes",
+      "host": "h4m5t.top",
+      "aa_arm0": 28,
+      "aa_arm1": 2,
+      "aa_selflink_arm0": 26,
+      "eliminated_arm1": 26,
+      "still_arm1": 0,
+      "eliminated_arm2": 26,
+      "g1_rate": 1,
+      "new_rules_arm1": [],
+      "aa_increased": false,
+      "added_strings": 0,
+      "survival": {
+        "wanted": 26,
+        "alive": 26
+      },
+      "rewritten": 26,
+      "lost_targets_arm3": 26
+    }
+  ]
+}
+wrote /home/ubuntu/think-free/EXPERIMENTS/200-line-anchor-rewrite/gates.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 39812  redactions: none
+==============================================================================
+[seq 12] 2026-10-20T13:39:57+00:00
+$ node -e console.log(require.resolve('jsdom'))
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+node:internal/modules/cjs/loader:1228
+  throw err;
+  ^
+
+Error: Cannot find module 'jsdom'
+Require stack:
+- /home/ubuntu/think-free/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1225:15)
+    at Function.resolve (node:internal/modules/helpers:146:19)
+    at [eval]:1:21
+    at runScriptInThisContext (node:internal/vm:209:10)
+    at node:internal/process/execution:449:12
+    at [eval]-wrapper:6:24
+    at runScriptInContext (node:internal/process/execution:447:60)
+    at evalFunction (node:internal/process/execution:87:30)
+    at evalScript (node:internal/process/execution:99:3)
+    at node:internal/main/eval_string:74:3 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/home/ubuntu/think-free/[eval]' ]
+}
+
+Node.js v22.14.0
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1113  redactions: none
+==============================================================================
+[seq 13] 2026-10-20T13:46:14+00:00
+$ node EXPERIMENTS/200-line-anchor-rewrite/analyze.js
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+node:internal/modules/cjs/loader:1228
+  throw err;
+  ^
+
+Error: Cannot find module 'jsdom'
+Require stack:
+- /home/ubuntu/think-free/EXPERIMENTS/200-line-anchor-rewrite/analyze.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1225:15)
+    at Function._load (node:internal/modules/cjs/loader:1055:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:220:24)
+    at Module.require (node:internal/modules/cjs/loader:1311:12)
+    at require (node:internal/modules/helpers:136:16)
+    at Object.<anonymous> (/home/ubuntu/think-free/EXPERIMENTS/200-line-anchor-rewrite/analyze.js:8:19)
+    at Module._compile (node:internal/modules/cjs/loader:1554:14)
+    at Object..js (node:internal/modules/cjs/loader:1706:10)
+    at Module.load (node:internal/modules/cjs/loader:1289:32) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/ubuntu/think-free/EXPERIMENTS/200-line-anchor-rewrite/analyze.js'
+  ]
+}
+
+Node.js v22.14.0
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1987  redactions: none
+==============================================================================
+[seq 14] 2026-10-20T13:54:07+00:00
+$ node EXPERIMENTS/200-line-anchor-rewrite/analyze.js
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "k1_oracle_sees_css": {
+    "bare_reported_without_and_with_css": true,
+    "css_hidden_not_reported": true,
+    "arm0_link_name": 3,
+    "arm2_link_name": 1,
+    "pass": true
+  },
+  "g1_elimination": {
+    "aa_selflink_instances": 83,
+    "eliminated_by_arm1": 83,
+    "still_reported": 0,
+    "rate": 1,
+    "declared": ">= 0.90",
+    "kill": "< 0.60"
+  },
+  "g2_no_fabrication": {
+    "added_strings": 0,
+    "declared": "0",
+    "pass": true
+  },
+  "g3_no_regression": {
+    "new_rules": [],
+    "pages_with_aa_increase": [],
+    "pass": true
+  },
+  "g5_target_survival": {
+    "wanted": 260,
+    "alive": 260,
+    "rate": 1,
+    "declared": "1.0"
+  },
+  "baseline_dominance": {
+    "class_instances": 83,
+    "eliminated_by_arm1": 83,
+    "eliminated_by_arm2_css": 83,
+    "arm2_equals_arm1": true,
+    "note": "declared in PROTOCOL.md: if K1 passes and arm 2 removes as much of the class as arm 1, arm 1 is dominated"
+  },
+  "arm3_price": {
+    "targets_destroyed": 260
+  },
+  "population": {
+    "qualifying_pages": 3,
+    "hosts": 3
+  },
+  "per_page": [
+    {
+      "url": "https://johnthagen.github.io/python-blueprint/",
+      "host": "johnthagen.github.io",
+      "aa_arm0": 8,
+      "aa_arm1": 1,
+      "aa_selflink_arm0": 7,
+      "eliminated_arm1": 7,
+      "still_arm1": 0,
+      "eliminated_arm2": 7,
+      "g1_rate": 1,
+      "new_rules_arm1": [],
+      "aa_increased": false,
+      "added_strings": 0,
+      "survival": {
+        "wanted": 7,
+        "alive": 7
+      },
+      "rewritten": 7,
+      "lost_targets_arm3": 7
+    },
+    {
+      "url": "https://fasthttp.ndugram.dev",
+      "host": "fasthttp.ndugram.dev",
+      "aa_arm0": 53,
+      "aa_arm1": 3,
+      "aa_selflink_arm0": 50,
+      "eliminated_arm1": 50,
+      "still_arm1": 0,
+      "eliminated_arm2": 50,
+      "g1_rate": 1,
+      "new_rules_arm1": [],
+      "aa_increased": false,
+      "added_strings": 0,
+      "survival": {
+        "wanted": 227,
+        "alive": 227
+      },
+      "rewritten": 227,
+      "lost_targets_arm3": 227
+    },
+    {
+      "url": "https://h4m5t.top/SecNotes",
+      "host": "h4m5t.top",
+      "aa_arm0": 28,
+      "aa_arm1": 2,
+      "aa_selflink_arm0": 26,
+      "eliminated_arm1": 26,
+      "still_arm1": 0,
+      "eliminated_arm2": 26,
+      "g1_rate": 1,
+      "new_rules_arm1": [],
+      "aa_increased": false,
+      "added_strings": 0,
+      "survival": {
+        "wanted": 26,
+        "alive": 26
+      },
+      "rewritten": 26,
+      "lost_targets_arm3": 26
+    }
+  ]
+}
+wrote /home/ubuntu/think-free/EXPERIMENTS/200-line-anchor-rewrite/gates.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 104599  redactions: none
+==============================================================================
+[seq 15] 2026-10-20T14:41:41+00:00
+$ bash -c kill 968330 974635 968329 974621 2>/dev/null; sleep 2; ps -o pid,etime,cmd -p 968330,974635,987243 2>/dev/null || true
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+    PID     ELAPSED CMD
+ 987243       51:58 node EXPERIMENTS/200-line-anchor-rewrite/sweep.js
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2208  redactions: none
+==============================================================================
+[seq 16] 2026-10-20T14:54:08+00:00
+$ bash -c curl -sS -H "User-Agent: think-free-research" https://facelessuser.github.io/pymdown-extensions/extensions/highlight/ -o EXPERIMENTS/200-line-anchor-rewrite/raw/pymdown-highlight-docs.html -w "%{http_code}\n"; sha256sum EXPERIMENTS/200-line-anchor-rewrite/raw/pymdown-highlight-docs.html
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+200
+b1e61eeab1caa9c5f529cefffee593971c7017fb1eeafc52dc4f749ded21f404  EXPERIMENTS/200-line-anchor-rewrite/raw/pymdown-highlight-docs.html
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1802  redactions: none
+==============================================================================
+[seq 17] 2026-10-20T15:22:19+00:00
+$ bash /tmp/opencode/e200-priorart2.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+200 pa-codelineno-visibility.json
+200 pa-anchor-linenums-a11y.json
+200 pa-linkname-codelineno.json
+200 pa-codelineno-remove.json
+200 pa-repos-codelineno.json
+pa-codelineno-visibility total= 7
+   None | 
+   None | 
+   None | 
+   None | 
+   None | 
+   None | 
+pa-anchor-linenums-a11y total= 19
+   None | 
+   None | 
+   None | 
+   None | 
+   None | 
+   None | 
+pa-linkname-codelineno total= 9
+   None | 
+   None | 
+   None | 
+   None | 
+   None | 
+   None | 
+pa-codelineno-remove total= 53
+   None | 
+   None | 
+   None | 
+   None | 
+   None | 
+   None | 
+pa-repos-codelineno total= 0
+9e91ee0788bf9453538959295032f1c7d051c485a06dc4a5d99dbad62a653dfb  EXPERIMENTS/200-line-anchor-rewrite/raw/pa-anchor-linenums-a11y.json
+f2b225b3e8e72e8dca357652e98117205d08025e0609f56d5dcd5a99d8bc183d  EXPERIMENTS/200-line-anchor-rewrite/raw/pa-codelineno-remove.json
+6137e79264ac9db2a2b266eb50c4373eb4cd0c899c968329f3c5916d77ae6264  EXPERIMENTS/200-line-anchor-rewrite/raw/pa-codelineno-visibility.json
+e9762fa3785fb48b21165d3aa28ce9f32b1dd141341a815651f262efb5961941  EXPERIMENTS/200-line-anchor-rewrite/raw/pa-linkname-codelineno.json
+4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f  EXPERIMENTS/200-line-anchor-rewrite/raw/pa-repos-codelineno.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 39887  redactions: none
+==============================================================================
+[seq 19] 2026-10-20T16:21:33+00:00
+$ bash -c cd EXPERIMENTS/200-line-anchor-rewrite; SWARD=0 SWN=3 node shard-sweep.js >/tmp/opencode/e200-s0.log 2>&1 & a=$!; SWARD=1 SWN=3 node shard-sweep.js >/tmp/opencode/e200-s1.log 2>&1 & b=$!; SWARD=2 SWN=3 node shard-sweep.js >/tmp/opencode/e200-s2.log 2>&1 & c=$!; wait $a; ea=$?; wait $b; eb=$?; wait $c; ec=$?; echo "shard exits: $ea $eb $ec"; tail -n 3 /tmp/opencode/e200-s0.log /tmp/opencode/e200-s1.log /tmp/opencode/e200-s2.log; exit $((ea|eb|ec))
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+shard exits: 0 0 0
+==> /tmp/opencode/e200-s0.log <==
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+shard 0: +11/11 (record 11)
+shard 0 done: 9/11 ok, 11 run this invocation
+
+==> /tmp/opencode/e200-s1.log <==
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+shard 1: +11/11 (record 11)
+shard 1 done: 11/11 ok, 11 run this invocation
+
+==> /tmp/opencode/e200-s2.log <==
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+shard 2: +10/10 (record 10)
+shard 2 done: 9/10 ok, 10 run this invocation
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2420652  redactions: none
+==============================================================================
+[seq 20] 2026-10-20T16:31:26+00:00
+$ node EXPERIMENTS/200-line-anchor-rewrite/merge-g0.js
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "g0_clause1": {
+    "declared": "axe completes on >= 0.90 of fetched pages",
+    "declared_denominator": "D200 (HTTP 200), AMENDMENT-2",
+    "readings": {
+      "with_retry_supersession": {
+        "D200": {
+          "records": {
+            "num": 76,
+            "den": 79,
+            "rate": 0.962025
+          },
+          "files": {
+            "num": 70,
+            "den": 73,
+            "rate": 0.958904
+          },
+          "never_handed": 0
+        },
+        "DALL": {
+          "records": {
+            "num": 77,
+            "den": 98,
+            "rate": 0.785714
+          },
+          "files": {
+            "num": 70,
+            "den": 85,
+            "rate": 0.823529
+          },
+          "never_handed": 12
+        },
+        "DBODY": {
+          "records": {
+            "num": 76,
+            "den": 94,
+            "rate": 0.808511
+          },
+          "files": {
+            "num": 70,
+            "den": 82,
+            "rate": 0.853659
+          },
+          "never_handed": 9
+        }
+      },
+      "literal_no_supersession": {
+        "D200": {
+          "records": {
+            "num": 75,
+            "den": 79,
+            "rate": 0.949367
+          },
+          "files": {
+            "num": 69,
+            "den": 73,
+            "rate": 0.945205
+          },
+          "never_handed": 0
+        },
+        "DALL": {
+          "records": {
+            "num": 76,
+            "den": 98,
+            "rate": 0.77551
+          },
+          "files": {
+            "num": 69,
+            "den": 85,
+            "rate": 0.811765
+          },
+          "never_handed": 12
+        },
+        "DBODY": {
+          "records": {
+            "num": 75,
+            "den": 94,
+            "rate": 0.797872
+          },
+          "files": {
+            "num": 69,
+            "den": 82,
+            "rate": 0.841463
+          },
+          "never_handed": 9
+        }
+      }
+    },
+    "verdict_line": {
+      "reading_used": "with_retry_supersession (AMENDMENT-3 §1)",
+      "D200_records": {
+        "num": 76,
+        "den": 79,
+        "rate": 0.962025
+      },
+      "D200_files": {
+        "num": 70,
+        "den": 73,
+        "rate": 0.958904
+      },
+      "pass": true,
+      "literal_D200_files": {
+        "num": 69,
+        "den": 73,
+        "rate": 0.945205
+      }
+    },
+    "timeout_files": [
+      {
+        "file": "pages/005-github.com.html",
+        "attempts": 2,
+        "error": "axe timeout",
+        "attempts_by": [
+          "main",
+          "part0"
+        ]
+      },
+      {
+        "file": "pages/011-python-dev.best-of.org.html",
+        "attempts": 2,
+        "error": "axe timeout",
+        "attempts_by": [
+          "main",
+          "part2"
+        ]
+      },
+      {
+        "file": "pages/054-smilingwayne.github.io.html",
+        "attempts": 1,
+        "error": "axe timeout",
+        "attempts_by": [
+          "part0"
+        ]
+      }
+    ]
+  },
+  "g0_clause2": {
+    "declared": ">= 8 qualifying pages hold >= 1 AA-tagged instance",
+    "qualifying_pages": 3,
+    "qualifying_with_aa": 3,
+    "pass": false,
+    "note": "denominator is capped by the corpus: only 3 qualifying pages exist (G4)"
+  },
+  "g4_population": {
+    "declared": ">= 12 qualifying pages across >= 6 hosts",
+    "qualifying_pages": 3,
+    "hosts": 3,
+    "pass": false,
+    "stage1": {
+      "fetched": 69,
+      "http200": 65,
+      "qualifying": 3,
+      "hosts": 3
+    },
+    "stage2": {
+      "targets": 29,
+      "fetched": 29,
+      "http200": 14,
+      "qualifying": 0
+    }
+  },
+  "merge": {
+    "records_total": 82,
+    "distinct_files_with_sweep": 73,
+    "merged_records": 73,
+    "duplicate_files": 9,
+    "completed_run_disagreements": 0,
+    "completed_disagreement_detail": [],
+    "retry_pairs": [
+      {
+        "file": "pages/006-aws-nuke.ekristen.dev.html",
+        "records": [
+          "main:axe timeout",
+          "part1:ok"
+        ]
+      }
+    ],
+    "files_blocking_literal_merge": [
+      "pages/006-aws-nuke.ekristen.dev.html"
+    ],
+    "manifest_records": 98,
+    "manifest_distinct_files": 85
+  },
+  "engine": [
+    "4.14.0"
+  ]
+}
+wrote results-g0.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 755  redactions: none

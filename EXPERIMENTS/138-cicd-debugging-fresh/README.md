@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: EXPERIMENTS/INDEX.md
+status: active
+last-verified: 2026-10-21
+-->
+
 # E138 — Fresh observation: CI/CD pipeline debugging needs on CircleCI Discourse
 
 **Date:** 2026-10-13 · **Status:** Complete — all gates measured

@@ -48,7 +48,7 @@ owning index and what it is for.
 | I want to | Read |
 |---|---|
 | Know where things stand | [`STATE.md`](STATE.md) |
-| See what the last session concluded and what it left open | [`SESSION_OUTCOME.md`](SESSION_OUTCOME.md) |
+| See what the last session concluded and what it left open | [`sessions/INDEX.md`](sessions/INDEX.md) |
 | Work on this repository as an agent | [`AGENTS.md`](AGENTS.md) |
 | Understand the rules | [`AGENTS.md`](AGENTS.md), then [`docs/INDEX.md`](docs/INDEX.md) |
 | See what was investigated | [`RESEARCH.md`](RESEARCH.md), [`RESEARCH/`](RESEARCH/) |

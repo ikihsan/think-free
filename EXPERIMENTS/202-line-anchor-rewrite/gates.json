@@ -1,0 +1,109 @@
+{
+  "k1_oracle_sees_css": {
+    "bare_reported_without_and_with_css": true,
+    "css_hidden_not_reported": true,
+    "arm0_link_name": 3,
+    "arm2_link_name": 1,
+    "pass": true
+  },
+  "g1_elimination": {
+    "aa_selflink_instances": 83,
+    "eliminated_by_arm1": 83,
+    "still_reported": 0,
+    "rate": 1,
+    "declared": ">= 0.90",
+    "kill": "< 0.60"
+  },
+  "g2_no_fabrication": {
+    "added_strings": 0,
+    "declared": "0",
+    "pass": true
+  },
+  "g3_no_regression": {
+    "new_rules": [],
+    "pages_with_aa_increase": [],
+    "pass": true
+  },
+  "g5_target_survival": {
+    "wanted": 260,
+    "alive": 260,
+    "rate": 1,
+    "declared": "1.0"
+  },
+  "baseline_dominance": {
+    "class_instances": 83,
+    "eliminated_by_arm1": 83,
+    "eliminated_by_arm2_css": 83,
+    "arm2_equals_arm1": true,
+    "note": "declared in PROTOCOL.md: if K1 passes and arm 2 removes as much of the class as arm 1, arm 1 is dominated"
+  },
+  "arm3_price": {
+    "targets_destroyed": 260
+  },
+  "population": {
+    "qualifying_pages": 3,
+    "hosts": 3
+  },
+  "per_page": [
+    {
+      "url": "https://johnthagen.github.io/python-blueprint/",
+      "host": "johnthagen.github.io",
+      "aa_arm0": 8,
+      "aa_arm1": 1,
+      "aa_selflink_arm0": 7,
+      "eliminated_arm1": 7,
+      "still_arm1": 0,
+      "eliminated_arm2": 7,
+      "g1_rate": 1,
+      "new_rules_arm1": [],
+      "aa_increased": false,
+      "added_strings": 0,
+      "survival": {
+        "wanted": 7,
+        "alive": 7
+      },
+      "rewritten": 7,
+      "lost_targets_arm3": 7
+    },
+    {
+      "url": "https://fasthttp.ndugram.dev",
+      "host": "fasthttp.ndugram.dev",
+      "aa_arm0": 53,
+      "aa_arm1": 3,
+      "aa_selflink_arm0": 50,
+      "eliminated_arm1": 50,
+      "still_arm1": 0,
+      "eliminated_arm2": 50,
+      "g1_rate": 1,
+      "new_rules_arm1": [],
+      "aa_increased": false,
+      "added_strings": 0,
+      "survival": {
+        "wanted": 227,
+        "alive": 227
+      },
+      "rewritten": 227,
+      "lost_targets_arm3": 227
+    },
+    {
+      "url": "https://h4m5t.top/SecNotes",
+      "host": "h4m5t.top",
+      "aa_arm0": 28,
+      "aa_arm1": 2,
+      "aa_selflink_arm0": 26,
+      "eliminated_arm1": 26,
+      "still_arm1": 0,
+      "eliminated_arm2": 26,
+      "g1_rate": 1,
+      "new_rules_arm1": [],
+      "aa_increased": false,
+      "added_strings": 0,
+      "survival": {
+        "wanted": 26,
+        "alive": 26
+      },
+      "rewritten": 26,
+      "lost_targets_arm3": 26
+    }
+  ]
+}

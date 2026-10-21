@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-20
+last-verified: 2026-10-21
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -416,15 +416,15 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/130-preflight-adapter-third-harness/` | `EXPERIMENTS/README.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10, instance-20260717-0947. |
 | `EXPERIMENTS/130-preflight-third-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
 | `EXPERIMENTS/131-preflight-fourth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
-| `EXPERIMENTS/131-viewcount-java-repos-matched-harvest/` | `—` | — | — | 1 documents |
+| `EXPERIMENTS/131-viewcount-java-repos-matched-harvest/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-21 | 1 documents |
 | `EXPERIMENTS/132-preflight-fifth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
-| `EXPERIMENTS/132-viewcount-rust-repos-matched-harvest/` | `—` | — | — | 1 documents |
+| `EXPERIMENTS/132-viewcount-rust-repos-matched-harvest/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-21 | 1 documents |
 | `EXPERIMENTS/133-preflight-sixth-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
 | `EXPERIMENTS/134-preflight-real-run/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 6 documents |
 | `EXPERIMENTS/135-preflight-leaderboard-reach/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/135-preflight-seventh-harness/` | `docs/INDEX.md` | active | 2026-10-13 | observed 2026-10-13, Python 3.8.10. |
 | `EXPERIMENTS/136-leaderboard-free-text-aggregate/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
-| `EXPERIMENTS/136-ultraeval-adapter/` | `—` | — | — | Measures the adapter size for UltraEval-Audio harness output format. |
+| `EXPERIMENTS/136-ultraeval-adapter/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-21 | Measures the adapter size for UltraEval-Audio harness output format. |
 | `EXPERIMENTS/137-leaderboard-cross-model-agreement/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/137-preflight-demand-validation/` | `EXPERIMENTS/README.md` | active | 2026-10-13 | 3 documents |
 | `EXPERIMENTS/137-preflight-prototype-release/` | `docs/INDEX.md` | active | 2026-10-13 | Status: Prototype — tool + per-harness adapters confirmed operational across two harness formats |
@@ -488,6 +488,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/197-recipient-read-extension/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 1 documents |
 | `EXPERIMENTS/198-recipient-read/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-19 | 2 documents |
 | `EXPERIMENTS/199-viewcount-matched-harvest-fresh-observation/` | `docs/INDEX.md` | active | 2026-10-15 | 1 documents |
+| `EXPERIMENTS/202-line-anchor-rewrite/` | `docs/INDEX.md` | active | 2026-10-20 | 6 documents |
 | `EXPERIMENTS/E130-viewcount-classifier-prototype-v3/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 2 documents |
 | `EXPERIMENTS/E148-github-repo-viewcount/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
 | `EXPERIMENTS/E149-github-repo-viewcount-followup/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-15 | 1 documents |
@@ -499,9 +500,16 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/E173-github-discussions-viewcount/` | `docs/INDEX.md` | active | 2026-10-16 | 2 documents |
 | `EXPERIMENTS/E179-math-se-ask-patterns/` | `docs/INDEX.md` | active | 2026-10-17 | 1 documents |
 | `EXPERIMENTS/E180-pubdev-viewcount/` | `docs/INDEX.md` | active | 2026-10-17 | 2 documents |
+| `EXPERIMENTS/E203-github-repos-viewcount-20261020201751/` | `docs/INDEX.md` | active | 2026-10-20 | 1 documents |
+| `EXPERIMENTS/E204-sbir-spending-category-screen/` | `docs/INDEX.md` | active | 2026-10-20 | 1 documents |
+| `EXPERIMENTS/E205-crate-io-viewcount/` | `docs/INDEX.md` | active | 2026-10-20 | 1 documents |
+| `EXPERIMENTS/E206-sbir-subsegment-category101/` | `docs/INDEX.md` | active | 2026-10-20 | 1 documents |
+| `EXPERIMENTS/E207-sbir-category101-census/` | `docs/INDEX.md` | active | 2026-10-21 | 2 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/e138-viewcount-discrimination/` | `docs/INDEX.md` | active | 2026-10-14 | 1 documents |
+| `EXPERIMENTS/e203-project-evaluation/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-20 | 1 documents |
+| `EXPERIMENTS/nih-sbir-multi-category-screen/` | `docs/INDEX.md` | active | 2026-10-20 | 1 documents |
 | `EXPERIMENTS/preflight-adoption-interest.md/` | `EXPERIMENTS/README.md` | active | 2026-10-14 | 1 documents |
 | `EXPERIMENTS/synthesis-view-count-final.md/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/synthesis-view-count-principle.md/` | `EXPERIMENTS/PLAN.md` | withdrawn | 2026-10-10 | 1 documents |

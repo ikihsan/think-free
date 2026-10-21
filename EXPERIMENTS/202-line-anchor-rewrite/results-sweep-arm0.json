@@ -1,0 +1,6981 @@
+{
+ "arm": 0,
+ "engine": {
+  "name": "axe-core",
+  "version": "4.14.0"
+ },
+ "pages": [
+  {
+   "url": "https://squidfunk.github.io/mkdocs-material/",
+   "file": "pages/000-squidfunk.github.io.html",
+   "qualifies": false,
+   "n": 8,
+   "wcag": 2,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "landmark-unique",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__toc"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle\" type=\"checkbox\" id=\"__toc\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      "nav[aria-labelledby=\"__nav_2_9_label\"]"
+     ],
+     "html": "<nav class=\"md-nav\" data-md-level=\"2\" aria-labelledby=\"__nav_2_9_label\" aria-expanded=\"false\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-hero__inner"
+     ],
+     "html": "<div class=\"mdx-hero__inner\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "img[src$=\"wall.png\"]"
+     ],
+     "html": "<img src=\"assets/images/wall.png\" alt=\"Trusted in the industry\" class=\"mdx-parallax__image\" width=\"3840\" height=\"1200\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://www.mkdocs.org",
+   "file": "pages/001-www.mkdocs.org.html",
+   "qualifies": false,
+   "n": 3,
+   "wcag": 1,
+   "rules": [
+    "button-name",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "button-name",
+     "impact": "critical",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.9.1"
+     ],
+     "help": "Buttons must have discernible text",
+     "target": [
+      "button[data-target=\"#navbar-collapse\"]"
+     ],
+     "html": "<button type=\"button\" class=\"navbar-toggler\" data-toggle=\"collapse\" data-target=\"#navbar-collapse\">\n                    <span class=\"navbar-toggler-icon\"></span>\n                </button>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".navbar-brand"
+     ],
+     "html": "<a class=\"navbar-brand\" href=\".\">MkDocs</a>",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#navbar-collapse"
+     ],
+     "html": "<div id=\"navbar-collapse\" class=\"navbar-collapse collapse\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://mkdocstrings.github.io/",
+   "file": "pages/002-mkdocstrings.github.io.html",
+   "qualifies": false,
+   "n": 5,
+   "wcag": 2,
+   "rules": [
+    "aria-prohibited-attr",
+    "landmark-unique",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-prohibited-attr",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "help": "Elements must only use permitted ARIA attributes",
+     "target": [
+      ".md-header__button[aria-label=\"Navigation\"][for=\"__drawer\"]"
+     ],
+     "html": "<label class=\"md-header__button md-icon\" for=\"__drawer\" aria-label=\"Navigation\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "aria-prohibited-attr",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "help": "Elements must only use permitted ARIA attributes",
+     "target": [
+      "label[for=\"__search\"]"
+     ],
+     "html": "<label class=\"md-header__button md-icon\" for=\"__search\" aria-label=\"Search\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      "nav[aria-labelledby=\"__nav_1_label\"]"
+     ],
+     "html": "<nav class=\"md-nav\" data-md-level=\"1\" aria-labelledby=\"__nav_1_label\" aria-expanded=\"true\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://dongweiming.github.io/wechat-admin/",
+   "file": "pages/003-dongweiming.github.io.html",
+   "qualifies": false,
+   "n": 6,
+   "wcag": 2,
+   "rules": [
+    "heading-order",
+    "label",
+    "landmark-unique",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Heading levels should only increase by one",
+     "target": [
+      "#_1"
+     ],
+     "html": "<h3 id=\"_1\">欢迎扫码体验：</h3>",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"search\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#toc"
+     ],
+     "html": "<input class=\"md-toggle md-nav__toggle\" data-md-toggle=\"toc\" type=\"checkbox\" id=\"toc\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-header-nav"
+     ],
+     "html": "<nav class=\"md-header-nav md-grid\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"drawer\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"search\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://ac-wiki.org",
+   "file": "pages/004-ac-wiki.org.html",
+   "qualifies": false,
+   "n": 14,
+   "wcag": 5,
+   "rules": [
+    "aria-dialog-name",
+    "aria-progressbar-name",
+    "label",
+    "landmark-unique",
+    "link-name",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "aria-progressbar-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag111",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "ARIA progressbar nodes must have an accessible name",
+     "target": [
+      ".md-progress"
+     ],
+     "html": "<div class=\"md-progress\" data-md-component=\"progress\" role=\"progressbar\"></div>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"目录\"]"
+     ],
+     "html": "<nav class=\"md-nav md-nav--secondary\" aria-label=\"目录\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"目录\"] > .md-nav__list[data-md-component=\"toc\"][data-md-scrollfix=\"\"] > .md-nav__item:nth-child(2) > .md-nav[aria-label=\"📚 内容导航\"]"
+     ],
+     "html": "<nav class=\"md-nav\" aria-label=\"📚 内容导航\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"目录\"] > .md-nav__list[data-md-component=\"toc\"][data-md-scrollfix=\"\"] > .md-nav__item:nth-child(6) > .md-nav[aria-label=\"🙏 致谢\"]"
+     ],
+     "html": "<nav class=\"md-nav\" aria-label=\"🙏 致谢\">\n      <ul class=\"md-nav__list\">\n        \n          <li class=\"md-nav__item\">\n  <a href=\"#_10\" class=\"md-nav__link\">\n    <span class=\"md-ellipsis\">\n      生活健康\n    </span>\n  </a>\n  \n</li>\n        \n      </ul>\n    </nav>",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      "nav[aria-labelledby=\"__nav_3_label\"]"
+     ],
+     "html": "<nav class=\"md-nav\" data-md-level=\"1\" aria-labelledby=\"__nav_3_label\" aria-expanded=\"false\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      "nav[aria-labelledby=\"__nav_3_3_6_label\"]"
+     ],
+     "html": "<nav class=\"md-nav\" data-md-level=\"3\" aria-labelledby=\"__nav_3_3_6_label\" aria-expanded=\"false\">",
+     "wcag": []
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      "article > div[align=\"center\"] > a:nth-child(1)"
+     ],
+     "html": "<a href=\"https://github.com/Ac-Wiki/Ac-Wiki\">\n    </a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      "div[align=\"center\"]:nth-child(8) > a:nth-child(1)"
+     ],
+     "html": "<a href=\"https://github.com/Ac-Wiki/Ac-Wiki/graphs/contributors\">\n    </a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      "div[align=\"center\"]:nth-child(14) > a:nth-child(2)"
+     ],
+     "html": "<a href=\"https://edgeone.ai/zh?from=github\">\n    </a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".md-progress"
+     ],
+     "html": "<div class=\"md-progress\" data-md-component=\"progress\" role=\"progressbar\"></div>",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://github.com/marketplace/actions/github-pages-action",
+   "file": "pages/005-github.com.html",
+   "qualifies": false,
+   "error": "axe timeout"
+  },
+  {
+   "url": "https://aws-nuke.ekristen.dev",
+   "file": "pages/006-aws-nuke.ekristen.dev.html",
+   "qualifies": false,
+   "error": "axe timeout"
+  },
+  {
+   "url": "https://readthedocs.org/",
+   "file": "pages/007-readthedocs.org.html",
+   "qualifies": false,
+   "n": 2,
+   "wcag": 0,
+   "rules": [
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".attached.fitted.basic"
+     ],
+     "html": "<div class=\"ui basic fitted attached segment\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#signup-modal"
+     ],
+     "html": "<div class=\"ui modal\" id=\"signup-modal\" data-module=\"modal\" data-inverted=\"true\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://www.privacyguides.org",
+   "file": "pages/009-www.privacyguides.org.html",
+   "qualifies": false,
+   "n": 25,
+   "wcag": 1,
+   "rules": [
+    "heading-order",
+    "label",
+    "landmark-unique",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Heading levels should only increase by one",
+     "target": [
+      ".mdx-why-care.mdx-parallax__group:nth-child(1) > .md-content.md-grid[data-md-component=\"content\"] > .md-content__inner > .mdx-expect > .mdx-expect__list > .mdx-expect__item.md-typeset:nth-child(1) > .mdx-expect__description > h3"
+     ],
+     "html": "<h3><a href=\"/news/2026/10/19/leaked-document-suggests-cellebrite-can-wirelessly-exploit-iphones/\">Leaked Document Suggests Cellebrite Can Wirelessly Exploit iPhones</a></h3>",
+     "wcag": []
+    },
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Heading levels should only increase by one",
+     "target": [
+      ".mdx-why-care.mdx-parallax__group:nth-child(7) > .md-content.md-grid[data-md-component=\"content\"] > .md-content__inner > .mdx-expect > .mdx-expect__list > .mdx-expect__item.md-typeset:nth-child(1) > .mdx-expect__description > h3"
+     ],
+     "html": "<h3><a href=\"/press-releases/2026/03/03/privacy-guides-launches-a-new-activism-section/\">Privacy Guides launches a new Activism section</a></h3>",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-header__inner"
+     ],
+     "html": "<nav class=\"md-header__inner md-grid\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-container"
+     ],
+     "html": "<section class=\"mdx-container\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-why-care.mdx-parallax__group:nth-child(1) > .md-content.md-grid[data-md-component=\"content\"] > .md-content__inner > .mdx-expect > .mdx-expect__list > .mdx-expect__item.md-typeset:nth-child(1) > .mdx-expect__description"
+     ],
+     "html": "<div class=\"mdx-expect__description\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-why-care.mdx-parallax__group:nth-child(1) > .md-content.md-grid[data-md-component=\"content\"] > .md-content__inner > .mdx-expect > .mdx-expect__list > .mdx-expect__item.md-typeset:nth-child(2) > .mdx-expect__description"
+     ],
+     "html": "<div class=\"mdx-expect__description\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-parallax__group:nth-child(2)"
+     ],
+     "html": "<section class=\"mdx-parallax__group\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".md-content__inner > header"
+     ],
+     "html": "<header class=\"md-typeset\">\n        <h2>\n          Latest Privacy &amp; Security Headlines\n        </h2>\n      </header>",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-why-care[data-md-color-scheme=\"slate\"][data-md-color-primary=\"indigo\"]:nth-child(3) > .md-content.md-grid[data-md-component=\"content\"] > .md-content__inner > .mdx-expect > .mdx-expect__list > .mdx-expect__item.md-typeset:nth-child(1) > .mdx-expect__description"
+     ],
+     "html": "<div class=\"mdx-expect__description\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-why-care[data-md-color-scheme=\"slate\"][data-md-color-primary=\"indigo\"]:nth-child(3) > .md-content.md-grid[data-md-component=\"content\"] > .md-content__inner > .mdx-expect > .mdx-expect__list > .mdx-expect__item.md-typeset:nth-child(2) > .mdx-expect__description"
+     ],
+     "html": "<div class=\"mdx-expect__description\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-why-care[data-md-color-scheme=\"slate\"][data-md-color-primary=\"indigo\"]:nth-child(3) > .md-content.md-grid[data-md-component=\"content\"] > .md-content__inner > .mdx-expect > .mdx-expect__list > .mdx-expect__item.md-typeset:nth-child(3) > .mdx-expect__description"
+     ],
+     "html": "<div class=\"mdx-expect__description\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-why-care[data-md-color-scheme=\"slate\"][data-md-color-primary=\"indigo\"]:nth-child(3) > .md-content.md-grid[data-md-component=\"content\"] > .md-content__inner > .mdx-expect > .mdx-expect__list > .mdx-expect__item.md-typeset:nth-child(4) > .mdx-expect__description"
+     ],
+     "html": "<div class=\"mdx-expect__description\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-why-care[data-md-color-scheme=\"slate\"][data-md-color-primary=\"indigo\"]:nth-child(3) > .md-content.md-grid[data-md-component=\"content\"] > .md-content__inner > .md-post__meta.md-meta"
+     ],
+     "html": "<div class=\"md-post__meta md-meta\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-parallax__group:nth-child(4)"
+     ],
+     "html": "<section class=\"mdx-parallax__group\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-why-care[data-md-color-scheme=\"slate\"][data-md-color-primary=\"indigo\"]:nth-child(5) > .md-content.md-grid[data-md-component=\"content\"] > .md-content__inner > .mdx-expect > .mdx-expect__list > .mdx-expect__item.md-typeset:nth-child(1) > .mdx-expect__description"
+     ],
+     "html": "<div class=\"mdx-expect__description\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-why-care[data-md-color-scheme=\"slate\"][data-md-color-primary=\"indigo\"]:nth-child(5) > .md-content.md-grid[data-md-component=\"content\"] > .md-content__inner > .mdx-expect > .mdx-expect__list > .mdx-expect__item.md-typeset:nth-child(2) > .mdx-expect__description"
+     ],
+     "html": "<div class=\"mdx-expect__description\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-why-care[data-md-color-scheme=\"slate\"][data-md-color-primary=\"indigo\"]:nth-child(5) > .md-content.md-grid[data-md-component=\"content\"] > .md-content__inner > .mdx-expect > .mdx-expect__list > .mdx-expect__item.md-typeset:nth-child(3) > .mdx-expect__description"
+     ],
+     "html": "<div class=\"mdx-expect__description\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-why-care[data-md-color-scheme=\"slate\"][data-md-color-primary=\"indigo\"]:nth-child(5) > .md-content.md-grid[data-md-component=\"content\"] > .md-content__inner > .mdx-expect > .mdx-expect__list > .mdx-expect__item.md-typeset:nth-child(4) > .mdx-expect__description"
+     ],
+     "html": "<div class=\"mdx-expect__description\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-connect.mdx-parallax__group"
+     ],
+     "html": "<section class=\"mdx-parallax__group mdx-connect\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-why-care.mdx-parallax__group:nth-child(7) > .md-content.md-grid[data-md-component=\"content\"] > .md-content__inner > .mdx-expect > .mdx-expect__list > .mdx-expect__item.md-typeset:nth-child(1) > .mdx-expect__description"
+     ],
+     "html": "<div class=\"mdx-expect__description\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-why-care.mdx-parallax__group:nth-child(7) > .md-content.md-grid[data-md-component=\"content\"] > .md-content__inner > .mdx-expect > .mdx-expect__list > .mdx-expect__item.md-typeset:nth-child(2) > .mdx-expect__description"
+     ],
+     "html": "<div class=\"mdx-expect__description\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".mdx-why-care.mdx-parallax__group:nth-child(7) > .md-content.md-grid[data-md-component=\"content\"] > .md-content__inner > .md-post__meta.md-meta"
+     ],
+     "html": "<div class=\"md-post__meta md-meta\">\n          <ul class=\"md-meta__list\">\n            <li class=\"md-meta__item\">\n              <a href=\"/press-releases/\" class=\"md-meta__link\">\n                See all press releases →\n              </a>\n            </li>\n          </ul>\n        </div>",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://johnthagen.github.io/python-blueprint/",
+   "file": "pages/010-johnthagen.github.io.html",
+   "qualifies": true,
+   "n": 13,
+   "wcag": 8,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "landmark-unique",
+    "link-name",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"]"
+     ],
+     "html": "<nav class=\"md-nav md-nav--secondary\" aria-label=\"Table of contents\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"] > ul[data-md-component=\"toc\"][data-md-scrollfix=\"\"] > .md-nav__item:nth-child(2) > .md-nav[aria-label=\"Quick Start\"]"
+     ],
+     "html": "<nav class=\"md-nav\" aria-label=\"Quick Start\">",
+     "wcag": []
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      "#__codelineno-0-1"
+     ],
+     "html": "<a id=\"__codelineno-0-1\" name=\"__codelineno-0-1\" href=\"#__codelineno-0-1\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      "#__codelineno-1-1"
+     ],
+     "html": "<a id=\"__codelineno-1-1\" name=\"__codelineno-1-1\" href=\"#__codelineno-1-1\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      "#__codelineno-2-1"
+     ],
+     "html": "<a id=\"__codelineno-2-1\" name=\"__codelineno-2-1\" href=\"#__codelineno-2-1\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      "#__codelineno-3-1"
+     ],
+     "html": "<a id=\"__codelineno-3-1\" name=\"__codelineno-3-1\" href=\"#__codelineno-3-1\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      "#__codelineno-4-1"
+     ],
+     "html": "<a id=\"__codelineno-4-1\" name=\"__codelineno-4-1\" href=\"#__codelineno-4-1\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      "#__codelineno-4-2"
+     ],
+     "html": "<a id=\"__codelineno-4-2\" name=\"__codelineno-4-2\" href=\"#__codelineno-4-2\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      "#__codelineno-4-3"
+     ],
+     "html": "<a id=\"__codelineno-4-3\" name=\"__codelineno-4-3\" href=\"#__codelineno-4-3\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://python-dev.best-of.org",
+   "file": "pages/011-python-dev.best-of.org.html",
+   "qualifies": false,
+   "error": "axe timeout"
+  },
+  {
+   "url": "https://mlops-coding-course.fmind.dev/",
+   "file": "pages/012-mlops-coding-course.fmind.dev.html",
+   "qualifies": false,
+   "n": 7,
+   "wcag": 3,
+   "rules": [
+    "aria-prohibited-attr",
+    "landmark-unique",
+    "link-name",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-prohibited-attr",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "help": "Elements must only use permitted ARIA attributes",
+     "target": [
+      ".md-header__button[aria-label=\"Navigation\"][for=\"__drawer\"]"
+     ],
+     "html": "<label class=\"md-header__button md-icon\" for=\"__drawer\" aria-label=\"Navigation\">\n      \n      <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z\"></path></svg>\n    </label>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "aria-prohibited-attr",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "help": "Elements must only use permitted ARIA attributes",
+     "target": [
+      "label[for=\"__search\"]"
+     ],
+     "html": "<label class=\"md-header__button md-icon\" for=\"__search\" aria-label=\"Search\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"On this page\"]"
+     ],
+     "html": "<nav class=\"md-nav md-nav--secondary\" aria-label=\"On this page\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      "nav[aria-labelledby=\"__nav_2_label\"]"
+     ],
+     "html": "<nav class=\"md-nav\" data-md-level=\"1\" aria-labelledby=\"__nav_2_label\" aria-expanded=\"false\">",
+     "wcag": []
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      "a[title=\"\"]"
+     ],
+     "html": "<a href=\"mailto:mlops-coding-course@fmind.dev\" target=\"_blank\" rel=\"noopener\" title=\"\" class=\"md-social__link\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://www.electionguard.vote/",
+   "file": "pages/013-www.electionguard.vote.html",
+   "qualifies": false,
+   "n": 6,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "empty-heading",
+    "label",
+    "landmark-unique",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "empty-heading",
+     "impact": "minor",
+     "tags": [
+      "cat.name-role-value",
+      "best-practice"
+     ],
+     "help": "Headings should not be empty",
+     "target": [
+      "#_1"
+     ],
+     "html": "<h1 id=\"_1\"></h1>",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active.md-nav__item > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"]"
+     ],
+     "html": "<nav class=\"md-nav md-nav--secondary\" aria-label=\"Table of contents\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://lukasgeiter.github.io/mkdocs-awesome-nav/",
+   "file": "pages/014-lukasgeiter.github.io.html",
+   "qualifies": false,
+   "n": 4,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://grok-ai.github.io/nn-template",
+   "file": "pages/015-grok-ai.github.io.html",
+   "qualifies": false,
+   "n": 3,
+   "wcag": 2,
+   "rules": [
+    "html-has-lang",
+    "meta-refresh",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "html-has-lang",
+     "impact": "serious",
+     "tags": [
+      "cat.language",
+      "wcag2a",
+      "wcag311",
+      "TTv5",
+      "TT11.a",
+      "EN-301-549",
+      "EN-9.3.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-8.3.1"
+     ],
+     "help": "<html> element must have a lang attribute",
+     "target": [
+      "html"
+     ],
+     "html": "<html>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "meta-refresh",
+     "impact": "critical",
+     "tags": [
+      "cat.time-and-media",
+      "wcag2a",
+      "wcag221",
+      "TTv5",
+      "TT8.a",
+      "EN-301-549",
+      "EN-9.2.2.1",
+      "RGAAv4",
+      "RGAA-13.1.2"
+     ],
+     "help": "Delayed refresh under 20 hours must not be used",
+     "target": [
+      "meta[http-equiv=\"refresh\"]"
+     ],
+     "html": "<meta http-equiv=\"refresh\" content=\"1; url=latest/\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "a"
+     ],
+     "html": "<a href=\"latest/\">latest/</a>",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "http://niklasrosenstein.github.io/pydoc-markdown/",
+   "file": "pages/016-niklasrosenstein.github.io.html",
+   "qualifies": false,
+   "n": 7,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "heading-order",
+    "label",
+    "landmark-unique",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Heading levels should only increase by one",
+     "target": [
+      "#installation"
+     ],
+     "html": "<h3 id=\"installation\">Installation 📦</h3>",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"]"
+     ],
+     "html": "<nav class=\"md-nav md-nav--secondary\" aria-label=\"Table of contents\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"] > .md-nav__list[data-md-component=\"toc\"][data-md-scrollfix=\"\"] > .md-nav__item:nth-child(3) > .md-nav[aria-label=\"News 📢\"]"
+     ],
+     "html": "<nav class=\"md-nav\" aria-label=\"News 📢\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://mkdocs-jupyter.danielfrg.com",
+   "file": "pages/017-mkdocs-jupyter.danielfrg.com.html",
+   "qualifies": false,
+   "n": 5,
+   "wcag": 2,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__toc"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle\" type=\"checkbox\" id=\"__toc\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://doc2dash.hynek.me/",
+   "file": "pages/018-doc2dash.hynek.me.html",
+   "qualifies": false,
+   "n": 5,
+   "wcag": 2,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__toc"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle\" type=\"checkbox\" id=\"__toc\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://martenbe.github.io/mkslides/",
+   "file": "pages/019-martenbe.github.io.html",
+   "qualifies": false,
+   "n": 4,
+   "wcag": 3,
+   "rules": [
+    "html-has-lang",
+    "label",
+    "meta-viewport",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "html-has-lang",
+     "impact": "serious",
+     "tags": [
+      "cat.language",
+      "wcag2a",
+      "wcag311",
+      "TTv5",
+      "TT11.a",
+      "EN-301-549",
+      "EN-9.3.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-8.3.1"
+     ],
+     "help": "<html> element must have a lang attribute",
+     "target": [
+      "html"
+     ],
+     "html": "<html>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "textarea"
+     ],
+     "html": "<textarea data-template=\"\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "meta-viewport",
+     "impact": "moderate",
+     "tags": [
+      "cat.sensory-and-visual-cues",
+      "wcag2aa",
+      "wcag144",
+      "EN-301-549",
+      "EN-9.1.4.4",
+      "ACT",
+      "RGAAv4",
+      "RGAA-10.4.2"
+     ],
+     "help": "Zooming and scaling must not be disabled",
+     "target": [
+      "meta[name=\"viewport\"]"
+     ],
+     "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\">",
+     "wcag": [
+      "wcag2aa"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".reveal"
+     ],
+     "html": "<div class=\"reveal\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://laravelpackage.com",
+   "file": "pages/020-laravelpackage.com.html",
+   "qualifies": false,
+   "n": 5,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "landmark-unique",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"]"
+     ],
+     "html": "<nav class=\"md-nav md-nav--secondary\" aria-label=\"Table of contents\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://backstage.github.io/mkdocs-monorepo-plugin/",
+   "file": "pages/021-backstage.github.io.html",
+   "qualifies": false,
+   "n": 6,
+   "wcag": 2,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "landmark-unique",
+    "link-name",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"]"
+     ],
+     "html": "<nav class=\"md-nav md-nav--secondary\" aria-label=\"Table of contents\">",
+     "wcag": []
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      "p:nth-child(2) > a:nth-child(1)"
+     ],
+     "html": "<a href=\"https://github.com/backstage/mkdocs-monorepo-plugin/actions\"><img alt=\"\" src=\"https://github.com/backstage/mkdocs-monorepo-plugin/workflows/Build%2C%20Test%20%26%20Deploy/badge.svg\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://ultrabug.github.io/mkdocs-static-i18n/",
+   "file": "pages/022-ultrabug.github.io.html",
+   "qualifies": false,
+   "n": 7,
+   "wcag": 2,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__toc"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle\" type=\"checkbox\" id=\"__toc\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "div[data-md-component=\"skip\"]"
+     ],
+     "html": "<div data-md-component=\"skip\">\n      \n        \n        <a href=\"#mkdocs-static-i18n-plugin\" class=\"md-skip\">\n          Skip to content\n        </a>\n      \n    </div>",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "section"
+     ],
+     "html": "<section class=\"mdx-container\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://note.tonycrane.cc",
+   "file": "pages/023-note.tonycrane.cc.html",
+   "qualifies": false,
+   "n": 5,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "landmark-unique",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input autocomplete=\"off\" class=\"md-toggle\" data-md-toggle=\"search\" id=\"__search\" type=\"checkbox\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      "nav[aria-labelledby=\"__nav_1_label\"]"
+     ],
+     "html": "<nav aria-expanded=\"true\" aria-labelledby=\"__nav_1_label\" class=\"md-nav\" data-md-level=\"1\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input autocomplete=\"off\" class=\"md-toggle\" data-md-toggle=\"drawer\" id=\"__drawer\" type=\"checkbox\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input autocomplete=\"off\" class=\"md-toggle\" data-md-toggle=\"search\" id=\"__search\" type=\"checkbox\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://properdocs.org/",
+   "file": "pages/024-properdocs.org.html",
+   "qualifies": false,
+   "n": 10,
+   "wcag": 0,
+   "rules": [
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".navbar-brand"
+     ],
+     "html": "<a class=\"navbar-brand\" href=\".\">ProperDocs</a>",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".navbar-nav.nav:nth-child(1) > .nav-item:nth-child(1)"
+     ],
+     "html": "<li class=\"nav-item\">\n                                <a href=\".\" class=\"nav-link active\" aria-current=\"page\">Home</a>\n                            </li>",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".navbar-nav.nav:nth-child(1) > .nav-item:nth-child(2)"
+     ],
+     "html": "<li class=\"nav-item\">\n                                <a href=\"getting-started/\" class=\"nav-link\">Getting Started</a>\n                            </li>",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".dropdown.nav-item:nth-child(3) > .dropdown-menu"
+     ],
+     "html": "<ul class=\"dropdown-menu\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".dropdown.nav-item:nth-child(4) > .dropdown-menu"
+     ],
+     "html": "<ul class=\"dropdown-menu\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".navbar-nav.nav:nth-child(1) > .dropdown.nav-item:nth-child(5) > .dropdown-menu"
+     ],
+     "html": "<ul class=\"dropdown-menu\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".ms-md-auto > .nav-item:nth-child(1)"
+     ],
+     "html": "<li class=\"nav-item\">\n                            <a href=\"#\" class=\"nav-link\" data-bs-toggle=\"modal\" data-bs-target=\"#properdocs_search_modal\">\n                                <i class=\"fa fa-search\"></i> Search\n                            </a>\n                        </li>",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".ms-md-auto > .nav-item:nth-child(2)"
+     ],
+     "html": "<li class=\"nav-item\">\n                                <a rel=\"prev\" class=\"nav-link disabled\">\n                                    <i class=\"fa fa-arrow-left\"></i> Previous\n                                </a>\n                            </li>",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".ms-md-auto > .nav-item:nth-child(3)"
+     ],
+     "html": "<li class=\"nav-item\">\n                                <a rel=\"next\" href=\"getting-started/\" class=\"nav-link\">\n                                    Next <i class=\"fa fa-arrow-right\"></i>\n                                </a>\n                            </li>",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".ms-md-auto > .nav-item:nth-child(4)"
+     ],
+     "html": "<li class=\"nav-item\">\n                                <a href=\"https://github.com/properdocs/properdocs/blob/master/docs/index.md\" class=\"nav-link\"><i class=\"fa-brands fa-github\"></i> Edit on GitHub</a>\n                            </li>",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://mkdocs-macros-plugin.readthedocs.io",
+   "file": "pages/025-mkdocs-macros-plugin.readthedocs.io.html",
+   "qualifies": false,
+   "n": 7,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "landmark-unique",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input autocomplete=\"off\" class=\"md-toggle\" data-md-toggle=\"search\" id=\"__search\" type=\"checkbox\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"]"
+     ],
+     "html": "<nav aria-label=\"Table of contents\" class=\"md-nav md-nav--secondary\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"] > .md-nav__list[data-md-component=\"toc\"][data-md-scrollfix=\"\"] > .md-nav__item:nth-child(1) > .md-nav[aria-label=\"Getting started\"]"
+     ],
+     "html": "<nav aria-label=\"Getting started\" class=\"md-nav\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"] > .md-nav__list[data-md-component=\"toc\"][data-md-scrollfix=\"\"] > .md-nav__item:nth-child(2) > .md-nav[aria-label=\"Installation\"]"
+     ],
+     "html": "<nav aria-label=\"Installation\" class=\"md-nav\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input autocomplete=\"off\" class=\"md-toggle\" data-md-toggle=\"drawer\" id=\"__drawer\" type=\"checkbox\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input autocomplete=\"off\" class=\"md-toggle\" data-md-toggle=\"search\" id=\"__search\" type=\"checkbox\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://sobolevbel.github.io/jdg/",
+   "file": "pages/026-sobolevbel.github.io.html",
+   "qualifies": false,
+   "n": 7,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "landmark-unique",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Содержание\"]"
+     ],
+     "html": "<nav class=\"md-nav md-nav--secondary\" aria-label=\"Содержание\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Содержание\"] > .md-nav__list[data-md-component=\"toc\"][data-md-scrollfix=\"\"] > .md-nav__item:nth-child(1) > .md-nav[aria-label=\"С чего начать\"]"
+     ],
+     "html": "<nav class=\"md-nav\" aria-label=\"С чего начать\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Содержание\"] > .md-nav__list[data-md-component=\"toc\"][data-md-scrollfix=\"\"] > .md-nav__item:nth-child(6) > .md-nav[aria-label=\"Альтернативы\"]"
+     ],
+     "html": "<nav class=\"md-nav\" aria-label=\"Альтернативы\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://ntno.github.io/mkdocs-terminal/",
+   "file": "pages/027-ntno.github.io.html",
+   "qualifies": false,
+   "n": 2,
+   "wcag": 0,
+   "rules": [
+    "heading-order",
+    "landmark-unique"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Heading levels should only increase by one",
+     "target": [
+      "#searchModalLabel"
+     ],
+     "html": "<h5 class=\"modal-title\" id=\"searchModalLabel\">Search</h5>",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".terminal-menu"
+     ],
+     "html": "<nav class=\"terminal-menu\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://timvink.github.io/mkdocs-git-revision-date-localized-plugin/index.html",
+   "file": "pages/028-timvink.github.io.html",
+   "qualifies": false,
+   "n": 6,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "landmark-unique",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"]"
+     ],
+     "html": "<nav class=\"md-nav md-nav--secondary\" aria-label=\"Table of contents\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"] > .md-nav__list[data-md-component=\"toc\"][data-md-scrollfix=\"\"] > .md-nav__item:nth-child(1) > .md-nav[aria-label=\"Setup\"]"
+     ],
+     "html": "<nav class=\"md-nav\" aria-label=\"Setup\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://typikonbook.github.io",
+   "file": "pages/029-typikonbook.github.io.html",
+   "qualifies": false,
+   "n": 5,
+   "wcag": 0,
+   "rules": [
+    "label-title-only",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "label-title-only",
+     "impact": "serious",
+     "tags": [
+      "cat.forms",
+      "best-practice"
+     ],
+     "help": "Form elements should have a visible label",
+     "target": [
+      "#search-text"
+     ],
+     "html": "<input type=\"text\" class=\"form-control\" id=\"search-text\" placeholder=\"Full text search...\" aria-describedby=\"basic-addon1\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".d-flex"
+     ],
+     "html": "<a href=\"/index.html\" class=\"d-flex align-items-center justify-content-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom\">\n\t\t\t\t\t\t<span class=\"fs-4 fw-semibold\">Typikon Book</span>\n\t\t\t\t\t</a>",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#search-text"
+     ],
+     "html": "<input type=\"text\" class=\"form-control\" id=\"search-text\" placeholder=\"Full text search...\" aria-describedby=\"basic-addon1\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#chapterList"
+     ],
+     "html": "<ul class=\"list-unstyled ps-0\" id=\"chapterList\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".col-md-8"
+     ],
+     "html": "<div class=\"col-md-8 col-sm-12\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://mkdocs-mermaid2.readthedocs.io",
+   "file": "pages/030-mkdocs-mermaid2.readthedocs.io.html",
+   "qualifies": false,
+   "n": 8,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "landmark-unique",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input autocomplete=\"off\" class=\"md-toggle\" data-md-toggle=\"search\" id=\"__search\" type=\"checkbox\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"]"
+     ],
+     "html": "<nav aria-label=\"Table of contents\" class=\"md-nav md-nav--secondary\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"] > .md-nav__list[data-md-component=\"toc\"][data-md-scrollfix=\"\"] > .md-nav__item:nth-child(1) > .md-nav[aria-label=\"Introduction\"]"
+     ],
+     "html": "<nav aria-label=\"Introduction\" class=\"md-nav\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"] > .md-nav__list[data-md-component=\"toc\"][data-md-scrollfix=\"\"] > .md-nav__item:nth-child(2) > .md-nav[aria-label=\"Installation\"]"
+     ],
+     "html": "<nav aria-label=\"Installation\" class=\"md-nav\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"] > .md-nav__list[data-md-component=\"toc\"][data-md-scrollfix=\"\"] > .md-nav__item:nth-child(3) > .md-nav[aria-label=\"Configuration\"]"
+     ],
+     "html": "<nav aria-label=\"Configuration\" class=\"md-nav\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input autocomplete=\"off\" class=\"md-toggle\" data-md-toggle=\"drawer\" id=\"__drawer\" type=\"checkbox\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input autocomplete=\"off\" class=\"md-toggle\" data-md-toggle=\"search\" id=\"__search\" type=\"checkbox\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://asiffer.github.io/mkdocs-shadcn/",
+   "file": "pages/031-asiffer.github.io.html",
+   "qualifies": false,
+   "n": 1,
+   "wcag": 1,
+   "rules": [
+    "link-name"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".md\\:flex-1 > .ghost.button"
+     ],
+     "html": "<a href=\"https://github.com/asiffer/mkdocs-shadcn\" class=\"button ghost\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    }
+   ]
+  },
+  {
+   "url": "https://dietpi.com/docs/",
+   "file": "pages/032-dietpi.com.html",
+   "qualifies": false,
+   "n": 5,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "landmark-unique",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active.md-nav__item > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"]"
+     ],
+     "html": "<nav class=\"md-nav md-nav--secondary\" aria-label=\"Table of contents\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://lavalink.darrennathanael.com/",
+   "file": "pages/033-lavalink.darrennathanael.com.html",
+   "qualifies": false,
+   "n": 5,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "heading-order",
+    "label",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Heading levels should only increase by one",
+     "target": [
+      "#info"
+     ],
+     "html": "<h3 id=\"info\">Info</h3>",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://docs.armbian.com",
+   "file": "pages/034-docs.armbian.com.html",
+   "qualifies": false,
+   "n": 9,
+   "wcag": 2,
+   "rules": [
+    "aria-dialog-name",
+    "empty-table-header",
+    "label",
+    "landmark-unique",
+    "link-name",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "empty-table-header",
+     "impact": "minor",
+     "tags": [
+      "cat.name-role-value",
+      "best-practice"
+     ],
+     "help": "Table header text should not be empty",
+     "target": [
+      "th:nth-child(1)"
+     ],
+     "html": "<th></th>",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active.md-nav__item > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"]"
+     ],
+     "html": "<nav class=\"md-nav md-nav--secondary\" aria-label=\"Table of contents\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active.md-nav__item > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"] > .md-nav__list[data-md-component=\"toc\"][data-md-scrollfix=\"\"] > .md-nav__item:nth-child(1) > .md-nav[aria-label=\"Preface\"]"
+     ],
+     "html": "<nav class=\"md-nav\" aria-label=\"Preface\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active.md-nav__item > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"] > .md-nav__list[data-md-component=\"toc\"][data-md-scrollfix=\"\"] > .md-nav__item:nth-child(2) > .md-nav[aria-label=\"What is Armbian?\"]"
+     ],
+     "html": "<nav class=\"md-nav\" aria-label=\"What is Armbian?\">",
+     "wcag": []
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      "a[rel=\"me\"]"
+     ],
+     "html": "<a rel=\"me\" href=\"https://fosstodon.org/@armbian\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "http://sourcefoundry.org/cinder/",
+   "file": "pages/035-sourcefoundry.org.html",
+   "qualifies": false,
+   "n": 1,
+   "wcag": 0,
+   "rules": [
+    "heading-order"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Heading levels should only increase by one",
+     "target": [
+      ".bs-callout-warning > h4"
+     ],
+     "html": "<h4><i class=\"fas fa-exclamation-triangle\"></i> Please review these issues before you push your site into a production setting!</h4>",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://docs.daocloud.io",
+   "file": "pages/036-docs.daocloud.io.html",
+   "qualifies": false,
+   "n": 6,
+   "wcag": 3,
+   "rules": [
+    "aria-dialog-name",
+    "aria-prohibited-attr",
+    "aria-required-children",
+    "label",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "aria-prohibited-attr",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "help": "Elements must only use permitted ARIA attributes",
+     "target": [
+      ".product-nav-menu__burger"
+     ],
+     "html": "<span class=\"product-nav-menu__burger\" aria-label=\"产品导航\">\n          <span></span><span></span><span></span>\n        </span>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "aria-required-children",
+     "impact": "critical",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag131",
+      "EN-301-549",
+      "EN-9.1.3.1",
+      "RGAAv4",
+      "RGAA-9.3.1"
+     ],
+     "help": "Certain ARIA roles must contain particular children",
+     "target": [
+      ".product-nav-menu__panel"
+     ],
+     "html": "<div class=\"product-nav-menu__panel\" role=\"menu\" aria-label=\"产品导航\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://mkdocs.peaceiris.com/",
+   "file": "pages/038-mkdocs.peaceiris.com.html",
+   "qualifies": false,
+   "n": 5,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "landmark-unique",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active.md-nav__item > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"]"
+     ],
+     "html": "<nav class=\"md-nav md-nav--secondary\" aria-label=\"Table of contents\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://nhsdigital.github.io/rap-community-of-practice/",
+   "file": "pages/039-nhsdigital.github.io.html",
+   "qualifies": false,
+   "n": 15,
+   "wcag": 2,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "landmark-no-duplicate-contentinfo",
+    "landmark-unique",
+    "link-name",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-no-duplicate-contentinfo",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Document should not have more than one contentinfo landmark",
+     "target": [
+      ".md-footer"
+     ],
+     "html": "<footer class=\"md-footer\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-footer"
+     ],
+     "html": "<footer class=\"md-footer\">",
+     "wcag": []
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      "a[href$=\"#what-is-rap\"]"
+     ],
+     "html": "<a href=\"#what-is-rap\"><div class=\"down-arrow bounce\"></div></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".container--no-bottom-margin:nth-child(3)"
+     ],
+     "html": "<section class=\"container container--no-bottom-margin\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#what-is-rap"
+     ],
+     "html": "<section class=\"container container--white container--no-bottom-margin container--bottom-padding\" id=\"what-is-rap\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".container--blue"
+     ],
+     "html": "<section class=\"container container--blue\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "section:nth-child(6)"
+     ],
+     "html": "<section class=\"container\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".container--dark-blue:nth-child(7)"
+     ],
+     "html": "<section class=\"container container--dark-blue\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "section:nth-child(8)"
+     ],
+     "html": "<section class=\"container\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".container--dark-blue:nth-child(9)"
+     ],
+     "html": "<section class=\"container container--dark-blue\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "section:nth-child(10)"
+     ],
+     "html": "<section class=\"container\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://oprypin.github.io/mkdocs-section-index",
+   "file": "pages/040-oprypin.github.io.html",
+   "qualifies": false,
+   "n": 5,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "input[data-md-toggle=\"toc\"]"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"toc\" type=\"checkbox\" id=\"__toc\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://doxide.org",
+   "file": "pages/041-doxide.org.html",
+   "qualifies": false,
+   "n": 1,
+   "wcag": 0,
+   "rules": [
+    "landmark-unique"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".navbar"
+     ],
+     "html": "<nav class=\"navbar navbar-expand-lg\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://books.japila.pl/spark-sql-internals",
+   "file": "pages/042-books.japila.pl.html",
+   "qualifies": false,
+   "n": 4,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://docs.tubearchivist.com",
+   "file": "pages/043-docs.tubearchivist.com.html",
+   "qualifies": false,
+   "n": 6,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "landmark-unique",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"]"
+     ],
+     "html": "<nav class=\"md-nav md-nav--secondary\" aria-label=\"Table of contents\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"] > .md-nav__list[data-md-component=\"toc\"][data-md-scrollfix=\"\"] > .md-nav__item:nth-child(2) > .md-nav[aria-label=\"General Navigation\"]"
+     ],
+     "html": "<nav class=\"md-nav\" aria-label=\"General Navigation\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://vsoch.github.io/mkdocs-jekyll/",
+   "file": "pages/045-vsoch.github.io.html",
+   "qualifies": false,
+   "n": 13,
+   "wcag": 7,
+   "rules": [
+    "aria-dialog-name",
+    "html-has-lang",
+    "image-alt",
+    "label",
+    "landmark-unique",
+    "link-name",
+    "region",
+    "tabindex"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "html-has-lang",
+     "impact": "serious",
+     "tags": [
+      "cat.language",
+      "wcag2a",
+      "wcag311",
+      "TTv5",
+      "TT11.a",
+      "EN-301-549",
+      "EN-9.3.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-8.3.1"
+     ],
+     "help": "<html> element must have a lang attribute",
+     "target": [
+      "html"
+     ],
+     "html": "<html>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      "img[width=\"20px\"]"
+     ],
+     "html": "<img src=\"/mkdocs-jekyll/assets/img/docker-clear.png\" style=\"margin-left:10px\" width=\"20px\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-header-nav"
+     ],
+     "html": "<nav class=\"md-header-nav md-grid\">",
+     "wcag": []
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".fa-github.md-footer-social__link[href$=\"vsoch\"]"
+     ],
+     "html": "<a href=\"https://github.com/vsoch\" target=\"_blank\" class=\"md-footer-social__link fa fa-github\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".fa-twitter"
+     ],
+     "html": "<a href=\"https://twitter.com/vsoch\" target=\"_blank\" class=\"md-footer-social__link fa fa-twitter\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".fa-linkedin"
+     ],
+     "html": "<a href=\"https://linkedin.com/in/vsochat\" target=\"_blank\" class=\"md-footer-social__link fa fa-linkedin\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".md-footer-social__link.fa[target=\"_blank\"]:nth-child(5)"
+     ],
+     "html": "<a href=\"http://hub.docker.com/r/vanessa\" class=\"md-footer-social__link fa\" target=\"_blank\">\n        <img src=\"/mkdocs-jekyll/assets/img/docker-clear.png\" style=\"margin-left:10px\" width=\"20px\">\n      </a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".md-skip"
+     ],
+     "html": "<a href=\"#material-jekyll-theme\" tabindex=\"1\" class=\"md-skip\"> Skip to content </a>",
+     "wcag": []
+    },
+    {
+     "id": "tabindex",
+     "impact": "serious",
+     "tags": [
+      "cat.keyboard",
+      "best-practice"
+     ],
+     "help": "Elements should not have tabindex greater than zero",
+     "target": [
+      ".md-skip"
+     ],
+     "html": "<a href=\"#material-jekyll-theme\" tabindex=\"1\" class=\"md-skip\"> Skip to content </a>",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://markdownflow.ai/",
+   "file": "pages/046-markdownflow.ai.html",
+   "qualifies": false,
+   "n": 0,
+   "wcag": 0,
+   "rules": [],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": []
+  },
+  {
+   "url": "https://karthikreddy-7.github.io/ai-engineering-playbook/",
+   "file": "pages/048-karthikreddy-7.github.io.html",
+   "qualifies": false,
+   "n": 4,
+   "wcag": 1,
+   "rules": [
+    "landmark-main-is-top-level",
+    "landmark-no-duplicate-main",
+    "landmark-unique",
+    "list"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "landmark-main-is-top-level",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Main landmark should not be contained in another landmark",
+     "target": [
+      "#nd-home-layout > main"
+     ],
+     "html": "<main class=\"w-full\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-no-duplicate-main",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Document should not have more than one main landmark",
+     "target": [
+      "#nd-home-layout"
+     ],
+     "html": "<main id=\"nd-home-layout\" class=\"flex flex-1 flex-col [--fd-layout-width:1400px]\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      "#nd-home-layout"
+     ],
+     "html": "<main id=\"nd-home-layout\" class=\"flex flex-1 flex-col [--fd-layout-width:1400px]\">",
+     "wcag": []
+    },
+    {
+     "id": "list",
+     "impact": "serious",
+     "tags": [
+      "cat.structure",
+      "wcag2a",
+      "wcag131",
+      "EN-301-549",
+      "EN-9.1.3.1",
+      "RGAAv4",
+      "RGAA-9.3.1"
+     ],
+     "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+     "target": [
+      ".empty\\:hidden"
+     ],
+     "html": "<ul class=\"flex flex-row gap-2 items-center empty:hidden\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    }
+   ]
+  },
+  {
+   "url": "https://shenwy.com",
+   "file": "pages/049-shenwy.com.html",
+   "qualifies": false,
+   "n": 5,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "input[data-md-toggle=\"toc\"]"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"toc\" type=\"checkbox\" id=\"__toc\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://docs.spacebar.chat",
+   "file": "pages/050-docs.spacebar.chat.html",
+   "qualifies": false,
+   "n": 6,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "label",
+    "landmark-unique",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      ".md-nav__item--active > .md-nav--secondary.md-nav[aria-label=\"Table of contents\"]"
+     ],
+     "html": "<nav class=\"md-nav md-nav--secondary\" aria-label=\"Table of contents\">",
+     "wcag": []
+    },
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+     "target": [
+      "nav[aria-labelledby=\"__nav_4_label\"]"
+     ],
+     "html": "<nav class=\"md-nav\" data-md-level=\"1\" aria-labelledby=\"__nav_4_label\" aria-expanded=\"false\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://ttk-file-explorer.readthedocs.io/",
+   "file": "pages/051-ttk-file-explorer.readthedocs.io.html",
+   "qualifies": false,
+   "n": 5,
+   "wcag": 1,
+   "rules": [
+    "aria-dialog-name",
+    "heading-order",
+    "label",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "cat.semantics",
+      "best-practice"
+     ],
+     "help": "Heading levels should only increase by one",
+     "target": [
+      "h3"
+     ],
+     "html": "<h3>一款开源的、轻量的 <i>Windows</i> 文件管理器，致力于 <i>GUI</i> 打造与应用实现。</h3>",
+     "wcag": []
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://wcowin.work/",
+   "file": "pages/052-wcowin.work.html",
+   "qualifies": false,
+   "n": 5,
+   "wcag": 2,
+   "rules": [
+    "aria-prohibited-attr",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-prohibited-attr",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "help": "Elements must only use permitted ARIA attributes",
+     "target": [
+      ".md-header__button[aria-label=\"导航栏\"][for=\"__drawer\"]"
+     ],
+     "html": "<label class=\"md-header__button md-icon\" for=\"__drawer\" aria-label=\"导航栏\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "aria-prohibited-attr",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "RGAAv4",
+      "RGAA-7.1.1"
+     ],
+     "help": "Elements must only use permitted ARIA attributes",
+     "target": [
+      "label[for=\"__search\"]"
+     ],
+     "html": "<label class=\"md-header__button md-icon\" for=\"__search\" aria-label=\"查找\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      ".md-progress"
+     ],
+     "html": "<div class=\"md-progress\" data-md-component=\"progress\" role=\"progressbar\" aria-label=\"Loading\"></div>",
+     "wcag": []
+    }
+   ]
+  },
+  {
+   "url": "https://pawamoy.github.io/",
+   "file": "pages/053-pawamoy.github.io.html",
+   "qualifies": false,
+   "n": 37,
+   "wcag": 34,
+   "rules": [
+    "aria-dialog-name",
+    "image-alt",
+    "label",
+    "link-name",
+    "region"
+   ],
+   "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+   },
+   "violations": [
+    {
+     "id": "aria-dialog-name",
+     "impact": "serious",
+     "tags": [
+      "cat.aria",
+      "best-practice"
+     ],
+     "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+     "target": [
+      ".md-search"
+     ],
+     "html": "<div class=\"md-search\" data-md-component=\"search\" role=\"dialog\">",
+     "wcag": []
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      "img[src$=\"pytest-fixtures.png\"]"
+     ],
+     "html": "<img src=\"/assets/pytest-fixtures.png\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      "img[src$=\"quest2.png\"]"
+     ],
+     "html": "<img src=\"/assets/quest2.png\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      "img[src$=\"insiders-journey.png\"]"
+     ],
+     "html": "<img src=\"/assets/insiders-journey.png\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      "img[src$=\"codeblock.png\"]"
+     ],
+     "html": "<img src=\"/assets/codeblock.png\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(47) > a > img[src$=\"alembic_post.png\"]"
+     ],
+     "html": "<img src=\"/assets/alembic_post.png\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(52) > a > img[src$=\"alembic_post.png\"]"
+     ],
+     "html": "<img src=\"/assets/alembic_post.png\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      "img[src$=\"local-http-server.png\"]"
+     ],
+     "html": "<img src=\"/assets/local-http-server.png\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      "img[src$=\"edit-commit3.png\"]"
+     ],
+     "html": "<img src=\"/assets/edit-commit3.png\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      "img[src$=\"comments.png\"]"
+     ],
+     "html": "<img src=\"/assets/comments.png\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      "img[src$=\"gunicorn_logs.png\"]"
+     ],
+     "html": "<img src=\"/assets/gunicorn_logs.png\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      "img[src$=\"loguru.png\"]"
+     ],
+     "html": "<img src=\"/assets/loguru.png\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      "img[src$=\"fill-space-drawing.jpg\"]"
+     ],
+     "html": "<img src=\"/assets/fill-space-drawing.jpg\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(121) > a > img"
+     ],
+     "html": "<img src=\"/assets/client-server-architecture.png\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      "img[src$=\"docker4.png\"]"
+     ],
+     "html": "<img src=\"/assets/docker4.png\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(136) > a > img"
+     ],
+     "html": "<img src=\"/assets/python-static-code-analysis-tools.png\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "image-alt",
+     "impact": "critical",
+     "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+     ],
+     "help": "Images must have alternative text",
+     "target": [
+      "img[src$=\"pie-chart.png\"]"
+     ],
+     "html": "<img src=\"/assets/pie-chart.png\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "label",
+     "impact": "critical",
+     "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+     ],
+     "help": "Form elements must have labels",
+     "target": [
+      "#__toc"
+     ],
+     "html": "<input class=\"md-nav__toggle md-toggle\" type=\"checkbox\" id=\"__toc\">",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(13) > a"
+     ],
+     "html": "<a href=\"posts/same-pytest-fixtures-with-different-scopes/\"><img src=\"/assets/pytest-fixtures.png\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(24) > a[href$=\"steam-linux-alvr-quest2/\"]"
+     ],
+     "html": "<a href=\"posts/steam-linux-alvr-quest2/\"><img src=\"/assets/quest2.png\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(30) > a[href$=\"the-insiders-journey/\"]"
+     ],
+     "html": "<a href=\"posts/the-insiders-journey/\"><img src=\"/assets/insiders-journey.png\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(37) > a"
+     ],
+     "html": "<a href=\"posts/adding-links-to-formatted-and-syntax-highlighted-code/\"><img src=\"/assets/codeblock.png\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(47) > a"
+     ],
+     "html": "<a href=\"posts/testing-fastapi-ormar-alembic-apps/\"><img src=\"/assets/alembic_post.png\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(52) > a"
+     ],
+     "html": "<a href=\"posts/add-alembic-migrations-to-existing-fastapi-ormar-project/\"><img src=\"/assets/alembic_post.png\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(60) > a"
+     ],
+     "html": "<a href=\"posts/local-http-server-fake-files-testing-purposes/\"><img src=\"/assets/local-http-server.png\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(82) > a"
+     ],
+     "html": "<a href=\"posts/howto-edit-git-commit-contents/\"><img src=\"/assets/edit-commit3.png\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(91) > a"
+     ],
+     "html": "<a href=\"posts/migrate-disqus-comments-to-utterances-github/\"><img src=\"/assets/comments.png\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(104) > a"
+     ],
+     "html": "<a href=\"posts/unify-logging-for-a-gunicorn-uvicorn-app/\"><img src=\"/assets/gunicorn_logs.png\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(110) > a"
+     ],
+     "html": "<a href=\"posts/save-pytest-logs-as-artifact-gitlab-ci/\"><img src=\"/assets/loguru.png\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(116) > a"
+     ],
+     "html": "<a href=\"posts/challenge-fill-space-one-line-90-degree-same-direction/\"><img src=\"/assets/fill-space-drawing.jpg\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(121) > a"
+     ],
+     "html": "<a href=\"posts/django-auth-server-for-shiny/\"><img src=\"/assets/client-server-architecture.png\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(130) > a"
+     ],
+     "html": "<a href=\"posts/docker-compose-django-postgres-nginx/\"><img src=\"/assets/docker4.png\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(136) > a"
+     ],
+     "html": "<a href=\"posts/python-static-code-analysis-tools/\"><img src=\"/assets/python-static-code-analysis-tools.png\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "link-name",
+     "impact": "serious",
+     "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-6.2.1"
+     ],
+     "help": "Links must have discernible text",
+     "target": [
+      ".post-excerpt-image.crop-excerpt:nth-child(151) > a"
+     ],
+     "html": "<a href=\"posts/django-dashboard-with-suit-and-highcharts/\"><img src=\"/assets/pie-chart.png\"></a>",
+     "wcag": [
+      "wcag2a"
+     ]
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__drawer"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"drawer\" type=\"checkbox\" id=\"__drawer\" autocomplete=\"off\">",
+     "wcag": []
+    },
+    {
+     "id": "region",
+     "impact": "moderate",
+     "tags": [
+      "cat.keyboard",
+      "best-practice",
+      "RGAAv4",
+      "RGAA-9.2.1"
+     ],
+     "help": "All page content should be contained by landmarks",
+     "target": [
+      "#__search"
+     ],
+     "html": "<input class=\"md-toggle\" data-md-toggle=\"search\" type=\"checkbox\" id=\"__search\" autocomplete=\"off\">",
+     "wcag": []
+    }
+   ]
+  }
+ ],
+ "declared": "G0 clause 1: axe completes on >=90% of fetched pages"
+}

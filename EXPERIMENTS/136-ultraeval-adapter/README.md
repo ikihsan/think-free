@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: EXPERIMENTS/INDEX.md
+status: active
+last-verified: 2026-10-21
+-->
+
 # E136 — UltraEval-Audio preflight adapter measurement
 
 Measures the adapter size for UltraEval-Audio harness output format.

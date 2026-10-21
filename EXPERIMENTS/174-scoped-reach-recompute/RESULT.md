@@ -124,7 +124,7 @@ sample committed before any fetch.
 
 ## Raw evidence
 
-[`PROTOCOL.md`](PROTOCOL.md) · [`recompute.py`](recompute.py) ·
-[`results.json`](results.json) — input is E170's committed
-`raw/rawlog.json` and `raw/rows.json`; the row-level rank table is in
-`results.json` under `row_ranks`.
+[`PROTOCOL.md`](PROTOCOL.md) · [`recompute.py`](recompute.py) — input is E170's
+committed `raw/rawlog.json` and `raw/rows.json`; the row-level rank table was
+written to a `results.json` that was never committed and is not preserved in
+the tree.

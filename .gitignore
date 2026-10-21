@@ -155,6 +155,13 @@ node_modules
 # documentation gate.
 EXPERIMENTS/*/corpus/
 
+# E202's fetched corpus: 85 third-party pages (5.8 MB), re-fetchable with
+# `node EXPERIMENTS/202-line-anchor-rewrite/fetch.js` and `fetch2.js`. The record
+# is corpus-manifest.json (url, sha256, bytes per page), and every number in
+# RESULT.md is derived from those bytes. Same clause as E162's corpus above and
+# F004's rule: pin the inputs by hash, do not commit the bodies.
+EXPERIMENTS/202-line-anchor-rewrite/pages/
+
 # `origin session finish` lock: a committed lock is a lock nothing holds
 .finish.lock
 .module-demand-cache/
