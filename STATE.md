@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-21
+last-verified: 2026-10-22
 -->
 
 # Verified state
@@ -56,6 +56,9 @@ See [`STATE-in-flight.md`](STATE-in-flight.md) through [`STATE-in-flight-9.md`](
 
 ## What changed recently
 
+
+
+**E212 — fedmarket decision prototype (2026-10-21):** Enhanced `fedmarket.py` with `--decision` mode that helps small software teams apply the project's two-axis framework (entry accessibility vs. business sustainability) to choose a PSC code and entry strategy matched to their characteristics. Three profile-based recommendations: (1) `leq_40k` + `direct` + `software` → **7030** (direct sales, 3,916 recipients, 32.1% ≤$40k, lowest sustainability at 13.8% graduation); (2) `leq_100k` + `gsa_mas` + `software` → **DA10** (GWA/MAS pathway, 41.2% graduation, 28.2% GSA MAS share, VA channel); (3) `enterprise` + `services` + `services` → **DA01** (largest market at $94.9B but services-dominated, 12.8% software). Decision function `decide_code(budget, gtm, focus)` evaluated against all 5 PSC codes using known sustainability rankings from E211 and screen metrics from E206. Verified all three profile recommendations produce correct code and entry axis assignments.
 See [`STATE-history.md`](STATE-history.md).
 
 ## Next actions
@@ -73,3 +76,8 @@ whichever item is next are in
 absent; `gh` absent. A VM's own numbers come from `tools/origin doctor`, which writes
 `.origin/doctor.json`; this one reports 2 CPUs, Python 3.8.10, `git` 2.25.1, and pushes via
 the GitHub App as `Ihsan Ai Server Bot`. **Unverified:** fleet access, unattended supervision, GPU.
+**E206 subaward trace module (2026-10-21): added prime-specific subaward trace capability to E206 CLI tool.** New module queries USAspending `/api/v2/subawards/` endpoint with `award_id` filter to trace subawards from specific large primes. Validated on 7030 and DA10: **7030 — LEIDOS has 79 subawards ($400M, 36 unique subawardees) led by Cerner ($293M); other top primes (IBM, Carahsoft, CA, CDW) show 0 subawards on top awards.** **DA10 — Accenture has 222 subawards ($166M, 47 unique subawardees) including Steerbridge ($22.7M), Alta IT ($16.2M), Systems Engineering Solutions ($14.1M); Dell, V3Gate, Dell Federal, WW Technology show 0 subawards.** Confirms E209 subcontracting findings with prime-level granularity. Integrated as `--module subaward` in E206 CLI and `--subaward` flag in fedmarket.py.
+
+**E212 — fedmarket decision prototype (2026-10-21):** Enhanced `fedmarket.py` with `--decision` mode that helps small software teams apply the project's two-axis framework (entry accessibility vs. business sustainability) to choose a PSC code and entry strategy matched to their characteristics. Three profile-based recommendations: (1) `leq_40k` + `direct` + `software` → **7030** (direct sales, 3,916 recipients, 32.1% ≤$40k, lowest sustainability at 13.8% graduation); (2) `leq_100k` + `gsa_mas` + `software` → **DA10** (GWA/MAS pathway, 41.2% graduation, 28.2% GSA MAS share, VA channel); (3) `enterprise` + `services` + `services` → **DA01** (largest market at $94.9B but services-dominated, 12.8% software). Decision function `decide_code(budget, gtm, focus)` evaluated against all 5 PSC codes using known sustainability rankings from E211 and screen metrics from E206. Verified all three profile recommendations produce correct code and entry axis assignments. **Also fixed E211 survival data loading bug and added `--subaward` flag for prime-specific subaward trace.** See [`STATE-history.md`](STATE-history.md).
+
+**E206 survival module completed (2026-10-21): added `survival` module to E206 integrated CLI tool reproducing E211 entry survival metrics from raw data offline.** New module `e206_survival.py` computes survival %, graduation %, net-positive return, mean/median awards per UEI, and cross-market returns for 7030, DA10, DA01 (and control 6810). All three PSC codes with E211 data verified: metrics match E211 baselines exactly (7030: 53.3% survival, 13.8% graduation; DA10: 72.6% survival, 41.2% graduation; DA01: 69.6% survival, 44.9% graduation). Integrated as `--module survival` in E206 CLI `run.py`; JSON output includes survival data. **Two-axis assessment framework now complete:** accessibility (screen score, ≤$40k fraction, recipient count, software %) + sustainability (survival, graduation, net-positive return) both available offline from pre-computed raw data. Next: comprehensive E206 validation across all 5 PSC codes with survival module.

@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-21
+last-verified: 2026-10-22
 -->
 
 # Next actions
@@ -29,10 +29,13 @@ investigation narrows or moves on.
 | **E207** | **completed** | **contract vehicle analysis completed for all 5 PSC codes: DA10 only code with meaningful GWAC usage by small vendors (28.2% via GSA MAS + SEWP); 7030 small vendors sell direct (88.7%); 7A21 Army/Navy dominated; DA01/D304 not software markets. Next: field test with real companies (E208)** |
 | **E209** | **completed** | **subcontract analysis: 7030/D304 negligible (0.1%), DA10 significant (8.1%), DA01 highest (11%) but services labor, 7A21 moderate (2.8%). Confirms 7030 is direct-sales market; DA10 has prime+sub pathways** |
 | **E210** | **completed** | **GSA MAS SIN / SEWP category analysis for all 5 codes: DA10 only code with meaningful small vendor GSA MAS share (28% in 511210/511210S/518210C, 66% in 54151S); 7030/7A21 show 4-6% in software SINs; SEWP Cat B <6% all codes. DA10 is premier vehicle for small software vendors. Integrated into E206 CLI as `--module vehicle_sin`. Next: GSA eLibrary cross-ref validation, prime-specific subaward trace** |
+| **E206 subaward** | **completed** | **prime-specific subaward trace module added to E206 CLI (`--module subaward`) and fedmarket.py (`--subaward`). Queries `/api/v2/subawards/` with `award_id` filter. Validated on 7030 (LEIDOS: 79 subawards, $400M, Cerner $293M) and DA10 (Accenture: 222 subawards, $166M, Steerbridge $22.7M). Other top primes show 0 subawards. Confirms E209 with prime-level granularity. Next: GSA eLibrary cross-ref validation, SEWP catalog deep dive** |
 | **E208** | **planned** | **field test: recruit 3-5 small software companies to validate the assessment framework against real pipeline opportunities** |
-| **E206 full validation** | **completed** | **comprehensive comparison of all 5 PSC codes complete: 7030 best for direct sales, DA10 best for GWAC pathway, 7A21 concentrated, DA01/D304 not software markets. Next: E208 field test (requires authorization); prime-specific subaward trace via /api/v2/subawards/ for Carahsoft/Dell/Leidos/Accenture/GDIT in 7030/DA10; GSA eLibrary cross-ref for SIN validation; SEWP catalog deep dive** |
+| **E206 full validation** | **completed** | **comprehensive comparison of all 5 PSC codes complete: 7030 best for direct sales, DA10 best for GWAC pathway, 7A21 concentrated, DA01/D304 not software markets. Next: E208 field test (requires authorization); GSA eLibrary cross-ref for SIN validation; SEWP catalog deep dive** |
 | E224 | completed | explore fresh observation in a different domain per project direction; view-count principle validated on PyPI with matched-harvest design (E227) |
 | E225 | completed | award-description-term generalizability: code-specific term patterns domain-dependent (IT/software only); funded-fraction effects more generalizable |
 | E226 | completed | USAspending keyword disambiguation prototype: relatedness score thresholds mechanically validated (7 keywords, G1-G4 all pass); next: field-test with human users (E227) |
+| **E211** | **completed** | **entry survival: 7030 53.3%, DA10 72.6%, DA01 69.6% survival of ≤$100k FY20-21 recipients in FY23-25; G2 fires (+19.3 pp DA10) and survives incumbent cleaning (+20.7-24.7 pp); graduation 23.7% DA10 vs 1.2% 7030 (cleaned); E200/E201's "100% single-award" refuted at award level; negative control 0.7%. Recommendation revised: DA10 best for sustained business, 7030 easiest entry. `survival` module in E206 CLI reproducing E211 from raw/ offline — COMPLETED** |
+| **E206 survival** | **completed** | **survival module added to E206 integrated CLI tool (`--module survival`). Reproduces E211 metrics offline for 7030, DA10, DA01 (and control 6810). All metrics match E211 baselines exactly. JSON output includes survival data. Two-axis framework now complete: accessibility + sustainability both available offline. Next: comprehensive E206 validation across all 5 PSC codes with survival module enabled** |
 
 <center>...</center>
