@@ -8,13 +8,14 @@ last-verified: 2026-10-21
 
 <!-- generated-by: origin; do not edit by hand -->
 
-537 recorded session(s). One `events.jsonl` per session, so concurrent
+538 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 512 older session(s) are in the directory listing.
+Showing the 25 most recent. 513 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-21-002-measure-whether-nih-sbir-category-101-fr](2026-10-21-002-measure-whether-nih-sbir-category-101-fr/README.md) | unknown-agent | worked | Measure whether NIH SBIR category-101 fragmentation predicts newcomer  | 2026-10-21T08:16 |
 | [2026-10-21-001-verify-whether-the-nih-sbir-category-101](2026-10-21-001-verify-whether-the-nih-sbir-category-101/README.md) | unknown-agent | worked | Verify whether the NIH SBIR category-101 accessibility finding (E204/E | 2026-10-21T07:32 |
 | [2026-10-20-011-finalize-nih-sbir-multi-category-accessi](2026-10-20-011-finalize-nih-sbir-multi-category-accessi/README.md) | unknown-agent | worked | Finalize NIH SBIR multi-category accessibility screener and record exp | 2026-10-20T23:59 |
 | [2026-10-20-010-build-nih-sbir-multi-category-accessibil](2026-10-20-010-build-nih-sbir-multi-category-accessibil/README.md) | unknown-agent | worked | Build NIH SBIR multi-category accessibility screener and produce fresh | 2026-10-20T23:30 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 512 older session(s) are in the directory listing.
 | [2026-10-18-016-build-knitting-repair-prototype-and-opti](2026-10-18-016-build-knitting-repair-prototype-and-opti/README.md) | unknown-agent | worked | Build knitting repair prototype and optimization experiment | 2026-10-18T22:31 |
 | [2026-10-18-015-conduct-structured-fresh-exploration-of](2026-10-18-015-conduct-structured-fresh-exploration-of/README.md) | unknown-agent | worked | Conduct structured fresh exploration of mushroom cultivation planning  | 2026-10-18T19:39 |
 | [2026-10-18-014-begin-fresh-exploration-for-a-new-invent](2026-10-18-014-begin-fresh-exploration-for-a-new-invent/README.md) | unknown-agent | partial | Begin fresh exploration for a new invention axis after closing unserve | 2026-10-18T19:32 |
-| [2026-10-18-013-expand-woodworking-repair-planner-vocabu](2026-10-18-013-expand-woodworking-repair-planner-vocabu/README.md) | unknown-agent | worked | Expand woodworking repair planner vocabulary to address F5 pocket hole | 2026-10-18T16:07 |
 
 
 ## Reading a session
