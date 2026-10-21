@@ -1,3 +1,8 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-21
+-->
 # E209 Prototype Screen Results — Federal IT Market Entry Classification
 
 **Date:** 2026-10-21. **Session:** 2026-10-21-003.

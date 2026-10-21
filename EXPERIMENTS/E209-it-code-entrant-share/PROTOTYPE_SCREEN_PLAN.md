@@ -1,3 +1,8 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-21
+-->
 # E209 Prototype Screen Plan — Federal IT Market Entry Classification
 
 ## Goal
