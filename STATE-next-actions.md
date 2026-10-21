@@ -6,13 +6,47 @@ last-verified: 2026-10-21
 
 # Next actions
 
-**New next priority (2026-10-20):** fresh exploration in a different domain.
+**New next priority (2026-10-21):** measure entry where the accessibility
+pattern was first claimed — the federal IT codes (E196–E198) — using E208's
+instrument shape, since E208 closed the entry-by-fragmentation reading on NIH
+SBIR (F152, D129) but left that domain untested.
 
 Older completed entries moved here on 2026-10-21 under the 250-line split rule;
 nothing was deleted. E196–E198 (the federal money axis) are in
 [STATE-next-actions-archive-money.md](STATE-next-actions-archive-money.md);
 E162, E181, E182, E185 (the accessibility and EVID lines) are in
 [STATE-next-actions-archive-evid.md](STATE-next-actions-archive-evid.md).
+
+## E208 (2026-10-21) — fragmentation does not predict newcomer entry in NIH SBIR; the kill gate fired, and fragmentation is a size proxy
+
+Complete R41/R42 census FY2014–FY2023 (every year fetched = the API's
+`meta.total`, 3,407 rows), identity `organization.external_org_id` (100%
+coverage), gates declared before the fetch. **G0–G2 PASS** (the fetch reproduces
+E207 exactly: 368 rows, 147 cat-101 grants, 134 orgs, top-5 0.1159). **G3 FAIL —
+kill gate fired: Spearman ρ(fragmentation, segment-newcomer fraction) =
+−0.2456**, one-sided permutation p = 0.9754 (10,000 permutations, seed
+20261021) over the 64 categories with ≥ 10 awardees; the nine-year sensitivity
+agrees (−0.2748). **G4 PASS:** category 101's segment-entrant fraction is
+0.5075 (68 of 134) — enterable, not *more* enterable than the rest (population
+median 0.538). Exploratory, post-hoc: **ρ(fragmentation, category size) =
+0.9711**, so "fragmented" means "many awardees" here, and larger categories
+have *fewer* newcomers (0.604 smaller half vs 0.503 larger half). What survives
+is a measurement the record did not have: **entry is common — 0.527 of 2,106
+category-organization memberships are segment newcomers, 0.407 domain
+newcomers.** Full entry in [`E208`](EXPERIMENTS/E208-sbir-entrant-share/RESULT.md);
+F152, D129.
+
+**Named next action (E209): the same entrant measurement on the federal IT
+codes.** E196–E198 found $203.32B across 9,977 vendors in five IT/software PSC
+codes and read the fragmentation as "a genuine market at the scale a small
+program operates at" — the reading E208 just closed on NIH SBIR. USAspending
+recipient records carry a stable identity (DUNS/UEI/`recipient_hash`), so the
+same design transfers: per code, what fraction of FY2023 recipients were new to
+that code in the prior five years, gates declared before the fetch, and the
+obvious confound (award volume per code) measured alongside. That decides
+whether the *first* place the pattern was claimed survives the entry test.
+
+**Open item (D128, not urgent):** if the NIH SBIR prototype is ever used again, its `fetch_grants()` must filter `activity_codes` and drop the 2,000-row cap, or its IC-consensus recommendations should be marked as derived from an unfiltered slice. The prototype is evidence-gathering, not a product; no rush.
 
 ## E207 (2026-10-21) — E204's category-101 headline reproduces exactly from a complete census; the number is real, the record was defective
 

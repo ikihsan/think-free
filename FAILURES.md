@@ -64,7 +64,7 @@ F098, F099, D083, D084) and
 [`FAILURES-findings-45.md`](FAILURES-findings-45.md) (F142, F143) and
 [`FAILURES-findings-46.md`](FAILURES-findings-46.md) (F144–F146) and
 [`FAILURES-findings-47.md`](FAILURES-findings-47.md) (F147, F148) and
-[`FAILURES-findings-48.md`](FAILURES-findings-48.md) (F149–F151) and
+[`FAILURES-findings-48.md`](FAILURES-findings-48.md) (F149–F152) and
 [`FAILURES-other-vm.md`](FAILURES-other-vm.md) (F100–F104, other VM) and
 [`FAILURES-reopening.md`](FAILURES-reopening.md) (reopening criteria) and
 [`FAILURES-findings-29.md`](FAILURES-findings-29.md) (F075) and

@@ -165,3 +165,47 @@ from the population it names, and the re-derivation is committed as a script plu
 raw data — not a `RESULT.md` alone. A prototype whose fetch cannot produce the
 population it claims to analyze carries a provenance defect recorded beside the
 number, whether or not the number is independently correct.
+
+## D129 — a screen's axis is a candidate explanation only after its correlation with the obvious confound is measured, and an entry claim needs an entrant measurement
+
+**Date:** 2026-10-21. **Session:** 2026-10-21-002. **Evidence:**
+[E208](EXPERIMENTS/E208-sbir-entrant-share/RESULT.md), F152.
+
+**The choice that was open.** Five experiments (E196–E207) reported a
+"small-program accessibility" pattern — a fragmented vendor landscape means a
+small team can build and sell there — and `STATE.md` carried the reading at its
+reload point. Nobody had measured the step the reading depends on: *do the
+winners include newcomers?* E208 measured it on the population where the
+pattern was last claimed (NIH SBIR R41/R42, FY2014–FY2023, 3,407 rows, identity
+`external_org_id`), with gates declared before the fetch.
+
+**What the measurement returned.** The declared kill gate fired:
+**fragmentation is not associated with newcomer entry** (Spearman ρ = −0.2456,
+one-sided p = 0.9754 over the 64 categories with ≥ 10 awardees; the nine-year
+sensitivity window agrees at −0.2748). The cause is visible and cheap to find:
+**ρ(fragmentation, category size) = 0.9711** — "fragmented" is, in this
+population, "many awardees" — and larger categories have *fewer* newcomers
+proportionally. Entry itself is common (0.527 segment, 0.407 domain), which is
+a measurement the record did not have before, and category 101's 0.5075 is
+unremarkable.
+
+**Rules adopted.**
+1. **An entry claim requires an entrant measurement.** "Many vendors, low
+   concentration" is a statement about incumbents; it says nothing about who
+   wins next. A screen that reports concentration as an *entry* signal is
+   reporting an inference.
+2. **Before an axis explains anything, measure its correlation with the
+   obvious confound.** Fragmentation correlated 0.97 with category size here,
+   and that costs one fetch to find out. A screen whose axis is a proxy must
+   say so on the screen.
+3. **A negative closes the claim and the population tested, not the
+   application.** The federal IT codes (E196–E198) remain untested on entry;
+   this decision does not touch them.
+
+**Rejected.** (a) *Keep the accessibility reading on the reload point anyway,
+since E204/E207's concentration numbers are correct.* The numbers are correct
+and the reading is a different claim; carrying the inference unmarked is the
+F142 shape one level up. (b) *Follow the negative ρ into a size-adjusted
+entry model now.* That is a new analysis on the same data, and the bound in
+E208's protocol says one analysis per population; the IT codes are the cheaper
+place to learn the next thing.

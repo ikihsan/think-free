@@ -178,3 +178,49 @@ just the environment record, has to be versioned).
 **Rule.** A fixture that pins another tool's exit code states the version it was
 verified on; a gate whose premise depends on the host's toolchain is only as
 green as the record of that toolchain.
+
+---
+
+## F152 — "fragmented ⇒ a small program can enter" was an inference, and on NIH SBIR segments it is unsupported: the kill gate fired and fragmentation turned out to be a size proxy
+
+**Date:** 2026-10-21. **Experiment:** [E208](EXPERIMENTS/E208-sbir-entrant-share/RESULT.md).
+**Question (predeclared).** Across NIH SBIR R41/R42 spending categories, is
+fragmentation (1 − top-5 award-amount share) associated with the fraction of a
+category's FY2023 awardees that are newcomers to that segment (no award in the
+category in FY2018–FY2022)?
+
+**What was measured.** Complete R41/R42 census FY2014–FY2023 (every year
+fetched = the API's `meta.total`; 3,407 rows), identity
+`organization.external_org_id` (100% coverage), analysis population the 64
+categories with ≥ 10 distinct FY2023 organizations. Instrument gates G0–G2 all
+PASS: the fetch reproduces E207 exactly (368 rows, 147 cat-101 grants, 134
+orgs, top-5 0.1159).
+
+**The result.** **G3 (the declared kill gate) FAILS: Spearman ρ = −0.2456**
+(one-sided permutation p = 0.9754, 10,000 permutations, seed 20261021) against
+a declared ρ ≥ +0.40 and p < 0.05 — the association runs **slightly the wrong
+way**, and the nine-year sensitivity window agrees (ρ = −0.2748). G4 passes
+(cat 101 segment-entrant fraction 0.5075 ≥ 0.30), so the headline category is
+enterable; it is simply not *more* enterable than the rest.
+
+**Why the sign is what it is (exploratory, post-hoc, labeled as such).**
+**ρ(fragmentation, category size) = 0.9711**: in this population "fragmented"
+is almost perfectly redundant with "many awardees". And larger categories have
+*fewer* newcomers proportionally (ρ = −0.2583; smaller half 0.604 vs larger
+half 0.503), so the negative headline ρ is size, not entry behaviour.
+
+**What survives the closure.** Entry itself is common and was never in doubt
+after measurement: **0.527** of the 2,106 category-organization memberships in
+FY2023 are segment newcomers, **0.407** domain newcomers, median category
+0.538, three categories at 1.0. The accessibility screen measures
+concentration; read as an *entry* signal it would be reporting category size.
+
+**Scope.** This closes the entry-by-fragmentation claim for NIH SBIR R41/R42
+FY2014–FY2023 only. The federal IT codes (E196–E198), where the pattern was
+first claimed, are **untested** on entry; a negative here does not close them.
+
+**Rule: a screen's axis is a candidate explanation only after its correlation
+with the obvious confound is measured.** Fragmentation was reported for five
+experiments before anyone asked what it correlated with; the answer is 0.97
+with category size, and it costs one fetch to find out. See
+[`FAILURES.md`](FAILURES.md) F152, [D129].

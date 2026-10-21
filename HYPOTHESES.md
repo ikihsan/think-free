@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-11
+last-verified: 2026-10-21
 -->
 
 # Hypotheses — what is being considered and what would kill it
@@ -47,6 +47,19 @@ $29.21B, `7030` $25.83B, `D304` $20.37B) account for **$203.32B bought in tens
 of thousands of separate sub-$40k purchases** — and **F143 constrains it: nine of
 the 25 clear only because their 10,000th award carries no money.** An award count
 is not a purchase count here. See [`RESULT.md`](EXPERIMENTS/196-federal-spend-metered/RESULT.md).
+
+**E208 tested the accessibility pattern's entry step, and its declared kill
+gate fired (F152, D129).** Between "the vendor landscape is fragmented" and "a
+small program can enter" sat one unmeasured step: do the winners include
+newcomers? On the complete NIH SBIR R41/R42 census FY2014–FY2023 (3,407 rows,
+identity `external_org_id`, gates declared before the fetch), fragmentation is
+**not** associated with segment-newcomer fraction — **ρ = −0.2456**, one-sided
+permutation p = 0.9754 over the 64 categories with ≥ 10 awardees, nine-year
+sensitivity −0.2748 — and the cause is a confound nobody had measured:
+**ρ(fragmentation, category size) = 0.9711**. Entry itself is common
+(0.527 segment / 0.407 domain newcomers; category 101's 0.5075 is
+unremarkable). The federal IT codes, where the pattern was first claimed, stay
+**untested** on entry. See [`RESULT.md`](EXPERIMENTS/E208-sbir-entrant-share/RESULT.md).
 
 **E034 tested a generator, not a candidate** (`EXPERIMENTS/034-reask-tail/`,
 T-0078). Its declared kill gate A4: if no two tags with `tail` n ≥ 50 have
