@@ -1,0 +1,30 @@
+{
+ "request": {
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "DA01"
+   ],
+   "time_period": [
+    {
+     "end_date": "2022-12-31",
+     "start_date": "2018-01-01"
+    }
+   ]
+  },
+  "limit": 100,
+  "page": 15,
+  "spending_level": "awards"
+ },
+ "response": {
+  "bytes": 17876,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_category/recipient/",
+  "sha256": "7cae1963fc00ae32e4fcc4cc87cf426bf1a1546cfc5f3430d81d2567f1b468d5",
+  "status": 200
+ }
+}
