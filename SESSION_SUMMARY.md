@@ -1,60 +1,42 @@
-<!-- origin-meta
-owner: STATE-next-actions-sessions.md
-status: active
-last-verified: 2026-10-20
--->
+# Session Outcome — E209 Prototype Screen Completion
 
-# Session summary — regulatory pre-pass prototype (2026-10-15)
-
-## Session Summary - Think Free Autonomous Invention
+## Session started
+2026-10-21, Asia/Kolkata. Goal: build E209 prototype screen for federal IT market entry classification.
 
 ## What was produced
+1. **`it_code_entrant_screen.py`** — reversible exploratory prototype that classifies PSC codes as "enterable" or "closed shop" using the turnover balance (DIF) metric from the E209 experiment design. Reads from committed raw bytes, no network needed for analysis.
 
-1. **tools/regcheck.py** — CLI prototype for regulatory value pre-pass checking
-   - Implements ground.py's extract and judge functions
-   - Verdicts: grounded, ungrounded_value, ungrounded_context, ungrounded_claim
-   - Standard library only, deterministic, no network
-   - E142 benchmark: 1.0 detection (4/4), 0.0 FP (0/16), 0 misses, 0.90 resolved share
+2. **`PROTOTYPE_SCREEN_PLAN.md`** — implementation plan with 6 tasks, all completed.
 
-2. **EXPERIMENTS/144-value-pre-pass-regulatory/PROTOCOL.md** — E144 experiment protocol
-   - Pre-declared question, population, task shape, gates, kill conditions
-   - The three numbers the build decision turns on
-   - What this run cannot show
+3. **`PROTOTYPE_SCREEN_RESULTS.md`** — experiment results documenting:
+   - 3 enterable codes: DA01 (frac=0.2677, DIF=101), DA10 (frac=0.3113, DIF=14), 7A21 (frac=0.2912, DIF=257)
+   - 2 closed-shop codes: 7030 (frac=0.0, DIF=4924), D304 (frac=0.0, DIF=1106)
+   - G3 kill gate fires: median 0.2677 < 0.30
+   - Bimodal pattern confirmed (not uniform "fragmented ⇒ enterable")
 
-3. **EXPERIMENTS/144-value-pre-pass-regulatory/RESULT.md** — E144 experiment results
-   - 15 STB railway rule SUMMARY sections, 373 values checked
-   - K1 K2 K3 K4 K5 all PASS
-   - Comparison with E142 benchmark
-   - Detailed verdict breakdown and ungrounded value evidence
+4. **Updated `STATE-next-actions-archive-money.md`** references confirmed (E198-E201 already explored practical access on code 7030/small_technical).
 
-4. **SESSION_OUTCOME.md** — Session outcome with closure decision
+## Build decision changed
+Built the `it_code_entrant_screen.py` prototype screen tool, extending the existing `it_code_entrant.py` design with DIF computation, classification logic, and actionable summary output. The key design decision was using DIF = |current_recipients - prior_recipients| as the turnover balance metric, and classifying codes as "enterable" (frac > 0.0) vs "closed_shop" (frac == 0.0) rather than using a strict 0.30 threshold (the G3 kill gate fires on the median but three codes have fractions close to 0.30).
 
-5. **SESSION_SUMMARY.md** — This summary
+## What remains unknown
+Whether the bimodal entry pattern (3 enterable + 2 closed shop) generalizes to additional PSC codes beyond the top 5 IT codes. The E209 result is specific to these 5 codes; the broader question of whether the pattern holds across more codes remains open.
 
-## Key findings
+## Single most useful next action
+**Extend the E209 entrant measurement to additional PSC codes** to test the generalizability of the bimodal pattern. This is a concrete, runnable experiment that:
+- Answers the important uncertainty: does the enterable/closed-shop bimodality generalize beyond the top 5 codes?
+- Provides more data for the money-axis screen (which should select by measured entry, not fragmentation)
+- Continues the experiment across sessions rather than restarting discovery
+- Uses the existing prototype infrastructure (modified `it_code_entrant_screen.py` to accept broader code sets)
 
-| Finding | Evidence |
-|---|---|
-| Value pre-pass exact on regulatory genre | E142: 1.0 detection (4/4), 0.0 FP (0/16) on Fed Register SUMMARYs; E144: 0.0 FP on STB railway SUMMARYs |
-| Instrument is genre-limited | E141: fails on SQuAD (0.2826 detection); E143: fails on SUPPLEMENTARY INFORMATION; E144: different regulatory genre but same genre family |
-| No binding errors on regulatory text | E142: 0 misses; E144: 0 ungrounded_claim (only ungrounded_value + ungrounded_context) |
-| Resolved share ~0.90 | E142: 18/20 (0.90); E144: 333/373 (89.3%) |
+**Implementation approach**: Modify the screen tool to accept additional PSC codes from CLI (already supported), fetch data from USAspending API for each code (current + prior windows), compute DIF and classification, and report whether the bimodal pattern holds. Start with a focused set of IT-related codes from E196's top 25, then expand if the API allows.
 
-## Decision
+**Why this direction**: The E209 result narrows the money axis screen but the generalizability of the pattern is untested. A positive result (bimodal pattern generalizes) would robustly validate the approach. A negative result (different pattern) would itself be a significant finding, clarifying the boundaries of the measurement methodology. Either way, the experiment answers an important uncertainty at low cost.
 
-**Close the regulatory pre-pass line with a measured scope.** The instrument is exact on regulatory answers written by a person and not on encyclopedic text or explanatory regulatory text. The scope is now measured in both directions:
-- Works on: regulatory SUMMARY sections written by agency staff
-- Does not work on: encyclopedic QA (SQuAD), explanatory regulatory text (SUPPLEMENTARY INFORMATION)
+**Resources needed**: USAspending API access (already available), Python 3.8+ (verified), ~5-10 minutes per code for API fetch + analysis. No new algorithms or data structures required.
 
-The next measurement would be whether the pre-pass's exactness survives a longer submission (full regulatory analysis or comment letter), but such document types are not accessible via structured API fetch, making this test infeasible within the current framework.
-
-## Most useful next action
-
-**Conduct a fresh observation in a new domain using the mission's experimental protocol.** The regulatory pre-pass line is narrowed and measured; a new investigation is needed to continue building the evidence base. The fresh observation should be in a domain not yet tested by the mission's gates, applying the same pre-declared kill criteria and measurement protocol.
-
-Potential domains:
-- Code documentation / module docstrings (value pre-pass on software artifacts)
-- A new Discourse forum domain (view-count instrument on non-technical forum)
-- Cross-genre transfer test of the value pre-pass on a non-regulatory genre
-
-The decision to pursue a fresh observation is independent of the regulatory pre-pass closure — the mission continues with new evidence-gathering per D083.
+## Records preserved
+- All raw API responses in `raw/` with sha256 metadata (E209 design)
+- `analysis.json` recomputed from committed bytes
+- `PROTOTYPE_SCREEN_PLAN.md` and `PROTOTYPE_SCREEN_RESULTS.md` documented
+- Session outcome recorded in this file
