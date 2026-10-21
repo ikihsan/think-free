@@ -10,10 +10,10 @@ last-verified: 2026-10-21
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-21T00:04:04+00:00
-- **Duration:** ?s
+- **Duration:** 26933.9s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `work/e141-valueset-second-genre`
 
@@ -23,7 +23,11 @@ Verify whether the NIH SBIR category-101 accessibility finding (E204/E206) survi
 
 ## Summary
 
-_(none recorded)_
+E207 verified the reload-point number, and the 2026-10-20/21 backlog is landed in commit 4bd8d91d. A complete R41/R42 FY2023 RePORTER census (368 rows, stopped by the API's meta.total, no cap, no sampling) reproduces E204's category-101 headline to the dollar - 147 grants, 134 distinct orgs, top-5 share 0.1159, $63,254,235 - all five predeclared gates PASS, and the script plus raw data that E204/E206 never had are committed beside the result (D128: verify a reload-point number by re-deriving it from the population it names). Landing: 113 paths, every one declared with sha256, reconcile pre-check unlogged 0; doc lint OK, doc index current, release check OK (194 paths) after classifying the three new top-level splits as internal in RELEASE-MANIFEST.md, which release check refused to pass while they were unclassified; full suite captured through tools/x at 849 tests with exactly 1 failure - F151, a fixture that pins git check-ignore exiting 0 for a negated path while this VM's git 2.50.1 exits 1 (reproduced in an isolated repository, the other 848 tests pass); neither the assertion nor the gate was weakened, and STATE.md's stale claim that this VM runs git 2.25.1 was corrected to the observed 2.50.1. Pre-existing and deliberately not repaired: session verify reports two unfinished sessions (2026-10-10-013, 2026-10-19-005) that only their own event streams can close, so preflight still exits 2 although release check now passes. Nothing was pushed: no remote publication was requested or performed.
+
+## Next
+
+Run E208, the entrant-share screen on NIH SBIR category 101: fetch R41/R42 awards for FY2014-FY2023 from RePORTER with gates declared in a PROTOCOL before any fetch, and measure what fraction of FY2023 category-101 award-holding organizations had no award in that segment in the previous five years, against the same fraction in a concentrated category - this tests the unmeasured step between 'the vendor landscape is fragmented' and 'a small program can actually enter'
 
 ## Artifacts
 
@@ -131,7 +135,7 @@ _(none recorded)_
 
 ## Commands
 
-23 captured, 8 non-zero exit.
+24 captured, 8 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -158,12 +162,12 @@ _(none recorded)_
 | 121 | ['./tools/origin', 'preflight'] | 2 | 417876 |
 | 128 | ['./tools/origin', 'release', 'check'] | 0 | 85224 |
 | 129 | ['./tools/origin', 'doc', 'lint'] | 0 | 343512 |
+| 130 | ['git', 'commit', '-F', '/tmp/opencode/commitmsg.txt'] | 0 | 679 |
 
 ## Integrity
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -213,18 +217,18 @@ _(none recorded)_
 | 38 | 05:47:50 | artifact | landing declaration: sha256 recorded while landing the uncommitted 2026-10-20/21 backlog; content verified against latest prior declarations where the |
 | 39 | 05:47:52 | artifact | landing declaration: sha256 recorded while landing the uncommitted 2026-10-20/21 backlog; content verified against latest prior declarations where the |
 | 40 | 05:47:53 | artifact | landing declaration: sha256 recorded while landing the uncommitted 2026-10-20/21 backlog; content verified against latest prior declarations where the |
-| 120 | 07:09:00 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
-| 121 | 07:16:25 | command | $ ./tools/origin preflight |
-| 122 | 07:23:21 | artifact | wrote RELEASE-MANIFEST.md |
-| 123 | 07:23:24 | artifact | wrote STATE.md |
-| 124 | 07:23:26 | artifact | wrote FAILURES.md |
-| 125 | 07:23:28 | artifact | wrote FAILURES-findings-48.md |
 | 126 | 07:23:30 | note | git on this VM is 2.50.1 (git --version and doctor, observed 2026-10-21), not the 2.25.1 STATE.md claimed; tests/git-versions.json lists 2.50.1 as unr |
 | 127 | 07:23:45 | artifact | wrote FAILURES.md |
 | 128 | 07:25:29 | command | $ ./tools/origin release check |
 | 129 | 07:31:26 | command | $ ./tools/origin doc lint |
+| 130 | 07:32:20 | command | $ git commit -F /tmp/opencode/commitmsg.txt |
+| 131 | 07:32:57 | doc_update | updated DECISIONS-RECORDS-6.md |
+| 132 | 07:32:57 | doc_update | updated DECISIONS.md |
+| 133 | 07:32:57 | doc_update | updated FAILURES.md |
+| 134 | 07:32:57 | doc_update | updated STATE.md |
+| 135 | 07:32:57 | session_end | E207 verified the reload-point number, and the 2026-10-20/21 backlog is landed in commit 4bd8d91d. A complete R41/R42 FY2023 RePORTER census (368 rows |
 
-_79 middle events omitted; see `events.jsonl`._
+_85 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
