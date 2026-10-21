@@ -261,3 +261,38 @@ def print_overall_assessment(code, recipient_analysis, award_analysis, full_anal
     elif code == "D304":
         print("  NOT A SOFTWARE MARKET: Telecom/services dominated, deprioritize")
     print(f"\nRecommendation: {'PROCEED' if code in ('7030', 'DA10') else 'CAUTION' if code in ('DA01', '7A21') else 'DEPRIORITIZE'}")
+
+
+def print_subaward_trace(code, result):
+    """Print prime-specific subaward trace results."""
+    print(f"\n{'='*60}")
+    print(f"PRIME-SPECIFIC SUBAWARD TRACE: {code}")
+    print(f"{'='*60}")
+    print(f"Primes analyzed: {len(result['primes_analyzed'])}")
+    print(f"Total subawards found: {result['total_subawards_found']:,}")
+    print(f"Total subaward amount: ${result['total_subaward_amount']:,.0f}")
+
+    for prime in result["primes_analyzed"]:
+        print(f"\n--- {prime['prime_name']} ---")
+        print(f"  Prime UEI: {prime['prime_uei']}")
+        print(f"  Prime obligation: ${prime['prime_total_obligation']:,.0f}")
+        print(f"  Awards analyzed: {prime['awards_analyzed']}")
+        print(f"  Subawards found: {prime['total_subawards']}")
+        print(f"  Subaward total: ${prime['total_subaward_amount']:,.0f}")
+        print(f"  Unique subawardees: {len(prime['unique_subawardees'])}")
+
+        if prime["unique_subawardees"]:
+            print(f"  Top subawardees:")
+            # Sort subawardees by amount
+            sub_by_amount = {}
+            for sub in prime["subawardees"]:
+                name = sub["name"]
+                sub_by_amount[name] = sub_by_amount.get(name, 0) + sub["amount"]
+            sorted_subs = sorted(sub_by_amount.items(), key=lambda x: -x[1])
+            for name, amount in sorted_subs[:10]:
+                print(f"    {name[:50]:50s}  ${amount:>12,.0f}")
+
+        if prime["awards"]:
+            print(f"  Awards analyzed:")
+            for award in prime["awards"]:
+                print(f"    {award['award_id']}  ${award['award_amount']:>12,.0f}  {award['awarding_agency'][:40]:40s}  Subs: {award['subaward_count']:3d}  ${award['subaward_total']:>12,.0f}")
