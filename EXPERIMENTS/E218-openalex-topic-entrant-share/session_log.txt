@@ -1,0 +1,794 @@
+[2026-10-21T18:16:15.838746] ============================================================
+[2026-10-21T18:16:15.838763] E218: OpenAlex Research Topic Entrant Share
+[2026-10-21T18:16:15.838767] Starting experiment
+[2026-10-21T18:16:15.838770] ============================================================
+[2026-10-21T18:16:15.838773] Fetching candidate topics (works_count > 500)...
+[2026-10-21T18:16:18.160540] Found 200 topics with works_count > 500
+[2026-10-21T18:16:18.160812] Domains/fields: 20 combinations
+[2026-10-21T18:16:18.160820]   Physical Sciences / Physics and Astronomy: 12 topics
+[2026-10-21T18:16:18.160824]   Life Sciences / Agricultural and Biological Sciences: 17 topics
+[2026-10-21T18:16:18.160828]   Physical Sciences / Engineering: 6 topics
+[2026-10-21T18:16:18.160839]   Social Sciences / Arts and Humanities: 50 topics
+[2026-10-21T18:16:18.160843]   Life Sciences / Biochemistry, Genetics and Molecular Biology: 7 topics
+[2026-10-21T18:16:18.160861]   Physical Sciences / Environmental Science: 10 topics
+[2026-10-21T18:16:18.160864]   Physical Sciences / Chemistry: 2 topics
+[2026-10-21T18:16:18.160868]   Social Sciences / Social Sciences: 49 topics
+[2026-10-21T18:16:18.160871]   Physical Sciences / Earth and Planetary Sciences: 11 topics
+[2026-10-21T18:16:18.160875]   Health Sciences / Medicine: 11 topics
+[2026-10-21T18:16:18.160878]   Social Sciences / Economics, Econometrics and Finance: 7 topics
+[2026-10-21T18:16:18.160882]   Physical Sciences / Computer Science: 3 topics
+[2026-10-21T18:16:18.160886]   Social Sciences / Decision Sciences: 2 topics
+[2026-10-21T18:16:18.160889]   Physical Sciences / Mathematics: 1 topics
+[2026-10-21T18:16:18.160892]   Social Sciences / Business, Management and Accounting: 6 topics
+[2026-10-21T18:16:18.160895]   Health Sciences / Dentistry: 1 topics
+[2026-10-21T18:16:18.160899]   Social Sciences / Psychology: 1 topics
+[2026-10-21T18:16:18.160902]   Health Sciences / Health Professions: 2 topics
+[2026-10-21T18:16:18.160905]   Health Sciences / Nursing: 1 topics
+[2026-10-21T18:16:18.160909]   Life Sciences / Immunology and Microbiology: 1 topics
+[2026-10-21T18:16:18.161044] Sampled 50 topics
+[2026-10-21T18:16:18.232761] G0: PASS - API accessible
+[2026-10-21T18:16:18.232881] 
+[1/50] Processing T10159: Ionosphere and magnetosphere dynamics
+[2026-10-21T18:16:18.232888]   Domain: Physical Sciences, Field: Physics and Astronomy
+[2026-10-21T18:16:18.232892]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:16:20.554616]   Year 2018: 200 works, 423 institutions
+[2026-10-21T18:16:22.931839]   Year 2019: 200 works, 445 institutions
+[2026-10-21T18:16:24.618232]   Year 2020: 200 works, 469 institutions
+[2026-10-21T18:16:27.854339]   Year 2021: 200 works, 443 institutions
+[2026-10-21T18:16:30.134062]   Year 2022: 200 works, 501 institutions
+[2026-10-21T18:16:30.138973]   Fetching current period (2023-2024)...
+[2026-10-21T18:16:32.915858]   Year 2023: 200 works, 510 institutions
+[2026-10-21T18:16:35.828947]   Year 2024: 200 works, 429 institutions
+[2026-10-21T18:16:35.913319]   Baseline: 1000 works, 1016 institutions, top5_share=0.0250, HHI=0.0073
+[2026-10-21T18:16:35.913339]   Current: 400 works, 676 institutions, newcomers=182, entrant_frac=0.2692
+[2026-10-21T18:16:35.913345]   Coverage: baseline=99.30%, current=97.75%, overall=98.86%
+[2026-10-21T18:16:36.003709] 
+[2/50] Processing T10048: Particle physics theoretical and experimental studies
+[2026-10-21T18:16:36.003729]   Domain: Physical Sciences, Field: Physics and Astronomy
+[2026-10-21T18:16:36.003733]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:16:39.426294]   Year 2018: 200 works, 636 institutions
+[2026-10-21T18:16:43.304495]   Year 2019: 200 works, 636 institutions
+[2026-10-21T18:16:47.627082]   Year 2020: 200 works, 611 institutions
+[2026-10-21T18:16:51.936952]   Year 2021: 200 works, 675 institutions
+[2026-10-21T18:16:55.113617]   Year 2022: 200 works, 632 institutions
+[2026-10-21T18:16:55.124078]   Fetching current period (2023-2024)...
+[2026-10-21T18:16:58.827584]   Year 2023: 200 works, 657 institutions
+[2026-10-21T18:17:01.958752]   Year 2024: 200 works, 549 institutions
+[2026-10-21T18:17:02.002968]   Baseline: 1000 works, 1107 institutions, top5_share=0.0250, HHI=0.0122
+[2026-10-21T18:17:02.002990]   Current: 400 works, 783 institutions, newcomers=123, entrant_frac=0.1571
+[2026-10-21T18:17:02.002997]   Coverage: baseline=97.80%, current=98.00%, overall=97.86%
+[2026-10-21T18:17:02.026994] 
+[3/50] Processing T10002: Advanced Chemical Physics Studies
+[2026-10-21T18:17:02.027015]   Domain: Physical Sciences, Field: Physics and Astronomy
+[2026-10-21T18:17:02.027021]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:17:04.858320]   Year 2018: 200 works, 371 institutions
+[2026-10-21T18:17:06.922911]   Year 2019: 200 works, 440 institutions
+[2026-10-21T18:17:09.526356]   Year 2020: 200 works, 565 institutions
+[2026-10-21T18:17:12.000806]   Year 2021: 200 works, 404 institutions
+[2026-10-21T18:17:14.351755]   Year 2022: 200 works, 475 institutions
+[2026-10-21T18:17:14.402968]   Fetching current period (2023-2024)...
+[2026-10-21T18:17:16.995582]   Year 2023: 200 works, 530 institutions
+[2026-10-21T18:17:19.511946]   Year 2024: 200 works, 580 institutions
+[2026-10-21T18:17:19.517373]   Baseline: 1000 works, 1188 institutions, top5_share=0.0250, HHI=0.0061
+[2026-10-21T18:17:19.517394]   Current: 400 works, 905 institutions, newcomers=407, entrant_frac=0.4497
+[2026-10-21T18:17:19.517401]   Coverage: baseline=98.20%, current=98.50%, overall=98.29%
+[2026-10-21T18:17:19.534937] 
+[4/50] Processing T12917: Astronomy and Astrophysical Research
+[2026-10-21T18:17:19.534955]   Domain: Physical Sciences, Field: Physics and Astronomy
+[2026-10-21T18:17:19.534960]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:17:23.041938]   Year 2018: 200 works, 650 institutions
+[2026-10-21T18:17:26.228440]   Year 2019: 200 works, 626 institutions
+[2026-10-21T18:17:31.211774]   Year 2020: 200 works, 677 institutions
+[2026-10-21T18:17:36.817552]   Year 2021: 200 works, 705 institutions
+[2026-10-21T18:17:41.417062]   Year 2022: 200 works, 749 institutions
+[2026-10-21T18:17:41.521648]   Fetching current period (2023-2024)...
+[2026-10-21T18:17:45.632411]   Year 2023: 200 works, 653 institutions
+[2026-10-21T18:17:49.633700]   Year 2024: 200 works, 686 institutions
+[2026-10-21T18:17:49.645718]   Baseline: 1000 works, 1237 institutions, top5_share=0.0250, HHI=0.0127
+[2026-10-21T18:17:49.645737]   Current: 400 works, 900 institutions, newcomers=206, entrant_frac=0.2289
+[2026-10-21T18:17:49.645744]   Coverage: baseline=98.30%, current=93.75%, overall=97.00%
+[2026-10-21T18:17:49.722740] 
+[5/50] Processing T10346: Magnetic confinement fusion research
+[2026-10-21T18:17:49.722760]   Domain: Physical Sciences, Field: Physics and Astronomy
+[2026-10-21T18:17:49.722763]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:17:52.109647]   Year 2018: 200 works, 346 institutions
+[2026-10-21T18:17:54.845310]   Year 2019: 200 works, 376 institutions
+[2026-10-21T18:17:57.715386]   Year 2020: 200 works, 376 institutions
+[2026-10-21T18:18:00.711131]   Year 2021: 200 works, 429 institutions
+[2026-10-21T18:18:03.615828]   Year 2022: 200 works, 400 institutions
+[2026-10-21T18:18:03.624430]   Fetching current period (2023-2024)...
+[2026-10-21T18:18:06.234096]   Year 2023: 200 works, 371 institutions
+[2026-10-21T18:18:09.326827]   Year 2024: 200 works, 382 institutions
+[2026-10-21T18:18:09.335814]   Baseline: 1000 works, 804 institutions, top5_share=0.0250, HHI=0.0065
+[2026-10-21T18:18:09.335836]   Current: 400 works, 521 institutions, newcomers=149, entrant_frac=0.2860
+[2026-10-21T18:18:09.335842]   Coverage: baseline=98.10%, current=97.25%, overall=97.86%
+[2026-10-21T18:18:09.349917] 
+[6/50] Processing T10093: Nuclear physics research studies
+[2026-10-21T18:18:09.349929]   Domain: Physical Sciences, Field: Physics and Astronomy
+[2026-10-21T18:18:09.349933]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:18:12.814534]   Year 2018: 200 works, 658 institutions
+[2026-10-21T18:18:16.006623]   Year 2019: 200 works, 550 institutions
+[2026-10-21T18:18:19.132271]   Year 2020: 200 works, 494 institutions
+[2026-10-21T18:18:21.807820]   Year 2021: 200 works, 591 institutions
+[2026-10-21T18:18:25.511619]   Year 2022: 200 works, 618 institutions
+[2026-10-21T18:18:25.520385]   Fetching current period (2023-2024)...
+[2026-10-21T18:18:28.421124]   Year 2023: 200 works, 588 institutions
+[2026-10-21T18:18:31.022369]   Year 2024: 200 works, 567 institutions
+[2026-10-21T18:18:31.028879]   Baseline: 1000 works, 1116 institutions, top5_share=0.0250, HHI=0.0102
+[2026-10-21T18:18:31.028902]   Current: 400 works, 804 institutions, newcomers=160, entrant_frac=0.1990
+[2026-10-21T18:18:31.028908]   Coverage: baseline=99.30%, current=99.00%, overall=99.21%
+[2026-10-21T18:18:31.102455] 
+[7/50] Processing T10039: Stellar, planetary, and galactic studies
+[2026-10-21T18:18:31.102475]   Domain: Physical Sciences, Field: Physics and Astronomy
+[2026-10-21T18:18:31.102478]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:18:34.035269]   Year 2018: 200 works, 570 institutions
+[2026-10-21T18:18:35.960975]   Year 2019: 200 works, 571 institutions
+[2026-10-21T18:18:39.324093]   Year 2020: 200 works, 611 institutions
+[2026-10-21T18:18:41.323961]   Year 2021: 200 works, 628 institutions
+[2026-10-21T18:18:45.416713]   Year 2022: 200 works, 668 institutions
+[2026-10-21T18:18:45.429555]   Fetching current period (2023-2024)...
+[2026-10-21T18:18:49.210263]   Year 2023: 200 works, 620 institutions
+[2026-10-21T18:18:53.128827]   Year 2024: 200 works, 544 institutions
+[2026-10-21T18:18:53.139445]   Baseline: 1000 works, 1144 institutions, top5_share=0.0250, HHI=0.0111
+[2026-10-21T18:18:53.139465]   Current: 400 works, 757 institutions, newcomers=122, entrant_frac=0.1612
+[2026-10-21T18:18:53.139472]   Coverage: baseline=98.20%, current=97.00%, overall=97.86%
+[2026-10-21T18:18:53.202096] 
+[8/50] Processing T10325: Astro and Planetary Science
+[2026-10-21T18:18:53.202113]   Domain: Physical Sciences, Field: Physics and Astronomy
+[2026-10-21T18:18:53.202117]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:18:55.727920]   Year 2018: 200 works, 495 institutions
+[2026-10-21T18:18:59.240293]   Year 2019: 200 works, 551 institutions
+[2026-10-21T18:19:02.638319]   Year 2020: 200 works, 691 institutions
+[2026-10-21T18:19:05.418226]   Year 2021: 200 works, 599 institutions
+[2026-10-21T18:19:08.731338]   Year 2022: 200 works, 665 institutions
+[2026-10-21T18:19:08.742551]   Fetching current period (2023-2024)...
+[2026-10-21T18:19:11.842065]   Year 2023: 200 works, 622 institutions
+[2026-10-21T18:19:15.408026]   Year 2024: 200 works, 637 institutions
+[2026-10-21T18:19:15.418365]   Baseline: 1000 works, 1211 institutions, top5_share=0.0250, HHI=0.0104
+[2026-10-21T18:19:15.418385]   Current: 400 works, 843 institutions, newcomers=179, entrant_frac=0.2123
+[2026-10-21T18:19:15.418391]   Coverage: baseline=98.80%, current=95.75%, overall=97.93%
+[2026-10-21T18:19:15.440996] 
+[9/50] Processing T10026: Galaxies: Formation, Evolution, Phenomena
+[2026-10-21T18:19:15.441013]   Domain: Physical Sciences, Field: Physics and Astronomy
+[2026-10-21T18:19:15.441017]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:19:18.742099]   Year 2018: 200 works, 558 institutions
+[2026-10-21T18:19:22.017205]   Year 2019: 200 works, 645 institutions
+[2026-10-21T18:19:25.406559]   Year 2020: 200 works, 543 institutions
+[2026-10-21T18:19:29.229499]   Year 2021: 200 works, 671 institutions
+[2026-10-21T18:19:33.024147]   Year 2022: 200 works, 616 institutions
+[2026-10-21T18:19:33.036447]   Fetching current period (2023-2024)...
+[2026-10-21T18:19:36.517939]   Year 2023: 200 works, 613 institutions
+[2026-10-21T18:19:40.014672]   Year 2024: 200 works, 533 institutions
+[2026-10-21T18:19:40.026176]   Baseline: 1000 works, 1066 institutions, top5_share=0.0250, HHI=0.0115
+[2026-10-21T18:19:40.026198]   Current: 400 works, 746 institutions, newcomers=126, entrant_frac=0.1689
+[2026-10-21T18:19:40.026204]   Coverage: baseline=98.40%, current=97.25%, overall=98.07%
+[2026-10-21T18:19:40.047585] 
+[10/50] Processing T10037: Physics of Superconductivity and Magnetism
+[2026-10-21T18:19:40.047604]   Domain: Physical Sciences, Field: Physics and Astronomy
+[2026-10-21T18:19:40.047609]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:19:42.289466]   Year 2018: 200 works, 344 institutions
+[2026-10-21T18:19:44.706288]   Year 2019: 200 works, 381 institutions
+[2026-10-21T18:19:47.310565]   Year 2020: 200 works, 402 institutions
+[2026-10-21T18:19:49.667367]   Year 2021: 200 works, 400 institutions
+[2026-10-21T18:19:52.215850]   Year 2022: 200 works, 425 institutions
+[2026-10-21T18:19:52.221264]   Fetching current period (2023-2024)...
+[2026-10-21T18:19:54.528018]   Year 2023: 200 works, 438 institutions
+[2026-10-21T18:19:57.102753]   Year 2024: 200 works, 422 institutions
+[2026-10-21T18:19:57.108230]   Baseline: 1000 works, 862 institutions, top5_share=0.0250, HHI=0.0062
+[2026-10-21T18:19:57.108251]   Current: 400 works, 619 institutions, newcomers=179, entrant_frac=0.2892
+[2026-10-21T18:19:57.108259]   Coverage: baseline=98.00%, current=99.25%, overall=98.36%
+[2026-10-21T18:19:57.124466] 
+[11/50] Processing T13628: Agricultural Productivity and Crop Improvement
+[2026-10-21T18:19:57.124483]   Domain: Life Sciences, Field: Agricultural and Biological Sciences
+[2026-10-21T18:19:57.124487]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:19:58.182588]   Year 2018: 200 works, 447 institutions
+[2026-10-21T18:20:00.134476]   Year 2019: 200 works, 433 institutions
+[2026-10-21T18:20:02.172488]   Year 2020: 200 works, 477 institutions
+[2026-10-21T18:20:04.242820]   Year 2021: 200 works, 522 institutions
+[2026-10-21T18:20:06.390933]   Year 2022: 200 works, 544 institutions
+[2026-10-21T18:20:06.395237]   Fetching current period (2023-2024)...
+[2026-10-21T18:20:08.560949]   Year 2023: 200 works, 481 institutions
+[2026-10-21T18:20:10.625010]   Year 2024: 200 works, 485 institutions
+[2026-10-21T18:20:10.629103]   Baseline: 1000 works, 1326 institutions, top5_share=0.0250, HHI=0.0063
+[2026-10-21T18:20:10.629123]   Current: 400 works, 773 institutions, newcomers=301, entrant_frac=0.3894
+[2026-10-21T18:20:10.629129]   Coverage: baseline=93.80%, current=97.00%, overall=94.71%
+[2026-10-21T18:20:10.646795] 
+[12/50] Processing T12319: Fish Biology and Ecology Studies
+[2026-10-21T18:20:10.646844]   Domain: Life Sciences, Field: Agricultural and Biological Sciences
+[2026-10-21T18:20:10.646850]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:20:12.945208]   Year 2018: 200 works, 467 institutions
+[2026-10-21T18:20:14.877083]   Year 2019: 200 works, 495 institutions
+[2026-10-21T18:20:17.099133]   Year 2020: 200 works, 617 institutions
+[2026-10-21T18:20:19.172355]   Year 2021: 200 works, 578 institutions
+[2026-10-21T18:20:21.671106]   Year 2022: 200 works, 571 institutions
+[2026-10-21T18:20:21.676124]   Fetching current period (2023-2024)...
+[2026-10-21T18:20:24.504755]   Year 2023: 200 works, 595 institutions
+[2026-10-21T18:20:26.509707]   Year 2024: 200 works, 580 institutions
+[2026-10-21T18:20:26.514039]   Baseline: 1000 works, 1544 institutions, top5_share=0.0250, HHI=0.0069
+[2026-10-21T18:20:26.514059]   Current: 400 works, 948 institutions, newcomers=349, entrant_frac=0.3681
+[2026-10-21T18:20:26.514066]   Coverage: baseline=95.10%, current=96.00%, overall=95.36%
+[2026-10-21T18:20:26.546656] 
+[13/50] Processing T11494: Coleoptera Taxonomy and Distribution
+[2026-10-21T18:20:26.546675]   Domain: Life Sciences, Field: Agricultural and Biological Sciences
+[2026-10-21T18:20:26.546678]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:20:27.881077]   Year 2018: 200 works, 477 institutions
+[2026-10-21T18:20:29.986655]   Year 2019: 200 works, 476 institutions
+[2026-10-21T18:20:32.321787]   Year 2020: 200 works, 455 institutions
+[2026-10-21T18:20:34.541553]   Year 2021: 200 works, 506 institutions
+[2026-10-21T18:20:36.606528]   Year 2022: 200 works, 497 institutions
+[2026-10-21T18:20:36.610705]   Fetching current period (2023-2024)...
+[2026-10-21T18:20:39.251683]   Year 2023: 200 works, 575 institutions
+[2026-10-21T18:20:41.213670]   Year 2024: 200 works, 516 institutions
+[2026-10-21T18:20:41.220357]   Baseline: 1000 works, 1281 institutions, top5_share=0.0250, HHI=0.0065
+[2026-10-21T18:20:41.220377]   Current: 400 works, 851 institutions, newcomers=314, entrant_frac=0.3690
+[2026-10-21T18:20:41.220384]   Coverage: baseline=95.20%, current=97.25%, overall=95.79%
+[2026-10-21T18:20:41.240089] 
+[14/50] Processing T10733: Wheat and Barley Genetics and Pathology
+[2026-10-21T18:20:41.240108]   Domain: Life Sciences, Field: Agricultural and Biological Sciences
+[2026-10-21T18:20:41.240112]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:20:43.822096]   Year 2018: 200 works, 420 institutions
+[2026-10-21T18:20:46.218770]   Year 2019: 200 works, 442 institutions
+[2026-10-21T18:20:48.722631]   Year 2020: 200 works, 488 institutions
+[2026-10-21T18:20:50.995113]   Year 2021: 200 works, 484 institutions
+[2026-10-21T18:20:52.809464]   Year 2022: 200 works, 530 institutions
+[2026-10-21T18:20:52.816211]   Fetching current period (2023-2024)...
+[2026-10-21T18:20:55.220986]   Year 2023: 200 works, 492 institutions
+[2026-10-21T18:20:56.924276]   Year 2024: 200 works, 497 institutions
+[2026-10-21T18:20:57.006455]   Baseline: 1000 works, 1247 institutions, top5_share=0.0250, HHI=0.0066
+[2026-10-21T18:20:57.006477]   Current: 400 works, 768 institutions, newcomers=265, entrant_frac=0.3451
+[2026-10-21T18:20:57.006483]   Coverage: baseline=99.40%, current=98.00%, overall=99.00%
+[2026-10-21T18:20:57.024396] 
+[15/50] Processing T12568: Plant Taxonomy and Phylogenetics
+[2026-10-21T18:20:57.024415]   Domain: Life Sciences, Field: Agricultural and Biological Sciences
+[2026-10-21T18:20:57.024419]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:20:59.408056]   Year 2018: 200 works, 430 institutions
+[2026-10-21T18:21:01.917106]   Year 2019: 200 works, 568 institutions
+[2026-10-21T18:21:04.337491]   Year 2020: 200 works, 558 institutions
+[2026-10-21T18:21:06.747032]   Year 2021: 200 works, 491 institutions
+[2026-10-21T18:21:09.070657]   Year 2022: 200 works, 482 institutions
+[2026-10-21T18:21:09.075120]   Fetching current period (2023-2024)...
+[2026-10-21T18:21:11.451090]   Year 2023: 200 works, 533 institutions
+[2026-10-21T18:21:16.284828]   Year 2024: 200 works, 557 institutions
+[2026-10-21T18:21:16.289409]   Baseline: 1000 works, 1378 institutions, top5_share=0.0250, HHI=0.0065
+[2026-10-21T18:21:16.289426]   Current: 400 works, 846 institutions, newcomers=288, entrant_frac=0.3404
+[2026-10-21T18:21:16.289433]   Coverage: baseline=98.50%, current=99.50%, overall=98.79%
+[2026-10-21T18:21:16.308153] 
+[16/50] Processing T10004: Soil Carbon and Nitrogen Dynamics
+[2026-10-21T18:21:16.308167]   Domain: Life Sciences, Field: Agricultural and Biological Sciences
+[2026-10-21T18:21:16.308171]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:21:18.701783]   Year 2018: 200 works, 646 institutions
+[2026-10-21T18:21:21.106058]   Year 2019: 200 works, 645 institutions
+[2026-10-21T18:21:23.457521]   Year 2020: 200 works, 691 institutions
+[2026-10-21T18:21:26.425930]   Year 2021: 200 works, 708 institutions
+[2026-10-21T18:21:28.748687]   Year 2022: 200 works, 690 institutions
+[2026-10-21T18:21:28.754309]   Fetching current period (2023-2024)...
+[2026-10-21T18:21:31.216042]   Year 2023: 200 works, 642 institutions
+[2026-10-21T18:21:32.825477]   Year 2024: 200 works, 723 institutions
+[2026-10-21T18:21:32.831927]   Baseline: 1000 works, 1701 institutions, top5_share=0.0250, HHI=0.0097
+[2026-10-21T18:21:32.831949]   Current: 400 works, 1034 institutions, newcomers=329, entrant_frac=0.3182
+[2026-10-21T18:21:32.831955]   Coverage: baseline=98.50%, current=98.75%, overall=98.57%
+[2026-10-21T18:21:32.912937] 
+[17/50] Processing T12455: Mediterranean and Iberian flora and fauna
+[2026-10-21T18:21:32.912955]   Domain: Life Sciences, Field: Agricultural and Biological Sciences
+[2026-10-21T18:21:32.912959]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:21:35.132166]   Year 2018: 200 works, 397 institutions
+[2026-10-21T18:21:37.285606]   Year 2019: 200 works, 396 institutions
+[2026-10-21T18:21:39.657591]   Year 2020: 200 works, 448 institutions
+[2026-10-21T18:21:41.747028]   Year 2021: 200 works, 473 institutions
+[2026-10-21T18:21:44.052536]   Year 2022: 200 works, 473 institutions
+[2026-10-21T18:21:44.056409]   Fetching current period (2023-2024)...
+[2026-10-21T18:21:46.031015]   Year 2023: 200 works, 468 institutions
+[2026-10-21T18:21:48.473957]   Year 2024: 200 works, 504 institutions
+[2026-10-21T18:21:48.478279]   Baseline: 1000 works, 1168 institutions, top5_share=0.0250, HHI=0.0060
+[2026-10-21T18:21:48.478296]   Current: 400 works, 761 institutions, newcomers=291, entrant_frac=0.3824
+[2026-10-21T18:21:48.478302]   Coverage: baseline=92.30%, current=94.25%, overall=92.86%
+[2026-10-21T18:21:48.505421] 
+[18/50] Processing T12234: Mollusks and Parasites Studies
+[2026-10-21T18:21:48.505441]   Domain: Life Sciences, Field: Agricultural and Biological Sciences
+[2026-10-21T18:21:48.505445]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:21:50.623672]   Year 2018: 200 works, 512 institutions
+[2026-10-21T18:21:52.924049]   Year 2019: 200 works, 538 institutions
+[2026-10-21T18:21:55.284515]   Year 2020: 200 works, 583 institutions
+[2026-10-21T18:21:57.446488]   Year 2021: 200 works, 495 institutions
+[2026-10-21T18:21:59.751473]   Year 2022: 200 works, 576 institutions
+[2026-10-21T18:21:59.755810]   Fetching current period (2023-2024)...
+[2026-10-21T18:22:02.205474]   Year 2023: 200 works, 568 institutions
+[2026-10-21T18:22:04.858665]   Year 2024: 200 works, 546 institutions
+[2026-10-21T18:22:04.863101]   Baseline: 1000 works, 1584 institutions, top5_share=0.0250, HHI=0.0067
+[2026-10-21T18:22:04.863118]   Current: 400 works, 931 institutions, newcomers=380, entrant_frac=0.4082
+[2026-10-21T18:22:04.863125]   Coverage: baseline=97.80%, current=97.75%, overall=97.79%
+[2026-10-21T18:22:04.904861] 
+[19/50] Processing T12606: Diptera species taxonomy and behavior
+[2026-10-21T18:22:04.904880]   Domain: Life Sciences, Field: Agricultural and Biological Sciences
+[2026-10-21T18:22:04.904883]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:22:07.266615]   Year 2018: 200 works, 534 institutions
+[2026-10-21T18:22:09.279993]   Year 2019: 200 works, 541 institutions
+[2026-10-21T18:22:11.450664]   Year 2020: 200 works, 561 institutions
+[2026-10-21T18:22:13.819587]   Year 2021: 200 works, 591 institutions
+[2026-10-21T18:22:16.053701]   Year 2022: 200 works, 564 institutions
+[2026-10-21T18:22:16.059053]   Fetching current period (2023-2024)...
+[2026-10-21T18:22:18.313363]   Year 2023: 200 works, 658 institutions
+[2026-10-21T18:22:20.644274]   Year 2024: 200 works, 577 institutions
+[2026-10-21T18:22:20.648488]   Baseline: 1000 works, 1549 institutions, top5_share=0.0250, HHI=0.0072
+[2026-10-21T18:22:20.648505]   Current: 400 works, 987 institutions, newcomers=381, entrant_frac=0.3860
+[2026-10-21T18:22:20.648511]   Coverage: baseline=96.30%, current=96.50%, overall=96.36%
+[2026-10-21T18:22:20.713458] 
+[20/50] Processing T12045: Rice Cultivation and Yield Improvement
+[2026-10-21T18:22:20.713475]   Domain: Life Sciences, Field: Agricultural and Biological Sciences
+[2026-10-21T18:22:20.713480]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:22:23.127756]   Year 2018: 200 works, 379 institutions
+[2026-10-21T18:22:25.423343]   Year 2019: 200 works, 345 institutions
+[2026-10-21T18:22:27.891564]   Year 2020: 200 works, 372 institutions
+[2026-10-21T18:22:30.377061]   Year 2021: 200 works, 398 institutions
+[2026-10-21T18:22:32.910978]   Year 2022: 200 works, 401 institutions
+[2026-10-21T18:22:32.923600]   Fetching current period (2023-2024)...
+[2026-10-21T18:22:35.448741]   Year 2023: 200 works, 415 institutions
+[2026-10-21T18:22:36.959008]   Year 2024: 200 works, 376 institutions
+[2026-10-21T18:22:37.004897]   Baseline: 1000 works, 1046 institutions, top5_share=0.0250, HHI=0.0050
+[2026-10-21T18:22:37.004934]   Current: 400 works, 638 institutions, newcomers=250, entrant_frac=0.3918
+[2026-10-21T18:22:37.004941]   Coverage: baseline=99.90%, current=99.25%, overall=99.71%
+[2026-10-21T18:22:37.023524] 
+[21/50] Processing T10370: Traffic and Road Safety
+[2026-10-21T18:22:37.023583]   Domain: Physical Sciences, Field: Engineering
+[2026-10-21T18:22:37.023590]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:22:38.877005]   Year 2018: 200 works, 281 institutions
+[2026-10-21T18:22:39.861599]   Year 2019: 200 works, 302 institutions
+[2026-10-21T18:22:41.864825]   Year 2020: 200 works, 390 institutions
+[2026-10-21T18:22:43.866826]   Year 2021: 200 works, 291 institutions
+[2026-10-21T18:22:45.913276]   Year 2022: 200 works, 322 institutions
+[2026-10-21T18:22:45.916505]   Fetching current period (2023-2024)...
+[2026-10-21T18:22:47.881466]   Year 2023: 200 works, 319 institutions
+[2026-10-21T18:22:49.836444]   Year 2024: 200 works, 308 institutions
+[2026-10-21T18:22:49.839115]   Baseline: 1000 works, 1007 institutions, top5_share=0.0250, HHI=0.0035
+[2026-10-21T18:22:49.839128]   Current: 400 works, 511 institutions, newcomers=246, entrant_frac=0.4814
+[2026-10-21T18:22:49.839134]   Coverage: baseline=98.80%, current=98.00%, overall=98.57%
+[2026-10-21T18:22:49.850318] 
+[22/50] Processing T11367: Particle accelerators and beam dynamics
+[2026-10-21T18:22:49.850327]   Domain: Physical Sciences, Field: Engineering
+[2026-10-21T18:22:49.850331]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:22:52.213731]   Year 2018: 200 works, 412 institutions
+[2026-10-21T18:22:55.242338]   Year 2019: 200 works, 528 institutions
+[2026-10-21T18:22:58.347164]   Year 2020: 200 works, 529 institutions
+[2026-10-21T18:23:01.136301]   Year 2021: 200 works, 517 institutions
+[2026-10-21T18:23:03.924838]   Year 2022: 200 works, 506 institutions
+[2026-10-21T18:23:03.940147]   Fetching current period (2023-2024)...
+[2026-10-21T18:23:07.220242]   Year 2023: 200 works, 475 institutions
+[2026-10-21T18:23:10.321572]   Year 2024: 200 works, 551 institutions
+[2026-10-21T18:23:10.330165]   Baseline: 1000 works, 1129 institutions, top5_share=0.0250, HHI=0.0077
+[2026-10-21T18:23:10.330186]   Current: 400 works, 735 institutions, newcomers=187, entrant_frac=0.2544
+[2026-10-21T18:23:10.330192]   Coverage: baseline=98.70%, current=97.50%, overall=98.36%
+[2026-10-21T18:23:10.350618] 
+[23/50] Processing T12188: Architecture, Modernity, and Design
+[2026-10-21T18:23:10.350636]   Domain: Physical Sciences, Field: Engineering
+[2026-10-21T18:23:10.350640]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:23:11.996446]   Year 2018: 200 works, 139 institutions
+[2026-10-21T18:23:13.486711]   Year 2019: 200 works, 159 institutions
+[2026-10-21T18:23:14.820665]   Year 2020: 200 works, 133 institutions
+[2026-10-21T18:23:16.325432]   Year 2021: 200 works, 155 institutions
+[2026-10-21T18:23:17.766007]   Year 2022: 200 works, 190 institutions
+[2026-10-21T18:23:17.767146]   Fetching current period (2023-2024)...
+[2026-10-21T18:23:19.191190]   Year 2023: 200 works, 196 institutions
+[2026-10-21T18:23:20.747547]   Year 2024: 200 works, 201 institutions
+[2026-10-21T18:23:20.749070]   Baseline: 1000 works, 556 institutions, top5_share=0.0220, HHI=0.0014
+[2026-10-21T18:23:20.749081]   Current: 400 works, 350 institutions, newcomers=197, entrant_frac=0.5629
+[2026-10-21T18:23:20.749087]   Coverage: baseline=61.50%, current=79.50%, overall=66.64%
+[2026-10-21T18:23:20.757498] 
+[24/50] Processing T10160: Seismic Performance and Analysis
+[2026-10-21T18:23:20.757512]   Domain: Physical Sciences, Field: Engineering
+[2026-10-21T18:23:20.757515]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:23:22.757083]   Year 2018: 200 works, 298 institutions
+[2026-10-21T18:23:24.598025]   Year 2019: 200 works, 263 institutions
+[2026-10-21T18:23:26.534638]   Year 2020: 200 works, 291 institutions
+[2026-10-21T18:23:28.435209]   Year 2021: 200 works, 302 institutions
+[2026-10-21T18:23:30.376362]   Year 2022: 200 works, 276 institutions
+[2026-10-21T18:23:30.385721]   Fetching current period (2023-2024)...
+[2026-10-21T18:23:32.342976]   Year 2023: 200 works, 259 institutions
+[2026-10-21T18:23:34.249702]   Year 2024: 200 works, 297 institutions
+[2026-10-21T18:23:34.251642]   Baseline: 1000 works, 758 institutions, top5_share=0.0250, HHI=0.0038
+[2026-10-21T18:23:34.251653]   Current: 400 works, 430 institutions, newcomers=162, entrant_frac=0.3767
+[2026-10-21T18:23:34.251661]   Coverage: baseline=99.20%, current=98.00%, overall=98.86%
+[2026-10-21T18:23:34.263261] 
+[25/50] Processing T10360: Fluid Dynamics and Turbulent Flows
+[2026-10-21T18:23:34.263271]   Domain: Physical Sciences, Field: Engineering
+[2026-10-21T18:23:34.263275]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:23:36.029593]   Year 2018: 200 works, 328 institutions
+[2026-10-21T18:23:38.022738]   Year 2019: 200 works, 310 institutions
+[2026-10-21T18:23:40.118553]   Year 2020: 200 works, 361 institutions
+[2026-10-21T18:23:42.268109]   Year 2021: 200 works, 362 institutions
+[2026-10-21T18:23:44.655814]   Year 2022: 200 works, 309 institutions
+[2026-10-21T18:23:44.658356]   Fetching current period (2023-2024)...
+[2026-10-21T18:23:46.560181]   Year 2023: 200 works, 341 institutions
+[2026-10-21T18:23:48.546398]   Year 2024: 200 works, 358 institutions
+[2026-10-21T18:23:48.550740]   Baseline: 1000 works, 917 institutions, top5_share=0.0250, HHI=0.0043
+[2026-10-21T18:23:48.550758]   Current: 400 works, 576 institutions, newcomers=240, entrant_frac=0.4167
+[2026-10-21T18:23:48.550764]   Coverage: baseline=99.50%, current=98.50%, overall=99.21%
+[2026-10-21T18:23:48.565482] 
+[26/50] Processing T13031: Civil and Structural Engineering Research
+[2026-10-21T18:23:48.565499]   Domain: Physical Sciences, Field: Engineering
+[2026-10-21T18:23:48.565503]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:23:50.323232]   Year 2018: 200 works, 271 institutions
+[2026-10-21T18:23:51.952711]   Year 2019: 200 works, 257 institutions
+[2026-10-21T18:23:53.740552]   Year 2020: 200 works, 261 institutions
+[2026-10-21T18:23:55.586023]   Year 2021: 200 works, 265 institutions
+[2026-10-21T18:23:57.490009]   Year 2022: 200 works, 291 institutions
+[2026-10-21T18:23:57.491874]   Fetching current period (2023-2024)...
+[2026-10-21T18:23:59.265330]   Year 2023: 200 works, 289 institutions
+[2026-10-21T18:24:01.250797]   Year 2024: 200 works, 296 institutions
+[2026-10-21T18:24:01.252907]   Baseline: 1000 works, 850 institutions, top5_share=0.0250, HHI=0.0030
+[2026-10-21T18:24:01.252931]   Current: 400 works, 504 institutions, newcomers=243, entrant_frac=0.4821
+[2026-10-21T18:24:01.252938]   Coverage: baseline=91.30%, current=93.75%, overall=92.00%
+[2026-10-21T18:24:01.264648] 
+[27/50] Processing T14475: History of Science and Medicine
+[2026-10-21T18:24:01.264664]   Domain: Social Sciences, Field: Arts and Humanities
+[2026-10-21T18:24:01.264669]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:24:02.630546]   Year 2018: 200 works, 145 institutions
+[2026-10-21T18:24:04.228792]   Year 2019: 200 works, 167 institutions
+[2026-10-21T18:24:05.620819]   Year 2020: 200 works, 220 institutions
+[2026-10-21T18:24:07.082629]   Year 2021: 200 works, 259 institutions
+[2026-10-21T18:24:07.867726]   Year 2022: 200 works, 276 institutions
+[2026-10-21T18:24:07.868694]   Fetching current period (2023-2024)...
+[2026-10-21T18:24:09.385347]   Year 2023: 200 works, 265 institutions
+[2026-10-21T18:24:11.341604]   Year 2024: 200 works, 241 institutions
+[2026-10-21T18:24:11.342884]   Baseline: 1000 works, 788 institutions, top5_share=0.0250, HHI=0.0019
+[2026-10-21T18:24:11.342895]   Current: 400 works, 447 institutions, newcomers=281, entrant_frac=0.6286
+[2026-10-21T18:24:11.342903]   Coverage: baseline=64.10%, current=73.00%, overall=66.64%
+[2026-10-21T18:24:11.350904] 
+[28/50] Processing T13575: Travel Writing and Literature
+[2026-10-21T18:24:11.350921]   Domain: Social Sciences, Field: Arts and Humanities
+[2026-10-21T18:24:11.350925]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:24:12.608358]   Year 2018: 200 works, 86 institutions
+[2026-10-21T18:24:13.806928]   Year 2019: 200 works, 96 institutions
+[2026-10-21T18:24:15.300002]   Year 2020: 200 works, 139 institutions
+[2026-10-21T18:24:17.056065]   Year 2021: 200 works, 145 institutions
+[2026-10-21T18:24:18.346618]   Year 2022: 200 works, 151 institutions
+[2026-10-21T18:24:18.347396]   Fetching current period (2023-2024)...
+[2026-10-21T18:24:19.807299]   Year 2023: 200 works, 179 institutions
+[2026-10-21T18:24:21.207789]   Year 2024: 200 works, 172 institutions
+[2026-10-21T18:24:21.208814]   Baseline: 1000 works, 484 institutions, top5_share=0.0200, HHI=0.0010
+[2026-10-21T18:24:21.208826]   Current: 400 works, 318 institutions, newcomers=222, entrant_frac=0.6981
+[2026-10-21T18:24:21.208832]   Coverage: baseline=43.40%, current=62.50%, overall=48.86%
+[2026-10-21T18:24:21.214037] 
+[29/50] Processing T12444: Art, Politics, and Modernism
+[2026-10-21T18:24:21.214048]   Domain: Social Sciences, Field: Arts and Humanities
+[2026-10-21T18:24:21.214051]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:24:22.514013]   Year 2018: 200 works, 83 institutions
+[2026-10-21T18:24:23.604883]   Year 2019: 200 works, 80 institutions
+[2026-10-21T18:24:24.719078]   Year 2020: 200 works, 88 institutions
+[2026-10-21T18:24:26.127126]   Year 2021: 200 works, 112 institutions
+[2026-10-21T18:24:27.435847]   Year 2022: 200 works, 134 institutions
+[2026-10-21T18:24:27.436370]   Fetching current period (2023-2024)...
+[2026-10-21T18:24:28.816481]   Year 2023: 200 works, 146 institutions
+[2026-10-21T18:24:30.286062]   Year 2024: 200 works, 156 institutions
+[2026-10-21T18:24:30.286908]   Baseline: 1000 works, 384 institutions, top5_share=0.0190, HHI=0.0008
+[2026-10-21T18:24:30.286930]   Current: 400 works, 277 institutions, newcomers=176, entrant_frac=0.6354
+[2026-10-21T18:24:30.286937]   Coverage: baseline=38.80%, current=59.50%, overall=44.71%
+[2026-10-21T18:24:30.291570] 
+[30/50] Processing T10362: Biblical Studies and Interpretation
+[2026-10-21T18:24:30.291582]   Domain: Social Sciences, Field: Arts and Humanities
+[2026-10-21T18:24:30.291585]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:24:31.436250]   Year 2018: 200 works, 67 institutions
+[2026-10-21T18:24:32.661113]   Year 2019: 200 works, 74 institutions
+[2026-10-21T18:24:34.156387]   Year 2020: 200 works, 65 institutions
+[2026-10-21T18:24:35.545843]   Year 2021: 200 works, 73 institutions
+[2026-10-21T18:24:36.719142]   Year 2022: 200 works, 76 institutions
+[2026-10-21T18:24:36.719664]   Fetching current period (2023-2024)...
+[2026-10-21T18:24:37.941135]   Year 2023: 200 works, 88 institutions
+[2026-10-21T18:24:39.440684]   Year 2024: 200 works, 105 institutions
+[2026-10-21T18:24:39.441311]   Baseline: 1000 works, 249 institutions, top5_share=0.0230, HHI=0.0007
+[2026-10-21T18:24:39.441323]   Current: 400 works, 170 institutions, newcomers=95, entrant_frac=0.5588
+[2026-10-21T18:24:39.441329]   Coverage: baseline=33.90%, current=44.75%, overall=37.00%
+[2026-10-21T18:24:39.444461] 
+[31/50] Processing T12409: Reformation and Early Modern Christianity
+[2026-10-21T18:24:39.444469]   Domain: Social Sciences, Field: Arts and Humanities
+[2026-10-21T18:24:39.444473]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:24:40.563430]   Year 2018: 200 works, 73 institutions
+[2026-10-21T18:24:42.116253]   Year 2019: 200 works, 76 institutions
+[2026-10-21T18:24:43.212804]   Year 2020: 200 works, 81 institutions
+[2026-10-21T18:24:44.404373]   Year 2021: 200 works, 90 institutions
+[2026-10-21T18:24:45.122682]   Year 2022: 200 works, 101 institutions
+[2026-10-21T18:24:45.123174]   Fetching current period (2023-2024)...
+[2026-10-21T18:24:46.405696]   Year 2023: 200 works, 89 institutions
+[2026-10-21T18:24:47.571932]   Year 2024: 200 works, 74 institutions
+[2026-10-21T18:24:47.572358]   Baseline: 1000 works, 322 institutions, top5_share=0.0220, HHI=0.0007
+[2026-10-21T18:24:47.572366]   Current: 400 works, 149 institutions, newcomers=87, entrant_frac=0.5839
+[2026-10-21T18:24:47.572372]   Coverage: baseline=41.00%, current=39.00%, overall=40.43%
+[2026-10-21T18:24:47.575683] 
+[32/50] Processing T11563: Indian and Buddhist Studies
+[2026-10-21T18:24:47.575691]   Domain: Social Sciences, Field: Arts and Humanities
+[2026-10-21T18:24:47.575696]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:24:48.884141]   Year 2018: 200 works, 113 institutions
+[2026-10-21T18:24:50.057236]   Year 2019: 200 works, 97 institutions
+[2026-10-21T18:24:51.424970]   Year 2020: 200 works, 129 institutions
+[2026-10-21T18:24:53.026976]   Year 2021: 200 works, 133 institutions
+[2026-10-21T18:24:54.364323]   Year 2022: 200 works, 172 institutions
+[2026-10-21T18:24:54.364953]   Fetching current period (2023-2024)...
+[2026-10-21T18:24:55.831146]   Year 2023: 200 works, 188 institutions
+[2026-10-21T18:24:57.233007]   Year 2024: 200 works, 192 institutions
+[2026-10-21T18:24:57.233791]   Baseline: 1000 works, 476 institutions, top5_share=0.0210, HHI=0.0011
+[2026-10-21T18:24:57.233799]   Current: 400 works, 333 institutions, newcomers=213, entrant_frac=0.6396
+[2026-10-21T18:24:57.233805]   Coverage: baseline=51.40%, current=72.75%, overall=57.50%
+[2026-10-21T18:24:57.239154] 
+[33/50] Processing T12076: Renaissance and Early Modern Studies
+[2026-10-21T18:24:57.239164]   Domain: Social Sciences, Field: Arts and Humanities
+[2026-10-21T18:24:57.239169]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:24:58.473846]   Year 2018: 200 works, 60 institutions
+[2026-10-21T18:24:59.640940]   Year 2019: 200 works, 58 institutions
+[2026-10-21T18:25:00.716695]   Year 2020: 200 works, 84 institutions
+[2026-10-21T18:25:01.456583]   Year 2021: 200 works, 87 institutions
+[2026-10-21T18:25:02.189192]   Year 2022: 200 works, 125 institutions
+[2026-10-21T18:25:02.189675]   Fetching current period (2023-2024)...
+[2026-10-21T18:25:03.459647]   Year 2023: 200 works, 84 institutions
+[2026-10-21T18:25:04.708517]   Year 2024: 200 works, 98 institutions
+[2026-10-21T18:25:04.709149]   Baseline: 1000 works, 307 institutions, top5_share=0.0240, HHI=0.0007
+[2026-10-21T18:25:04.709160]   Current: 400 works, 169 institutions, newcomers=103, entrant_frac=0.6095
+[2026-10-21T18:25:04.709166]   Coverage: baseline=40.30%, current=43.00%, overall=41.07%
+[2026-10-21T18:25:04.712504] 
+[34/50] Processing T13815: Islamic Thought and Society Studies
+[2026-10-21T18:25:04.712517]   Domain: Social Sciences, Field: Arts and Humanities
+[2026-10-21T18:25:04.712520]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:25:06.073584]   Year 2018: 200 works, 113 institutions
+[2026-10-21T18:25:07.493150]   Year 2019: 200 works, 129 institutions
+[2026-10-21T18:25:08.814730]   Year 2020: 200 works, 117 institutions
+[2026-10-21T18:25:10.230231]   Year 2021: 200 works, 137 institutions
+[2026-10-21T18:25:11.705486]   Year 2022: 200 works, 167 institutions
+[2026-10-21T18:25:11.706268]   Fetching current period (2023-2024)...
+[2026-10-21T18:25:13.113574]   Year 2023: 200 works, 201 institutions
+[2026-10-21T18:25:14.535893]   Year 2024: 200 works, 181 institutions
+[2026-10-21T18:25:14.536683]   Baseline: 1000 works, 460 institutions, top5_share=0.0250, HHI=0.0013
+[2026-10-21T18:25:14.536692]   Current: 400 works, 331 institutions, newcomers=194, entrant_frac=0.5861
+[2026-10-21T18:25:14.536700]   Coverage: baseline=63.50%, current=84.50%, overall=69.50%
+[2026-10-21T18:25:14.542183] 
+[35/50] Processing T13704: French Literature and Poetry
+[2026-10-21T18:25:14.542195]   Domain: Social Sciences, Field: Arts and Humanities
+[2026-10-21T18:25:14.542198]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:25:15.735388]   Year 2018: 200 works, 96 institutions
+[2026-10-21T18:25:17.308525]   Year 2019: 200 works, 93 institutions
+[2026-10-21T18:25:18.621110]   Year 2020: 200 works, 106 institutions
+[2026-10-21T18:25:20.035247]   Year 2021: 200 works, 116 institutions
+[2026-10-21T18:25:21.255164]   Year 2022: 200 works, 106 institutions
+[2026-10-21T18:25:21.255707]   Fetching current period (2023-2024)...
+[2026-10-21T18:25:22.646075]   Year 2023: 200 works, 110 institutions
+[2026-10-21T18:25:23.875444]   Year 2024: 200 works, 114 institutions
+[2026-10-21T18:25:23.876164]   Baseline: 1000 works, 354 institutions, top5_share=0.0250, HHI=0.0010
+[2026-10-21T18:25:23.876174]   Current: 400 works, 198 institutions, newcomers=101, entrant_frac=0.5101
+[2026-10-21T18:25:23.876182]   Coverage: baseline=45.50%, current=51.75%, overall=47.29%
+[2026-10-21T18:25:23.882437] 
+[36/50] Processing T13766: Media, Journalism, and Communication History
+[2026-10-21T18:25:23.882451]   Domain: Social Sciences, Field: Arts and Humanities
+[2026-10-21T18:25:23.882455]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:25:25.234014]   Year 2018: 200 works, 132 institutions
+[2026-10-21T18:25:26.044041]   Year 2019: 200 works, 126 institutions
+[2026-10-21T18:25:27.359908]   Year 2020: 200 works, 124 institutions
+[2026-10-21T18:25:28.545362]   Year 2021: 200 works, 148 institutions
+[2026-10-21T18:25:29.978168]   Year 2022: 200 works, 164 institutions
+[2026-10-21T18:25:29.978847]   Fetching current period (2023-2024)...
+[2026-10-21T18:25:31.274583]   Year 2023: 200 works, 175 institutions
+[2026-10-21T18:25:32.662780]   Year 2024: 200 works, 160 institutions
+[2026-10-21T18:25:32.663543]   Baseline: 1000 works, 514 institutions, top5_share=0.0240, HHI=0.0012
+[2026-10-21T18:25:32.663551]   Current: 400 works, 296 institutions, newcomers=166, entrant_frac=0.5608
+[2026-10-21T18:25:32.663558]   Coverage: baseline=60.40%, current=68.75%, overall=62.79%
+[2026-10-21T18:25:32.670579] 
+[37/50] Processing T10825: Plant Pathogens and Fungal Diseases
+[2026-10-21T18:25:32.670593]   Domain: Life Sciences, Field: Biochemistry, Genetics and Molecular Biology
+[2026-10-21T18:25:32.670596]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:25:35.145256]   Year 2018: 200 works, 596 institutions
+[2026-10-21T18:25:37.525405]   Year 2019: 200 works, 645 institutions
+[2026-10-21T18:25:40.552030]   Year 2020: 200 works, 742 institutions
+[2026-10-21T18:25:42.899278]   Year 2021: 200 works, 685 institutions
+[2026-10-21T18:25:45.404396]   Year 2022: 200 works, 614 institutions
+[2026-10-21T18:25:45.409931]   Fetching current period (2023-2024)...
+[2026-10-21T18:25:47.904033]   Year 2023: 200 works, 724 institutions
+[2026-10-21T18:25:50.708562]   Year 2024: 200 works, 727 institutions
+[2026-10-21T18:25:50.715162]   Baseline: 1000 works, 1700 institutions, top5_share=0.0250, HHI=0.0091
+[2026-10-21T18:25:50.715184]   Current: 400 works, 1145 institutions, newcomers=472, entrant_frac=0.4122
+[2026-10-21T18:25:50.715190]   Coverage: baseline=98.60%, current=96.75%, overall=98.07%
+[2026-10-21T18:25:50.908048] 
+[38/50] Processing T14049: Plant and Fungal Species Descriptions
+[2026-10-21T18:25:50.908068]   Domain: Life Sciences, Field: Biochemistry, Genetics and Molecular Biology
+[2026-10-21T18:25:50.908073]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:25:52.942964]   Year 2018: 200 works, 464 institutions
+[2026-10-21T18:25:55.123901]   Year 2019: 200 works, 505 institutions
+[2026-10-21T18:25:57.545691]   Year 2020: 200 works, 527 institutions
+[2026-10-21T18:25:59.758390]   Year 2021: 200 works, 524 institutions
+[2026-10-21T18:26:01.829803]   Year 2022: 200 works, 458 institutions
+[2026-10-21T18:26:01.834320]   Fetching current period (2023-2024)...
+[2026-10-21T18:26:03.218717]   Year 2023: 200 works, 458 institutions
+[2026-10-21T18:26:05.373424]   Year 2024: 200 works, 501 institutions
+[2026-10-21T18:26:05.377244]   Baseline: 1000 works, 1218 institutions, top5_share=0.0250, HHI=0.0072
+[2026-10-21T18:26:05.377257]   Current: 400 works, 738 institutions, newcomers=257, entrant_frac=0.3482
+[2026-10-21T18:26:05.377264]   Coverage: baseline=93.80%, current=95.75%, overall=94.36%
+[2026-10-21T18:26:05.402393] 
+[39/50] Processing T11974: Lepidoptera: Biology and Taxonomy
+[2026-10-21T18:26:05.402410]   Domain: Life Sciences, Field: Biochemistry, Genetics and Molecular Biology
+[2026-10-21T18:26:05.402415]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:26:07.397304]   Year 2018: 200 works, 449 institutions
+[2026-10-21T18:26:09.628414]   Year 2019: 200 works, 502 institutions
+[2026-10-21T18:26:11.806605]   Year 2020: 200 works, 505 institutions
+[2026-10-21T18:26:14.136466]   Year 2021: 200 works, 508 institutions
+[2026-10-21T18:26:16.533473]   Year 2022: 200 works, 543 institutions
+[2026-10-21T18:26:16.537308]   Fetching current period (2023-2024)...
+[2026-10-21T18:26:18.848996]   Year 2023: 200 works, 519 institutions
+[2026-10-21T18:26:21.085530]   Year 2024: 200 works, 488 institutions
+[2026-10-21T18:26:21.089090]   Baseline: 1000 works, 1349 institutions, top5_share=0.0250, HHI=0.0067
+[2026-10-21T18:26:21.089105]   Current: 400 works, 804 institutions, newcomers=312, entrant_frac=0.3881
+[2026-10-21T18:26:21.089112]   Coverage: baseline=95.80%, current=97.25%, overall=96.21%
+[2026-10-21T18:26:21.109596] 
+[40/50] Processing T10015: Genomics and Phylogenetic Studies
+[2026-10-21T18:26:21.109613]   Domain: Life Sciences, Field: Biochemistry, Genetics and Molecular Biology
+[2026-10-21T18:26:21.109617]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:26:23.940374]   Year 2018: 200 works, 710 institutions
+[2026-10-21T18:26:26.656968]   Year 2019: 200 works, 734 institutions
+[2026-10-21T18:26:29.341155]   Year 2020: 200 works, 732 institutions
+[2026-10-21T18:26:32.026166]   Year 2021: 200 works, 681 institutions
+[2026-10-21T18:26:35.013310]   Year 2022: 200 works, 905 institutions
+[2026-10-21T18:26:35.036274]   Fetching current period (2023-2024)...
+[2026-10-21T18:26:38.413757]   Year 2023: 200 works, 917 institutions
+[2026-10-21T18:26:41.507848]   Year 2024: 200 works, 865 institutions
+[2026-10-21T18:26:41.515540]   Baseline: 1000 works, 1977 institutions, top5_share=0.0250, HHI=0.0104
+[2026-10-21T18:26:41.515560]   Current: 400 works, 1397 institutions, newcomers=538, entrant_frac=0.3851
+[2026-10-21T18:26:41.515566]   Coverage: baseline=98.10%, current=98.25%, overall=98.14%
+[2026-10-21T18:26:41.545254] 
+[41/50] Processing T10120: Bacterial Genetics and Biotechnology
+[2026-10-21T18:26:41.545273]   Domain: Life Sciences, Field: Biochemistry, Genetics and Molecular Biology
+[2026-10-21T18:26:41.545277]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:26:43.846779]   Year 2018: 200 works, 414 institutions
+[2026-10-21T18:26:45.851202]   Year 2019: 200 works, 446 institutions
+[2026-10-21T18:26:47.864377]   Year 2020: 200 works, 516 institutions
+[2026-10-21T18:26:49.947034]   Year 2021: 200 works, 451 institutions
+[2026-10-21T18:26:52.512342]   Year 2022: 200 works, 479 institutions
+[2026-10-21T18:26:52.517339]   Fetching current period (2023-2024)...
+[2026-10-21T18:26:54.811951]   Year 2023: 200 works, 492 institutions
+[2026-10-21T18:26:57.400888]   Year 2024: 200 works, 478 institutions
+[2026-10-21T18:26:57.404989]   Baseline: 1000 works, 1355 institutions, top5_share=0.0250, HHI=0.0056
+[2026-10-21T18:26:57.405006]   Current: 400 works, 805 institutions, newcomers=329, entrant_frac=0.4087
+[2026-10-21T18:26:57.405012]   Coverage: baseline=99.30%, current=99.50%, overall=99.36%
+[2026-10-21T18:26:57.421481] 
+[42/50] Processing T10594: Genetic and phenotypic traits in livestock
+[2026-10-21T18:26:57.421496]   Domain: Life Sciences, Field: Biochemistry, Genetics and Molecular Biology
+[2026-10-21T18:26:57.421499]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:26:59.943772]   Year 2018: 200 works, 729 institutions
+[2026-10-21T18:27:02.843300]   Year 2019: 200 works, 951 institutions
+[2026-10-21T18:27:05.439890]   Year 2020: 200 works, 691 institutions
+[2026-10-21T18:27:07.805666]   Year 2021: 200 works, 672 institutions
+[2026-10-21T18:27:10.537552]   Year 2022: 200 works, 868 institutions
+[2026-10-21T18:27:10.545481]   Fetching current period (2023-2024)...
+[2026-10-21T18:27:13.431072]   Year 2023: 200 works, 741 institutions
+[2026-10-21T18:27:17.611731]   Year 2024: 200 works, 715 institutions
+[2026-10-21T18:27:17.619834]   Baseline: 1000 works, 2093 institutions, top5_share=0.0250, HHI=0.0105
+[2026-10-21T18:27:17.619859]   Current: 400 works, 1180 institutions, newcomers=408, entrant_frac=0.3458
+[2026-10-21T18:27:17.619865]   Coverage: baseline=99.30%, current=99.25%, overall=99.29%
+[2026-10-21T18:27:18.012582] 
+[43/50] Processing T10222: Genomics and Chromatin Dynamics
+[2026-10-21T18:27:18.012607]   Domain: Life Sciences, Field: Biochemistry, Genetics and Molecular Biology
+[2026-10-21T18:27:18.012611]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:27:20.718222]   Year 2018: 200 works, 506 institutions
+[2026-10-21T18:27:23.736739]   Year 2019: 200 works, 513 institutions
+[2026-10-21T18:27:26.508413]   Year 2020: 200 works, 603 institutions
+[2026-10-21T18:27:29.805435]   Year 2021: 200 works, 675 institutions
+[2026-10-21T18:27:32.735491]   Year 2022: 200 works, 595 institutions
+[2026-10-21T18:27:32.810088]   Fetching current period (2023-2024)...
+[2026-10-21T18:27:35.914004]   Year 2023: 200 works, 697 institutions
+[2026-10-21T18:27:39.042555]   Year 2024: 200 works, 634 institutions
+[2026-10-21T18:27:39.050573]   Baseline: 1000 works, 1468 institutions, top5_share=0.0250, HHI=0.0083
+[2026-10-21T18:27:39.050592]   Current: 400 works, 1031 institutions, newcomers=378, entrant_frac=0.3666
+[2026-10-21T18:27:39.050599]   Coverage: baseline=99.60%, current=99.75%, overall=99.64%
+[2026-10-21T18:27:39.126013] 
+[44/50] Processing T10089: Avian ecology and behavior
+[2026-10-21T18:27:39.126038]   Domain: Physical Sciences, Field: Environmental Science
+[2026-10-21T18:27:39.126043]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:27:41.197631]   Year 2018: 200 works, 518 institutions
+[2026-10-21T18:27:43.728569]   Year 2019: 200 works, 546 institutions
+[2026-10-21T18:27:45.822626]   Year 2020: 200 works, 585 institutions
+[2026-10-21T18:27:48.208030]   Year 2021: 200 works, 656 institutions
+[2026-10-21T18:27:50.508390]   Year 2022: 200 works, 685 institutions
+[2026-10-21T18:27:50.514581]   Fetching current period (2023-2024)...
+[2026-10-21T18:27:53.041755]   Year 2023: 200 works, 664 institutions
+[2026-10-21T18:27:55.350861]   Year 2024: 200 works, 648 institutions
+[2026-10-21T18:27:55.355978]   Baseline: 1000 works, 1451 institutions, top5_share=0.0250, HHI=0.0089
+[2026-10-21T18:27:55.355996]   Current: 400 works, 1002 institutions, newcomers=334, entrant_frac=0.3333
+[2026-10-21T18:27:55.356003]   Coverage: baseline=98.10%, current=97.00%, overall=97.79%
+[2026-10-21T18:27:55.421796] 
+[45/50] Processing T10230: Marine and fisheries research
+[2026-10-21T18:27:55.421813]   Domain: Physical Sciences, Field: Environmental Science
+[2026-10-21T18:27:55.421817]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:27:57.823575]   Year 2018: 200 works, 616 institutions
+[2026-10-21T18:28:00.506923]   Year 2019: 200 works, 683 institutions
+[2026-10-21T18:28:03.309802]   Year 2020: 200 works, 699 institutions
+[2026-10-21T18:28:05.605073]   Year 2021: 200 works, 723 institutions
+[2026-10-21T18:28:08.072184]   Year 2022: 200 works, 679 institutions
+[2026-10-21T18:28:08.106898]   Fetching current period (2023-2024)...
+[2026-10-21T18:28:10.848664]   Year 2023: 200 works, 689 institutions
+[2026-10-21T18:28:13.431228]   Year 2024: 200 works, 772 institutions
+[2026-10-21T18:28:13.437313]   Baseline: 1000 works, 1596 institutions, top5_share=0.0250, HHI=0.0103
+[2026-10-21T18:28:13.437334]   Current: 400 works, 1104 institutions, newcomers=316, entrant_frac=0.2862
+[2026-10-21T18:28:13.437341]   Coverage: baseline=97.10%, current=96.00%, overall=96.79%
+[2026-10-21T18:28:13.528177] 
+[46/50] Processing T10005: Ecology and Vegetation Dynamics Studies
+[2026-10-21T18:28:13.528197]   Domain: Physical Sciences, Field: Environmental Science
+[2026-10-21T18:28:13.528201]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:28:15.711680]   Year 2018: 200 works, 971 institutions
+[2026-10-21T18:28:18.231179]   Year 2019: 200 works, 932 institutions
+[2026-10-21T18:28:20.952934]   Year 2020: 200 works, 1042 institutions
+[2026-10-21T18:28:23.802105]   Year 2021: 200 works, 1014 institutions
+[2026-10-21T18:28:26.538647]   Year 2022: 200 works, 1185 institutions
+[2026-10-21T18:28:26.548170]   Fetching current period (2023-2024)...
+[2026-10-21T18:28:29.846934]   Year 2023: 200 works, 1098 institutions
+[2026-10-21T18:28:33.061729]   Year 2024: 200 works, 1225 institutions
+[2026-10-21T18:28:33.112685]   Baseline: 1000 works, 2310 institutions, top5_share=0.0250, HHI=0.0162
+[2026-10-21T18:28:33.112706]   Current: 400 works, 1711 institutions, newcomers=490, entrant_frac=0.2864
+[2026-10-21T18:28:33.112812]   Coverage: baseline=98.00%, current=98.75%, overall=98.21%
+[2026-10-21T18:28:33.207573] 
+[47/50] Processing T10895: Species Distribution and Climate Change
+[2026-10-21T18:28:33.207596]   Domain: Physical Sciences, Field: Environmental Science
+[2026-10-21T18:28:33.207600]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:28:35.868534]   Year 2018: 200 works, 776 institutions
+[2026-10-21T18:28:38.615392]   Year 2019: 200 works, 756 institutions
+[2026-10-21T18:28:41.331121]   Year 2020: 200 works, 819 institutions
+[2026-10-21T18:28:43.907226]   Year 2021: 200 works, 879 institutions
+[2026-10-21T18:28:46.441508]   Year 2022: 200 works, 996 institutions
+[2026-10-21T18:28:46.449438]   Fetching current period (2023-2024)...
+[2026-10-21T18:28:49.007534]   Year 2023: 200 works, 876 institutions
+[2026-10-21T18:28:50.558391]   Year 2024: 200 works, 809 institutions
+[2026-10-21T18:28:50.605022]   Baseline: 1000 works, 2122 institutions, top5_share=0.0250, HHI=0.0122
+[2026-10-21T18:28:50.605043]   Current: 400 works, 1289 institutions, newcomers=407, entrant_frac=0.3157
+[2026-10-21T18:28:50.605050]   Coverage: baseline=99.10%, current=99.50%, overall=99.21%
+[2026-10-21T18:28:50.637914] 
+[48/50] Processing T10029: Climate variability and models
+[2026-10-21T18:28:50.637934]   Domain: Physical Sciences, Field: Environmental Science
+[2026-10-21T18:28:50.637938]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:28:53.227845]   Year 2018: 200 works, 597 institutions
+[2026-10-21T18:28:55.747295]   Year 2019: 200 works, 658 institutions
+[2026-10-21T18:28:58.616098]   Year 2020: 200 works, 649 institutions
+[2026-10-21T18:29:01.102247]   Year 2021: 200 works, 704 institutions
+[2026-10-21T18:29:04.118982]   Year 2022: 200 works, 709 institutions
+[2026-10-21T18:29:04.126259]   Fetching current period (2023-2024)...
+[2026-10-21T18:29:06.547260]   Year 2023: 200 works, 646 institutions
+[2026-10-21T18:29:08.919727]   Year 2024: 200 works, 628 institutions
+[2026-10-21T18:29:08.925623]   Baseline: 1000 works, 1505 institutions, top5_share=0.0250, HHI=0.0106
+[2026-10-21T18:29:08.925643]   Current: 400 works, 940 institutions, newcomers=304, entrant_frac=0.3234
+[2026-10-21T18:29:08.925649]   Coverage: baseline=98.30%, current=93.00%, overall=96.79%
+[2026-10-21T18:29:09.002591] 
+[49/50] Processing T11004: Crustacean biology and ecology
+[2026-10-21T18:29:09.002618]   Domain: Physical Sciences, Field: Environmental Science
+[2026-10-21T18:29:09.002622]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:29:10.962544]   Year 2018: 200 works, 431 institutions
+[2026-10-21T18:29:13.103344]   Year 2019: 200 works, 392 institutions
+[2026-10-21T18:29:15.283715]   Year 2020: 200 works, 392 institutions
+[2026-10-21T18:29:17.545290]   Year 2021: 200 works, 451 institutions
+[2026-10-21T18:29:19.863629]   Year 2022: 200 works, 436 institutions
+[2026-10-21T18:29:19.867704]   Fetching current period (2023-2024)...
+[2026-10-21T18:29:22.105411]   Year 2023: 200 works, 486 institutions
+[2026-10-21T18:29:24.142850]   Year 2024: 200 works, 406 institutions
+[2026-10-21T18:29:24.146844]   Baseline: 1000 works, 1200 institutions, top5_share=0.0250, HHI=0.0052
+[2026-10-21T18:29:24.146861]   Current: 400 works, 729 institutions, newcomers=308, entrant_frac=0.4225
+[2026-10-21T18:29:24.146867]   Coverage: baseline=98.00%, current=98.75%, overall=98.21%
+[2026-10-21T18:29:24.206390] 
+[50/50] Processing T11791: Microbial Community Ecology and Physiology
+[2026-10-21T18:29:24.206408]   Domain: Physical Sciences, Field: Environmental Science
+[2026-10-21T18:29:24.206411]   Fetching baseline period (2018-2022)...
+[2026-10-21T18:29:27.003721]   Year 2018: 200 works, 599 institutions
+[2026-10-21T18:29:29.707710]   Year 2019: 200 works, 611 institutions
+[2026-10-21T18:29:32.212210]   Year 2020: 200 works, 687 institutions
+[2026-10-21T18:29:35.056498]   Year 2021: 200 works, 680 institutions
+[2026-10-21T18:29:37.844559]   Year 2022: 200 works, 717 institutions
+[2026-10-21T18:29:37.851690]   Fetching current period (2023-2024)...
+[2026-10-21T18:29:40.363337]   Year 2023: 200 works, 656 institutions
+[2026-10-21T18:29:42.910462]   Year 2024: 200 works, 782 institutions
+[2026-10-21T18:29:42.918767]   Baseline: 1000 works, 1715 institutions, top5_share=0.0250, HHI=0.0092
+[2026-10-21T18:29:42.918792]   Current: 400 works, 1110 institutions, newcomers=412, entrant_frac=0.3712
+[2026-10-21T18:29:42.918801]   Coverage: baseline=98.60%, current=99.25%, overall=98.79%
+[2026-10-21T18:29:43.105247] 
+============================================================
+[2026-10-21T18:29:43.105269] GATE EVALUATION
+[2026-10-21T18:29:43.105274] ============================================================
+[2026-10-21T18:29:43.105281] G1: Eligible topics = 50 (threshold ≥ 20)
+[2026-10-21T18:29:43.105290]   G1: PASS
+[2026-10-21T18:29:43.105370] G2: Concentration range = 0.0060 (threshold ≥ 0.3)
+[2026-10-21T18:29:43.105377]   G2: FAIL
+[2026-10-21T18:29:47.113944] G3: Spearman ρ = 0.6043, one-sided p = 0.0000
+[2026-10-21T18:29:47.113980]   Threshold: ρ ≥ 0.3, p < 0.05
+[2026-10-21T18:29:47.113990]   G3: PASS
+[2026-10-21T18:29:47.114042] G4: Average institution coverage = 87.81% (threshold ≥ 90%)
+[2026-10-21T18:29:47.114048]   G4: FAIL
+[2026-10-21T18:29:47.114051] 
+Saving results...
