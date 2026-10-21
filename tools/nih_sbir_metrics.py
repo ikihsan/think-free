@@ -20,22 +20,44 @@ import time
 # NIH RePORTER API helpers
 # ============================================================
 
-def fetch_grants(spending_category=None, fiscal_year=2023, max_total=2000):
+def fetch_grants(spending_category=None, fiscal_year=2023, activity_codes=None, max_total=None):
     """Fetch grants from NIH RePORTER API across pages.
 
     If spending_category is specified, only returns grants that include that category.
+    If activity_codes is specified, only returns grants matching those activity
+    codes (e.g. ['R41', 'R42'] for SBIR). When max_total is None, stops when
+    the API's meta.total is reached for a complete census.
+
+    Parameters
+    ----------
+    spending_category : int or None
+        NIH spending category code to filter by (e.g. 101).
+    fiscal_year : int
+        Fiscal year to query (default: 2023).
+    activity_codes : list of str or None
+        NIH activity codes to filter by (e.g. ['R41', 'R42'] for SBIR).
+        When None, no code filter is applied.
+    max_total : int or None
+        Override the default stop-at-meta-total behaviour. Provided for backward
+        compatibility; in normal use this parameter is not needed because the
+        function stops when len(all_results) >= reported_total.
     """
     url = 'https://api.reporter.nih.gov/v2/projects/search'
     all_results = []
     seen_ids = set()
     offset = 0
+    reported_total = None
 
-    while len(all_results) < max_total:
+    while True:
+        criteria = {
+            'fiscal_years': [fiscal_year],
+            'limit': 100,
+        }
+        if activity_codes is not None:
+            criteria['activity_codes'] = activity_codes
+
         payload = json.dumps({
-            'criteria': {
-                'fiscal_years': [fiscal_year],
-                'limit': 100,
-            },
+            'criteria': criteria,
             'offset': offset,
         }).encode()
 
@@ -59,8 +81,8 @@ def fetch_grants(spending_category=None, fiscal_year=2023, max_total=2000):
                         all_results.append(r)
 
                 meta = data.get('meta', {})
-                total = meta.get('total', 0)
-                if len(all_results) >= total:
+                reported_total = meta.get('total', 0)
+                if reported_total is not None and len(all_results) >= reported_total:
                     break
 
         except urllib.error.HTTPError as e:

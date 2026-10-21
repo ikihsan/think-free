@@ -1,0 +1,34 @@
+{
+ "ctl_zzzz": {
+  "n_results": 0,
+  "status": 200
+ },
+ "da01_2023": {
+  "code_present": 98,
+  "hasNext": true,
+  "messages": [
+   "For searches, time period start and end dates are currently limited to an earliest date of 2007-10-01.  For data going back to 2000-10-01, use either the Custom Award Download feature on the website or one of our download or bulk_download API endpoints as listed on https://api.usaspending.gov/docs/endpoints. ",
+   "'subawards' will be deprecated in the future. Set \u2018spending_level\u2019 to \u2018subawards\u2019 instead. See documentation for more information. "
+  ],
+  "n_results": 100,
+  "recipient_id_present": 100,
+  "result_keys": [
+   "amount",
+   "code",
+   "name",
+   "recipient_id",
+   "total_outlays",
+   "uei"
+  ],
+  "sample": {
+   "amount": 4272814213.42,
+   "code": "080898173",
+   "name": "ORACLE HEALTH GOVERNMENT SERVICES, INC.",
+   "recipient_id": "9232b26d-789d-bdd2-5a6d-28714f1dfa2c-C",
+   "total_outlays": 10970330.3,
+   "uei": "DT2KS3HH5FP5"
+  },
+  "status": 200,
+  "uei_present": 100
+ }
+}

@@ -28,14 +28,33 @@ import time
 import sys
 
 
-def fetch_grants(fiscal_year=2023, max_total=2000):
-    """Fetch grants from NIH RePORTER API across pages."""
+def fetch_grants(fiscal_year=2023, activity_codes=None, max_total=None):
+    """Fetch grants from NIH RePORTER API across pages.
+
+    Fetches all pages until the API's meta.total is reached, so the result
+    is a complete census of the requested activity codes (default: SBIR R41/R42),
+    not an arbitrary-cap slice of the full project population.
+
+    Parameters
+    ----------
+    fiscal_year : int
+        Fiscal year to query (default: 2023).
+    activity_codes : list of str or None
+        NIH activity codes to filter by (e.g. ['R41', 'R42'] for SBIR).
+        When None, no code filter is applied (fetch all projects — use with
+        caution, as the default 2000-row cap is replaced by meta.total).
+    max_total : int or None
+        Override the default stop-at-meta-total behaviour. Provided for backward
+        compatibility; in normal use this parameter is not needed because the
+        function stops when len(all_results) >= reported_total.
+    """
     url = 'https://api.reporter.nih.gov/v2/projects/search'
     all_results = []
     seen_ids = set()
     offset = 0
+    reported_total = None
 
-    while len(all_results) < max_total:
+    while True:
         payload = json.dumps({
             'criteria': {
                 'fiscal_years': [fiscal_year],
@@ -43,6 +62,16 @@ def fetch_grants(fiscal_year=2023, max_total=2000):
             },
             'offset': offset,
         }).encode()
+
+        if activity_codes is not None:
+            payload = json.dumps({
+                'criteria': {
+                    'fiscal_years': [fiscal_year],
+                    'activity_codes': activity_codes,
+                    'limit': 100,
+                },
+                'offset': offset,
+            }).encode()
 
         req = urllib.request.Request(
             url, data=payload,
@@ -64,8 +93,8 @@ def fetch_grants(fiscal_year=2023, max_total=2000):
                         all_results.append(r)
 
                 meta = data.get('meta', {})
-                total = meta.get('total', 0)
-                if len(all_results) >= total:
+                reported_total = meta.get('total', 0)
+                if reported_total is not None and len(all_results) >= reported_total:
                     break
 
         except urllib.error.HTTPError as e:
@@ -183,16 +212,17 @@ def get_ic_recommendations(category_code, all_category_data=None):
     return recommendations[:3]
 
 
-def run_prototype(category_code, fiscal_year=2023, max_total=500, recommendations=True):
+def run_prototype(category_code, fiscal_year=2023, activity_codes=None, max_total=500, recommendations=True):
     """Run the small-program accessibility prototype for a given spending category."""
     print('\nNIH SBIR Small-Program Accessibility Prototype')
     print('Spending Category: %s' % category_code)
     print('Fiscal Year: %s' % fiscal_year)
+    print('Activity Codes: %s' % activity_codes)
     print('=' * 55)
 
     # Fetch grants
     print('\nFetching grants from NIH RePORTER...')
-    all_grants = fetch_grants(fiscal_year=fiscal_year, max_total=max_total)
+    all_grants = fetch_grants(fiscal_year=fiscal_year, activity_codes=activity_codes, max_total=max_total)
     print('Total unique grants fetched: %d' % len(all_grants))
 
     # Filter for the specified spending category
