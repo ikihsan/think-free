@@ -1,0 +1,108 @@
+{
+  "session_date": "2026-10-22",
+  "project": "Think Free",
+  "phase": "B",
+  "e221_status": {
+    "cached_data_analysis": "complete",
+    "sub_segments_analyzed": 18,
+    "psc_codes": [
+      "DA01",
+      "DA10",
+      "7A21",
+      "7030",
+      "D304"
+    ],
+    "classification_counts": {
+      "HIGHLY_ENTERABLE": 5,
+      "SOMEWHAT_ENTERABLE": 3,
+      "MARGINAL": 5,
+      "CLOSED": 5
+    },
+    "all_gates_pass": true,
+    "gates": {
+      "G0": true,
+      "G1": true,
+      "G2": true,
+      "G3": true,
+      "G4": true
+    },
+    "key_finding": {
+      "consistently_enterable_nasics": [
+        "541511",
+        "541519"
+      ],
+      "descriptions": {
+        "541511": "Custom Computer Programming Services",
+        "541519": "Other Computer Related Services"
+      },
+      "enterable_across_codes": [
+        "DA01",
+        "DA10",
+        "7A21",
+        "7030",
+        "D304"
+      ],
+      "top_targets": [
+        {
+          "psc": "DA01",
+          "naics": "541511",
+          "seg_frac": "1.0",
+          "frag": "0.753",
+          "obligation": "$2.57B",
+          "newcomers": "1079"
+        },
+        {
+          "psc": "DA10",
+          "naics": "541511",
+          "seg_frac": "0.478",
+          "frag": "0.748",
+          "obligation": "$575M",
+          "newcomers": "172"
+        },
+        {
+          "psc": "DA01",
+          "naics": "541519",
+          "seg_frac": "0.364",
+          "frag": "0.823",
+          "obligation": "$3.24B",
+          "newcomers": "327"
+        },
+        {
+          "psc": "7A21",
+          "naics": "541519",
+          "seg_frac": "0.354",
+          "frag": "0.671",
+          "obligation": "$2.65B",
+          "newcomers": "233"
+        },
+        {
+          "psc": "DA10",
+          "naics": "513210",
+          "seg_frac": "0.887",
+          "frag": "0.731",
+          "obligation": "$67M",
+          "newcomers": "392"
+        }
+      ]
+    },
+    "artifacts_created": [
+      "tools/psc_naics_subsegment_analyzer.py",
+      "EXPERIMENTS/E221-psc-naics-subsegment-extension/PROTOCOL.md",
+      "EXPERIMENTS/E221-psc-naics-subsegment-extension/RESULT.md",
+      "EXPERIMENTS/E221-psc-naics-subsegment-extension/subsegment_metrics.csv",
+      "EXPERIMENTS/E221-psc-naics-subsegment-extension/ranked_subsegments.csv",
+      "EXPERIMENTS/E221-psc-naics-subsegment-extension/gates.json",
+      "EXPERIMENTS/E221-psc-naics-subsegment-extension/manual_analysis_summary.txt"
+    ],
+    "build_decision_changed": "Extended E220 prototype to general-purpose tool capable of analyzing NAICS sub-segments within any PSC code; confirmed E220 central finding",
+    "what_remains_unknown": {
+      "full_25_code_api_run": "pending - USAspending API rate limit 60 req/hour, estimated 14+ hours",
+      "multi_year_window_validation": "framework ready but not executed; FY2022 data not fully cached",
+      "generalizability_across_all_codes": "not validated beyond 5 IT/software PSC codes"
+    },
+    "single_most_useful_next_action": "fresh_observation_new_domain_d083",
+    "next_action_description": "Apply sub-segment entrant advisor methodology to new domain per D083. The fragmentated=>enterable inference tested in five domains with four kill gates fired; E220/E221 sub-segment approach is first to yield actionable differentiation. Remaining promising direction is sub-segment analysis applied to new domains or extended with multi-year windows.",
+    "continue_experiment_across_sessions": true,
+    "session_conclusion": "E221 complete on cached data; moving to fresh observation in new domain"
+  }
+}

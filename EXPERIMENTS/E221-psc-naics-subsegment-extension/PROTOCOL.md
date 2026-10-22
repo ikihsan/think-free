@@ -1,5 +1,12 @@
 # E221 Protocol: PSC NAICS Sub-Segment Entrant Advisor — Full PSC Extension
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-22
+-->
+
+
 ## Objective
 
 Extend the E220 sub-segment entrant advisor prototype (which analyzed 3 IT PSC codes: DA01, DA10, 7A21) to all 100+ PSC codes using NAICS-within-PSC granularity, to identify the most enterable market segments for small programs across the entire federal contracting landscape.

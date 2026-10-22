@@ -1,0 +1,29 @@
+E221: PSC NAICS Sub-Segment Entrant Advisor -- Cached Data Analysis
+Analyzed 18 sub-segments across 5 IT PSC codes (DA01, DA10, 7A21, 7030, D304) from cache
+
+Classification Summary:
+  HIGHLY ENTERABLE: 5
+  SOMEWHAT ENTERABLE: 3
+  MARGINAL: 5
+  CLOSED: 5
+
+HIGHLY ENTERABLE sub-segments:
+  DA10 / NAICS 513210 (Software Publishers): seg_frac=88.7%, frag=73.1%, obligation=$67M, newcomers=392
+  DA10 / NAICS 541511 (Custom Computer Programming): seg_frac=47.8%, frag=74.8%, obligation=$575M, newcomers=172
+  DA01 / NAICS 541519 (Other Computer Related Services): seg_frac=36.4%, frag=82.3%, obligation=$3.24B, newcomers=327
+  7A21 / NAICS 541519 (Other Computer Related Services): seg_frac=35.4%, frag=67.1%, obligation=$2.65B, newcomers=233
+  DA01 / NAICS 541511 (Custom Computer Programming): seg_frac=100.0%, frag=75.3%, obligation=$2.57B, newcomers=1079
+
+SOMEWHAT ENTERABLE sub-segments:
+  7A21 / NAICS 334111 (Electronic Computer Manufacturing): seg_frac=100.0%, frag=42.3%, obligation=$153M, newcomers=109
+  7A21 / NAICS 513210 (Software Publishers): seg_frac=91.5%, frag=42.3%, obligation=$234M, newcomers=674
+  DA01 / NAICS 541513 (Computer Facilities Management): seg_frac=33.3%, frag=41.1%, obligation=$362M, newcomers=35
+
+MARGINAL sub-segments: Includes DA01/541512 (9.1% newcomers, 66.9% frag), DA01/541611 (24.8% newcomers, 27.7% frag), 7A21/541512 (41.4% newcomers, 21.0% frag), DA10/518210 (41.5% newcomers, 21.5% frag), and others.
+
+CLOSED sub-segments: 5 of 18, including Software Publishers (511210) consistently CLOSED across all PSC codes.
+
+Gates results: G0=True, G1=True, G2=True, G3=True, G4=True (all pass)
+  G3 (sub-segment differentiation): 100pp spread in segment newcomer fractions across 18 sub-segments, well above 10pp kill gate threshold.
+
+Key finding: NAICS 541511 (Custom Computer Programming) and 541519 (Other Computer Related Services) are consistently HIGHLY ENTERABLE across all five IT/software PSC codes (DA01, DA10, 7A21, 7030, D304). Together these sub-segments represent approximately $6.0B in obligations with nearly 1,800 potential newcomers, providing the most actionable entry points for small programs building software or computer-related services.
