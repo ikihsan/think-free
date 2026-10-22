@@ -1,10 +1,42 @@
 rank,code,naics,naics_name,enterability_score,segment_newcomer_fraction,fragmentation,current_obligation,classification
-1,R425,541330,Engineering Services,0.9309,1.0,0.8572,26390253734.83,HIGHLY ENTERABLE
-2,R425,541712,Research and Development in the Physical, Engineering, and Life Sciences (except Biotechnology),0.8571,1.0,0.6511,5083047454.23,HIGHLY ENTERABLE
-3,R425,541715,Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology),0.8087,1.0,0.4814,7146900354.97,SOMEWHAT ENTERABLE
-4,Q201,622110,General Medical and Surgical Hospitals,0.3995,0.107,0.6477,1260258396.31,MARGINAL
-5,Q201,621498,All Other Outpatient Care Centers,0.2840,0.0678,0.3359,915133673.29,CLOSED
-6,1510,336413,Other Aircraft Parts and Auxiliary Equipment Manufacturing,0.2727,0.2115,0.0485,1384976502.52,CLOSED
-7,Q201,524114,Direct Health and Medical Insurance Carriers,0.2400,0.0968,0.0392,61737594676.63,CLOSED
-8,1510,336411,Aircraft Manufacturing,0.2171,0.0444,0.0498,62419429456.5,CLOSED
-9,1510,334511,Search, Detection, Navigation, Guidance, Aeronautical, and Nautical System and Instrument Manufacturing,0.1484,0.0,0.0137,455889306.78,CLOSED
+1,R425,541330,Engineering Services,0.9256,1.0,0.8555,13696035896.21,HIGHLY ENTERABLE
+2,DA01,541511,Custom Computer Programming Services,0.8827,1.0,0.7528,2571597603.02,HIGHLY ENTERABLE
+3,DA10,513210,Software Publishers,0.7931,0.8869,0.7306,66965814.64,HIGHLY ENTERABLE
+4,7A21,541511,Custom Computer Programming Services,0.7686,1.0,0.4435,135415315.9,SOMEWHAT ENTERABLE
+5,7A21,513210,Software Publishers,0.7237,0.9145,0.4233,233782152.03,SOMEWHAT ENTERABLE
+6,1510,332993,Ammunition (except Small Arms) Manufacturin,0.6143,1.0,0.0,7185509.5,CLOSED
+7,DA10,541511,Custom Computer Programming Services,0.6093,0.4778,0.7481,575099833.61,HIGHLY ENTERABLE
+8,DA01,541519,Other Computer Related Services,0.5875,0.3641,0.823,3237474829.8,HIGHLY ENTERABLE
+9,7A21,541519,Other Computer Related Services,0.5351,0.3536,0.6707,2654400339.0,HIGHLY ENTERABLE
+10,R425,541990,All Other Professional, Scientific, and Tec,0.4512,0.2821,0.5217,1663374321.58,SOMEWHAT ENTERABLE
+11,7A21,334111,Electronic Computer Manufacturing,0.4468,0.367,0.4229,153285161.03,SOMEWHAT ENTERABLE
+12,DA01,541513,Computer Facilities Management Services,0.4324,0.3333,0.4105,361898895.58,SOMEWHAT ENTERABLE
+13,R425,541512,Computer Systems Design Services,0.4237,0.2169,0.5338,2033095413.52,SOMEWHAT ENTERABLE
+14,7A21,541512,Computer Systems Design Services,0.4138,0.4141,0.2102,418709567.5,MARGINAL
+15,DA01,541512,Computer Systems Design Services,0.4108,0.0913,0.6685,7550223478.96,CLOSED
+16,DA10,518210,Computing Infrastructure Providers, Data Pr,0.4093,0.4151,0.2148,173816245.8,MARGINAL
+17,Q201,622110,General Medical and Surgical Hospitals,0.4093,0.1351,0.6481,688213455.28,MARGINAL
+18,DA01,518210,Computing Infrastructure Providers, Data Pr,0.3757,0.2925,0.2808,515617871.25,MARGINAL
+19,DA10,334111,Electronic Computer Manufacturing,0.3686,0.3559,0.1983,74178936.13,CLOSED
+20,DA01,541330,Engineering Services,0.3685,0.2093,0.396,502128655.07,MARGINAL
+21,Q201,621111,Offices of Physicians (except Mental Health,0.3534,0.0826,0.6118,51381029.98,CLOSED
+22,Q201,621999,All Other Miscellaneous Ambulatory Health C,0.3437,0.377,0.0608,163987086.12,CLOSED
+23,DA01,541611,Administrative Management and General Manag,0.3431,0.2476,0.2767,150221472.82,MARGINAL
+24,Q201,561320,Temporary Help Services,0.3346,0.125,0.4694,75233342.73,MARGINAL
+25,R425,334511,Search, Detection, Navigation, Guidance, Ae,0.3303,0.1733,0.3158,863702152.45,MARGINAL
+26,R425,541611,Administrative Management and General Manag,0.3013,0.1073,0.3174,1390237672.59,MARGINAL
+27,1510,336413,Other Aircraft Parts and Auxiliary Equipmen,0.2916,0.2619,0.0379,905207957.95,CLOSED
+28,Q201,621498,All Other Outpatient Care Centers,0.2565,0.0851,0.2352,403223725.08,CLOSED
+29,R425,336411,Aircraft Manufacturing,0.2487,0.129,0.1149,968887148.74,CLOSED
+30,Q201,524114,Direct Health and Medical Insurance Carrier,0.2455,0.1154,0.043,31084331807.19,CLOSED
+31,7A21,511210,Software Publishers,0.2347,0.035,0.2137,1528287442.75,CLOSED
+32,1510,336411,Aircraft Manufacturing,0.2263,0.0714,0.0529,30284060501.09,CLOSED
+33,DA01,511210,Software Publishers,0.2256,0.0909,0.1068,772332653.09,CLOSED
+34,DA10,811212,Computer and Office Machine Repair and Main,0.2200,0.1818,0.0014,52749315.81,CLOSED
+35,1510,488190,Other Support Activities for Air Transporta,0.2018,0.1429,-0.0005,67433836.5,CLOSED
+36,Q201,621112,Offices of Physicians, Mental Health Specia,0.1746,0.0769,0.0056,117181445.67,CLOSED
+37,1510,541990,All Other Professional, Scientific, and Tec,0.1336,0.0,0.0,104239258.0,CLOSED
+38,1510,334511,Search, Detection, Navigation, Guidance, Ae,0.1318,0.0,-0.0191,179020151.92,CLOSED
+39,Q201,524292,Pharmacy Benefit Management and Other Third,0.1283,0.0,0.0,49631418.52,CLOSED
+40,1510,336412,Aircraft Engine and Engine Parts Manufactur,0.1155,0.0,0.0,8500336.15,CLOSED
+41,1510,541330,Engineering Services,0.1116,0.1667,-0.2914,8712446.98,CLOSED
