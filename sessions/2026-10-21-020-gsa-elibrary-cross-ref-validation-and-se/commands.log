@@ -1,0 +1,689 @@
+==============================================================================
+[seq 2] 2026-10-21T14:30:05+00:00
+$ python3 -c import requests; print('requests available')
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+requests available
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 430  redactions: none
+==============================================================================
+[seq 3] 2026-10-21T14:31:26+00:00
+$ python3 -c 
+import requests
+# Try GSA eLibrary API
+url = 'https://api.data.gov/gsa/elibrary/2019/01/schedule/70/sins'
+try:
+    r = requests.get(url, timeout=10)
+    print(f'GSA eLibrary SINs status: {r.status_code}')
+    if r.status_code == 200:
+        data = r.json()
+        print(f'Keys: {data.keys() if isinstance(data, dict) else "list"}')
+        print(f'Sample: {str(data)[:500]}')
+except Exception as e:
+    print(f'Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+GSA eLibrary SINs status: 404
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1727  redactions: none
+==============================================================================
+[seq 4] 2026-10-21T14:32:13+00:00
+$ python3 -c 
+import requests
+# Try different GSA eLibrary endpoints
+endpoints = [
+    'https://api.data.gov/gsa/elibrary/schedule/70/sins',
+    'https://api.data.gov/gsa/elibrary/v2/schedule/70/sins',
+    'https://api.data.gov/gsa/elibrary/v2/sins',
+    'https://api.gsa.gov/elibrary/schedule/70/sins',
+    'https://elibrary.gsa.gov/api/schedule/70/sins',
+    'https://elibrary.gsa.gov/api/v2/schedule/70/sins',
+]
+for url in endpoints:
+    try:
+        r = requests.get(url, timeout=10)
+        print(f'{url} -> {r.status_code}')
+        if r.status_code == 200:
+            print(f'  Sample: {str(r.json())[:300]}')
+    except Exception as e:
+        print(f'{url} -> Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+https://api.data.gov/gsa/elibrary/schedule/70/sins -> 404
+https://api.data.gov/gsa/elibrary/v2/schedule/70/sins -> 404
+https://api.data.gov/gsa/elibrary/v2/sins -> 404
+https://api.gsa.gov/elibrary/schedule/70/sins -> 404
+https://elibrary.gsa.gov/api/schedule/70/sins -> Error: HTTPSConnectionPool(host='elibrary.gsa.gov', port=443): Max retries exceeded with url: /api/schedule/70/sins (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fbed0107f70>: Failed to resolve 'elibrary.gsa.gov' ([Errno -2] Name or service not known)"))
+https://elibrary.gsa.gov/api/v2/schedule/70/sins -> Error: HTTPSConnectionPool(host='elibrary.gsa.gov', port=443): Max retries exceeded with url: /api/v2/schedule/70/sins (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fbed0107c40>: Failed to resolve 'elibrary.gsa.gov' ([Errno -2] Name or service not known)"))
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5445  redactions: none
+==============================================================================
+[seq 5] 2026-10-21T14:35:26+00:00
+$ python3 -c 
+import requests
+# Check if the site resolves
+try:
+    r = requests.get('http://elibrary.gsa.gov', timeout=10, allow_redirects=True)
+    print(f'elibrary.gsa.gov -> {r.status_code}, final_url: {r.url}')
+except Exception as e:
+    print(f'Error: {e}')
+
+# Try the GSA API catalog
+try:
+    r = requests.get('https://api.gsa.gov/', timeout=10)
+    print(f'api.gsa.gov -> {r.status_code}')
+except Exception as e:
+    print(f'api.gsa.gov Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Error: HTTPConnectionPool(host='elibrary.gsa.gov', port=80): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7fcd63e339a0>: Failed to resolve 'elibrary.gsa.gov' ([Errno -2] Name or service not known)"))
+api.gsa.gov -> 200
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2844  redactions: none
+==============================================================================
+[seq 6] 2026-10-21T14:35:49+00:00
+$ python3 -c 
+import requests
+r = requests.get('https://api.gsa.gov/', timeout=10)
+print(r.text[:2000])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>APIs | GSA Open Technology</title>
+  <meta name="description" content="Open source code, data and APIs from GSA.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="APIs | GSA Open Technology" />
+  <meta name="twitter:title" content="APIs | GSA Open Technology">
+  <meta property="og:url" content="https://open.gsa.gov/api/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://open.gsa.gov/assets/img/feature-background.jpg">
+  <meta name="twitter:image" content="https://open.gsa.gov/assets/img/feature-background.jpg">
+  <meta property="og:description" content="Open source code, data and APIs from GSA.">
+  <meta name="twitter:description" content="Open source code, data and APIs from GSA.">
+  <meta name="google-site-verification" content="1mdRfaEaI19uCixYkGGmRsv2iA_si1n44fNtk4jzixQ" />
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+  <link rel="canonical" href="https://open.gsa.gov/api/">
+
+  <script>
+    if (/^www\./.test(window.location.hostname)) {
+      window.location = window.location.href.replace('www.', '');
+    }
+  </script>
+</head>
+
+
+<body>
+    <div id="wrapper">
+        <div id="header"><div class="skip-nav">
+    <a href="#content" class="skips">Skip to main content</a>
+</div>
+
+<header class="usa-header usa-header-extended" role="banner">
+  <!-- Gov banner BEGIN -->
+<div class="usa-banner">
+<div class="usa-accordion">
+  <header class="usa-banner-header">
+    <div class="usa-grid usa-banner-inner">
+    <img src="/assets/uswds/img/favicons/favicon-57.png" alt="U.S. flag">
+    <p>An official website o
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1719  redactions: none
+==============================================================================
+[seq 7] 2026-10-21T14:38:08+00:00
+$ python3 -c 
+import requests
+# Try different GSA eLibrary URLs
+urls = [
+    'https://www.gsa.gov/elibrary',
+    'https://www.gsa.gov/buying-selling/purchasing-programs/gsa-schedules/gsa-elibrary',
+    'https://gsaelibrary.gsa.gov/',
+    'https://elibrary.gsa.gov/elibrary.html',
+]
+for url in urls:
+    try:
+        r = requests.get(url, timeout=10, allow_redirects=True)
+        print(f'{url} -> {r.status_code}, final: {r.url}')
+    except Exception as e:
+        print(f'{url} -> Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+https://www.gsa.gov/elibrary -> 404, final: https://www.gsa.gov/elibrary
+https://www.gsa.gov/buying-selling/purchasing-programs/gsa-schedules/gsa-elibrary -> 404, final: https://www.gsa.gov/buying-selling/purchasing-programs/gsa-schedules/gsa-elibrary
+https://gsaelibrary.gsa.gov/ -> 200, final: https://gsaelibrary.gsa.gov/
+https://elibrary.gsa.gov/elibrary.html -> Error: HTTPSConnectionPool(host='elibrary.gsa.gov', port=443): Max retries exceeded with url: /elibrary.html (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fbbf3d773d0>: Failed to resolve 'elibrary.gsa.gov' ([Errno -2] Name or service not known)"))
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4427  redactions: none
+==============================================================================
+[seq 8] 2026-10-21T14:38:42+00:00
+$ python3 -c 
+import requests
+r = requests.get('https://gsaelibrary.gsa.gov/', timeout=15)
+print(f'Status: {r.status_code}')
+print(f'Content length: {len(r.text)}')
+print(r.text[:3000])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 200
+Content length: 124
+<html>
+<head>
+<META HTTP-EQUIV="Refresh" CONTENT="0;URL=https://www.gsaelibrary.gsa.gov/ElibMain/home.do">
+</head>
+</html>
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2095  redactions: none
+==============================================================================
+[seq 9] 2026-10-21T14:39:08+00:00
+$ python3 -c 
+import requests
+r = requests.get('https://www.gsaelibrary.gsa.gov/ElibMain/home.do', timeout=15)
+print(f'Status: {r.status_code}')
+print(f'Content length: {len(r.text)}')
+print(r.text[:3000])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 200
+Content length: 50147
+
+<link rel="icon" href="/ElibMain/favicon.ico">
+<script async="" type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA&sp=searchText,tcSearchText"></script>
+
+
+
+
+
+
+
+
+<html lang="en">
+<head>
+<title>Welcome to GSA eLibrary</title>
+<link rel="icon" href="/ElibMain/favicon.ico">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W4SGTNW');</script>
+ <!--End Google Tag Manager -->
+<link href="images/content.css" type=text/css rel=stylesheet>
+<link href="images/tree.css" type=text/css rel=stylesheet>
+
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/jquery.autocomplete.js" type="text/javascript"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+<script src="js/uswds.min.js" type="text/javascript"></script>
+<link href="css/autocomplete.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="images/adv_styles.css" type=text/css rel=stylesheet>
+<link href="css/eLib.css" type=text/css rel=stylesheet>
+<style>
+.dropdown-submenu {
+	position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+	top: 0;
+	margin-top: 15px;
+	margin-left: 0px;
+	left: -130px;
+	width: 95%;
+	white-space: nowrap;
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: auto;
+	max-height: 300px !important;
+	font: 11px Arial, Helvetica, sans-serif;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+	display: block;
+}
+
+.caret {
+	position: relative;
+	cursor: pointer;
+}
+
+/* Quick Search: reduce select dropdown text size to 75% so it fits better */
+#elibHomeForm .usa-select,
+#elibHomeForm select.usa-select {
+    font-size: 65%;
+}
+
+#elibHomeForm .usa-select option,
+#elibHomeForm select.usa-select option {
+    font-size: 100%;
+}
+
+/* Override Bootstrap/other CSS for USWDS nav */
+.usa-nav__primary {
+	list-style: none !important;
+	padding-left: 0 !important;
+	margin: 0 !important;
+	display: flex !important;
+	gap: 0 !important;
+}
+
+.usa-nav__primary-item {
+	list-style: none !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	border: none !important;
+	display: inline-flex !important;
+}
+
+.usa-nav__primary-item a {
+	display: inline-block !important;
+	padding: 1rem !important;
+	text-decoration: none !important;
+	color: #565c65 !important;
+}
+
+.usa-nav__primary-item a:hover {
+	background-color: #f0f0f0 !important;
+	color: #005ea2 !important;
+}
+</style>
+<script type="text/javascript">
+	jQuery(function() {
+		var callAction = "/ElibMain/autoComplete";
+		$("#searchText").auto
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5888  redactions: none
+==============================================================================
+[seq 10] 2026-10-21T14:39:38+00:00
+$ python3 -c 
+import requests
+# Try to find CSV exports or API endpoints
+urls = [
+    'https://www.gsaelibrary.gsa.gov/ElibMain/schedule/schedule.do?scheduleNumber=70',
+    'https://www.gsaelibrary.gsa.gov/ElibMain/schedule/schedule.do?scheduleNumber=70&download=csv',
+    'https://www.gsaelibrary.gsa.gov/ElibMain/api/sins?schedule=70',
+    'https://www.gsaelibrary.gsa.gov/ElibMain/sins/70',
+    'https://www.gsaelibrary.gsa.gov/ElibMain/schedule/scheduleList.do',
+]
+for url in urls:
+    try:
+        r = requests.get(url, timeout=15)
+        print(f'{url} -> {r.status_code}')
+        if r.status_code == 200 and len(r.text) > 100:
+            print(f'  Sample: {r.text[:200]}')
+    except Exception as e:
+        print(f'{url} -> Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+https://www.gsaelibrary.gsa.gov/ElibMain/schedule/schedule.do?scheduleNumber=70 -> 200
+  Sample: 
+<link rel="icon" href="/ElibMain/favicon.ico">
+<script async="" type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA&sp=searchT
+https://www.gsaelibrary.gsa.gov/ElibMain/schedule/schedule.do?scheduleNumber=70&download=csv -> 200
+  Sample: 
+<link rel="icon" href="/ElibMain/favicon.ico">
+<script async="" type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA&sp=searchT
+https://www.gsaelibrary.gsa.gov/ElibMain/api/sins?schedule=70 -> 404
+https://www.gsaelibrary.gsa.gov/ElibMain/sins/70 -> 404
+https://www.gsaelibrary.gsa.gov/ElibMain/schedule/scheduleList.do -> 200
+  Sample: 
+    
+
+    <html lang="en">
+
+    <head>
+        <title>
+            GSA eLibrary Schedules List</title>
+            <link rel="icon" href="/ElibMain/favicon.ico">
+<!-- Google Tag Manager -->
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 10059  redactions: none
+==============================================================================
+[seq 11] 2026-10-21T14:39:56+00:00
+$ python3 -c 
+import requests
+r = requests.get('https://www.gsaelibrary.gsa.gov/ElibMain/schedule/schedule.do?scheduleNumber=70&download=csv', timeout=15)
+print(f'Status: {r.status_code}')
+print(f'Content-Type: {r.headers.get("Content-Type")}')
+print(f'Content length: {len(r.text)}')
+print(r.text[:2000])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 200
+Content-Type: text/html;charset=ISO-8859-1
+Content length: 50147
+
+<link rel="icon" href="/ElibMain/favicon.ico">
+<script async="" type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA&sp=searchText,tcSearchText"></script>
+
+
+
+
+
+
+
+
+<html lang="en">
+<head>
+<title>Welcome to GSA eLibrary</title>
+<link rel="icon" href="/ElibMain/favicon.ico">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W4SGTNW');</script>
+ <!--End Google Tag Manager -->
+<link href="images/content.css" type=text/css rel=stylesheet>
+<link href="images/tree.css" type=text/css rel=stylesheet>
+
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/jquery.autocomplete.js" type="text/javascript"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+<script src="js/uswds.min.js" type="text/javascript"></script>
+<link href="css/autocomplete.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="images/adv_styles.css" type=text/css rel=stylesheet>
+<link href="css/eLib.css" type=text/css rel=stylesheet>
+<style>
+.dropdown-submenu {
+	position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+	top: 0;
+	margin-top: 15px;
+	margin-left: 0px;
+	left: -130px;
+	width: 95%;
+	white-space: nowrap;
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: auto;
+	max-height: 300px !important;
+	font: 11px Arial, Helvetica, sans-serif;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+	display: block;
+}
+
+.caret {
+	position: relative;
+	cursor: pointer;
+}
+
+/* Quick Search: reduce select dropdown text size to 75% 
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2969  redactions: none
+==============================================================================
+[seq 12] 2026-10-21T14:40:29+00:00
+$ python3 -c 
+import requests
+# Try SEWP catalog
+urls = [
+    'https://www.sewp.nasa.gov/',
+    'https://sewp.nasa.gov/',
+    'https://www.sewp.nasa.gov/catalog',
+    'https://sewp.nasa.gov/api',
+]
+for url in urls:
+    try:
+        r = requests.get(url, timeout=15, allow_redirects=True)
+        print(f'{url} -> {r.status_code}, final: {r.url}')
+        if r.status_code == 200:
+            print(f'  Sample: {r.text[:300]}')
+    except Exception as e:
+        print(f'{url} -> Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+https://www.sewp.nasa.gov/ -> 200, final: https://www.sewp.nasa.gov/sewpv/index.shtml
+  Sample: <!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>
+NASA SEWP Home </title>
+    <meta name="description" content="The NASA SEWP (Solutions for Enterprise-Wide Procurement) GWAC (Government-Wide Acquisition Contract) provides the latest in Information Technology, Communication and Audio Visua
+https://sewp.nasa.gov/ -> 200, final: https://www.sewp.nasa.gov/sewpv/index.shtml
+  Sample: <!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>
+NASA SEWP Home </title>
+    <meta name="description" content="The NASA SEWP (Solutions for Enterprise-Wide Procurement) GWAC (Government-Wide Acquisition Contract) provides the latest in Information Technology, Communication and Audio Visua
+https://www.sewp.nasa.gov/catalog -> 404, final: https://www.sewp.nasa.gov/catalog
+https://sewp.nasa.gov/api -> Error: HTTPSConnectionPool(host='opsbean1-1.sewp.nasa.gov', port=7443): Max retries exceeded with url: /api/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fc5a0116c40>: Failed to resolve 'opsbean1-1.sewp.nasa.gov' ([Errno -2] Name or service not known)"))
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 9585  redactions: none
+==============================================================================
+[seq 13] 2026-10-21T14:40:52+00:00
+$ python3 -c 
+import requests
+# Check data.gov for GSA Schedule 70 SIN data
+urls = [
+    'https://catalog.data.gov/dataset?tags=gsa+schedule+70',
+    'https://catalog.data.gov/api/3/action/package_search?q=gsa+schedule+70',
+    'https://catalog.data.gov/api/3/action/package_search?q=special+item+number+gsa',
+]
+for url in urls:
+    try:
+        r = requests.get(url, timeout=15)
+        print(f'{url} -> {r.status_code}')
+        if r.status_code == 200:
+            if 'json' in r.headers.get('Content-Type', ''):
+                data = r.json()
+                print(f'  Results: {data.get("result", {}).get("count", 0)}')
+                for item in data.get('result', {}).get('results', [])[:3]:
+                    print(f'    {item.get("title", "N/A")}: {item.get("name", "N/A")}')
+            else:
+                print(f'  HTML length: {len(r.text)}')
+    except Exception as e:
+        print(f'{url} -> Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+https://catalog.data.gov/dataset?tags=gsa+schedule+70 -> 200
+  HTML length: 215521
+https://catalog.data.gov/api/3/action/package_search?q=gsa+schedule+70 -> 404
+https://catalog.data.gov/api/3/action/package_search?q=special+item+number+gsa -> 404
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3464  redactions: none
+==============================================================================
+[seq 14] 2026-10-21T14:41:11+00:00
+$ python3 -c 
+import requests
+# Try data.gov API
+url = 'https://catalog.data.gov/api/3/action/package_search?q=gsa+schedule'
+r = requests.get(url, timeout=15)
+print(f'Status: {r.status_code}')
+if r.status_code == 200:
+    data = r.json()
+    print(f'Count: {data.get("result", {}).get("count", 0)}')
+    for item in data.get('result', {}).get('results', [])[:5]:
+        print(f'  {item.get("title", "N/A")}: {item.get("name", "N/A")}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 404
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1087  redactions: none
+==============================================================================
+[seq 15] 2026-10-21T14:41:28+00:00
+$ python3 -c 
+import requests
+# Try data.gov API with correct path
+url = 'https://catalog.data.gov/api/3/action/package_search?q=gsa'
+r = requests.get(url, timeout=15)
+print(f'Status: {r.status_code}')
+if r.status_code == 200:
+    data = r.json()
+    print(f'Count: {data.get("result", {}).get("count", 0)}')
+    for item in data.get('result', {}).get('results', [])[:5]:
+        print(f'  {item.get("title", "N/A")}: {item.get("name", "N/A")}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 404
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1769  redactions: none
+==============================================================================
+[seq 16] 2026-10-21T14:41:43+00:00
+$ python3 -c 
+import requests
+# Check data.gov API base
+url = 'https://catalog.data.gov/api/'
+r = requests.get(url, timeout=15)
+print(f'Status: {r.status_code}')
+print(r.text[:500])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Status: 404
+{"detail":{},"message":"Not Found"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 976  redactions: none
+==============================================================================
+[seq 17] 2026-10-21T14:42:04+00:00
+$ python3 -c 
+import requests
+# Try other data sources for GSA Schedule 70 SINs
+urls = [
+    'https://www.gsa.gov/cdnstatic/GSASchedule70_SINs.csv',
+    'https://www.gsa.gov/cdnstatic/Schedule_70_SINs.xlsx',
+    'https://data.gsa.gov/download/gsa-schedule-70-sins/csv',
+]
+for url in urls:
+    try:
+        r = requests.get(url, timeout=15)
+        print(f'{url} -> {r.status_code}')
+        if r.status_code == 200:
+            print(f'  Content-Type: {r.headers.get("Content-Type")}')
+            print(f'  Length: {len(r.content)}')
+            print(f'  Sample: {r.text[:500]}')
+    except Exception as e:
+        print(f'{url} -> Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+https://www.gsa.gov/cdnstatic/GSASchedule70_SINs.csv -> 404
+https://www.gsa.gov/cdnstatic/Schedule_70_SINs.xlsx -> 404
+https://data.gsa.gov/download/gsa-schedule-70-sins/csv -> Error: HTTPSConnectionPool(host='data.gsa.gov', port=443): Max retries exceeded with url: /download/gsa-schedule-70-sins/csv (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fbd1a794d60>: Failed to resolve 'data.gsa.gov' ([Errno -5] No address associated with hostname)"))
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4377  redactions: none
+==============================================================================
+[seq 18] 2026-10-21T14:42:30+00:00
+$ python3 -c 
+import requests
+# Try to find GSA SIN reference data
+urls = [
+    'https://www.gsa.gov/system/files/Schedule_70_SIN_Crosswalk.xlsx',
+    'https://www.gsa.gov/system/files/GSASchedule70_SINs.csv',
+    'https://www.gsa.gov/buying-selling/purchasing-programs/gsa-schedules/schedule-70-special-item-numbers',
+]
+for url in urls:
+    try:
+        r = requests.get(url, timeout=15, allow_redirects=True)
+        print(f'{url} -> {r.status_code}, final: {r.url}')
+        if r.status_code == 200:
+            ct = r.headers.get('Content-Type', '')
+            print(f'  Content-Type: {ct}')
+            if 'csv' in ct or 'excel' in ct or 'spreadsheet' in ct:
+                print(f'  Binary length: {len(r.content)}')
+            else:
+                print(f'  Text length: {len(r.text)}')
+                print(f'  Sample: {r.text[:500]}')
+    except Exception as e:
+        print(f'{url} -> Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+https://www.gsa.gov/system/files/Schedule_70_SIN_Crosswalk.xlsx -> 404, final: https://www.gsa.gov/system/files/Schedule_70_SIN_Crosswalk.xlsx
+https://www.gsa.gov/system/files/GSASchedule70_SINs.csv -> 404, final: https://www.gsa.gov/system/files/GSASchedule70_SINs.csv
+https://www.gsa.gov/buying-selling/purchasing-programs/gsa-schedules/schedule-70-special-item-numbers -> 404, final: https://www.gsa.gov/buying-selling/purchasing-programs/gsa-schedules/schedule-70-special-item-numbers
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2894  redactions: none
+==============================================================================
+[seq 19] 2026-10-21T14:43:27+00:00
+$ python3 -c 
+import requests
+# Try to find SIN reference data from other sources
+urls = [
+    'https://raw.githubusercontent.com/GSA/schedule-70-sins/main/sins.csv',
+    'https://raw.githubusercontent.com/18F/gsa-schedule-70-sins/main/sins.csv',
+    'https://api.gsa.gov/schedule/70/sins',
+]
+for url in urls:
+    try:
+        r = requests.get(url, timeout=15)
+        print(f'{url} -> {r.status_code}')
+        if r.status_code == 200:
+            print(f'  Content-Type: {r.headers.get("Content-Type")}')
+            print(f'  Length: {len(r.text)}')
+            print(f'  Sample: {r.text[:500]}')
+    except Exception as e:
+        print(f'{url} -> Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+https://raw.githubusercontent.com/GSA/schedule-70-sins/main/sins.csv -> 404
+https://raw.githubusercontent.com/18F/gsa-schedule-70-sins/main/sins.csv -> 404
+https://api.gsa.gov/schedule/70/sins -> 404
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2417  redactions: none
+==============================================================================
+[seq 20] 2026-10-21T14:45:40+00:00
+$ python3 -c 
+import requests
+# Try to find GSA MAS contract holder data
+urls = [
+    'https://www.gsa.gov/system/files/GSASchedule70_ContractHolders.csv',
+    'https://www.gsa.gov/cdnstatic/GSASchedule70_ContractHolders.xlsx',
+    'https://api.gsa.gov/gsa-schedule-contract-holders',
+]
+for url in urls:
+    try:
+        r = requests.get(url, timeout=15, allow_redirects=True)
+        print(f'{url} -> {r.status_code}, final: {r.url}')
+        if r.status_code == 200:
+            ct = r.headers.get('Content-Type', '')
+            print(f'  Content-Type: {ct}')
+            if 'csv' in ct or 'excel' in ct:
+                print(f'  Binary length: {len(r.content)}')
+            else:
+                print(f'  Text length: {len(r.text)}')
+                print(f'  Sample: {r.text[:500]}')
+    except Exception as e:
+        print(f'{url} -> Error: {e}')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+https://www.gsa.gov/system/files/GSASchedule70_ContractHolders.csv -> 404, final: https://www.gsa.gov/system/files/GSASchedule70_ContractHolders.csv
+https://www.gsa.gov/cdnstatic/GSASchedule70_ContractHolders.xlsx -> 404, final: https://www.gsa.gov/system/files/GSASchedule70_ContractHolders.xlsx
+https://api.gsa.gov/gsa-schedule-contract-holders -> 404, final: https://api.gsa.gov/gsa-schedule-contract-holders
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4542  redactions: none

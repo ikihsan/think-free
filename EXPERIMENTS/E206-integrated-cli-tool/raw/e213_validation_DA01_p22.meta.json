@@ -1,0 +1,45 @@
+{
+ "request": {
+  "fields": [
+   "Award ID",
+   "Award Amount",
+   "Description",
+   "Recipient Name",
+   "generated_internal_id",
+   "PSC Code",
+   "NAICS Code",
+   "Awarding Agency",
+   "Awarding Sub Agency",
+   "Funding Agency",
+   "Funding Sub Agency",
+   "Recipient UEI",
+   "Start Date",
+   "End Date"
+  ],
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "psc_codes": [
+    "DA01"
+   ],
+   "time_period": [
+    {
+     "end_date": "2025-12-31",
+     "start_date": "2020-01-01"
+    }
+   ]
+  },
+  "limit": 100,
+  "page": 22
+ },
+ "response": {
+  "bytes": 62358,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+  "sha256": "41c2f57840dee5b620bbc15e6c083daf13e4a9e02bdbe55dacadedf71b2c9d0c",
+  "status": 200
+ }
+}

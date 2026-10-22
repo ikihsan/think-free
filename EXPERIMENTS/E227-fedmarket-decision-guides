@@ -1,0 +1,120 @@
+# E227 — Fedmarket Decision Guides (prototype)
+
+**Status**: exploratory prototype — packages E206 validated analysis into actionable guides  
+**Grounding**: all metrics reproduced against E199/E200 baselines within 0.1 pp  
+**Source**: COMPARISON_REPORT.md, RESULT.md, E206 integrated CLI tool; budget interpolation per prototype `fedmarket.py`  
+**Experiment date**: 2026-10-21
+
+## Question
+
+Which PSC code should a small software team target for federal marketplace entry, and what entry vehicle is best suited to their capabilities?
+
+## Evidence
+
+Two distinct market types emerge from the E206 analysis of 5 IT/software PSC codes:
+
+### Market Type A: Direct-Sales (7030)
+- **Screen score**: 2,411 (best of 5 codes)
+- **Recipients**: 3,916 distinct recipients
+- **≤ $40k fraction**: 32.1% of software awards
+- **Software % of awards**: 64.5%
+- **Software median award**: $56,939
+- **Top-10 share**: 38.4% (lowest concentration)
+- **Entry vehicle**: Direct sales (88.7% of small vendor $)
+- **GSA MAS small-vendor share**: ~6% in software SINs
+- **Subcontracting**: negligible (0.1% sub/prime ratio)
+- **Graduation rate**: 1.2% of ≤$100k FY20-21 recipients return in FY23-25 (E211)
+- **Civilian breadth**: 14+ agencies >$500M
+- **Best for**: Teams seeking easiest entry via direct sales; teams without GSA MAS connections
+
+### Market Type B: GWAC Pathway (DA10)
+- **Screen score**: 2,345 (#3 of 5 codes)
+- **Recipients**: 3,651 distinct recipients
+- **≤ $40k fraction**: 27.1% of software awards
+- **Software % of awards**: 57.8%
+- **Software median award**: $40,168 (best software award accessibility of all codes)
+- **Top-10 share**: 35.8% (moderate concentration)
+- **Entry vehicle**: GSA MAS Schedule 70 (511210/511210S/518210C SINs)
+- **Small vendor GSA MAS share**: 28.2% in software SINs (E207) — highest of any code
+- **GSA Schedule awarding**: 7.8% (driven by VA 19.4% funding)
+- **Subcontracting**: 8.1% sub/prime ratio, 85 unique subawardees (E209)
+- **Graduation rate**: 23.7% of ≤$100k FY20-21 recipients return in FY23-25 (E211) — best of all codes
+- **Civilian breadth**: VA provides significant civilian alternative (19.4%)
+- **Best for**: Teams able to access GSA MAS; teams seeking sustained business (graduation) rather than just entry
+
+### Non-software markets (DA01, D304)
+- **DA01**: Largest market ($94.9B) but services-dominated (12.8% software); median software award $383k
+- **D304**: Not a software market (8.1% software, telecom-dominated)
+
+## Decision Guides
+
+### Guide 1: Easiest Entry Point
+**Goal**: Minimize friction to first federal award; no GSA MAS connections.
+
+**Recommendation**: **PSC 7030 — direct sales**
+
+- 3,916 recipients, 100% single-award (abundant entry points)
+- 32.1% ≤ $40k, 46.8% ≤ $100k
+- Low top-10 concentration (38.4%) means many independent entrants
+- Direct sales only — no GSA MAS required
+- Caveat: Graduation to sustained business is low (1.2%); this is an entry point, not a growth path
+
+**When to choose this if**: Your team wants to sell software directly to federal agencies, doesn't have GSA MAS connections, and wants the lowest-friction entry.
+
+### Guide 2: Sustained Business via GSA MAS
+**Goal**: Build a recurring revenue stream; team can access GSA MAS Schedule 70.
+
+**Recommendation**: **PSC DA10 — GSA MAS Schedule 70**
+
+- 28.2% small vendor GSA MAS share in 511210/511210S/518210C (E207) — highest of any code
+- GSA Schedule channel at 7.8% awarding (VA 19.4% — franchise fund, medical care)
+- 8.1% sub/prime ratio with 85 subawardees (E209) — both prime and sub pathways
+- 23.7% graduation rate — best of all codes for sustained business (E211)
+- Software median award $40k — accessible entry point
+- Caveat: Lower ≤$40k fraction (27.1% vs 32.1% for 7030); higher top-10 concentration (35.8%)
+
+**When to choose this if**: Your team can access GSA MAS Schedule 70, wants to build a recurring federal revenue stream, and values the subcontracting pathway in addition to prime contracts.
+
+### Guide 3: High-Volume Software Market
+**Goal**: Maximum number of software awards and recipients.
+
+**Recommendation**: **PSC 7030**
+
+- 3,916 recipients (most of any code)
+- 64.5% of awards are software (highest software % alongside 7A21's 71.8%)
+- 32.1% ≤ $40k, 46.8% ≤ $100k
+- 100% single-award recipients = abundant entry points
+
+**When to choose this if**: Your team wants the broadest possible set of entry recipients and doesn't need the GSA MAS pathway.
+
+### Guide 4: Budget-Constrained Entry
+**Goal**: Target awards within a specific size range.
+
+| Team budget threshold | Best PSC code | Projectable ≤X fraction |
+|---|---|---|
+| ≤ $25k | 7030 | ~41.4% of software awards |
+| ≤ $40k | 7030 | 32.1%; DA10 27.1% |
+| ≤ $100k | 7030 | 46.8%; DA10 42.0% |
+
+**When to choose this if**: Your team has a specific maximum award size they can target.
+
+## Unknowns and Limitations
+
+1. **Pre-computed data**: All metrics come from E206 experiments using USAspending API with 5,000-award sample ceiling. Full distribution data would permit more precise budget-range queries.
+2. **No real-world validation**: This is a reversible exploratory prototype — the guides are grounded in observed data but have not been validated with actual small software teams.
+3. **Static snapshot**: Data reflects a point-in-time analysis (2026-10-20). Market dynamics (concentration trends, new entrant patterns) may change — see E204 time-window analysis showing rapid concentration in 7030.
+4. **Small-vendor definition**: Based on single-award recipients; may not capture all small businesses.
+5. **GWAC/subcontracting pathways**: Data reflects observed patterns; actual access depends on individual team capabilities, connections, and proposals.
+
+## Opportunities for Future Work
+
+- **API integration**: Connect to USAspending API for fresh data (requires authentication)
+- **Team profiling**: Match team capabilities (GSA MAS access, prior federal experience, development capacity) to market type
+- **Longitudinal tracking**: Monitor how concentration and accessibility change over time (E204 shows rapid changes in 7030)
+- **Human subject validation**: Recruit 3-5 small software teams (E208) to test the decision guides against real pipeline opportunities
+
+## Session coordination
+
+This experiment (E227) builds on the E206 integrated CLI tool and the E211 survival analysis. It does not duplicate prior work but packages existing evidence into a new format (decision guides) for practical usability. The prototype (`prototypes/fedmarket.py`) is the primary artifact; this document is its companion exegesis.
+
+**Decision**: Prototype is producible and grounded. The two-axis classification (direct-sales vs GWAC pathway) is the key differentiation for small-team federal software entry. Decision guides below provide concrete usage recommendations.

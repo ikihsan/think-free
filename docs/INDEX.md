@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-20
+last-verified: 2026-10-22
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -66,6 +66,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`docs/reference/ground-truth-issue-discriminating-observation.md`](reference/ground-truth-issue-discriminating-observation.md) | `docs/INDEX.md` | active | 2026-10-14 | owner: docs/INDEX.md |
 | [`docs/reference/identifier-allocation.md`](reference/identifier-allocation.md) | `docs/INDEX.md` | active | 2026-10-04 | How an F, D or T number is chosen, and why the choice is recorded. Every number |
 | [`docs/reference/skill-inventory.md`](reference/skill-inventory.md) | `docs/INDEX.md` | active | 2026-10-03 | Twenty-one skills in .agents/skills/<name>/SKILL.md, mirrored into |
+| [`docs/reference/usaspending-ground-truth-limitations.md`](reference/usaspending-ground-truth-limitations.md) | `docs/INDEX.md` | active | 2026-10-21 | owner: docs/INDEX.md |
 
 ## docs (other)
 
@@ -518,6 +519,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/E207-contract-vehicle-analysis/` | `docs/INDEX.md` | active | 2026-10-20 | 1 documents |
 | `EXPERIMENTS/E209-subcontract-analysis/` | `docs/INDEX.md` | active | 2026-10-20 | 1 documents |
 | `EXPERIMENTS/E210-vehicle-sin-sewp-analysis/` | `docs/INDEX.md` | active | 2026-10-20 | 1 documents |
+| `EXPERIMENTS/E211-entry-survival/` | `EXPERIMENTS/README.md` | active | 2026-10-21 | 2 documents |
+| `EXPERIMENTS/E213-sin-sewp-validation/` | `docs/INDEX.md` | active | 2026-10-21 | 1 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/e138-viewcount-discrimination/` | `docs/INDEX.md` | active | 2026-10-14 | 1 documents |

@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: sessions/INDEX.md
 status: active
-last-verified: 2026-10-20
+last-verified: 2026-10-21
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -75,7 +75,7 @@ _(none recorded)_
 | check | result |
 |---|---|
 | session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 12917 |
+| undeclared file changes | 14873 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
@@ -134,18 +134,18 @@ _(none recorded)_
 | 38 | 21:47:35 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E172-fresh-observation-pypi/RESULT.md |
 | 39 | 21:47:35 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E172-fresh-observation-pypi/run_experiment.py |
 | 40 | 21:47:35 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E173-fresh-observation-github-issues/PROTOCOL.md |
-| 12942 | 22:56:33 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E202-cli-tool-7030-entry/raw/recip_D304_p79.meta.json |
-| 12943 | 22:56:34 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E202-cli-tool-7030-entry/raw/recip_D304_p8.json |
-| 12944 | 22:56:34 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E202-cli-tool-7030-entry/raw/recip_D304_p8.meta.json |
-| 12945 | 22:56:34 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E202-cli-tool-7030-entry/raw/recip_D304_p80.json |
-| 12946 | 23:17:30 | artifact | wrote EXPERIMENTS/E206-integrated-cli-tool/COMPARISON_REPORT.md |
-| 12947 | 23:17:48 | artifact | wrote /tmp/7030_report.json |
-| 12948 | 23:17:52 | artifact | wrote /tmp/DA10_report.json |
-| 12949 | 23:17:57 | artifact | wrote /tmp/7A21_report.json |
-| 12950 | 23:18:01 | artifact | wrote /tmp/DA01_report.json |
-| 12951 | 23:18:05 | artifact | wrote /tmp/D304_report.json |
+| 14898 | 00:11:06 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E202-cli-tool-7030-entry/raw/recip_7030_p40.json |
+| 14899 | 00:11:07 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E202-cli-tool-7030-entry/raw/recip_7030_p40.meta.json |
+| 14900 | 00:11:07 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E202-cli-tool-7030-entry/raw/recip_7030_p41.json |
+| 14901 | 00:11:08 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E202-cli-tool-7030-entry/raw/recip_7030_p41.meta.json |
+| 14902 | 00:11:08 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E202-cli-tool-7030-entry/raw/recip_7030_p42.json |
+| 14903 | 00:11:08 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E202-cli-tool-7030-entry/raw/recip_7030_p42.meta.json |
+| 14904 | 00:11:09 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E202-cli-tool-7030-entry/raw/recip_7030_p43.json |
+| 14905 | 00:11:09 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E202-cli-tool-7030-entry/raw/recip_7030_p43.meta.json |
+| 14906 | 00:11:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E202-cli-tool-7030-entry/raw/recip_7030_p44.json |
+| 14907 | 00:11:11 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/E202-cli-tool-7030-entry/raw/recip_7030_p44.meta.json |
 
-_12901 middle events omitted; see `events.jsonl`._
+_14857 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

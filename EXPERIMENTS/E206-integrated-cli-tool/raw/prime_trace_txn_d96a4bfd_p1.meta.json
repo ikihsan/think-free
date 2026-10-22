@@ -1,0 +1,30 @@
+{
+ "request": {
+  "fields": [
+   "Transaction Amount",
+   "Award ID",
+   "Recipient Name",
+   "Awarding Agency",
+   "Recipient UEI"
+  ],
+  "filters": {
+   "award_type_codes": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "recipient_id": "d96a4bfd-2da7-00c1-948d-44005efba1a1-C"
+  },
+  "limit": 50,
+  "order": "desc",
+  "page": 1,
+  "sort": "Transaction Amount"
+ },
+ "response": {
+  "bytes": 14189,
+  "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_transaction/",
+  "sha256": "e1b5067dbb7a7321878c9329be122043da892341f89e9e89b0df871be9adb7cd",
+  "status": 200
+ }
+}

@@ -1,0 +1,400 @@
+#!/usr/bin/env python3
+"""Fedmarket — Federal Marketplace Assessment Tool.
+
+Assesses PSC codes for small-team software entry using a two-axis framework:
+  Axis 1 (Accessibility): screen score, ≤$40k fraction, recipient count, software %
+  Axis 2 (Sustainability): entry survival %, graduation %, net-positive return, mean awards/UEI
+
+Usage:
+    python3 fedmarket.py 7030              # assess 7030 with static data only
+    python3 fedmarket.py 7030 --refresh     # assess 7030 with fresh API fetch
+    python3 fedmarket.py DA10               # assess DA10 static only
+    python3 fedmarket.py --help             # show help
+"""
+
+import argparse
+import os
+import sys
+
+# Add parent directory to path for module imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+from fedmarket_data import PSC_CODES_STATIC
+from fedmarket_core import (
+    assess_code,
+    format_text,
+    format_json,
+)
+from fedmarket_dynamic_api import (
+    SMALL_THRESHOLD,
+)
+from fedmarket_dynamic_rec import (
+    two_axis_recommendation,
+    assess_code_dynamic,
+    format_result_dynamic,
+    format_recommendation,
+    survival_from_e211_raw,
+)
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(
+        description="Fedmarket: assess PSC codes for small-team software entry.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument(
+        "code",
+        nargs="?",
+        default=None,
+        help="PSC code to assess (e.g. 7030, DA10, DA01, 7A21, D304)",
+    )
+    parser.add_argument(
+        "--refresh",
+        action="store_true",
+        default=False,
+        help="Force fresh API fetch, bypassing cache (default: use cached/static data)",
+    )
+    parser.add_argument(
+        "--output",
+        default=None,
+        help="Write result JSON to this file path",
+    )
+    parser.add_argument(
+        "--format",
+        choices=["text", "json"],
+        default="text",
+        help="Output format (default: text)",
+    )
+    parser.add_argument(
+        "--decision",
+        nargs=3,
+        metavar=("BUDGET", "GTM", "FOCUS"),
+        default=None,
+        help=(
+            "Generate two-axis recommendation matched to team profile. "
+            "Three parameters: BUDGET leq_40k|leq_100k|enterprise, "
+            "GTM direct|gsa_mas|services, FOCUS software|services. "
+            "Example: --decision leq_40k direct software"
+        ),
+    )
+    args = parser.parse_args(argv)
+
+    # --- Decision mode: profile-matched code recommendation ---
+    if args.decision is not None:
+        budget, gtm, focus = args.decision
+        rec = decide_code(budget, gtm, focus)
+
+        output = {
+            "code": rec["code"],
+            "name": rec["code"].upper(),
+            "entry_axis": rec["entry_axis"],
+            "primary_vehicle": rec["primary_vehicle"],
+            "recommendation": rec["recommendation"],
+            "entry_score": rec["entry_score"],
+            "business_score": rec["business_score"],
+            "caveats": rec["caveats"],
+            "decision_profile": f"budget={budget}, gtm={gtm}, focus={focus}",
+        }
+
+        if args.format == "json":
+            out_str = format_json(output)
+        else:
+            out_str = format_text(output)
+
+        print(out_str)
+
+        # Write JSON output if requested
+        if args.output:
+            out_dir = os.path.dirname(args.output)
+            if out_dir:
+                os.makedirs(out_dir, exist_ok=True)
+            with open(args.output, "w") as f:
+                json.dump(output, f, indent=2, default=str)
+            print("\nJSON output saved to {}".format(args.output))
+
+        return
+
+    # --- Static mode: use pre-computed lookup data ---
+    if not args.code:
+        parser.print_help()
+        sys.exit(0)
+
+    psc_code = args.code.upper()
+
+    # --- Static mode: use pre-computed lookup data ---
+    if not args.refresh:
+        if psc_code not in PSC_CODES_STATIC:
+            print("Error: Unknown PSC code: {}".format(psc_code), file=sys.stderr)
+            sys.exit(1)
+
+        static = assess_code(psc_code)
+
+        # Attempt to load sustainability metrics from E211 raw data (offline)
+        dyn_metrics = None
+        e211_raw_path = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)),
+            "EXPERIMENTS",
+            "E211-entry-survival",
+            "raw",
+            "results.json",
+        )
+        if os.path.exists(e211_raw_path):
+            raw_survival = survival_from_e211_raw(e211_raw_path, psc_code=psc_code)
+            if raw_survival is not None:
+                dyn_metrics = raw_survival
+
+        rec = two_axis_recommendation(psc_code, static, dyn_metrics)
+
+        output = {
+            "code": psc_code,
+            "name": static.get("name", psc_code),
+            # Static metrics (always included)
+            "screen_score": static.get("screen_score"),
+            "recipient_count": static.get("recipients"),
+            "top_10_share_pct": static.get("top10_share_pct"),
+            "leq_40k_pct": static.get("leq_40k_pct"),
+            "leq_100k_pct": static.get("leq_100k_pct"),
+            "single_award_pct": static.get("single_award_pct"),
+            "software_pct_awards": static.get("software_pct_awards"),
+            "software_pct_obligation": static.get("software_pct_obligation"),
+            "software_leq_40k_pct": static.get("software_leq_40k_pct"),
+            "software_leq_100k_pct": static.get("software_leq_100k_pct"),
+            "software_median_award": static.get("software_median_award"),
+            "dod_pct": static.get("dod_pct"),
+            "civilian_agencies": static.get("civilian_agencies"),
+            "gsa_awarding_pct": static.get("gsa_awarding_pct"),
+            "small_vendor_gsa_mas_by_sin": static.get("small_vendor_gsa_mas_by_sin"),
+            "sewp_catb_small_vendor_pct": static.get("sewp_catb_small_vendor_pct"),
+            "sub_prime_ratio_pct": static.get("sub_prime_ratio_pct"),
+            "small_vendor_gwac_share_pct": static.get("small_vendor_gwac_share_pct"),
+            "total_obligation_b": static.get("total_obligation_b"),
+            # Dynamic metrics (from E211 raw data, if available)
+            "survival": dyn_metrics.get("survival") if dyn_metrics else None,
+            "graduation": dyn_metrics.get("graduation") if dyn_metrics else None,
+            "n_cohort": dyn_metrics.get("n_cohort") if dyn_metrics else None,
+            "n_surviving": dyn_metrics.get("n_surviving") if dyn_metrics else None,
+            "n_graduates": dyn_metrics.get("n_graduates") if dyn_metrics else None,
+            "mean_awards_per_uei": dyn_metrics.get("mean_awards_per_uei") if dyn_metrics else None,
+            "survival_net_positive": dyn_metrics.get("survival_net_positive") if dyn_metrics else None,
+            # Two-axis recommendation
+            "entry_axis": rec["entry_axis"],
+            "primary_vehicle": rec["primary_vehicle"],
+            "recommendation": rec["recommendation"],
+            "entry_score": rec["entry_score"],
+            "business_score": rec["business_score"],
+            "caveats": rec.get("caveats", ""),
+        }
+
+    # --- Dynamic mode: attempt API fetch ---
+    else:
+        result = assess_code_dynamic(psc_code, refresh=True)
+
+        # Separate static and dynamic metrics from the result
+        static_keys = ['screen_score', 'recipients', 'top10_share', 'leq_40k_pct',
+                       'leq_100k_pct', 'single_award_pct', 'software_pct_awards',
+                       'software_pct_obligation', 'software_leq_40k_pct',
+                       'software_leq_100k_pct', 'software_median_award',
+                       'dod_pct', 'civilian_agencies', 'gsa_awarding_pct',
+                       'small_vendor_gsa_mas_by_sin', 'sewp_catb_small_vendor_pct',
+                       'sub_prime_ratio_pct', 'small_vendor_gwac_share_pct',
+                       'total_obligation_b']
+        static_metrics = {k: v for k, v in result.items() if k in static_keys}
+        dynamic_metrics = {k: v for k, v in result.items() if k not in static_keys and k not in ['recommendation']}
+
+        # Generate two-axis recommendation
+        rec = two_axis_recommendation(psc_code, static_metrics, dynamic_metrics)
+
+        # Build output dict from dynamic result
+        output = {
+            "code": result.get("code", psc_code),
+            "name": result.get("name", psc_code),
+            "screen_score": result.get("screen_score"),
+            "recipient_count": result.get("recipient_count"),
+            "top_10_share_pct": result.get("top_10_share_pct"),
+            "leq_40k_pct": result.get("leq_40k_pct"),
+            "leq_100k_pct": result.get("leq_100k_pct"),
+            "single_award_pct": result.get("single_award_pct"),
+            "software_pct_awards": result.get("software_pct_awards"),
+            "software_pct_obligation": result.get("software_pct_obligation"),
+            "software_leq_40k_pct": result.get("software_leq_40k_pct"),
+            "software_leq_100k_pct": result.get("software_leq_100k_pct"),
+            "software_median_award": result.get("software_median_award"),
+            "dod_pct": result.get("dod_pct"),
+            "civilian_agencies": result.get("civilian_agencies"),
+            "gsa_awarding_pct": result.get("gsa_awarding_pct"),
+            "small_vendor_gsa_mas_by_sin": result.get("small_vendor_gsa_mas_by_sin"),
+            "sewp_catb_small_vendor_pct": result.get("sewp_catb_small_vendor_pct"),
+            "sub_prime_ratio_pct": result.get("sub_prime_ratio_pct"),
+            "small_vendor_gwac_share_pct": result.get("small_vendor_gwac_share_pct"),
+            "total_obligation_b": result.get("total_obligation_b"),
+            "entry_axis": rec["entry_axis"],
+            "primary_vehicle": rec["primary_vehicle"],
+            "recommendation": rec["recommendation"],
+            "entry_score": rec["entry_score"],
+            "business_score": rec["business_score"],
+            "caveats": rec.get("caveats", ""),
+            "survival": result.get("survival"),
+            "graduation": result.get("graduation"),
+            "n_cohort": result.get("n_cohort"),
+            "n_surviving": result.get("n_surviving"),
+            "n_graduates": result.get("n_graduates"),
+            "mean_awards_per_uei": result.get("mean_awards_per_uei"),
+            "survival_net_positive": result.get("survival_net_positive"),
+        }
+
+    # Format and print output
+    if args.format == "json":
+        out_str = format_json(output)
+    else:
+        out_str = format_text(output)
+
+    print(out_str)
+
+    # Write JSON output if requested
+    if args.output:
+        out_dir = os.path.dirname(args.output)
+        if out_dir:
+            os.makedirs(out_dir, exist_ok=True)
+        with open(args.output, "w") as f:
+            json.dump(output, f, indent=2, default=str)
+        print("\nJSON output saved to {}".format(args.output))
+
+
+def decide_code(budget, gtm, focus):    """Generate a profile-matched two-axis recommendation for a small software team.    Maps team characteristics (budget, go-to-market strategy, focus area) to a    PSC code and entry strategy using the project's two-axis framework, enhanced    with E211 sustainability data and E212 profile-based recommendations.    Parameters    ----------    budget : str        Budget threshold: "leq_40k", "leq_100k", or "enterprise"    gtm : str        Go-to-market strategy: "direct", "gsa_mas", or "services"    focus : str        Product focus: "software" or "services"    Returns    -------    dict        {            "code": str,            "entry_axis": str,            "primary_vehicle": str,            "recommendation": str,            "entry_score": float,            "business_score": float,            "caveats": str,        }    """    from fedmarket_data import assess_code    # Profile-to-code mapping from E212, with E211-enhanced caveats    profiles = {        ("leq_40k", "direct", "software"): {            "code": "7030",            "entry_axis": "direct_sales",            "primary_vehicle": "direct_sales",            "caveat": (                "Small vendors sell direct (88.7%); GSA MAS small-vendor share low (~6%). "                "Subcontracting negligible (0.1%). 7030 is the easiest door for entry "                "but has weak sustained business economics (1.2% graduation, $2k median return)."            ),        },        ("leq_100k", "gsa_mas", "software"): {            "code": "DA10",            "entry_axis": "gwac_pathway",            "primary_vehicle": "gsa_mas_schedule_70",            "caveat": (                "28.2% small vendor GSA MAS share in 511210/511210S/518210C. "                "GSA Schedule channel at 7.8% awarding (VA 19.4%). "                "Subcontracting 8.1% (85 subawardees). Software median $40k."            ),        },        ("enterprise", "services", "services"): {            "code": "DA01",            "entry_axis": "services_market",            "primary_vehicle": "gsa_schedule",            "caveat": (                "Largest market ($94.9B) but services-dominated (12.8% software). "                "Median software award $383k -- not a software-product market. "                "GSA Schedule strong (13.6% awarding)."            ),        },    }    key = (budget, gtm, focus)    if key not in profiles:        # Fallback: assess 7030 and return its two-axis recommendation        static_metrics = assess_code("7030")        from fedmarket_dynamic_rec import two_axis_recommendation, survival_from_e211_raw        e211_raw_path = os.path.join(            os.path.dirname(os.path.abspath(__file__)),            "EXPERIMENTS",            "E211-entry-survival",            "raw",            "results.json",        )        dyn_metrics = None        if os.path.exists(e211_raw_path):            from fedmarket_dynamic_rec import survival_from_e211_raw            raw_survival = survival_from_e211_raw(e211_raw_path, psc_code="7030")            if raw_survival is not None:                dyn_metrics = raw_survival        rec = two_axis_recommendation("7030", static_metrics, dyn_metrics)        return {            "code": "7030",            "entry_axis": rec.get("entry_axis", "?"),            "primary_vehicle": rec.get("primary_vehicle", "?"),            "entry_score": rec.get("entry_score", 0),            "business_score": rec.get("business_score", 0),            "recommendation": rec.get("recommendation", "balanced"),            "caveats": "Profile not recognized; defaulted to 7030 two-axis recommendation",        }    profile = profiles[key]    code = profile["code"]    # Run two-axis assessment for the recommended code to get scores    static_metrics = assess_code(code)    dyn_metrics = None    e211_raw_path = os.path.join(        os.path.dirname(os.path.abspath(__file__)),        "EXPERIMENTS",        "E211-entry-survival",        "raw",        "results.json",    )    if os.path.exists(e211_raw_path):        from fedmarket_dynamic_rec import survival_from_e211_raw        raw_survival = survival_from_e211_raw(e211_raw_path, psc_code=code)        if raw_survival is not None:            dyn_metrics = raw_survival    rec = two_axis_recommendation(code, static_metrics, dyn_metrics)    # Use profile-matched recommendation type, with scores from two-axis assessment    recommendation_map = {        "7030": "entry",        "DA10": "business",        "DA01": "balanced",    }    recommendation = recommendation_map.get(code, rec.get("recommendation", "balanced"))    entry_score = rec.get("entry_score", 0)    business_score = rec.get("business_score", 0)    return {        "code": code,        "entry_axis": profile["entry_axis"],        "primary_vehicle": profile["primary_vehicle"],        "entry_score": entry_score,        "business_score": business_score,        "recommendation": recommendation,        "caveats": profile["caveat"],    }
+
+    profile = profiles[key]
+    code = profile["code"]
+
+    # Run two-axis assessment for the recommended code
+    static_metrics = assess_code(code)
+    dyn_metrics = None
+    e211_raw_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        "EXPERIMENTS",
+        "E211-entry-survival",
+        "raw",
+        "results.json",
+    )
+    if os.path.exists(e211_raw_path):
+        from fedmarket_dynamic_rec import survival_from_e211_raw
+        raw_survival = survival_from_e211_raw(e211_raw_path, psc_code=code)
+        if raw_survival is not None:
+            dyn_metrics = raw_survival
+
+    rec = two_axis_recommendation(code, static_metrics, dyn_metrics)
+
+    # Override recommendation with profile-matched one if it differs
+    # The profile recommendation takes precedence for the specified profile
+    entry_score = rec.get("entry_score", 0)
+    business_score = rec.get("business_score", 0)
+
+    # Determine overall recommendation label
+    if business_score >= 15 and survival >= 15:
+        recommendation = "business"
+    elif entry_score >= 35 and leq_40k >= 35 and screen >= 2300:
+        recommendation = "entry"
+    else:
+        recommendation = "balanced"
+
+    # For profile-matched codes, use the profile recommendation type
+    if code_lower := code.lower():
+        if code_lower == "7030":
+            entry_axis = "direct_sales"
+            primary_vehicle = "direct_sales"
+            recommendation = "entry"
+        elif code_lower == "da10":
+            entry_axis = "gwac_pathway"
+            primary_vehicle = "gsa_mas_schedule_70"
+            recommendation = "business"
+        elif code_lower == "da01":
+            entry_axis = "services_market"
+            primary_vehicle = "gsa_schedule"
+            recommendation = "balanced"
+
+    return {
+        "code": code,
+        "entry_axis": entry_axis,
+        "primary_vehicle": primary_vehicle,
+        "entry_score": entry_score,
+        "business_score": business_score,
+        "recommendation": recommendation,
+        "caveats": profile["caveat"],
+    }
+
+
+def _fallback_decision(budget, gtm, focus):
+    """Fallback: assess all 5 PSC codes and return the best profile match."""
+    codes = ["7030", "DA10", "DA01", "7A21", "D304"]
+    best_code = None
+    best_score = -1
+
+    for code in codes:
+        static_metrics = assess_code(code)
+        score = static_metrics.get("screen_score", 0)
+        leq_40k = static_metrics.get("leq_40k_pct", 0)
+        recipients = static_metrics.get("recipients", 0)
+        software_pct = static_metrics.get("software_pct_awards", 0)
+
+        # Score based on profile priorities
+        if budget == "leq_40k" and gtm == "direct" and focus == "software":
+            # Prioritize screen score and small-award accessibility
+            if leq_40k >= 30 and score > best_score:
+                best_score = score
+                best_code = code
+        elif budget == "leq_100k" and gtm == "gsa_mas" and focus == "software":
+            # Prioritize GWA/MAS pathway and sustainability
+            gsa_share = static_metrics.get("small_vendor_gwac_share_pct", 0)
+            if gsa_share >= 20 and score > best_score:
+                best_score = score
+                best_code = code
+        elif budget == "enterprise" and gtm == "services" and focus == "services":
+            # Prioritize largest market
+            obligation = static_metrics.get("total_obligation_b", 0)
+            if obligation >= 50 and score > best_score:
+                best_score = obligation
+                best_code = code
+
+    if best_code:
+        static_metrics = assess_code(best_code)
+        from fedmarket_dynamic_rec import two_axis_recommendation
+        from fedmarket_data import assess_code as _assess_code
+        dyn_metrics = None
+        e211_raw_path = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)),
+            "EXPERIMENTS",
+            "E211-entry-survival",
+            "raw",
+            "results.json",
+        )
+        if os.path.exists(e211_raw_path):
+            from fedmarket_dynamic_rec import survival_from_e211_raw
+            raw_survival = survival_from_e211_raw(e211_raw_path, psc_code=best_code)
+            if raw_survival is not None:
+                dyn_metrics = raw_survival
+        rec = two_axis_recommendation(best_code, static_metrics, dyn_metrics)
+        return {
+            "code": best_code,
+            "entry_axis": rec.get("entry_axis", "?"),
+            "primary_vehicle": rec.get("primary_vehicle", "?"),
+            "entry_score": rec.get("entry_score", 0),
+            "business_score": rec.get("business_score", 0),
+            "recommendation": rec.get("recommendation", "balanced"),
+            "caveats": "Profile match via fallback assessment",
+        }
+
+    # Ultimate fallback: assess 7030
+    static_metrics = assess_code("7030")
+    rec = two_axis_recommendation("7030", static_metrics, None)
+    return {
+        "code": "7030",
+        "entry_axis": rec.get("entry_axis", "?"),
+        "primary_vehicle": rec.get("primary_vehicle", "?"),
+        "entry_score": rec.get("entry_score", 0),
+        "business_score": rec.get("business_score", 0),
+        "recommendation": rec.get("recommendation", "balanced"),
+        "caveats": "Default to 7030",
+    }
+
+
+if __name__ == "__main__":
+    main()

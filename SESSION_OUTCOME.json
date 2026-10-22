@@ -1,14 +1,61 @@
 {
-    "session_date": "2026-10-16",
-    "work_done": {
-        "practical_difficulty": "View-count principle G2 gate cannot pass on PyPI due to limited search results (~10 packages/keyword, need >=100 for G2)",
-        "who_experiences": "Python developers using view-count prototype; mission evaluating principle gates",
-        "available_evidence": "5-10 keywords aggregated give 50-70 packages; G1 passes (ratio ~100%, threshold 55%); G2 fails (<100 classified); G3/G4 pass; need indicator coverage ~50% of packages; active rates 100% for both categories; PyPI search volume is fundamental bottleneck, not vocabulary coverage",
-        "build_decision": "Added 4 new need indicators (crud, rest, sdk, cli) to tools/viewcount_core.py, expanding vocabulary from 55 to 86 terms; testing confirmed no coverage improvement for sampled packages, confirming bottleneck is search volume not vocabulary",
-        "what_remains_unknown": "Whether view-count principle works on platforms with larger search results; whether different classifier approach would improve results; precise boundary conditions across domains",
-        "next_action": "E172 - fresh observation in untouched domain per STATE-next-actions.md; needs no quota, can run today; per D083 candidate domains must be truly untested by mission's view-count principle"
+  "session_summary": {
+    "date": "2026-10-22",
+    "phase": "Tool completion & documentation",
+    "key_findings": {
+      "7030": {
+        "best_for": "direct sales entry",
+        "recipients": 3916,
+        "leq_40k": "32.1%",
+        "software_pct": "64.5%",
+        "pathway": "direct_sales (88.7% of small vendors)",
+        "sustainability": "low (13.8% graduation, 53.3% survival)",
+      },
+      "DA10": {
+        "best_for": "GSA MAS/GWAC sustained business",
+        "recipients": 3651,
+        "leq_40k": "27.1%",
+        "software_pct": "57.8%",
+        "pathway": "GSA MAS Schedule 70 (28.2% small vendor share, VA channel 7.8%)",
+        "sustainability": "high (41.2% graduation, 72.6% survival)",
+      },
+      "7A21": {
+        "best_for": "high recipient volume, software-dominated",
+        "recipients": 2034,
+        "leq_40k": "31.1%",
+        "software_pct": "71.8%",
+        "pathway": "direct sales with Carahsoft relationships",
+        "sustainability": "moderate (41.0% graduation)",
+      },
+      "DA01": {
+        "best_for": "largest market ($94.9B), services-dominated",
+        "recipients": 3610,
+        "leq_40k": "19.4%",
+        "software_pct": "12.8%",
+        "pathway": "GSA Schedule, not a software product market",
+        "sustainability": "moderate (44.9% graduation)",
+      },
+      "D304": {
+        "best_for": "not recommended for software",
+        "recipients": 1155,
+        "leq_40k": "34.0%",
+        "software_pct": "8.1%",
+        "pathway": "direct sales, telecom market",
+        "sustainability": "very low (0% graduation)",
+      }
     },
-    "artifacts_changed": [
-        "tools/viewcount_core.py - expanded NEED_INDICATORS set from 55 to 86 terms (added crud, rest, sdk, cli)"
-    ]
+    "two_axis_framework": {
+      "axis_1_accessibility": "screen_score, ≤$40k fraction, recipient count, software %",
+      "axis_2_sustainability": "entry survival %, graduation %, net-positive return, mean awards/UEI",
+      "verified": "all 5 codes reproduce within 0.1 pp baselines"
+    },
+    "tool_status": {
+      "fedmarket_cli": "fully built and validated with all 6 modules (recipient, award, time, agency, vehicle_sin, subaward)",
+      "decision_prototype": "3 profile-based recommendations via --decision flag (leq_40k/direct/software → 7030; leq_100k/gsa_mas/software → DA10; enterprise/services/services → DA01)",
+      "comparison_report": "COMPARISON_REPORT.md complete with full analysis of all 5 PSC codes",
+      "survival_analysis": "E211 entry survival metrics integrated as --module survival, reproducing E211 baselines exactly offline"
+    },
+    "remaining_gap": "E208 field test (recruit 3-5 small software companies to validate assessment framework against real pipeline opportunities) requires external authorization not currently granted",
+    "single_most_useful_next_action": "Make fedmarket tool accessible with getting-started documentation; if authorization obtained, proceed with E208 field test to validate framework with real companies"
+  }
 }

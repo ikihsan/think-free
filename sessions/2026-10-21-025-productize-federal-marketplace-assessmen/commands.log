@@ -1,0 +1,121 @@
+==============================================================================
+[seq 332] 2026-10-22T00:03:50+00:00
+$ bash -c cd fedmarket && python3 -m pytest tests/ -v 2>&1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+Test order randomisation NOT enabled. Enable with --random-order or --random-order-bucket=<bucket_type>
+rootdir: /home/ubuntu/think-free/fedmarket
+configfile: pyproject.toml
+plugins: memray-1.8.0, timeout-2.4.0, random-order-1.1.1, socket-0.7.0
+collecting ... collected 5 items
+
+tests/test_fedmarket.py::test_imports PASSED                             [ 20%]
+tests/test_fedmarket.py::test_assess_code PASSED                         [ 40%]
+tests/test_fedmarket.py::test_decide_code PASSED                         [ 60%]
+tests/test_fedmarket.py::test_keywords PASSED                            [ 80%]
+tests/test_fedmarket.py::test_survival_data_exists PASSED                [100%]
+
+============================== 5 passed in 0.29s ===============================
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2510  redactions: none
+==============================================================================
+[seq 333] 2026-10-22T00:07:01+00:00
+$ bash -c cd fedmarket && python3 -m fedmarket --code 7030 --modules none --survival 2>&1 | tail -25
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  → C1 (churn) SUPPORTED: small-award recipients do return (53.3% ≥ 15%)
+  → Graduation axis: limited sustained-business pathway (6.5% < 15%); 7030 recommended for easy entry only
+
+  Two-axis recommendation: 7030 is best for entry accessibility (32.1% ≤$40k awards, 3,916 recipients, direct sales pathway); 
+                     DA10 is better for sustained business (23.7% graduation after 3 years, GSA MAS/GWAC vehicle pathway); 
+                     7030 has only 1.2% graduation (cleaned) vs DA10's 23.7%
+
+=== End of fedmarket Assessment ===
+DEBUG raw_dir=/home/ubuntu/think-free/fedmarket/fedmarket/raw
+DEBUG a_path=/home/ubuntu/think-free/fedmarket/fedmarket/raw/A_7030.json exists=True
+DEBUG b_path=/home/ubuntu/think-free/fedmarket/fedmarket/raw/B_7030.json exists=True
+DEBUG a_data type=<class 'dict'>
+DEBUG b_data type=<class 'dict'>
+DEBUG a_rows len=4847
+DEBUG b_rows len=1303
+DEBUG cohort_ueis len=1496
+DEBUG B_7030 rows=1303 ueis=1303
+DEBUG B_DA10 rows=3127 ueis=3127
+DEBUG B_DA01 rows=3215 ueis=3215
+DEBUG B_7A21 rows=0 ueis=0
+DEBUG B_D304 rows=0 ueis=0
+DEBUG B_6810 rows=713 ueis=713
+DEBUG b_uei keys len=1303
+DEBUG surv_uei len=798 survival=53.3%
+DEBUG before print: survival=53.3%
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 586  redactions: none
+==============================================================================
+[seq 334] 2026-10-22T00:08:18+00:00
+$ bash -c set -e; rm -rf /tmp/opencode/fmvenv; python3 -m venv /tmp/opencode/fmvenv; /tmp/opencode/fmvenv/bin/pip install -q fedmarket/dist/fedmarket-0.1.0-py3-none-any.whl; /tmp/opencode/fmvenv/bin/fedmarket --version; echo "import test:"; /tmp/opencode/fmvenv/bin/python -c "import fedmarket; print(fedmarket.__version__ if hasattr(fedmarket, \"__version__\") else \"no __version__\")"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+The virtual environment was not created successfully because ensurepip is not
+available.  On Debian/Ubuntu systems, you need to install the python3-venv
+package using the following command.
+
+    apt install python3.8-venv
+
+You may need to use sudo with that command.  After installing the python3-venv
+package, recreate your virtual environment.
+
+Failing command: ['/tmp/opencode/fmvenv/bin/python3', '-Im', 'ensurepip', '--upgrade', '--default-pip']
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 289  redactions: none
+==============================================================================
+[seq 335] 2026-10-22T00:37:33+00:00
+$ bash -c cd fedmarket && python3 -m pytest tests/ -v 2>&1 | tail -20
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+Test order randomisation NOT enabled. Enable with --random-order or --random-order-bucket=<bucket_type>
+rootdir: /home/ubuntu/think-free/fedmarket
+configfile: pyproject.toml
+plugins: memray-1.8.0, timeout-2.4.0, random-order-1.1.1, socket-0.7.0
+collecting ... collected 7 items
+
+tests/test_fedmarket.py::test_imports PASSED                             [ 14%]
+tests/test_fedmarket.py::test_assess_code PASSED                         [ 28%]
+tests/test_fedmarket.py::test_decide_code PASSED                         [ 42%]
+tests/test_fedmarket.py::test_keywords PASSED                            [ 57%]
+tests/test_fedmarket.py::test_survival_data_exists PASSED                [ 71%]
+tests/test_fedmarket.py::test_decide_cli_scripted PASSED                 [ 85%]
+tests/test_fedmarket.py::test_cli_survival_offline PASSED                [100%]
+
+============================== 7 passed in 1.57s ===============================
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3208  redactions: none
+==============================================================================
+[seq 336] 2026-10-22T00:38:29+00:00
+$ bash -c set -e; rm -rf /tmp/opencode/fmpkg /tmp/opencode/fmbuild; pip install -q --target /tmp/opencode/fmpkg --no-compile fedmarket/ 2>&1 | grep -v "WARNING: Running pip" || true; ls /tmp/opencode/fmpkg/bin 2>/dev/null; PYTHONPATH=/tmp/opencode/fmpkg /tmp/opencode/fmpkg/bin/fedmarket --version; PYTHONPATH=/tmp/opencode/fmpkg /tmp/opencode/fmpkg/bin/fedmarket-decide --budget leq_40k --gtm direct --focus software --json | python3 -c "import json,sys; r=json.load(sys.stdin); print(\"installed CLI:\", r[\"recommended_code\"], r[\"entry_axis\"])"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/usr/bin/pip:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  from pkg_resources import load_entry_point
+fedmarket
+fedmarket-decide
+fedmarket 0.1.0
+installed CLI: 7030 direct_sales
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 25902  redactions: none
+==============================================================================
+[seq 337] 2026-10-22T00:39:15+00:00
+$ bash -c set -e; rm -rf /tmp/opencode/fmbuild; pip wheel -q --no-deps -w /tmp/opencode/fmbuild fedmarket/ 2>&1 | grep -v "WARNING\|DeprecationWarning\|pkg_resources" || true; ls -la /tmp/opencode/fmbuild/
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+total 1164
+drwxrwxr-x   2 ubuntu ubuntu    4096 Oct 22 00:39 .
+drwxrwxr-x 128 ubuntu ubuntu   20480 Oct 22 00:38 ..
+-rw-rw-r--   1 ubuntu ubuntu 1162188 Oct 22 00:39 fedmarket-0.1.0-py3-none-any.whl
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 20112  redactions: none
