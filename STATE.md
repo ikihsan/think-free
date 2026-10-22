@@ -6,7 +6,7 @@ last-verified: 2026-10-22
 
 # Verified state
 
-Date: 2026-10-22, Asia/Kolkata. Phase: B. **E221: PSC NAICS sub-segment entrant advisor extended to all PSC codes — prototype complete, full run pending API rate limits.** Extended E220's sub-segment analysis (3 IT PSC codes) to a general-purpose tool `tools/psc_naics_subsegment_analyzer.py` capable of analyzing NAICS-within-PSC sub-segments across all 100+ PSC codes. Tool reproduces E220's findings on DA01/DA10/7A21 (NAICS 541511 and 541519 consistently HIGHLY ENTERABLE). Full 25-PSC-code run (E196 G4 codes) estimated at 14+ hours due to USAspending 60 req/hour limit. Multi-year current window framework ready but not implemented. **E220: IT PSC sub-segment entrant advisor prototype — all 5 gates PASS.** Fresh observation per D083 extending E209's bimodal entry finding. Measured segment newcomer fractions for 28 NAICS sub-segments within the three enterable IT PSC codes (DA01, DA10, 7A21) using USAspending recipient data (FY2023 current, FY2018–2022 prior). **All gates PASS:** G0 (API accessible), G1 (100% identity coverage), G2 (prior window complete), G3 (sub-segment differentiation: DA01 27pp, DA10 87pp, 7A21 88pp spread in segment newcomer fraction), G4 (17 actionable sub-segments: 7 HIGHLY ENTERABLE, 4 SOMEWHAT, 6 MARGINAL). **Key finding:** NAICS 541511 (Custom Computer Programming) and 541519 (Other Computer Related Services) are consistently HIGHLY ENTERABLE across all three PSC codes (seg newcomer fractions 30–48%, fragmentation 44–82%, obligations $0.14B–$3.24B). NAICS 511210 (Software Publishers) is consistently CLOSED. The PSC-level "enterable" label masks dramatic within-PSC variation (DA01: 9–36% newcomer fraction). Full entry in [`EXPERIMENTS/E220-it-subsegment-entrant-advisor/RESULT.md`](EXPERIMENTS/E220-it-subsegment-entrant-advisor/RESULT.md).
+Date: 2026-10-22, Asia/Kolkata. Phase: B. **E221: PSC NAICS sub-segment entrant advisor extended to all PSC codes — prototype complete, full run pending API rate limits.** Extended E220's sub-segment analysis (3 IT PSC codes) to a general-purpose tool `tools/psc_naics_subsegment_analyzer.py` capable of analyzing NAICS-within-PSC sub-segments across all 100+ PSC codes. Tool reproduces E220's findings on DA01/DA10/7A21 (NAICS 541511 and 541519 consistently HIGHLY ENTERABLE where recipient data exists). **This session verified reproduction:** DA01: 541511 (seg_frac=1.000, frag=0.753, $2.57B), 541519 (seg_frac=0.364, frag=0.823, $3.24B); DA10: 541511 (seg_frac=0.478, frag=0.748, $0.58B); 7A21: 541519 (seg_frac=0.354, frag=0.671, $2.65B), 541512 (seg_frac=0.414, frag=0.210, $0.42B). NAICS 511210 (Software Publishers) consistently CLOSED. Fixed tool bug (undefined `closed` variable in write_outputs). Multi-year current window (FY2022-2023) framework implemented and cache-verified (naics_DA01_2022 fetched). Full 25-PSC-code run (E196 G4 codes) estimated at 14+ hours due to USAspending 60 req/hour limit. **E220: IT PSC sub-segment entrant advisor prototype — all 5 gates PASS.** Fresh observation per D083 extending E209's bimodal entry finding. Measured segment newcomer fractions for 28 NAICS sub-segments within the three enterable IT PSC codes (DA01, DA10, 7A21) using USAspending recipient data (FY2023 current, FY2018–2022 prior). **All gates PASS:** G0 (API accessible), G1 (100% identity coverage), G2 (prior window complete), G3 (sub-segment differentiation: DA01 27pp, DA10 87pp, 7A21 88pp spread in segment newcomer fraction), G4 (17 actionable sub-segments: 7 HIGHLY ENTERABLE, 4 SOMEWHAT, 6 MARGINAL). **Key finding:** NAICS 541511 (Custom Computer Programming) and 541519 (Other Computer Related Services) are consistently HIGHLY ENTERABLE across all three PSC codes (seg newcomer fractions 30–48%, fragmentation 44–82%, obligations $0.14B–$3.24B). NAICS 511210 (Software Publishers) is consistently CLOSED. The PSC-level "enterable" label masks dramatic within-PSC variation (DA01: 9–36% newcomer fraction). Full entry in [`EXPERIMENTS/E220-it-subsegment-entrant-advisor/RESULT.md`](EXPERIMENTS/E220-it-subsegment-entrant-advisor/RESULT.md).
 
 **E219: fragmentation does not predict newcomer entry in World Bank project themes — kill gate fires on near-zero correlation (ρ = -0.100, p = 0.770).** Fresh observation per D083 in international development funding (World Bank projects), a completely new domain axis. Measured segment newcomer fractions for 10 major theme codes using implementing agencies as identity (FY2020–2024 current, FY2015–2019 prior). All 10 themes show extremely high newcomer fractions (94.5%–98.6%) regardless of concentration (top-5 share 12.5%–18.4%). Spearman ρ = -0.1000, p = 0.7699. G3 FAIL — kill gate fired. The accessibility pattern's entry test has now failed in **four** market domains (NIH SBIR: E208, Federal IT: E209, International Trade: E215, World Bank: E219). The "fragmented ⇒ enterable" inference is not statistically validated in any market population. Full entry in [`EXPERIMENTS/E219-wb-theme-entrant-share/RESULT.md`](EXPERIMENTS/E219-wb-theme-entrant-share/RESULT.md).
 
@@ -24,13 +24,27 @@ E204 (2026-10-20): NIH SBIR spending category screen for small-program accessibi
 
 **E209 (2026-10-21): fragmentation does not statistically predict newcomer entry in federal IT PSC codes — kill gate fires on p-value, but correlation is positive.** Mirroring E208's NIH SBIR design, measured segment newcomer fractions for the five IT/software PSC codes (DA01, DA10, 7A21, 7030, D304) using USAspending recipient data (FY2023 current, FY2018–2022 prior). **G0 FAIL** (methodology mismatch: E198 used funded ≤$100k filter; this uses all awards), **G1 PASS** (identity coverage 99.8%+), **G2 PASS** (prior window complete), **G3 FAIL — kill gate fired** (Spearman ρ = +0.6669, p = 0.1345; n=5 too small for significance), **G4 PASS** (DA10 segment newcomer fraction 0.3113 ≥ 0.30). **Bimodal entry pattern discovered:** two codes (7030, D304) have 0% segment newcomers (closed); three codes (DA01, DA10, 7A21) have 27–31% segment newcomers (enterable). Unlike NIH SBIR (E208: ρ = −0.2456, entry common everywhere), federal IT shows positive ρ but n=5 prevents statistical validation. The "fragmented ⇒ enterable" inference is not statistically validated for this population. Full entry in [`E209`](EXPERIMENTS/E209-it-code-entrant-share/RESULT.md).
 
-**New next priority:** the accessibility pattern's entry test has now been run in **five** domains (NIH SBIR: E208, federal IT: E209, international trade: E215, World Bank: E219, academic research: E218). **Four kill gates fired** (E208: ρ = -0.246, p = 0.975; E209: ρ = +0.667, p = 0.135; E215: ρ = -0.123, p = 0.623; E219: ρ = -0.100, p = 0.770); one qualified pass (E218: ρ = +0.604, p < 0.0001, but G2/G4 fail — pattern driven by cross-disciplinary clustering, not within-topic variation). The pattern's practical reading — "fragmented markets admit newcomers" — is not supported by entrant measurement in any market domain; in academia it holds statistically but for disciplinary-culture reasons (institutionalization, authorship norms), not market-entry dynamics. Next: fresh observation in another completely new domain axis per D083, or a prototype tool for small programs to identify enterable sub-segments within the three enterable IT codes (DA01, DA10, 7A21), or a refined hypothesis within the FDA recall domain (E217: Class I recall → product discontinuation via NDC linkage). The view-count principle's domain of validity is now established across 8 domains (PyPI, NPM, NuGet, Discourse, Stack Exchange, GitHub repos, NIH SBIR, Crate.io), and the small-program accessibility pattern has been demonstrated in 2 domains (federal IT spending 7030/small_technical and NIH SBIR category 101), with the accessibility pattern further characterized by sub-segment analysis within category 101 (E206). (1) Precision and recall against hand-read repo labels per E203's named next action: completed; G1-G4 all passed with n=30 per group, ratio 4.87×, Cliff's delta 0.966, precision 0.909 at 10000+ star threshold. (2) Continued fresh observation in a completely new domain axis per D083: completed; E205 Crate.io view-count principle test passes all 4 gates (n=68 need + 46 general, ratio 1.695×, Cliff's delta 0.621). No remaining paths within the view-count principle's domain-mapping axis.
+**Cross-domain summary (the accessibility pattern's entry test, run in five domains).**
+Four kill gates fired — NIH SBIR E208 (ρ = −0.246, p = 0.975; also ρ(fragmentation,
+category size) = 0.9711, so fragmentation is a size proxy), federal IT E209 (n = 5,
+underpowered), international trade E215 (ρ = −0.123, p = 0.623), World Bank E219
+(ρ = −0.100, p = 0.770) — and one qualified pass (academic research E218: ρ = +0.604,
+p < 0.0001, but driven by Arts/Humanities-vs-STEM disciplinary clustering, not
+market-entry dynamics). **The reading "fragmented markets admit newcomers" is not
+statistically validated in any market population**; entry itself is common
+(E208: 0.527 of memberships are segment newcomers) but uncorrelated with
+fragmentation. The remaining promising direction is sub-segment analysis, which
+is what E220/E221 build on. Full entries in
+[`STATE-next-actions.md`](STATE-next-actions.md) and the `EXPERIMENTS/` records.
 
-**E215 (2026-10-21): fragmentation does not predict entrant fraction in international trade HS codes — kill gate fires on negative correlation.** Mirroring E208/E209 design, measured segment newcomer (entrant exporter) fractions for 12 HS codes (6-digit) using UN Comtrade data (2023 current, 2018–2022 prior). **G0 PASS** (API accessible), **G1 PASS** (12 codes ≥ 10 exporters), **G2 PASS** (top-5 share range 0.57–0.95), **G3 FAIL — kill gate fired** (Spearman ρ = -0.123, p = 0.623; correlation negative, opposite to hypothesis), **G4 FAIL** (max entrant fraction 0.188 < 0.30 threshold). All 12 codes are HS 84/85 (machinery/electronics) due to API rate limits; no data from plastics, textiles, agriculture, vehicles, or medical devices. The machinery/electronics sector shows uniformly high concentration and very low entry rates (0–19%), with the one relatively less concentrated code (847141, top5=0.574) showing the highest entrant fraction (1.4%). Full entry in [`E215`](EXPERIMENTS/E215-comtrade-entrant-accessibility/RESULT.md).
-
-**E217 (2026-10-21): FDA drug recall patterns — compounding pharmacies have LOWER Class I recall rates than commercial manufacturers.** Fresh observation per D083 in a completely new domain axis (FDA drug safety/recalls). Tested hypothesis: compounding pharmacies (firms with "pharmacy"/"compounding" in name) have higher Class I (most serious) recall proportions. Complete census of 18,043 FDA drug enforcement reports (2016–2024) via openFDA API. **G1 PASS** (4,260 compounding, 13,783 commercial), **G2 FAIL** (one-sided Fisher's exact p = 1.000), **G3 FAIL** (odds ratio = 0.14, 95% CI [0.11, 0.17]; direction opposite to hypothesis), **G4 PASS** (100% classification coverage). Commercial manufacturers have 6.4× higher Class I rate (12.1% vs 1.9%). Hypothesis directionally wrong; kill gates G2/G3 fired. Full entry in [`E217`](EXPERIMENTS/E217-fda-recall-compounding/RESULT.md).
-
-**E218 (2026-10-21): accessibility pattern ("fragmented ⇒ enterable") statistically validates in academic research for the first time — but mechanism differs from market-entry hypothesis.** Fresh observation per D083 in academic research topics (OpenAlex, 4,516 topics). Tested whether institutional fragmentation predicts segment-newcomer institution fractions across 50 topics (2018–2022 baseline, 2023–2024 current). **G0 PASS** (API accessible), **G1 PASS** (50/50 eligible), **G2 FAIL** (concentration range 0.006 — all STEM topics have ~2.5% top-5 share), **G3 PASS** (Spearman ρ = +0.604, p < 0.0001), **G4 FAIL** (avg coverage 87.8% — Arts/Humanities topics have low affiliation rates). Cross-disciplinary clustering drives correlation: Arts/Humanities (entrant fraction 51–70%, coverage 34–67%) vs STEM (entrant fraction 16–48%, coverage 93–99%). The pattern holds statistically but for disciplinary-culture reasons, not market-entry dynamics. No product candidate. Full entry in [`E218`](EXPERIMENTS/E218-openalex-topic-entrant-share/RESULT.md).
+**E215, E217, E218 (2026-10-21): three fresh observations, all with full entries in
+[`STATE-next-actions.md`](STATE-next-actions.md) and their `EXPERIMENTS/` records.**
+E215 (UN Comtrade, 12 HS codes): kill gate fired (ρ = −0.123, p = 0.623; entrant
+fractions 0–19%). E217 (18,043 FDA drug enforcement reports): compounding pharmacies
+have **6.4× lower** Class I recall rates than commercial manufacturers (OR 0.14,
+CI [0.11, 0.17]) — hypothesis directionally wrong. E218 (OpenAlex, 50 topics): the
+first G3 pass (ρ = +0.604, p < 0.0001) but driven by Arts/Humanities-vs-STEM
+disciplinary differences, not market-entry dynamics; no product candidate.
 
 **E197 (2026-10-19): 98.6% of federal award records carry money**; the five
 IT/software cells hold 98,640 funded purchases ≤ $100k (median funded fraction
@@ -148,74 +162,49 @@ source shape, those exist as prior art, so nothing is proposed to build (D117,
 F135). [`E175`](EXPERIMENTS/175-repo-from-report/RESULT.md).
 **E177 completed (2026-10-17): the mission's only standing constraint is now measured, and it is supported.** Six service closures in a row each reported one number for a pool containing two kinds of question. Same venue, key, treatment and blinded readers; the only difference is whether the question contained the fact its own resolution depends on: **SELF 26/30 = 0.8667 [0.7032, 0.9469]; EVID 12/30 = 0.4000 [0.2459, 0.5768]; gap +0.4667, Fisher p = 0.000368**, against a bar of `gap >= 0.25` and `p < 0.05` declared before any answer body was read; four controls green. **0.4000 is the lowest rate a free general assistant has scored on a real question population here, and it was inside all six closure pools, unmeasured** (F136, D118). The class is **46 of the 100 highest-arrival rows carrying a key answer**, its failures spread across its kinds in proportion, so no mechanical sub-kind exists to check; **abstention was 0 of 30 against 0 of 30**, so the assistant answers confidently on exactly the questions whose evidence is absent and is wrong 60% of the time. Six instrument defects were declared, four before any measurement; the last left **every control green while the p-value was wrong by 2,700×**, because a reader protocol has no control on its arithmetic. A post-hoc pass flagged **7 of the 30 EVID labels** as indefensible — one wrong answer rather than absent evidence, one untestable row with no fix in existence, one mirror URL — so **CLF's precision on this population is ~0.77–0.87, not 1.0**; the headline is not recomputed, because dropping rows after seeing which arm scored is fitting. [`RESULT.md`](EXPERIMENTS/177-evidence-gated-need/RESULT.md).
 
-**F137 (2026-10-17, exploratory cross-tab): the round trip fails uniformly and the unserved residue is tiny.** A post-hoc cross-tab of `has_ask` against the M2 bucket (replicating E178's exact `is_ask` lexicon) shows the round trip's failure is **uniform across buckets** — 7/21 asker_only, 6/20 third_party, 2/5 none (overall 15/46 = 0.3261). It is not concentrated in asker_only, so there is no special asker-held-fact sub-population for an automated ask to uniquely serve. On the 30 scored EVID rows, the genuinely unserved residue (round trip failed AND assistant missed) is **7/30 = 0.2333**, and all 7 carry a key answer — they were served by a mechanism other than the assistant or the visible round trip. **The "automated ask" route has no buildable sub-population on Stack Overflow.**
+**The evidence-gated-need (EVID) line is closed (F137, F138, E178, E181, E182,
+2026-10-17/18); full entries are in [`STATE-history.md`](STATE-history.md) and
+[`STATE-next-actions.md`](STATE-next-actions.md).** The chain, one line each:
+- **E177** separated the mixture six closures had reported as one number: SELF
+  26/30 = 0.8667 vs EVID 12/30 = 0.4000 (Fisher p = 0.000368) — the assistant is
+  wrong 60% of the time on high-arrival questions whose key answer depends on a
+  fact absent from the thread, and answers confidently regardless (abstention 0/30).
+- **E178** closed the FETCH route (publishable 0/46) and fired G4: the venue's own
+  round trip (an ask comment, then the asker supplies the fact) already serves
+  these rows — served by an existing interaction, unreachable by one-shot answering.
+- **F137/F138** confirmed the round trip on a second venue, Personal Finance SE
+  (27/30 = 0.9000 carry an ask, stronger than SO's 0.6739); unserved residue
+  7/30 = 0.2333 and all 7 eventually answered.
+- **E181** closed elicitation (supplying the missing fact: every paired arm null,
+  McNemar p = 1.0; pasting the whole thread beat the question alone on 0 rows) —
+  **the round trip runs to the solution, not to the fact**; G4 fired on reader
+  self-disagreement, so E181's levels are not comparable with E177's.
+- **E182** closed the last explanation (ground-truth contestability): on a corrected
+  draw, missed rows' ground truth is no more contested (p = 1.0) or divergent
+  (p = 1.0) than reached rows', on an instrument scoring 0.8000/specificity 1.0000.
+  **The EVID line closes as a capability limit.**
+- **Ceiling this leaves on the record's own numbers:** ground truth here is contested
+  on 21.7% and uncorroborated on 26.7% of rows (48.3% total) — it bounds every
+  absolute level (0.8667, 0.4000) but explains none of the *gap* (D120, F141).
+- **E183/E184** then closed the ground-truth-quality axis (prior art established;
+  the baseline already carries the label's defining feature).
 
-**F138 (2026-10-17, fresh observation): the round trip is stronger, not weaker, when the missing fact is personal.** On Personal Finance SE (`money.stackexchange.com`, the largest non-software SE site where high-arrival questions routinely turn on a personal fact), the top 30 highest-vote questions with answers were scored with E178's `is_ask` lexicon. **9/30 = 0.3000 lack a specific personal fact** (the money-SE analog of E177's EVID class), and **27/30 = 0.9000 carry a round-trip ask** — against SO's 31/46 = 0.6739. The round trip is **stronger** on money SE, not weaker: the venue asks more readily when the fact is sensitive. **F137's conclusion is confirmed on a second venue.** The "unserved need" hypothesis is dead for money SE too. Raw data: `/tmp/opencode/money_analysis.json`.
-
-**E181 completed (2026-10-18) and superseded by E182: supplying the missing fact
-does not move the assistant, and pasting the thread does not either.** Four paired
-arms, one population, no arm label in any input file: question alone 7/14 = 0.5000,
-+ the extracted missing fact 8/14 = 0.5714, + every comment verbatim 9/14 = 0.6429,
-placebo 4/10. **Every paired comparison is null** (exact McNemar p = 1.0), and
-pasting the entire discussion beat answering the question alone on **0** rows. The
-comments name the deciding fact on 14/30 = 0.4667, with 10 of the 16 nulls carrying
-the remedy itself — **the round trip runs to the solution, not to the fact.**
-**G4 FIRED** (the same reader disagreed with itself on 4 of 10), so no absolute
-level in E181 may be compared with E177's. Full entry:
-[`E181`](EXPERIMENTS/181-fact-supply-closes-gap/RESULT.md).
-
-> **RUN as E182 (2026-10-18); the question had to be corrected first.** The draw
-> is of questions that were *unanswered*, so `accepted_answer_id` is non-null on
-> **0 of 60** rows and the key answer is the **top-voted** one (F141). Corrected
-> and run with an instrument built for it: the ground truth on missed rows is no
-> more contested (**p = 1.0**) and no more divergent (**p = 1.0000**) than on
-> reached rows, on an instrument that cleared its own declared bar at **0.8000 /
-> specificity 1.0000**. Vote margin was **4 of 10** against hand-read labels, so
-> its earlier null was **withdrawn, not reported**. **The EVID line closes as a
-> capability limit.** [Full entry.](EXPERIMENTS/182-ground-truth-contest/RESULT.md)
-
-**Superseded by E181 and closed by E182 (2026-10-18).** The named next action
-that stood here — read the rows every arm missed and ask whether the
-community's chosen resolution is contestable — was run as E182, whose record is
-the blockquote above, and those 11 lines were removed from this file on
-2026-10-19 rather than left as a directive a cold session could re-run.
-
-**Superseded (2026-10-18).** **Named next action: return to fresh exploration.** The EVID class is served by the venue's round trip across two venues of very different personal-fact sensitivity. The genuinely unserved residue is small and eventually answered in both. The "unserved need" hypothesis is dead for every population this mission can measure. The mission should either test a completely different kind of need (not evidence-gated questions) or pivot to a different invention axis entirely.
-
-> **E178 closed the fetch route** (`publishable` **0/46**; `has_ask` **0.6739**,
-> the venue's round trip already running). **F137/F138**: on money SE it runs
-> harder (**0.9000**). **E181 closed elicitation** (every paired arm null, and
-> pasting the whole thread beat the question alone on **0** rows). **E182 closed
-> the fourth and last explanation** — the correction note above.
-
-**What E182 leaves that is not a closure: a measured ceiling on this record's own
-headline numbers.** The ground truth behind every service rate here is
-**contested on 21.7%** of rows and **uncorroborated on 26.7%** — **48.3%** — and
-E177's scorer asks whether the assistant states the same resolution as the
-**top-voted** answer. That weakens hit and missed rows alike, so it explains
-**none** of the SELF/EVID *gap* and bounds every absolute *level* here,
-**0.8667 and 0.4000 included** (D120, F141).
-
-**Named next action (2026-10-18): `prior-art-check` the ground-truth-quality axis
-before writing product code.** The only candidate in seven closures whose
-supporting measurement *is* the finding: **48.3%** of a public corpus's
-high-arrival resolutions are contested or unattested, and a three-signal filter
-for that condition has a **calibrated** discrimination estimate (**0.8000** /
-specificity **1.0000**) and a **measured** prevalence. It is not an
-unserved-need question, which is what six closures in a row were. Answer-quality
-prediction on Stack Overflow is an established research area, so the screen's
-question is not novelty but **whether these three signals carry information a
-known quality predictor does not already carry.** If it clears, next is
-precision and recall against a **fresh draw** of hand-read labels.
-
-> **E183/E184 (2026-10-18): the ground-truth-quality axis closes.** Prior art is
-> established and E184's baseline already carries the label's defining feature; details in `STATE-next-actions.md`.
-
-**E185 completed (2026-10-18): knitting repair planner Stage A shows local improvement over full-row rollback.** 8 synthetic fixtures (4×4–7×7 grids, 5 error types). Local planner (A1) finds valid repairs on all 8 (G1 PASS). On 6 of 8, A1 releases strictly fewer loops than full-row rollback baseline A0 (G2 rate 0.75 > 0.625 kill threshold). On 2 testable fixtures, A1 matches exhaustive oracle A2 exactly (G3 PASS). Kill gate NOT FIRED. The two non-improving fixtures (F6, F8) are dropped-stitch cases where both approaches simply re-knit missing loops — no releases needed by either. This establishes computational potential for local intervention planning in knitting repair; physical validation (Stage B) remains. [`RESULT.md`](EXPERIMENTS/185-knitting-repair-planner-stage-a/RESULT.md).
-
-**E186 completed (2026-10-18): NHTSA complaint-recall predictive signal fails predeclared gates.** 20 vehicle model/years, 12 with recalls (46 total), 42,015 complaints. Median complaint rate ratio for recalled categories 1.78× (threshold ≥2.0), non-recalled 1.25× (threshold <1.5). Mann-Whitney U p = 0.187 (threshold <0.05). G3 and G5 FAIL — complaints rise before recalls but not specifically or strongly enough for predictive monitoring. **Kill gate fired.** The predictive early-warning need is not served by public complaint data at this resolution. [`RESULT.md`](EXPERIMENTS/186-nhtsa-complaint-recall-prediction/RESULT.md).
-
-**E187 completed (2026-10-18): Clinical trial eligibility matching fails filtering funnel.** 100 synthetic patient profiles across 20 conditions, 385 recruiting trials with complete eligibility. Sequential filtering funnel: condition (median 16.5) → age (16.0) → sex (16.0) → **location (1.0)** → exclusion (0.0). Only 35% of patients have ≥1 final match; median final matches = 0.0. Location filter is the dominant bottleneck (94% reduction). **Kill gate fired.** The matching/recommendation need is not served by ClinicalTrials.gov structured fields alone. [`RESULT.md`](EXPERIMENTS/187-clinical-trial-matching/RESULT.md).
+**Three single-experiment closures (2026-10-18), each a kill gate fired, no candidate.**
+- **E185** knitting repair planner Stage A (computational only): local planner A1 beat
+  full-row rollback A0 on 6/8 synthetic fixtures and matched exhaustive oracle A2 on
+  2/2 — establishes computational potential, not physical validity (Stage B remains);
+  note F142/D121 flags that this re-ran a planner F009 closed on 2026-10-03.
+  [`RESULT.md`](EXPERIMENTS/185-knitting-repair-planner-stage-a/RESULT.md)
+- **E186** NHTSA complaint→recall prediction: 20 model/years, 42,015 complaints;
+  recalled categories' median complaint-rate ratio 1.78× (< the 2.0 threshold),
+  Mann–Whitney p = 0.187. G3/G5 FAIL — complaints rise before recalls but not
+  specifically or strongly enough to be a predictive monitor.
+  [`RESULT.md`](EXPERIMENTS/186-nhtsa-complaint-recall-prediction/RESULT.md)
+- **E187** clinical-trial eligibility matching: 100 synthetic patients × 385 recruiting
+  trials; sequential filter leaves median 0.0 final matches (location is the 94%
+  bottleneck), only 35% of patients get ≥1. Structured ClinicalTrials.gov fields
+  alone do not serve the matching need.
+  [`RESULT.md`](EXPERIMENTS/187-clinical-trial-matching/RESULT.md)
 
 **E178 completed (2026-10-17): the missing evidence is not in anything the project publishes; the venue's own round trip already supplies it.** On the 46 EVID rows, blind re-key: **publishable 0/46 = 0.0000, asker_only 21/46 = 0.4565, third_party 20/46 = 0.4348, none 5/46 = 0.1087**. **G1 FIRED** (publishable < 0.50): the FETCH route closes. **G4 FIRED** (has_ask 31/46 = 0.6739 >= 0.50, ask_then_asker 31/46 = 0.6739 >= 0.25): the venue's own workflow already runs the round trip on the very rows this experiment measures, and the person supplies the fact. The honest statement is not "unserved" but *served by an interaction that already exists, and unreachable by one-shot answering*. **G5 NOT fired** (none = 5, not > 9): EVID precision is above 0.80. M1: has_comment 37/46 = 0.8043, has_ask 31/46 = 0.6739, ask_then_asker 31/46 = 0.6739, answer_asks 20/46 = 0.4348, evidence_in_comments 39/46 = 0.8478, discriminating_and_asked 28/46 = 0.6087. M3: already_present 7/46 = 0.1522 (a ceiling on E177's labels), used 37/46 = 0.8043. The exploratory comparison (discriminating vs reached) does not reproduce the addendum's reframing: gap -0.0741, p = 0.52. **E177's population closes with no candidate.** [`RESULT.md`](EXPERIMENTS/178-evidence-where-does-it-live/RESULT.md).
 

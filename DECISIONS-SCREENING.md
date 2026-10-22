@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-22
 -->
 
-Decisions **D019–D023, D055, D056**. Each entry records a choice that was
+Decisions **D019–D023, D055, D056, D130**. Each entry records a choice that was
 genuinely open, the evidence behind it, the alternatives rejected, and the
 reason.
 

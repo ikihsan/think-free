@@ -1,5 +1,12 @@
 # Summary: E216 IT Code Entrant Advisor Enhancement
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-22
+-->
+
+
 ## What was produced
 
 Enhanced `tools/it_entrant_advisor_v3.py` (596 lines) with the following capabilities:

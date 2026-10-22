@@ -6,7 +6,7 @@ last-verified: 2026-10-19
 
 # Decisions — records (part 6)
 
-Decisions **D123, D127, D128**. Same invariant and shape as
+Decisions **D123, D127, D128, D129**. Same invariant and shape as
 [`DECISIONS-RECORDS-5.md`](DECISIONS-RECORDS-5.md): a choice that was genuinely
 open, the evidence behind it, the alternatives rejected, and the reason. Split
 2026-10-19 because part 5 was near its cap; D127 added 2026-10-20; D128 added

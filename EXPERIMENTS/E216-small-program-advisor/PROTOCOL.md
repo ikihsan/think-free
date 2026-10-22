@@ -1,5 +1,12 @@
 # E216: Small Program Entrant Advisor — Protocol
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-22
+-->
+
+
 ## Overview
 
 This experiment implements a reversible exploratory prototype (Small Program Entrant

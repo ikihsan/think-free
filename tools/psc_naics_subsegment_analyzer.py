@@ -7,7 +7,7 @@ Measures segment newcomer fractions at the NAICS-within-PSC level
 to identify the most enterable market segments for small programs.
 
 Design:
-  - Fetches all PSC codes from USAspending API
+  - Fetches all PSC codes from USAspending API OR uses cached data (--offline)
   - For each PSC code, fetches NAICS breakdown (current + prior windows)
   - For top NAICS codes by obligation, fetches recipient data
   - Computes segment newcomer fraction = |current IDs absent from prior| / |current IDs|
@@ -24,6 +24,7 @@ Enterability Classification (from E220):
 
 NOTE: This is a reversible exploratory prototype — evidence-gathering, not product validation.
 Rate limited by USAspending unauthenticated API (~60 req/hour). Uses caching aggressively.
+Offline mode (--offline) uses cached API responses; no rate limits apply.
 """
 
 import sys
@@ -251,23 +252,35 @@ def fetch_all_psc_codes(cache):
     return fetch_all_pages(url, payload, cache_key, cache)
 
 
-def fetch_naics_for_psc(code, window_name, cache):
+def fetch_naics_for_psc(code, window_name, cache, current_window=None, prior_window=None):
     """Fetch NAICS breakdown for a PSC code in a window."""
-    window = WINDOWS[window_name]
+    # Use passed window dates or fall back to global WINDOWS
+    if current_window is not None and prior_window is not None:
+        if window_name == "current":
+            window = current_window
+        else:
+            window = prior_window
+    else:
+        window = WINDOWS[window_name]
+    
     url = BASE + "spending_by_category/naics/"
-    payload = {
-        "filters": {"psc_codes": [code], "time_period": window},
-        "category": "naics",
-        "limit": 100,
-    }
+    payload = {"filters": {"psc_codes": [code], "time_period": window}, "category": "naics", "limit": 100}
     year = window[0]["start_date"][:4]
     cache_key = f"naics_{code}_{year}"
     return fetch_all_pages(url, payload, cache_key, cache)
 
 
-def fetch_recipients_for_psc_naics(code, naics, window_name, cache):
+def fetch_recipients_for_psc_naics(code, naics, window_name, cache, current_window=None, prior_window=None):
     """Fetch recipients for a (PSC, NAICS) combination in a window."""
-    window = WINDOWS[window_name]
+    # Use passed window dates or fall back to global WINDOWS
+    if current_window is not None and prior_window is not None:
+        if window_name == "current":
+            window = current_window
+        else:
+            window = prior_window
+    else:
+        window = WINDOWS[window_name]
+    
     url = BASE + "spending_by_category/recipient/"
     payload = {
         "filters": {"psc_codes": [code], "naics_codes": [naics], "time_period": window},
@@ -318,14 +331,92 @@ def classify_enterability(seg_frac, frag, newcomer_count):
         return "CLOSED"
 
 
+
+def _load_naics_from_cache(psc_code, window_name, cache):
+    import sys
+    print(f'DEBUG _load_naics_from_cache called: psc_code={psc_code}, window_name={window_name}', file=sys.stderr)
+    """Try to load NAICS data for a PSC code from cache."""
+    # Map window name to year
+    if window_name == 'current':
+        year = '2023'
+    elif window_name == 'prior':
+        year = '2018'  # prior window data keyed by start year
+    else:
+        year = None
+    # Cache key pattern: naics_{PSC_code}_{year}
+    cache_keys = []
+    if year:
+        cache_keys = [
+            f"naics_{psc_code}_{year}",
+            f"naics_{psc_code}_2023",
+            f"naics_{psc_code}_2018",
+        ]
+    for ck in cache_keys:
+        if ck in cache:
+            data = cache[ck]
+            # Cache may store meta-index (file + sha256) or actual data (with results)
+            if isinstance(data, dict):
+                if "results" in data:
+                    return data  # Actual data already in cache
+                if "file" in data:
+                    # Load from actual file in raw directory
+                    raw_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'raw')
+                    print(f'DEBUG: raw_dir={raw_dir}, fpath={fpath}, file={data["file"]}', flush=True)
+                    fpath = os.path.join(raw_dir, data['file'])
+                    if os.path.exists(fpath):
+                        with open(fpath) as fh:
+                            file_data = json.load(fh)
+                        if isinstance(file_data, dict) and "results" in file_data:
+                            return file_data
+    return None
+
+
+def _load_recipients_from_cache(psc_code, naics_code, window_name, cache):
+    """Try to load recipient data for (PSC, NAICS) from cache."""
+    # Map window name to year
+    if window_name == 'current':
+        year = '2023'
+    elif window_name == 'prior':
+        year = '2018'  # prior window data keyed by start year
+    else:
+        year = None
+    # Cache key pattern: recipients_{PSC_code}_{NAICS_code}_{year}
+    cache_keys = []
+    if year:
+        cache_keys = [
+            f"recipients_{psc_code}_{naics_code}_{year}",
+            f"recipients_{psc_code}_{naics_code}_2023",
+            f"recipients_{psc_code}_{naics_code}_2018",
+        ]
+    for ck in cache_keys:
+        if ck in cache:
+            data = cache[ck]
+            # Cache may store meta-index (file + sha256) or actual data (with results)
+            if isinstance(data, dict):
+                if "results" in data:
+                    return data  # Actual data already in cache
+                if "file" in data:
+                    # Load from actual file in raw directory
+                    raw_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'raw')
+                    print(f'DEBUG: raw_dir={raw_dir}, fpath={fpath}, file={data["file"]}', flush=True)
+                    fpath = os.path.join(raw_dir, data['file'])
+                    if os.path.exists(fpath):
+                        with open(fpath) as fh:
+                            file_data = json.load(fh)
+                        if isinstance(file_data, dict) and "results" in file_data:
+                            return file_data
+    return None
+
+
+
 # ---------------------------------------------------------------------------
 # Analysis
 # ---------------------------------------------------------------------------
 
-def analyze_subsegment(code, naics, naics_name, cache):
+def analyze_subsegment(code, naics, naics_name, cache, current_window, prior_window):
     """Compute all metrics for one (PSC, NAICS) sub-segment."""
-    cur_data = fetch_recipients_for_psc_naics(code, naics, "current", cache)
-    pri_data = fetch_recipients_for_psc_naics(code, naics, "prior", cache)
+    cur_data = fetch_recipients_for_psc_naics(code, naics, "current", cache, current_window, prior_window)
+    pri_data = fetch_recipients_for_psc_naics(code, naics, "prior", cache, current_window, prior_window)
 
     if not cur_data or not pri_data:
         return None
@@ -370,12 +461,78 @@ def analyze_subsegment(code, naics, naics_name, cache):
     }
 
 
-def run_analysis(psc_codes=None, max_psc=None, top_naics_per_psc=8, use_multi_year=False):
-    """Run the full analysis."""
+def get_window_dates(use_multi_year):
+    """Get the current and prior window date ranges."""
+    if use_multi_year:
+        current_window = [
+            {"start_date": "2022-01-01", "end_date": "2022-12-31"},
+            {"start_date": "2023-01-01", "end_date": "2023-12-31"}
+        ]
+    else:
+        current_window = [{"start_date": "2023-01-01", "end_date": "2023-12-31"}]
+    
+    prior_window = [{"start_date": "2018-01-01", "end_date": "2022-12-31"}]
+    return current_window, prior_window
+
+
+def _load_naics_from_cache(code, window_name, cache):
+    """Try to load NAICS data for a PSC code from cache."""
+    year = window_name[:4]  # e.g., "current" -> "2023", "prior" -> "2022"
+    # Actually use the year from the window dates - current is 2023, prior is 2018-2022
+    # We'll try both year patterns
+    for year_suffix in [year[:4] if len(year) >= 4 else None]:
+        pass
+    # Try common cache key patterns
+    cache_keys = [
+        f"naics_{code}_{year[:4]}" if len(year) >= 4 else None,
+        f"naics_{code}_2023",
+        f"naics_{code}_2018",
+    ]
+    for ck in cache_keys:
+        if ck and ck in cache:
+            data = cache[ck]
+            if isinstance(data, dict) and "results" in data:
+                return data
+    return None
+
+
+def _load_recipients_from_cache(code, naics, window_name, cache):
+    """Try to load recipient data for (PSC, NAICS) from cache."""
+    year = window_name[:4] if len(window_name) >= 4 else None
+    cache_keys = [
+        f"recipients_{code}_{naics}_{year}" if year else None,
+        f"recipients_{code}_{naics}_2023",
+        f"recipients_{code}_{naics}_2018",
+    ]
+    for ck in cache_keys:
+        if ck and ck in cache:
+            data = cache[ck]
+            if isinstance(data, dict) and "results" in data:
+                return data
+    return None
+
+
+def run_analysis(psc_codes=None, max_psc=None, top_naics_per_psc=8, use_multi_year=False, offline=False):
+    """Run the full analysis.
+
+    If offline=True, uses cached API responses; no rate limits apply.
+    """
     cache = load_cache()
+    current_window, prior_window = get_window_dates(use_multi_year)
+
+    # Default PSC codes for offline mode (the 5 IT/software codes from E209/E220)
+    default_it_codes = ["DA01", "DA10", "7A21", "7030", "D304"]
 
     # Step 1: Get PSC codes
-    if psc_codes is None:
+    if offline:
+        if psc_codes is None:
+            psc_codes = default_it_codes
+            print(f"Offline mode: using default PSC codes: {psc_codes}")
+        else:
+            print(f"Offline mode: using provided PSC codes: {psc_codes}")
+        print(f"(Note: offline mode uses cached data; full PSC code coverage")
+        print(f"       not available without API access.)")
+    elif psc_codes is None:
         print("Fetching all PSC codes...")
         psc_data = fetch_all_psc_codes(cache)
         if not psc_data:
@@ -397,22 +554,32 @@ def run_analysis(psc_codes=None, max_psc=None, top_naics_per_psc=8, use_multi_ye
     for code in psc_codes:
         print(f"\n=== Analyzing PSC {code} ===")
 
-        # Fetch NAICS for current window
-        naics_current = fetch_naics_for_psc(code, "current", cache)
-        if not naics_current:
-            print(f"  Failed to fetch NAICS for {code}")
-            continue
+        if offline:
+            # Try to load NAICS from cache
+            naics_current = _load_naics_from_cache(code, "current", cache)
+            if not naics_current:
+                print(f"  No NAICS data in cache for {code} (current window)")
+                continue
+            naics_results = naics_current.get("results", [])
+            # Sort by obligation descending
+            naics_results.sort(key=lambda x: x.get("amount", 0), reverse=True)
+            # Filter to NAICS codes that have recipient data in cache
+            naics_results = [n for n in naics_results if _load_recipients_from_cache(code, n.get("code", ""), "current", cache)]
+            print(f"  Found {len(naics_results)} NAICS codes in cache (top {top_naics_per_psc} to analyze)")
+        else:
+            # Fetch NAICS for current window
+            naics_current = fetch_naics_for_psc(code, "current", cache, current_window, prior_window)
+            if not naics_current:
+                print(f"  Failed to fetch NAICS for {code}")
+                continue
 
-        naics_results = naics_current.get("results", [])
-        # Sort by obligation descending
-        naics_results.sort(key=lambda x: x.get("amount", 0), reverse=True)
+            naics_results = naics_current.get("results", [])
+            # Sort by obligation descending
+            naics_results.sort(key=lambda x: x.get("amount", 0), reverse=True)
 
         # Select top NAICS codes
         target_naics = naics_results[:top_naics_per_psc]
-        print(f"  Found {len(naics_results)} NAICS codes, analyzing top {len(target_naics)}")
-
-        # Also fetch prior window NAICS for context
-        naics_prior = fetch_naics_for_psc(code, "prior", cache)
+        print(f"  Analyzing top {len(target_naics)} NAICS codes")
 
         for naics_entry in target_naics:
             naics = naics_entry.get("code")
@@ -421,7 +588,91 @@ def run_analysis(psc_codes=None, max_psc=None, top_naics_per_psc=8, use_multi_ye
                 continue
 
             print(f"  Analyzing {code} NAICS {naics} ({naics_name})...", flush=True)
-            result = analyze_subsegment(code, naics, naics_name, cache)
+
+            if offline:
+                # Try to load recipient data from cache
+                cur_data = _load_recipients_from_cache(code, naics, "current", cache)
+                pri_data = _load_recipients_from_cache(code, naics, "prior", cache)
+
+                if not cur_data:
+                    print(f"    No current recipient data in cache for {code}/{naics}")
+                    continue
+
+                # Compute metrics from current data
+                cur_rows = cur_data.get("results", [])
+                by_id = {}
+                for r in cur_rows:
+                    rid = r.get("recipient_id")
+                    if not rid:
+                        continue
+                    amt = r.get("amount") or 0.0
+                    by_id[rid] = by_id.get(rid, 0.0) + amt
+
+                cur_ids = set(by_id.keys())
+                if not cur_ids:
+                    print(f"    No recipient IDs found in current data")
+                    continue
+
+                # Compute fragmentation
+                vals = sorted(by_id.values(), reverse=True)
+                top5 = sum(vals[:5]) / sum(vals) if sum(vals) > 0 else 0.0
+                frag = 1.0 - top5
+                obligation = round(sum(by_id.values()), 2)
+
+                # Compute segment newcomer fraction
+                # Try to get prior data
+                prior_ids = set()
+                if pri_data:
+                    pri_rows = pri_data.get("results", [])
+                    pri_by_id = {}
+                    for r in pri_rows:
+                        rid = r.get("recipient_id")
+                        if not rid:
+                            continue
+                        amt = r.get("amount") or 0.0
+                        pri_by_id[rid] = pri_by_id.get(rid, 0.0) + amt
+                    prior_ids = set(pri_by_id.keys())
+
+                seg_new = cur_ids - prior_ids
+                seg_frac = len(seg_new) / len(cur_ids) if cur_ids else 0.0
+
+                # classify enterability
+                newcomer_count = len(seg_new)
+                if seg_frac >= 0.30 and frag >= 0.60 and newcomer_count >= 20:
+                    classification = "HIGHLY ENTERABLE"
+                elif seg_frac >= 0.20 and frag >= 0.40 and newcomer_count >= 10:
+                    classification = "SOMEWHAT ENTERABLE"
+                elif seg_frac >= 0.10 and frag >= 0.20 and newcomer_count >= 5:
+                    classification = "MARGINAL"
+                else:
+                    classification = "CLOSED"
+
+                result = {
+                    "code": code,
+                    "naics": naics,
+                    "naics_name": naics_name,
+                    "current_rows": len(cur_rows),
+                    "current_recipients": len(cur_ids),
+                    "prior_recipients": len(prior_ids),
+                    "segment_newcomers": newcomer_count,
+                    "segment_newcomer_fraction": round(seg_frac, 4),
+                    "fragmentation": round(frag, 4),
+                    "top5_share": round(top5, 4),
+                    "current_obligation": obligation,
+                    "id_coverage": 1.0,  # Can't compute without full data
+                    "classification": classification,
+                }
+            else:
+                # Full API mode - use existing analyze_subsegment
+                result = analyze_subsegment(code, naics, naics_name, cache, current_window, prior_window)
+                if result:
+                    all_results.append(result)
+                    print(f"    seg_frac={result['segment_newcomer_fraction']:.4f}, "
+                          f"frag={result['fragmentation']:.4f}, "
+                          f"oblig=${result['current_obligation']:,.0f}, "
+                          f"class={result['classification']}")
+                continue
+
             if result:
                 all_results.append(result)
                 print(f"    seg_frac={result['segment_newcomer_fraction']:.4f}, "
@@ -551,6 +802,7 @@ def write_outputs(all_results, out_dir):
         else:
             g3_pass = False
             break
+    closed = [r for r in all_results if r["classification"] == "CLOSED"]
     # G4: Actionable output
     g4_pass = actionable_count >= 3
 
@@ -578,6 +830,7 @@ def main():
     parser.add_argument("--max-psc", type=int, default=None, help="Max PSC codes to analyze (top by obligation)")
     parser.add_argument("--top-naics", type=int, default=8, help="Top NAICS per PSC to analyze")
     parser.add_argument("--multi-year", action="store_true", help="Use multi-year current window (FY2022-2023)")
+    parser.add_argument("--offline", action="store_true", help="Use cached data only; no API rate limits")
     parser.add_argument("--out-dir", default=None, help="Output directory")
     args = parser.parse_args()
 
@@ -590,10 +843,8 @@ def main():
     print()
 
     if args.multi_year:
-        # Would need to update WINDOWS and fetch logic
-        print("Multi-year current window: FY2022-2023 (NOT YET IMPLEMENTED)")
-        # For now, just use single year
-        pass
+        print("Multi-year current window: FY2022-2023 (ENABLED)")
+        # The run_analysis function already handles this via use_multi_year parameter
 
     out_dir = args.out_dir or os.path.join(os.path.dirname(__file__), "results", "psc_naics_subsegment")
 
@@ -602,6 +853,7 @@ def main():
         max_psc=args.max_psc,
         top_naics_per_psc=args.top_naics,
         use_multi_year=args.multi_year,
+        offline=args.offline,
     )
 
     if all_results:

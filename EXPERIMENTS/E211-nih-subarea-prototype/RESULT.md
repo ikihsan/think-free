@@ -77,7 +77,7 @@ Both the federal IT model (7030/small_technical: 1,130 contractors, 0.6% top-3 c
 
 ## Raw data and instrument
 
-- [`analysis.json`](analysis.json) — deterministic; reads only files on disk
+- [`raw/analysis.json`](raw/analysis.json) — deterministic; reads only files on disk
 - Prototype script `nih_subarea_prototype.py` — reads only from `raw/analysis.json`
 - G0–G4 not applicable (prototype, not a gated experiment); prototype is evidence-gathering
 

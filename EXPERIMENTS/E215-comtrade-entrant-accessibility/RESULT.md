@@ -1,5 +1,12 @@
 # E215 — Comtrade entrant share by HS code
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-22
+-->
+
+
 ## Summary
 
 **Result: KILL GATE FIRED (G3 FAIL)** — Fragmentation does not predict entrant fraction in international trade HS codes. The correlation is negative (ρ = -0.123) and not statistically significant (p = 0.623), opposite to the hypothesis that fragmented markets admit more newcomers.

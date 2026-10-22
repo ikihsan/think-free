@@ -1,0 +1,21 @@
+{
+  "cache_key": "recipients_DA10_518210_2024",
+  "file": "recipients_DA10_518210_2024.json",
+  "sha256": "1fe2428102a1998c32876ea1ac77bbf38bae2af0e7e6371369c26031ef869dfb",
+  "url": "https://api.usaspending.gov/api/v2/search/spending_by_category/recipient/",
+  "payload_filters": {
+    "psc_codes": [
+      "DA10"
+    ],
+    "naics_codes": [
+      "518210"
+    ],
+    "time_period": [
+      {
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31"
+      }
+    ]
+  },
+  "pages_fetched": 2
+}

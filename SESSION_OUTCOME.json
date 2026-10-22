@@ -1,14 +1,32 @@
 {
-    "session_date": "2026-10-16",
-    "work_done": {
-        "practical_difficulty": "View-count principle G2 gate cannot pass on PyPI due to limited search results (~10 packages/keyword, need >=100 for G2)",
-        "who_experiences": "Python developers using view-count prototype; mission evaluating principle gates",
-        "available_evidence": "5-10 keywords aggregated give 50-70 packages; G1 passes (ratio ~100%, threshold 55%); G2 fails (<100 classified); G3/G4 pass; need indicator coverage ~50% of packages; active rates 100% for both categories; PyPI search volume is fundamental bottleneck, not vocabulary coverage",
-        "build_decision": "Added 4 new need indicators (crud, rest, sdk, cli) to tools/viewcount_core.py, expanding vocabulary from 55 to 86 terms; testing confirmed no coverage improvement for sampled packages, confirming bottleneck is search volume not vocabulary",
-        "what_remains_unknown": "Whether view-count principle works on platforms with larger search results; whether different classifier approach would improve results; precise boundary conditions across domains",
-        "next_action": "E172 - fresh observation in untouched domain per STATE-next-actions.md; needs no quota, can run today; per D083 candidate domains must be truly untested by mission's view-count principle"
-    },
-    "artifacts_changed": [
-        "tools/viewcount_core.py - expanded NEED_INDICATORS set from 55 to 86 terms (added crud, rest, sdk, cli)"
-    ]
+  "session": "2026-10-22-040",
+  "date": "2026-10-22",
+  "phase": "B",
+  "what_produced": {
+    "modified_tools": "tools/psc_naics_subsegment_analyzer.py",
+    "added_functions": [
+      "_load_naics_from_cache",
+      "_load_recipients_from_cache"
+    ],
+    "added_offline_mode": true,
+    "new_prototype": "tools/psc_subsegment_prototype.py"
+  },
+  "key_findings": [
+    "NAICS 541511 and 541519 consistently HIGHLY ENTERABLE across PSC codes DA01, DA10, 7A21",
+    "Segment newcomer fractions: 35-48%, fragmentation: 44-82%, obligations: /bin/bash.58B-$3.24B",
+    "Sub-segment approach (E220/E221) is first to yield actionable differentiation across domains",
+    "\"Fragmented => enterable\" inference fails in 4/5 market domains; sub-segment analysis validated"
+  ],
+  "build_decisions_changed": [
+    "Added offline mode functions to psc_naics_subsegment_analyzer.py",
+    "Created standalone prototype script tools/psc_subsegment_prototype.py",
+    "Both enable instant analysis vs 14+ hour API runs"
+  ],
+  "what_remains_unknown": [
+    "Pattern generalization beyond federal spending domains",
+    "Multi-year window impact on classifications",
+    "Real newcomer fraction for 541511 (DA01) with missing prior data",
+    "Practical developer usability"
+  ],
+  "most_useful_next_action": "Fresh observation in new domain per D083 - apply sub-segment enterability framework to app software or venture funding market"
 }

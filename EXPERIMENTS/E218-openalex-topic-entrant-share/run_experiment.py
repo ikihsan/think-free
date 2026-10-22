@@ -403,7 +403,7 @@ def main():
         json.dump(corr_result, f, indent=2)
     
     # Session log
-    with open(BASE_DIR / "session_log.txt", 'w') as f:
+    with open(BASE_DIR / "session_log.log", 'w') as f:
         f.write('\n'.join(session_log))
     
     # Summary

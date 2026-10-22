@@ -1,5 +1,12 @@
 # E216: Small Program Entrant Advisor — Results
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-22
+-->
+
+
 ## Experiment executed 2026-10-21. Author: think-free research.
 
 ## Overview
@@ -13,6 +20,12 @@ the methodological framework from the mission's experiments can be packaged into
 reversible prototype tools that help small programs identify market entry points.
 
 ## Files Created
+
+Related records: implementation plans [`PLAN.md`](PLAN.md) (integrated advisor)
+and [`PLAN-it-advisor-enhancement.md`](PLAN-it-advisor-enhancement.md) (IT
+advisor v3 enhancement); outcome summaries
+[`sessions/E216-summary.md`](../../sessions/E216-summary.md) and
+[`sessions/2026-10-21-e209-prototype-enhancement-summary.md`](../../sessions/2026-10-21-e209-prototype-enhancement-summary.md).
 
 ### 1. `tools/it_entrant_advisor_v3.py` (new)
 - IT Code Entrant Advisor v3 with `meta.total`-based complete census

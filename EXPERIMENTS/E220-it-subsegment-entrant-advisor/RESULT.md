@@ -1,5 +1,12 @@
 # E220 Result: IT PSC Sub-Segment Entrant Advisor Prototype
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-22
+-->
+
+
 ## Summary
 
 **VERDICT: ALL GATES PASS** — The prototype successfully identifies enterable sub-segments (NAICS codes) within the three enterable federal IT PSC codes (DA01, DA10, 7A21) discovered in E209. Strong differentiation exists at the NAICS level within each PSC code.

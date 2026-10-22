@@ -1,5 +1,12 @@
 # E218: OpenAlex Research Topic Entrant Share — Result
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-22
+-->
+
+
 ## Summary
 
 **Fresh observation in academic research domain (D083).** Tested whether the "fragmented markets admit newcomers" accessibility pattern generalizes to academic research topics using OpenAlex data (4,516 topics, 50 sampled across 5 domains).
@@ -62,7 +69,7 @@
 - `raw/topic_works_current_{T*}.jsonl` — current institutions per topic
 - `results/metrics.csv` — all topic metrics
 - `results/correlation.json` — correlation results and gate outcomes
-- `session_log.txt` — full execution log
+- `session_log.log` — full execution log
 
 ## Conclusion
 

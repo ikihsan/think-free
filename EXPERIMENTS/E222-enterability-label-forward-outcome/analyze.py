@@ -26,7 +26,7 @@ import random
 import sys
 from pathlib import Path
 
-EXP_DIR = Path(__file__).parent
+EXP_DIR = Path(__file__).resolve().parent
 E220_DIR = EXP_DIR.parent / "E220-it-subsegment-entrant-advisor"
 E220_RAW = E220_DIR / "raw"
 E220_METRICS = E220_DIR / "results" / "subsegment_metrics.csv"
@@ -202,9 +202,10 @@ def full_analysis():
         pri, _ = load_recipients(pri_f)
         out, out_data = load_recipients(out_f)
 
-        # identity coverage in outcome fetch
-        total_rows = len(out_data.get("results", []))
-        with_id = len(out)
+        # identity coverage in outcome fetch (row-level, before id-dict collapsing)
+        results_rows = out_data.get("results", [])
+        total_rows = len(results_rows)
+        with_id = sum(1 for row in results_rows if row.get("recipient_id"))
         if total_rows:
             id_coverage.append(with_id / total_rows)
 

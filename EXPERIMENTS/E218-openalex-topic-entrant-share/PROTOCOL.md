@@ -1,5 +1,12 @@
 # E218: OpenAlex Research Topic Entrant Share — Fresh Observation in Academic Research Domain
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-22
+-->
+
+
 ## Objective
 
 Test whether the "fragmented markets admit newcomers" accessibility pattern generalizes to academic research topics. This is a fresh observation in a completely new domain axis (academic knowledge production) per D083, distinct from federal spending (E208-E209), international trade (E215), NIH grants (E204-E214), FDA recalls (E217), Q&A platforms, package registries, and fault-code domains.

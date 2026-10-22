@@ -14,7 +14,7 @@ import time
 import urllib.request
 from pathlib import Path
 
-EXP_DIR = Path(__file__).parent
+EXP_DIR = Path(__file__).resolve().parent
 RAW_DIR = EXP_DIR / "raw"
 RAW_DIR.mkdir(exist_ok=True)
 POP_FILE = EXP_DIR / "results" / "preflight_population.json"

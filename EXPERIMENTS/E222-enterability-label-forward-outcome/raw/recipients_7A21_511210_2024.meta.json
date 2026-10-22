@@ -1,0 +1,21 @@
+{
+  "cache_key": "recipients_7A21_511210_2024",
+  "file": "recipients_7A21_511210_2024.json",
+  "sha256": "7de3ade62b4cc32da9e95e8f016e0cbcf19ab9f6ac2e0eaeabb06bc3f1a778fa",
+  "url": "https://api.usaspending.gov/api/v2/search/spending_by_category/recipient/",
+  "payload_filters": {
+    "psc_codes": [
+      "7A21"
+    ],
+    "naics_codes": [
+      "511210"
+    ],
+    "time_period": [
+      {
+        "start_date": "2024-01-01",
+        "end_date": "2025-12-31"
+      }
+    ]
+  },
+  "pages_fetched": 5
+}

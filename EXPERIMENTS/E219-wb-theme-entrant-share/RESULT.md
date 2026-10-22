@@ -1,5 +1,12 @@
 # E219 (2026-10-21) — fragmentation does not predict newcomer entry in World Bank project themes; kill gate fires on near-zero correlation
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-22
+-->
+
+
 **Fresh observation per D083 in a completely new domain axis:** International development funding (World Bank projects), distinct from research funding (NIH SBIR), government procurement (USAspending), trade (Comtrade), academic publications (OpenAlex), and drug safety (FDA).
 
 ## Design

@@ -1,5 +1,12 @@
 # E215 — Comtrade entrant share by HS code
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-22
+-->
+
+
 ## Question
 
 Does exporter concentration (top-5 share) predict entrant fraction across HS codes in international trade, mirroring the federal IT PSC code test (E209) and NIH SBIR test (E208)?

@@ -1,0 +1,41 @@
+{
+  "session_type": "minimal_enterability_prototype",
+  "produced": {
+    "tool": "tools/minimal_enterability.py",
+    "description": "Minimal enterability classifier prototype that computes enterability classifications for (PSC, NAICS) sub-segments using cached USAspending recipient data",
+    "lines_of_code": 684,
+    "features": [
+      "Classifies into HIGHLY ENTERABLE/SOMEWHAT ENTERABLE/MARGINAL/CLOSED per E220 thresholds",
+      "Computes seg_frac, frag, newcomer count from cached recipient data",
+      "Simple CLI: classify <PSC> <NAICS> [NAME] and list [<PSC>]",
+      "Works without API calls - uses only pre-existing cached data",
+      "Results consistent with E221: NAICS 541511 and 541519 consistently HIGHLY ENTERABLE"
+    ],
+    "artifacts_generated": [
+      "tools/minimal_enterability.py",
+      "CLAIM: minimal enterability classifier enables enterability assessment without 14+ hour API run"
+    ]
+  },
+  "observed": {
+    "key_finding_confirmed": "NAICS 541511 (Custom Computer Programming) and 541519 (Other Computer Related Services) are consistently HIGHLY ENTERABLE across all 5 IT PSC codes (DA01, DA10, 7A21, 7030, D304)",
+    "classification_counts": "From cached data across 5 IT PSC codes: 5 HIGHLY ENTERABLE, 3 SOMEWHAT ENTERABLE, 5 MARGINAL, 6 CLOSED (19 total sub-segments with data)",
+    "prototype_runtime": "All classify/list commands complete in < 2 seconds without API calls",
+    "cache_dependency": "Relies on pre-existing cached data in tools/raw/ from E221/E209 experiments"
+  },
+  "build_decision": "Created new tool script tools/minimal_enterability.py as a reversible exploratory prototype. This is evidence-gathering, not product validation, per AGENTS.md guidance Section 3 (prototype before committing to a product).",
+  "remains_unknown": [
+    "Whether FY2022 data (multi-year window FY2022-2023) changes enterability classifications beyond FY2023-only results",
+    "Whether small program teams would actually use a simplified tool for enterability assessment",
+    "Whether enterability patterns hold across different fiscal years or are specific to FY2023",
+    "Whether the full 25-code API run would add meaningful new enterable sub-segments beyond the 5 IT codes"
+  ],
+  "next_action": {
+    "proposal": "Extend the minimal prototype to support multi-year current window comparison (FY2022 + FY2023 vs. FY2018-2022 prior) using cached data",
+    "rationale": "Directly follows from STATE-next-actions.md item (2) 'Validate multi-year current window (FY2022-2023) on priority codes'; runnable with cached data (no new API calls); advances the concrete problem of making enterability assessments accessible; validates the --multi-year framework already in tools/psc_naics_subsegment_analyzer.py",
+    "alternatives": [
+      "Run the full E221 analyzer with --offline --max-psc 5 to confirm results on the 5 IT codes",
+      "Apply the sub-segment entrant advisor methodology to a new domain per D083 fresh observation",
+      "Build a batch/export feature for the minimal prototype to enable bulk assessment"
+    ]
+  }
+}

@@ -1,5 +1,12 @@
 # E220 Protocol: IT PSC Sub-Segment Entrant Advisor Prototype
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-22
+-->
+
+
 ## Objective
 
 Build a runnable prototype tool that identifies the most enterable sub-segments (NAICS codes) within the three enterable federal IT PSC codes (DA01, DA10, 7A21) discovered in E209, for small programs seeking federal contract opportunities.

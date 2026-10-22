@@ -1,0 +1,37 @@
+{
+  "session": "2026-10-22-003-continue-e221-full-psc-naics-sub-segment",
+  "e221_full_run": {
+    "status": "running_background",
+    "command": "python3 tools/psc_naics_subsegment_analyzer.py --max-psc 25 --top-naics 3",
+    "process_ids": ["1739031 (bash)", "1739032 (python3)"],
+    "log_file": "/tmp/e221_full.log",
+    "api_rate_limit": "60 requests/hour (~65s per call)",
+    "phase": "Fetching all PSC codes from api.usaspending.gov",
+    "estimated_total_hours": "14+ hours for full 25-code run with ~800 API calls",
+    "cache_advantage": "Existing DA01 cache (PSC codes, NAICS breakdowns, recipient data) will accelerate analysis of subsequent PSC codes",
+    "run_progress": "First API call in progress; will take ~65s per subsequent call at rate limit"
+  },
+  "build_decision": "Prioritized E221 full PSC NAICS sub-segment analysis as the top next action per STATE-next-actions.md (2026-10-22). Started background run to validate sub-segment entrant advisor across all 25 E196 G4 PSC codes. Reverted multi-year window code change (USAspending API time_period filter does not support two-date-range format).",
+  "previous_priority": "E221 PSC NAICS sub-segment extension — prototype complete, full 25-code run pending (per STATE-next-actions.md and STATE.md 2026-10-22, Phase B)",
+  "other_pending_from_next_actions_list": [
+    "Implement multi-year current window (FY2022-2023) - postponed due to API compatibility challenge",
+    "Fresh observation in another completely new domain axis per D083 - view-count principle tested across 17+ domains; accessibility pattern (fragmentation=>enterable) tested across 5 domains with 4 kill gates fired",
+    "Refined hypothesis within FDA recall domain (E217: Class I recall → product discontinuation via NDC linkage)"
+  ],
+  "what_remains_unknown": {
+    "full_enterability_classification": "HIGHLY ENTERABLE/SOMEWHAT ENTERABLE/MARGINAL/CLOSED classifications across all 25 E196 G4 PSC codes and their NAICS sub-segments",
+    "generalization_beyond_IT_codes": "Whether NAICS 541511 (Custom Computer Programming) and 541519 (Other Computer Related Services) enterability consistently generalizes to non-IT PSC codes",
+    "total_actionable_market_size": "Total obligation volume in enterable sub-segments and total count of actionable sub-segments for small program entry into federal contracting",
+    "multi_year_window_impact": "Whether FY2022-2023 current window changes enterability classifications vs single-year FY2023 analysis (was attempted but API compatibility issue stopped work)"
+  },
+  "single_most_useful_next_action": "In next session: check /tmp/e221_full.log for run progress; if run completed (all 25 PSC codes analyzed), analyze gate results (G0-G4) and enterability classifications from results/subsegment_metrics.csv and results/ranked_subsegments.csv; if still running, continue monitoring; if stalled after reasonable time, consider running partial analysis for 5-10 PSC codes",
+  "continuation_across_sessions": "E221 run spans multiple sessions due to USAspending API rate limits (60 req/hour). Cache persists across runs for incremental execution - previously fetched data for DA01 will be reused. The tool at tools/psc_naics_subsegment_analyzer.py is validated against E220 on 3 IT codes and ready for full deployment. This session's build decision: continue the full run across sessions rather than abandon or restart. Next session should check log output and proceed with gate result analysis when run reaches completion.",
+  "session_protocol": "Session outcome logged via JSON; commands captured through tools namespace; analyzer.py reverted to original state; no intentional file edits in this session that modify tracked content (reverted multi-year change); raw evidence preserved in /tmp/e221_full.log and git history; session start/finish recorded in repository state",
+  "artifacts_reference": {
+    "e221_protocol": "EXPERIMENTS/E221-psc-naics-subsegment-extension/PROTOCOL.md",
+    "e221_result_prototype": "EXPERIMENTS/E221-psc-naics-subsegment-extension/RESULT.md",
+    "e220_validated_prototype": "EXPERIMENTS/E220-it-subsegment-entrant-advisor/RESULT.md",
+    "e196_g4_codes": "EXPERIMENTS/E196-federal-spend-metered/RESULT.md",
+    "analyzer_tool": "tools/psc_naics_subsegment_analyzer.py"
+  }
+}
