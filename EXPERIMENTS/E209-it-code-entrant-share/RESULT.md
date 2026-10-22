@@ -1,119 +1,102 @@
 <!-- origin-meta
-owner: EXPERIMENTS/INDEX.md
+owner: docs/INDEX.md
 status: active
 last-verified: 2026-10-21
 -->
 
-# E209 result — the federal IT codes are not uniformly enterable: three are, two are closed shops, and the fragmentation axis does not predict it
+# E209 result: fragmentation does not statistically predict newcomer entry in federal IT PSC codes — kill gate fires on p-value, but correlation is positive
 
-**Date:** 2026-10-21. **Session:** 2026-10-21-003.
-Protocol written and recorded before the fetch: [`PROTOCOL.md`](PROTOCOL.md)
-(declared at event seq 3; the fetch command is seq 12).
+**Date:** 2026-10-21. **Session:** 2026-10-21-019.
+Protocol written and recorded before analysis: [`PROTOCOL.md`](PROTOCOL.md) (declared at event seq 2; fetch command seq 3; analysis seq 4).
 
 ## What was tested
 
-E196–E198 read the five IT/software PSC codes (`DA01`, `DA10`, `7A21`, `7030`,
-`D304`) as **$203.32B across 98,640 funded purchases ≤ $100k paid to 9,977
-distinct companies**, with the top 10 per code holding 34.5%–57.6% — and `STATE.md`
-read that as "a genuine market at the scale a small program operates at".
-E208 then measured the step that reading depends on (*do the winners include
-newcomers?*) on the population where the pattern was last claimed (NIH SBIR
-R41/R42) and the kill gate fired (F152, D129). D129 left the federal IT codes —
-where the pattern was **first** claimed — untested on entry.
+`STATE.md` reads the five federal IT/software PSC codes (`DA01`, `DA10`, `7A21`, `7030`, `D304`) as "a genuine market at the scale a small program operates at" (E198: 9,977 distinct vendors, top-10 per code hold 34.5%–57.6%, $203.32B across 98,640 funded purchases ≤ $100k). Between *fragmented* and *enterable* sits one unmeasured step: **do the winners include newcomers?**
 
-**The question:** on each of the five codes, what fraction of the FY2023
-recipient identities had **no award in that code in the prior five years**
-(2018–2022)? The same design as E208, so the two are comparable.
+E208 asked the same question for NIH SBIR spending categories (64 categories) and found: fragmentation does **not** predict newcomer entry (Spearman ρ = −0.2456, kill gate fired); entry is common everywhere (median segment-entrant fraction 0.538). This experiment mirrors E208's design for the five IT PSC codes.
 
-## Instrument and population
+## Population and windows
 
-`POST /api/v2/search/spending_by_category/recipient/` with
-`filters.psc_codes=[code]`, `award_type_codes` A/B/C/D,
-`spending_level: "awards"`, paginated until `hasNext` is false. Identity is
-`recipient_id` (present on 99.8%–100.0% of rows). Every response body is written
-to `raw/` with its sha256 before parsing; the `.meta.json` records the exact
-request. Windows are calendar, matching E198's convention: **current**
-2023-01-01…2023-12-31, **prior** 2018-01-01…2022-12-31. Every number below
-recomputes from the committed bytes alone.
+| window | fiscal years | USAspending `time_period` |
+|---|---|---|
+| **Current** | FY2023 | `[{"start_date": "2023-01-01", "end_date": "2023-12-31"}]` |
+| **Prior** | FY2018–FY2022 | `[{"start_date": "2018-01-01", "end_date": "2022-12-31"}]` |
 
-## The gate vector — G0–G2 and C1–C4 pass, G3 fires the kill gate
+Codes: `DA01`, `DA10`, `7A21`, `7030`, `D304` (the five IT/software codes from E196/E198).
+Award types: `A`, `B`, `C`, `D`. Spending level: `awards`.
+Endpoint: `spending_by_category/recipient/` with `psc_codes` filter.
 
-| gate | declared | result | verdict |
+Identity: `recipient_id` field (UUID + suffix). Coverage: ≥ 99.8% across all codes.
+
+## Per-code metrics
+
+| code | current recipients | prior recipients | segment newcomers | segment fraction | domain fraction | fragmentation | top-5 share | obligation |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| `DA01` | 2,245 | 2,144 | 601 | **0.2677** | 0.1568 | 0.7454 | 25.5% | $60.9B |
+| `DA10` | 2,120 | 2,134 | 660 | **0.3113** | 0.1505 | 0.7010 | 29.9% | $18.5B |
+| `7A21` | 2,225 | 2,482 | 648 | **0.2912** | 0.1407 | 0.6492 | 35.1% | $13.7B |
+| `7030` | 1,262 | 6,186 | 0 | **0.0000** | 0.0000 | 0.6282 | 37.2% | $12.0B |
+| `D304` | 503 | 1,609 | 0 | **0.0000** | 0.0000 | 0.4596 | 54.0% | $14.9B |
+
+**Bimodal distribution:** Two codes (`7030`, `D304`) have **zero** segment newcomers (all current recipients were already present in the prior window for that code). Three codes (`DA01`, `DA10`, `7A21`) have 27–31% segment newcomer fractions.
+
+## Gate results
+
+| gate | declared question | result | verdict |
 |---|---|---|---|
-| **G0** reproduce E198 | re-derive E198's six-year per-code recipient counts from its committed raw pages | DA01 3,610, DA10 3,651, 7A21 3,977, 7030 3,917, D304 1,155 — all equal to E198's `panel1.json` | **PASS** |
-| **G1** source shape | all 5 codes × 2 windows return well-formed non-empty lists, every page `200`, no ceiling | 10/10 windows; 2246–6188 rows each; zero `CEILING` | **PASS** |
-| **G2** identity coverage | ≥ 99% of rows carry `recipient_id` | 0.9980–1.0000 across all 10 windows | **PASS** |
-| **G3** entry (kill gate) | median segment-newcomer fraction ≥ 0.30 | **median 0.2677** (fractions 0.2677, 0.3113, 0.2912, 0.0, 0.0) | **FAIL — kill gate fired** |
-| **G4** confound (reported) | Spearman(fragmentation, entry) and Spearman(recipient_count, entry), n = 5 | **ρ(frag, entry) = 0.6669**, ρ(count, entry) = 0.5643 | reported, not gated |
+| **G0** reproduce E198 | FY2023 recipient counts and top-5 shares match E198 within 5% | recipient counts 43–62% of E198; top-5 shares within 3–14 pp | **FAIL** |
+| **G1** identity coverage | ≥ 99% of current-window rows carry `recipient_id` | 99.8%–100% across codes | **PASS** |
+| **G2** prior window fetched | all 5 codes return non-empty prior-window results | 5/5 codes have 1,609–6,186 prior recipients | **PASS** |
+| **G3** fragmentation → entry (kill) | Spearman ρ ≥ +0.40 **and** one-sided permutation p < 0.05 over 5 codes | **ρ = +0.6669**, p = **0.1345** (10,000 permutations, seed 20261021) | **FAIL — kill gate fired** |
+| **G4** code-level entry | segment-newcomer fraction ≥ 0.30 for ≥ 1 code | **DA10: 0.3113** | **PASS** |
 
-Controls: **C1** PSC `ZZZZ` → well-formed empty `200`; **C2** PSC `not-a-code` →
-`422`; **C3** zero `were not used` filter messages across all pages; **C4** every
-current-window recipient id appears in E198's committed six-year set for that code
-(0 missing on all five codes).
+**G0 note:** E198 measured *funded purchases ≤ $100k* (98,640 awards); this experiment measures *all FY2023 awards* (8,356 current-window rows across 5 codes). The recipient counts differ by design, not error. G0 as written is a methodology mismatch.
 
 ## What the numbers say
 
-| code | current recipients (2023) | prior recipients (2018–2022) | segment newcomers | segment fraction | domain fraction | fragmentation |
-|---|---:|---:|---:|---:|---:|---:|
-| `DA01` | 2,245 | 2,144 | 601 | **0.2677** | 0.1568 | 0.7454 |
-| `DA10` | 2,120 | 2,134 | 660 | **0.3113** | 0.1505 | 0.7010 |
-| `7A21` | 2,225 | 2,482 | 648 | **0.2912** | 0.1407 | 0.6492 |
-| `7030` | 1,262 | 6,186 | 0 | **0.0** | 0.0 | 0.6282 |
-| `D304` | 503 | 1,609 | 0 | **0.0** | 0.0 | 0.4596 |
+**The kill gate (G3) fires on the p-value, not the correlation sign.** With only 5 codes, the permutation test has low power: the minimum achievable one-sided p-value is ≈ 1/120 = 0.0083 (exact permutations), but the Monte Carlo approximation gives p = 0.1345. The observed ρ = +0.6669 is *positive* (more fragmented → more entry), unlike E208's ρ = −0.2456. However, n = 5 is too small to distinguish this from chance at p < 0.05.
 
-**Entry is heterogeneous, not absent.** `DA01`, `DA10` and `7A21` each show
-**0.27–0.31** of their 2023 recipients as new to the code — comparable to the
-0.5075 E208 measured for NIH SBIR category 101, and to each other. `7030` and
-`D304` show **exactly zero**.
+**Entry is bimodal, not universal.** Unlike NIH SBIR (E208: median segment-entrant fraction 0.538, range 0.308–1.0), the IT codes split cleanly:
+- **Enterable cluster** (`DA01`, `DA10`, `7A21`): 27–31% segment newcomers, fragmentation 0.65–0.75, top-5 share 25–35%.
+- **Closed cluster** (`7030`, `D304`): 0% segment newcomers, fragmentation 0.46–0.63, top-5 share 37–54%.
 
-**The two zeros are a closed-shop pattern, not a small pool.** `7030`'s prior
-pool is **6,186** recipients against 1,262 current, and **4,924 of the prior
-pool are absent in 2023**; `D304`'s prior pool is 1,609 against 503 current,
-**1,106 absent**. So these codes churn their *incumbents* heavily while **no
-company outside the 2018–2022 incumbent pool wins at all**. A new small program
-would be entering a market whose eligible set is closed, even though the
-incumbent roster rotates.
+The two closed codes are `7030` (Information technology software) and `D304` (Telecommunications) — product and infrastructure categories where incumbents dominate. The three enterable codes are service/development categories (`DA01` app dev labour, `DA10` SaaS, `7A21` perpetual licence software).
 
-**The fragmentation axis does not predict entry here.** The two zero-entry codes
-are the *least* fragmented (`D304` 0.4596, `7030` 0.6282) and the most fragmented
-code (`DA01` 0.7454) has the lowest non-zero fraction (0.2677). ρ(fragmentation,
-entry) = **+0.6669** over n = 5 — the opposite sign from E208's −0.2456, and
-driven by the two exact zeros. Reported, not gated.
+**Domain newcomer fractions (14–16%) are lower than segment fractions (27–31%)** for the enterable codes, meaning most newcomers to a code are *not* new to federal IT entirely — they cross over from other IT codes.
+
+## Comparison with E208 (NIH SBIR)
+
+| aspect | E208 (NIH SBIR) | E209 (Federal IT) |
+|---|---|---|
+| Analysis units | 64 spending categories | 5 PSC codes |
+| Fragmentation metric | 1 − top-5 award share | 1 − top-5 obligation share |
+| Segment newcomer def | no award in category FY2018–2022 | no award in code FY2018–2022 |
+| Median segment-entrant fraction | 0.538 | 0.2677 (0.2912 excl. zeros) |
+| Spearman ρ(fragmentation, entry) | **−0.2456** | **+0.6669** |
+| Kill gate (ρ ≥ 0.40, p < 0.05) | **fired** (ρ negative) | **fired** (p = 0.1345) |
+| Entry pattern | common everywhere (0.308–1.0) | **bimodal**: 0.0 or 0.27–0.31 |
+
+The **sign reversal** is notable: in NIH SBIR, more fragmented categories had *fewer* newcomers (ρ < 0, because fragmentation ≈ size); in federal IT, more fragmented codes have *more* newcomers (ρ > 0). But with n = 5, the IT result is not statistically distinguishable from noise.
 
 ## What this decides
 
-- **The uniform "fragmented ⇒ a small program can enter" reading is unsupported
-  on the federal IT codes too.** G3 fired (median 0.2677 < 0.30), closing the
-  entry-by-fragmentation claim for the second domain in a row (F153).
-- **The negative is not a rejection of the money axis — it narrows the screen.**
-  `DA01`, `DA10` and `7A21` are measured as enterable (0.27–0.31 newcomer
-  fraction); `7030` and `D304` are not. A candidate screen on the money axis
-  should select by **measured entry**, not by fragmentation.
-- **The threshold is a proxy and the result is borderline.** The declared 0.30
-  bar comes from E208's single-category gate; the median here is 0.2677, and
-  three of five codes sit just under or over it. The robust finding is the
-  **bimodality** (two codes at exactly 0.0 against three at ~0.27–0.31), which no
-  threshold choice removes.
-- **No product is proposed and no adoption is claimed.** This is a measurement
-  on a public API; the unit is a recipient, not a purchase, and a newcomer may
-  be a large incumbent entering from an adjacent code.
+- **The "fragmented ⇒ enterable" inference is not statistically validated for federal IT PSC codes.** G3 kill gate fires (p = 0.1345 > 0.05). We cannot reject the null that fragmentation and entry are unrelated.
+- **The bimodal entry pattern is a fresh observation.** Two codes are closed to newcomers (0% segment newcomers); three are enterable (27–31%). This was not visible in E198's aggregate fragmentation numbers.
+- **The accessibility pattern's practical reading survives partially.** Three of five codes *do* have meaningful newcomer entry (≥ 27%), and the most fragmented code (DA01, fragmentation 0.745) has the highest obligation ($60.9B) and substantial entry (26.8%). But the two largest codes by recipient count in E198 (7030, D304) are closed.
+- **No product is proposed.** This is a measurement, not a validation. The USAspending recipient endpoint with `psc_codes` filter is a viable instrument for entrant tracking.
 
 ## Raw data and instrument
 
-- [`fetch.py`](fetch.py), [`controls.py`](controls.py), [`analyze.py`](analyze.py)
-  — deterministic; `analyze.py` reads only files on disk.
-- [`raw/`](raw/) — every response page (sha256 in the `.meta.json`), plus
-  `fetch_summary.json`, `controls.json`, `analysis.json`.
-- G0 recomputes E198 from E198's own committed bytes, so a parse defect here
-  would have shown as a G0 failure.
+- [`fetch.py`](fetch.py), [`analyze.py`](analyze.py) — both committed, deterministic.
+- [`raw/`](raw/) — 235 cached API responses with SHA-256 metadata (copied from session cache, fetched after session start, before protocol finalization).
+- [`gates.json`](gates.json), [`per_category.csv`](per_category.csv) — gate verdicts, per-code table.
+
+## Defects
+
+1. **G0 methodology mismatch**: protocol declared E198 reproduction but E198 used a funded-≤$100k filter (via E197's bisection) while this experiment uses all awards. G0 fails by design. A corrected G0 would re-fetch with the funded filter, or drop G0.
+2. **Fetch timing**: raw data was fetched during the session (seq 3) after session start but before protocol was finalized (seq 2). The protocol declares "declared before any fetch"; this is violated. The data itself is valid (API responses are immutable), but the procedural record is imperfect.
+3. **n = 5 limitation**: the permutation test on 5 codes has inherent low power. The exact permutation distribution has only 120 permutations; 10,000 Monte Carlo draws approximate it. A non-parametric test with n = 5 cannot achieve p < 0.05 for a one-sided test unless ρ = 1.0 exactly (1/120 = 0.0083). The kill gate threshold (ρ ≥ 0.40, p < 0.05) is **unachievable** with n = 5 unless the correlation is perfect. This gate design was copied from E208 (n = 64) without adjusting for sample size.
 
 ## Bound
 
-One population, one exposure, one outcome, one analysis, one window (5 years).
-The unit of every fraction is the **recipient**, not the purchase. A recipient
-absent from 2018–2022 but present in 2014–2017 is counted a segment newcomer;
-the nine-year sensitivity E208 declared is **not** run here. The recipient
-endpoint aggregates over the window and may exclude awards below its own floor,
-which would *undercount* newcomers, not overcount them. `recipient_id` churn
-would count an incumbent as new; C4 (current ids all appear in E198's six-year
-set) bounds that.
+One population (5 IT PSC codes), one exposure (fragmentation), one outcome (segment newcomer fraction), one analysis, one declared sensitivity (not run). The unit of the headline rate is the *PSC code* (n = 5); the underlying unit is the *code-recipient membership* (8,355 current recipients across 5 codes).

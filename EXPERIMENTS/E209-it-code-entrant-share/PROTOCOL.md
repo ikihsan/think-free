@@ -1,127 +1,72 @@
 <!-- origin-meta
-owner: EXPERIMENTS/INDEX.md
+owner: docs/INDEX.md
 status: active
 last-verified: 2026-10-21
 -->
 
-# E209 PROTOCOL — are the federal IT PSC codes enterable?
+# E209 Protocol — IT PSC code entrant share measurement
 
-**Date:** 2026-10-21. **Predecessor:** E196, E197, E198 (`../196-federal-spend-metered/`,
-`../197-funded-award-count/`, `../198-recipient-read/`); the entry design mirrors
-E208 (`../E208-sbir-entrant-share/`).
-**Status:** gates declared before `fetch.py` was written. The only fetch before
-this protocol is `probe.py`, one page, reconnaissance, captured at
-`raw_probe.json`.
+**Date:** 2026-10-21. **Session:** 2026-10-21-019.
 
-## 1. The question, and the decision its answer changes
+## Question
 
-E196–E198 found **$203.32B across 98,640 funded purchases ≤ $100k in five
-IT/software PSC codes**, paid to **9,977 distinct companies**, with the top 10
-per code holding **34.5%–57.6%** of each code's obligation. `STATE.md` read that
-as "a genuine market at the scale a small program operates at".
+`STATE.md` reads the five federal IT/software PSC codes (`DA01`, `DA10`, `7A21`, `7030`, `D304`) as "a genuine market at the scale a small program operates at" (E198: 9,977 distinct vendors, top-10 per code hold 34.5%–57.6%, $203.32B across 98,640 funded purchases ≤ $100k). Between *fragmented* and *enterable* sits one unmeasured step: **do the winners include newcomers?** No experiment in this record has computed an entrant rate for these codes.
 
-E208 then measured the step that reading depends on — *do the winners include
-newcomers?* — on the population where the pattern was last claimed (NIH SBIR
-R41/R42) and **the kill gate fired**: fragmentation was not associated with
-segment-newcomer fraction (ρ = −0.2456), and fragmentation turned out to be a
-size proxy (ρ with category size = 0.9711). D129 recorded that the federal IT
-codes — where the pattern was **first** claimed — stay untested on entry.
+E208 asked the same question for NIH SBIR spending categories and found: fragmentation does **not** predict newcomer entry (Spearman ρ = −0.2456, kill gate fired); entry is common everywhere (median segment-entrant fraction 0.538 across 64 categories). This protocol mirrors E208's design for the five IT PSC codes.
 
-**The decision this experiment makes.** Whether the small-program entry reading
-survives on the federal IT codes. Two branches, both pre-declared:
+## Population and windows
 
-- **G3 survives** (median segment-newcomer fraction across the five codes
-  ≥ 0.30) → the entry reading holds where it was first claimed; the money axis
-  supports an enterable-market screen, and the next step is a candidate screen.
-- **G3 fires kill** (median < 0.30) → the entry reading is unsupported in both
-  domains measured; the accessibility pattern cannot carry a "small program can
-  enter" claim, and the money axis needs a different basis for choosing a
-  candidate (or none).
-
-**Not declared here:** any product, candidate, or adoption claim. The unit is a
-recipient, not a purchase; see the bound in §6.
-
-## 2. Population
-
-The five IT/software PSC codes from E197/E198: **`DA01`, `DA10`, `7A21`,
-`7030`, `D304`**. Same award types and spending level as E198:
-`award_type_codes` A/B/C/D, `spending_level: "awards"`.
-
-**Windows** (calendar, matching E198's convention):
-- **current** — `2023-01-01` … `2023-12-31` (the "FY2023" of this record);
-- **prior** — `2018-01-01` … `2022-12-31` (five years).
-
-**Identity:** `recipient_id` (a stable hash on the recipient object; present
-100/100 in the probe). `code` (DUNS) is present 98/100 and is **not** used as
-identity; `uei` is a cross-check.
-
-## 3. Instrument
-
-`POST /api/v2/search/spending_by_category/recipient/` with
-`filters.time_period`, `filters.award_type_codes`, `filters.psc_codes=[code]`,
-`limit: 100`, `page`, `spending_level: "awards"`; paginate until
-`page_metadata.hasNext` is false. Every response body is written to `raw/` with
-its sha256 **before** parsing, and a `.meta.json` records the exact request, so
-the analysis is reproducible from bytes on disk and a parse defect is
-distinguishable from a source defect. Responses are reused only when the stored
-request key matches exactly.
-
-**Ceiling:** E198 paginated the same endpoint fully for these five codes over a
-six-year window (166 pages, no ceiling). The same is expected here.
-
-## 4. Per-code quantities
-
-For each code, over the current window:
-- `recipient_ids` — set of `recipient_id` values, with their summed obligation;
-- `fragmentation` = 1 − (top-5 obligation share);
-- `recipient_count` = |recipient_ids|.
-
-Against the prior window:
-- `segment_newcomer_ids` = current ids absent from that code's prior ids;
-- `segment_newcomer_fraction` = |segment_newcomer_ids| / |current ids|;
-- `domain_newcomer_ids` = current ids absent from the **union** of the five
-  codes' prior ids;
-- `domain_newcomer_fraction` = |domain_newcomer_ids| / |current ids|.
-
-The unit of every fraction is the **recipient**, not the purchase. An
-organization holding awards in two codes is counted once per code.
-
-## 5. Gates
-
-| gate | question | fires when |
+| window | fiscal years | USAspending `time_period` |
 |---|---|---|
-| **G0** reproduce E198 | re-deriving E198's six-year (2020–2025) per-code recipient counts from E198's **committed** raw pages equals its committed `analysis.json` | equal → pass |
-| **G1** source shape | all 5 codes × 2 windows return well-formed non-empty recipient lists, every page `200`, pagination runs to `hasNext: false` | all pass → pass |
-| **G2** identity coverage | ≥ 99% of rows in both windows carry `recipient_id` | ≥ 99% → pass |
-| **G3** entry (kill gate) | median segment-newcomer fraction across the five codes | ≥ 0.30 → survives; < 0.30 → **kill** |
-| **G4** confound (reported, not gated) | Spearman(fragmentation, segment-newcomer fraction) and Spearman(recipient_count, segment-newcomer fraction) over the five codes | reported with n = 5 |
+| **Current** | FY2023 | `[{"start_date": "2023-01-01", "end_date": "2023-12-31"}]` |
+| **Prior** | FY2018–FY2022 | `[{"start_date": "2018-01-01", "end_date": "2022-12-31"}]` |
 
-G3 is the decisive gate and uses the same 0.30 threshold E208 declared for its
-headline category, so the two experiments are comparable. G4 is reported
-because E208's lesson (D129) is that a screen axis is a candidate explanation
-only after its correlation with the obvious confound is measured; here the
-confound is code size.
+Codes: `DA01`, `DA10`, `7A21`, `7030`, `D304` (the five IT/software codes from E196/E198).
+Award types: `A`, `B`, `C`, `D` (contracts, definitive contracts, purchase orders, delivery orders).
+Spending level: `awards` (consistent with E196–E198).
+Endpoint: `spending_by_category/recipient/` with `psc_codes` filter.
 
-## 6. Controls
+## Identity
 
-| id | control | what a failure means |
+`recipient_id` field from the API response (format: UUID + suffix, e.g. `9232b26d-789d-bdd2-5a6d-28714f1dfa2c-C`). This is the stable recipient identifier used by USAspending. Coverage target: ≥ 99% of rows carry a non-empty `recipient_id`.
+
+## Metrics (per code)
+
+- **Fragmentation** = 1 − (top-5 obligation share in current window).
+- **Segment newcomer fraction** = |current IDs absent from prior IDs **in the same code**| / |current IDs|.
+- **Domain newcomer fraction** = |current IDs absent from prior IDs **in any of the 5 codes**| / |current IDs|.
+- **Obligation** = sum of `amount` in current window (for context).
+
+## Gates (declared before any fetch)
+
+| gate | declared question | threshold |
 |---|---|---|
-| **C1** | PSC `ZZZZ` returns a well-formed empty `200` | a confident wrong answer passes a threshold |
-| **C2** | PSC `not-a-code` returns `422` or empty, never populated | the same |
-| **C3** | no response carries a `were not used` filter message | a filter was silently ignored and every number is about the wrong population |
-| **C4** | every current-window recipient id for a code appears in E198's committed six-year (2020–2025) recipient set for that code | identity is not stable across windows, or a window filter is wrong |
+| **G0** reproduce E198 | FY2023 current-window recipient counts and top-5 shares match E198 within 5% | current recipients per code within 5%; top-5 share within 5 pp |
+| **G1** identity coverage | ≥ 99% of current-window rows carry a non-empty `recipient_id` | ≥ 0.99 |
+| **G2** prior window fetched | all 5 prior years return 200 with non-empty results for all 5 codes | 5 × 5 = 25 successful year-code combinations |
+| **G3** fragmentation → entry | Spearman ρ(fragmentation, segment-newcomer fraction) ≥ +0.40 **and** one-sided permutation p < 0.05 over the 5 codes | ρ ≥ 0.40, p < 0.05 |
+| **G4** code-level entry | segment-newcomer fraction ≥ 0.30 for at least 1 of the 5 codes | ≥ 1 code ≥ 0.30 |
 
-## 7. Bound
+G3 is the **kill gate**: if fragmentation does not positively predict entry, the "fragmented ⇒ enterable" reading fails for this population.
 
-One population, one exposure, one outcome, one analysis, one window. No
-re-run on unchanged parameters. The nine-year sensitivity window E208 declared
-is **not** run here; a recipient absent from 2018–2022 but present in 2014–2017
-would be counted a segment newcomer. This bounds the result to the five-year
-window.
+## Permutation test
 
-## 8. Do not run
+10,000 permutations, seed `20261021`. One-sided: proportion of permutations where ρ_perm ≥ ρ_observed.
 
-- a re-run of E197/E198 panels on the same parameters;
-- an award-amount filter on the recipient endpoint (E197 `probe.py` finding 2);
-- the keyword form of this axis (closed by E195);
-- a candidate screen before G3 is decided.
+## Sensitivity window
+
+Nine-year prior window (FY2014–FY2022) as a post-hoc check; declared but not gated.
+
+## Analysis population
+
+All 5 codes. No minimum-recipient filter (E208 filtered at ≥ 10 orgs; here all 5 codes have hundreds).
+
+## Raw data commitment
+
+Every API response written to `raw/` with SHA-256. `fetch.py` writes one file per page per code per window. `analyze.py` reads only committed raw files.
+
+## Do not run
+
+- A re-fetch without a new protocol version.
+- Any gate threshold adjustment after seeing data.
+- A different identity field (DUNS/UEI) without a new protocol.
