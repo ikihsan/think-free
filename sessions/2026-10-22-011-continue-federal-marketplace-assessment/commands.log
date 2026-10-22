@@ -1,0 +1,64 @@
+==============================================================================
+[seq 2] 2026-10-22T07:32:35+00:00
+$ python3 -c 
+# Final verification of all tool modes
+import subprocess
+results = {}
+
+# Test --quick
+r = subprocess.run(['python3', '-m', 'fedmarket', '--quick'], capture_output=True, text=True)
+results['quick'] = {'exit': r.returncode, 'output': r.stdout[:200]}
+
+# Test --survival for 7030
+r = subprocess.run(['python3', '-m', 'fedmarket', '--survival', '--code', '7030'], capture_output=True, text=True)
+results['survival_7030'] = {'exit': r.returncode, 'output': r.stdout[:200]}
+
+# Test --explore
+r = subprocess.run(['python3', '-m', 'fedmarket', '--explore'], capture_output=True, text=True)
+results['explore'] = {'exit': r.returncode, 'output': r.stdout[:200]}
+
+# Test --quick --code DA10
+r = subprocess.run(['python3', '-m', 'fedmarket', '--quick', '--code', 'DA10'], capture_output=True, text=True)
+results['quick_da10'] = {'exit': r.returncode, 'output': r.stdout[:200]}
+
+for name, data in results.items():
+    print(f'{name}: exit={data["exit"]}')
+    print(data['output'])
+    print('---')
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+quick: exit=0
+PSC Code  Screen  Recip  <=$40k  Software  GWAC%   GSA% awarding  Survival  Grad  Caveat
+----------  ------  -----  ------  --------  -----   -------------  --------  ----  ------
+7030        2411 391
+---
+survival_7030: exit=0
+=== fedmarket Assessment: 7030 ===
+Modules: survival
+Max pages per fetch: 50
+
+############################################################
+# MODULE: Entry Survival Analysis (E211)
+####################
+---
+explore: exit=0
+
+=== fedmarket Exploration: leq_40k_direct_software ===
+Budget: leq_40k | GTM: direct | Focus: software
+Weights: A1-screen=0.35, A1-access=0.35, A1-software=0.3, A1/A2=0.85/0.15
+
+  Rank  Code  Total  
+---
+quick_da10: exit=0
+=== Fedmarket Quick Assessment: DA10 ===
+Name: IT Services
+Screen score: 2345
+Distinct recipients: 3651
+≤ $40k fraction: 27.1%
+Software % of awards: 57.8%
+Small vendor GWAe share: 28.2%
+GSA awarding a
+---
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1112  redactions: none

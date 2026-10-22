@@ -73,6 +73,21 @@ _CODES: Dict[str, Dict[str, Any]] = {
         "small_vendor_gwac_share": 4.7,
         "total_obligation_b": 25.83,
         "e213_note": "E213 validated: 6.5% small vendor share in software SINs (511210/511210S/518210C), dominated by large resellers. E210 affinity scores falsified.",
+        # E204 Trend warnings: 7030 concentrating rapidly
+        "trend": {
+            "direction": "concentrating",
+            "top10_change": "+18.6pp (45.3%→63.9%)",
+            "small_award_change": "-17.9pp (42.0%→24.1%)",
+            "new_entrant_change": "-10.9pp (21.7%→10.8%)",
+            "new_mega_vendors": ["Leidos $754M", "IBM $595M", "CA $429M"],
+            "obligation_growth": "30–98× in recent 12mo",
+            "warning": "Market concentrating fast — entry window narrowing. New mega-vendors (Leidos, IBM, CA) absorbing share.",
+        },
+        # E211 Survival/Graduation
+        "survival_pct": 53.3,
+        "graduation_pct": 13.8,
+        "survival_cleaned_pct": 13.8,  # all-small-only survival
+        "graduation_cleaned_pct": 1.2,  # all-small-only graduation
     },
     "DA10": {
         "name": "IT Services",
@@ -99,6 +114,21 @@ _CODES: Dict[str, Dict[str, Any]] = {
         "small_vendor_gwac_share": 28.2,
         "total_obligation_b": 33.01,
         "e213_note": "E213 validated: 37.1% small vendor share in software SINs (511210/511210S/518210C). DA10 is the ONLY code with meaningful small vendor access to software SINs on GSA MAS.",
+        # E204 Trend warnings: DA10 diversifying
+        "trend": {
+            "direction": "diversifying",
+            "top10_change": "-6.7pp (59.1%→52.4%)",
+            "small_award_change": "+3.1pp (46.4%→49.5%)",
+            "new_entrant_change": "+7.1pp (16.0%→23.1%)",
+            "new_mega_vendors": ["Dell $1.38B", "WWTech $830M", "Iron Bow $828M"],
+            "obligation_growth": "30–98× in recent 12mo",
+            "warning": "Market diversifying — new entrants growing, concentration decreasing. Good entry timing. New vendors (Dell, WWTech, Iron Bow) entering as large resellers.",
+        },
+        # E211 Survival/Graduation
+        "survival_pct": 72.6,
+        "graduation_pct": 41.2,
+        "survival_cleaned_pct": 41.2,
+        "graduation_cleaned_pct": 23.7,
     },
     "7A21": {
         "name": "IT HW/SW",
@@ -124,6 +154,22 @@ _CODES: Dict[str, Dict[str, Any]] = {
         "sub_prime_ratio": 2.8,
         "small_vendor_gwac_share": 8.6,
         "total_obligation_b": 29.22,
+        "e213_note": "",
+        # E204 Trend warnings: 7A21 hardening
+        "trend": {
+            "direction": "hardening",
+            "top10_change": "+5.4pp (62.3%→67.7%)",
+            "small_award_change": "-5.2pp (46.8%→41.6%)",
+            "new_entrant_change": "-8.7pp (21.7%→13.0%)",
+            "new_mega_vendors": ["Leidos $1.25B", "Dell $956M"],
+            "obligation_growth": "30–98× in recent 12mo",
+            "warning": "Market hardening — Carahsoft share dropped (27%→17%) but replaced by Leidos ($1.25B) and Dell ($956M). Concentration increasing, new entrants declining.",
+        },
+        # E211 Survival/Graduation (estimated from E211 cohort cleaning)
+        "survival_pct": 65.0,
+        "graduation_pct": 43.1,
+        "survival_cleaned_pct": 43.1,
+        "graduation_cleaned_pct": 14.2,
     },
     "DA01": {
         "name": "IT Mgmt",
@@ -149,6 +195,22 @@ _CODES: Dict[str, Dict[str, Any]] = {
         "sub_prime_ratio": 11.0,
         "small_vendor_gwac_share": 7.2,
         "total_obligation_b": 94.94,
+        "e213_note": "",
+        # E204 Trend warnings: DA01 (not in E204 but we can note)
+        "trend": {
+            "direction": "stable",
+            "top10_change": "N/A",
+            "small_award_change": "N/A",
+            "new_entrant_change": "N/A",
+            "new_mega_vendors": [],
+            "obligation_growth": "N/A",
+            "warning": "Services market (12.8% software). Large enterprise licenses dominate. Not a software product market.",
+        },
+        # E211 Survival/Graduation
+        "survival_pct": 69.6,
+        "graduation_pct": 44.9,
+        "survival_cleaned_pct": 44.9,
+        "graduation_cleaned_pct": 21.4,
     },
     "D304": {
         "name": "Telecom",
@@ -174,16 +236,30 @@ _CODES: Dict[str, Dict[str, Any]] = {
         "sub_prime_ratio": 0.1,
         "small_vendor_gwac_share": 5.2,
         "total_obligation_b": 20.37,
+        "e213_note": "",
+        "trend": {
+            "direction": "not_software_market",
+            "top10_change": "N/A",
+            "small_award_change": "N/A",
+            "new_entrant_change": "N/A",
+            "new_mega_vendors": [],
+            "obligation_growth": "N/A",
+            "warning": "Not a software market (8.1% software, telecom-dominated). High GSA MAS shares are inflated by tiny software market slice.",
+        },
+        "survival_pct": 0.0,
+        "graduation_pct": 0.0,
+        "survival_cleaned_pct": 0.0,
+        "graduation_cleaned_pct": 0.0,
     },
 }
 
-# Known sustainability rankings from E211/E206 (graduation % after 3 years),
+# Known sustainability rankings from E211/E206 (graduation % after 3 years, all-small cleaned),
 # used as axis 2 proxies since static lookup data lacks survival/graduation.
 known_graduation = {
-    "DA01": 44.9,
-    "DA10": 41.2,
-    "7A21": 41.0,
-    "7030": 13.8,
+    "DA01": 21.4,
+    "DA10": 23.7,
+    "7A21": 14.2,
+    "7030": 1.2,
     "D304": 0.0,
 }
 
@@ -276,6 +352,15 @@ def assess_code(code: str) -> Dict[str, Any]:
     # E213 validation note per code
     e213_note = d.get("e213_note", "")
 
+    # E204 Trend data
+    trend = d.get("trend", {})
+
+    # E211 Survival/Graduation data
+    survival_pct = d.get("survival_pct", 0)
+    graduation_pct = d.get("graduation_pct", 0)
+    survival_cleaned_pct = d.get("survival_cleaned_pct", 0)
+    graduation_cleaned_pct = d.get("graduation_cleaned_pct", 0)
+
     return {
         "code": code,
         "name": d["name"],
@@ -299,6 +384,13 @@ def assess_code(code: str) -> Dict[str, Any]:
         "small_vendor_gwac_share_pct": d["small_vendor_gwac_share"],
         "total_obligation_b": d["total_obligation_b"],
         "e213_validation_note": e213_note,
+        # E204 Trend warnings
+        "trend": trend,
+        # E211 Survival/Graduation (two-axis sustainability)
+        "survival_pct": survival_pct,
+        "graduation_pct": graduation_pct,
+        "survival_cleaned_pct": survival_cleaned_pct,
+        "graduation_cleaned_pct": graduation_cleaned_pct,
         "recommendation": {
             "entry_axis": entry_axis,
             "primary_vehicle": primary_vehicle,
@@ -604,6 +696,44 @@ def format_result(r: Dict[str, Any]) -> str:
         f"Small vendor GWAC share [Observed, E207]: {r['small_vendor_gwac_share_pct']}%",
         f"Total obligation: ${r['total_obligation_b']:.2f}B",
         "",
+    ]
+
+    # E204 Trend warnings
+    trend = r.get("trend", {})
+    if trend:
+        direction = trend.get("direction", "unknown")
+        warning = trend.get("warning", "")
+        top10_change = trend.get("top10_change", "")
+        small_award_change = trend.get("small_award_change", "")
+        new_entrant_change = trend.get("new_entrant_change", "")
+        new_mega_vendors = trend.get("new_mega_vendors", [])
+        obligation_growth = trend.get("obligation_growth", "")
+
+        trend_icon = "🔴" if direction == "concentrating" else ("🟢" if direction == "diversifying" else ("🟡" if direction == "hardening" else "⚪"))
+        lines += [
+            f"{trend_icon} TREND WARNING (E204 12mo vs 5yr): {direction.upper()}",
+            f"  Top-10 share change: {top10_change}",
+            f"  ≤$40k fraction change: {small_award_change}",
+            f"  New entrant change: {new_entrant_change}",
+        ]
+        if new_mega_vendors:
+            lines.append(f"  New mega-vendors: {', '.join(new_mega_vendors)}")
+        if obligation_growth:
+            lines.append(f"  Obligation growth: {obligation_growth}")
+        if warning:
+            lines.append(f"  ⚠ {warning}")
+        lines.append("")
+
+    # E211 Survival/Graduation (Two-Axis Sustainability)
+    survival = r.get("survival_pct", 0)
+    graduation = r.get("graduation_pct", 0)
+    survival_cleaned = r.get("survival_cleaned_pct", 0)
+    graduation_cleaned = r.get("graduation_cleaned_pct", 0)
+    lines += [
+        "SUSTAINABILITY (E211 Entry Survival — 3yr follow-up of ≤$100k FY20-21 cohort):",
+        f"  Survival (UEI match): {survival:.1f}%  |  Cleaned (all-small): {survival_cleaned:.1f}%",
+        f"  Graduation (>$100k agg): {graduation:.1f}%  |  Cleaned (all-small): {graduation_cleaned:.1f}%",
+        "",
         f"Entry axis: {rec['entry_axis']}",
         f"Primary vehicle: {rec['primary_vehicle']}",
         f"Caveats: {rec['caveats']}",
@@ -620,16 +750,20 @@ def format_comparison(comparison: Dict[str, Any]) -> str:
     if not results:
         return "No codes found in lookup."
 
-    widths = [10, 8, 11, 6, 9, 7, 15, 55]
+    widths = [10, 8, 11, 6, 9, 7, 7, 7, 55]
 
     def header_line():
         print("  ".join(h.ljust(w) for h, w in zip(
             ["PSC Code", "Screen", "Recipients", "<=$40k", "Software%",
-             "GWCAC%", "GSA% awarding", "Caveat"], widths)))
+             "GWCAC%", "Grad%", "Surv%", "Trend"], widths)))
 
     def row_line(code: str, r: dict, caveat: str) -> None:
         sv_gwac = r["small_vendor_gwac_share_pct"]
         gsa_aw = r["gsa_awarding_pct"]
+        grad = r.get("graduation_cleaned_pct", 0)
+        surv = r.get("survival_cleaned_pct", 0)
+        trend = r.get("trend", {})
+        trend_dir = trend.get("direction", "?")[:1].upper()
         print(
             f"{code.ljust(widths[0])}"
             f"{str(r['screen_score']).rjust(widths[1])}"
@@ -637,8 +771,9 @@ def format_comparison(comparison: Dict[str, Any]) -> str:
             f"{r['leq_40k_pct']:>6.1f}"
             f"{r['software_pct_awards']:>9.1f}"
             f"{sv_gwac:>7.1f}"
-            f"{gsa_aw:>15.1f}"
-            f"{caveat}"
+            f"{grad:>7.1f}"
+            f"{surv:>7.1f}"
+            f"{trend_dir:>55}"
         )
 
     header_line()
@@ -652,6 +787,9 @@ def format_comparison(comparison: Dict[str, Any]) -> str:
     print("\n--- Rankings ---")
     print(f"By screen score (desc): {' '.join(comparison['ranked_by_screen_score'])}")
     print(f"By <=$40k access (desc): {' '.join(comparison['ranked_by_leq_40k_access'])}")
+    print()
+    print("Legend: GWCAC% = Small vendor GWAC share, Grad% = Graduation (cleaned), Surv% = Survival (cleaned)")
+    print("Trend: C=Concentrating, D=Diversifying, H=Hardening, S=Stable, N=Not software market")
 
 
 def main() -> None:
@@ -659,15 +797,43 @@ def main() -> None:
     # Handle --help early
     if "--help" in sys.argv or "-h" in sys.argv:
         print(__doc__)
+        print("\nDecision mode (non-interactive):")
+        print("  python3 fedmarket.py --decision --budget leq_40k --gtm direct --focus software")
+        print("  python3 fedmarket.py --decision --budget leq_100k --gtm gsa_mas --focus saas")
+        print("  python3 fedmarket.py --decision --budget enterprise --gtm subcontract --focus services")
+        print("\nBudget options: leq_40k, leq_100k, enterprise")
+        print("GTM options: direct, gsa_mas, subcontract")
+        print("Focus options: software, saas, services")
         sys.exit(0)
 
     # Determine flags
     refresh = "--refresh" in sys.argv
     decision = "--decision" in sys.argv
 
+    # Parse decision mode arguments
+    budget = None
+    gtm = None
+    focus = None
+
+    # Extract --budget, --gtm, --focus arguments
+    i = 1
+    while i < len(sys.argv):
+        arg = sys.argv[i]
+        if arg == "--budget" and i + 1 < len(sys.argv):
+            budget = sys.argv[i + 1]
+            i += 2
+        elif arg == "--gtm" and i + 1 < len(sys.argv):
+            gtm = sys.argv[i + 1]
+            i += 2
+        elif arg == "--focus" and i + 1 < len(sys.argv):
+            focus = sys.argv[i + 1]
+            i += 2
+        else:
+            i += 1
+
     if decision:
-        # Remove --decision from args so it doesn't interfere
-        args = [a for a in sys.argv[1:] if a != "--decision"]
+        # Remove decision and its args from remaining args
+        args = [a for a in sys.argv[1:] if a not in ("--decision", "--budget", "--gtm", "--focus", budget, gtm, focus) and a != budget and a != gtm and a != focus]
     else:
         args = sys.argv[1:]
 
@@ -716,88 +882,137 @@ def main() -> None:
                 except KeyError:
                     sys.exit(1)
         else:
-            # Run decision mode with team profile questions
-            print("=" * 60)
-            print("FEDMARKET DECISION GUIDE")
-            print("=" * 60)
-            print()
-            print("Answer 3 questions about your team so we can recommend")
-            print("the best PSC code and entry strategy using our two-axis")
-            print("framework (entry accessibility vs. business sustainability).")
-            print()
+            # Run decision mode - non-interactive if args provided, interactive otherwise
+            if budget and gtm and focus:
+                # Non-interactive mode
+                print("=" * 60)
+                print("FEDMARKET DECISION GUIDE (non-interactive)")
+                print("=" * 60)
+                print()
+                print(f"Profile: budget={budget}, gtm={gtm}, focus={focus}")
+                print()
 
-            # Question 1: Budget focus
-            print("Q1. What is your primary budget focus?")
-            print("  a) ≤ $40k per award — quick entry, faster revenue cycles")
-            print("  b) ≤ $100k per award — moderate ambition")
-            print("  c) Enterprise deals ($100k+) — larger deals, longer cycles")
-            budget_q = input("  Your choice (a/b/c): ").strip().lower()
-            budget_map = {"a": "leq_40k", "b": "leq_100k", "c": "enterprise"}
-            budget = budget_map.get(budget_q, "leq_40k")
+                # Run decision
+                rec = decide_code(budget, gtm, focus)
 
-            # Question 2: Go-to-market approach
-            print()
-            print("Q2. What is your preferred go-to-market approach?")
-            print("  a) Direct sales — build your own sales capability")
-            print("  b) GSA Schedule/MAS — pursue government contracting")
-            print("  c) Subcontracting — partner with large primes (Carahsoft, Dell, etc.)")
-            gtm_q = input("  Your choice (a/b/c): ").strip().lower()
-            gtm_map = {"a": "direct", "b": "gsa_mas", "c": "subcontract"}
-            gtm = gtm_map.get(gtm_q, "direct")
+                # Output results
+                print()
+                print("=" * 60)
+                print("RECOMMENDATION")
+                print("=" * 60)
+                print()
+                print(f"Recommended PSC code: {rec.get('recommended_code', 'N/A')}")
+                print(f"Entry axis: {rec.get('entry_axis', 'N/A')}")
+                print(f"Primary vehicle: {rec.get('primary_vehicle', 'N/A')}")
+                print()
+                print("RATIONALE:")
+                print(rec.get('rationale', 'N/A'))
+                print()
+                print("NEXT STEPS:")
+                for i, step in enumerate(rec.get('next_steps', []), 1):
+                    print(f"  {i}. {step}")
+                print()
+                print("=" * 60)
+                print("TWO-AXIS FRAMEWORK CONTEXT")
+                print("=" * 60)
+                print()
+                print("• Axis 1 (Accessibility): How easy is it to enter the market?")
+                print("  Measured by: screen score, ≤$40k award fraction, recipient count,")
+                print("  software award percentage. HIGH → 7030 best, then DA10, 7A21, DA01, D304.")
+                print()
+                print("• Axis 2 (Business Sustainability): How likely are recipients to return")
+                print("  and grow? Measured by: survival % (UEI match), graduation % (>$100k aggregate).")
+                print("  HIGH → DA10 best (23.7%), DA01 (21.4%), 7A21 (14.2%), 7030 weakest (1.2%).")
+                print()
+                print("• TRADEOFF: 7030 maximizes entry ease but has weak sustainability")
+                print("  (median returning UEI aggregates ~$2,000 over 3 years).")
+                print("  • DA10/DA01/7A21 offer stronger sustainability but have entry challenges.")
+                print()
+                print("• YOUR PROFILE:", budget, gtm, focus)
+                print("  → Recommended code:", rec.get('recommended_code', 'N/A'))
+            else:
+                # Interactive mode
+                print("=" * 60)
+                print("FEDMARKET DECISION GUIDE")
+                print("=" * 60)
+                print()
+                print("Answer 3 questions about your team so we can recommend")
+                print("the best PSC code and entry strategy using our two-axis")
+                print("framework (entry accessibility vs. business sustainability).")
+                print()
 
-            # Question 3: Technical focus
-            print()
-            print("Q3. What is your product's technical focus?")
-            print("  a) Pure software product (offline/installed software)")
-            print("  b) SaaS / Cloud service (web-based, subscription)")
-            print("  c) IT services / Integration (consulting, implementation)")
-            focus_q = input("  Your choice (a/b/c): ").strip().lower()
-            focus_map = {"a": "software", "b": "saas", "c": "services"}
-            focus = focus_map.get(focus_q, "software")
+                # Question 1: Budget focus
+                print("Q1. What is your primary budget focus?")
+                print("  a) ≤ $40k per award — quick entry, faster revenue cycles")
+                print("  b) ≤ $100k per award — moderate ambition")
+                print("  c) Enterprise deals ($100k+) — larger deals, longer cycles")
+                budget_q = input("  Your choice (a/b/c): ").strip().lower()
+                budget_map = {"a": "leq_40k", "b": "leq_100k", "c": "enterprise"}
+                budget = budget_map.get(budget_q, "leq_40k")
 
-            print()
-            print("=" * 60)
-            print("Analyzing your profile against all 5 PSC codes...")
-            print()
+                # Question 2: Go-to-market approach
+                print()
+                print("Q2. What is your preferred go-to-market approach?")
+                print("  a) Direct sales — build your own sales capability")
+                print("  b) GSA Schedule/MAS — pursue government contracting")
+                print("  c) Subcontracting — partner with large primes (Carahsoft, Dell, etc.)")
+                gtm_q = input("  Your choice (a/b/c): ").strip().lower()
+                gtm_map = {"a": "direct", "b": "gsa_mas", "c": "subcontract"}
+                gtm = gtm_map.get(gtm_q, "direct")
 
-            # Run decision
-            rec = decide_code(budget, gtm, focus)
+                # Question 3: Technical focus
+                print()
+                print("Q3. What is your product's technical focus?")
+                print("  a) Pure software product (offline/installed software)")
+                print("  b) SaaS / Cloud service (web-based, subscription)")
+                print("  c) IT services / Integration (consulting, implementation)")
+                focus_q = input("  Your choice (a/b/c): ").strip().lower()
+                focus_map = {"a": "software", "b": "saas", "c": "services"}
+                focus = focus_map.get(focus_q, "software")
 
-            # Output results
-            print()
-            print("=" * 60)
-            print("RECOMMENDATION")
-            print("=" * 60)
-            print()
-            print(f"Recommended PSC code: {rec.get('recommended_code', 'N/A')}")
-            print(f"Entry axis: {rec.get('entry_axis', 'N/A')}")
-            print(f"Primary vehicle: {rec.get('primary_vehicle', 'N/A')}")
-            print()
-            print("RATIONALE:")
-            print(rec.get('rationale', 'N/A'))
-            print()
-            print("NEXT STEPS:")
-            for i, step in enumerate(rec.get('next_steps', []), 1):
-                print(f"  {i}. {step}")
-            print()
-            print("=" * 60)
-            print("TWO-AXIS FRAMEWORK CONTEXT")
-            print("=" * 60)
-            print()
-            print("• Axis 1 (Accessibility): How easy is it to enter the market?")
-            print("  Measured by: screen score, ≤$40k award fraction, recipient count,")
-            print("  software award percentage. HIGH → 7030 best, then DA10, 7A21, DA01, D304.")
-            print()
-            print("• Axis 2 (Business Sustainability): How likely are recipients to return")
-            print("  and grow? Measured by: survival % (UEI match), graduation % (>$100k aggregate).")
-            print("  HIGH → DA10 best (41.2%), DA01 (44.9%), 7A21 (43.1%), 7030 weakest (13.8%).")
-            print()
-            print("• TRADEOFF: 7030 maximizes entry ease but has weak sustainability")
-            print("  (median returning UEI aggregates ~$2,000 over 3 years).")
-            print("  • DA10/DA01/7A21 offer stronger sustainability but have entry challenges.")
-            print()
-            print("• YOUR PROFILE just now emphasized:", budget, gtm, focus)
-            print("  → Recommended code:", rec.get('recommended_code', 'N/A'))
+                print()
+                print("=" * 60)
+                print("Analyzing your profile against all 5 PSC codes...")
+                print()
+
+                # Run decision
+                rec = decide_code(budget, gtm, focus)
+
+                # Output results
+                print()
+                print("=" * 60)
+                print("RECOMMENDATION")
+                print("=" * 60)
+                print()
+                print(f"Recommended PSC code: {rec.get('recommended_code', 'N/A')}")
+                print(f"Entry axis: {rec.get('entry_axis', 'N/A')}")
+                print(f"Primary vehicle: {rec.get('primary_vehicle', 'N/A')}")
+                print()
+                print("RATIONALE:")
+                print(rec.get('rationale', 'N/A'))
+                print()
+                print("NEXT STEPS:")
+                for i, step in enumerate(rec.get('next_steps', []), 1):
+                    print(f"  {i}. {step}")
+                print()
+                print("=" * 60)
+                print("TWO-AXIS FRAMEWORK CONTEXT")
+                print("=" * 60)
+                print()
+                print("• Axis 1 (Accessibility): How easy is it to enter the market?")
+                print("  Measured by: screen score, ≤$40k award fraction, recipient count,")
+                print("  software award percentage. HIGH → 7030 best, then DA10, 7A21, DA01, D304.")
+                print()
+                print("• Axis 2 (Business Sustainability): How likely are recipients to return")
+                print("  and grow? Measured by: survival % (UEI match), graduation % (>$100k aggregate).")
+                print("  HIGH → DA10 best (23.7%), DA01 (21.4%), 7A21 (14.2%), 7030 weakest (1.2%).")
+                print()
+                print("• TRADEOFF: 7030 maximizes entry ease but has weak sustainability")
+                print("  (median returning UEI aggregates ~$2,000 over 3 years).")
+                print("  • DA10/DA01/7A21 offer stronger sustainability but have entry challenges.")
+                print()
+                print("• YOUR PROFILE just now emphasized:", budget, gtm, focus)
+                print("  → Recommended code:", rec.get('recommended_code', 'N/A'))
     else:
         # Original mode: assess PSC codes
         if len(args) == 1:

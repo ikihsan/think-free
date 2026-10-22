@@ -1,0 +1,46 @@
+==============================================================================
+[seq 2] 2026-10-22T07:55:00+00:00
+$ python3 prototypes/fedmarket.py --decision
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+============================================================
+FEDMARKET DECISION GUIDE
+============================================================
+
+Answer 3 questions about your team so we can recommend
+the best PSC code and entry strategy using our two-axis
+framework (entry accessibility vs. business sustainability).
+
+Q1. What is your primary budget focus?
+  a) ≤ $40k per award — quick entry, faster revenue cycles
+  b) ≤ $100k per award — moderate ambition
+  c) Enterprise deals ($100k+) — larger deals, longer cycles
+  Your choice (a/b/c): 
+
+[stderr]
+Traceback (most recent call last):
+  File "prototypes/fedmarket.py", line 846, in <module>
+    main()
+  File "prototypes/fedmarket.py", line 734, in main
+    budget_q = input("  Your choice (a/b/c): ").strip().lower()
+EOFError: EOF when reading a line
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 911  redactions: none
+==============================================================================
+[seq 3] 2026-10-22T08:14:45+00:00
+$ python3 prototypes/fedmarket.py 7030 DA10
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+PSC Code    Screen    Recipients   <=$40k  Software%  GWCAC%   Grad%    Surv%    Trend                                                  
+------------------------------------------------------------------------------------------------------------------------------------------
+7030          2411       3916  32.1     64.5    4.7    1.2   13.8                                                      C
+DA10          2345       3651  27.1     57.8   28.2   23.7   41.2                                                      D
+
+--- Rankings ---
+By screen score (desc): 7030 DA10
+By <=$40k access (desc): 7030 DA10
+
+Legend: GWCAC% = Small vendor GWAC share, Grad% = Graduation (cleaned), Surv% = Survival (cleaned)
+Trend: C=Concentrating, D=Diversifying, H=Hardening, S=Stable, N=Not software market
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 119  redactions: none

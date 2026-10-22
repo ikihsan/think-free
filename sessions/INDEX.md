@@ -8,14 +8,18 @@ last-verified: 2026-10-22
 
 <!-- generated-by: origin; do not edit by hand -->
 
-568 recorded session(s). One `events.jsonl` per session, so concurrent
+572 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 543 older session(s) are in the directory listing.
+Showing the 25 most recent. 547 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-22-009-build-and-verify-decision-aid-tool-for-p](2026-10-22-009-build-and-verify-decision-aid-tool-for-p/README.md) | unknown-agent | **unfinished** | Build and verify decision aid tool for PSC code selection | 2026-10-22T07:04 |
+| [2026-10-22-013-productize-fedmarket-tool-into-a-proper](2026-10-22-013-productize-fedmarket-tool-into-a-proper/README.md) | unknown-agent | **unfinished** | Productize fedmarket tool into a proper open-source Python package wit | 2026-10-22T08:23 |
+| [2026-10-22-012-refine-and-complete-the-decision-aid-pro](2026-10-22-012-refine-and-complete-the-decision-aid-pro/README.md) | unknown-agent | worked | Refine and complete the decision aid prototype for federal software ma | 2026-10-22T08:15 |
+| [2026-10-22-011-continue-federal-marketplace-assessment](2026-10-22-011-continue-federal-marketplace-assessment/README.md) | unknown-agent | worked | Continue federal marketplace assessment tool work, make findings acces | 2026-10-22T07:33 |
+| [2026-10-22-010-build-and-verify-decision-aid-tool-for-p](2026-10-22-010-build-and-verify-decision-aid-tool-for-p/README.md) | unknown-agent | worked | Build and verify decision aid tool for PSC code selection | 2026-10-22T07:10 |
+| [2026-10-22-009-build-and-verify-decision-aid-tool-for-p](2026-10-22-009-build-and-verify-decision-aid-tool-for-p/README.md) | unknown-agent | worked | Build and verify decision aid tool for PSC code selection | 2026-10-22T07:09 |
 | [2026-10-22-008-build-enhanced-decision-prototype-for-fe](2026-10-22-008-build-enhanced-decision-prototype-for-fe/README.md) | unknown-agent | worked | Build enhanced decision prototype for federal software marketplace ent | 2026-10-22T06:41 |
 | [2026-10-22-007-make-fedmarket-tool-accessible-and-docum](2026-10-22-007-make-fedmarket-tool-accessible-and-docum/README.md) | unknown-agent | worked | Make fedmarket tool accessible and document key findings for small sof | 2026-10-22T06:19 |
 | [2026-10-22-006-productize-fedmarket-cli-tool-into-a-dis](2026-10-22-006-productize-fedmarket-cli-tool-into-a-dis/README.md) | unknown-agent | worked | Productize fedmarket CLI tool into a distributable Python package with | 2026-10-22T05:58 |
@@ -36,10 +40,6 @@ Showing the 25 most recent. 543 older session(s) are in the directory listing.
 | [2026-10-21-016-complete-e211-next-action-add-survival-m](2026-10-21-016-complete-e211-next-action-add-survival-m/README.md) | unknown-agent | worked | Complete E211 next action: add survival module to E206 CLI for all 5 P | 2026-10-21T09:57 |
 | [2026-10-21-015-declare-artifacts-from-e211-survival-int](2026-10-21-015-declare-artifacts-from-e211-survival-int/README.md) | unknown-agent | worked | Declare artifacts from E211 survival integration into E206 CLI tool | 2026-10-21T09:39 |
 | [2026-10-21-014-integrate-e211-survival-data-into-e206-c](2026-10-21-014-integrate-e211-survival-data-into-e206-c/README.md) | unknown-agent | worked | Integrate E211 survival data into E206 CLI tool so it reports both acc | 2026-10-21T09:33 |
-| [2026-10-21-013-fedmarket-decision-prototype-verificatio](2026-10-21-013-fedmarket-decision-prototype-verificatio/README.md) | unknown-agent | worked | fedmarket decision prototype verification | 2026-10-21T09:13 |
-| [2026-10-21-012-build-fedmarket-cli-tool-for-federal-mar](2026-10-21-012-build-fedmarket-cli-tool-for-federal-mar/README.md) | unknown-agent | worked | Build fedmarket CLI tool for federal marketplace assessment | 2026-10-21T08:12 |
-| [2026-10-21-011-productize-e206-cli-tool-into-distributa](2026-10-21-011-productize-e206-cli-tool-into-distributa/README.md) | unknown-agent | worked | Productize E206 CLI tool into distributable Python package for PSC cod | 2026-10-21T07:23 |
-| [2026-10-21-010-enhance-fedmarket-prototype-with-dynamic](2026-10-21-010-enhance-fedmarket-prototype-with-dynamic/README.md) | unknown-agent | worked | Enhance fedmarket prototype with dynamic USAspending API and two-axis  | 2026-10-21T07:02 |
 
 
 ## Reading a session
