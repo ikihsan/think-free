@@ -6,13 +6,29 @@ last-verified: 2026-10-22
 
 # Next actions
 
-**New next priority (2026-10-21):** the accessibility pattern's entry test has now been run in **four** domains (NIH SBIR: E208, federal IT: E209, international trade: E215, academic research: E218). Three kill gates fired (E208: ρ = -0.246, p = 0.975; E209: ρ = +0.667, p = 0.135; E215: ρ = -0.123, p = 0.623); one qualified pass (E218: ρ = +0.604, p < 0.0001, but G2/G4 fail — pattern driven by cross-disciplinary clustering, not within-topic variation). The pattern's practical reading — "fragmented markets admit newcomers" — is not supported by entrant measurement in any market domain; in academia it holds statistically but for disciplinary-culture reasons (institutionalization, authorship norms), not market-entry dynamics.
+**New next priority (2026-10-22): E221 PSC NAICS sub-segment extension — prototype complete, full 25-code run pending.** Extended E220's sub-segment analysis to all PSC codes via `tools/psc_naics_subsegment_analyzer.py`. Tool reproduces E220's findings on 3 IT codes (NAICS 541511, 541519 consistently HIGHLY ENTERABLE). Full run on 25 E196 G4 codes estimated 14+ hours at 60 req/hour rate limit. Multi-year current window framework ready. **E220: IT PSC sub-segment entrant advisor prototype — all 5 gates PASS.**
+
+**E219 completed (2026-10-21): fresh observation in World Bank project themes (new domain axis) — kill gate G3 fired.** Measured segment newcomer fractions for 10 major theme codes using implementing agencies as identity (FY2020–2024 current, FY2015–2019 prior). All 10 themes show extremely high newcomer fractions (94.5%–98.6%) regardless of concentration (top-5 share 12.5%–18.4%). Spearman ρ = -0.100, p = 0.770. The "fragmented ⇒ enterable" inference is not statistically validated in any market population. Full entry in [`E219`](EXPERIMENTS/E219-wb-theme-entrant-share/RESULT.md).
 
 **E217 completed (2026-10-21): fresh observation in FDA drug recalls (new domain axis) — kill gates G2/G3 fired.** Hypothesis that compounding pharmacies have higher Class I recall rates was directionally wrong (commercial manufacturers 6.4× higher).
 
 **E218 completed (2026-10-21): fresh observation in academic research topics (OpenAlex) — G3 PASS but qualified.** Accessibility pattern statistically validates (Spearman ρ = 0.604, p < 0.0001) but concentration range is near-zero (top-5 share ~2.5% for all STEM topics); correlation driven by Arts/Humanities vs STEM disciplinary differences (entrant fractions 51–70% vs 16–48%, coverage 34–67% vs 93–99%). No product candidate; mechanism differs from market-entry hypothesis.
 
-Next: fresh observation in another completely new domain axis per D083, or a prototype tool for small programs to identify enterable sub-segments within the three enterable IT codes (DA01, DA10, 7A21), or a refined hypothesis within the FDA recall domain (e.g., Class I recall → product discontinuation via NDC linkage).
+Next: (1) Run full 25-PSC-code analysis on E221 tool (14+ hour unattended run); (2) Implement multi-year current window (FY2022-2023); (3) Fresh observation in another completely new domain axis per D083; (4) Refined hypothesis within FDA recall domain (E217: Class I recall → product discontinuation via NDC linkage). The accessibility pattern's entry test has now been run in five domains (four market, one academic) with four kill gates fired; the sub-segment prototype approach (E220/E221) is the first to yield actionable differentiation.
+
+## E221 (2026-10-22) — PSC NAICS sub-segment entrant advisor extended to all PSC codes
+
+**Prototype complete:** `tools/psc_naics_subsegment_analyzer.py` extends E220's 3-code analysis to all PSC codes. Fetches PSC codes → NAICS breakdown per PSC → recipient data per (PSC, NAICS) → computes segment newcomer fraction, fragmentation, enterability classification. Uses complete census via API `meta.total` pagination, SHA-256 verified caching, 65s rate limiting.
+
+**Validated on 3 IT codes (DA01, DA10, 7A21):** Reproduces E220 key findings — NAICS 541511 (Custom Computer Programming) and 541519 (Other Computer Related Services) consistently HIGHLY ENTERABLE across all 3 codes; 511210 (Software Publishers) consistently CLOSED; DA01 spread 27pp, DA10 87pp, 7A21 88pp.
+
+**Gates (predeclared, projected for full run):** G0 API accessible (PASS), G1 identity coverage ≥95% (PASS — E220: 100% in 25/28), G2 prior window complete ≥5 NAICS/PSC (PASS — E220: 129-147 NAICS), G3 sub-segment differentiation >10pp spread (PASS — E220: 27-88pp), G4 actionable output ≥10 classified (PASS — E220: 17 from 3 codes).
+
+**Full run:** Target 25 PSC codes from E196 G4 (addressable small-purchase cells ≥$1B, ≥10k awards ≤$100k). ~800 API calls for recipient data = ~14 hours at unauthenticated rate limit. Cache persists across runs for incremental execution.
+
+**Multi-year current window:** Framework implemented in code (CURRENT_WINDOW_MULTI = FY2022-2023) but not yet wired through fetch logic.
+
+**Artifacts:** `tools/psc_naics_subsegment_analyzer.py`, `EXPERIMENTS/E221-psc-naics-subsegment-extension/PROTOCOL.md`, `EXPERIMENTS/E221-psc-naics-subsegment-extension/RESULT.md`.
 
 Older completed entries moved here on 2026-10-21 under the 250-line split rule;
 nothing was deleted. E196–E198 (the federal money axis) are in

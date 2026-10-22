@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-21
+last-verified: 2026-10-22
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -82,6 +82,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md`](../sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md) | `docs/INDEX.md` | stale | 2026-10-08 | Date: 2026-10-07 |
 | [`sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md`](../sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session 2026-10-08-013, VM instance-20260717-0944, 2026-10-08. Defect 24. |
 | [`sessions/2026-10-14-001-session-summary.md`](../sessions/2026-10-14-001-session-summary.md) | `STATE-next-actions-sessions.md` | active | 2026-10-20 | ## Session Summary — 2026-10-14 |
+| [`sessions/E216-summary.md`](../sessions/E216-summary.md) | `—` | — | — | ## What was produced |
 | [`sessions/README.md`](../sessions/README.md) | `docs/INDEX.md` | active | 2026-10-03 | The append-only record of every working session in this repository. |
 
 ## tasks
@@ -505,8 +506,19 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/E205-crate-io-viewcount/` | `docs/INDEX.md` | active | 2026-10-20 | 1 documents |
 | `EXPERIMENTS/E206-sbir-subsegment-category101/` | `docs/INDEX.md` | active | 2026-10-20 | 1 documents |
 | `EXPERIMENTS/E207-sbir-category101-census/` | `docs/INDEX.md` | active | 2026-10-21 | 2 documents |
+| `EXPERIMENTS/E208-sbir-entrant-share/` | `docs/INDEX.md` | active | 2026-10-21 | 3 documents |
+| `EXPERIMENTS/E209-it-code-entrant/` | `docs/INDEX.md` | active | 2026-10-21 | 1 documents |
+| `EXPERIMENTS/E209-it-code-entrant-share/` | `docs/INDEX.md` | active | 2026-10-21 | 2 documents |
+| `EXPERIMENTS/E210-sbir-category176-subsegment/` | `docs/INDEX.md` | active | 2026-10-21 | 1 documents |
+| `EXPERIMENTS/E211-nih-subarea-prototype/` | `docs/INDEX.md` | active | 2026-10-21 | 1 documents |
+| `EXPERIMENTS/E215-comtrade-entrant-accessibility/` | `—` | — | — | 2 documents |
+| `EXPERIMENTS/E216-small-program-advisor/` | `—` | — | — | 2 documents |
+| `EXPERIMENTS/E217-fda-recall-compounding/` | `docs/INDEX.md` | active | 2026-10-21 | 2 documents |
+| `EXPERIMENTS/E218-openalex-topic-entrant-share/` | `—` | — | — | 2 documents |
+| `EXPERIMENTS/E219-wb-theme-entrant-share/` | `—` | — | — | 1 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/T-0094-viewcount-pypi-tiers/` | `docs/INDEX.md` | active | 2026-10-21 | 2 documents |
 | `EXPERIMENTS/e138-viewcount-discrimination/` | `docs/INDEX.md` | active | 2026-10-14 | 1 documents |
 | `EXPERIMENTS/e203-project-evaluation/` | `EXPERIMENTS/INDEX.md` | active | 2026-10-20 | 1 documents |
 | `EXPERIMENTS/nih-sbir-multi-category-screen/` | `docs/INDEX.md` | active | 2026-10-20 | 1 documents |
