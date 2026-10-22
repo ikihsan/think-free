@@ -1,0 +1,25 @@
+{
+  "cache_key": "recipients_DA01_518210_2018",
+  "file": "recipients_DA01_518210_2018.json",
+  "sha256": "ed8824e32e394e1fdcee3d2db0308b7fb971f7bd41738c9ab27be037679cb862",
+  "url": "https://api.usaspending.gov/api/v2/search/spending_by_category/recipient/",
+  "payload": {
+    "filters": {
+      "psc_codes": [
+        "DA01"
+      ],
+      "naics_codes": [
+        "518210"
+      ],
+      "time_period": [
+        {
+          "start_date": "2018-01-01",
+          "end_date": "2022-12-31"
+        }
+      ]
+    },
+    "category": "recipient",
+    "limit": 100
+  },
+  "pages_fetched": 2
+}

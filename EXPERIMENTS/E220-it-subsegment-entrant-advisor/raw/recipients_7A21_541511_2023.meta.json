@@ -1,0 +1,25 @@
+{
+  "cache_key": "recipients_7A21_541511_2023",
+  "file": "recipients_7A21_541511_2023.json",
+  "sha256": "65fdf06cc79f25d3a9ab7930bad02e6b99814a87c63256a1594606f3230103b9",
+  "url": "https://api.usaspending.gov/api/v2/search/spending_by_category/recipient/",
+  "payload": {
+    "filters": {
+      "psc_codes": [
+        "7A21"
+      ],
+      "naics_codes": [
+        "541511"
+      ],
+      "time_period": [
+        {
+          "start_date": "2023-01-01",
+          "end_date": "2023-12-31"
+        }
+      ]
+    },
+    "category": "recipient",
+    "limit": 100
+  },
+  "pages_fetched": 3
+}

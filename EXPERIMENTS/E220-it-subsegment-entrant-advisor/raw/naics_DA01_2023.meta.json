@@ -1,0 +1,22 @@
+{
+  "cache_key": "naics_DA01_2023",
+  "file": "naics_DA01_2023.json",
+  "sha256": "935b2a6faedccd349030babddd28e1d038d7d2a8072cdd756c5ff6e74f4def14",
+  "url": "https://api.usaspending.gov/api/v2/search/spending_by_category/naics/",
+  "payload": {
+    "filters": {
+      "psc_codes": [
+        "DA01"
+      ],
+      "time_period": [
+        {
+          "start_date": "2023-01-01",
+          "end_date": "2023-12-31"
+        }
+      ]
+    },
+    "category": "naics",
+    "limit": 100
+  },
+  "pages_fetched": 2
+}

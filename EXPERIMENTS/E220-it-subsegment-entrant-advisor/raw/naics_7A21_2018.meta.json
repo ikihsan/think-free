@@ -1,0 +1,22 @@
+{
+  "cache_key": "naics_7A21_2018",
+  "file": "naics_7A21_2018.json",
+  "sha256": "424ab56ad4a83643d3527691bd1b3ee72e545d617f0593cc2b44e10c4037714b",
+  "url": "https://api.usaspending.gov/api/v2/search/spending_by_category/naics/",
+  "payload": {
+    "filters": {
+      "psc_codes": [
+        "7A21"
+      ],
+      "time_period": [
+        {
+          "start_date": "2018-01-01",
+          "end_date": "2022-12-31"
+        }
+      ]
+    },
+    "category": "naics",
+    "limit": 100
+  },
+  "pages_fetched": 2
+}

@@ -1,0 +1,25 @@
+{
+  "cache_key": "recipients_DA01_541519_2023",
+  "file": "recipients_DA01_541519_2023.json",
+  "sha256": "b1618c28972bbe010e6b7693eea79c3cee463ac8b870fbe21008e3a761aa700c",
+  "url": "https://api.usaspending.gov/api/v2/search/spending_by_category/recipient/",
+  "payload": {
+    "filters": {
+      "psc_codes": [
+        "DA01"
+      ],
+      "naics_codes": [
+        "541519"
+      ],
+      "time_period": [
+        {
+          "start_date": "2023-01-01",
+          "end_date": "2023-12-31"
+        }
+      ]
+    },
+    "category": "recipient",
+    "limit": 100
+  },
+  "pages_fetched": 9
+}

@@ -1,0 +1,22 @@
+{
+ "ci_lower": 0.11062104428033667,
+ "ci_upper": 0.17420481256743656,
+ "counts": {
+  "commercial_class1": 1670,
+  "commercial_other": 12113,
+  "compounding_class1": 80,
+  "compounding_other": 4180,
+  "total_classified": 18043,
+  "total_unclassified": 0
+ },
+ "coverage": 1.0,
+ "gates": {
+  "G1_sample_size": true,
+  "G2_significance": false,
+  "G3_effect_magnitude": false,
+  "G4_coverage": true
+ },
+ "odds_ratio": 0.13881901269231872,
+ "p_value": 1.000000000284902,
+ "verdict": "FAIL"
+}
