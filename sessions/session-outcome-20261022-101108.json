@@ -1,0 +1,24 @@
+{
+  "session_date": "2026-10-22",
+  "agent": "opencode",
+  "goal": "Build and validate a minimal enterability classifier prototype for federal contracting sub-segments, extending E220/E221 framework",
+  "status": "completed",
+  "artifacts": {
+    "enhanced_prototype": "tools/minimal_enterability.py - reversible exploratory prototype classifying NAICS-within-PSC sub-segments as enterable for small programs",
+    "experiment_results": "19 sub-segments analyzed across 5 IT PSC codes: 5 HIGHLY ENTERABLE, 4 SOMEWHAT ENTERABLE, 5 MARGINAL, 5 CLOSED. Top targets: DA01/541511 (seg_frac=1.000), DA10/541511 (seg_frac=0.478), DA01/541519 (seg_frac=0.364), 7A21/541519 (seg_frac=0.354).",
+    "multi_year_observation": "Multi-year current window (FY2022-2023) framework implemented via --multi-year flag. FY2022 recipient data not in cache; prototype falls back to 2023 data, producing classifications consistent with single-year window. Question of multi-year effect on enterability classifications remains open.",
+    "state_updates": "STATE-next-actions.md updated with new E221 entry, multi-year window observation, and D083 next action"
+  },
+  "decisions": {
+    "prototype_built": "Enhanced minimal_enterability.py with multi-year support, prior window handling, and graceful fallback",
+    "e221_findings_validated": "Prototype results match E221: same 5 HIGHLY ENTERABLE sub-segments identified with cached data",
+    "multi_year_limit": "FY2022 recipient data not in cache; API fetching would require 3-4 hours at 60 req/hour rate limit",
+    "d083_compliance": "Fresh observation per D083 recorded; sub-segment methodology applied per established framework"
+  },
+  "next_action": "fresh_observation_new_domain_d083 - Apply sub-segment entrant advisor methodology to new domain per D083. The fragmented=>enterable inference tested in five domains with four kill gates fired; E220/E221 sub-segment approach is first to yield actionable differentiation. Remaining promising direction is sub-segment analysis applied to new domains or extended with multi-year windows.",
+  "unknowns": {
+    "full_25_code_run": "Pending - USAspending API rate limit 60 req/hour, estimated 14+ hours",
+    "multi_year_validation": "FY2022 recipient data not in cache; would require API fetching",
+    "new_domain_application": "Which domain to apply sub-segment methodology to next"
+  }
+}
