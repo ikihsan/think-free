@@ -1,0 +1,24 @@
+{
+    "session_time": "2026-10-21T00:00:00Z",
+    "what_produced": "Enhanced NIH SBIR Small-Program Accessibility Prototype (tools/nih_accessibility_prototype.py)",
+    "key_observations": [
+        "Prototype fetches complete census from NIH RePORTER (D128 fix: uses meta.total, no 2000 row cap)",
+        "Prototype screens spending categories and groups by Funding IC",
+        "Prototype computes accessibility metrics (access_score, top-concentration)",
+        "Prototype fetches federal IT PSC code entrant fractions (E209 design) for comparison",
+        "Prototype provides top-3 IC recommendations based on 5-category consensus pattern",
+        "Running category 101 (R41/R42, FY2023): 147 grants across 20 ICs, NCI (access_score 38.97) and NIAID (36.83) most accessible",
+        "Federal IT PSC codes: DA10 enterable (0.3113 newcomer fraction), others near 0.30 threshold (DA01: 0.2677, 7A21: 0.2912)",
+        "Kill gate fired on median newcomer fraction (0.2677 < 0.30), but pattern is borderline with DA10 just above",
+        "View-count principle established across 8 domains (PyPI, NPM, NuGet, Discourse, Stack Exchange, GitHub repos, NIH SBIR, Crate.io), no remaining paths",
+        "Accessibility pattern demonstrated in 2 domains (federal IT spending, NIH SBIR category 101); 'fragmented markets admit newcomers' falsified by entrant measurement in both domains"
+    ],
+    "build_decision": "Built prototype tool (option 2 from named next action) rather than fresh domain observation (option 1), as it directly addresses the concrete problem of small programs identifying accessible funding opportunities",
+    "remains_unknown": [
+        "How well the consensus-based recommendations generalize across all 5 NIH SBIR categories",
+        "Whether the 0.30 newcomer fraction threshold is the right boundary for all populations",
+        "If small programs would actually use such a tool and find it helpful",
+        "What other domains might yield useful view-count principle observations"
+    ],
+    "next_action": "Run the prototype on the remaining 4 NIH SBIR consensus categories (108, 176, 525, 701) to compare accessibility patterns and refine recommendations, or explore a fresh view-count principle observation in a new domain per D083"
+}

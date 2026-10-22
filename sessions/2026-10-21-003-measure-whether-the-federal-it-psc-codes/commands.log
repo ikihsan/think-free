@@ -1,0 +1,220 @@
+==============================================================================
+[seq 2] 2026-10-21T08:26:56+00:00
+$ python3 EXPERIMENTS/E209-it-code-entrant-share/probe.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "ctl_zzzz": {
+  "n_results": 0,
+  "status": 200
+ },
+ "da01_2023": {
+  "code_present": 98,
+  "hasNext": true,
+  "messages": [
+   "For searches, time period start and end dates are currently limited to an earliest date of 2007-10-01.  For data going back to 2000-10-01, use either the Custom Award Download feature on the website or one of our download or bulk_download API endpoints as listed on https://api.usaspending.gov/docs/endpoints. ",
+   "'subawards' will be deprecated in the future. Set \u2018spending_level\u2019 to \u2018subawards\u2019 instead. See documentation for more information. "
+  ],
+  "n_results": 100,
+  "recipient_id_present": 100,
+  "result_keys": [
+   "amount",
+   "code",
+   "name",
+   "recipient_id",
+   "total_outlays",
+   "uei"
+  ],
+  "sample": {
+   "amount": 4272814213.42,
+   "code": "080898173",
+   "name": "ORACLE HEALTH GOVERNMENT SERVICES, INC.",
+   "recipient_id": "9232b26d-789d-bdd2-5a6d-28714f1dfa2c-C",
+   "total_outlays": 10970330.3,
+   "uei": "DT2KS3HH5FP5"
+  },
+  "status": 200,
+  "uei_present": 100
+ }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5372  redactions: none
+==============================================================================
+[seq 9] 2026-10-21T08:40:00+00:00
+$ python3 EXPERIMENTS/E209-it-code-entrant-share/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+current DA01: 2246 rows, 23 pages, unused=0
+prior DA01: 2145 rows, 22 pages, unused=0
+current DA10: 2121 rows, 22 pages, unused=0
+prior DA10: 2135 rows, 22 pages, unused=0
+current 7A21: 2226 rows, 23 pages, unused=0
+prior 7A21: 2483 rows, 25 pages, unused=0
+current 7030: 1262 rows, 13 pages, unused=0
+prior 7030: 6188 rows, 62 pages, unused=0
+current D304: 504 rows, 6 pages, unused=0
+prior D304: 1610 rows, 17 pages, unused=0
+wrote fetch_summary.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 548979  redactions: none
+==============================================================================
+[seq 10] 2026-10-21T08:40:35+00:00
+$ python3 EXPERIMENTS/E209-it-code-entrant-share/controls.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "C1_zzzz": {
+  "messages": [
+   "For searches, time period start and end dates are currently limited to an earliest date of 2007-10-01.  For data going back to 2000-10-01, use either the Custom Award Download feature on the website or one of our download or bulk_download API endpoints as listed on https://api.usaspending.gov/docs/endpoints. ",
+   "'subawards' will be deprecated in the future. Set \u2018spending_level\u2019 to \u2018subawards\u2019 instead. See documentation for more information. "
+  ],
+  "n_results": 0,
+  "status": 200
+ },
+ "C2_not_a_code": {
+  "messages": null,
+  "n_results": null,
+  "status": 422
+ }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5878  redactions: none
+==============================================================================
+[seq 11] 2026-10-21T08:40:53+00:00
+$ python3 EXPERIMENTS/E209-it-code-entrant-share/analyze.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "G0": true,
+ "G1": true,
+ "G2": true,
+ "G3": {
+  "fractions": [
+   0.2677,
+   0.3113,
+   0.2912,
+   0.0,
+   0.0
+  ],
+  "median_segment_newcomer_fraction": 0.2677,
+  "pass": false,
+  "threshold": 0.3,
+  "verdict": "KILL"
+ },
+ "G4": {
+  "n": 5,
+  "note": "reported, not gated; n=5",
+  "rho_count_vs_entry": 0.5642880936468347,
+  "rho_fragmentation_vs_entry": 0.6668859288553503
+ },
+ "controls": {
+  "C1_zzzz": {
+   "n_results": 0,
+   "pass": true,
+   "status": 200
+  },
+  "C2_not_a_code": {
+   "n_results": null,
+   "pass": true,
+   "status": 422
+  },
+  "C3_unused_filters": {
+   "count": 0,
+   "pass": true
+  },
+  "C4_identity_subset": {
+   "detail": {
+    "7030": {
+     "current": 1262,
+     "e198_ids": 3915,
+     "not_in_e198": 0,
+     "pass": true
+    },
+    "7A21": {
+     "current": 2225,
+     "e198_ids": 3975,
+     "not_in_e198": 0,
+     "pass": true
+    },
+    "D304": {
+     "current": 503,
+     "e198_ids": 1154,
+     "not_in_e198": 0,
+     "pass": true
+    },
+    "DA01": {
+     "current": 2245,
+     "e198_ids": 3609,
+     "not_in_e198": 0,
+     "pass": true
+    },
+    "DA10": {
+     "current": 2120,
+     "e198_ids": 3650,
+     "not_in_e198": 0,
+     "pass": true
+    }
+   },
+   "pass": true
+  }
+ },
+ "per_code": [
+  {
+   "code": "DA01",
+   "current_obligation": 60910611394.44,
+   "current_recipients": 2245,
+   "domain_newcomer_fraction": 0.1568,
+   "domain_newcomers": 352,
+   "fragmentation": 0.7454,
+   "prior_recipients": 2144,
+   "segment_newcomer_fraction": 0.2677,
+   "segment_newcomers": 601
+  },
+  {
+   "code": "DA10",
+   "current_obligation": 18517643813.73,
+   "current_recipients": 2120,
+   "domain_newcomer_fraction": 0.1505,
+   "domain_newcomers": 319,
+   "fragmentation": 0.701,
+   "prior_recipients": 2134,
+   "segment_newcomer_fraction": 0.3113,
+   "segment_newcomers": 660
+  },
+  {
+   "code": "7A21",
+   "current_obligation": 13721350196.22,
+   "current_recipients": 2225,
+   "domain_newcomer_fraction": 0.1407,
+   "domain_newcomers": 313,
+   "fragmentation": 0.6492,
+   "prior_recipients": 2482,
+   "segment_newcomer_fraction": 0.2912,
+   "segment_newcomers": 648
+  },
+  {
+   "code": "7030",
+   "current_obligation": 12049999963.42,
+   "current_recipients": 1262,
+   "domain_newcomer_fraction": 0.0,
+   "domain_newcomers": 0,
+   "fragmentation": 0.6282,
+   "prior_recipients": 6186,
+   "segment_newcomer_fraction": 0.0,
+   "segment_newcomers": 0
+  },
+  {
+   "code": "D304",
+   "current_obligation": 14929014223.21,
+   "current_recipients": 503,
+   "domain_newcomer_fraction": 0.0,
+   "domain_newcomers": 0,
+   "fragmentation": 0.4596,
+   "prior_recipients": 1609,
+   "segment_newcomer_fraction": 0.0,
+   "segment_newcomers": 0
+  }
+ ]
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1420  redactions: none

@@ -1,0 +1,19 @@
+==============================================================================
+[seq 3] 2026-10-21T10:15:21+00:00
+$ python3 -c 
+with open('tools/it_code_entrant.py') as f:
+    content = f.read()
+# Check it has proper structure
+assert 'E209-inspired' in content, 'Missing E209 reference'
+assert 'segment newcomer' in content, 'Missing segment newcomer metric'
+assert 'kill gate' in content, 'Missing kill gate reference'
+assert '0.30' in content, 'Missing 0.30 threshold'
+print('File structure verified OK')
+print('Lines:', len(content.split('\n')))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+File structure verified OK
+Lines: 329
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 195  redactions: none

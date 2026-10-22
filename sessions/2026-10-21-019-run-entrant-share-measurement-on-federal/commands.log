@@ -1,0 +1,149 @@
+==============================================================================
+[seq 2] 2026-10-21T12:31:38+00:00
+$ python3 EXPERIMENTS/E209-it-code-entrant-share/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Copying cached responses from tools/raw/ ...
+Copied 0 response files.
+
+Verifying SHA-256 integrity...
+Verified: 0, Mismatched: 0
+========================================================================
+E209 FETCH SUMMARY
+========================================================================
+
+Fetch complete. Raw data committed to experiment directory.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 121  redactions: none
+==============================================================================
+[seq 3] 2026-10-21T12:32:29+00:00
+$ python3 EXPERIMENTS/E209-it-code-entrant-share/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Copying cached responses from tools/raw/ ...
+Copied 235 response files.
+
+Verifying SHA-256 integrity...
+Verified: 235, Mismatched: 0
+========================================================================
+E209 FETCH SUMMARY
+========================================================================
+  DA01 current: 23 pages, 2246 rows
+  DA10 current: 22 pages, 2121 rows
+  7A21 current: 23 pages, 2226 rows
+  7030 current: 13 pages, 1262 rows
+  D304 current: 6 pages, 504 rows
+  DA01 prior: 22 pages, 2145 rows
+  DA10 prior: 22 pages, 2135 rows
+  7A21 prior: 25 pages, 2483 rows
+  7030 prior: 62 pages, 6188 rows
+  D304 prior: 17 pages, 1610 rows
+
+Fetch complete. Raw data committed to experiment directory.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2081  redactions: none
+==============================================================================
+[seq 4] 2026-10-21T12:32:41+00:00
+$ python3 EXPERIMENTS/E209-it-code-entrant-share/analyze.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+========================================================================
+E209 ANALYSIS — IT PSC Code Entrant Share
+========================================================================
+Analyzing DA01...
+Analyzing DA10...
+Analyzing 7A21...
+Analyzing 7030...
+Analyzing D304...
+
+========================================================================
+PER-CODE METRICS
+========================================================================
+code     cur_rows cur_rec pri_rec seg_new seg_frac dom_frac   frag   top5 id_cov
+------------------------------------------------------------------------
+DA01         2246    2245    2144     601   0.2677   0.1568 0.7454 0.2546 0.9996
+DA10         2121    2120    2134     660   0.3113   0.1505 0.7010 0.2990 0.9995
+7A21         2226    2225    2482     648   0.2912   0.1407 0.6492 0.3508 0.9996
+7030         1262    1262    6186       0   0.0000   0.0000 0.6282 0.3718 1.0000
+D304          504     503    1609       0   0.0000   0.0000 0.4596 0.5404 0.9980
+
+========================================================================
+GATE VERDICTS
+========================================================================
+G0 reproduce E198: FAIL
+  ✗ DA01: recipients 2245 vs 3610, top-5 0.2546 vs 0.3450
+  ✗ DA10: recipients 2120 vs 3651, top-5 0.2990 vs 0.3580
+  ✗ 7A21: recipients 2225 vs 3977, top-5 0.3508 vs 0.4890
+  ✗ 7030: recipients 1262 vs 3917, top-5 0.3718 vs 0.3840
+  ✗ D304: recipients 503 vs 1155, top-5 0.5404 vs 0.5760
+
+G1 identity coverage (≥0.99): PASS
+  ✓ DA01: 0.9996 (1 missing of 2246)
+  ✓ DA10: 0.9995 (1 missing of 2121)
+  ✓ 7A21: 0.9996 (1 missing of 2226)
+  ✓ 7030: 1.0000 (0 missing of 1262)
+  ✓ D304: 0.9980 (1 missing of 504)
+
+G2 prior window fetched (all 5 codes have prior recipients): PASS
+  ✓ DA01: 2144 prior recipients
+  ✓ DA10: 2134 prior recipients
+  ✓ 7A21: 2482 prior recipients
+  ✓ 7030: 6186 prior recipients
+  ✓ D304: 1609 prior recipients
+
+G3 fragmentation → entry (kill gate): FAIL
+  Spearman ρ = 0.6669
+  One-sided permutation p = 0.1345
+  Thresholds: ρ ≥ 0.40, p < 0.05
+
+G4 code-level entry (≥0.30 for ≥1 code): PASS
+  ✗ DA01: 0.2677
+  ✓ DA10: 0.3113
+  ✗ 7A21: 0.2912
+  ✗ 7030: 0.0000
+  ✗ D304: 0.0000
+
+========================================================================
+OVERALL
+========================================================================
+  G0: FAIL
+  G1: PASS
+  G2: PASS
+  G3: FAIL
+  G4: PASS
+
+All gates: FAIL
+KILL GATE (G3) FIRED — fragmentation does not predict entry.
+
+========================================================================
+SENSITIVITY (post-hoc, not gated): nine-year prior window not tested
+========================================================================
+  USAspending API time_period supports single range; FY2014-2022 would be
+  a separate query. Not implemented in this analysis.
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1592  redactions: none
+==============================================================================
+[seq 5] 2026-10-21T12:34:43+00:00
+$ python3 EXPERIMENTS/E209-it-code-entrant-share/recompute.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Recomputing E209 from committed raw/ ...
+Gates recomputed:
+  G0: FAIL
+  G1: PASS
+  G2: PASS
+  G3: FAIL
+  G4: PASS
+  rho = 0.6669, p = 0.1345
+
+Committed gates:
+  G0: FAIL
+  G1: PASS
+  G2: PASS
+  G3: FAIL
+  G4: PASS
+  rho = 0.6669, p = 0.1345
+
+✓ Recomputation matches committed results exactly.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1611  redactions: none
