@@ -121,7 +121,12 @@ def call_api(payload, capture_name, retries=2, pause=0.5):
 
 
 def fetch_window(code, window_name):
-    """Fetch all pages for a code + window. Returns dict with 'rows', 'statuses'."""
+    """Fetch all pages for a code + window using meta.total for complete census.
+    
+    Replaces the arbitrary page > 500 ceiling with API-reported meta.total,
+    enabling complete censuses without artificial caps.
+    Returns dict with 'rows', 'statuses'.
+    """
     windows = {
         "current": CURRENT_WINDOW,
         "prior": PRIOR_WINDOW,
@@ -130,17 +135,17 @@ def fetch_window(code, window_name):
     all_results = []
     all_statuses = []
     all_unused = []
-    page = 1
-    has_next = True
-    while has_next:
+    offset = 0
+    
+    while True:
         payload = {
             "filters": base_filters(window, psc_codes=[code]),
-            "limit": 100, "page": page, "spending_level": "awards",
+            "limit": 100, "offset": offset, "spending_level": "awards",
         }
-        name = "%s_%s_p%d" % (window_name, code, page)
-        st, parsed, meta = call_api(payload, name)
-        all_statuses.append({"page": page, "status": st,
-                             "reused": meta.get("reused", False)})
+        name = "%s_%s_o%d" % (window_name, code, offset // 100 + 1)
+        st, parsed, resp_meta = call_api(payload, name)
+        all_statuses.append({"offset": offset, "status": st,
+                             "reused": resp_meta.get("reused", False)})
         if st != 200 or not isinstance(parsed, dict):
             break
         results = parsed.get("results") or []
@@ -149,12 +154,10 @@ def fetch_window(code, window_name):
         all_unused.extend(m for m in msgs
                           if isinstance(m, str) and "were not used" in m)
         page_meta = parsed.get("page_metadata") or {}
-        has_next = page_meta.get("hasNext", False)
-        page += 1
-        if page > 500:
-            all_statuses.append({"page": page, "status": "CEILING",
-                                 "reused": False})
+        reported_total = page_meta.get("total", None) if isinstance(page_meta, dict) else None
+        if reported_total is not None and len(all_results) >= reported_total:
             break
+        offset += 100
     return {"code": code, "window": window_name, "rows": all_results,
             "statuses": all_statuses, "unused_filters": all_unused}
 
