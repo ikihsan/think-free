@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-10
+last-verified: 2026-10-22
 -->
 
 # Decision log
@@ -16,7 +16,7 @@ ordinary edits do not.
 | [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md) | D011–D012, D014–D018, D031, D033–D034 | Recording and moving work |
 | [`DECISIONS-SESSIONS.md`](DECISIONS-SESSIONS.md) | D013, D027–D028 | Whether a session is finished, and whose change a recorded path is |
 | [`DECISIONS-PUBLISHING.md`](DECISIONS-PUBLISHING.md) | D040, D042, D044–D046, D111 | What a command's own write is, and what must travel with it when published |
-| [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) | D019–D023, D055, D056 | What passes: candidate screens, kill-gate conditions, verdict metrics, the rule that the next-action list must carry an invention item, the two inputs a candidate may not borrow from each other, that a hand-labelled rate is a finding only once a control arm shares the population it controls, and that a majority gate with a one-row margin is reported as a plurality |
+| [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) | D019–D023, D055, D056, D130 | What passes: candidate screens, kill-gate conditions, verdict metrics, the rule that the next-action list must carry an invention item, the two inputs a candidate may not borrow from each other, that a hand-labelled rate is a finding only once a control arm shares the population it controls, that a majority gate with a one-row margin is reported as a plurality, and that an advisor label earns a full-scale run only after beating its naive baselines on a forward outcome |
 | [`DECISIONS-SCREENING-2.md`](DECISIONS-SCREENING-2.md) | D048–D052 | What passes, continued: the two inputs a candidate may not borrow from each other, what a prior-art verdict must read before it may kill, and that a harvested corpus's population is measured before its yield |
 | [`DECISIONS-SCREENING-3.md`](DECISIONS-SCREENING-3.md) | D053–D054, D057–D058 | What passes, continued: a channel's absence from an instrument is not evidence the world uses it, a corpus's outcomes are measured before it is called unmet, a load-bearing statement justified by an instrument's absence is measured before it is repeated, and a firing gate is a pre-registered event whose sensitivity is still owed. Split from `-2`, which the other VM's D052 put at 293 of 300 lines |
 | [`DECISIONS-SCREENING-4.md`](DECISIONS-SCREENING-4.md) | D059–D061 | What passes, continued: what a verdict's own evidence must be — reader agreement is measured on the grouping the decision consumes, a prior-art kill rests on evidence of fit because use is not fit, and a reader's labels are admissible only if tied to the exact bytes it read. Split from `-3` at its 300-line cap |

@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-05
+last-verified: 2026-10-22
 -->
 
 Decisions **D019–D023, D055, D056**. Each entry records a choice that was
@@ -259,3 +259,28 @@ Consequence: item 0 stays an owner decision, now over a plurality, and gains a
 second option with a count behind it — promote fewer claims and price each one's
 gate before promoting it, which is what F006's A1 shows was available at report
 time. Nothing reopens a prior-art verdict or a candidate. F044.
+
+## D130 — an advisor label earns a full-scale run only after it beats the naive baselines it would replace, on an outcome neither was fit to (2026-10-22)
+
+Observed: E220/E221's sub-segment enterability labels (NAICS-within-PSC
+newcomer fractions) passed their own gates descriptively, and the record's next
+action was a 14+ hour, ~800-call full-scale run across 25 PSC codes. No
+forward-looking outcome was ever measured: whether FY2023 newcomers in
+labeled-enterable sub-segments actually recur as vendors in FY2024–2025, and
+whether the label ranks that outcome better than the naive advice it replaces
+(biggest cell; most fragmented cell).
+
+Decision: **before any full-scale or product-path investment in an advisory
+label, the label is tested against its strongest naive baselines on a forward
+outcome it was not fit to, with a three-way predeclared verdict (SUPPORT /
+REFUTE / INCONCLUSIVE) where INCONCLUSIVE also blocks the investment.** Run as
+E222 (23 sub-segments, ~25–100 API calls) ahead of E221's full run (~800 calls):
+the cheaper experiment decides whether the expensive one has a product path.
+
+Rejected: (a) running E221's full 25-code census first — it scales a
+measurement whose decision-relevant claim (labels predict where entry pays off)
+is untested, and D072's scaling rule applies; (b) treating E220's gate passes
+as sufficient — they measure differentiation within the label's own window,
+not forward validity; (c) dropping the naive baselines and testing only
+label-vs-outcome correlation — a positive correlation that obligation size
+matches equally would leave the advisor with no practical difference.
